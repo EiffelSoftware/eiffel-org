@@ -39,7 +39,7 @@ The system doesn't do anything exciting, but let's execute it anyway. Find the e
 
 It would be OK too to use the neighboring icon to the left, "Run without breakpoints", since we haven't set any breakpoints. Click either icon to execute the system.
 
-This little application doesn't use graphics or anything fancy but simply creates some objects and displays some information. Output done using the default Eiffel I/O (from the EiffelBase classes <code> ANY </code> and <code> STANDARD_FILES </code> ) goes to a console. On Unix/Linux and VMS it's the window from which you started EiffelStudio. On Windows it's by default a new console window that comes up when and if the system does its first output operation, and stays up: 
+This little application doesn't use graphics or anything fancy but simply creates some objects and displays some information. Output done using the default Eiffel I/O (from the EiffelBase classes <code> ANY </code> and <code> STANDARD_FILES </code> ) goes to a console. On Unix/Linux and OpenVMS it's the window from which you started EiffelStudio. On Windows it's by default a new console window that comes up when and if the system does its first output operation, and stays up: 
 
 [[Image:index-6]]
 

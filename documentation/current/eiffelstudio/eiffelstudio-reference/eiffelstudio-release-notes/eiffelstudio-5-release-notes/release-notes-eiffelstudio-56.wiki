@@ -14,7 +14,7 @@
 * Feature tree is now showing a different icon for frozen and obsolete features.
 * Improved look and feel of applications using the EiffelVision library under Windows XP theme engine.
 * Improved keyboard navigation in EiffelStudio windows/dialogs.
-* Full support for 64 bits operating systems such as Windows, Linux, Solaris, Irix, VMS,...
+* Full support for 64 bits operating systems such as Windows, Linux, Solaris, Irix, OpenVMS,...
 * Features tree is also available for classes which are part of the universe, but not yet compiled.
 * New EiffelCOM wizard. Click [[EiffelCOM Wizard|here]]  for more details.
 * Improved speed of class completion for large system.
