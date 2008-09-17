@@ -71,7 +71,7 @@ To build the system and execute it:
 * Click the "Compile" icon. 
 * Click the "Run" icon. 
 
-Execution starts and outputs <code> Hello World </code> on the appropriate medium: under Windows, a Console; under Unix or VMS, the windows from which you started EiffelStudio. 
+Execution starts and outputs <code> Hello World </code> on the appropriate medium: under Windows, a Console; under Unix or OpenVMS, the windows from which you started EiffelStudio. 
 
 
 

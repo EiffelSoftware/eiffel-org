@@ -40,8 +40,10 @@ The system doesn't do anything exciting, but let's execute it anyway. Find the e
 It would be OK too to use the neighboring icon to the left, "Run without breakpoints", since we haven't set any breakpoints. Click either icon to execute the system.
 
 This little application doesn't use graphics or anything fancy but simply creates some objects and displays some information. Output done using the default Eiffel I/O (from the EiffelBase classes <code> ANY </code> and <code> STANDARD_FILES </code> ) goes to a console. On Unix/Linux and VMS it's the window from which you started EiffelStudio. On Windows it's by default a new console window that comes up when and if the system does its first output operation, and stays up: 
- [[Image:index-6]] [[general/guided_tour/studio/index-6.png|(link)]]  
-The message " <code> Press Return to finish the execution </code>" would not appear if you executed the system from outside of EiffelStudio, for example from a command line. Its purpose within EiffelStudio is clear: to let you see the console output; without it, the console would go away at the end of execution. (None of this applies to Unix/Linux/VMS since there is no new console window to get rid of.) 
+
+[[Image:index-6]]
+
+The message " <code> Press Return to finish the execution </code>" would not appear if you executed the system from outside of EiffelStudio, for example from a command line. Its purpose within EiffelStudio is clear: to let you see the console output; without it, the console would go away at the end of execution. (None of this applies to Unix/Linux/OpenVMS since there is no new console window to get rid of.) 
 
 If before closing the console window you look at the main EiffelStudio window (by moving away the console window) you will notice that it looks different from before, since it now shows the fields useful in monitoring execution and debugging. But we'll look at this later. For the moment just dismiss the console by following the advice to " <code> Press Return </code>": hit the Return or Enter key. 
 
