@@ -1,0 +1,23 @@
+[[Property:title|System tree representation]]
+[[Property:weight|1]]
+The cluster tool is mainly composed of a tree representation of the system.
+
+[[Image:cluster-tree]]  
+
+Here is the meaning of the symbols of the cluster tree:
+*   [[Image:folder-cluster-icon]] ,  [[Image:folder-cluster-readonly-icon]] ,  [[Image:folder-blank-icon]] ,  [[Image:folder-override-cluster-icon]] ,  [[Image:folder-hidden-cluster-icon]] , are clusters (normal, readonly, subfolder in a recursive cluster, override cluster, hidden/implementation cluster) 
+*   [[Image:folder-library-icon]]  are libraries 
+*   [[Image:folder-assembly-icon]]  are assemblies 
+*   [[Image:folder-namespace-icon]]  are namespaces in assemblies 
+*   [[Image:class-normal-icon]] ,  [[Image:class-frozen-icon]] ,  [[Image:expanded-normal-icon]] ,  [[Image:class-deferred-icon]] ,  [[Image:class-overriden-normal-icon]] ,  [[Image:class-override-normal-icon]]  are compiled classes (normal, frozen, expanded, deferred, overriden, overriding) 
+* Greyed out classes are classes outside the system.
+* Classes and clusters that are part of a readonly group are shown with a lock (for clusters) or brighter icon than normal (they cannot be modified)
+*   [[Image:folder-target-icon]]  are targets 
+
+Left-clicking on any item will send it to the editor. It is also possible to [[Pick-and-drop mechanism|pick]]  items to send them to various components of the development window. 
+
+[[Pick-and-drop mechanism|Dropping]]  a class in this tree representation moves it to a different cluster (either the cluster it is dropped on or the cluster containing the class it is dropped on, according to where it is dropped). This is only possible if the dropped class is not in a library cluster, if its source file is readable and writable, and if the destination cluster is not a library or precompiled cluster itself. 
+
+
+
+

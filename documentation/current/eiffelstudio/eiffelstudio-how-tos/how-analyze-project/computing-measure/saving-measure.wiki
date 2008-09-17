@@ -1,0 +1,16 @@
+[[Property:title|Saving a measure]]
+[[Property:weight|2]]
+To save the result of evaluation of a metric:
+# Select the '''Metric Archive''' tab of the Metric tool.
+# Select the input domain as described in [[Evaluating a measure|Evaluating a measure]]  and the metrics you want to compute and save over the selected scope
+# Select a file to use to store the results. If you specify a non-existing file, it will be created, if you specify an existing file it will be overriden. The selection of the file can be done by clicking on the button with the three dots in the '''Archive Management''' frame.
+# Click the '''Start metric archive evaluation'''.
+
+{{seealso| '''See Also''' <br/>
+[[Evaluating a measure|Evaluating a measure]]  <br/>
+[[Viewing measure details|Detailing measures]]  <br/>
+}}
+
+
+
+

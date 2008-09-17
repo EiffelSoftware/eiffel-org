@@ -1,0 +1,69 @@
+[[Property:title|Metric Definition Panel]]
+[[Property:weight|2]]
+In the metric definition panel, you can do the following: 
+*  Manage user-defined metrics, such as defining new metrics and modify or remove existing ones. Metrics with a small lock in their icons are predefined metrics which cannot be changed or remvoed 
+*  Import metrics from other systems 
+*  Backup user-defined metrics 
+
+
+The following figure shows the layout of the metric definition panel:
+
+[[Image:interface6|Metric definition panel]]  
+
+Let's have a look at the buttons in the main toolbar which is highlighted in the following figure:
+
+[[Image:interface7|Main toolbar buttons]]  
+
+[[Image:metrics-tool--new-metric-icon|New metric]]  
+
+[[Image:metrics-tool--new-document-icon|Clone metric]]  
+
+[[Image:metrics-tool--general-remove-icon|Remove metric]]  
+
+[[Image:metrics-tool--general-save-icon|Save metric]]  
+
+[[Image:metrics-tool--command-send-to-external-editor-icon|External editor]]  
+
+[[Image:metrics-tool--general-open-icon|Reload metrics]]  
+
+[[Image:metrics-tool--metric-export-to-file-icon|import]]  
+
+==Define New Metrics==
+
+To define a new metric, you need to choose the metric type and unit (for basic metric and linear metric). The following figure shows how to choose metric type and unit:
+
+[[Image:interface8|Choose metric type]]  
+
+The following figure shows a new basic class metric:
+
+[[Image:interface9|basic metric]]  
+
+When defining basic metrics, you can press Ctrl + Space in a cell in the criterion column (the first column in "definition" area) to get a list of all applicable criteria. You can also type "and" or "or" in that cell to get criterion connectors. And you can put "not" in front of a criterion name to get its negation. After typing the criterion name and hitting enter, if the criterion needs further setup, the property cell of that criterion will be highlighted. For domain criterion such as ancestor_is, caller_is, you can pick an item and drop it into this property cell.
+
+The following figure shows a new linear feature metric:
+
+[[Image:interface10|linear metric]]  
+
+For every metric referenced in a linear metric, you need to specify a coefficient. You can pick a metric and drop it into a cell of the "Metrics" column in the "Metric Definition" area.
+
+The following figure shows a new ratio metric:
+
+[[Image:interface11|ratio metric]]  
+
+For the numerator or denominator metric, you need to specify a coefficient. When the denominator part evaluates to zero, the result of the ratio metric will be "Undefined". You can pick a metric and drop it into the numerator or denominator metric area.
+
+==Import Metrics==
+
+In order to reuse metrics defined in a different system, you need to import them into current system. The following figure shows how to import metrics:
+
+[[Image:interface12|Import metrics]]  
+
+==Backup User-defined Metrics==
+
+The following figure shows how to back user-defined metrics:
+
+[[Image:interface13|Backup metrics]]  
+
+
+
+

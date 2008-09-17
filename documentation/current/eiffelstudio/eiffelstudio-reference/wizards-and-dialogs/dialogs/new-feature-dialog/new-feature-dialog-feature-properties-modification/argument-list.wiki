@@ -1,0 +1,18 @@
+[[Property:title|Argument list]]
+[[Property:weight|2]]
+For functions and procedures, you can build a formal argument list. You can do this by clicking on the '''New argument''' button as many times as you need arguments. 
+
+{{note| '''Note''': Even though this dialog always shows parentheses, they are not generated if the list is empty (Eiffel's command-query separation (CQS) principle). }}
+<div>  [[Image:feature-wizard-3-arguments]]  </div>
+{{note| '''Note''': If you add arguments to a routine, it is not possible anymore to select routine type '''once'''. }}
+
+For every attribute you selected, enter a name in the text box and a type using the [[Type selection|type selection]] . 
+<div>  [[Image:feature-wizard-1-argument]]  </div>
+The code that is generated:
+<code>set_name (s: STRING) is
+	do
+	end</code>
+
+
+
+

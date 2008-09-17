@@ -1,0 +1,18 @@
+[[Property:title|Contexts]]
+[[Property:weight|4]]
+A diagram in the diagram tool is always the context of a certain class or cluster. Context means the direct relations up to a certain depth.
+
+For clusters, the relations are:
+* subclusters
+* superclusters
+
+The relations for classes are:
+* ancestors
+* descendants
+* clients
+* suppliers
+This is an example of the class <eiffel>LIST</eiffel>, with ancestor depth 2, descendant depth 2 and both client and supplier depth zero. <div>  [[Image:bon-list-relations]]  </div><br/>
+
+
+
+

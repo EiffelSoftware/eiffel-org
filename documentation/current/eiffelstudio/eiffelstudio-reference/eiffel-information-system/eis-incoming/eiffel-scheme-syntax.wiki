@@ -1,0 +1,20 @@
+[[Property:title|Eiffel Scheme Syntax]]
+[[Property:weight|0]]
+<code>'''eiffel:?<''eiffel-resource''>'''</code>
+
+
+<''eiffel-resource''> is a combination of following parts, connected by '''&''' if more than one part are required:
+*  <''systeme''>, in the form of system=to_be_replaced, '''to_be_replaced''' consists of system_name or uuid of the system, or both connected by "'''.'''".
+*  <''targete''>, in the form of target=to_be_replaced, '''to_be_replaced''' consists of target_name or uuid of the system, or both connected by "'''.'''".
+*  <''clustere''>, in the form of cluster=to_be_replaced, '''to_be_replaced''' is the name of the cluster.
+*  <''classe''>, in the form of class=to_be_replaced, '''to_be_replaced''' is the name of the class.
+*  <''featuree''>, in the form of feature=to_be_replaced, '''to_be_replaced''' is the name of the feature. 
+
+{{note| '''Note: '''All parts above are unordered. }}
+
+{{seealso| '''See Also''' <br/>
+[[EIS incoming Examples|Examples]]  }}
+
+
+
+

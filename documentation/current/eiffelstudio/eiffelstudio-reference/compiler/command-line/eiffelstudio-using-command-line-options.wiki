@@ -1,0 +1,186 @@
+[[Property:title|EiffelStudio: Command line options]]
+[[Property:link_title|Using command line options]]
+[[Property:weight|1]]
+You may start ec through a command of the following form: 
+<code>'''ec''' ''option'' ... [''class_name''][''feature_name'']</code>
+
+
+''class_name'', if present, must be the name of a class of the system to which '''ec''' is applied. This system is identified by its configuration file; by default this is the file called Ace.ecf in the working directory, but you can select any other one through the -config ''file_name'' option. Similarly, the default project directory is the working directory, but you can select another through the -project_path ''directory_name'' option. 
+
+''feature_name'', if present, must be the final name of a feature of the class called ''class_name''. <br/>
+The table below lists the available options, the arguments they require, and their effect: 
+{| 
+|- 
+| '''OPTION'''
+| '''ARGUMENTS'''
+| '''EFFECT'''
+|- 
+| ''Operation options''
+|- 
+| -melt
+| 
+| Normal compilation, except on an incremental recompilation where added/removed classes (of classes not in system) will be detected.
+|- 
+| -freeze
+| 
+| Freeze system.
+|- 
+| -finalize
+| 
+| Produce a finalized system. See below.
+|- 
+| -precompile
+| 
+| Precompile a system, treating it as a library.
+|- 
+| ''Browsing operations''
+|- 
+| -ancestors
+| class_name
+| Print the ancestors of the class.
+|- 
+| -aversions
+| class_name, feature_name
+| Print the ancestor versions of the feature.
+|- 
+| -callers
+| class_name, feature_name
+| Print all the routines that call the feature.
+|- 
+| -clients
+| class_name
+| Print the clients of the class
+|- 
+| -descendants
+| class_name
+| Print the descendants of the class.
+|- 
+| -dversions
+| class_name, feature_name
+| Print all the versions of the feature in the descendant versions of the class.
+|- 
+| -flat
+|  class_name
+| Print the flat view of the class.
+|- 
+| -flatshort
+| class_name
+| Print the Flat Contract view (previously called flat-short form) of the class.
+|- 
+| -implementers
+| class_name, feature_name
+| Print all the classes that declare or redeclare the feature.
+|- 
+| -short
+| class_name
+| Print the Contract view (previously called short form) of the class.
+|- 
+| -suppliers
+| class_name, feature_name
+| Print all the suppliers of the class.
+|- 
+| ''Other options''
+|- 
+| -batch
+| 
+| Launch the compilation without user request.
+|- 
+| -clean
+| 
+| Delete project if already compiled and compile project as if it was the first time.
+|- 
+| -config
+| file_name
+| Use the file as configuration.
+|- 
+| -c_compile
+| 
+| Launch C compilation, if needed, after Eiffel compilation.
+|- 
+| -file
+| file_name
+| Save the output to the file.
+|- 
+| -filter
+| filter_file_name
+| Print text as processed by the filter.
+|- 
+| -help
+| 
+| Print the help.
+|- 
+| -keep
+| 
+| Keep assertions in final mode. Useful with -finalize only.
+|- 
+| -loop
+|  
+| Enter interactive mode. See below.
+|- 
+| -metadata_cache_path
+| directory_name
+| Specify location of Metadata Cache used for .NET compilation. This overrides any settings from your configuration file.
+|- 
+| -no_library
+|  
+| When converting an old configuration file format, do not convert clusters into libraries.
+|- 
+| -project_path
+| directory_name
+| Use this directory as compilation directory. (Default: current directory.)
+|- 
+| -stop
+| 
+| Stop on errors. (Default: no.)
+|- 
+| -use_settings
+| 
+| Use the project global settings to retrieve the project location for the last compilation of this project.
+|- 
+| -version
+| 
+| Print compiler version number.
+|}
+
+'''Note''': In the third column, to print means to produce the requested information on the default output of the '''ec''' command. <br/>
+
+
+Some options can have modifiers that can affect their results. The modifiers are listed in the table below:
+{| 
+|- 
+| <center>'''Option'''</center>
+| <center>'''Modifier'''</center>
+| <center>'''Effect'''</center>
+|- 
+| -callers
+|- 
+| 
+| -show_all
+| Include all callers rather than only those in the specified class.
+|- 
+| 
+| -assigners
+| Restrict callers to those that use given feature only as a target of an assignment instruction.
+|- 
+| 
+| -creators
+| Restrict callers to those that use given feature only as a target of a creation instruction.
+|}
+
+==Finalization==
+To produce a finalized system, you may use the command '''ec''' -finalize. The effect is the same as when you press the Finalize button in the graphical environment, except for two differences: 
+# All assertion checking will by default be turned off in the resulting finalized system. In the graphical environment, an interactive panel asks you whether you want to keep or discard assertions. Command '''ec''', however, was designed to be callable automatically from shell scripts or programs, and for that reason never asks for interactive user input (except under the loop option). To retain the assertion checking options specified in the configuration file, use the option -keep in connection with -finalize (the order of the two options is arbitrary). 
+# At the end of the Eiffel part of the compilation you are presented with the message: 
+<code>System recompiled.
+You must now run "finish_freezing" in:
+	''your_project_path''|EIFGENs|''target_name''|F_code</code>
+
+
+with | replaced by \ if your platform is Windows, / if it is Unix. To execute the C compilation and linking part of the finalization, change directory to ''your_project_path''|EIFGENs|''target_name''|F_code as indicated and execute '''finish_freezing'''. 
+
+{{seealso| '''See Also''' <br/>
+[[Batch compilation|Batch compilation]]  }}
+
+
+
+

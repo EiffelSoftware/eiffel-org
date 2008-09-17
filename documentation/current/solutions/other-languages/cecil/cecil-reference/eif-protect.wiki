@@ -1,0 +1,22 @@
+[[Property:title|Reference for `eif_protect']]
+[[Property:link_title|eif_protect]]
+[[Property:weight|2]]
+==SYNOPSYS==
+<code>
+'''#include "eif_hector.h"
+
+EIF_OBJECT eif_protect (EIF_REFERENCE''' ''ref''''');'''</code>
+
+==DESCRIPTION==
+The '''eif_protect()''' function protects the Eiffel reference ''ref'' from the GC. It keeps a reference on it so that the Garbage Collector does not collect it if it is not referenced from Eiffel any longer. 
+==RETURN VALUE==
+The '''eif_protect()''' function returns an EIF_OBJECT. This EIF_OBJECT can be used later on to access ''ref'' with '''eif_access ()'''. 
+==CONFORMANCE==
+ISE Eiffel 4.4 and later. 
+==COMPATIBILTY==
+It is equivalent to '''henter()''', which is deprecated. 
+==SEE ALSO==
+'''eif_access'''(1), '''eif_protect'''(1) , '''eif_wean'''(1). 
+
+
+

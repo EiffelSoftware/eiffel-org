@@ -1,0 +1,22 @@
+[[Property:title|Adding a cluster]]
+[[Property:weight|0]]
+It is possible to create new clusters from EiffelStudio. A dialog window has been designed to help you do so. 
+[[Image:new-cluster-dialog]]  
+
+There are three ways to make this window appear. You can:
+* Click  [[Image:16x16--new-cluster-icon]]  in the [[Main toolbars|standard toolbar]] . 
+* Click  [[Image:new-cluster-icon]]  in the [[Cluster tool: Introduction|Cluster tool]] . 
+* Select '''New cluster''' in the '''Tools''' menu. 
+Using this dialog, you can either create a subcluster of an existing cluster or a top-level cluster. 
+If you decide to create a top-level cluster, you should give it a name and a path (if the selected path does not exist, it will be created). You can also choose if it should be recursive or not..
+
+If you want to create a subcluster, give it a name and select its parent in the list of available clusters. Giving it a path is not required. If you do not set a path for a new subcluster, it will be located by default in a subdirectory of its parent cluster, named after the subcluster name. This is the recommended way of creating a subcluster (since its path in the configuration file will be automatically relative to the parent), but it is not compulsory.
+
+To import an existing cluster, you can also go to the '''Groups''' section in the [[Group Options|Project Settings dialog]]  and click '''Add cluster'''. Although this solution may be slightly more tedious, it gives access to more options. 
+
+{{seealso| '''See Also''' <br/>
+[[Removing a cluster|Removing a cluster]]  }}
+
+
+
+

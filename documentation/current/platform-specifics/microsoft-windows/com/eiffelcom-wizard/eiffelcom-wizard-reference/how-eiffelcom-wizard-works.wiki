@@ -1,0 +1,19 @@
+[[Property:title|How the EiffelCOM Wizard works]]
+[[Property:weight|0]]
+Depending on the project settings there are between 2 and 6 major steps involved when generating the Eiffel system: 
+*  '''IDL Generation''': If the project consists of adding a COM interface to an existing Eiffel project, the first step accomplished by the EiffelCOM Wizard consists of generating an IDL file from the specified facade class (see [[Eiffel Project Processing|Adding a COM interface to an Eiffel project]]  for additional details). 
+*  '''IDL Compilation''': If the project uses an IDL file (whether it was specified or the result of processing a facade class from an existing Eiffel project), the EiffelCOM Wizard then compiles it into a type library. 
+*  '''Type Library Parsing''': The EiffelCOM Wizard then analyzes the type library (whether it was specified in the settings or is the result of an IDL file compilation) and stores the information it needs to generate the code into an internal representation. 
+*  '''Code Generation''': The EiffelCOM wizard generates both the Eiffel and C/C++ code from the information gathered during the previous step (see [[Generated Files|Generated Files]]  for a list of generated files) 
+*  '''C/C++ Compilation''': If specified in the project settings, the EiffelCOM Wizard then compiles the generated C and C++ code into object files and libraries that will be linked into the Eiffel system. 
+*  '''Eiffel Compilation''': If the project consists of accessing an existing component then the EiffelCOM Wizard compiles the generated Eiffel code into a precompiled library that contains all the generated classes. If the project consists of creating a new component then the EiffelCOM Wizard compiles the generated Eiffel code into a standard project using the registration class as root class. 
+
+Optionally, EiffelStudio can be opened on the generated system by clicking the corresponding button after the system has been compiled. 
+
+{{note| '''Note''': The EiffelStudio button will only be enabled if the Eiffel code was compiled. }}
+
+{{seealso| '''See Also''': [[Generated Files|Generated Files]] , [[Class Hierarchy|Class Hierarchy]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Reusing a COM Component|Accessing a COM Component]] , [[Building a COM Component|Building a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
+
+
+
+

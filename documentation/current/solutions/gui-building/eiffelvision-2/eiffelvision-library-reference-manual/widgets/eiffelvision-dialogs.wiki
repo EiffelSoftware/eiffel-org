@@ -1,0 +1,32 @@
+[[Property:title|EiffelVision Dialogs]]
+[[Property:weight|2]]
+This cluster contains all the dialogs provided by Vision2. 
+
+==Standard dialogs==
+
+A standard dialog provides a way of interacting with the underlying platform (such as Windows or Linux) to perform basic tasks such as opening a file or printing a document. Vision2 provides six dialogs that allow the user to perform everyday tasks that are 
+*  [[ref:libraries/vision2/reference/ev_color_dialog_chart|EV_COLOR_DIALOG]]  -- This allows the user of your app to select an RGB color (useful for graphical apps such as a Paint Program). 
+*  [[ref:libraries/vision2/reference/ev_directory_dialog_chart|EV_DIRECTORY_DIALOG]]  -- This allows the user of your app to select a directory. 
+*  [[ref:libraries/vision2/reference/ev_file_open_dialog_chart|EV_FILE_OPEN_DIALOG]]  -- This allows the user of your app to select a file to be opened. 
+*  [[ref:libraries/vision2/reference/ev_file_save_dialog_chart|EV_FILE_SAVE_DIALOG]]  -- This allows the user of your app to select a filename that will be used for the creation of a file. 
+*  [[ref:libraries/vision2/reference/ev_font_dialog_chart|EV_FONT_DIALOG]]  -- This allows the user of your app to select a font (useful for a Word Processor for example). 
+*  [[ref:libraries/vision2/reference/ev_print_dialog_chart|EV_PRINT_DIALOG]]  -- This allows the user of your app to choose printer settings may be used in conjunction with [[ref:libraries/vision2/reference/ev_print_projector_chart|EV_PRINT_PROJECTOR]] . 
+
+
+==Creating custom dialogs==
+
+If you wish to provide a custom dialog in your application, [[ref:libraries/vision2/reference/ev_dialog_chart| EV_DIALOG]]  has been provided to facilitate this. 
+
+==Message dialogs==
+
+A message dialog gives your application a standard way of displaying useful (or vital) information, this information can be displayed with the following message dialogs. 
+*  [[ref:libraries/vision2/reference/ev_message_dialog_chart|EV_MESSAGE_DIALOG]]  -- Allows a simple message to be displayed to the user. 
+*  [[ref:libraries/vision2/reference/ev_information_dialog_chart|EV_INFORMATION_DIALOG]]  -- Allows useful info to be displayed to the user. 
+*  [[ref:libraries/vision2/reference/ev_question_dialog_chart|EV_QUESTION_DIALOG]]  -- Allows the user to respond to a question with Yes or No. 
+*  [[ref:libraries/vision2/reference/ev_warning_dialog_chart|EV_WARNING_DIALOG]]  -- Allows a warning to be displayed to the user. 
+*  [[ref:libraries/vision2/reference/ev_confirmation_dialog_chart|EV_CONFIRMATION_DIALOG]]  -- Allows the user to confirm an action that has been requested. 
+*  [[ref:libraries/vision2/reference/ev_error_dialog_chart|EV_ERROR_DIALOG]]  -- Allows an error message to be shown to the user. 
+
+
+
+

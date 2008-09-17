@@ -1,0 +1,20 @@
+[[Property:title|Reference for `eif_attribute_type']]
+[[Property:link_title|eif_attribute_type]]
+[[Property:weight|-11]]
+==SYNOPSYS==
+<code>
+'''#include "eif_cecil.h"
+
+int eif_attribute_type (char *''' ''attr''''', EIF_TYPE_ID''' ''tid''''');'''</code>
+
+==DESCRIPTION==
+The '''eif_attribute_type()''' function returns the type of the attribute ''attr'', from the Eiffel type, which type identifier is ''tid'' '''. ''' 
+==RETURN VALUE==
+Upon failure, it returns EIF_NO_TYPE. Otherwise, the return value can be one of the following: '''EIF_INTEGER_TYPE''', '''EIF_CHARACTER_TYPE''', '''EIF_BOOLEAN_TYPE''', '''EIF_DOUBLE_TYPE''', '''EIF_REAL_TYPE''', '''EIF_REFERENCE_TYPE''', '''EIF_EXPANDED_TYPE''', '''EIF_BIT_TYPE'''. 
+==CONFORMANCE==
+ISE Eiffel 4.5 and later. 
+==SEE ALSO==
+'''eif_protect'''(1) , '''attribute_exists'''(1) , '''eif_procedure'''(1) , '''eif_reference_function'''(1). 
+
+
+

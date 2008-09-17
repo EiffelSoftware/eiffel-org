@@ -1,0 +1,47 @@
+[[Property:title|Object Viewer (also known as Expanded display)]]
+[[Property:weight|4]]
+You can either show the "Object Viewer" tool (Menu Execution>Tools>Object Viewer, or popup the object viewer dialog thanks to the button located in the tool bar of the [[Object tool|objects tool]]  and [[Expression evaluation|watch tool]] . <br/>
+This command  [[Image:debugger-expand-info-icon]]  opens an object viewer dialog when an object is dropped onto the button. 
+
+Depending the nature of the dropped object, you can view it with several viewers: 
+* '''Object dump''': dump a text representation of the value
+* '''String display''': string representation
+* '''XML display''': xml viewer
+* '''Object browse''': browse the object, as you would do in objects or watch tools
+* '''Object internal''': display a few internal data such as <code>class_name</code>, <code>type_name</code>, <code>dynamic_type</code>, <code>field_count</code>, <code>deep_physicial_size</code>, and <code>physical_size</code>
+
+{{note|Note that the "string display" viewer is available for object with a string representation, for instance object conformed to [[ref:/libraries/base/reference/string_8_chart]]  or conform to [[ref:/libraries/base/reference/debug_output_chart]]  (see [[Debug output|Debug Output]] )}}
+
+{{note|And the "XML display" is available for object eligible to "String display", and whose string representation has XML content. The viewer is display XML in a basic tree enabled grid.}}
+
+
+'''String display viewer:''':<br/>
+
+<center> [[Image:expanded-display-default]]  </center>
+
+Displays the object as a string, by default the displayed length is 50:<br/>
+If the limits are over the current slice limits, the displayed string will end by "..." to show there is more.<br/>
+If you click on the auto expand button  [[Image:debugger-object-expand-icon]]  , the slice limits will be set to the lower and upper limits of the string value. 
+
+You can enable or disable the line wrapping by clicking onto  [[Image:general-word-wrap-icon]] . 
+
+
+'''Object dump viewer:''' 
+<center> [[Image:object-viewer-dump]]  </center>
+
+
+'''Object browse viewer:''' 
+<center> [[Image:object-viewer-browse]]  </center>
+
+
+'''Object internal viewer:''' 
+<center> [[Image:object-viewer-internal]]  </center>
+
+
+'''XML viewer:''' 
+<center> [[Image:object-viewer-xml]]  </center>
+
+
+
+
+

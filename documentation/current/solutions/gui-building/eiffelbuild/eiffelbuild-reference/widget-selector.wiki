@@ -1,0 +1,59 @@
+[[Property:title|Widget selector]]
+[[Property:weight|9]]
+The Widget Selector allows you to manage windows, dialogs and "top level" objects within the EiffelBuild project, with all windows accessible through this tool. Using the widget selector, you may add new windows to your project; delete windows; assign a root window (launched from the generated application); and group windows into directories. All objects contained in the Widget Selector are generated as individual classes at generation time. The Widget Selector has the following appearance:
+
+[[Image:window-selector]]  
+
+==Adding Objects==
+
+To add an Object to your project, [[EiffelBuild Notation|pick]]  the object type from the [[Type selector|type selector]] , and [[EiffelBuild Notation|drop]]  into the Widget Selector. There are two possible drop targets within the widget selector: 
+*  '''The Widget Selector itself''' - The newly created object is added to the root directory of the project. 
+*  '''A Directory node''' - The newly created object is added to the directory that was the target of the drop. 
+Both of these outcomes create a new object in your project that is to be generated as an individual class during code generation. 
+{{note| '''Note''': The selected object in the Widget Selector is automatically targeted as the root window of the [[Layout constructor|layout constructor]] , permitting building. You may not build directly into the representation of an object within the Widget Selector, as this must be performed within the [[Layout constructor|layout constructor]]  or [[Builder window|builder window]] . }}
+
+
+==Root Window==
+
+The root window of a project is launched by the application class of the generated EiffelBuild project when executed. By assigning a window as a root, you ensure that it will be displayed on screen as the "root" window of the generated system when the system is launched.
+
+The root window of the project is highlighted with a star, indicating that it is the root. Looking at the screenshot at the top of this page, the window named "main_window" is currently flagged as the root window of the project. To set a window as the root window of the project, select the window in the Widget Selector, and press the  [[Image:icon-titled-window-main-small-color]]  button displayed at the top of the Widget Selector. 
+==Directories==
+
+The ability to add directories to your project permit organization of objects into sub groups as necessitated by your design. To add a directory to the project, select the  [[Image:icon-new-cluster-small-color]]  button displayed at the top of the Widget Selector, which displays the following dialog, prompting for the name of the directory to add: 
+
+[[Image:new-directory-dialog]]  
+
+Enter a unique name that is not already in use, and select "OK" to add the directory to your project. The newly added directory is then visible, as a node in the Widget Selector.
+
+{{note| '''Note''': Creating a new directory in the Widget Selector causes the actual directory on the disk to be created immediately. }}
+
+You may insert objects into a directory, or move an object between directories by [[EiffelBuild Notation|picking]]  the object from its representation in the Widget Selector, and [[EiffelBuild Notation|dropping]]  on the desired directory. Each object contained in the Widget Selector is generated as a seperate class and the parent directory is used as the generated location on disk. 
+{{note| '''Note''': If you move an object between directories within an EiffelBuild project that has already generated the Eiffel code for that object, the code files are moved immediately on the disk. }}
+
+Directories may be nested as deeply as required, and the following buttons are available to help with directory nesting:
+*  [[Image:directory-search-small]] Selecting this button recursively adds all directories from the current project location to the project.
+*  [[Image:icon-show-hide-directory-color]] Selecting this button causes all directories included within the project that do not contain one or more objects to be hidden/shown within the Widget Selector.
+Note that any directories that do not contain objects or have object nested within their structure recursively are displayed grayed out to indicate that there are no objects within. 
+==Expanding==
+
+The  [[Image:icon-expand-all-small-color]]  button displayed at the top of the Widget Selector expands all nodes contained. 
+
+==Client Representations==
+
+All objects within the Widget Selector that are used as clients within other object structures have client information displayed as subnodes of their representation, as illustrated in the following screenshot: 
+
+[[Image:images/eiffelbuild/screenshots/widget_selector_clients.png]]  
+
+The OK_CANCEL_BUTTONS object is used is used in two different places within the project: once within INPUT_DIALOG and once within MAIN_WINDOW. If you select the tree node representing the instance of OK_CANCEL_BUTTONS within MAIN_WINDOW, the MAIN_WINDOW is targetted to the [[Type selector|type selector]]  with the instance of the OK_CANCEL_BUTTONS object selected. 
+
+To use an instance of a widget contained within the Widget Selector as a client, simply pick the representation of the object and drop into the desired parent object within the [[Type selector|type selector]]  
+
+{{seealso| '''See also''': <br/>
+[[Layout constructor|Layout constructor]]  }}
+
+
+
+
+
+

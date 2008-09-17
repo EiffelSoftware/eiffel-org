@@ -1,0 +1,24 @@
+[[Property:title|1 Overview]]
+[[Property:link_title|ET: Overview]]
+[[Property:weight|-15]]
+Eiffel is a method and language for the efficient description and development of quality systems. 
+
+As a language, Eiffel is more than a programming language. It covers not just programming in the restricted sense of implementation but the whole spectrum of software development: <br/>
+*  ''Analysis, modeling and specification'', where Eiffel can be used as a purely descriptive tool to analyze and document the structure and properties of complex systems (even non-software systems). 
+*  ''Design and architecture'', where Eiffel can be used to build solid, flexible system structures. 
+*  ''Implementation'', where Eiffel provides practical software solutions with an efficiency comparable to solutions based on such traditional approaches as C and Fortran. 
+*  ''Maintenance'', where Eiffel helps thanks to the architectural flexibility of the resulting systems. 
+*  ''Documentation'', where Eiffel permits automatic generation of documentation, textual and graphical, from the software itself, as a partial substitute for separately developed and maintained software documentation. 
+
+
+Although the language is the most visible part, Eiffel is best viewed as a '''method''', which guides system analysts and developers through the process of software construction. The Eiffel method is focused on both productivity (the ability to produce systems on time and within budget) and quality, with particular emphasis on the following quality factors: <br/>
+*  ''Reliability:'' producing bug-free systems, which perform as expected. 
+*  ''Reusability:'' making it possible to develop systems from prepackaged, high-quality components, and to transform software elements into such reusable components for future reuse. 
+*  ''Extendibility:'' developing software that is truly soft -- easy to adapt to the inevitable and frequent changes of requirements and other constraints. 
+*  ''Portability:'' freeing developers from machine and operating system peculiarities, and enabling them to produce software that will run on many different platforms. 
+*  ''Maintainability:'' yielding software that is clear, readable, well structured, and easy to continue enhancing and adapting. 
+
+
+
+
+

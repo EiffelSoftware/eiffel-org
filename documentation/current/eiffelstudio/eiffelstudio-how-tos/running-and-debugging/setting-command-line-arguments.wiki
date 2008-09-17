@@ -1,0 +1,14 @@
+[[Property:title|Setting the command line arguments]]
+[[Property:weight|6]]
+To debug a program that uses command line parameters, it is possible to have the debugger call the generated program with certain command line arguments automatically.
+
+To change the command line arguments used when debugging:
+* Open the Debug, Debugging Options Dialog 
+* In this dialog, you can change the current arguments and also store and load argument sets. 
+* Click '''OK'''. 
+
+{{tip| '''Tip''': To get the command line arguments in a program, it is possible to either define the root feature as taking an array of [[ref:/libraries/base/reference/string_8_chart|STRING_8]]  objects, or to use the [[ref:/libraries/base/reference/arguments_chart|ARGUMENTS]]  class, which provides a lot of functionality linked with command line arguments. }}
+
+
+
+

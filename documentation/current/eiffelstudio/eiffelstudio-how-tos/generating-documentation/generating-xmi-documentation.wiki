@@ -1,0 +1,20 @@
+[[Property:title|Generating XMI documentation]]
+[[Property:weight|1]]
+EiffelStudio can generate an '''XMI''' description of a system; '''XMI''' (XML Metadata Interchange) format is the new industry standard way to describe and exchange object-oriented systems, further information can be found [http://www.omg.org/technology/xml/ here] . 
+
+The '''XMI Export wizard''' is available in the '''Project''' menu, under the entry '''Export XMI'''. 
+
+The first page of the wizard lets you select the clusters you want to produce documentation for:
+
+[[Image:xmi-wizard-cluster-selection]]  
+
+On the second and last page, you can choose the directory where the XML file is going to be generated:
+
+[[Image:doc-wizard-path-selection]]  
+
+{{seealso| '''See Also''' <br/>
+[[Generating multi-format documentation|Generating multi-format documentation]]  }}
+
+
+
+

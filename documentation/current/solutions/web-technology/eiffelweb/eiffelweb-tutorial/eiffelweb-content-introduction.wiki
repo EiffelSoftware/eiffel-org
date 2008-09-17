@@ -1,0 +1,34 @@
+[[Property:title|EiffelWeb Content Introduction]]
+[[Property:weight|0]]
+==CGI Applications==
+
+The way a CGI application communicates with the Web browser is simple: when the user presses a button on an HTML form, with an associated action (such as ''Submit''), the browser starts the application whose path is indicated inside the HTML form declaration. It sends data corresponding to the HTTP request and to the input form information in the usual file descriptor ''In'', stores within environment variables the transaction environment of the request, and waits for the application message, expected in its ''Out'' canal. The ''In'' and '' Out ''canals are accessible via the class CGI_IN_AND_OUT. <br/>
+<br/>
+HTML forms are an easy way to collect user entries in a web page, which are sent by the browser to the CGI application. A simple example of a form is: 
+<code>
+<form action="/cgi-bin/convert.exe" method="post">
+
+<input type="text" name="Celsius">
+
+<input type="submit">
+
+</form >
+</code>
+
+
+When the user presses the submit button, the browser will launch the application located at ''/cgi-bin/convert.exe'' on the server, will use the HTTP Post protocol, and will store among others the environment variable ''Celsius'' with the value entered by the user. 
+
+==Advantages of using EiffelWeb==
+
+With EiffelWeb, you can:
+* Design object-oriented systems
+* Access and use the Eiffel libraries
+* Increase maintainability because your code is reusable and readable
+* Deal with complexity because you use a language particularly efficient in the Business Modeling.
+* Use one/a few big Eiffel Web applications, which allow for an easier maintenance and provide better code readability and reusability than having a huge number of scripts.
+* Use the ''Design by Contract'' methodology, thanks to the debugging facilities provided by EiffelWeb. 
+
+
+
+
+

@@ -1,0 +1,114 @@
+[[Property:title|Structures]]
+[[Property:weight|1]]
+The [[ref:libraries/com/reference/index|Structures]]  cluster includes wrappers for data structures useful when using the COM technology. 
+
+==ECOM_ARRAY==
+
+ECOM_ARRAY is a multidimensional, resizable array. It is converted to SAFEARRAY at the COM runtime level. Most languages only support SAFEARRAYs of OLE automation types. 
+
+==ECOM_EXCEPTION==
+
+ECOM_EXCEPTION provides support for triggering and catching exceptions. According to the COM specification, every feature of a COM interface should return a status code of type HRESULT. HRESULT is a 32 bit integer. The COM specification defines possible exception codes and corresponding human-readable descriptions. 
+
+The status code is mapped by the EiffelCOM runtime to Eiffel exceptions. To raise COM-specific exceptions, the class ECOM_EXCEPTION provides the feature <eiffel>trigger</eiffel>: 
+<code>
+			trigger (code: INTEGER)
+      		-- Raise exception with code `code'.
+      		-- See class ECOM_EXCEPTION_CODES for possible values.
+		</code>
+
+The class also has several features that help analyzing exceptions and error codes received from the COM runtime. 
+<code>
+			hresult: INTEGER
+       			-- Original HRESULT.
+   		require
+       			applicable: is_developer_exception
+
+	hresult_code: INTEGER
+       			-- Status code.
+   		require
+       			applicable: is_developer_exception
+
+	hresult_facility: INTEGER
+       			-- Facility code.
+   		require
+       			applicable: is_developer_exception
+
+	hresult_message: STRING
+       			-- Error message.
+   		require
+       			applicable: is_developer_exception
+		</code>
+
+Every call to COM should be wrapped into a <code> rescue </code> clause as follows: 
+<code>
+	some_feature is
+   		local
+      			retried: BOOLEAN
+      			...
+   		do
+        		if not retried then
+            			-- Call to COM.
+        		end
+   		rescue
+        		if is_developer_exception then
+            			-- Compare `hresult' to some predefined value
+            			-- and handle various cases,
+            			-- or display a dialog box with an error message
+            			-- `hresult_message'.
+        		end
+		        retried := True
+		        retry
+		end
+		</code>
+
+==ECOM_STRUCTURE==
+
+ECOM_STRUCTURE is a deferred class which inherits from WEL_STRUCTURE. All wrappers of COM structures inherit from ECOM_STRUCTURE. 
+
+==ECOM_VARIANT==
+
+ECOM_VARIANT is a wrapper of the VARIANT structure. VARIANT is the Visual Basic equivalent to Eiffel's <eiffel>ANY</eiffel>. In Visual Basic all variable types conform to VARIANT. Since the semantics and runtime architecture of Visual Basic are different from those of Eiffel, there is no simple way to map VARIANT to ANY. Instead, EiffelCOM provides an Eiffel wrapper around the VARIANT structure. 
+
+This wrapper exposes the feature 
+<code>
+	variable_type: INTEGER
+        	-- Variable type. See class ECOM_VAR_TYPE for possible values. 
+		</code>
+
+which specifies the actual type of the variant. The class has multiple features for typed access and setting of variables. 
+
+==ECOM_VARIANT_ACCESS==
+
+<eiffel>ECOM_VARIANT_ACCESS</eiffel> provides the feature: 
+<code>
+			  missing: ECOM_VARIANT
+					 -- Value representing the default value of a COM optional argument.
+					 -- Equivalent to an omitted VB argument, or C++ vtMissing, or .NET System.Reflection.Missing.
+		</code>
+
+Many COM Automation servers have routines that take arguments with default values. This is very common, for example, in Microsoft Office applications such as Excel and Word. In Visual Basic, such arguments are optional and, when omitted, the server uses the default value. In languages that cannot omit arguments, a special VARIANT value representing the omitted argument must be passed. EiffelCOM applications can pass missing for this purpose. 
+
+For example, the following adds a new workbook to Excel. The default argument tells Excel to decide for itself how many worksheets to put in the new workbook: 
+<code>
+			  class
+					  MY_EXCEL_APPLICATION
+
+			  inherit
+					  APPLICATION_PROXY
+
+					  ECOM_VARIANT_ACCESS
+
+			  feature
+
+					  add_workbook is
+							  local
+									  workbook: WORKBOOK_PROXY
+							  do
+									  workbook := workbooks.add (missing, 0)
+							  end
+		</code>
+
+
+
+

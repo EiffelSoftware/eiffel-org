@@ -1,0 +1,35 @@
+[[Property:title|History]]
+[[Property:weight|11]]
+EiffelBuild has an limitless undo/redo mechanism built in. However, this mechanism only applies to the structure of the [[EiffelBuild Notation|objects]]  you are developing in your project. 
+
+For example, every time you [[Create an object|create]] , [[Reparent an Object| reparent]]  or [[Delete an object|delete]]  an [[EiffelBuild Notation|object]]  in your project, this is recorded in the history. If you modify properties of an [[EiffelBuild Notation|object]]  (Using an [[Object editor|object editor]] ), these modifications are not recorded in the history. 
+
+==Undo==
+
+To undo a change, click  [[Image:icon-undo-color]]  on the [[Main toolbar| main toolbar]]  You can repeatedly undo, until you get to the beginning of the history, at which point, this button is disabled. 
+
+==Redo==
+
+To redo a change (only applicable after one ore more undo's), click  [[Image:icon-redo-color]]  on the [[Main toolbar| main toolbar]] . You can repeatedly redo, until the history becomes current again, and at which point, this button is disabled. 
+
+==History window==
+
+[[Image:history-window]]  
+
+The screenshot above shows the appearance of the history window.
+
+This visibility of the window may be toggled by clicking  [[Image:icon-cmd-history-color]]  on the [[Main toolbar| main toolbar]] . You may also select '''History''' from the '''View''' menu to show the history window, and click the '''Close''' button to close the window manually. 
+
+Looking at the screenshot above, you will see that the last action in the history list is selected. This is always the case while working, until you start undoing your changes. To go back six steps, so that (in this case), there is just the one BUTTON added to the HORIZONTAL_BOX, you could click the undo button on the [[Main toolbar| main toolbar]]  six times, or you can simply select the third item in this list. both have the same effect. You can also redo by selecting an item below the currently selection in the history list (Only possible after an undo). 
+
+If you execute an action which will be added to the history while the history is not at the final position, all history events after this current position will be removed, and the history will be up to date again.
+
+{{note| '''Note''': If you use the history list to move through many recorded actions at once, there may be a slight delay dependent on the systems complexity and steps moved. }}
+
+{{seealso| '''See also''' <br/>
+[[Builder window|Builder window]]  <br/>
+[[Layout constructor| Layout constructor]]  }}
+
+
+
+

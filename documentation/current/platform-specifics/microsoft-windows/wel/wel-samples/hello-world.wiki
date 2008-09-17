@@ -1,0 +1,45 @@
+[[Property:title|Hello World]]
+[[Property:link_title|Hello World!]]
+[[Property:weight|-4]]
+[[Image:hello|hello]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\hello\''. 
+* Choose ''hello.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+==Running==
+
+After you launch the sample, You should see a window displayed as illustrated above. You will have full control over the window, and the program will quit when you close the window. 
+
+==Under the Hood==
+
+MAIN_WINDOW inherits WEL_FRAME_WINDOW. In this example, we have redefined on_paint as shown below:
+<code>
+on_paint (paint_dc: WEL_PAINT_DC; invalid_rect: WEL_RECT) is      
+		--Draw a centered text 
+	is
+	      paint_dc.draw_centered_text("Hello, World!", client_rect)   
+	end 
+	</code>
+
+{{note| '''Note:''' If you look at MAIN_WINDOW, you will see that it contains many features. However, nearly all of these are features are inherited from WEL_FRAME_WINDOW. }}
+
+This sample contains the following classes: 
+* HELLO_DEMO
+* MAIN_WINDOW
+
+
+{{seealso| '''See Also''' <br/>
+[[Tutorial Step 3|Tutorial Step3]]  <br/>
+[[Common message hooks|Common message hooks]]  }}
+
+
+
+

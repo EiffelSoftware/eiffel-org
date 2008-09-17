@@ -1,0 +1,35 @@
+[[Property:title|Xcell]]
+[[Property:weight|11]]
+[[Image:xcell|xcell]]  <br/>
+<br/>
+
+==Compiling==
+
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\xcell\''. 
+* Choose ''xcell.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+
+==Running==
+After launching the program, a window will be displayed. Selecting "New" from the "Game" menu or pressing F2, will cause a new game to start and the window should take a similar appearance to the above illustration. Selecting "How to play..." from the "Help" menu will display the instructions for playing the game. 
+==Under the Hood==
+
+This sample contains the following classes: 
+* <code>APP_CONSTANTS</code>
+* <code>CARD</code>
+* <code>COLUMN</code>
+* <code>GAME</code>
+* <code>GAME_CONSTANTS</code>
+* <code>GAME_MANAGER</code>
+* <code>MAIN_WINDOW</code>
+* <code>SELECT_GAME_NUMBER_DIALOG</code>
+* <code>SELECT_NUMBER_OF_CARDS_DIALOG</code>
+* <code>XCELL_DEMO</code>
+
+
+
+
+

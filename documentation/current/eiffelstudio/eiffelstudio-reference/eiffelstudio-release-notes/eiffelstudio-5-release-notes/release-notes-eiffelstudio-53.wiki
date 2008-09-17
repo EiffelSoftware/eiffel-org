@@ -1,0 +1,97 @@
+[[Property:title|Release notes for EiffelStudio 5.3]]
+[[Property:link_title|5.3]]
+[[Property:weight|-11]]
+==Graphical environment==
+
+===Changes===
+* In project settings, we now accept a root class without creation procedure.
+* In .NET code generation, we do not force the C compilation at each compilation. It is only done when necessary (for example when a C external has been added).
+* Incremental .NET code generation (See [[Major changes between ISE Eiffel 5.2 and ISE Eiffel 5.3|compiler release notes]]  for more info).
+* Recoverable storable (See [[Major changes between ISE Eiffel 5.2 and ISE Eiffel 5.3|compiler release notes]]  for more info).
+
+===Bug fixes===
+* Fixed issue with setting of arguments. After restarting EiffelStudio the command line argument contains an extra `]' character.
+* Fixed issue with working directories where only the first one ever set was used even if new ones have been set afterwards.
+* Fixed issue where generating documentation for all/library cluster would stop during generation without completing.
+* Fixed crash in diagram tool when moving label on client/supplier link between two classes.
+* Fixed resource leak on Windows 98 and Windows Me.
+* Fixed issue in projects where clusters are specified with relative path would not compile after adding a local assembly.
+* Fixed problem with cluster tool management where moving classes around or looking up a class will generate an error box instead of performing the requested operation.
+* Fixed incorrect configuration file specification for EiffelVision2 examples and wizards on Unix platforms where application could be linked dynamically with `libpng' but should not.
+* Fixed disappearance of EiffelStudio when debugging a routine `infix' or `prefix' in which an exception was raised. This issue was only occurring with melted code (usually noticeable when using a precompiled library).
+* Changing the project specific command line arguments will not touch the project settings configuration file (ace file).
+
+==Compiler==
+* Click [[Major changes between ISE Eiffel 5.2 and ISE Eiffel 5.3|here]]  for the compiler release notes. 
+
+==Libraries==
+
+===CECIL===
+* Enforced definition of EIF_OBJECT so that it is different from EIF_REFERENCE to better catch errors when passing a protected reference to a feature accepting an unprotected reference and vice versa. Because of this change some C code might not compile anymore which is good as it points out that code was doing something wrong that could corrupt the Eiffel memory.
+
+===EiffelBase===
+* Added in <code> INTERNAL </code> the following new features: <code> field_static_type_of_type </code>, <code> class_name_of_type </code>, <code> type_name </code> and <code> type_name_of_type </code>. 
+* Added <code> truncated_to_integer_64 </code> in <code> REAL </code> and <code> DOUBLE </code>. 
+* Added <code> to_integer_64 </code> in <code> STRING </code>. 
+* Added new classes <code> MEMORY_STRUCTURE </code>, <code> MANAGED_POINTER </code> and <code> C_STRING </code> to better manage access to C and C++ memory structure. 
+* Fixed incorrect implementation of <code> area </code> and <code> substring </code> for <code> STRING </code> in dotnet mode. 
+* Fixed bug in <code> copy </code> from <code> STRING </code> where following code was violating <code>valid_count</code> invariant from <code> STRING </code>: 
+<code>
+local
+	s, t: STRING
+do
+	create s.make (9)
+	create t.make (10) 
+	t.append ("1234567890") 
+	s.copy (t)
+end</code>
+
+* Added support for storable in .NET. However .NET and classic implementation are completely different and <code> independent_store </code> will not be able to retrieve a storable file if not made using the same code generation. 
+* Fixed a bug in <code> is_equal </code> from <code> LIST </code> where comparing two lists of different counts could break the comparison: <br/>
+<code>
+make is
+	local
+		a, b: LIST [INTEGER]
+	do
+		create {ARRAYED_LIST [INTEGER]} a.make (2)
+		a.extend (10)
+		
+		create {ARRAYED_LIST [INTEGER]} b.make (2)
+		b.extend (10)
+		b.extend (11)
+		
+		print (equal (b, a))
+	end</code>
+
+* Fixed .NET implementation of <code> open_write </code> and <code> create_read_write </code> in <code> FILE </code>. They were not resetting the file size to zero if file already existed. 
+* Added <code>correct_mismatch</code> on <code>ANY</code> used for `recoverable storable'.
+* Added <code>correct_mismatch</code> on <code>HASH_TABLE</code> to enable retrieval of the 5.1 and older version of <code>HASH_TABLE</code>.
+* Fixed bug in implementation of <code>copy</code> and <code>is_equal</code> for <code>TREE</code> and descendant classes. Now descendants of <code>TREE</code> that would like to compare additional attributes of their class needs to redefine <code>node_is_equal</code> whose default implementation will always result in a true value.
+* Changed default semantic of <code>make</code> and <code>put_child</code> from <code>FIXED_TREE</code>, to preserve existing semantic, you should use <code>make_filled</code> and <code>replace_child</code> instead. 
+
+===Eiffel2Java===
+* Updated library so that it works both in classic and dotnet mode.
+
+===EiffelCOM===
+* Fixed crash in <code>ccom_set_name</code> from <code>FONT_IMPL_PROXY</code>.
+
+===EiffelNet===
+* Fixed assertion violation of call to <code> to_integer </code> in feature <code> get_content_length </code> from <code> HTTP_PROTOCOL </code> if assertions are enabled on EiffelBase. 
+
+===EiffelStore===
+* Updated library so that it works both in classic and dotnet mode.
+* Fixed issue with oracle handle which did not work with the included Borland C compiler.
+* Removed <code> nb_classes </code> from <code> EXT_INTERNAL </code>. 
+* Removed need for additional object file (`support.lib' on Windows and `libsupport.a' on Unix platforms), so make sure to remove it from your project configurations.
+
+===EiffelVision2===
+*  [[Revisions and Bug Fixes|Click here to see list of update and modification to Eiffel Vision2]] . 
+
+===WEL===
+* Removed inheritance to <code>WEL_STRUCTURE</code> in <code>WEL_STRING</code>, it now inherits from new <code>C_STRING</code> class. In the process removed the following features which were inherited from <code>WEL_STRUCTURE</code> and did not make sense to <code>WEL_STRING</code> <code>memory_copy</code>, <code>structure_size</code>, <code>dispose</code>, <code>set_item</code>, <code>set_shared</code>, <code>set_unshared</code>, <code>shared</code>, <code>to_integer</code>. No replacements have been provided for those features. Made <code>initialize</code> and <code>initialize_with_character</code> obsolete, instead we now provide two features inherited from <code>C_STRING</code> <code>fill_blank</code> and <code>fill_value</code>.
+
+[[EiffelStudio release notes|Click here to check out what was new in other versions]]  
+
+
+
+

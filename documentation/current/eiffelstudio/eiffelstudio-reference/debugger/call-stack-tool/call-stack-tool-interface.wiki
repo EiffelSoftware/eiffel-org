@@ -1,0 +1,27 @@
+[[Property:title|Call stack tool: Interface]]
+[[Property:weight|1]]
+[[Image:call-stack-tool]]  
+
+The call stack tool gives information about the current call stack of a debugged application.
+
+It is mainly composed of a list representing the call stack elements, where the entry feature of the program is at the bottom and the top of the call stack is at the top. <br/>
+- The current call stack element, to which the [[Information relative to a stack element|other debug tools]]  refer, is represented by a green arrow  [[Image:callstack-active-arrow-icon]] . <br/>
+- Clicking on a call stack element represented by an empty arrow  [[Image:callstack-empty-arrow-icon]] , or picking it and dropping it onto either the call stack list or the locals view defines it as being the current call stack element. <br/>
+- The call stack elements with no pixmap are called external call stack elements, they represent a call stack out of Eiffel, for instance a true dotnet call stack. <br/>
+- For each feature in the call stack, its name, its dynamic class and its static class are displayed. An asterisk next to the name of a feature means the feature is melted, as opposed to frozen. The dynamic class is the type of the object upon which the feature is called, whereas the static class is the class in which the feature was written. 
+
+On top of this list, a line gives the state of the debugged application, and another one describes the exception that caused the application to stop, if any. For more information concerning exceptions, see the [[Supported exceptions|supported exceptions]] . 
+The button  [[Image:debug-exception-dialog-icon]]  is used to open the Exception dialog which show the exception details. For instance a call on Void target in a dotnet system would popup : 
+
+<center> [[Image:exception-dialog]]  </center>
+
+When more than one thread is available to the debugger, you can switch from one to the other, for that you have to click on the thread's id "0x000..." and select from the popup list of available threads. Or (recommended) you can use the [[Threads tool|threads tool]]  (clicking on '''Show threads panel''' will show the threads tool). 
+<center> [[Image:call-stack-tool-with-threads]]  </center>
+
+
+In the toolbar, the button  [[Image:general-save-icon]]  gives the possibility to [[Save call stack|save the call stack]]  to a text file, and the button  [[Image:general-copy-icon]]  copy to the clipboard. The  [[Image:debugger-callstack-depth-icon]]  button makes it possible to choose which call stack depth should be displayed in the list (the default is to display the 100 top stack elements, but it is configurable with the same button). 
+
+
+
+
+

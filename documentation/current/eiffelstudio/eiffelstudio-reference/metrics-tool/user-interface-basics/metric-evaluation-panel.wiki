@@ -1,0 +1,38 @@
+[[Property:title|Metric Evaluation Panel]]
+[[Property:weight|0]]
+The Metric Evaluation panel is the place to do metric evaluation. After selecting a metric from the "Select metric" area and setting an input domain in the "Setup input domain" area, you can click the run button to start metric evaluation. You can start metric evaluation with and empty input domain and the result will be always zero.
+
+[[Image:interface1|Defining an input domain]]  
+
+Let's first have a look at the buttons in the main toolbar, see the following figure in which the main toolbar is highlighted:
+
+[[Image:interface2|Defining an input domain]]  
+
+[[Image:metrics-tool--debug-run-icon|Defining an input domain]]  Start metric evaluation <br/>
+Press this button to start evaluating the currently selected metric. 
+
+[[Image:metrics-tool--debug-stop-icon|Defining an input domain]]  Stope metric<br/>
+Press this button to terminate a running metric evaluation. 
+
+[[Image:metrics-tool--metric-send-to-archive-icon|Defining an input domain]]  Send last result to metric history<br/>
+After a metric evaluation this button will be sensitive and clicking it will record the evaluated metric as well as it's input domain and result in the metric history. This faciliates to evaluate it again and let's you compare different metric runs. 
+
+[[Image:metrics-tool--metric-run-and-show-details-icon|Defining an input domain]]  Keep detailed result when evaluating metric<br/>
+Normally, evaluating a metric will give you a number as result, but sometimes, you want to investigate into those items which make up that value. For example, evaluating '''Classes''' metric over the base library gives you 242, which means there are 242 classes in the base library, and sometimes, you want to know which they are. With this option enabled, you'll have a detailed result listed in the detailed result panel after a metric evaluation. This option only has effect when evaluating basic metrics, because the detailed result has no meaning for derived metrics (linear or ratio metrics) in general. Suppose you have a linear metric defined as 5 * Classes, then the notion of detailed result has no meaning. Another use of this option is for performance: keeping a detailed result can be quite expensive in some cases, such as when you calculate the metric '''Lines of code''' for a large system, which may result in hundred of thousands of lines in the result. So turning it off in such as case may be a good idea. 
+
+[[Image:metrics-tool--metric-filter-icon|Defining an input domain]]  Filter result which is not visible from input domain<br/>
+If this option is enabled, all non visible items from the input domain will be filtered. For definition of "non visible" items, please see documentation for criterion is_visible. 
+
+[[Image:metrics-tool--context-sync-icon|Defining an input domain]]  Automatically go to result panel after metric evaluation<br/>
+If this option is enabled, the metric tool will switch to the detailed result panel after a metric evaluation. 
+
+[[Image:metrics-tool--metric-quick-icon|Defining an input domain]]  Define quick metric<br/>
+Sometimes, you want to calculate some metrics which are not defined already. For example, find a feature which is named "foo". And it may be just a one time thing, so there is no need to go to metric definition panel, define and save a metric and then go back to evaluation panel and run it. Quick metric is designed for this situation, you can defined any basic metric in the quick metric definition area. It's the same as the basic metric definition area in the metric definition panel. Just define your metric and run it. 
+In the following figure, a defined quick metric is shown:
+
+[[Image:interface3|Defining an input domain]]  
+
+
+
+
+

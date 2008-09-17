@@ -1,0 +1,94 @@
+[[Property:title|DATE / TIME to STRING Conversion]]
+[[Property:weight|3]]
+The following table lists format conversion codes. 
+{| 
+|- 
+| '''Code'''
+| '''Description'''
+|- 
+| dd
+| day - numeric
+|- 
+| [0]dd
+| day - numeric (padded with '0' to 2 figures)
+|- 
+| ddd
+| day - text (3 letters e.g "Mon", "Tue")
+|- 
+| yyyy
+| year - numeric (4 figures)
+|- 
+| yy
+| year - numeric (2 figures)
+|- 
+| mm
+|  month - numeric
+|- 
+| [0]mm
+| month - numeric (padded with '0' to 2 figures)
+|- 
+| mmm
+| month - text (3 letters e.g "Dec", "Jan")
+|- 
+| hh
+| hour - numeric (24 hour clock scale by default)
+|- 
+| [0]hh
+| hour - numeric (padded with '0' to 2 figures)
+|- 
+| hh12
+| hour - numeric (12 hour clock scale)
+|- 
+| mi
+| minute - numeric
+|- 
+| [0]mi
+| minute - numeric (padded with '0' to 2 figures)
+|- 
+| ss
+| seconds - numeric
+|- 
+| [0]ss
+| seconds - numeric (padded with '0' to 2 figures)
+|- 
+| ff<n>
+| fractional seconds - numeric (precise to <n> figures)
+|- 
+| ':', '/', '-' and ','
+| separators e.g. "03/Aug/97"
+|}
+These are some examples of output with their associated format code: 
+{| 
+|- 
+| '''Code'''
+| '''Output'''
+|- 
+| yy/m/dd
+| 97/8/18
+|- 
+| mmm-dd-yy
+| Aug-18-97
+|- 
+| dd,mm,yyyy
+| 18,Aug,1997
+|- 
+| hh-mi-ss
+| 13-06-32
+|- 
+| hh12,mi,ss
+| 1,06,32 pm
+|- 
+| hh12:mi:ff
+| 1:06:32.25 pm
+|- 
+| hh:mi:ff3
+| 13:06:32.248
+|- 
+| [0]mm/dd/yy hh12:mi:ff3
+| 08/18/97 1:06:32.248 pm
+|}
+
+
+
+
+

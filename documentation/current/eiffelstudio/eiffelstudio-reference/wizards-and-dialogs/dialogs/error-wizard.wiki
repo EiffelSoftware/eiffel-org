@@ -1,0 +1,20 @@
+[[Property:title|Error wizard]]
+[[Property:weight|2]]
+More often than wanted, Eiffel compilations are not successful. The good point is that when an error is detected by the compiler, it will not be a problem at run-time. The bad point is that you have to fix compilation errors before being able to launch and debug your system.
+
+When an error occurs during an Eiffel compilation in EiffelStudio, the '''Output''' tab of the context tool displays a description of the error and its location, which looks more or less like this: 
+
+[[Image:error-message]]  
+
+In this case, the compiler tries to explain that the identifier "sessionid" is not a known identifier in the context where it was typed. This is a common error that mainly occurs when making typos in the code. Assuming the message does not make sense to you (which may happen in more complex cases), you can query more information about the encountered error.
+
+To do this:
+*  [[Pick-and-drop mechanism|Pick]]  the code of the error, in this case VEEN. 
+*  [[Pick-and-drop mechanism|Drop]]  it either in the editor or on the error help button  [[Image:command-error-info-icon]] . 
+* A dialog is then popped up that describes extended information concerning this error type:
+
+[[Image:error-description-dialog]]  
+
+
+
+

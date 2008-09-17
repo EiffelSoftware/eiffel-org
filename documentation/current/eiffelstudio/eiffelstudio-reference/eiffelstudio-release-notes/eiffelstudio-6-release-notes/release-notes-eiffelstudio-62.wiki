@@ -1,0 +1,62 @@
+[[Property:title|Release notes for EiffelStudio 6.2]]
+[[Property:link_title|6.2]]
+[[Property:weight|-9]]
+==Graphical environment==
+
+===What's new===
+* Added new contract editor tool to ease edition of contracts on routines and classes.
+* Added Eiffel Information System which let you connect external documentation to your Eiffel code and vice versa.
+* Added ability to avoid comment duplication by using the <code><Precursor></code> in your descendant comment to reuse the parent one which is shown in all our formatter tools..
+* Added new light batch compiler `ecb'. It provides the same features as `ec' when using the batch mode. Currently projects compiled with `ec' are not compatible with those compiled with `ecb'. The main difference between the two is that `ec' is compiled with exception trace and multithreading support which could slow down the compiler by a factor of 20 to 40% depending on your platform.
+* Added experimental unit testing tool.
+
+===Improvements===
+* Error list tool now supports multiple selection, for better copy to clipboard usage.
+* Enhanced some errors to report better context information.
+* Optimized adding of items to the Error List by circumventing an expensive search when adding single items.
+
+===Changes===
+* Error list items context now shows the full group name but after CLASS.feature because it is of lesser importance.
+* Restructured layout of user files to support unification and user-override files of Eiffel compiler installation files. Relocated default Eiffel projects location into the user files folder (windows and mac only).
+
+===Bug fixes===
+* Fixed the EiffelCOM wizard so that it generates C code that compiles.
+
+==Compiler==
+* Click [[Major changes between ISE Eiffel 6.1 and ISE Eiffel 6.2|here]]  for the compiler release notes.
+
+==Debugger==
+* Click [[Release notes for EiffelStudio 6.2 related to the debugger|here]]  for the EiffelStudio debugger release notes.
+
+==EiffelBuild==
+* Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.
+
+==Libraries==
+
+===EiffelBase===
+* Changed signature of {<eiffel>SPECIAL</eiffel>}.<eiffel>same_items</eiffel> and {<eiffel>SPECIAL</eiffel>}.<eiffel>all_default</eiffel> to take an extra argument. Our analysis shows that it was only used by <eiffel>ARRAY</eiffel> and that it should be harmless. If you have a compilation error, simply add `0' as first argument of your call.
+* Changed <eiffel>physical_size</eiffel> in <eiffel>INTERNAL</eiffel> to return the real allocated size of an object along with its header size.
+* Added <eiffel>deep_physical_size</eiffel> in <eiffel>INTERNAL</eiffel> to compute the size of an object and all its dependencies.
+* Improved speed of <eiffel>read_stream</eiffel> in <eiffel>FILE</eiffel> so that it used underlying `fread' once rather than calling `getc' for each requested character. Our benchmarks show that you can save up to 2s for 1000 calls.
+* Added an assigner routine for <eiffel>item</eiffel> in <eiffel>ARRAY2</eiffel>. This might break descendant classes of <eiffel>ARRAY2</eiffel> redefining <eiffel>item</eiffel>.
+* Updated code toward Void safety.
+
+===EiffelNet===
+* Fixed bug in {<eiffel>SOCKET</eiffel>}.<eiffel>read_stream</eiffel> where if there was a socket error, then it would cause a precondition violation in <eiffel>C_STRING</eiffel>.
+
+===EiffelTime===
+* Added support for <eiffel>DEBUG_OUTPUT</eiffel> for <eiffel>DATE</eiffel>, <eiffel>TIME</eiffel> and <eiffel>DATE_TIME</eiffel> objects making it easier to debug code based on them.
+* Fixed bug where duration in days between two dates overlapping a leap year would yield a result off by +1 or -1.
+* 10% speed improvement on certain date operations (can be seen on eweasel test#time002).
+
+===EiffelVision2===
+* [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
+
+===EiffelVision2===
+* Fixed a bug in {<eiffel>WEL_REGISTRY</eiffel>}.<eiffel>enumerate_key</eiffel> where the routine would go in an infinite loop if the key name was larger than 64 characters.
+
+[[EiffelStudio release notes|Click here to check out what was new in other versions]]  
+
+
+
+

@@ -1,0 +1,7 @@
+[[Property:title|Save call stack]]
+[[Property:weight|4]]
+It is possible to copy the current call stack to the clipboard ( [[Image:general-copy-icon]] ) or to a text file ( [[Image:general-save-icon]] ). This may be useful to indicate to other people of a team where an error occurred. After the button is clicked, a dialog is popped up that prompts for a place where to save the [[Call stack tool: Interface|call stack]]  (if the selected file already exists, it is overwritten). 
+
+
+
+

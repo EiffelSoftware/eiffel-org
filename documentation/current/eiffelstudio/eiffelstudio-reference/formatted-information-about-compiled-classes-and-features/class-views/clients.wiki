@@ -1,0 +1,12 @@
+[[Property:title|Clients]]
+[[Property:weight|-7]]
+The clients view  [[Image:class-clients-icon]] displays all the classes which are using features of the current class, and thus rely on its [[Flat Contract view|interface]] . <br/>
+It is available through the '''Class''' tab of the [[EiffelStudio window overview|context tool]] . 
+
+{{seealso| '''See Also''' <br/>
+[[Suppliers|Suppliers]]  <br/>
+[[Callers|Feature callers]]  }}
+
+
+
+

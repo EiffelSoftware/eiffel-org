@@ -1,0 +1,13 @@
+[[Property:title|Debug output]]
+[[Property:weight|2]]
+In both grids of the [[Objects tool: Introduction|object tool]] , objects are displayed. For virtually all objects, it is possible to display a user-definable string value next to the object address. 
+
+To do so, inherit from the class <eiffel>DEBUG_OUTPUT</eiffel> in the classes that should let their objects display a string value, and implement the `debug_output' feature. At run-time, the debugger will automatically query the result of this feature on all objects that define it and display it in the object tool and the [[Expression evaluation|evaluation tool]] . 
+
+{{sample| '''Sample''': The <eiffel>NUMERIC</eiffel> class inherits from the <eiffel>DEBUG_OUTPUT</eiffel> one so that it is possible to see the value of *_REF objects without expanding them. }}
+
+{{tip| '''Tip''': If an object has a long string output or an output with carriage returns, for instance, pick-and-drop it to the expanded display command  [[Image:debugger-expand-info-icon]]  in the object tool. }}
+
+
+
+

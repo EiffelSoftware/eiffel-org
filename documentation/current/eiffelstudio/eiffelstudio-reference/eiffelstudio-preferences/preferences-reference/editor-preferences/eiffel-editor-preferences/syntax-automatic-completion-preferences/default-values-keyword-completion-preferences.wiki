@@ -1,0 +1,509 @@
+[[Property:title|Default values for keyword completion preferences]]
+[[Property:weight|3]]
+This document contains the description of default completion for recognized keywords. The [[Keyword completion customization|syntax]]  used is the one used to redefine keyword completion in the preferences. <br/>
+Four tables list default values for each of the [[Keywords automatic completion preferences|four preferences]]  attached to each keyword. 
+#  
+Default value for [[Keywords automatic completion preferences|"Customized autocomplete (Space after keyword was typed)"]]  <br/>
+
+{| border="1" 
+|- 
+| '''Keyword'''
+| '''Value'''
+|- 
+| indexing
+| "$cursor$"
+|- 
+| class
+| "$cursor$"
+|- 
+| inherit
+| "$cursor$"
+|- 
+| creation
+| "$cursor$"
+|- 
+| feature
+| "$cursor$"
+|- 
+| is
+| "$cursor$"
+|- 
+| require
+| "$cursor$"
+|- 
+| require else
+| "$cursor$"
+|- 
+| local
+| "$cursor$"
+|- 
+| do
+| "$cursor$end"
+|- 
+| once
+| "$cursor$end"
+|- 
+| deferred
+| "end$cursor$"
+|- 
+| external
+| ""$cursor$"end"
+|- 
+| rescue
+| "$cursor$"
+|- 
+| ensure
+| "$cursor$"
+|- 
+| ensure then
+| "$cursor$"
+|- 
+| if
+| "$cursor$then%N$indent$%T%N$indent$end"
+|- 
+| then
+| "$cursor$"
+|- 
+| elseif
+| "$cursor$then%N$indent$%T"
+|- 
+| else
+| "$cursor$"
+|- 
+| inspect
+| "$cursor$%N$indent$when then%N$indent$%T%N$indent$else%N$indent$%T%N$indent$end"
+|- 
+| when
+| "$cursor$then%N$indent$%T"
+|- 
+| from
+| "$cursor$%N$indent$until%N$indent$loop%N$indent$end"
+|- 
+| variant
+| "$cursor$"
+|- 
+| until
+| "$cursor$"
+|- 
+| loop
+| "$cursor$"
+|- 
+| debug
+| "$cursor$end"
+|- 
+| check
+| "$cursor$end"
+|- 
+| rename
+| "$cursor$"
+|- 
+| redefine
+| "$cursor$"
+|- 
+| undefine
+| "$cursor$"
+|- 
+| select
+| "$cursor$"
+|- 
+| export
+| "$cursor$"
+|- 
+| Precursor
+| "{$cursor$}"
+|- 
+| create
+| "$cursor$"
+|- 
+| obsolete
+| ""$cursor$""
+|- 
+| invariant
+| "$cursor$"
+|- 
+| end
+| "$cursor$"
+|}
+<br/>
+
+#  
+Default value for [[Keywords automatic completion preferences|"Customized autocomplete (Return after keyword was typed)"]]  <br/>
+
+{| border="1" 
+|- 
+| '''Keyword'''
+| '''Return'''
+|- 
+| indexing
+| "%N$indent$%T$cursor$"
+|- 
+| class
+| "%N$indent$%T$cursor$"
+|- 
+| inherit
+| "%N$indent$%T$cursor$"
+|- 
+| creation
+| "%N$indent$%T$cursor$"
+|- 
+| feature
+| "%N$indent$%T$cursor$"
+|- 
+| is
+| "%N$indent$%T%T--$cursor$"
+|- 
+| require
+| "%N$indent$%T$cursor$"
+|- 
+| require else
+| "%N$indent$%T$cursor$"
+|- 
+| local
+| "%N$indent$%T$cursor$"
+|- 
+| do
+| "%N$indent$%T$cursor$%N$indent$end"
+|- 
+| once
+| "%N$indent$%T$cursor$%N$indent$end"
+|- 
+| deferred
+| "%N$indent$end$cursor$"
+|- 
+| external
+| "%N$indent$%T"$cursor$"%N$indent$end"
+|- 
+| rescue
+| "%N$indent$%T$cursor$"
+|- 
+| ensure
+| "%N$indent$%T$cursor$"
+|- 
+| ensure then
+| "%N$indent$%T$cursor$"
+|- 
+| if
+| "%N$indent$%T$cursor$%N$indent$then%N$indent$%T%N$indent$end"
+|- 
+| then
+| "%N$indent$%T$cursor$"
+|- 
+| elseif
+| "%N$indent$%T$cursor$%N$indent$then%N$indent$%T"
+|- 
+| else
+| "%N$indent$%T$cursor$"
+|- 
+| inspect
+| "%N$indent$%T$cursor$%N$indent$when then%N$indent$%T%N$indent$else%N$indent$%T%N$indent$end"
+|- 
+| when
+| "%N$indent$%T$cursor$%N$indent$then%N$indent$%T"
+|- 
+| from
+| "%N$indent$%T$cursor$%N$indent$until%N$indent$%T%N$indent$loop%N$indent$%T%N$indent$end"
+|- 
+| variant
+| "%N$indent$%T$cursor$"
+|- 
+| until
+| "%N$indent$%T$cursor$"
+|- 
+| loop
+| "%N$indent$%T$cursor$"
+|- 
+| debug
+| "%N$indent$%T$cursor$%N$indent$end"
+|- 
+| check
+| "%N$indent$%T$cursor$%N$indent$end"
+|- 
+| rename
+| "%N$indent$%T$cursor$"
+|- 
+| redefine
+| "%N$indent$%T$cursor$"
+|- 
+| undefine
+| "%N$indent$%T$cursor$"
+|- 
+| select
+| "%N$indent$%T$cursor$"
+|- 
+| export
+| "%N$indent$%T$cursor$"
+|- 
+| Precursor
+| "%N$indent$%T$cursor$"
+|- 
+| create
+| "%N$indent$%T$cursor$"
+|- 
+| obsolete
+| "%N$indent$%T"$cursor$""
+|- 
+| invariant
+| "%N$indent$%T$cursor$"
+|- 
+| end
+| "%N$indent$$cursor$"
+|}
+<br/>
+
+#  
+Default value for [[Keywords automatic completion preferences|"Customized autocomplete (Space, other cases)"]]  <br/>
+
+{| border="1" 
+|- 
+| '''Keyword'''
+| '''Space'''
+|- 
+| indexing
+| "$cursor$"
+|- 
+| class
+| "$cursor$"
+|- 
+| inherit
+| "$cursor$"
+|- 
+| creation
+| "$cursor$"
+|- 
+| feature
+| "$cursor$"
+|- 
+| is
+| "$cursor$"
+|- 
+| require
+| "$cursor$"
+|- 
+| require else
+| "$cursor$"
+|- 
+| local
+| "$cursor$"
+|- 
+| do
+| "$cursor$"
+|- 
+| once
+| "$cursor$"
+|- 
+| deferred
+| "$cursor$"
+|- 
+| external
+| "$cursor$"
+|- 
+| rescue
+| "$cursor$"
+|- 
+| ensure
+| "$cursor$"
+|- 
+| ensure then
+| "$cursor$"
+|- 
+| if
+| "$cursor$"
+|- 
+| then
+| "$cursor$"
+|- 
+| elseif
+| "$cursor$"
+|- 
+| else
+| "$cursor$"
+|- 
+| inspect
+| "$cursor$"
+|- 
+| when
+| "$cursor$"
+|- 
+| from
+| "$cursor$"
+|- 
+| variant
+| "$cursor$"
+|- 
+| until
+| "$cursor$"
+|- 
+| loop
+| "$cursor$"
+|- 
+| debug
+| "$cursor$"
+|- 
+| check
+| "$cursor$"
+|- 
+| rename
+| "$cursor$"
+|- 
+| redefine
+| "$cursor$"
+|- 
+| undefine
+| "$cursor$"
+|- 
+| select
+| "$cursor$"
+|- 
+| export
+| "$cursor$"
+|- 
+| Precursor
+| "$cursor$"
+|- 
+| create
+| "$cursor$"
+|- 
+| obsolete
+| "$cursor$"
+|- 
+| invariant
+| "$cursor$"
+|- 
+| end
+| "$cursor$"
+|}
+<br/>
+
+#  
+Default value for [[Keywords automatic completion preferences|"Customized autocomplete (Return, other cases)"]]  <br/>
+
+{| border="1" 
+|- 
+| '''Keyword'''
+| '''Return'''
+|- 
+| indexing
+| "%N$indent$$cursor$"
+|- 
+| class
+| "%N$indent$$cursor$"
+|- 
+| inherit
+| "%N$indent$$cursor$"
+|- 
+| creation
+| "%N$indent$$cursor$"
+|- 
+| feature
+| "%N$indent$$cursor$"
+|- 
+| is
+| "%N$indent$$cursor$"
+|- 
+| require
+| "%N$indent$$cursor$"
+|- 
+| require else
+| "%N$indent$$cursor$"
+|- 
+| local
+| "%N$indent$$cursor$"
+|- 
+| do
+| "%N$indent$$cursor$"
+|- 
+| once
+| "%N$indent$$cursor$"
+|- 
+| deferred
+| "%N$indent$$cursor$"
+|- 
+| external
+| "%N$indent$$cursor$"
+|- 
+| rescue
+| "%N$indent$$cursor$"
+|- 
+| ensure
+| "%N$indent$$cursor$"
+|- 
+| ensure then
+| "%N$indent$$cursor$"
+|- 
+| if
+| "%N$indent$$cursor$"
+|- 
+| then
+| "%N$indent$$cursor$"
+|- 
+| elseif
+| "%N$indent$$cursor$"
+|- 
+| else
+| "%N$indent$$cursor$"
+|- 
+| inspect
+| "%N$indent$$cursor$"
+|- 
+| when
+| "%N$indent$$cursor$"
+|- 
+| from
+| "%N$indent$$cursor$"
+|- 
+| variant
+| "%N$indent$$cursor$"
+|- 
+| until
+| "%N$indent$$cursor$"
+|- 
+| loop
+| "%N$indent$$cursor$"
+|- 
+| debug
+| "%N$indent$$cursor$"
+|- 
+| check
+| "%N$indent$$cursor$"
+|- 
+| rename
+| "%N$indent$$cursor$"
+|- 
+| redefine
+| "%N$indent$$cursor$"
+|- 
+| undefine
+| "%N$indent$$cursor$"
+|- 
+| select
+| "%N$indent$$cursor$"
+|- 
+| export
+| "%N$indent$$cursor$"
+|- 
+| Precursor
+| "%N$indent$$cursor$"
+|- 
+| create
+| "%N$indent$$cursor$"
+|- 
+| obsolete
+| "%N$indent$$cursor$"
+|- 
+| invariant
+| "%N$indent$$cursor$"
+|- 
+| end
+| "%N$indent$$cursor$"
+|}
+<br/>
+
+
+{{seealso| '''See Also''' <br/>
+[[Keywords automatic completion preferences|Keywords automatic completion preferences]]  <br/>
+[[Keyword completion customization|Keyword completion customization]]  <br/>
+}}
+
+
+
+

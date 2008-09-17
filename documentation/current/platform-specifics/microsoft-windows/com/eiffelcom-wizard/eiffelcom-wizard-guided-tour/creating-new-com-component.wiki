@@ -1,0 +1,44 @@
+[[Property:title|Creating a new COM component]]
+[[Property:link_title|Creating a New COM Component]]
+[[Property:weight|0]]
+This first tutorial describes creating a COM component from a COM definition file that is either an IDL file or a Type Library. The tutorial focuses on creating an in-process (DLL) component, called <eiffel>StringManipulator</eiffel>. The component exposes one interface <eiffel>IString</eiffel> that includes the functions <eiffel>ReplaceSubstring</eiffel> and <eiffel>PruneAll</eiffel> corresponding respectively to the features <eiffel> [[ref:libraries/base/reference/string_8_chart|replace_substring]]  </eiffel> and <eiffel> [[ref:libraries/base/reference/string_8_chart|prune_all]]  </eiffel> of the class <eiffel> [[ref:libraries/base/reference/string_8_chart| <eiffel>STRING</eiffel> ]]  </eiffel> from the EiffelBase library. <eiffel>IString</eiffel> also exposes the property <eiffel>String</eiffel> which represents the manipulated string. The property can be set or read. 
+==Step by step instructions==
+#  In '''Project''', in the '''Current project''' input field, type in ''string_manipulator_server'' and press '''enter'''. 
+#  In '''Project Type''', choose ''Create a new COM component''. 
+#  In '''Component Information''', click the browse button (the button with '''...''') and open the file ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\string_manipulator.idl'' where ''$ISE_EIFFEL'' represents the path to the EiffelStudio installation directory. 
+#  Make sure '''Generate and use marshaller DLL''' is not checked. 
+#  Click '''Next'''. 
+#  In '''Component Type''', choose ''In-process (*.dll)''. 
+#  In '''Generation Options''', click the browse button and select the directory where the project should be created (later referenced as ''destination folder''). Choose ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\generated\component'' where ''$ISE_EIFFEL'' represents the path to the EiffelStudio directory. 
+#  Make sure both '''Compile C code''' and '''Compile Eiffel code''' are checked. 
+#  Make sure '''Clean destination folder prior to generation''' is selected. 
+#  Click '''Generate'''. 
+#  Wait until the wizard is done. 
+
+==First look at the generated code==
+
+At the end of the processing the '''EiffelStudio''' button becomes enabled. Click on it. This will automatically start EiffelStudio with the generated project so you can more easily navigate through the created Eiffel classes. You can save the processing output by clicking the '''Save''' button. 
+
+The deferred class <eiffel>STRING_MANIPULATOR_COCLASS</eiffel> represents the component and exposes all its functionality. It inherits from <eiffel>ISTRING_INTERFACE</eiffel> which corresponds to the '''IString''' interface and has one heir <eiffel>STRING_MANIPULATOR_COCLASS_IMP</eiffel> which implements all the deferred features. The default implementation in the heir is empty. 
+
+==Implementing the component==
+ To do something more interesting than merely returning an error to the client edit the implementation of the <eiffel>STRING_MANIPULATOR_COCLASS_IMP</eiffel> class. There is an implementation of the class in ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\server''\. Copy this file over to ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\generated\component\server\component'' and freeze the project. Voila!, you have your first EiffelCOM component up and running. 
+==Running the component==
+The component needs to be registered prior to being loaded. Register an out-of-process component using the following syntax: 
+<code>
+system_name.exe -Regserver</code>
+where ''system_name'' is the name of the component executable file. Register an in-process component using the ''regsvr32'' utility using the following syntax: 
+<code>
+regsvr32 system_name.dll</code>
+where ''system_name'' is the name of the dll (e.g. string_manipulator). So to register the <eiffel> StringManipulator</eiffel> component, run: 
+<code>
+cd $ISE_EIFFEL\examples\com\wizard\string_manipulator\generated\component\server\EIFGENs\default\W_code	
+regsvr32 string_manipulator.dll</code>
+Once registered, follow the steps described in [[Accessing a COM component|Accessing a COM component]]  to build the component's client. 
+{{seealso| '''See Also''' <br/>
+[[Creating a new component from an Eiffel project|Creating a new component from an Eiffel Project]]  <br/>
+[[Accessing a COM component|Accessing a COM component.]]  }}
+
+
+
+

@@ -1,0 +1,22 @@
+[[Property:title|EiffelStore Interface Layer]]
+[[Property:weight|0]]
+The Interface layer gathers a set of classes covering all the capabilities an application need to interface efficiently with a DBMS.
+
+The interface affords these main capabilities:
+*  [[Database Connection|Connecting]]  to the database. 
+*  [[Data Modification|Modifying]]  database objects. 
+*  [[Database Selection|Selecting]]  data from the database. 
+*  [[Selection Access|Accessing]]  data selected from the database. 
+*  [[Data Object Coupling|Coupling]]  database objects with Eiffel objects. 
+*  [[Query variables|Binding variables]]  in a database query. 
+* Using [[Stored Procedures|stored procedures]] . 
+* Dealing with database [[Database control|status and behavior]] . 
+
+{{note| '''Note''': In general, each of these capabilities corresponds to one EiffelStore class. }}
+
+{{seealso| '''See Also''' <br/>
+[[EiffelStore Implementation Layer|The implementation layer]]  }}
+
+
+
+

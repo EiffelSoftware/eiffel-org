@@ -1,0 +1,31 @@
+[[Property:title|Compiling an Eiffel system for CECIL]]
+[[Property:weight|1]]
+==Compiling your Eiffel system for CECIL==
+It is very simple to "Cecilize" your Eiffel system, that is to say make its features available from the outside through CECIL. You will compile it as you normally would - either freeze it or finalize it. The only supplementary precaution is to protect from the dead-code remover any Eiffel features that are not called from the Eiffel system's root, and might thus be dead-code-removed by the optimization mechanism. 
+To do this, make the appropriate features and classes [[Group Options|visible]] . 
+
+==Building a CECIL archive==
+The EiffelStudio compiler produces both C code and a "Makefile". The Makefile compiles and links that C code in a subdirectory one level below the EIFGENs directory of a project. For frozen/melted code, the Makefile is located in the W_code subdirectory. For finalized code, it is in the F_code subdirectory. 
+To produce a CECIL library, you must: open a shell (unix) or the MS-DOS prompt (Windows), go to the subdirectory that contains the Makefile, and then type:
+<code>
+		'''make cecil''' (on unix and on windows with Borland)'''
+		nmake cecil''' (on windows with VC++)</code>
+
+This generates a CECIL archive whose name derived from the name system name of the Eiffel system, as follows:
+<code>
+		lib<system name>.a (on unix)
+		lib<system name>.lib (on Windows)</code>
+For example, the corresponding archive for an Eiffel system called "test", would be called either "libtest.a" (Unix) or "libtest.lib" (Windows). 
+Note that through CECIL you can use an Eiffel system compiled in any of the Eiffel compilation modes:
+* Finalized C code. 
+* Workbench (melted/frozen) code, usually for development purposes. In this case you must copy the ''<system name>.melted'' file ( where ''<system name>'' is the name of your system) located in EIFGENs\<target_name>\W_code to the directory where you intend to execute your C application from. 
+
+{{note| '''Note''': each time you melt the Eiffel system, the ''<system name>. melted'' file is updated. }}
+
+{{warning| '''Caution''': in the second case (workbench mode), it is not possible to call through the CECIL interface any routine that has been melted in the last compilation; this would raise the run-time exception: <br/>
+''' $ applied to melted routine''' <br/>
+The solution is simply to refreeze the system. }}
+
+
+
+

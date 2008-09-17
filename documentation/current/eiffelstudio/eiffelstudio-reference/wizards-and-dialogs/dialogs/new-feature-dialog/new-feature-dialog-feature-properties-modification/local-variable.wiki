@@ -1,0 +1,12 @@
+[[Property:title|Local variable]]
+[[Property:weight|5]]
+Enter a local variable in the <code> local </code> field. A local variable clause will be added to the feature: 
+<code>
+...
+local
+	n: INTEGER
+...</code>
+
+
+
+

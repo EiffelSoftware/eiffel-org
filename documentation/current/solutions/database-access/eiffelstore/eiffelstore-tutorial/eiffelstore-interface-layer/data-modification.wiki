@@ -1,0 +1,36 @@
+[[Property:title|Data Modification]]
+[[Property:weight|1]]
+Use the [[ref:/libraries/store/reference/db_change_flatshort|DB_CHANGE]]  class to perform any operation on your database that does not require access to a result. You can for instance modify table row content, drop table rows, create and delete tables.
+
+{{note| '''Note''': Take a look at the [[Data Object Coupling|Data Storing]]  capability if you want to '''insert''' table rows. }}
+
+[[ref:/libraries/store/reference/db_change_flatshort|DB_CHANGE]]  allows you to modify the database data using the SQL language:
+* Prepare your SQL query and use modify:
+<code>
+	modification: DB_CHANGE
+		-- Modification tool.
+	...
+	create modification.make
+	modification.modify("Update CONTACTS set Firstname =   ' John'")
+</code>
+
+* Commit your changes with your session control:
+<code>
+	session_control: DB_CONTROL
+		-- Session control.
+	...
+	session_control.commit
+</code>
+
+{{tip| '''Tip''': It is always better to check the database status for errors before committing changes. }}
+
+
+{{seealso| '''See Also''' <br/>
+[[Data Object Coupling|Data storing]]  <br/>
+[[Stored Procedures|Stored procedures]]  <br/>
+[[EiffelStore Implementation Layer|Implementation]]  <br/>
+}}
+
+
+
+

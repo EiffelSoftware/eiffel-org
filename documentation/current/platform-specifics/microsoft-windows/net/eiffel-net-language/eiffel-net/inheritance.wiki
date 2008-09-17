@@ -1,0 +1,352 @@
+[[Property:title|Inheritance]]
+[[Property:weight|3]]
+Inheritance, along with client/supplier, are the two relationships that can exist between classes. 
+
+Inheritance lets us mirror in software the types of abstractions that are common in many problem domains, i.e., the more general to the more specialized. 
+
+Inheritance also gives a way us to combine these abstractions.
+
+Inheritance allows us to make extensions and adaptations to existing software, while at the same time, leaving the original software unaltered.
+
+==The Eiffel Inheritance Model==
+
+If class <code> B </code> inherits from class <code> A </code>, then: 
+* Every feature of <code> A </code> is also a feature of <code> B </code> 
+* In any case in which an instance of <code> A </code> is called for, then an instance of <code> B </code> will suffice. 
+
+Flexibility and adaptability are key qualities of the Eiffel inheritance model. On an informal level, this means that, except as prevented by certain constraints, a class can inherit from a set of classes containing just about any other classes.
+
+Eiffel classes can be effective or deferred. If a class is effective, then it is completely implemented. As a result, it is possible to create and use direct instances of an effective class at runtime. 
+
+If a class is deferred, then it is not completely implemented. A class is deferred if it contains at least one deferred feature. So, it is possible for you to mark a feature (and by consequence also its class) as deferred when you code it. This means that the specification for this class dictates that such a feature exists, but there is no implementation for the feature included in the class. As a result, there can be no direct instances of deferred classes at runtime. However, a class that inherits from a deferred class can implement, or effect, the deferred features. This results in an effective descendant to the deferred class. And it is possible to create direct instances of this effective descendant. Such instances would also be instances (albeit not direct instances) of the original deferred class. 
+
+What this means to us as software producers, is that in any development effort, we have available a great number of classes which can serve as potential starting points. That is, classes that we could make parents to the classes we produce. And, those classes do not have to chosen from a strict dichotomy of classes which are either completely abstract or completely implemented. Inheritance from classes that are deferred but have some implemented features is both possible and encouraged. It reuses existing software and it reduces the opportunity for error.
+
+Consider the deferred class <code> COMPARABLE </code> from the Eiffel Base Library. A portion of <code> COMPARABLE </code> is shown below: 
+<code>
+deferred class
+	COMPARABLE
+
+feature -- Comparison
+
+	infix "<" (other: like Current): BOOLEAN is
+			-- Is current object less than `other'?
+		deferred
+		end
+
+	infix "<=" (other: like Current): BOOLEAN is
+			-- Is current object less than or equal to `other'?
+		do
+			Result := not (other < Current)
+		end
+
+	infix ">" (other: like Current): BOOLEAN is
+			-- Is current object greater than `other'?
+		do
+			Result := other < Current
+        		end
+
+	infix ">=" (other: like Current): BOOLEAN is
+			-- Is current object greater than or equal to `other'?
+		do
+			Result := not (Current < other)
+		end
+
+	is_equal (other: like Current): BOOLEAN is
+			-- Is `other' attached to an object of the same type
+			-- as current object and identical to it?
+		do
+			Result := (not (Current < other) and not (other < Current))
+		end
+</code>
+
+If you are producing a class that you wish to support basic comparison operators, like "<" and ">", you can have that class inherit from <code> COMPARABLE </code>, which has features which correspond to those operators. The text for <code> COMPARABLE </code> contains eight features. Seven of these are effective and one is deferred. 
+
+So through inheritance from <code> COMPARABLE </code>, your class, let's call it <code> WHATZIT </code>, would now have these features available. But how would the features of <code> COMPARABLE </code> know what it means to compare <code> WHATZIT </code>s? 
+
+Of course, it would have no way of knowing, so you must show it. And you do that by writing the implementation for "<", the one deferred feature that <code> WHATZIT </code> inherits from the <code> COMPARABLE </code> class. 
+
+When you look closely at the effective features of <code> COMPARABLE </code>, you see that their implementations are ultimately based on "<". If we were not able to inherit from multiple partially implemented classes, then we would be forced to implement many more features, a process which invites error, or, in the case of comparison, to move to a less appealing model. 
+
+==The Inheritance Part of Classes in Eiffel==
+
+Because the inheritance model has such flexibility, it must also have adaptability. A consequence of inheriting from multiple classes is that it would be possible to inherit multiple features with the same name ... and you remember from [[Adding Class Features|Adding Class Features]]  that a class is not allowed to have more than one feature with the same name. A process called feature adaptation allows us to resolve these issues in an heir. Feature adaptation is also done for reasons other than resolving name clashes as well. 
+
+Feature adaptation is an enabling capability, but it is also one that takes some study to understand fully.
+
+We will look at the types of feature adaptation that will serve most useful to you as you begin to produce Eiffel software.
+
+In [[Eiffel Classes|Eiffel Classes]]  you saw where the inheritance part fits into the class structure. Shown below is a portion of class <code> LINKED_QUEUE </code> from the Eiffel libraries. <code> LINKED_QUEUE </code> is an effective class which implements the abstract notion of a <code> QUEUE </code> (a deferred class) with an implementation based on the services provided by <code> LINKED_LIST </code> (an effective class). 
+<code>
+class
+	LINKED_QUEUE [G]
+inherit
+	QUEUE [G]
+		undefine
+			is_empty,
+			copy,
+			is_equal
+		redefine
+			linear_representation,
+			prune_all,
+			extend
+		select
+			item,
+			put
+		end
+	LINKED_LIST [G]
+		rename
+			item as ll_item,
+			remove as ll_remove,
+			make as ll_make,
+			remove_left as remove,
+			put as ll_put
+		export
+			{NONE}
+				all
+			{ANY}
+				writable,
+				extendible,
+				wipe_out,
+				readable
+		undefine
+			fill,
+			append,
+			prune,
+			readable,
+			writable,
+			prune_all,
+			extend,
+			force,
+			is_inserted
+		redefine
+			duplicate,
+			linear_representation
+		select
+			remove
+		end
+</code>
+
+Okay ... now calm down ... please. This is an example from a very highly-evolved and sophisticated library which is replete with software reuse. <code> LINKED_QUEUE </code> has two parents and uses considerable feature adaptation. In fact, it uses every feature adaptation option available. The benefit is obvious, though. <code> LINKED_QUEUE </code> class has only seven features actually coded. In total there are only 26 lines of instructions! 
+
+In practice you can use inheritance, even multiple inheritance, to do some quite productive programming in Eiffel without having to write anything that looks like the inheritance part of <code> LINKED_QUEUE </code> above. 
+
+Regardless, let's break <code> LINKED_QUEUE </code>'s inheritance part into chunks and take a look at some of them. 
+
+===Rename===
+<code>
+		rename
+			item as ll_item,
+			remove as ll_remove,
+			make as ll_make,
+			remove_left as remove,
+			put as ll_put
+</code>
+
+As you might have already guessed, the rename part, introduced oddly enough by the keyword " <code> rename </code>", is used to rename features. 
+
+Specifically, it is used when an heir wants to use a feature from a parent, but wants to use it under a different name than that by which the parent knows it. So in the example, the feature known as <code> item </code> in <code> LINKED_LIST </code> is perfectly usable in <code> LINKED_QUEUE </code>, but must be applied as <code> ll_item </code>. 
+
+This is common when your class inherits two different features with the same name from two different parents and you want to be able to use them both. Because you can only have one feature with a given name, then rename one of the features.
+
+===New Exports===
+<code>
+		export
+			{NONE}
+				all
+			{ANY}
+				writable,
+				extendible,
+				wipe_out,
+				readable
+</code>
+
+The new exports part is introduced by the keyword " <code> export </code>". This section allows you to change the export status of inherited features. Remember from [[Adding Class Features|Adding Class Features]]  that features become available (or not) to clients by their export status. Export status of immediate features is controlled in the feature clause. But here we are dealing with inherited features, so we control their status in the export part of the class's inheritance section. Any feature not mentioned will have the same export status as it did in the parent class. 
+
+In this example, the keyword " <code> all </code>" is used first to say that all features inherited form <code> LINKED_LIST </code> are unavailable to any clients (export to class <code> NONE </code>). This is typical for a class like <code> LINKED_QUEUE </code> in which the features important to the client come from the deferred parent, in this case <code> QUEUE </code>, and the class <code> LINKED_LIST </code> is used only for implementation. But, it seems that also in this case, the producer felt differently about the features <code> writable </code>, <code> extendible </code>, <code> wipe_out </code>, and <code> readable </code>, and decided the allow clients of <code> ANY </code> type to utilize these features inherited from <code> LINKED_LIST </code>. 
+
+===Undefine===
+<code>
+		undefine
+			is_empty,
+			copy,
+			is_equal
+</code>
+
+Next, undefine ... it's probably not what you think. You might assume that undefine is a way to banish forever any inherited features that you just do not want to deal with. But what happens to features whose names are listed in an undefine clause is that they become deferred features in the heir. 
+
+Undefine is useful if you inherit two different features of the same name from different parents, a situation you cannot live with. If you like one and you don't like the other, then you can undefine the one you don't like. The the only version you get is the one you like.
+
+Another way you might use undefine is in the case in which you actually want a feature to be deferred in an heir that was effective in a parent.
+
+===Redefine===
+<code>
+		redefine
+			linear_representation,
+			prune_all,
+			extend
+</code>
+
+The redefine part lists the names of effective features for which the producer of the heir class would like to provide implementations that replace the inherited implementations.
+
+So, in this example the implementation for <code> linear_representation </code>, for example, that <code> LINKED_QUEUE </code> would have inherited from <code> QUEUE </code> will not be used. Instead <code> LINKED_QUEUE </code> implements its own version of <code> linear_representation </code>. 
+
+{{note| '''Note:''' When a class implements a version of an inherited feature which was deferred in its parent, this is known as "effecting" the feature. Because features being effected are getting their first implementation, it is not necessary to list their names in the redefine part, or anywhere else in the inheritance part of the heir. }}
+
+===Select===
+<code>
+		select
+			remove
+</code>
+
+The select part is used only under special circumstances. The case in which select is required involves a situation called "repeated" inheritance. Repeated inheritance occurs when an heir inherits more than once from the same ancestor. Usually this means it has two or more parents who have a common proper ancestor (but it can occur directly). The features from the common ancestor are inherited by each of the parents and passed on to the heir. The rules and effects of repeated inheritance occupy an entire chapter in the official Eiffel language reference and will not be reproduced here. Justunderstand at this point that it is sometimes necessary to use <code> select </code> to provide the dynamic binding system with an unambiguous choice of features in the presence of polymorphic attachment. 
+
+You should note also that repeated inheritance can and does occur often without causing any problem at all. In fact it happens in every case of multiple inheritance, due to the fact that all classes inherit from class ANY and receive its features as a result. The reason it is not a problem is that in the case that any feature makes it from the original common ancestor along multiple paths to the heir with its name and implementation still intact, it will arrive as only one feature heir. This is called sharing and nothing special needs to be done to make it happen.
+
+==Polymorphism==
+
+It is time now to see another way in which inheritance helps build more extendible software.
+
+Assume that we have to build classes that model different types of polygons. We would do this by building a class for polygon which would model a garden-variety polygon, a multi-sided closed figure. But when we consider that there are specialized types of polygons, like triangles and rectangles, we realize that to support these specializations, we need classes for them as well. And this is an obvious opportunity for inheritance. All triangles and rectangles are polygons. So, we start with class <code> POLYGON </code> and its proper descendants <code> TRIANGLE </code> and <code> RECTANGLE </code>. 
+
+So we can make declarations like:
+<code>
+	my_polygon: POLYGON
+	your_polygon: POLYGON
+	my_triangle: TRIANGLE
+	my_rectangle: RECTANGLE
+	another_rectangle: RECTANGLE
+</code>
+
+Assume these declarations are in force for all the examples this section on polymorphism.
+
+We saw in [[Adding Class Features|Adding Class Features]]  that we can say that one class conforms to another if it is the same class or one of its proper descendants. Therefore POLYGON conforms to <code> POLYGON </code>. Also, <code> TRIANGLE </code> and <code> RECTANGLE </code> conform to <code> POLYGON </code>. But, importantly, <code> POLYGON </code> does not conform to <code> TRIANGLE </code> or <code> RECTANGLE </code>. This makes sense intuitively, because we know all rectangles and triangles are polygons ... and we also know that not all polygons are rectangles. 
+
+===Polymorphic Attachment===
+
+These facts affect how assignments can work. Using the declarations above:
+<code>
+	my_polygon := your_polygon		-- Is valid
+	your_polygon :=my_polygon		-- Is valid
+	my_polygon :=my_rectangle		-- Is valid
+	my_polygon := my_triangle		-- Is valid
+</code>
+
+but
+<code>
+	my_rectangle := my_polygon		-- Is not valid
+	my_triangle := my_polygon		-- Is not valid
+</code>
+
+and of course
+<code>
+	my_rectangle := my_triangle		-- Is not valid
+</code>
+
+Consider now the assignment below which is valid.
+<code>
+	my_polygon := my_rectangle
+</code>
+
+After an assignment like this executes the entity <code> my_polygon </code> will be holding at runtime a reference to an instance of a type which is not a direct instance of its declared type <code> POLYGON </code>. But conformance ensures us that, although it may not be a direct instance, it will indeed by an instance. (all rectangles are polygons). 
+
+Depending upon how many different types of polygons get modeled in classes, the entity " <code> my_polygon </code>" could be attached objects of may different types ... it could take on many forms. This in fact is the basis for the term "polymorphism"; having many forms. So we speak of "polymorphic attachment" as the process by which at runtime entities can hold references to objects which are not of the entity's declared type ... but they are of conforming types. 
+
+Now let's see how we get some value from this.
+
+===Dynamic Binding===
+
+Suppose that one of the features of <code> POLYGON </code> is a query <code> perimeter </code> which returns an instance's perimeter. The producer of <code> POLYGON </code> may have implemented <code> perimeter </code> as a function that computes the perimeter by adding up the lengths of all the sides. This approach is guaranteed to work for all polygons, and we can apply the <code> perimeter </code> feature to any polygon. Let's print some perimeters: 
+<code>
+	print (my_polygon.perimeter)
+	print (my_triangle.perimeter)
+	print (my_rectangle.perimeter)
+</code>
+
+<code> TRIANGLE </code> and <code> RECTANGLE </code> might have properties, expressed as queries, which as a part of their specialization, distinguish them from run-of-the-mill polygons. Two features of rectangles are <code> width </code> and <code> height </code> the lengths of the sides. 
+
+Armed with these <code> RECTANGLE </code>-specific features, the producer of <code> RECTANGLE </code> may say,"Now I no longer have to depend upon that crude implementation of <code> perimeter </code> that is inherited from <code> POLYGON </code>. I can build an efficient <code> RECTANGLE </code>-specific implementation of <code> perimeter </code>, based on the knowledge that for all <code> RECTANGLE </code>s perimeter = 2*(width+height)" 
+
+To implement this specialized version of <code> perimeter </code>, the producer of <code> RECTANGLE </code> must add the feature to the class, but also must list its name in the " <code> redefine </code>" part of the <code> RECTANGLE </code>'s inheritance clause. 
+<code>
+class RECTANGLE
+inherit
+	POLYGON
+		redefine
+			perimeter
+		end
+	.
+	.
+feature
+	perimeter: REAL is
+		-- Sum of lengths of all sides
+		do
+			Result := 2 * (width + height)
+		end
+</code>
+
+You would expect then, that this version of perimeter would be executed in the following context:
+<code>
+	print (my_rectangle.perimeter)
+</code>
+
+But what makes this interesting is that even in the context below
+<code>
+	my_polygon := my_rectangle
+	print (my_polygon.perimeter)
+</code>
+
+in which <code> perimeter </code> is being applied to a entity declared as <code> POLYGON </code>, the specialized version of <code> perimeter </code> from <code> RECTANGLE </code> is being used. It would be impossible to ensure at compile time which version of <code> perimeter </code> is most appropriate. So it must be done at runtime. This ability to choose the best version of a feature to apply, just at the moment it needs to be applied, is called "dynamic binding". 
+
+Static typing tells us at compile time that it is safe to apply <code> perimeter </code> to <code> my_polygon </code> No matter which of the types of polygons is attached to <code> my_polygon </code>, there will be a <code> perimeter </code> feature that will work. 
+
+Dynamic binding tells us that when we apply <code> perimeter </code>, we know that the most appropriate version of the feature will get applied at runtime. 
+
+===Assignment Attempt===
+
+Now let's add another situation. Consider the code below:
+<code>
+	my_polygon := my_rectangle
+	print (my_polygon.perimeter)
+	print (my_polygon.width) 	-- Is invalid
+</code>
+
+We could apply <code> perimeter </code> to <code> my_polygon </code> and everything is fine ... we even get <code> RECTANGLE </code>'s specialized version of the feature. But it is invalid for us to try to apply <code> width </code> to <code> my_polygon </code> even though we feel (with rather strong conviction) that at this point in execution, <code> my_polygon </code> will be attached to an object of type <code> RECTANGLE </code>, and we know that <code> width </code> is a valid query on <code> RECTANGLE </code>s. 
+
+The reason follows. When we declared <code> my_polygon </code> as type <code> POLYGON </code>, we made a deal that says that the only features that can be applied to <code> my_polygon </code> are the features of <code> POLYGON </code>. Remember that static typing guarantees us at compile time that at runtime there will be at least one version of the feature available that can be applied. 
+<code>
+	print (my_polygon.width)	-- Is invalid
+</code>
+
+But in the case above, the guarantee cannot be made. <code> my_polygon </code> is declared with class <code> POLYGON </code> which has no <code> width </code> feature, despite the fact that some of its proper descendants might. 
+
+Does this mean that we can never do <code> RECTANGLE </code> things with this instance again, once we have attached it to <code> my_polygon </code>? 
+
+No. There is a language facility called the "assignment attempt" which will come to our rescue. The assignment attempt will allow us safely to attach our instance back to an entity typed as <code> RECTANGLE </code>. After doing so, we are free use <code> RECTANGLE </code> features. 
+<code>
+	my_polygon := my_rectangle
+	print (my_polygon.perimeter)
+	another_rectangle ?= my_polygon
+	print (another_rectangle.width)
+</code>
+
+The assignment attempt uses the syntax "?=", versus the ":=" of assignment.
+
+This is significant ... as is the name assignment attempt. The reason is that it is possible in some context that <code> my_polygon </code> will be attached to something other than a rectangle when we do this: 
+<code>
+	another_rectangle ?= my_polygon
+</code>
+
+If it were true that <code> my_polygon </code> were attached to an instance of say <code> TRIANGLE </code> when the assignment attempt above was executed, then <code> another_rectangle </code> would be left as a <code> Void </code> reference. As a consequence, it is prudent to check to see if the attachment has actually been made before trying to apply features. Applying a feature to a <code> Void </code> reference will cause an exception. Almost always, assignment attempt will be used in the following manner: 
+<code>
+	my_polygon := my_rectangle
+	print (my_polygon.perimeter)
+	another_rectangle ?= my_polygon
+	if another_rectangle /= Void then	-- Make sure assignment happened
+		print (another_rectangle.width)
+	end
+</code>
+
+
+
+

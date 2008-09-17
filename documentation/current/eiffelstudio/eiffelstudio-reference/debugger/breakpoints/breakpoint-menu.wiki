@@ -1,0 +1,25 @@
+[[Property:title|Breakpoint menu]]
+[[Property:weight|4]]
+A condition breakpoint is a breakpoint in which debugger will stop if a certain condition is met. To set a conditional breakpoint use the [[Breakpoint editing|breakpoint menu]]  and choose `Set conditional breakpoint': 
+
+[[Image:breakpoint-context-menu]]  
+
+Once done a dialog pops up where you can enter a condition:
+
+[[Image:breakpoint-dialog-condition]]  
+
+The condition is a Boolean expression that follows the same rule as the expression you can enter in the [[Expression evaluation|expression evaluation tool]] . <br/>
+
+
+{{warning|'''Caution''': if you enter an expression that is not supported or which raises an error during evaluation, by default the condition is considered as True (then the debugger will stop) }}
+
+{{seealso| '''See Also''' <br/>
+[[Breakpoint editing|Breakpoint menu]]  <br/>
+[[Breakpoint commands|Breakpoints commands]]  <br/>
+[[Breakpoint information command|Breakpoint information command]]  <br/>
+[[Expression evaluation|Expression evaluation tool]]  <br/>
+}}
+
+
+
+

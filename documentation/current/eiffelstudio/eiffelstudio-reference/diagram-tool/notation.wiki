@@ -1,0 +1,58 @@
+[[Property:title|Notation]]
+[[Property:weight|1]]
+The diagram tool uses the [http://bon-method.com BON]  (Business Object Notation) to represent Eiffel systems. This article will give a summary of all components of an EiffelStudio diagram. For detailed information on BON, please read [http://bon-method.com/book.htm Seamless Object-Oriented Software Architecture]  by Kim Walden and Jean-MarcNerson, Prentice Hall 1994. 
+
+==Class==
+
+[[Image:bon-class]]  An object class is represented by an ellipse(sometimes referred to as ''bubble''). It contains the class name and formal generics of the Eiffel class it represents. Second, it displays information about properties of a class. These properties are: 
+* Deferred: class is declared as <code> deferred </code>. 
+[[Image:bon-class-deferred]]  
+
+* Effective: class is not <code> deferred </code> and has at least one <code> deferred </code> parent, or redefines one ore more features. 
+[[Image:bon-class-effective]]  
+
+* Persistent: class inherits <eiffel>STORABLE</eiffel> or has indexing tag <code> persistent </code>. 
+[[Image:bon-class-persistent]]  
+
+* Interfaced: class has one ore more <code> external </code> features. 
+[[Image:bon-class-interfaced]]  
+
+* Reused: class resides in a precompiled library or in a <code> library </code> cluster. 
+[[Image:bon-class-reused]]  
+
+* Root class: class has the program's entry point. 
+[[Image:bon-class-root]]  
+
+
+{{seealso| '''See also''' <br/>
+[[Rename class|Changing class names]]  }}
+
+==Cluster==
+
+A cluster is a collection of classes and sub-clusters. It is represented by a stippled, rounded rectangle. The cluster name is in a similar rectangle, by default located at the top of the cluster just outside of it. A cluster can be iconified, which means it is minimized to take up as less space as possible.
+<div>  [[Image:bon-cluster-iconified]]   [[Image:bon-cluster]]  </div><br/>
+
+{{seealso| '''See also''' <br/>
+[[Iconifying and restoring a cluster|Iconifying a cluster]]  }}
+
+==Inheritance links==
+
+Inheritance between classes is represented by an arrow from a class to its parent. Typically, inheritance links point upwards.
+<div>  [[Image:bon-inheritance]]  </div><br/>
+<br/>
+
+{{seealso| '''See also''' <br/>
+[[Creating inheritance links|Creating inheritance links]]  }}
+
+==Client/supplier links==
+
+Client relationships between classes are represented by an arrow with a double line from the client to the supplier. Typically, these links point to the right. A special kind of relationship is the aggregate client/supplier link. Aggregate means that the supplier is an integral part of the client. In the class text, it corresponds to <code> expanded </code> features. In the diagram, an aggregate link has a little line along the back side of the arrow. 
+<div>  [[Image:bon-client]]   [[Image:bon-agg-client]]  </div><br/>
+<br/>
+
+{{seealso| '''See also''' <br/>
+[[Creating client/supplier links|Creating client/supplier links]]  }}
+
+
+
+

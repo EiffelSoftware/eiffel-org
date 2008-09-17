@@ -1,0 +1,25 @@
+[[Property:title|Preference window overview]]
+[[Property:weight|1]]
+The preferences dialog provide the main table, a filter bar, a the bottom tool bar. 
+[[Image:dialogs-and-wizards--preferences-dialog]]  
+
+The table is used to display a grid with the preferences displayed in a tree or flat view. 
+
+There are several kinds of preferences:
+* Boolean preferences : their possible values are "True" and "False". A check box will allow you to choose between both.
+* Color preferences : Their value is represented by three integers, which are the RGB code of the color. You do not have to use RGB codes though. When you double-click such a preference a color chooser dialog will display, allowing you to change the color value.
+* Font preferences : A font selection window will appear if you double-click the value label.
+* Shortcut preferences : edit the value cell, and press the wanted shortcuts..
+* Other preferences : They will be modified by typing their value directly into an editable text field.
+If there is no message stating you need to restart EiffelStudio, changes will be taken into account immediately. 
+{{tip| '''Tip''': below the table, you will find a text field with the internal name of the preference (for instance: ''editor.eiffel.auto-complete_...''). }}
+
+
+{{tip| '''Tip''': you can export preferences to xml file, and import from xml file, this can be convenient when reinstalling EiffelStudio). }}
+
+
+{{warning| '''Caution''': You can restore preferences default values by clicking on the "Restore Default" button. ALL preferences will be reset. }}
+
+
+
+

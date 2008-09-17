@@ -1,0 +1,66 @@
+[[Property:title|Development Window Preferences]]
+[[Property:weight|1]]
+This category gathers a list of preferences related to the development window in EiffelStudio. <br/>
+{| border="1" 
+|- 
+| '''Label in the preferences window'''
+| '''Complete Description'''
+|- 
+| Class completion
+| Allow class name completion in the address combo boxes?
+|- 
+| Ctrl right click receiver
+| Receivers of control-right-click.
+|- 
+| Dock tracking
+| Docked tools track main window?
+|- 
+| Editor left side
+| Display editor on left? (Requires restart)
+|- 
+| Expand feature tree
+| Automatically expand the feature tree.
+|- 
+| Feature clause order
+| Order used to sort feature clauses in formatted texts.
+|- 
+| Graphical output disabled
+| Disable graphical output?
+|- 
+| Left panel use explorer style
+| Show only one tool (Features, Clusters, Search, Windows) at a time. (Requires restart)
+|- 
+| Maximum history size
+| Maximum number of items displayed in the history combo boxes.
+|- 
+| Progress bar color
+| Color for progress bar.
+|- 
+| Remember completion list size
+| Should size of completion list be remembered between completions in the editor?
+|- 
+| Search tool show_options
+| Should search tool be shown?
+|- 
+| Show address toolbar
+| Should address toolbar be shown?
+|- 
+| Show all text in general toolbar
+| Is text of toolbar items displayed?
+|- 
+| Show general_toolbar
+| Should general toolbar be shown?
+|- 
+| Show project toolbar
+| Should project toolbar be shown?
+|- 
+| Show text in general_toolbar
+| Should text be shown in general toolbar?
+|- 
+| Unified stone
+| Link the context tool with other components by default?
+|}
+
+
+
+

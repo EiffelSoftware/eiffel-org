@@ -1,0 +1,32 @@
+[[Property:title|Cursors]]
+[[Property:weight|-9]]
+[[Image:cursors|cursors]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\cursors\''. 
+* Choose ''cursors.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+==Running==
+
+After launching the program, a window will be displayed as illustrated above. Selecting one of the cursor types from the "Cursors" menu will cause the selected cursor to be displayed when the mouse pointer is over the client area of the window. 
+
+==Under the Hood==
+
+The feature <code>on_menu_command</code> has been redefined in <code>MAIN_WINDOW</code> to create the appropriate cursor when a menu selection is made, while <code>on_set_cursor</code> has been redefined to update the style of the displayed cursor. 
+
+This sample contains the following classes: 
+* <code>CURSORS_DEMO</code>
+* <code>MAIN_WINDOW</code>
+* <code>APPLICATION_IDS</code>
+
+
+
+
+

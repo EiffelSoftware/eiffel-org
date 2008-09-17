@@ -1,0 +1,22 @@
+[[Property:title|Reference for `eif_type']]
+[[Property:link_title|eif_type]]
+[[Property:weight|6]]
+==SYNOPSYS==
+<code>
+'''#include "eif_cecil.h"
+
+EIF_TYPE_ID eif_type (EIF_OBJECT '''''object''''');'''</code>
+
+==DESCRIPTION==
+The '''eif_type()''' function returns the type identifier corresponding to ''object''. 
+==RETURN VALUE==
+Type identifier of ''object''. The behavior is unknown if ''object'' is not a valid Eiffel object. 
+==CONFORMANCE==
+ISE Eiffel 4.3 and later. 
+==COMPATIBILITY==
+'''eif_type()''' is equivalent to '''eif_type_by_reference(eif_access (object))'''. 
+==SEE ALSO==
+'''eif_type_by_reference'''(1) , '''eif_type_id'''(1). 
+
+
+

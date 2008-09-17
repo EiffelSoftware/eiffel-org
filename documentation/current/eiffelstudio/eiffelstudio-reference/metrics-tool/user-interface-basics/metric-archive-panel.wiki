@@ -1,0 +1,33 @@
+[[Property:title|Metric Archive Panel]]
+[[Property:weight|4]]
+The metric archive panel is used to calculate and restore metric archives and to do metric archive comparison.
+
+==Metric Archiv Calculation==
+
+Let's have a look at the buttons and options related to metric archive calculataion:
+
+[[Image:metrics-tool--debug-run-icon|calculate archive]]  Start metric archive calculation<br/>
+After selecting the metrics you want to archive and the input domain, use this button to start a metric archive calculation. 
+
+[[Image:metrics-tool--debug-stop-icon|stop archive]]  Stop metric archive calculation<br/>
+Use this button to stop a metric archive calculation. 
+
+[[Image:interface22|archive file location]]  Specify archive file<br/>
+The file to store metric archive results is specified here. 
+
+[[Image:interface23|reset archive]]  Reset archive file<br/>
+If the specified archive file already contains some archive information, this option will be sensitive. If it's enabled, the information contained in that archive file will be cleaned before new archive information is written to that file, otherwise, new archive information will be appended to that file. 
+
+==Metric Archive Comparison==
+
+After you specify two archive files you can compare them, as shown in the following image:
+
+[[Image:interface24|Compare archives]]  
+
+The archive comparison result is shown in the following figure:
+
+[[Image:interface25|archive comparison result]]  
+
+
+
+

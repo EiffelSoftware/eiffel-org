@@ -1,0 +1,28 @@
+[[Property:title|Standard_dialogs Sample]]
+[[Property:weight|3]]
+[[Image:standard-dialogs|Standard_dialogs]]  <br/>
+<br/>
+
+==Compiling==
+
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\vision2\standard_dialogs\''. 
+* Choose ''standard_dialogs.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+
+==Running==
+
+After launching the application, you will see a window displayed with a similar appearance to the one above. If you select an item from the "Standard Dialog" menu, a dialog of that type will be displayed. Selecting "Exit" from the "File" menu will exit the application. 
+
+==Under the Hood==
+
+This sample contains the following class: 
+* STANDARD_DIALOGS
+
+
+
+
+

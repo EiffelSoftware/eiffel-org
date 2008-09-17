@@ -1,0 +1,16 @@
+[[Property:title|Installation]]
+[[Property:weight|1]]
+For certain tools (including ASP.NET) to detect the availability of a CodeDom Provider, the corresponding assembly name must be listed in the .NET machine wide configuration file typically located in: 
+<code>%SYSTEM_DRIVE%\Windows\Microsoft.NET\Framework\vx.x.xxxx\CONFIG\machine.config</code>
+(where vx.x.xxxx corresponds to the .NET Framework version number). The available CodeDom Providers are listed under the ''<compilers>'' XML node. The Eiffel CodeDom Provider implements a.NET Installer class so that should you need to add the Eiffel CodeDom Provider to the machine configuration file, simply run the .NET SDK command line utility ''InstallUtil'' as follows: 
+<code>InstallUtil EiffelSoftware.Codedom.dll</code>
+Conversely, should the Eiffel Codedom Provider not be required anymore, running the following command line will remove it from the ''machine.config'' file: 
+<code>InstallUtil /u EiffelSoftware.Codedom.dll</code>
+
+{{note| '''Note''': The '''Eiffel for ASP.NET''' installation program will take care of registering and unregistering the Eiffel CodeDom Provider properly. }}
+
+{{seealso| '''See also''': [[Supported Constructs|Supported constructs]]  }}
+
+
+
+

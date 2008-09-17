@@ -1,0 +1,40 @@
+[[Property:title|Interface for preferences]]
+[[Property:weight|2]]
+This document describes the use of graphical widgets to display and manipulate preferences.
+
+The preference library contains a cluster called <eiffel>interface</eiffel>. This cluster provides some basic classes which can be used to graphically display and manipulate the <eiffel>PREFERENCE</eiffel> types used by the library. There are various widget classes which correspond to particular types of preferences and can be used to view and change the values of an associated preference. The table below illustrates which widgets are used to display each of the known preference types: 
+
+{| 
+|- 
+|  '''Preference Type''' 
+|  '''Associated Widget''' 
+|- 
+| <eiffel>INTEGER_PREFERENCE</eiffel>
+| <eiffel>STRING_PREFERENCE_WIDGET</eiffel>
+|- 
+| <eiffel>BOOLEAN_PREFERENCE</eiffel>
+| <eiffel>BOOLEAN_PREFERENCE_WIDGET</eiffel>
+|- 
+| <eiffel>STRING_PREFERENCE</eiffel>
+| <eiffel>STRING_PREFERENCE_WIDGET</eiffel>
+|- 
+| <eiffel>ARRAY_PREFERENCE</eiffel>
+| <eiffel>STRING_PREFERENCE_WIDGET</eiffel> or <eiffel>CHOICE_PREFERENCE_WIDGET</eiffel>
+|- 
+| <eiffel>COLOR_PREFERENCE</eiffel>
+| <eiffel>COLOR_PREFERENCE_WIDGET</eiffel>
+|- 
+| <eiffel>FONT_PREFERENCE</eiffel>
+| <eiffel>FONT_PREFERENCE_WIDGET</eiffel>
+|}
+
+All of these widgets inherit the abstract base class <eiffel>PREFERENCE_WIDGET</eiffel> and implement the required deferred features therein. Each implementation implements handling of an <eiffel>EV_GRID_ITEM</eiffel> widget from EiffelVision2 for use in the <eiffel>EV_GRID</eiffel> control, which allows for viewing and editing of the underlying preference value. For example, <eiffel>BOOLEAN_PREFERENCE_WIDGET</eiffel> uses an <eiffel>EV_GRID_COMBO_ITEM</eiffel> to display the 'True' and 'False' properties of a <eiffel>BOOLEAN_PREFERENCE</eiffel>. When the widget is loaded it displays the current value of the associated preference in the combo box. When the user changes the combo box value the preference value is changed also, and optionally saved. 
+Using these supplied widgets in your interface is simply a matter of creating the object and adding the <eiffel>change_item_widget</eiffel> to an instance of <eiffel>EV_GRID</eiffel>. By default the library provides such a view, in the form of PREFERENCES_WINDOW, which is a control that contains an <eiffel>EV_GRID</eiffel> and has all the necessary logic to handle graphical manipulation of the prefernce types provided in the library. This is an <eiffel>EV_TITLED_WINDOW</eiffel> with a navigable tree for finding groups of related preferences (i.e. managers), and a grid for displaying each preference. It is a useful, general purpose interface for preference manipulation. As with preferences themselves you may create your own custom view if this dialog is not sufficient for your needs, and can use the code therein as a template for your owm code. Below is an image of the supplied window as it appears in the EiffelStudio preferences environment. 
+
+[[Image:preference-window]]  
+
+For an example of creating custom widget views for individual preferences, or a custom view for all preferences, please refer to the example in this documentation.
+
+
+
+

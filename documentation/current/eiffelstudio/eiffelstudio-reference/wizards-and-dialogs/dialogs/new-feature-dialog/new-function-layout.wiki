@@ -1,0 +1,36 @@
+[[Property:title|New function layout]]
+[[Property:weight|3]]
+<div>  [[Image:feature-wizard-function]]  </div>
+When clicking '''Function''', the dialog changes to the function layout. It has the following components: 
+*  [[Feature clauses|Feature clause selection]]  
+*  [[Name field|Feature name field]]  
+*  [[Argument list|Argument list]]  
+*  [[Type selection|Type selection]]  
+*  [[Header comment|Header comment field]]  
+*  [[Precondition|Precondition field]]  
+*  [[Local variable|Local variable field]]  
+*  [[Feature body|Selection for: normal, once, deferred or external routine]]  
+*  [[Postcondition|Postcondition field]]  
+
+==Example==
+<div>  [[Image:feature-wizard-function-example]]  </div>
+<code>class
+	PRODUCT
+
+feature -- Status report
+
+	order_price (quantity: INTEGER): DOUBLE is
+			-- Total price when ordering `quantity'.
+		require
+			quantity_non_negative: quantity >= 0
+		do
+			Result := quantity * price
+		ensure
+			correct: Result = quantity * price
+		end
+
+end -- class PRODUCT</code>
+
+
+
+

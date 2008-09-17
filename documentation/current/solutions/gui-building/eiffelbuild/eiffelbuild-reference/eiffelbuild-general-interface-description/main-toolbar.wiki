@@ -1,0 +1,66 @@
+[[Property:title|Main toolbar]]
+[[Property:weight|1]]
+At the top of the EiffelBuild development window, one toolbar is displayed by default, as shown below: 
+[[Image:toolbar]]  
+
+The complete list of the icons in the toolbar is displayed below. <br/>
+{| 
+|- 
+| Icon
+| Command
+|- 
+|   [[Image:icon-delete-small-color]]  
+| Delete [[EiffelBuild Notation|object]] / [[EiffelBuild Notation|component]] . 
+|- 
+|   [[Image:icon-save-color]]  
+|  [[Save a project|Save]]  current project. 
+|- 
+|   [[Image:icon-object-editor-color]]  
+| New [[Object editor|object editor]]  
+|- 
+|   [[Image:icon-undo-color]]  
+|  [[History|Undo]]  last action. 
+|- 
+|   [[Image:icon-cmd-history-color]]  
+| Display full [[History|history]] . 
+|- 
+|   [[Image:icon-redo-color]]  
+|  [[History|Redo]]  last undone action. 
+|- 
+|   [[Image:icon-code-generation-color]]  
+|  [[EiffelBuild: Code Generation|Generate]]  code. 
+|- 
+|   [[Image:icon-system-color]]  
+| Display [[EiffelBuild: Project settings window|project settings]] . 
+|- 
+|   [[Image:icon-builder-window-color]]  
+| Show/hide [[Builder window|builder window]] . 
+|- 
+|   [[Image:icon-display-window-color]]  
+| Show/hide [[Display window|display window]] . 
+|- 
+|   [[Image:icon-component-viewer-color]]  
+| Show/hide [[Component viewer|component viewer]] . 
+|- 
+|   [[Image:icon-format-onces-color]]  
+| Display [[Constants|Constants]]  dialog. 
+|- 
+|   [[Image:icon-cut-color]]  
+| Cut selected object to clipboard. 
+|- 
+|   [[Image:icon-copy-color]]  
+| Copy selected object to clipboard. 
+|- 
+|   [[Image:icon-past-color]]  
+| Paste contents of clipboard. 
+|- 
+|   [[Image:icon-clipboard-color]]  
+| View clipboard contents. 
+|}
+
+
+The screenshot at the top of this page shows all of the buttons enabled. As the state of the currently open project changes, the state of each of these buttons is updated to reflect this. For example, immediately after saving the project, the save button is disabled until the project is modified again.
+'''Note''': It is not possible to customize the toolbar. 
+
+
+

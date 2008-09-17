@@ -1,0 +1,15 @@
+[[Property:title|Class name auto complete]]
+[[Property:weight|3]]
+EiffelStudio editor offers the possibility to complete class names automatically. This means that when the user types " ''a_variable: AN_INCOMPLETE_CLASS_NAME''" and then triggers the auto-complete, the editor will propose a list of possible valid class names. <br/>
+To be more precise, a window will pop up and display the list of classes that match ''AN_INCOMPLETE_CLASS_NAME''. The user can accept the suggested name, choose another name (in the list or not), or simply cancel the auto-complete. 
+
+[[Image:editor-class-auto-completion-window]]  
+
+To trigger the auto complete, press the key combination "Ctrl+Shift+Space" or click on '''Complete class name''' in the '''Advanced''' sub-menu of the  [[Edit menu commands|menu]] . If automatic completion is possible, there are two cases : if only one name matches, this name will be inserted in the editor. If there are no matching names or several ones a window will appear. This window will contain a text field and a list. The text field will be filled with the beginning of the class name that was entered. The first item in the list, if any, will be selected. <br/>
+To complete your code with the selected item, press "Enter" or "Ctrl+Space". <br/>
+To choose another item, use keyboard Up and Down arrows or the mouse. You can also modify the content of the text field. The list will be updated automatically. To validate your choice, press "Enter" or "Ctrl+Space". If there is no selected item, the content of the text field will be inserted. <br/>
+To cancel the auto-complete, press "Esc" at any time. 
+
+
+
+

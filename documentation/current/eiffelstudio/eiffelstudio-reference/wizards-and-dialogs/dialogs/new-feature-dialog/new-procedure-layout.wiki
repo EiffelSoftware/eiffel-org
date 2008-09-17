@@ -1,0 +1,35 @@
+[[Property:title|New procedure layout]]
+[[Property:weight|2]]
+<div>  [[Image:feature-wizard-procedure]]  </div>
+When clicking '''Procedure''', the window changes to the procedure layout. It has the following components: 
+*  [[Feature clauses|Feature clause selection]]  
+*  [[Name field|Feature name field]]  
+*  [[Argument list|Argument list]]  
+*  [[Header comment|Header comment field]]  
+*  [[Precondition|Precondition field]]  
+*  [[Local variable|Local variable field]]  
+*  [[Feature body|Selection for: normal, once, deferred or external routine]]  
+*  [[Postcondition|Postcondition field]]  
+
+==Example==
+<div>  [[Image:feature-wizard-procedure-example]]  </div>
+<code>class
+	PRODUCT
+
+feature {PERSON} -- Element change
+
+	place_order (person: PERSON; quantity: INTEGER) is
+			-- Mail `quantity' to `person'.
+        		require
+  			person /= Void and quantity > 0
+        		do
+			person.mail_order (Current, quantity)
+        		ensure
+			person.has_ordered (Current)
+		end
+
+end -- class PRODUCT</code>
+
+
+
+

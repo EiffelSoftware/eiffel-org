@@ -1,0 +1,12 @@
+[[Property:title|Configuration]]
+[[Property:weight|3]]
+The Eiffel Codedom Provider uses XML configuration files that define additional settings specific to Eiffel. Such settings include whether to fail on error, what events to log, where to log them etc... Each application can define its own configuration to be used when it loads the Eiffel CodeDom Provider. If an application is not associated with a configuration file then a default configuration is used. 
+The association between applications and configurations as well as the actual settings the configuration defines can be set in the [[Eiffel CodeDom Provider Manager|Eiffel CodeDom Provider Manager]] . Run ''ecdpman.exe'' to start the manager. 
+
+{{note| '''Note:''' The Eiffel for ASP.NET installation program will add a shortcut in the start menu to the Eiffel CodeDom Provider Manager. }}
+
+{{seealso| '''See also:''' [[Eiffel CodeDom Provider Manager|Eiffel CodeDom Provider Manager]] , [[Logging|Logging]] , [[Required Permissions|Required permissions]]  }}
+
+
+
+

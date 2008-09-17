@@ -1,0 +1,15 @@
+[[Property:title|Run a finalized executable]]
+[[Property:weight|-11]]
+As opposed to other execution commands, this command launches an application compiled in finalized mode. This has the same effect as running the application in the EIFGENs/target_name/F_code directory from a console prompt.
+
+No debugging is possible with this command, but it lets you test the real speed of your program without any overhead.
+
+It is accessible through the '''project''' toolbar (  [[Image:debug-run-finalized-icon]]  ) or through the '''project''' menu. 
+
+{{seealso| '''See Also''' <br/>
+[[Eiffel Debugger Execution: Introduction|Execution commands]]  <br/>
+[[Generating executables|Compiling in finalized mode]]  }}
+
+
+
+

@@ -1,0 +1,24 @@
+[[Property:title|Evaluating a measure]]
+[[Property:weight|1]]
+To evaluate a metric over a scope:
+# Select the '''Metric Evaluation''' tab from the Metric tool.
+# Define the scope by adding either groups, classes or features to the input domain list.
+# Select a metric from the list of available metrics.
+# Click the '''Run selected metric''' button and the result will appear in the '''Value''' text field.
+
+You can get more information about the evaluated metric. See [[Viewing measure details|detailing a measure]] . 
+
+
+
+{{warning| '''Caution''': When calculated, a measure is not saved. }}
+
+{{seealso| '''See Also''' <br/>
+[[Saving a measure|Saving a measure]]  <br/>
+[[Viewing measure details|Detailing a measure]]  <br/>
+}}
+<br/>
+<br/>
+
+
+
+

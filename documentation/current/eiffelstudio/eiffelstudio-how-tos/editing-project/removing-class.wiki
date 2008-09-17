@@ -1,0 +1,16 @@
+[[Property:title|Removing a class]]
+[[Property:weight|5]]
+To remove a class, you can: 
+*  [[Centering tools on a component|Center the editor on the component]] , and click  [[Image:16x16--general-delete-icon]]  in the [[Main toolbars|standard toolbar]]  or select '''Remove current item''' in the '''Tools''' menu. 
+*  [[Pick-and-drop mechanism|Drop a pebble]]  of this component on  [[Image:16x16--general-delete-icon]]  in the [[Main toolbars|standard toolbar]]  or in the [[Diagram tool: Introduction|Diagram tool]]  [[Diagram toolbar|toolbar]] . 
+
+{{warning| '''Caution''': Removing a class from the system implies the deletion of the corresponding file on disk. }}
+
+{{warning| '''Caution''': Picking a feature and dropping it on the delete icon, or calling '''Remove current item''' as the editor is centered on a feature, will not remove the feature but the class to which it belongs. }}
+
+{{seealso| '''See Also''' <br/>
+[[Adding a class|Adding a class]]  }}
+
+
+
+

@@ -1,0 +1,9 @@
+[[Property:title|Known issues]]
+[[Property:weight|4]]
+==Eiffel issues==
+* Check here first for the [[Eiffel for .NET Limitations|Difference between Eiffel and Eiffel for .NET]] . 
+* The root creation routine of the root class must not take any arguments. You can access the command line given to the application via the class <code> ARGUMENTS.  </code> 
+
+
+
+

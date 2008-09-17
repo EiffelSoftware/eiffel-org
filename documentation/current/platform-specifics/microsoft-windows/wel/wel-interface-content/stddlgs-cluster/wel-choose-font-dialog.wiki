@@ -1,0 +1,14 @@
+[[Property:title|WEL_CHOOSE_FONT_DIALOG]]
+[[Property:weight|2]]
+The [[ref:libraries/wel/reference/wel_choose_font_dialog_chart|WEL_CHOOSE_FONT_DIALOG]]  is an encapsulation of the Win32 choose font dialog, and provides a means of selecting a font available on the system. 
+
+==Appearance==
+ [[Image:wel-choose-font-dialog|wel_choose_font_dialog]]  <br/>
+<br/>
+
+{{seealso| '''See also''' <br/>
+[[Standard Dialogs|Standard dialogs]]  }}
+
+
+
+

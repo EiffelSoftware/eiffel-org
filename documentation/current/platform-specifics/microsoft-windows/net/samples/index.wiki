@@ -1,0 +1,33 @@
+[[Property:title|Samples]]
+[[Property:weight|3]]
+In this chapter you will find a series of examples that will permit to you to understand the bases of programming with Dotnet.
+
+However, you should be familiar with Object-Oriented programming model. Almost all other examples can also be built for .NET if the dotnet target is choosen instead of classic.
+
+==Console sample==
+*  [[Calculator: console|Calculator]]  
+
+==Threads Samples==
+*  [[Pools|Pools]]  
+*  [[Timers|Timers]]  
+
+==ADO.NET sample==
+*  [[ADO.NET Sample|ADO.NET]]  
+
+==Windows Form samples==
+
+The following samples are classified from the easiest to the most complex one. So, some notions are introduced in the few first samples and will not be explained again in the complex samples!
+*  [[Simple Hello world form sample|Hello world form]]  
+*  [[Message Box|Message box]]  
+*  [[Date Time Picker|Calendar and dates]]  
+*  [[Progress bar sample|Progress bar]]  
+*  [[Menus|Adding Menu to a Form]]  
+*  [[MDI|Writing MDI Applications]]  
+*  [[Tree view|Tree view]]  
+*  [[Calculator: winform|Calculator]]  
+*  [[GDI plus - text|Text (gdi plus)]]  
+*  [[Simple data binding|Simple data binding]]  
+
+
+
+

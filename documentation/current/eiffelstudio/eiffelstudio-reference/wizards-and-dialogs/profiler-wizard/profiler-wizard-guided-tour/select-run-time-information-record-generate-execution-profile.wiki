@@ -1,0 +1,26 @@
+[[Property:title|Select a Run-time information record to generate the Execution Profile]]
+[[Property:weight|2]]
+The third screen of the wizard lets you generate an ''Execution Profile'' from a ''Run-time information record''. You should provide the ''Run-time information record'' produced by the profiler in the text field labeled '''Run-time information record'''. If the file provided by default is not the desired one change it by clicking on the '''Browse''' button or by directly entering it in the text field. 
+
+Then, in the combo box labeled '''Profiler used to produce the above record''', select the profiler that has been used to produce the ''Run-time information record'' you have entered. If the profiler used to execute the system does not appear in the combo box, you have to add it. See [[How to set up a Profiler Configuration File|How to set up a Profiler Configuration File]]  for more details on how to do so. 
+
+{{note| '''Note''': ''The Run-time information record'' has to be located in the ''EIFGENs/target_name/W_code'' directory of your project. }}
+
+<br/>
+ [[Image:profiler-wizard-third-state]]  <br/>
+<br/>
+
+
+Clicking '''Next''' will lead you to the [[Select the information you need and formulate your query|Final state]]  if the provided ''Run-time information record'' is valid. If the ''Run-time information record'' is not valid or is not located in the ''EIFGENs/target_name/W_code'' directory of the project, you will go to the '''Run-time Information Record Error state''' as shown below. 
+<br/>
+ [[Image:profiler-wizard-rtir-error-state]]  <br/>
+<br/>
+
+{{seealso| '''See Also''' <br/>
+[[Profiler wizard: Introduction|How the Profiler wizard works]]  <br/>
+[[Profiling|How to profile a system]]  <br/>
+[[How to set up a Profiler Configuration File|How to set up a Profiler Configuration File]]  }}
+
+
+
+

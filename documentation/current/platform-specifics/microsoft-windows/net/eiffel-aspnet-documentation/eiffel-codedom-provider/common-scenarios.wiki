@@ -1,0 +1,17 @@
+[[Property:title|Common Scenarios]]
+[[Property:weight|7]]
+==ASP.NET==
+Probably the most common use of the CodeDom technology is via Internet Information Services (IIS) and ASP.NET. The installation of the Eiffel for ASP.NET will configure the machine so ASP.NET pages can be written in Eiffel. Consult the [[Eiffel for ASP.NET Installation|Eiffel for ASP.NET documentation]]  for details on how to write ASP.NET Eiffel pages. 
+==WSDL==
+Another use of the CodeDom technology is via the WSDL utility. This utility is part of the .NET Framework SDK and is a common line application that can be used to automatically generate stub source code for any Web Service described by a Web Service Description Language (WSDL) file. It is possible to tell the utility which CodeDom Provider to use via the command line as follows: 
+<code>
+Wsdl /language:"EiffelSoftware.CodeDom.CodeDomProvider, EiffelSoftware.CodeDom, Version=2.0.1.1402, Culture=neutral, PublicKeyToken=def26f296efef469"<br/>
+http://api.google.com/GoogleSearch.wsdl</code>
+
+{{note| '''Note:''' The vesion number used above might differ depending on the version of the Eiffel CodeDom Provider dll installed on your system. }}
+
+{{note| '''Note:''' The example above uses the Google web service, the corresponding URL is correct at the time of writing but there is no guarentee it won't change (or be removed) in the future. }}
+This will generate a file with the extension '''.es''' which contains multiple Eiffel class definitions. Compiling this file will require using the CodeDom compiler (programmatically via the CodeDom <code>ICodeCompiler</code> interface) or using the [[eSplitter|eSplitter]]  tool to generate standard Eiffel source files ('''.e''' files) that can then be compiled by the standard Eiffel compiler. 
+
+
+

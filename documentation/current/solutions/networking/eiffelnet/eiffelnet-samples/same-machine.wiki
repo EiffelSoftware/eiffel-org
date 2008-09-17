@@ -1,0 +1,25 @@
+[[Property:title|Same Machine]]
+[[Property:weight|3]]
+==Compiling==
+
+To compile the example, you must compile two projects: ''client'' and ''server.'' 
+
+To compile the ''client'' project: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\net\same_mach\client\''. 
+* Choose ''our_client.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+To compile the ''server'' project: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\net\same_mach\server\''. 
+* Choose ''our_server.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+
+
+

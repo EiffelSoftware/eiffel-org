@@ -1,0 +1,11 @@
+[[Property:title|Window related commands]]
+[[Property:weight|3]]
+A few commands give the possibility to manage the development windows globally. They are located both in the [[Window menu|Window menu]]  and in the main toolbar. 
+*  '''New window''': this command (  [[Image:new-window-icon]] ) creates a new empty development window. Note that it is also possible to [[Pick-and-drop mechanism|drop]]  a class or a feature on it to create a development window that is immediately centered on the dropped item. 
+*  '''Minimize all''': this command (  [[Image:windows-minimize-all-icon]] ) iconifies all development windows. 
+*  '''Raise all''': this command (  [[Image:windows-raise-all-icon]] ) raises all minimized development windows. 
+*  '''Raise unsaved windows''': this command raises all the development windows that have not been saved. It may be combined with the '''Minimize all''' command to find easily which development windows need to be saved. 
+
+
+
+

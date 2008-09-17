@@ -1,0 +1,34 @@
+[[Property:title|Reference for `eif_attribute'.]]
+[[Property:link_title|eif_attribute]]
+[[Property:weight|-12]]
+==SYNOPSYS==
+<code>
+'''#include "eif_cecil.h"
+
+EIFFEL_TYPE eif_attribute (EIF_REFERENCE''' ''object''''', char *''' ''name''''', EIFFEL_TYPE, int *''' ''status'');</code>
+
+==DESCRIPTION==
+The '''eif_attribute()''' macro returns the attribute of name ''name'', which is of type ''EIFFEL_TYPE''. 
+''EIFFEL_TYPE'' is the type of the Eiffel attribute. It can be: '''EIF_INTEGER''', '''EIF_CHARACTER''', '''EIF_BOOLEAN''', '''EIF_DOUBLE''', '''EIF_REAL''', or '''EIF_REFERENCE'''. 
+
+If ''status'' is NULL then no status is set. Otherwise the status of the call is put into ''*status''. Its value is one of the following: 
+
+If the visible exception is enabled, then a visible exception is raised upon failure ( '''EIF_NO_ATTRIBUTE''', '''EIF_CECIL_ERROR'''). 
+
+==RETURN VALUE==
+Upon failure, it returns ( ''EIFFEL_TYPE'') 0, otherwise the attribute is returned. 
+==NOTES==
+If the return value is an '''EIF_REFERENCE''', you must protect it with '''eif_protect()'''. <br/>
+You cannot access a constant attribute, or the result of a once function with '''eif_attribute()'''. 
+==CONFORMANCE==
+ISE Eiffel 4.5 and later. 
+==COMPATIBILITY==
+'''eif_attribute (''' ''object'' ''',''' ''name'' ''',''' ''type'' ''',''' ''NULL'' ''')''' <br/>
+is equivalent to: <br/>
+'''eif_field (''' ''object'' ''',''' ''name'' ''',''' ''type'' ''')''' <br/>
+which is deprecated. 
+==SEE ALSO==
+'''eif_protect'''(1) , '''attribute_exists'''(1) , '''eif_procedure'''(1) , '''eif_reference_function'''(1). Markup created by 1. 0, November 15, 1999. 
+
+
+

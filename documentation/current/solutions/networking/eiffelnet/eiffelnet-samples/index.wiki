@@ -1,0 +1,14 @@
+[[Property:title|EiffelNet Samples]]
+[[Property:weight|2]]
+=Description=
+
+Here is a set of five examples written thanks to the EiffelNet library to show some basic applications. Two of them rely on specific code to Unix Operating systems and consequently could not be run under Windows.
+*  [[Advanced|Advanced]] : for Unix Operating systems. 
+*  [[Polling|Polling]]  
+*  [[Predef|Predef]]  
+*  [[Same Machine|Same mach]] : for Unix Operating systems. 
+*  [[Two Machines|Two mach]]  
+
+
+
+

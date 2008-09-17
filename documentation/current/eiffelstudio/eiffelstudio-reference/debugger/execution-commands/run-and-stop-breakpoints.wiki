@@ -1,0 +1,13 @@
+[[Property:title|Run and stop at breakpoints]]
+[[Property:weight|-15]]
+This command launches an application compiled in Work Bench mode. The application will stop as soon as a [[Breakpoints: Introduction|breakpoint]]  is encountered, or when an exception occurs. 
+
+It is accessible through the '''project''' toolbar (  [[Image:debug-run-icon]]  ) or through the '''debug''' menu. 
+
+{{seealso| '''See Also''' <br/>
+[[Eiffel Debugger Execution: Introduction|Execution commands]]  <br/>
+[[Generating executables|Compiling in Workbench mode]]  }}
+
+
+
+

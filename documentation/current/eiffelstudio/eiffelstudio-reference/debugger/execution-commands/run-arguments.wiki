@@ -1,0 +1,28 @@
+[[Property:title|Run with arguments]]
+[[Property:weight|-14]]
+While working on a project, you may want to launch it with one or more arguments.
+
+There are two ways to specify arguments for a program from EiffelStudio:
+* From the '''Debug, Debugging Options''' menu.
+* By right-clicking any of the buttons on the debugging toolbar.
+
+==Using the Argument Dialog==
+
+[[Image:argument-dialog]]  
+
+
+
+The dialog allows you to manage different execution profiles to specify parameters to be passed to the system at execution time. 
+
+Each profile allows to set a title, the '''arguments''', the '''working directory''', and you can also set your own '''environment variables'''.
+
+To use a profile, just select it by clicking the corresponding line in the grid..
+
+Once the appropriate execution profile is selected then the system can be run with those parameters using the Run button (If "Keep Dialog Open" is selected the dialog remains opened).<br/>
+To run without any particular parameter select '''default''' 's profile.
+
+If you click on "Run Workbench" or "Run Finalized", the system will be executed outside EiffelStudio (thus no debugging)..
+
+
+
+

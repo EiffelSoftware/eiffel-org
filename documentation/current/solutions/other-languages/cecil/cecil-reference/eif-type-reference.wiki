@@ -1,0 +1,20 @@
+[[Property:title|Reference for `eif_type_by_reference']]
+[[Property:link_title|eif_type_by_reference]]
+[[Property:weight|8]]
+==SYNOPSYS==
+<code>
+'''#include "eif_cecil.h"
+
+EIF_TYPE_ID eif_type_by_reference (EIF_REFERENCE''' ''reference''''');'''</code>
+
+==DESCRIPTION==
+The '''eif_type_by_reference()''' function returns the type identifier corresponding to ''reference''. 
+==RETURN VALUE==
+Type identifier of ''reference''. The behavior is unknown if ''reference'' is not a valid Eiffel reference. 
+==CONFORMANCE==
+ISE Eiffel 4.5 and later. 
+==SEE ALSO==
+'''eif_type'''(1) , '''eif_name'''(1), '''eif_type_id'''(1). 
+
+
+

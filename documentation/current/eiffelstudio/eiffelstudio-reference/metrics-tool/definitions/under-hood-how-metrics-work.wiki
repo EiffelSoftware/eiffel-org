@@ -1,0 +1,51 @@
+[[Property:title|Under the Hood - How metrics work]]
+[[Property:weight|11]]
+This part explains how a product basic metric is calculated.
+
+==Domain Transformation==
+
+As you have seen, before calculating a product basic metric, two things have to be specified:
+*  A metric, and every metric has a unit 
+*  An input domain 
+
+And two facts follows:
+*  the specified metric will count the number of the code elements specified by the metric unit 
+*  An input domain can contain any kinds of code elements 
+
+For example, in the following figure, a metric as well as its input domain are specified:
+
+[[Image:hood1|Actual semantic for input domain item]]  
+
+Here the selected metric is '''Compiled classes''', and the input domain is {<eiffel>base</eiffel>}, and when calculating, all compiled classes in library base will be found and counted. The result is shown in the following figure:
+
+[[Image:hood2|Actual semantic for input domain item]]  
+
+But how are those compiled classes found in library <eiffel>base</eiffel>? The answer is through an operation called domain transformation.
+
+A domain transformation will transform a source domain into a destination domain with a specified product unit. This means that a product unit has to be specified to indicate what kind of code element will appear in a destination domain. A product unit can be one of the following: target, group, class, generic, feature, argument, local, assertion, line.
+
+A domain transformation is done like this: For every code element in source domain, all code elements of the destination unit that can be found (with the help of the compiler) in that source code element are put into the destination domain.
+
+Let's continue to use the above '''Compiled classes''' example. The input domain {<eiffel>base</eiffel>} is source domain, and the result domain of the metric is the destination domain here. The destination unit is class which is the unit of the specified metric '''Compiled classes'''.
+
+So for a source code element (here it is <eiffel>base</eiffel>), find all classes in that element (<eiffel>base</eiffel>), and put them in the destination domain. Now we get a destination domain which contains all candidate classes. Those classes are called candidates because we only want some of them. And the filtering is done with the specified criterion is_compiled. After that, you get the actual result domain.
+
+It's quite easy to understand the group to class transformation. But what if I want some features now? Just do consecutive transformations: from group to class first, and then from class to feature.
+
+We call a transformation from an element to another element a route, consecutive transformations a path. All possible transformation paths are shown in the following figure:
+
+[[Image:hood3|Actual semantic for input domain item]]  
+
+Some remarks on the transformation paths:
+*  If you go through the path from the end of an arrow to its head, you'll possibly find results, but if the transformation is done in the reversed direction, nothing will be found. For example, in any cases, the destination domain will be empty (indicating nothing is found) if you do a transformation from a line element to a class element. 
+*  Code element line appears in the path: Target -> Group -> Class -> Line because typically in an Eiffel class, there are some lines that do not belong to any features, such as class indexing lines or inherit clauses. 
+*  The shortest path will always be used. So if you transform a target element to a line element, the path: Target -> Group -> Class -> Line will be used instead of Target -> Group -> Class -> Feature -> Line 
+*  Paths from element to the element of the same unit are omitted. i.e., there are paths such as Target -> Target, Group -> Group, Class -> Class 
+
+==Domain Filtering==
+
+After domain transformation, we get a destination domain with all candidate code elements. Then we perform a filtering operation using the specified criterion in a basic metric to get rid of all unsatisfied candidates. At last, we'll get the desired result domain. Using the above example, for every class in the destination domain, we test if that class is compiled using the specified criterion is_compiled. If it's a compiled class, keep it in the destination domain, if not, remove it from the destination domain.
+
+
+
+

@@ -1,0 +1,45 @@
+[[Property:title|EiffelBuild: Key shortcuts]]
+[[Property:weight|2]]
+Many operations in EiffelBuild do not require the use of the mouse. The same effect can be achieved through the keyboard only.
+
+This page gathers all the keyboard shortcuts available in the environment.
+
+==Key shortcut reference==
+{| 
+|- 
+|  '''Key shortcut''' 
+|  '''action''' 
+|- 
+|  ''- file shortcuts -'' 
+|- 
+| Ctrl+O
+| Open project.
+|- 
+| Ctrl+N
+| New Project.
+|- 
+| Ctrl+S
+| Save project
+|- 
+|  ''- code generation shortcuts -'' 
+|- 
+| Ctrl+G
+| Generate code from project.
+|- 
+|  ''- miscellaneous shortcuts -'' 
+|- 
+| Delete
+| Delete object from currently selected tool.
+|- 
+| Ctrl+T
+| Tool always on top.
+|}
+
+'''Note''': These shortcuts are not always available and are dependent on the state of EiffelBuild. For example, Ctrl+S does nothing if there is no modified project open. 
+
+{{seealso| '''See Also''' <br/>
+[[EiffelBuild: General interface description|General interface description]]  }}
+
+
+
+

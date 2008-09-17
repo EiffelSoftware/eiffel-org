@@ -1,0 +1,23 @@
+[[Property:title|Assertions checking configuration changes]]
+[[Property:weight|0]]
+One of the major differences between 4.5 and 5.0 is how to specify the assertion checking in the ace file or in the project settings window. In 4.5, assertions of a certain type where checked if their level was below the requested level. Here is what the level hierarchy looked like:
+# require
+# ensure
+# loop
+# check
+# invariant
+# all
+
+Meaning that you could not just check one type of assertions. With 5.0 this is now possible and we changed the presentation to follow the cost to evaluate a given type of assertions, the first one being the less expensive:
+# check
+# require
+# ensure
+# loop
+# invariant
+# all
+
+The default assertion level has changed too. Not specifying any assertion level used to be equivalent to selecting the 'require' level. This is not the case any more in 5.0 it will be not checking assertions.
+
+
+
+

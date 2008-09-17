@@ -1,0 +1,18 @@
+[[Property:title|Selection]]
+[[Property:weight|2]]
+In EiffelStudio editor, you can select text by using either the mouse or the keyboard.
+
+To select a text zone with the keyboard, [[Cursor moves|move the cursor]]  to one end of the zone. Then press "Shift" and maintain the key pressed until you moved the cursor to the other end of the zone. The selected zone will appear in reverse video. If you want to select the entire text, press "Ctrl" and "A". 
+
+{{tip| '''Tip''': You can combine "Ctrl" and "Shift" when using Left and Right arrows to select text word by word }}
+
+If you choose to use the mouse, first [[Cursor moves|position the cursor]]  to one end of the text zone you want to select, and click there without releasing the mouse button. Then move the mouse pointer to the other end of the zone and release the button. The selected text is shown in reverse video. If the other end of the zone is not visible, move the mouse pointer out of the edition area as you select text in the direction where the end is. EiffelStudio Editor will start scrolling automatically and will stop as soon as the mouse pointer enters the edition area again. 
+
+There are other ways of using the mouse to select text in EiffelStudio editor:
+* You can select a word by double-clicking on it. If you do not release the mouse button after the second click, then you will be able to select a text zone but the bound of the zone will move one word at a time.
+* If you triple click in the edition area, then the pointed line will be selected. If you do not release the mouse button after the third click, you will be able to select text line by line.
+* A quadruple click will select the entire text (this is an option that you can [[Editor Preferences|modify]]  in the preferences dialog). 
+
+
+
+

@@ -1,0 +1,14 @@
+[[Property:title|Pause an application]]
+[[Property:weight|-7]]
+This command stops the execution of a running debugged application.
+
+This gives access to dynamic information concerning the application, such as the current [[Callstack tool: Introduction|call stack]]  and the [[Objects tool: Introduction|state of objects]]  in the system. 
+
+It is accessible through the '''project''' toolbar (  [[Image:debug-pause-icon]]  ) or through the '''debug''' menu. 
+
+{{seealso| '''See Also''' <br/>
+[[Eiffel Debugger Execution: Introduction|Execution commands]]  }}
+
+
+
+

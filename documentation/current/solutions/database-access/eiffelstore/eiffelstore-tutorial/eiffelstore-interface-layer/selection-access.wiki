@@ -1,0 +1,103 @@
+[[Property:title|Selection Access]]
+[[Property:weight|3]]
+Once you have [[Database Selection|selected data]]  from the database, it returns a set of rows containing queried columns values. Each row loaded with DB_SELECTION is stored in a DB_RESULT object. The easiest way to access the data is thus to refer to DB_RESULT objects themselves. 
+
+{{note| '''Note''': Take a look at the [[Data Object Coupling|Database/Eiffel objects Coupling]]  to learn advanced data handling features. }}
+
+To use DB_RESULT, process in 2 steps:
+*  [[#retrieve|retrieve]]  DB_RESULT objects. 
+*  [[#access|access]]  DB_RESULT content. 
+
+==Retrieving DB_RESULT objects==
+
+[[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  class provides different ways to customize result loading:
+* You want to access an '''unique''' row: [[ref:/libraries/store/reference/db_result_flatshort|DB_RESULT]]  object is accessible via cursor:
+<code>
+	selection: DB_SELECTION
+	my_result: DB_RESULT
+	...
+	selection.query ("...")
+	if selection.is_ok then
+		selection.load_result
+		my_result := selection.cursor
+	end
+</code>
+
+* You want to load a '''complete list''' of rows: [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  can store [[ref:/libraries/store/reference/db_result_flatshort|DB_RESULT]]  objects in a list. To do this, you have mainly to provide a LIST object to DB_SELECTION with set_container:
+<code>
+	selection: DB_SELECTION
+	container: ARRAYED_LIST [DB_RESULT]
+	create container.make (Max_results)
+	...
+	selection.set_container (container)
+	...
+	from
+		container.start
+	until
+		container.after
+	loop
+		...
+	end
+</code>
+
+{{tip| '''Tip''': Provide [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  with the LIST structure convenient for what you need to do with the results. }}
+
+* You want to '''select part''' of the result set: you can set an action in [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  that will be executed each time a row is loaded. This action can for instance manipulate current row and define a stop condition. 
+** You need to define a descendant of class ACTION and set it to [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]] :
+<code>
+	class
+		MY_ACTION
+	inherit
+		ACTION
+			redefine
+				execute, found
+			end
+	...
+	execute is
+		do
+			i := i + 1
+		end
+	...
+	found: BOOLEAN is
+		do
+			Result := i >= Max_result
+		end
+</code>
+
+** Then set action to [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]] :
+<code>
+	selection: DB_SELECTION
+	action: MY_ACTION
+	...
+	selection.set_action (action)
+	selection.query ("...")
+	if selection.is_ok then
+		selection.load_result
+	end
+</code>
+
+
+
+==Accessing content of DB_RESULT==
+
+A DB_RESULT object merely carries data retrieved from the database. You have to convert it to a DB_TUPLE to access data within the retrieved row conveniently, i.e. mostly the column values:
+<code>
+	selection: DB_SELECTION
+	tuple: DB_TUPLE
+	...
+	create tuple
+	tuple.copy (selection.cursor)
+	if tuple.count >= 2 and then tuple.column_name (2).is_equal ("Firstname") then
+		io.putstring (tuple.item (2).out)
+	end
+</code>
+
+{{seealso| '''See Also''' <br/>
+[[Database Selection|Performing a database selection.]]  <br/>
+[[Data Object Coupling|Coupling database data and Eiffel objects.]]  <br/>
+}}
+
+
+
+
+

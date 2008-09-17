@@ -1,0 +1,20 @@
+[[Property:title|Reference for `eif_wean']]
+[[Property:link_title|eif_wean]]
+[[Property:weight|10]]
+==SYNOPSYS==
+<code>
+'''#include "eif_hector.h"
+
+EIF_REFERENCE eif_wean (EIF_OBJECT''' ''obj''''');'''</code>
+
+==DESCRIPTION==
+The '''eif_wean()''' function releases the protection of the Eiffel reference, which is protected by the Eiffel object ''obj''. 
+==RETURN VALUE==
+It returns the Eiffel reference previously protected by obj. 
+==CONFORMANCE==
+ISE Eiffel 4.1 and later. 
+==SEE ALSO==
+'''eif_access'''(1) , '''eif_adopt'''(1), '''eif_protect'''(1). 
+
+
+

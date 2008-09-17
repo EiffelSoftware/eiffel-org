@@ -1,0 +1,48 @@
+[[Property:title|Referenced Assembly Type and Feature Name Conversion]]
+[[Property:weight|10]]
+The [[The Eiffel for .NET language|Eiffel for .NET language]]  is Eiffel. It is not a variant of Eiffel that spawned a new language, as is '''C#''', or a dramatic evolution of Eiffel, such as '''Visual Basic .NET''' is to '''VB6'''. As Eiffel stands today, and will probably remain, Eiffel's conventions for class names and features names do not match that of the Pascal and Camel-casing conventions recommended by Microsoft. Eiffel also does not support the notion of full quantified type names. The period (''''.'''') between namespace and type names is not valid Eiffel syntax. These naming convention rules pose a problem for maintaining the Eiffel language. To address this issue, when referencing .NET assemblies, all referenced assembly type names and feature names are converted into "Eiffel-case" when using Eiffel. 
+<span id="eiffel_case"></span> 
+==What is Eiffel-Case?==
+
+Eiffel-casing is almost the same for both class and class feature names, all words are separated using underscores (''''_''''). The differences between them are class names are always in uppercase and feature names always in lowercase. 
+
+<eiffel>MY_CLASS</eiffel> is an example of an Eiffel-cased class name. <br/>
+<eiffel>my_feature</eiffel> is an example of an Eiffel-cased feature name. 
+
+There are complex rules to ensure that the automatic formatting of .NET name, type, method, property and otherwise are formatted to the most readable name possible, given their casing convention. One absolute is that the Eiffel compilation process will remove the namespace from the fully qualified type name and format just the type name. 
+
+For example <eiffel>System.Windows.Forms.Border3DStyle</eiffel> would yield <eiffel>BORDER_3D_STYLE</eiffel>. 
+
+Stripping the namespace from the name is essential to keep type names short and usable, who wants to use <eiffel>SYSTEM_WINDOWS_FORMS_BORDER_3D_STYLE</eiffel>? Dropping the namespace does present a potential problem; assemblies may have two type that are of the same name but are located in different namespaces. A resolution to this comes in the form of assembly prefixes. For every assembly a class name prefix can be specified. Eiffel Software have reserved a set of assembly prefix pairs which should not be change as they are used by the Eiffel class libraries. For example, ''System.Windows.Forms.dll'' contains a commonly used type called <eiffel>System.Windows.Forms.Form</eiffel>. During the compilation process ''System.Windows.Forms.dll'' will be evaluated and <eiffel>System.Windows.Forms.Form</eiffel> will yield the <eiffel>FORM</eiffel> Eiffel class name. ''System.Windows.Forms.dll'' has been assigned the '<eiffel>WINFORMS_</eiffel>' prefix, so <eiffel>FORM</eiffel> would actually be <eiffel>WINFORMS_FORM</eiffel> instead. 
+<span id="prefixes"></span> 
+==Reserved Prefixes==
+
+The following table displays the fixed assembly class name prefixes, assigned by Eiffel Software, for the Microsoft Foundation Class Libraries: 
+{| 
+|- 
+| mscorlib.dll
+| No Prefix
+|- 
+| System.dll
+| <eiffel>SYSTEM_DLL_</eiffel>
+|- 
+| System.XML.dll
+| <eiffel>XML_</eiffel>
+|- 
+| System.Data.dll
+| <eiffel>DATA_</eiffel>
+|- 
+| System.Web.dll
+| <eiffel>WEB_</eiffel>
+|- 
+| System.EnterpriseServices.dll
+| <eiffel>ENTERPRISE_</eiffel>
+|- 
+| System.Windows.Forms.dll
+| <eiffel>WINFORMS_</eiffel>
+|}
+
+
+
+
+

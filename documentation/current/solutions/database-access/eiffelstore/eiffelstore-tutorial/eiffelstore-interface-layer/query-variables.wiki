@@ -1,0 +1,49 @@
+[[Property:title|Query variables]]
+[[Property:weight|5]]
+If you have to execute database queries which only differ in the expression values, you can create a template query and then bind variables into this template for each execution.
+
+This mechanism can be applied for requests with a result ([[ref:/libraries/store/reference/db_selection_chart|DB_SELECTION]] ) or without ([[ref:/libraries/store/reference/db_change_chart|DB_CHANGE]] ). Hence both classes inherits from STRING_HDL that actually handle variable binding.
+
+To use variable binding:
+*  [[#create|Create]]  a template query. 
+*  [[#bind|Bind]]  variables to the query. 
+
+==Creating a template query==
+
+Template queries are parsed to replace each variable by its bound value. To create a template query, you have hence to put directly variables where the values would take place.
+
+Variables syntax is simple: the ':' special character followed by the variable name.
+<code>
+	selection: DB_SELECTION
+	Bind_var: STRING is "firstname"
+	...
+	create selection.make
+	selection.set_query ("Select * from CONTACTS where Firstname = ':" + Bind_var + "'")
+</code>
+
+{{note| '''Note''': The code example shows how to bind variables to a [[ref:/libraries/store/reference/db_selection_chart|DB_SELECTION]]  object but the mechanism is exactly the same for [[ref:/libraries/store/reference/db_change_chart|DB_CHANGE]]  objects. }}
+
+==Binding variables to a query==
+
+Once you have created your query, you can map variable names to values and execute the query:
+<code>
+	selection: DB_SELECTION
+	Bind_var: STRING is "firstname"
+	...
+	loop
+		io.read_line
+		selection.set_map_name (io.laststring, Bind_var)
+		selection.execute_query
+		...
+		selection.unset_map_name (Bind_var)
+	end
+</code>
+
+{{seealso| '''See Also''' <br/>
+[[Database Selection|Performing a database selection.]]  <br/>
+[[Data Modification|Modifying database content.]]  <br/>
+}}
+
+
+
+

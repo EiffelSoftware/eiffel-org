@@ -1,0 +1,20 @@
+[[Property:title|Main address bar]]
+[[Property:weight|1]]
+The main address bar is located in the top part of windows, between the two [[Main toolbars|main toolbars]]  (when they are displayed). 
+
+[[Image:main-address-bar]]  
+
+It has several components:
+* History back and forth arrows  [[Image:view-previous-icon]]  and  [[Image:view-next-icon]]  
+* Fields where the current class or feature name is displayed
+* View icons to change the view displayed in the editor  [[Image:view-editor-icon]] ,  [[Image:view-clickable-icon]] ,  [[Image:view-flat-icon]] ,  [[Image:view-contracts-icon]]  and  [[Image:view-flat-contracts-icon]]  
+
+It is possible to type a class or feature name to center the editor on it. Typing a class name that does not exist in the set of known classes pops up a dialog to create a class of that name.
+
+{{tip| '''Tip''': Wildcards (* and ?) are available in these fields. }}
+
+{{tip| '''Tip''': The history is also accessible in the '''View/Go to''' menu. }}
+
+
+
+

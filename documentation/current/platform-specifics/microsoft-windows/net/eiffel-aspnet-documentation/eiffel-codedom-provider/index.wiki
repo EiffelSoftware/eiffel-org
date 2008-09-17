@@ -1,0 +1,16 @@
+[[Property:title|The Eiffel CodeDom Provider]]
+[[Property:weight|0]]
+The Eiffel CodeDom Provider provides an implementation of the CodeDom Provider generation and compilation interfaces defined in the System.CodeDom namespace of the .NET Framework. This documentation includes the following sections: 
+*  [[About the Code Document Object Model (CodeDom)|About CodeDom]]  introduces the basic concepts behing the CodeDom technology. 
+*  [[Installation|Installation]]  describes the steps involved in installing the Eiffel CodeDom Provider. 
+*  [[Supported Constructs|Supported constructs]]  lists the CodeDom constructs supported by the Eiffel CodeDom Provider. 
+*  [[Configuration|Configuration]]  describes how to administer the Eiffel CodeDom Provider. 
+*  [[Logging|Logging]]  describes the logging functionality of the Eiffel CodeDom Provider. 
+*  [[Required Permissions|Required permissions]]  describes the permissions that must be granted to the process using the Eiffel CodeDom Provider. 
+*  [[Common Scenarios|Secnarios]]  shows how the Eiffel CodeDom Provider can be used with different applications. 
+*  [[Eiffel Implementation|Eiffel implementation]]  describes a few points of the Eiffel CodeDom Provider implementation that are specific to the Eiffel language. 
+*  [[Limitations|Limitations]]  lists the limitations of the current Eiffel CodeDom Provider implementation. 
+
+
+
+

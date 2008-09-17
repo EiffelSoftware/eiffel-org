@@ -1,0 +1,17 @@
+[[Property:title|Eiffel for ASP.NET Installation]]
+[[Property:weight|-1]]
+Eiffel for ASP.NET is available for downloading for free at [http://www.eiffel.com http://www.eiffel.com] . Simply run the file and follow the installer instructions. It is recommended that Internet Information Services (IIS) be deployed on the machine prior to installing Eiffel for ASP.NET. If IIS is not deployed then the installation program will display a warning message box. Click '''ignore''' to keep installing the product. 
+Without IIS, ASP.NET pages cannot be loaded and thus the samples will not be installed. It might still be useful to install Eiffel for ASP.NET without IIS if the Eiffel CodeDom Provider is going to be used through other [[Common Scenarios|scenarios]]  . If IIS is available then the installer will open an Eiffel ASP.NET page at the end of the installation process. This page contains links to the documentation and samples. The installer will also put links to these documents in the ''Start'' menu under 'Programs\Eiffel for ASP.NET x.x' where 'x.x' corresponds to the version number of Eiffel for ASP.NET. 
+==System Requirements==
+*  Windows 2000 Server or Advanced Server with Service Pack 2, Windows XP Professional or 64-Bit Edition, or one of the Windows Server 2003 family products. 
+*  .NET Framework (1.0 or 1.1) 
+*  Internet Information Services with ASP.NET (optional see above) 
+
+==ASP.NET Installation==
+Please consult the corresponding documentation (available online at [http://msdn.microsoft.com/asp.net/ http://msdn.microsoft.com/asp.net/]  ) for configuring ASP.NET properly. In particular, be aware that by default ASP.NET is disabled on Windows 2003 Server. 
+
+{{seealso| '''See also:''' [[CodeDom: Getting Started|Getting Started]]  }}
+
+
+
+

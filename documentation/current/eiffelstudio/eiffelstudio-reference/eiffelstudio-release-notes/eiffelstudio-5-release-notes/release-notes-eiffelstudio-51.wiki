@@ -1,0 +1,35 @@
+[[Property:title|Release notes for EiffelStudio 5.1]]
+[[Property:link_title|5.1]]
+[[Property:weight|-9]]
+==Graphical environment==
+* Numerous improvements in usability and bug fixes.
+* Richer class and cluster creation dialogs.
+* Class name completion in the editor (by pressing Ctrl+Shift+Space half-way through the class name).
+* Editor now supports drag-and-drop of the selection.
+* When debugging a project from EiffelStudio, the current directory will be your project directory. It is a change from previous version where: 
+** on Windows, it used to be launched in the W_code subdirectory of your project directory
+** on Unix, it used to be launched from the same directory where `estudio' (or `ebench') was launched.
+
+* EiffelStudio GUI now also available on Unix platforms and Windows 9x/Me
+
+==Compiler and .NET==
+* Click [[Major changes between ISE Eiffel 5.0 and ISE Eiffel 5.1|here]]  for more details on compiler improvements and full Eiffel support on .NET 
+
+==Libraries==
+
+===EiffelBase===
+* It is now forbidden to create a <code> BIT_REF </code> or a <code> BIT X </code> object using its creation procedure (before it was accepted but did not work) 
+* Added <code> make_temporary_name </code> in <code> FILE_NAME </code> 
+* Made <code> to_c </code> obsolete from class <code> INTEGER_INTERVAL </code> 
+* Changed semantic of <code> split </code> from class <code> STRING </code> 
+* Fixed a bug in <code> clear_all </code> from <code> HASH_TABLE </code> that kept a reference to the last found item. Now it does not keep the reference after a call to <code> clear_all </code>. 
+
+===Vision2===
+* Support for Vision2 applications on GTK platforms.
+* Some changes in the Vision2 library have been made, [[Revisions and Bug Fixes|check here on how to update your code]] . 
+
+[[EiffelStudio release notes|Click here to check out what was new in other versions]]  
+
+
+
+

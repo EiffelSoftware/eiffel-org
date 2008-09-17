@@ -1,0 +1,75 @@
+[[Property:title|Release notes for EiffelStudio 6.0]]
+[[Property:link_title|6.0]]
+[[Property:weight|-7]]
+==Graphical environment==
+
+===What's new===
+* New docking facilities which let you control the layout of tools in EiffelStudio. One can also lock the layout to prevent unwanted changes.
+* New tabbed editor.
+* Added configurable pick and drop which lets you choose between traditional context menu or pick and drop for a mouse right click operation.
+* EiffelStudio is now internationalized, it fully supports English, Chinese and German. A partial translation for French and Russian is provided.
+* Shortcuts can now be customized.
+* Added dependency view so supplier/client dependency of a group/folder/class can be investigated. Feature calls are included in dependency view.
+
+===Improvements===
+* The combo boxes in the address bar can now be resized to see more text (useful with long class names).
+* Added ability to add new classes/clusters/assemblies early on in the compilation phase instead of waiting for a successful compilation.
+* Faster rendering of EiffelStudio when running it through Remote Desktop.
+* Auto-completion after bracketed expression. i.e. arr [i].*
+* Added preference "Maximum processor usage" to dictate the maximum number of processors/cores to use when compiling c-code.
+* Updated metrics documentation, see [[Metrics tool|for more details]] .
+
+===Changes===
+* Changed the diagram default color from light yellow to white for consistency with the background color of other tools.
+* Improved history behavior.
+* Project settings such as arguments/working directory/location are now stored in a user specific location that does not depend on the UUID of the project, but on its path.
+* Favorites are now stored in the user settings.
+
+===Bug fixes===
+* EiffelStudio and various tools should better handle paths with spaces.
+* Fixed add assemblies dialog not showing assemblies such as mscorlib on 64 bit systems.
+* Fixed bug#12083 where classes in override clusters would not get recompiled properly when automatically saved by EiffelStudio when requesting a compilation.
+* More bug fixes can be seen at [http://dev.eiffel.com/EiffelStudio_6.0_Releases the EiffelStudio open source site] .
+
+==Compiler==
+* Click [[Major changes between ISE Eiffel 5.7 and ISE Eiffel 6.0|here]]  for the compiler release notes.
+
+==Debugger==
+* Click [[Release notes for EiffelStudio 6.0 related to the debugger|here]]  for the EiffelStudio's debugger release notes.
+
+==EiffelBuild==
+* Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.
+
+==Libraries==
+
+===EiffelBase===
+* Fixed issue with <eiffel>LINKED_QUEUE</eiffel>.<eiffel>twin</eiffel> which would violate its invariant.
+* Revisited contracts of <eiffel>LINEAR_ITERATOR</eiffel>.
+* Added facilities to read/write <eiffel>REAL_32</eiffel> and <eiffel>REAL_64</eiffel> values in big and little endian format in <eiffel>MANAGED_POINTER</eiffel>.
+* Changed <eiffel>INTERNAL</eiffel> so that it does not have the <eiffel>is_pre_ecma_mapping_disabled</eiffel> attribute. If you were setting it to True, you should instead create an instance of <eiffel>ECMA_INTERNAL</eiffel> (fixes bug#11792).
+* <eiffel>HASH_TABLE</eiffel>: 
+** Sped up <eiffel>HASH_TABLE</eiffel> iteration and lookup by about 8% or more.
+** Added two new possibilities to detect/prevent catcalls, they can be enabled by enabling assertion checking and enabling the debug clauses ''prevent_hash_table_catcall'' and ''detect_hash_table_catcall''.
+
+* <eiffel>TUPLE</eiffel> can now compare items using reference equality (=) or object comparison (<eiffel>is_equal</eiffel>).
+* Sped up <eiffel>SPECIAL</eiffel>.<eiffel>copy_data</eiffel> which was previously not inlined due to a change of signature preventing the inlining.
+* <eiffel>EXECUTION_ENVIRONMENT</eiffel>.<eiffel>get</eiffel> will only retrieve environment variable. It won't retrieve a value from the registry key on Windows (from HKLM\Software\ISE\Eiffelxx\app_name). This also means that MELT_PATH on Windows cannot be set in registry; this is not really a problem because now you do not need to set it since the W_code knows where to find it.
+
+===EiffelNet===
+* Updated reading routines of EiffelNet so that for all basic types they would read all the required bytes, not just stop after reading the first. This is important as in some very bad network situation or if you have some signals you could mess up the reading by only reading half of the expected bytes.
+
+===EiffelThread===
+* Fixed bug#12838 where on Linux you could not create more than 2^15 threads even if they all exited. Now we force creation of threads in a detached mode to allow more than 2^15 thread creations.
+
+===EiffelVision2===
+* [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
+
+===WEL===
+* Raised compatibility bar to Windows 2000 or greater. No more support for Windows 98 or NT 4.0.
+* Added ability to convert image formats among all image formats on Windows (using <eiffel>WEL_GDIP_BITMAP</eiffel>).
+
+[[EiffelStudio release notes|Click here to check out what was new in other versions]]  
+
+
+
+

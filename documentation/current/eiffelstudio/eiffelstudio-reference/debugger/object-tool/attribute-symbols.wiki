@@ -1,0 +1,18 @@
+[[Property:title|Attribute symbols]]
+[[Property:weight|1]]
+In both trees of the [[Objects tool: Introduction|object tool]] , objects are displayed. Two categories are made for each objects: its attributes (grouped under the `attributes' folder  [[Image:feature-attribute-icon]]  ) and its once routines (grouped under the `once routines' folder  [[Image:feature-once-icon]]  ). 
+
+All follow the following symbol scheme to describe the kind of each item:
+*   [[Image:debugger-object-immediate-icon]]  An attribute of a basic type, such as <eiffel>[/libraries/base/reference/kernel/integer_chart.xml| INTEGER  ]</eiffel>, <eiffel>[/libraries/base/reference/kernel/classic/double_chart.xml| DOUBLE  ]</eiffel>,... 
+*   [[Image:debugger-object-eiffel-icon]]  An attribute that is a reference to an object 
+*   [[Image:debugger-object-void-icon]]  A Void reference 
+*   [[Image:debugger-object-expanded-icon]]  An object that is expanded 
+
+For .NET system, special symbols are used to describe :
+*   [[Image:debugger-object-dotnet-icon]]  An object that is external (i.e not known as an Eiffel type) 
+*   [[Image:debugger-object-dotnet-static-icon]]  A static value object that is external (i.e not known as an Eiffel type) 
+*   [[Image:debugger-object-static-icon]]  A static value object that is known as an Eiffel type 
+
+
+
+

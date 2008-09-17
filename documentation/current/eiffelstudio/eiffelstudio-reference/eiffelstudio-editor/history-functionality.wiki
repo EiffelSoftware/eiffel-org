@@ -1,0 +1,13 @@
+[[Property:title|History functionality]]
+[[Property:weight|4]]
+EiffelStudio editor provides an history functionality, i.e. Undo and Redo commands.
+*  
+To undo last change, press the key combination "Ctrl+Z", click on the undo icon  [[Image:general-undo-icon]] or choose '''Undo''' in the '''Edit''' menu. If you repeat this operation, the editor will undo the last change and so on until there are no more changes to undo. 
+
+*  
+To redo last undone change, press the key combination "Ctrl+Y", click on the redo icon  [[Image:general-redo-icon]] or choose '''Redo''' in the '''Edit''' menu. If you repeat this operation, the editor will redo the last undone change and so on until there are no undone changes left. 
+
+
+
+
+

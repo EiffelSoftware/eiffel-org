@@ -1,0 +1,19 @@
+[[Property:title|Display window]]
+[[Property:weight|6]]
+The Display window provides a view of the [[EiffelBuild Notation|objects]]  in your system, but unlike the [[Layout constructor|layout constructor]]  and [[Builder window|builder window]] , the objects cannot be manipulated. 
+
+This window may either be shown or hidden (default). To change between these two states, click  [[Image:icon-display-window-color]] on the [[Main toolbar|main toolbar]] , or select '''Show/Hide display window''' from the '''View''' menu. 
+
+[[Image:display-window]]  
+
+This view is provided so that you can really see what your project will look like when it has been generated and is running as a stand alone [[EiffelVision Introduction|EiffelVision2]]  system. 
+
+All properties that have been set on the [[EiffelBuild Notation|objects]]  in your project are set in the [[EiffelVision Introduction|EiffelVision2]]  control matching its type. 
+
+{{seealso| '''See Also''' <br/>
+[[Builder window|Builder window]]  <br/>
+[[Layout constructor|Layout constructor]]  }}
+
+
+
+

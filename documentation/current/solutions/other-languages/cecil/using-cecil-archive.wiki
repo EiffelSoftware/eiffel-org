@@ -1,0 +1,70 @@
+[[Property:title|Using a CECIL archive]]
+[[Property:weight|2]]
+==Linking the CECIL archive into a program==
+The CECIL archive already incorporates the Eiffel run-time. To use the functions provided in the CECIL archive, simply write the C programs according to the CECIL specifications of ETL, and then include the CECIL archive in the link line of your C application. This line looks like: 
+on Unix/linux:
+<code>ld -o [name of your CECIL executable] [your C object files and archives]lib<system name>.a -lm</code>
+
+{{note| '''Note''': On Unix, linking with "-lm" is required since the Eiffel run-time uses the standard math libraries. You may need to link with other libraries (for example, on linux: with "-lbsd", in MT mode with "-lpthread" (posix threads) or "-lthread" (solaris)). }}
+
+
+
+on Windows, with MS VC++:
+<code>link [your link flags] -OUT:[name of your cecil executable] [your C object files and archives] lib<system name>.lib [other Windows libraries]</code>
+
+
+
+on Windows with Borland:
+<code>ilink32 -ap -c -Tpe main.obj c0w32.obj, [name of your cecil executable],,EIFGENs\target_name\W_code\lib<system name>.lib CW32 IMPORT32 OLE2w32,,</code>
+
+
+
+'''Notes for compiling CECIL C files:''' <br/>
+The CECIL library is built automatically, which is unfortunately not the case of the corresponding object files of the cecil program you wrote. <br/>
+The C flags to use are usually the same as the ones needed during the compilation of the generated C-code plus those which are relevant to your own C-code. 
+
+Typically, you will compile with your flags as below (if you are using gcc):
+<code>gcc -c -O -I$ISE_EIFFEL/studio/spec/$PLATFORM/include -I<SOME_INCLUDE_PATH> -D<SOME_FLAGS> your_file.c</code>
+
+or , if you are on Windows using MS VC++:
+<code>cl -c -nologo -Ox -I$ISE_EIFFEL\studio\spec\windows\include -I<SOME_INCLUDE_PATH> -D<SOME_FLAGS> your_file.c</code>
+
+or, if you are on Windows using Borland:
+<code>bcc32 -c -I$ISE_EIFFEL\studio\spec\windows\include -I<SOME_INCLUDE_PATH> -D<SOME_FLAGS> your_file.c</code>
+
+{{sample| '''Sample''': if you want to use the multithreaded facilities of Eiffel, you should define the EIFFEL MT flags by adding "-DEIF_THREADS" to the command line and follow the instructions of your C compiler and platform to find out which additional flags you may need '''. For example:''' on Solaris you need to add "-DSOLARIS_THREADS -D_REENTRANT". }}
+
+You can specify a Makefile in your configuration file, so that your C files will be compiled automatically after the Eiffel compilation and before the final linking. See [[Externals Options|the manipulation of external]]  in the project settings to add <code>$PATH_TO_MAKEFILE/your_makefile</code>.
+
+This makefile will be run from the $/EIFGENs/target_name/W_code or $/EIFGENs/target_name/F_code directory. You should not give the CECIL executable the same name as your system, because it will be replaced by the Eiffel executable when you run another compilation. 
+
+==Initializing the Eiffel run-time==
+Even though the main thread of control resides in the "C side" of the program, the Eiffel run-time must be initialized correctly before it can use CECIL facilities to communicate with the Eiffel world. 
+In the C file containing the "main" C function, you must add the following line to include the header file "eif_setup. h" provided with this example:
+<code>
+#include "eif_setup.h"  /* Macros EIF_INITIALIZE and EIF_DISPOSE_ALL */
+#include "eif_eiffel.h" /* Exported functions of the Eiffel run-time */</code>
+
+Your "main" function must have the three standard arguments of the C "main" function: "argc", "argv" and "envp" and include the following macros that are defined in "eif_setup. h":
+<code>
+int main(int argc, char **argv, char **envp)
+	/* Please respect this signature: `argc', `argv' and `envp' are used * in EIF_INITIALIZE. */
+{
+		/* declarations of variables */
+		/* Initialize the Eiffel run-time. */
+	EIF_INITIALIZE(failure)
+	
+/* body of your "main" function */
+
+	/* Reclaim the memory allocated by the Eiffel run-time. */
+EIF_DISPOSE_ALL
+}</code>
+
+{{note| '''Notes''': <br/>
+The above mentioned macros must imperatively be in the body of the "main" function for the Eiffel exception handling mechanism to work correctly.  You also need to add the Eiffel run time directory to the list of directories in which the C compiler searches for include files. You can do so by using the "-I" option of your C compiler.  You can only link one CECIL library into your C applications at a time. }}
+
+{{warning| '''Caution''': Even though external object files and archives are correctly specified in the "object" clause of the configuration file, you will need to explicitly link them to your C application. }}
+
+
+
+

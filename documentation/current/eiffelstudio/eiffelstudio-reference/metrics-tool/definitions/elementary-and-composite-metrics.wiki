@@ -1,0 +1,35 @@
+[[Property:title|Elementary and composite metrics]]
+[[Property:weight|4]]
+Some of our metrics will be elementary and some composite. An elementary metric is measured directly from the product or a project record:
+
+{{note| '''Elementary_metric''': <br/>
+- An '''elementary product metric''' is a product metric whose values (integers) indicate the number of occurrences of a certain pattern in a product. <br/>
+- An '''elementary process metric''' is a process metric whose values reflect measurements drawn directly from project records. }}
+
+An example of elementary product metric is the number of source lines. An example of elementary process metric is the number of incremental compilations of a system.
+
+Elementary metrics are provided by default by the metric tool. There is no means to remove them or to define new ones since they are not expressed as a combination of other metrics.
+
+From these elementary metrics we may define composite ones:
+
+{{note| '''Composite metric ''': A '''composite metric''' is a metric whose values are defined by a mathematical formula involving other metrics (elementary, or previously defined composite metrics). }}
+A later section will introduce a number of operations for defining composite metrics out of elementary ones. 
+Again we may distinguish between product and process:
+
+{{note| '''Composite product metric, composite process metric:''' <br/>
+- A '''composite product metric''' is a composite metric defined entirely in terms of product metrics. <br/>
+- A '''composite process metric''' is a composite metric whose definition involves one or more process metrics. }}
+
+By convention, this definition treats as process metric as a composite metric involving both product and process components.
+
+The classification introduced for metrics extends to measures, so that we may talk about an elementary product measure, a composite process measure and so on.
+
+{{seealso| '''See Also''' <br/>
+[[Attributes, metrics and measures|Metrics]]  <br/>
+[[Scopes|Scopes]]  <br/>
+[[Domains|Domains]]  <br/>
+[[Selection Criteria|Selection criteria]]  }}
+
+
+
+

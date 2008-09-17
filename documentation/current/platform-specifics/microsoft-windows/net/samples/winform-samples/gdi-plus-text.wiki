@@ -1,0 +1,44 @@
+[[Property:title|GDI plus - text]]
+[[Property:weight|-7]]
+<div> 
+[[Image:text|Hello world form]]  
+</div>
+<br/>
+<br/>
+
+
+==Compiling==
+
+To compile the example:   
+# Launch EiffelStudio.
+# Click '''Add project'''
+# Browse to ''$ISE_EIFFEL\examples\dotnet\gdi_plus\text\''
+# Choose ''text.ecf''
+# Choose the location where the project will be compiled, by default the same directory containing the configuration file.
+# Click '''Open'''.
+
+
+==Running==
+
+After launching the application, you will see a window displayed with a similar appearance to the one above. 
+
+
+
+==Under the Hood==
+
+This sample show how to draw some text in a window, using different brushes, different fonts, different style and different colors. 
+
+This sample contains the following class:
+*  <eiffel>FORM</eiffel> 
+
+==Notes==
+
+This sample is translated from the example located in the QuickStart\winforms\samples\gdiplus subdirectory of the .NET Framework SDK samples directory of Microsoft Visual Studio.NET. 
+
+
+
+
+
+
+
+

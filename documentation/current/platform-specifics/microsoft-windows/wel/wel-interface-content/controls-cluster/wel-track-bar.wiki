@@ -1,0 +1,13 @@
+[[Property:title|WEL_TRACK_BAR]]
+[[Property:weight|14]]
+A [[ref:libraries/wel/reference/wel_track_bar_chart|WEL_TRACK_BAR]]  control has a sliding pointer and optional tick marks.
+
+==Appearance==
+A [[ref:libraries/wel/reference/wel_track_bar_chart|WEL_TRACK_BAR]]  created with <eiffel>make_horizontal</eiffel>. <br/>
+ [[Image:wel-track-bar-horizontal|wel_track_bar_horizontal]]  <br/>
+<br/>
+A [[ref:libraries/wel/reference/wel_track_bar_chart|WEL_TRACK_BAR]]  created with <eiffel>make_vertical</eiffel>. <br/>
+ [[Image:wel-track-bar-vertical|wel_track_bar_vertical]]  
+
+
+

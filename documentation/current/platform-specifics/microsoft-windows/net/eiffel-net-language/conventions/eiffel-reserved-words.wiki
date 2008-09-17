@@ -1,0 +1,76 @@
+[[Property:title|Eiffel Reserved Keywords]]
+[[Property:link_title|Eiffel reserved words]]
+[[Property:weight|6]]
+There are 56 language keywords in Eiffel which cannot be used as developer defined identifiers in Eiffel class code.
+
+==Eiffel Reserved Keywords==
+{| 
+|- 
+|  <code>agent</code> 
+|  <code>alias</code> 
+|  <code>all</code> 
+|  <code>and</code> 
+|  <code>as</code> 
+|  <code>assign</code> 
+|  <code>check</code> 
+|- 
+|  <code>class</code> 
+|  <code>convert</code> 
+|  <code>create</code> 
+|  <code>Current</code> 
+|  <code>debug</code> 
+|  <code>deferred</code> 
+|  <code>do</code> 
+|- 
+|  <code>else</code> 
+|  <code>elseif</code> 
+|  <code>end</code> 
+|  <code>ensure</code> 
+|  <code>expanded</code> 
+|  <code>export</code> 
+|  <code>external</code> 
+|- 
+|  <code>False</code> 
+|  <code>feature</code> 
+|  <code>from</code> 
+|  <code>frozen</code> 
+|  <code>if</code> 
+|  <code>implies</code> 
+|  <code>indexing</code> 
+|- 
+|  <code>infix</code> 
+|  <code>inherit</code> 
+|  <code>inspect</code> 
+|  <code>invariant</code> 
+|  <code>is</code> 
+|  <code>like</code> 
+|  <code>local</code> 
+|- 
+|  <code>loop</code> 
+|  <code>not</code> 
+|  <code>obsolete</code> 
+|  <code>old</code> 
+|  <code>once</code> 
+|  <code>or</code> 
+|  <code>prefix</code> 
+|- 
+|  <code>Precursor</code> 
+|  <code>pure</code> 
+|  <code>redefine</code> 
+|  <code>reference</code> 
+|  <code>rename</code> 
+|  <code>require</code> 
+|  <code>rescue</code> 
+|- 
+|  <code>Result</code> 
+|  <code>retry</code> 
+|  <code>separate</code> 
+|  <code>then</code> 
+|  <code>True</code> 
+|  <code>TUPLE</code> 
+|  <code>undefine</code> 
+|}
+
+
+
+

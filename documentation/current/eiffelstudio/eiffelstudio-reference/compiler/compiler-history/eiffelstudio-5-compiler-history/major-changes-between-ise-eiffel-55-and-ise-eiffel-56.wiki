@@ -1,0 +1,152 @@
+[[Property:title|Major changes between ISE Eiffel 5.5 and ISE Eiffel 5.6]]
+[[Property:link_title|5.6]]
+[[Property:weight|-13]]
+==What's new==
+
+{{seealso|See also: [[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
+* Implemented once manifest strings. They can be used at the same places where normal manifest strings can be used, e.g.: 
+<code>s := once "abc"
+io.put_string (once "Hello World!")</code>
+Once manifest strings are not created every time they are accessed. Instead one instance is created at the first access and then it is reused for subsequent accesses. In multithreaded application one instance is created for one thread.
+* Supported aligned and non-aligned verbatim strings. Aligned verbatim strings use characters <code>[</code> and <code>]</code> in opening and closing sequence respectively, non-aligned verbatim strings use <code>{</code> and <code>}</code>.
+* Added support for manifest type expression "{<eiffel>MY_TYPE</eiffel>}" which gives an instance of <eiffel>TYPE</eiffel> [<eiffel>MY_TYPE</eiffel>].
+* New syntax for manifest constants. Now they can be preceeded by a manifest type expression. For example <code>1</code> is of type <eiffel>INTEGER</eiffel>, whereas {<eiffel>INTEGER_8</eiffel>} 1 is of type <eiffel>INTEGER_8</eiffel>.
+* Support for <eiffel>NATURAL_XX</eiffel> types which are unsigned integers.
+* Supported new feature alias syntax to specify operator and bracket names: 
+<code>negate alias "-": like Current ...
+multiply alias "*" (other: like Current): like Current ...
+item alias "[]" (index: INTEGER): G ...</code>
+The first two declarations can be used similar to features <code>prefix "-"</code> and <code>infix "*"</code>. The last one can be used to make feature calls with bracket expressions like 
+<code>letter  := letters [i]</code>
+Operator and bracket aliases can also be used in <code>rename</code> subclause to change an alias name associated with a feature. 
+* Supported new feature assigner syntax to associate feature with an assigner command: 
+<code>item  alias "[]" (index: INTEGER): G assign put ...
+put (value: G; index: INTEGER) ...</code>
+Given the declaration above the following instructions become equivalent: 
+<code>x.put (x.item (i + 1), i)
+x.item (i) := x.item (i + 1)
+x [i] := x [i + 1]</code>
+
+
+==Improvements==
+* Optimized .NET code generated for <code>inspect</code> instruction.
+* Optimized access to process-relative once routines to avoid heavy-weight synchronization primitives when possible.
+* Speed-up access to once routines in finalized multi-threaded applications.
+* Improved some error messages to be more precise.
+* Removed the requirement to freeze code that declares process-relative once routine.
+* Improved multi-threaded application performance in classic mode by using built-in support for thread-local storage provided by some ''C'' compilers.
+* Allowed underscores in hexadecimal literals.
+* Provided syntax highlighting for hexadecimal literals in editor.
+* Slightly improved reporting of syntax errors.
+* Made keyword operator names clickable in flat view.
+
+==Changes==
+* Void does not conform to expanded types. As a consequence, assignments of Void to expanded entities will be rejected rather than throwing an exception at run-time. And comparison of expanded entities to Void will cause a <code>VWEQ</code> validity error.
+* Changed default behavior of once routines in .NET mode from once-per-process to once-per-thread to match behavior in classic mode.
+* Provided project options (<code>old_verbatim_strings</code> and <code>old_verbatim_strings_warning</code>) to support semantics of verbatim strings as in previous versions when they were not left-aligned.
+* Changed processing of hexadecimal integer literals to be consistent for different integer types. For example, <code>0xFF</code> gives <code>255</code> when assigned to a variable of type <eiffel>INTEGER</eiffel> rather than <code>-1</code> as before.
+* Due to the new {} syntax, a few older syntax constructs have been removed: 
+** "{<eiffel>X</eiffel>} <code>Precursor</code> (..)" is rejected and should be replaced by "<code>Precursor</code> {<eiffel>X</eiffel>} (...)".
+** "<code>agent</code> <eiffel>f</eiffel> (?, {<eiffel>A</eiffel>})" is now rejected, as it would conflict with a manifest type expression, instead you should write "<code>agent</code> <eiffel>f </eiffel>(?, {<eiffel>A</eiffel>} ?)".
+
+* In .NET, all usage of <eiffel>INTEGER_8</eiffel> from .NET libraries have been changed to <eiffel>NATURAL_8</eiffel>.
+* In .NET, renamed <eiffel>TYPE</eiffel>, <eiffel>ATTRIBUTE_</eiffel> and <eiffel>VOID_</eiffel> from the mscorlib assembly into <eiffel>SYSTEM_TYPE</eiffel>, <eiffel>SYSTEM_ATTRIBUTE</eiffel> and <eiffel>SYSTEM_VOID</eiffel>.
+* Changed exception handling for once routines so that exception raised during the first call is raised during any subsequent call to this routine.
+* Introduced upper limit for value of integer constant used in <code>BIT</code> type declaration and extended <code>VTBT</code> rule to cover this change.
+* To evaluate the type of a manifest array we now use the first item of the manifest array instead of the last one as a first guessed type.
+* Allowed for integer literals with intermediate underscores at arbitrary positions.
+* To ensure same behavior on various platforms, the standard output is now unbuffered (it previously was unbuffered on Windows and line buffered on Unix platforms).
+
+==Bug fixes==
+
+===Language issues===
+* Used <code>'%N'</code> as an end of line in verbatim strings regardless of the end of line sequence in source code.
+* Fixed incorrect handling of negative hexadecimal integer literals when sign before the literal was not taken into account. For example, <code>-0x1</code> could be interpreted as <code>1</code>.
+* Implemented checks for input ranges of integer constants and fixed issue with inability to assign minimum integer values to variables of the corresponding integer types. 
+{| 
+|+ Allowed integer values
+|- 
+| Type
+| Integer interval
+| Unsigned hexadecimal representation
+|- 
+| <eiffel>INTEGER_8</eiffel>
+| <code>-128 .. 127</code>
+| <code>0x0 .. 0xFF</code>
+|- 
+| <eiffel>INTEGER_16</eiffel>
+| <code>-32768 .. 32767</code>
+| <code>0x0 .. 0xFFFF</code>
+|- 
+| <eiffel>INTEGER_32</eiffel>
+| <code>-2147483648 .. 2147483647</code>
+| <code>0x0 .. 0xFFFFFFFF</code>
+|- 
+| <eiffel>INTEGER_64</eiffel>
+| <code>-9223372036854775808 .. 9223372036854775807</code>
+| <code>0x0 .. 0xFFFFFFFFFFFFFFFF</code>
+|}
+
+* Excluded nonsignificant leading zeroes from determination of allowed integer constant type, so that <code>00000000000000123</code> is now a valid <eiffel>INTEGER_8</eiffel> value.
+* Shared the same data accross once routines and string constant attributes from different generic derivations of the same class. Added a warning for once routines that appear in a generic class to notify about this change in semantics.
+* Correctly supported replication of once features when compiling for .NET.
+* Changed order of evaluation of once routines to check precondition with class invariant even when once routine has already been called.
+* Added a check that length of identifier, manifest string and free operator does not exceed a maximum value of 32767 bytes.
+
+===Compiler issues===
+* Fixed crash of the compiler at the very end of a finalization of a system which has an assignment of a manifest type into a variable of type <eiffel>ARRAY</eiffel> [<code>like</code> <eiffel>anchor</eiffel>] where <eiffel>anchor</eiffel> is a feature being redefined with a different type in a descendant class.
+* Fixed an issue where compiler would report more than once the same error in an incremental recompilation.
+* Fixed issue where changing a normal routine to an external and having a compile error, and then reverting back to a normal routine while fixing the error would cause the compiler to crash.
+* Fixed some cases where project could be corrupted after a recompilation.
+* Now compiler reports <code>VTCT</code> errors at the end of degree 5, rather than during degree 5, so that you can collect all the <code>VTCT</code> errors at once.
+* Thanks to the improvement in <code>VTCT</code> errors reporting, now compiler will not generate an incorrect <code>VTCT</code> errors during an incremental recompilation for a class which has actually been removed from the system.
+* Supported recompilation of once routines when their status is changed from "process-relative" to "thread-relative" or back.
+* Supported output of multi-line obsolete messages.
+* Fixed a recompilation bug that resulted in incorrect (or even, in case of .NET, in invalid) generated code when incrementally finalizing a system without explicitly specified root creation procedure.
+* Fixed a bug with resolving some generic-like types (i.e., types that are processed in a special way: tuple, native array, typed pointer) that depend on anchored types: before they were converted to "normal" generic types thus loosing their special properties.
+* Fixed a bug that caused compiler to crash when finalizing a code that looks like 
+<code>if true then [else(if) ...] end</code>
+i.e. has empty compound for a primary condition which is a constant <code>true</code>.
+* Fixed a bug in processing configuration option <code>precompiled</code> that caused a compiler to crash when no option value was provided.
+* Fixed a bug in incremental recompilation when multi-branch validity rules are violated in one class because constant attribute used in the multi-branch instruction is changed in another class, that declares them, into a non-constant feature.
+* Fixed multiple bugs in feature basic text view that caused truncated or extraneous output.
+* Fixed bug where if an actual generic parameter was an anchor, then if the type containing this actual was used for assignment attempt or for creation we would use an incorrect type for the actual generic. We were using the type of the anchor in the class were the code was written, instead of actually re-evaluating the type of the anchor for each descendant class.
+
+===Runtime/code generation issues===
+* Fixed bug in <eiffel>deep_twin</eiffel> from <eiffel>ANY</eiffel> in .NET which would cause a call on Void target when applied on object of type <eiffel>STRING</eiffel> and possibly other types.
+* Corrected C code on Windows for constants of type <eiffel>INTEGER_64</eiffel>. Before constants of this type between <code>-2147483648</code> and <code>-1</code> could be processed as positive 64-bit values.
+* Fixed incorrect C and IL code generation for <eiffel>INTEGER_8</eiffel> and <eiffel>INTEGER_16</eiffel> arithmetic and shift operations that might produce incorrect result when combined in two or more operations in a row. For example, 
+<code>i := (i + i) |>> 1</code>
+assigned <code>-128</code> to <code>i</code> of type <eiffel>INTEGER_8</eiffel> if the initial value of <code>i</code> was <code>-128</code>. Now this instruction assigns <code>0</code>.
+* Synchronized access to data of process-relative once routines to avoid race conditions when two or more threads simultaneously access the same once routine.
+* Avoided permanent blocking of a thread accessing process-relative once routine when this routine is concurrently evaluated in some other thread and raises an exception.
+* Fixed bugs in memory allocation in C code for result of a once function that returns basic type: 
+** it might cause memory corruption when memory size required to store the result is greater than size of a pointer;
+** there was a memory leak.
+
+* Fixed a bug in classic mode that caused last exception to be cleared after returning from a routine that has a rescue clause but returns normally.
+* Fixed several bugs related to handling of nested exceptions in classic mode.
+* Changed a limit of maximum class name length in melted byte code from 256 bytes to 32767 bytes.
+* Changed C code generation for long strings (that result from long manifest strings, identifiers, etc.) to avoid restrictions imposed by some C compilers on long string literals (in particular, by the Microsoft C compiler <code>cl</code> that issued error C2026).
+* Fixed a bug in finalized C code generation when calling <code>Precursor</code> in a routine which is recursively calling itself before the call to <code>Precursor</code>. Instead of generating the call to <code>Precursor</code> we would generate a recursive call to the routine.
+* Fixed a bug where calls to <eiffel>standard_is_equal</eiffel> from <eiffel>ANY</eiffel> on objects whose type is generic would yield <code>False</code> where it should have been <code>True</code>.
+
+===.NET issues===
+* Corrected processing of literal floating point fields from external assemblies (such as <eiffel>System</eiffel><code>.</code><eiffel>Math</eiffel><code>.</code><eiffel>PI</eiffel>) to obtain proper values.
+* Fixed a bug where the value -1 was actually 255 on .NET.
+* Fixed issue where declaring a <eiffel>NATIVE_ARRAY</eiffel> of a .NET expanded type would be rejected by the compiler.
+* Fixed issue where assigning a .NET expanded type to an entity of type <eiffel>ANY</eiffel> would be rejected by the compiler.
+* Fixed a crash in the compiler when generating the code for a class which inherits from a .NET class and from an Eiffel class which has some anchored types.
+* Fixed a bug in assertion monitoring that could lead to wrong monitoring of assertions that are evaluated concurrently in different threads.
+* Fixed a bug in code generation for entry point of executable when root procedure is a redeclaration of a deferred feature that caused an exception <code>MissingMethodException</code> to be raised on startup of such an application.
+* Fixed a bug in code generation when solely inheriting from a .NET interface.
+* Fixed a bug in code generation when inheriting from a .NET class which has a routine whose name is identical to one of the routine of <eiffel>ANY</eiffel>.
+* Fixed a bug in code generation of custom attributes encoding in the case of a named argument whose base type is a .NET enum type.
+* Improved <eiffel>conforms_to</eiffel> from <eiffel>ANY</eiffel> so that even though full generic conformance is still not yet supported, it checks it properly when the base class are the same.
+
+===Store/Retrieve issues===
+* Fixed an issue where the GC would be disabled after a failure in a retrieval operation.
+
+
+
+

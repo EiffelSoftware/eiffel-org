@@ -1,0 +1,12 @@
+[[Property:title|Features]]
+[[Property:weight|0]]
+* Parse any resource file (created by Microsoft Developer Studio or Borland Resource Workshop).
+* Show resources by using a tree view control.
+* Display some resource's informations.
+* Open and Save a Project (projects are not compatible with upcoming version of ResourceBench).
+* Generate both Eiffel Classes and resource file.
+* Let you specify which part of your resource file will be generated.
+
+
+
+

@@ -1,0 +1,32 @@
+[[Property:title|Edit menu commands]]
+[[Property:weight|8]]
+In the '''Edit''' menu, the following commands are available: 
+*  [[History functionality|Undo]] : undo last change. 
+*  [[History functionality|Redo]] : redo last undone change. 
+*  [[Clipboard functionality|Cut]] : Cut [[Selection|selected]]  text. 
+*  [[Clipboard functionality|Copy]] : Copy [[Selection|selected]]  text. 
+*  [[Clipboard functionality|Paste]] : Paste text from the clipboard. 
+*  [[Selection|Select All]] : Select the entire text. 
+*  [[Search tool|Find]] : Show and go to the [[Search tool|search panel]] . 
+*  [[Search tool|Replace]] : Show and go to the [[Search tool|search panel]]  with replace option activated. 
+*  Toggle Line Numbers: Show or hide the line numbers in the current editor. 
+*  [[Search functionality|Search]] : 
+**  [[Search functionality|Find next]] : Find the next occurrence of the last searched expression. 
+**  [[Search functionality|Find previous]] : Find the previous occurrence of the last searched expression. 
+**  [[Search functionality|Find selection]] : Find the next occurrence of the selected text. 
+
+* Advanced 
+**  [[Indent and un indent  selection|Indent selection]]  
+**  [[Indent and un indent  selection|Unindent selection]]  
+**  [[Comment and uncomment lines|Comment]]  
+**  [[Comment and uncomment lines|Uncomment]]  
+**  [[Embed lines in 'if then...end' or in 'debug...end'|Embed in if...]]  
+**  [[Embed lines in 'if then...end' or in 'debug...end'|Embed in debug...]]  
+**  [[Feature call auto complete|Complete word]]  
+**  [[Class name auto complete|Complete class name]]  
+
+*  [[Preference window overview|Preferences]]  
+
+
+
+

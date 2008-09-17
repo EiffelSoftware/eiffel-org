@@ -1,0 +1,22 @@
+[[Property:title|Reference for `eif_name']]
+[[Property:link_title|eif_name]]
+[[Property:weight|-2]]
+==SYNOPSYS==
+<code>
+'''#include "eif_cecil.h"
+
+char *eif_name (EIF_TYPE_ID '''''tid''''');'''</code>
+
+==DESCRIPTION==
+The '''eif_name()''' function returns the name of the class corresponding to ''tid''. 
+==RETURN VALUE==
+A statically allocated C string which is the name of the class. If ''tid'' is invalid, it returns NULL. 
+==CONFORMANCE==
+ISE Eiffel 4.4 and later. 
+==COMPATIBILITY==
+'''eif_name()''' is equivalent to '''eif_name_by_tid()'''. 
+==SEE ALSO==
+'''eif_type'''(1) , '''eif_type_by_reference'''(1), '''eif_type_id'''(1). 
+
+
+

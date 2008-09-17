@@ -1,0 +1,10 @@
+[[Property:title|Debugging preferences]]
+[[Property:weight|-4]]
+Two main preferences are available for the debugger, in order to speed up the objects display :
+* Enable/disable the debug_output display (see [[Debug output|debug output]] ) 
+* Enable/disable the full generic type display (for instance see <eiffel>ARRAY [INTEGER] </eiffel>instead of only <eiffel>ARRAY</eiffel>
+* To avoid infinite evalution processing, the debugger abort evaluation after "max evaluation duration" timeout. So you can change this value to fit your needs.
+ [[Image:debugging-tools-preferences]]  
+
+
+

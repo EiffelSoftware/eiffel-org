@@ -1,0 +1,26 @@
+[[Property:title|Supported C compilers]]
+[[Property:weight|-14]]
+==Unix/Linux Users:==
+
+EiffelStudio supports `gcc' on most platforms and the native`cc' compiler if it is an ANSI C compiler.
+
+
+
+==Microsoft Visual C++ Users==
+
+EiffelStudio supports only version 6.0 and higher of the Microsoft Visual C++ environment. You can still use older versions of the Microsoft C++ environment (version 4.1, 4.2 or 5.0) as long as you have the latest Platform SDK from Microsoft, but this won't be supported by Eiffel Software.
+
+Normally it will automatically detect the location of the C compiler. In case it wouldn't, make sure that the Microsoft tools are correctly setup to run from the MS-DOS prompt. To do that you need to set the environment variable PATH, LIB and INCLUDE to the value specified in the file`vcvars32.bat' from the `bin' directory of the VC installation.
+
+==Borland C++ Users:==
+
+EiffelStudio only supports version 5.5.1 of Borland C++ which is included in the installation of EiffelStudio. We do not support any other versions.
+
+By default the installation program will set in the registry keys the ISE_C_COMPILER key to `bcb'.
+
+
+
+==Changing your C compiler on Windows==
+
+You can do it in two different ways. The first one is using the registry keys of the Windows
+

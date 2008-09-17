@@ -1,0 +1,78 @@
+[[Property:title|Keyword completion customization]]
+[[Property:weight|2]]
+This document describes the syntax used to customize keyword automatic completion. <br/>
+[[Keywords automatic completion preferences|Four strings]]  are used to define the completion of a keyword. The rules are the same for all of them: 
+*  
+These strings will be inserted right after the keyword. The key that triggers the automatic completion will not be taken into account, i.e. no space or "new line" character will be inserted even though you press Return or Space. The strings should therefore begin with a space or a "new line" character (see below for "newline").
+
+*  
+Two reserved words will allow you to position the cursor and to indent the text properly. Insert the word ''$cursor$'' in the string where you want the cursor to be moved once the completion is finished. Insert the word ''$indent$'' where you want to copy as many blank spaces as there were on the line where the keyword was typed. 
+
+*  
+Three special characters are available:
+**  ''%N'' represents the new line character. 
+**  ''%T'' represents the tabulation 
+**  ''%B'' represents the back space 
+<br/>
+<br/>
+
+
+Examples :
+#  
+You want the lines of code :
+
+''if'' <br/>
+next_line_of_code <br/>
+
+to become: 
+''if'' <cursor here> ''then'' <br/>
+<one more tabulation> <br/>
+''end'' <br/>
+next_line_of_code <br/>
+
+
+as you press Space just after typing ''if''. You should define the "Customized auto complete (Space after keyword was typed)" string for ''if'' as : 
+
+" $cursor$ then%N$indent$%T%N$indent$end"
+
+First, EiffelStudio editor has to insert a blank space after ''if''. The string begins therefore by a blank space. <br/>
+Then, ''$cursor$'' tells EiffelStudio to move the cursor to this position after the completion. <br/>
+''then'' is inserted after the cursor position. <br/>
+''%N'' indicates that you want to insert a new line after ''then''. <br/>
+''$indent$%T'' means that this line is filled with as many blank spaces as there are before ''if'' plus a tabulation. <br/>
+Another line is inserted with ''%N''. <br/>
+Then ''$indent$end'' means that ''end'' will be inserted in this new line with the same indentation as ''if''. 
+
+#  
+You want the lines of code :
+
+''end'' <br/>
+next_line_of_code 
+
+to become:
+
+''end'' <br/>
+<br/>
+next_line_of_code 
+
+as you press Return just after typing ''end''. You should define the "Customized auto complete (Return after keyword was typed)" string for ''end'' as : 
+
+"%B%B%B%Bend%N$indent$%B$cursor$"
+
+The four ''%B'' will remove ''end'' plus one character before ''end'' (the tabulation character). <br/>
+''end'' will be inserted at this new position. <br/>
+''%N'' indicates that you want to insert a new line. <br/>
+''$indent$%B$cursor$'' means that the cursor will be moved to the end of the line where one less blank space than before the original ''end'' will have been inserted. 
+
+
+{{note| '''Note''': EiffelStudio editor can insert spaces instead of tabulation when you use special character ''%T''. This is set in [[General Editor Preferences|another section of the preferences]] . <br/>
+}}
+
+{{seealso| '''See Also''' <br/>
+[[Keywords automatic completion preferences|Keywords automatic completion preferences]]  <br/>
+[[Default values for keyword completion preferences|Default values for keyword completion preferences]]  <br/>
+}}
+
+
+
+

@@ -1,0 +1,10 @@
+[[Property:title|Viewing information about a class]]
+[[Property:weight|2]]
+Once you [[Centering tools on a component|centered the editor]]  on a class, you have access to its [[Class formatters: Basic text view|basic text]] . If the class is compiled, the [[Feature tool: Introduction|feature tool]]  shows the list of the features that are defined or redefined in this text. You can also view [[Clickable view|clickable]] , [[Class formatters: Flat view|flat]] , [[Flat Contract view|flat contract]]  and [[Contract view|contract]]  views of the class in the editor. The class tab in the context tool can display more information. If the [[Centering tools on a component|context tool is independent]] , [[Centering tools on a component|center it]]  on the wanted class and select this tab. You can then see information about the features ( [[Routines|routines]] , [[Attributes|attributes]] , [[Exported features|exported features, ]]  [[Class views|etc.]] ..) of the class, its [[Ancestors|ancestors]]  and [[Descendants|descendants]]  or its [[Clients|clients]]  and [[Suppliers|suppliers]] . <br/>
+The [[Metric tool: Introduction|metric tool]]  provides another kind of data. It allows you to compute a complete set of [[How to analyze a project: Introduction|measures ]] on your class. 
+{{seealso| '''See Also''' <br/>
+[[Looking for a class|Looking for a class]]  }}
+
+
+
+

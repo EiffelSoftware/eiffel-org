@@ -1,0 +1,9 @@
+[[Property:title|WEL_MULTIPLE_LINE_EDIT]]
+[[Property:weight|4]]
+A [[ref:libraries/wel/reference/wel_multiple_line_edit_chart|WEL_MULTIPLE_LINE_EDIT]]  is used to display multiple lines of text. Using set_read_only, the text can be made non-editable. 
+
+==Appearance==
+ [[Image:wel-multiple-line-edit|wel_multiple_line_edit]]  
+
+
+

@@ -1,0 +1,33 @@
+[[Property:title|Printer]]
+[[Property:weight|3]]
+[[Image:printer|printer]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\printer\''. 
+* Choose ''printer.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+==Running==
+
+After launching the program, a window will be displayed as illustrated above. Selecting "Print" from the "File" menu will open a print dialog which will allow you to specify a printer and additional print information before printing the contents of the window. 
+
+==Under the Hood==
+<code>MAIN_WINDOW</code> inherits [[ref:libraries/wel/reference/wel_frame_window_chart|WEL_FRAME_WINDOW]]  and the feature <code>on_paint</code> has been redefined to display the output in the client area. A [[WEL_PRINT_DIALOG|WEL_PRINT_DIALOG]]  is used to retrieve the print options before the printing occurs through the interface provided by a [[ref:libraries/wel/reference/wel_printer_dc_chart|WEL_PRINTER_DC]] . 
+This sample contains the following classes: 
+* <code>APPLICATION_IDS</code>
+* <code>MAIN_WINDOW</code>
+* <code>PRINTER_DEMO</code>
+
+{{seealso| '''See Also''' <br/>
+[[WEL_PRINT_DIALOG|WEL_PRINT_DIALOG]]  }}
+
+
+
+
+

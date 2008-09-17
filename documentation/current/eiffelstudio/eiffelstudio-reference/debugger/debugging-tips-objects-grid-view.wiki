@@ -1,0 +1,14 @@
+[[Property:title|Debugging tips with the objects grid view]]
+[[Property:weight|-5]]
+General behavior
+* Double clicking on the grid's header separator will resize the corresponding column. If you hold the [SHIFT] key at the same time, it will resize according to the displayed cells.
+* Right clicking on the header's cell will popup a menu that enable or disable the auto resizing on the selected column. This can be useful to resize automatically the "name" column when inspecting an object value.
+* Pressing [CONTROL] + [E] when the selected line represents a value with potential text representation (STRING, DEBUG_OUPUT ...) will open the [[Object Viewer (also known as Expanded display)|expanded view dialog]] 
+
+Watch tools (alias evaluation tool)
+* Dropping an object value on a [[Evaluation tool or Watch tool|watch tool ]]  will open the [[New expression dialog|expression definition dialog]]  with the object's address filled. This way you can evalute expression directly on this object. If you press [Ctrl] during the dropping, the dropped object will be added as expression in the watch tool as itself.
+* You can also drop the object on the notebook tab of the wanted watch tool.
+
+
+
+

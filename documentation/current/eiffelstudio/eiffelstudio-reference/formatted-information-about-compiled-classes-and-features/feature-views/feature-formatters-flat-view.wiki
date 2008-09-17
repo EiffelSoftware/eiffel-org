@@ -1,0 +1,10 @@
+[[Property:title|Feature formatters: Flat view]]
+[[Property:weight|2]]
+The clickable view  [[Image:view-clickable-feature-icon]] displays the feature body as it is seen at run-time (according to ancestor versions, if any). This is why it is possible to add or remove [[Breakpoints|breakpoints]]  in this view. 
+
+{{seealso| '''See Also''' <br/>
+[[Class formatters: Flat view|Class flat view]]  }}
+
+
+
+

@@ -1,0 +1,39 @@
+[[Property:title|Component selector]]
+[[Property:weight|8]]
+The component selector allows you to build and retrieve user defined [[EiffelBuild Notation|components]]  for use in your project. 
+
+[[Image:component-selector]]  
+
+==Creating a component==
+
+To define a new [[EiffelBuild Notation|component]] , [[EiffelBuild Notation|pick]]  the [[EiffelBuild Notation|object]]  that you wish to create the component from, and then [[EiffelBuild Notation|drop]]  it anywhere in the component selector. The following dialog will appear: 
+
+[[Image:component-namer]]  
+
+Modify the suggested name as desired, and then click '''OK''' to create the new component. If you click '''Cancel''', the component will not be created. 
+
+The component that has been created will contain enough information to allow a copy to be built of the existing object. This includes all the children of the original object (to any depth) and the properties (width, height, color etc)of all objects within the structure. The only properties of the objects that will not be set inside a component are the user defined names, and any events connected to the objects.
+
+==Using a component==
+To create a new set of [[EiffelBuild Notation|objects]]  from a [[EiffelBuild Notation|component]] , [[EiffelBuild Notation|pick]]  the [[EiffelBuild Notation|component]] , and [[EiffelBuild Notation|drop]]  onto an [[EiffelBuild Notation|object]]  representation. If an object is full, or does not allow other objects of the new type to be contained, then you will not be able to [[EiffelBuild Notation|drop]]  on it. <br/>
+
+If the [[EiffelBuild Notation|pick and drop]]  completed successfully, then you should have a new set of objects matching the structure of the [[EiffelBuild Notation|component]] .  
+<span id="delete_component"></span> 
+==Deleting a component==
+
+To remove a [[EiffelBuild Notation|component]]  from your EiffelBuild system, [[EiffelBuild Notation|pick]]  it, and then [[EiffelBuild Notation|drop]]  it on  [[Image:icon-delete-small-color]]  in the [[Main toolbar| main toolbar]] . 
+
+{{note| '''Note''': The deletion of a [[EiffelBuild Notation|component]]  cannot be undone. }}
+
+==Viewing a component==
+
+To view an existing component, use the [[Component viewer|component_viewer]] . 
+
+{{seealso| '''See also''' <br/>
+[[Component viewer|Component_viewer]]  <br/>
+[[Builder window|Builder window]]  <br/>
+[[Layout constructor| Layout Constructor]]  }}
+
+
+
+

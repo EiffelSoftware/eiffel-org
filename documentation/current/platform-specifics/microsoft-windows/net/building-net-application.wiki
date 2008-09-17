@@ -1,0 +1,13 @@
+[[Property:title|Building a .NET application]]
+[[Property:weight|1]]
+Eiffel for .NET has some specific functionality meant to leverage necessary aspects of the .NET Framework. 
+
+For that reason, the [[EiffelStudio: Project settings window|project settings]]  for Eiffel for .NET introduces new options. These options include: 
+* Specifying whether the generated assembly should be an EXE or a DLL. 
+* Choosing between generating verifiable or non verifiable IL code. Non verifiable IL code executes faster but requires high trust settings. 
+
+The Eiffel for .NET compiler generates a single assembly whose name is the name of the system as given in the [[System Options|project settings]] . 
+
+
+
+

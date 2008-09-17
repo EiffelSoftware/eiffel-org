@@ -1,0 +1,24 @@
+[[Property:title|Exceptions handling tool]]
+[[Property:weight|-7]]
+This tool is used to precise whether the debugger stops or continues on specific exceptions.<br/>
+To show this tool, go to menu : '''Debug > Exception handling''' .<br/>
+Note: now that exception are object in Eiffel too, the mechanism is unified for classic and dotnet system using the Eiffel exception class names. 
+
+==Exception handling dialog==
+
+If the "filter exceptions" is enabled, for each exception you can leave the exception action as '''Disabled''' (default behavior: catch), '''Catch''' (stop on such exception), '''Ignore''' (do not stop on such exception). By double clicking on the exception name you toggle Ignore/Catch.
+
+In the following picture, we stop on every exception except the "External Exception".
+
+<center> [[Image:exceptions-handling-tool|Exception handling tool]] </center>
+
+{{tip|Using the "Pattern" field, you can add you own filter using regular expression.}}
+
+
+==Cat call detection during the execution==
+
+This dialog also provides a way to disable/enable the cat call warning on the console or in the debugger with the first two checkbox fields.
+
+
+
+

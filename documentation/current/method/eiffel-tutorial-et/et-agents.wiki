@@ -1,0 +1,199 @@
+[[Property:title|11 Agents]]
+[[Property:link_title|ET: Agents]]
+[[Property:weight|-3]]
+Our last mechanism, agents, adds one final level of expressive power to the framework describe so far. Agents apply object-oriented concepts to the modeling of operations.
+
+==Objects for operations==
+
+Operations are not objects; in fact, object technology starts from the decision to separate these two aspects, and to choose object types, rather than the operations, as the basis for modular organization of a system, attaching each operation to the resulting modules -- the classes. 
+
+In a number of applications, however, we may need objects that represent operations, so that we can include them in object structures that some other piece of the software will later traverse to uncover the operations and, usually, execute them. Such "operation wrapper" objects, called agents, are useful in a number of application areas such as: <br/>
+*  GUI (Graphical User Interface) programming, where we may associate an agent with a certain event of the interface, such as a mouse click at a certain place on the screen, to prescribe that if the event occurs -- a user clicks there -- it must cause execution of the agent's associated operation. 
+*  Iteration on data structures, where we may define a general-purpose routine that can apply an arbitrary operation to all the elements of a structure such as a list; to specify a particular operation to iterate, we will pass to the iteration mechanism an agent representing that operation. 
+*  Numerical computation, where we may define a routine that computes the integral of any applicable function on any applicable interval; to represent that function and pass its representation to the integration routine, we will use an agent. 
+
+
+Operations in Eiffel are expressed as routines, and indeed every agent will have an associated routine. Remember, however, that the fundamental distinction between objects and operations remains: an agent is an object, and it is not a routine; it represents a routine. As further evidence that this is a proper data abstraction, note that the procedure <code> call </code>, available on all agents to call the associated routine, is only one of the features of agents. Other features may denote properties such as the class to which the routine belongs, its precondition and postcondition, the result of the last call for a function, the number of arguments. 
+
+==Building an agent==
+
+In the simplest form, also one of the most common, you obtain an agent just by writing
+<code>
+agent r
+</code>
+
+where <code> r </code> is the name of a routine of the enclosing class. This is an expression, which you may assign to a writable entity, or pass as argument to a routine. Here for example is how you will specify event handling in the style of the EiffelVision 2 GUI library: 
+<code>
+your_icon.click_actions.extend (agent your_routine)
+</code>
+
+This adds to the end of <code> my_icon.click_actions </code> -- the list of agents associated with the "click" event for <code> my_icon </code>, denoting an icon in the application's user interface -- an agent representing <code> your_routine </code>. Then when a user clicks on the associated icon at execution, the EiffelVision 2 mechanisms will call the procedure <code> call </code> on every agent of the list, which for this agent will execute <code> your_routine </code>. This is a simple way to associate elements of your application, more precisely its "business model" (the processing that you have defined, directly connected to the application's business domain), with elements of its GUI. 
+
+Similarly although in a completely different area, you may request the integration of a function <code> your_function </code> over the interval <code> 0..1 </code> through a call such as 
+<code>
+your_integrator.integral (agent your_function, 0, 1)
+</code>
+
+In the third example area cited above, you may call an iterator of EiffelBase through
+<code>
+your_list.do_all (agent your_proc)
+</code>
+
+with <code> your_list </code> of a type such as <code> LIST [YOUR_TYPE] </code>. This will apply <code> your_proc </code> to every element of the list in turn. 
+
+The agent mechanism is type-checked like the rest of Eiffel; so the last example is valid if and only if <code> your_proc </code> is a procedure with one argument of type <code> YOUR_TYPE </code>. 
+
+==Operations on agents==
+
+An agent <code> agent </code> <code> r </code> built from a procedure <code> r </code> is of type <code> PROCEDURE [T, ARGS] </code> where <code> T </code> represents the class to which <code> r </code> belongs and <code> ARGS </code> the type of its arguments. If <code> r </code> is a function of result type <code> RES </code>, the type is <code> FUNCTION [T, ARGS, RES] </code>. Classes <code> PROCEDURE </code> and <code> FUNCTION </code> are from the Kernel Library of EiffelBase, both inheriting from <code> ROUTINE [T, ARGS] </code>. 
+
+Among the features of <code> ROUTINE </code> and its descendants the most important are <code> call </code>, already noted, which calls the associated routine, and <code> item </code>, appearing only in <code> FUNCTION </code> and yielding the result of the associated function, which it obtains by calling <code> call </code>. 
+
+As an example of using these mechanisms, here is how the function <code> integral </code> could look like in our <code> INTEGRATOR </code> example class. The details of the integration algorithm (straight forward, and making no claims to numerical sophistication) do not matter, but you see, in the highlighted line, the place were we evaluate the mathematical function associated with <code> f </code>, by calling <code> item </code> on <code> f </code>: 
+<code>
+integral (f: FUNCTION [ANY, TUPLE [REAL], REAL]; low, high: REAL): REAL is
+		-- Integral of `f' over the interval [`low', `high']
+	require
+		meaningful_interval: low <= high
+	local
+		x: REAL
+	do
+		from
+			x := low
+		invariant
+			x >= low
+			x <= high + step
+				-- Result approximates the integral over
+				-- the interval [low, low.max (x - step)]
+		until 
+			x > high
+		loop
+			Result := Result + step * f.item ([x])
+			x := x + step
+		end
+	end
+</code>
+
+Function <code> integral </code> takes three arguments: the agent <code> f </code> representing the function to be integrated, and the two interval bounds. When we need to evaluate that function for the value <code> x </code>, in the line 
+<code>
+Result := Result + step * f.item ([x])
+</code>
+
+we don't directly pass <code> x </code> to <code> item </code>; instead, we pass a one-element tuple <code> [x] </code>, using the syntax for manifest tuples introduced in [[10 Other Mechanisms|"Tuple types", page 90]] . You will always use tuples for the argument to <code> call </code> and <code> item </code>, because these features must be applicable to any routine, and so cannot rely on a fixed number of arguments. Instead they take a single tuple intended to contain all the arguments. This property is reflected in the type of the second actual generic parameter to <code> f </code>, corresponding to <code> ARGS </code> (the formal generic parameter of <code> FUNCTION </code>): here it's <code> TUPLE [REAL] </code> to require an argument such as <code> [ x] </code>, where <code> x </code> is of type <code> REAL </code>. 
+
+Similarly, consider the agent that the call seen above:
+<code>
+your_icon.click_actions.extend (agent your_routine)
+</code>
+
+added to an EiffelVision list. When the EiffelVision mechanism detects a mouse click event, it will apply to each element <code> item </code> of the list of agents, <code> your_icon.click_actions </code>, an instruction such as 
+<code>
+item.call ([x, y])
+</code>
+
+where <code> x </code> and <code> y </code> are the coordinates of the mouse clicking position. If <code> item </code> denotes the list element <code> agent </code> your_routine, inserted by the above call to <code> extend </code>, the effect will be the same as that of calling 
+<code>
+your_routine (x, y)
+</code>
+
+assuming that <code> your_routine </code> indeed takes arguments of the appropriate type, here <code> INTEGER </code> representing a coordinate in pixels. (Otherwise type checking would have rejected the call to <code> extend </code>.) 
+
+==Open and closed arguments==
+
+In the examples so far, execution of the agent's associated routine, through <code> item </code> or <code> call </code>, passed exactly the arguments that a direct call to the routine would expect. You can have more flexibility. In particular, you may build an agent from a routine with more arguments than expected in the final call, and you may set the values of some arguments at the time you define the agent. 
+
+Assume for example that a cartographical application lets a user record the location of a city by clicking on the corresponding position on the map. The application may do this through a procedure
+<code>
+record_city (cn: STRING; pop: INTEGER; x, y: INTEGER)
+	-- Record that the city of name `cn' is at coordinates
+	-- `x' and `y' with population `pop'.
+</code>
+
+Then you can associate it with the GUI through a call such as
+<code>
+map.click_actions.extend (agent record_city (name, population, ?, ?))
+</code>
+
+assuming that the information on the <code> name </code> and the <code> population </code> has already been determined. What the agent denotes is the same as <code> agent </code> <code> your_routine </code> as given before, where <code> your_routine </code> would be a fictitious two-argument routine obtained from <code> record_city </code> -- a four-argument routine -- by setting the first two arguments once and for all to the values given, <code> name </code> and <code> population </code>. 
+
+In the agent <code> agent record_city (name, population, ?, ?) </code>, we say that these first two arguments, with their set values, are '''closed'''; the last two are '''open'''. The question mark syntax introduced by this example may only appear in agent expressions; it denotes open arguments. This means, by the way, that you may view the basic form used in the preceding examples, <code> agent your_routine </code>, as an abbreviation -- assuming your_routine has two arguments -- for <code> agent your_routine (?, ?) </code>. It is indeed permitted, to define an agent with all arguments open, to omit the argument list altogether; no ambiguity may result. 
+
+For type checking, <code> agent record_city (name, population, ?, ?) </code> and <code> agent ,your_routine </code> are acceptable in exactly the same situations, since both represent routines with two arguments. The type of both is 
+<code>
+PROCEDURE [ANY, TUPLE [INTEGER, INTEGER]]
+</code>
+
+where the tuple type specifies the open operands. 
+
+A completely closed agent, such as <code> agent your_routine (25, 32) </code> or <code> agent record_city (name, population, 25, 32) </code>, has the type <code> TUPLE </code>, with no parameters; you will call it with <code> call ([ ]) </code>, using an empty tuple as argument. 
+
+The freedom to start from a routine with an arbitrary number of arguments, and choose which ones you want to close and which ones to leave open, provides a good part of the attraction of the agent mechanism. It means in particular that in GUI applications you can limit to the strict minimum the "glue" code (sometimes called the controller in the so-called MVC, Model-View Controller, scheme of GUI design) between the user interface and "business model" parts of a system. A routine such as <code> record_city </code> is a typical example of an element of the business model, uninfluenced -- as it should be -- by considerations of user interface design. Yet by passing it in the form of an agent with partially open and partially closed arguments, you may be able to use it directly in the GUI, as shown above, without any "controller" code. 
+
+As another example of the mechanism's versatility, we saw above an integral function that could integrate a function of one variable over an interval, as in
+<code>
+your_integrator.integral (agent your_function (0, 1))
+</code>
+
+Now assume that <code> function3 </code> takes three arguments. To integrate <code> function3 </code> with two arguments fixed, you don't need a new <code> integral </code> function; just use the same <code> integral </code> as before, judiciously selecting what to close and what to leave open: 
+<code>
+your_integrator.integral (agent function3 (3.5, ?, 6.0), 0, 1)
+</code>
+
+==Open targets==
+
+All the agent examples seen so far were based on routines of the enclosing class. This is not required. Feature calls, as you remember, were either unqualified, as in <code> f (x, y) </code>, or qualified, as in <code> a.g (x, y) </code>. Agents, too, have a qualified variant as in 
+<code>
+agent a.g
+</code>
+
+which is closed on its target <code> a </code> and open on the arguments. Variants such as <code> agent a.g (x, y) </code>, all closed, and <code> agent a.g (?, y) </code>, open on one argument, are all valid. 
+
+You may also want to make the target open. The question mark syntax could not work here, since it wouldn't tell us the class to which feature <code> g </code> belongs, known in the preceding examples from the type of <code> a </code>. As in creation expressions, we must list the type explicitly; the convention is the same: write the types in braces, as in 
+<code>
+agent {SOME_TYPE}.g
+agent {SOME_TYPE}.g (?, ?)
+agent {SOME_TYPE}.g (?, y)
+</code>
+
+The first two of these examples are open on the target and both operands; they mean the same. The third is closed on one argument, open on the other and on the target. 
+
+These possibilities give even more flexibility to the mechanism because they mean that an operation that needs agents with certain arguments open doesn't care whether they come from an argument or an operand of the original routine. This is particularly useful for iterators and means that if you have two lists
+<code>
+your_account_list: LIST [ACCOUNT]
+your_integer_list: LIST [INTEGER]
+</code>
+
+you may write both
+<code>
+your_account_list.do_all (agent deposit_one_grand)
+your_integer_list.do_all (agent add_to_n)
+</code>
+
+even though the two procedures used in the agents have quite different forms. We are assuming here that the first one, in class <code> ACCOUNT </code>, is something like 
+<code>
+deposit_one_grand is
+		-- Add one thousand dollars to `balance' of account.
+	do 
+		balance := balance + 1000
+	end
+</code>
+
+so that it doesn't take an argument: it is normally called on its target, as in <code> my_account.deposit_one_grand </code>. In contrast, the other routine has an argument: 
+<code>
+add_to_n (x: INTEGER) is
+		-- Add `x' to the value of `total'. 
+	do
+		total := total + x
+	end
+</code>
+
+where <code> total </code> is an integer attribute of the enclosing class. Without the versatility of playing with open and closed arguments for both the original arguments and target, you would have to write separate iteration mechanisms for these two cases. Here you can use a single iteration routine of <code> LIST </code> and similar classes of EiffelBase, <code> do_all </code>, for both purposes: <br/>
+*  Depositing money on every account in a list of accounts.
+*  Adding all the integers in a list of integers.
+
+
+Agents provide a welcome complement to the other mechanisms of Eiffel. They do not conflict with them but, when appropriate -- as in the examples sketched in this section -- provide clear and expressive programming schemes, superior to the alternatives.
+
+
+
+

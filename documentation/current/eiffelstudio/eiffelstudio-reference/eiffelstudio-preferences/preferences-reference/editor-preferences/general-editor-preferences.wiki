@@ -1,0 +1,118 @@
+[[Property:title|General Editor Preferences]]
+[[Property:weight|1]]
+General Preferences
+{| border="1" 
+|- 
+| '''Label in the preferences window'''
+| '''Complete Description'''
+|- 
+| Automatic update
+| Automatic update when the file has not been modified.
+|- 
+| Blinking cursor
+| Does text cursor blink?
+|- 
+| Editor font
+| All-purpose editor font.
+|- 
+| Keyword font
+| Keyword editor font.
+|- 
+| Left margin width
+| Width of left margin in editor. Note: this is not the breakpoint margin, but the whitespace to the left of the editor.
+|- 
+| Mouse wheel scroll full page
+| Mouse wheel scroll full page?
+|- 
+| Mouse wheel scroll size
+| Mouse wheel scroll size.
+|- 
+| Quadruple click enabled
+| Does a quadruple click select the entire document?
+|- 
+| Scrolling common line count
+| Number of common lines staying on screen after scrolling by one page up or down.
+|- 
+| Show line numbers
+| Indicates if editor displays the line numbers by default.
+|- 
+| Smart indentation
+| Should editor perform auto-indenting?
+|- 
+| Tab step
+| Number of spaces that a tabulation character represents.
+|- 
+| Use buffered line
+| Indicates if editor line drawing is first buffered and then drawn, or just drawn directly to the screen. If true scrolling will be smoother, but performance will be slower.
+|- 
+| Use tab for indentation
+| Should tab character be used for auto-indentation?
+|}
+
+Display Colors
+{| border="1" 
+|- 
+| '''Label in the preferences window'''
+| '''Complete Description'''
+|- 
+| colors.normal_text_color
+| Color for normal text.
+|- 
+| colors.normal_background_color
+| Background color for normal text.
+|- 
+| colors.selection_text_color
+| Color of selected text.
+|- 
+| colors.selection_background_color
+| Background color of selected text.
+|- 
+| colors.string_text_color
+| Color of string text.
+|- 
+| colors.string_background_color
+| Background color of string text.
+|- 
+| colors.keyword_text_color
+| Color of keyword text.
+|- 
+| colors.keyword_background_color
+| Background color of keyword text.
+|- 
+| colors.spaces_text_color
+| Color of space characters.
+|- 
+| colors.spaces_background_color
+| Background color of space characters.
+|- 
+| colors.comments_text_color
+| Color of comments text.
+|- 
+| colors.comments_background_color
+| Background color of comments text.
+|- 
+| colors.operator_text_color
+| Color of operator text.
+|- 
+| colors.operator_background_color
+| Background color of operator text.
+|- 
+| colors.number_text_color
+| Color of number text.
+|- 
+| colors.number_background_color
+| Background color of number text.
+|- 
+| colors.margin_background_color
+| Background color of line number margin.
+|- 
+| colors.margin_separator_color
+| Color of separator between line number margin and editor.
+|- 
+| colors.line_number_text_color
+| Color of line number text.
+|}
+
+
+
+

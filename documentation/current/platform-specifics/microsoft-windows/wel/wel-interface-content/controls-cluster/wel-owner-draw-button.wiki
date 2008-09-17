@@ -1,0 +1,14 @@
+[[Property:title|WEL_OWNER_DRAW_BUTTON]]
+[[Property:weight|6]]
+A [[ref:libraries/wel/reference/wel_owner_draw_button_chart|WEL_OWNER_DRAW_BUTTON]]  is a control that the user can click to provide notification to the application, and behaves in a similar fashion to [[ref:libraries/wel/reference/wel_push_button_chart|WEL_PUSH_BUTTON]]  except that <eiffel>on_paint</eiffel> must be implemented to give the button the desired appearance. 
+
+==Appearance==
+
+There is no sample appearance for this control. 
+
+{{seealso| '''See also''' <br/>
+[[WEL_PUSH_BUTTON|WEL_PUSH_BUTTON]]  }}
+
+
+
+

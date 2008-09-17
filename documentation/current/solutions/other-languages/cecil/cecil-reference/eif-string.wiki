@@ -1,0 +1,24 @@
+[[Property:title|Reference for `eif_string']]
+[[Property:link_title|eif_string]]
+[[Property:weight|5]]
+==SYNOPSYS==
+<code>
+'''#include "eif_plug.h"
+
+EIF_REFERENCE eif_string (char *''' ''string''''');'''</code>
+
+==DESCRIPTION==
+The '''eif_string()''' macro returns the corresponding Eiffel string corresponding to the C string ''string''. 
+The return value does not reference ''string''. 
+
+==NOTES==
+This function return an Eiffel reference, which must be protected with '''eif_protect()'''. 
+==CONFORMANCE==
+ISE Eiffel 4.5 and later. 
+==COMPATIBILITY==
+'''eif_string()''' is equivalent to '''RTMS()''', which is deprecated. 
+==SEE ALSO==
+'''eif_protect'''(1) , '''eif_create'''(1). 
+
+
+

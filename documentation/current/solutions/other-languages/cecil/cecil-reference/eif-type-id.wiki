@@ -1,0 +1,25 @@
+[[Property:title|Reference for `eif_type_id']]
+[[Property:link_title|eif_type_id]]
+[[Property:weight|9]]
+==SYNOPSYS==
+<code>
+'''#include "eif_gen_conf.h"
+
+EIF_TYPE_ID eif_type_id (char *''' ''type''''');'''</code>
+
+==DESCRIPTION==
+The '''eif_type_id()''' function returns the type identifier corresponding to ''type'', which is the name of the type. 
+==RETURN VALUE==
+The '''eif_type_id()''' function returns the type 
+==NOTES==
+An error cannot be caught by a visible exception. <br/>
+The type is not necessary visible. 
+==CONFORMANCE==
+ISE Eiffel 4.3 and later. 
+==COMPATIBILITY==
+'''eif_type_id()''' is equivalent to '''eif_type_by_name()'''. With ISE Eiffel 4.2 and earlier, use '''eif_generic_type()''' for generic types. 
+==SEE ALSO==
+'''eif_reference_function'''(1) , '''eif_procedure'''(1) , '''eif_type'''(1), '''eif_name'''(1). 
+
+
+

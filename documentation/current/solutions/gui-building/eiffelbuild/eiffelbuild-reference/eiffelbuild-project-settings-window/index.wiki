@@ -1,0 +1,22 @@
+[[Property:title|EiffelBuild: Project settings window]]
+[[Property:weight|13]]
+This is where global settings regarding your project are going to be made. In here you can specify:
+* The type of project you wish to generate
+* The system name
+* Class names
+* Code generation options
+
+The project window can be raised by clicking  [[Image:icon-display-window-color]]  on the [[Main toolbar| main toolbar]] , or by selecting '''Settings...''' from the '''Project''' menu. 
+
+The window is organized as two tabs:
+#  [[Build Tab|Build]]  
+#  [[Generation Tab|Generation]]  
+
+All options are enabled and saved into the project settings file, 'build_project.bpr' as soon as the window is closed.
+
+{{seealso| '''See Also''' <br/>
+[[EiffelBuild: Code Generation|Code generation]]  }}
+
+
+
+

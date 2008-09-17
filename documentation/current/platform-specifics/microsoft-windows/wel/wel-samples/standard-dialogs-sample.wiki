@@ -1,0 +1,35 @@
+[[Property:title|Wel Sample: Standard Dialogs]]
+[[Property:link_title|Standard Dialogs Sample]]
+[[Property:weight|6]]
+[[Image:stddlgs|stddlgs]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\stddlgs\''. 
+* Choose ''stddlgs.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+==Running==
+After launching the program, a window will displayed with a menu allowing you to select some of the standard dialogs provided by WEL. 
+==Under the Hood==
+<code>on_menu_command</code> has been redefined in <code>MAIN_WINDOW</code> to display a different standard dialog when each of the menu items is selected. 
+This sample contains the following classes: 
+* <code>APPLICATION_IDS</code>
+* <code>MAIN_WINDOW</code>
+* <code>STDDLG_DEMO</code>
+
+{{seealso| '''See Also''' <br/>
+[[WEL_OPEN_FILE_DIALOG|WEL_OPEN_FILE_DIALOG]]  <br/>
+[[WEL_CHOOSE_FONT_DIALOG|WEL_CHOOSE_FONT_DIALOG]]  <br/>
+[[WEL_CHOOSE_COLOR_DIALOG|WEL_CHOOSE_COLOR_DIALOG]]  <br/>
+[[WEL_PRINT_DIALOG|WEL_PRINT_DIALOG]]  }}
+
+
+
+
+

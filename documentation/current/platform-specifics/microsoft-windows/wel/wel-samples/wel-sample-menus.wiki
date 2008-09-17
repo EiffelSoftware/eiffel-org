@@ -1,0 +1,27 @@
+[[Property:title|Wel Sample: Menus]]
+[[Property:weight|0]]
+[[Image:menus|menus]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\menus\''. 
+* Choose ''menus.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+==Running==
+After launching the program, you will see a window displayed with a similar appearance to the one displayed above. If you right click in the client area of the window, a menu will pop up at the cursor position. The same menu is also accessible from the "File" menu. Selecting any of the menu options will display a notification of which option was selected. 
+==Under the Hood==
+A [[ref:libraries/wel/reference/wel_menu_chart|WEL_MENU]]  is used for the menu's in this sample. The feature show_track is used to display the menu at the cursor position and a [[ref:libraries/wel/reference/wel_msg_box_chart|WEL_MSG_BOX]]  is used to display the notification when a menu selection has occurred. 
+This sample contains the following classes: 
+* <code>MAIN_WINDOW</code>
+* <code>MENUS_DEMO</code>
+
+
+
+
+

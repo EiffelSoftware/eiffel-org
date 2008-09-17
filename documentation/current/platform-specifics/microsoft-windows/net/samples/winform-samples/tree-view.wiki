@@ -1,0 +1,48 @@
+[[Property:title|Tree view]]
+[[Property:weight|9]]
+<div> 
+[[Image:tree-view|Hello world form]]  
+</div>
+<br/>
+<br/>
+
+
+==Compiling==
+
+To compile the example:   
+# Launch EiffelStudio.
+# Click '''Add project'''
+# Browse to ''$ISE_EIFFEL\examples\dotnet\winforms\control_reference\tree_view_ctl\''
+# Choose ''tree_view_ctl.ecf''
+# Choose the location where the project will be compiled, by default the same directory containing the configuration file.
+# Click '''Open'''.
+
+
+==Running==
+
+After launching the application, you will see a window displayed with a similar appearance to the one above. On the left of the form you have the <span><eiffel>TREE_VIEW</eiffel></span> control, and on the right you have some controls to configure the <span><eiffel>TREE_VIEW</eiffel></span>. 
+
+
+
+==Under the Hood==
+
+The application shows how to use a <span><eiffel>TREE_VIEW</eiffel></span> and what are all its different configurations. 
+
+This sample contains the following classes:
+*  <span><eiffel>TREE_VIEW</eiffel></span> 
+*  <span><eiffel>GROUP_BOX</eiffel></span> 
+*  <span><eiffel>CHECK_BOX</eiffel></span> 
+*  <span><eiffel>COMBO_BOX</eiffel></span> 
+*  <span><eiffel>LABEL</eiffel></span> 
+
+==Notes==
+
+This sample is translated from the example located in the QuickStart\winforms\samples\ControlReference\TreeView subdirectory of the .NET Framework SDK samples directory of Microsoft Visual Studio .NET. 
+
+
+
+
+
+
+
+

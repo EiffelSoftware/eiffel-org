@@ -1,0 +1,71 @@
+[[Property:title|Major changes between ISE Eiffel 5.7 and ISE Eiffel 6.0]]
+[[Property:link_title|6.0]]
+[[Property:weight|-7]]
+==What's new==
+
+{{seealso|See also: [[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
+* Added support for multiple constraints in formal generic parameters.
+* The root class can now be a generic class, and thus one can now specify a root type.
+* The notion of creation readiness according to ECMA Eiffel standard (2nd edition, chapter 8.12.12) is implemented.
+* Added experimental option for full class checking. It can be enabled at the system, cluster or class level. However not all our code has been compiled with this option so don't be surprised if you get errors in our libraries. The next release should fix all the remaining issues.
+* Integers can now also be specified with binary and octal representation.
+* Manifest characters can now also be specified with binary, octal and hexadecimal representation. Manifest characters can be specified up to 32 Bit.
+* Supported reattachment of generic derivations with expanded parameters to generic derivations with reference parameters.
+
+==Improvements==
+* The command line compiler doesn't need a configuration file to compile a system, one can simply provide a root class and the compiler will automatically use the current directory and EiffelBase. You can also add more libraries if needed.
+* Improved backup mechanism so that overridden classes are copied in the library where they are defined (they were previously copied in the library where the override cluster was defined).
+* Possibility for hidden/implementation clusters in libraries, i.e. clusters that are not accessible if the library is used (like libraries in libraries are not accessible).
+* Class names which don't match the source filename emit a warning.
+* The unique keyword will yield a syntax warning if enabled.
+* Static access on external routines is allowed even if not marked frozen (this simply applies a relaxed rule that was adopted by ECMA).
+* When an environment variable is being used to compile a system and if this environment variable value changes next time you use a project, you will get a prompt asking whether or not you want to update the value or keep the initial one.
+* Externals (includes, objects, resources, ...) can now be relative to the ecf file by using the new replacement $ECF_CONFIG_PATH.
+* UUID is not needed for non library systems. If no UUID is specified a random one will be generated.
+
+==Changes==
+* Added supplier_precondition assertion level that enables to only check preconditions of trusted libraries. By default when importing an old project they are not enabled, thus assertions on the library you are using are most likely going to be disabled.
+* Added the platform value as part of the version info of the compiler. This will prevent trying to load a project compiled for a different platform instead of failing with a retrieval error.
+* The compiler can be compiled against the original EiffelBase version or with the FreeELKS version which is now the default one for EiffelBase.
+
+==Bug fixes==
+* Fixed eweasel test#tuple006 showing a failure when calling <eiffel>deep_copy</eiffel> on a <eiffel>TUPLE</eiffel> instance.
+* Fixed bug#12782 where compiler would crash at degree 1 when removing a formal generic parameter of class (eweasel test#incr249 and test#incr284).
+* Fixed bug#12823 where specifying in the command line a target in a different case than the lower case version of the actual target name would fail to find the target in your configuration file.
+* Fixed bug#12698 where compiler was not processing the target extension properly if not specified in lower case.
+* Fixed bug#12591: compiler would not find classes from library referenced deeply using relative path. This also removes the extra `.' or `..' in the displayed path for a class.
+* Fixed issue with incorrect labeled tuples which were not detected in signature of features (see eweasel test#tuple008).
+* Fixed crash when checking an incorrect labeled tuple (e.g. <eiffel>TUPLE</eiffel> [a, a: <eiffel>INTEGER</eiffel>]) (see eweasel test#tuple009).
+* Fixed issue with inline agents where if you have one and during a compilation from scratch you have a compiler error, then fixing this error and recompiling, it would crash when melting or freezing (test#incr277).
+* Fixed issue with C compilation linking error when a generic class which have an invariant clause has its formal generics changed (test#incr278).
+* Fixed C compilation error on Windows for trying to compile empties Cxxx directories (test#ccomp061).
+* Fixed incorrect code generation of agents on attribute when target is open (test#exec264).
+* Fixed incremental bug when an agent creation based on a feature whose signature changes for less arguments (test#incr276).
+* Fixed a backup creation bug when two classes from the same cluster/library have the same original file name, the backup would only contain one or the other because we use the original file name. Now we use the original class name.
+* Fixed various issues with the processing of the Eiffel Configuration File.
+
+===Compiler issues===
+* Adapted the compiler so that ISE_EIFFEL does not need to be defined with a short path name on Windows, since some file systems can disable support for short path.
+* Fixed incrementality bug with agents where finalizing and then freezing would cause some unresolved externals.
+
+===Runtime/code generation issues===
+* Fixed a memory corruption which would occur once an invariant has been violated.
+* Fixed a memory corruption which could occur when performing a deep_twin on an object whose graph contains a TUPLE object. See test#tuple006.
+
+===.NET issues===
+* Speed up consumer cache synchronization so working with large .NET caches or large assembly sets is much faster.
+* Fixed bug#12565 where a wrong EIFFEL_NAME_ATTRIBUTE custom attribute would be generated on .NET for Eiffel generic class where the actual generic parameter is a .NET value type..
+* Fixed bug in .NET resx to resource generation when using resx files with relative paths.
+* .NET Enums can be automatically converted to INTEGERs.
+* Indexing tags ''interface_metadata'' and ''class_metadata'' are supported on feature level like this is done on class level and allow to specify custom attributes for associated methods only in interface type or only in implementation type.
+* All versioned COM import interfaces now have versioned interface member names based on the trailing version number of the interface name, as this meta information is not available in any other way. This greatly improves the versioned names and makes implementing interfaces much easier.
+* Fixed various issues in the .NET consumer that would prevent the usage of certain .NET assemblies.
+* Added configurable (project to class-level) optimization for .NET project that will mark all classes frozen if they are not descended by another.
+
+===Store/Retrieve issues===
+* Now the retrieval of objects is done with the GC (garbage collector) disabled.
+* Fixed issue when retrieving 64-bit storables on 32-bit machines. It requires a regeneration of the 64-bit storables if one wants to retrieve them on 32-bit machines. Fixed bug#11744.
+
+
+
+

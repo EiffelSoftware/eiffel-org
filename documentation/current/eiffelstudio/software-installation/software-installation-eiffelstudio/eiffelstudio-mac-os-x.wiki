@@ -1,0 +1,76 @@
+[[Property:title|EiffelStudio 6.2 for Mac OS X]]
+[[Property:link_title|Mac OS X]]
+[[Property:weight|0]]
+==Requirements==
+
+{| 
+|- 
+| Computer/Processor
+| G4
+|- 
+| Operating System
+| Mac OS X 10.4 (Tiger) or above
+|- 
+| Memory
+| 512MB of RAM (1GB recommended)
+|- 
+| Hard Disk
+| 400MB of hard disk space (1GB recommended) 
+|- 
+| Drive
+| CD-ROM or DVD drive (not required when downloading EiffelStudio)
+|- 
+| Display
+| 1024 x 768 or higher resolution video adapter and monitor
+|- 
+| Peripherals
+| Keyboard and mouse or compatible pointing device
+|- 
+| '''ISE_PLATFORM'''
+| '''macosx-ppc''' or '''macosx-x86'''.
+|}
+
+
+==Prerequisites==
+
+Before installing EiffelStudio 6.2, it is necessary to install X11 for Mac OS X and the X11 SDK. They are available with the OS X CD. For more details check the Apple web site at: 
+* [http://www.apple.com/macosx/features/x11/ http://www.apple.com/macosx/features/x11/] 
+
+You also need to install the latest Apple Developer Tools (XCode) available as part of Mac OS X (Tiger or above)
+
+
+==Installing the Free Edition==
+
+After downloading the '''Eiffel62.dmg''' installation package, double click on it to mount the disk image. Then double click on the '''Eiffel62.pkg''' file to launch the installation procedure. Follow the steps indicated in the dialogs to complete the installation.
+
+==Installing the Enterprise Edition==
+
+Insert the CD into your CD-ROM drive. Open the CD-ROM contents and double click on the '''Eiffel62.pkg''' file to launch the installation procedure. Follow the steps indicated in the dialogs to complete the installation.
+
+<center> [[Image:56--mac-setup|Setup dialog]] </center>
+
+Run EiffelStudio, located at /Developers/Applications/Eiffel62/EiffelStudio. Enter the information located inside the box that contains your copy of the EiffelStudio Enterprise Edition. Once the information is correct, the '''Register''' button will be enabled. Click '''Register''' to actually register EiffelStudio.
+
+You now need to launch EiffelStudio to register your copy. Follow the instructions located in the '''Starting EiffelStudio''' section below. The first time you launch EiffelStudio, you will be asked for an activation key through the following dialog:
+
+<center> [[Image:56--mac-registration|Registration dialog]] </center>
+
+By clicking on the [http://activate.eiffel.com http://activate.eiffel.com]  URL, a new web browser will appear with the requested fields automatically filled in with the appropriate information. Simply click '''Activate''' and a new page with an activation code will appear. Copy and paste the activation code in the first field and the '''Activate''' button should be enabled to let you activate your copy.
+
+You can activate your copy up to three times. Once you have reached this threshold and need to reinstall your copy, contact Eiffel Software to request one more activation.
+
+If no web broswer appears, it is most likely because Safari is not installed on your machine or is not in your path. Instead you should manually launch a new web browser and go to the page [http://activate.eiffel.com http://activate.eiffel.com]  and enter the information manually. Then follow the above instructions as if the browser had been properly launched.
+
+You may receive the following dialog when launching EiffelStudio:
+
+<center> [[Image:56--mac-registration-error|Registration incomplete]] </center>
+
+This probably means that the '''register''' program was not launched or did not succeed in storing data to the following file '''/Developer/Applications/Eiffel62/EiffelStudio.app/Contents/Resources/Eiffel62/install/limand/.ec_license'''. To solve this, rerun the '''register''' program with a user account that has permissions to write at '''/Developer/Applications/Eiffel62/EiffelStudio.app/Contents/Resources/Eiffel62/install/limand''' and enter your '''Username''' and '''CD Key'''.
+
+==Starting EiffelStudio==
+
+Now everything should be properly installed and you should be able to run the compiler. You can now launch EiffelStudio from the Finder under '''/Developer/Applications/Eiffel62/'''. If you are a new user to EiffelStudio, we recommend that you follow [[EiffelStudio General: A Guided Tour|the guided tour]] .
+
+
+
+

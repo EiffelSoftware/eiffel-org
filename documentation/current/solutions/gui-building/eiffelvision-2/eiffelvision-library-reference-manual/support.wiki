@@ -1,0 +1,16 @@
+[[Property:title|Support]]
+[[Property:weight|6]]
+The support cluster contains many classes providing useful facilities within the library. Many of the classes within this cluster are constant classes, which are filled with constant values for specific contexts, generally indicated by their names. The following constant classes are available within this cluster: 
+* [[ref:libraries/vision2/reference/ev_dialog_constants_chart|EV_DIALOG_CONSTANTS]] 
+* [[ref:libraries/vision2/reference/ev_drawable_constants_chart|EV_DRAWABLE_CONSTANTS]] 
+* [[ref:libraries/vision2/reference/ev_font_constants_chart|EV_FONT_CONSTANTS]] 
+* [[ref:libraries/vision2/reference/ev_key_constants_chart|EV_KEY_CONSTANTS]] 
+* [[ref:libraries/vision2/reference/ev_postscript_page_constants_chart|EV_POSTSCRIPT_PAGE_CONSTANTS]] 
+In a similar vein to constant classes, the two following classes are provided to provide support for default [[ref:libraries/vision2/reference/ev_color_chart|EV_COLOR]] 's and [[ref:libraries/vision2/reference/ev_pixmap_chart|EV_PIXMAP]] 's. 
+* [[ref:libraries/vision2/reference/ev_stock_colors_chart|EV_STOCK_COLORS]] 
+* [[ref:libraries/vision2/reference/ev_stock_pixmaps_chart|EV_STOCK_PIXMAPS]] 
+
+
+
+
+

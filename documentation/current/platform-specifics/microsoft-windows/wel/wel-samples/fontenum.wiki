@@ -1,0 +1,32 @@
+[[Property:title|Fontenum]]
+[[Property:weight|-7]]
+[[Image:fontenum|fontenum]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\fontenum\''. 
+* Choose ''fontenum.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. If you select another directory than the default one, please copy icons (*.ico) and resource files (*.rc) from the default directory (the one containing the ecf file) to the new one.
+* Click '''OK'''. 
+
+==Running==
+
+After launching the program, a window will be displayed as illustrated above. Selecting one of the available fonts (Listed on the left hand side) will cause a sample text to be displayed in the currently entered font size. Clicking the button marked "Close" will cause the program to end. 
+
+==Under the Hood==
+
+<code>MAIN_DIALOG</code> inherits from [[ref:libraries/wel/reference/wel_main_dialog_chart|WEL_MAIN_DIALOG]]  and also WEL_FONT_FAMILY_ENUMERATOR. <code>MAIN_DIALOG</code> implements action which was deferred from WEL_FONT_ENUMERATOR and executed every an enumeration finds a new font. This new implementation is used to display the available fonts in the [[ref:libraries/wel/reference/wel_list_view_chart|WEL_LIST_VIEW]] 
+
+This sample contains the following classes: 
+* <code>APPLICATION_IDS</code>
+* <code>FONTENUM_DEMO</code>
+* <code>MAIN_DIALOG</code>
+
+
+
+
+

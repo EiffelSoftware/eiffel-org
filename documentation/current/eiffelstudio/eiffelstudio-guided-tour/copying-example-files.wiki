@@ -1,0 +1,29 @@
+[[Property:title|2 COPYING THE EXAMPLE FILES]]
+[[Property:link_title|Copying the Example Files]]
+[[Property:weight|-14]]
+[[Help reading the EiffelStudio Guided Tour|Help reading this manual]]  
+
+{{note|If you are using Eiffel on a personal computer under Windows, you can work directly on the installation directory and don't need to make copies of files as per the present section. Skip directly to the next section, 3. Do read the present section and apply its instructions if you work under Unix, or may have to share the Eiffel installation with other users, do not have write permissions on the installation, or want to keep the installation unchanged.}}
+
+If you are going to work on a copy, choose or create a directory of your own; let's call it <code> YOURDIR </code> for the rest of the discussion. 
+
+To copy all the files of the example to <code> YOURDIR </code>: 
+* On Windows, open a Windows Explorer, go to <code> $ISE_EIFFEL\examples\studio\tour </code>, select all the files in that directory, and drag-and-drop them to <code> YOURDIR </code>. 
+* On Unix execute the shell command 
+<code>	cp $ISE_EIFFEL/examples/studio/tour/* YOURDIR</code>
+
+* On VMS execute the command 
+<code>	copy $ISE_EIFFEL:[examples.studio.tour]*.* YOURDIR</code>
+
+
+Once you have compiled the example under EiffelStudio, relying on the precompiled EiffelBase library (the default), and without optimization, the contents of <code> YOURDIR </code> will take up less than one megabyte, including information on diagrams and metrics. 
+
+The final executable generated through " ''finalization''" (optimized compilation) will take only about 300 kilobytes. 
+
+Without precompiled EiffelBase you would need about 3.5 megabytes, plus about 25 megabytes of generated C code and auxiliary files. The executable in that case will take up about 250 kilobytes. 
+
+[[1 OVERVIEW AND PREREQUISITES|<< Previous]]  [[3 STARTING EIFFELSTUDIO AND OPENING A PROJECT|Next >>]]  
+
+
+
+

@@ -1,0 +1,17 @@
+[[Property:title|Customizing class text views]]
+[[Property:weight|6]]
+It is possible in EiffelStudio to customize some properties of [[Formatters: Introduction|class text views]]  (other than basic texts) displayed in the editor or class and feature tabs of the context tool. Besides [[Changing texts display|graphical appearance]] , you may modify: 
+* the order of feature clauses.
+* the type of callers and suppliers displayed in the corresponding views.
+* the views that are selected by default.
+* the indexing clauses that should not be displayed.
+These properties are set in the [[EiffelStudio preferences: Introduction|preferences]] . You can modify them in the [[Preference window overview|preferences window]] . To open this window, select '''Preferences...''' in the '''Tool''' menu. Then select the "Context tool" sub-category of the "Tools" category in the preferences tree. Click then on a preference on the right to modify its value. 
+Click on '''save and exit''' to complete the changes. 
+
+{{seealso| '''See Also''' <br/>
+[[Preference window overview|Preference window description]]  <br/>
+[[EiffelStudio preferences: Introduction|Preferences reference]]  }}
+
+
+
+

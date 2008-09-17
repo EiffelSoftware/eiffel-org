@@ -1,0 +1,9 @@
+[[Property:title|Anchoring]]
+[[Property:weight|10]]
+* You may anchor a class to the diagram by right clicking the figure and dropping it onto the anchor button  [[Image:diagram-anchor-icon]]  .
+
+{{tip| '''Tip''': To see the effects of anchoring [[Turn on Physics Mode|turn on physics mode]]  and then anchor a class as described above. Now [[Adjusting Physics Settings|open the physics settings dialog]]  and adjust the sliders. In the diagram you will see all anchored classes do not move whilst those surrounding them adjust to the new settings. }}
+
+
+
+

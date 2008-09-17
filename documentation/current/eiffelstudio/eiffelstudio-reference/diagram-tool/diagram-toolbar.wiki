@@ -1,0 +1,51 @@
+[[Property:title|Diagram toolbar]]
+[[Property:weight|2]]
+The toolbar of the diagram contains these buttons:
+*   [[Image:diagram-target-cluster-or-class-icon]] Target to cluster or class <br/>
+Drop a class or a cluster on this icon to build the corresponding diagram. 
+*   [[Image:new-inheritance-link-icon]]  [[Creating inheritance links|Create new inheritance links]]  <br/>
+Selecting this button allows you to create inheritance, client-supplier or aggregate links by picking from one class and dropping on the other. 
+*   [[Image:16x16--new-class-icon]]  [[Creating a new class|Create a new class]]  <br/>
+Pick from this button and drop on the diagram to add a new class. 
+*   [[Image:general-undo-icon]]  [[Undoing and redoing|Undo last action]]  <br/>
+Click to undo the last action. 
+*   [[Image:general-undo-history-icon]]  [[Undoing and redoing|History tool]]  <br/>
+Click to open the '''History tool'''. 
+*   [[Image:general-redo-icon]]  [[Undoing and redoing|Redo last action]]  <br/>
+Click to redo the last undone action. 
+*   [[Image:general-reset-icon]]  [[Removing items from a view|Remove figure]]  <br/>
+Drop figures in this hole that you want to remove from the view only. 
+*   [[Image:diagram-choose-color-icon]]  [[Changing colors of classes|Change color]]  <br/>
+Drop class bubbles in this hole to change their color, or click this button and change the color of all class bubbles at once. 
+*   [[Image:diagram-fill-cluster-icon]]  [[Retrieving all classes into a cluster|Include all classes of cluster]]  <br/>
+Drop a cluster in this hole to show all classes of the cluster in this view. 
+*   [[Image:diagram-depth-of-relations-icon]]  [[Changing system exploration depth|Select depth of relations]]  <br/>
+Click to bring up the '''Select depth''' dialog. 
+*   [[Image:diagram-zoom-out-icon]]  [[Zooming a diagram|Zoom out]]  <br/>
+Shrink the diagram. 
+*   [[Image:diagram-fit-to-screen-icon]]  [[Zooming a diagram|Fit Diagram to Screen]]  <br/>
+Fit the diagram to the screen dimensions so it is all visible. 
+*   [[Image:diagram-zoom-in-icon]]  [[Zooming a diagram|Zoom in]]  <br/>
+Enlarge the diagram. 
+*   [[Image:diagram-inheritance-link-icon]]  [[Showing or hiding links and labels|Show/hide inheritance links]]  <br/>
+Toggle visibility of all inheritance links in the view. 
+*   [[Image:diagram-supplier-link-icon]]  [[Showing or hiding links and labels|Show/hide client-supplier links]]  <br/>
+Toggle visibility of all client-supplier links in the view. 
+*   [[Image:diagram-show-labels-icon]]  [[Showing or hiding links and labels|Show/hide labels]]  <br/>
+Toggle visibility of all client link labels in the view. 
+*   [[Image:diagram-export-to-png-icon]]  [[Exporting a diagram to PNG image file|Export diagram to.png]]  <br/>
+Click to generate a .png file from current view. 
+*   [[Image:diagram-toggle-quality-icon]]  Toggles the drawing quality. 
+*   [[Image:diagram-toogle-physics-icon]]  Toggles the physics mode on and off. 
+*   [[Image:diagram-view-uml-icon]]  Toggles view between BON notation and UML. 
+*   [[Image:diagram-anchor-icon]]  Allows to anchor or unanchor a class/cluster figure. 
+*   [[Image:diagram-physics-settings-icon]]  Displays physics settings dialog to control physics behavour. 
+*   [[Image:16x16--general-delete-icon]]  [[Deleting items|Delete]]  <br/>
+Drop items in this hole to remove them from the system. 
+*   [[Image:diagram-show-legend-icon]]  Toggle cluster color legend. 
+*   [[Image:diagram-force-right-angles-icon]]  [[Using the link tool|Put handles on a link]]  <br/>
+Click on this button to toggle right angles on all links in the view. Drop a link on it to bring up the link tool for that link. 
+In addition to these toolbar buttons there is also a drop down list for selecting various zoom percentages on the current view, and a view list for switching between previously saved views/layouts of various parts of the system. 
+
+
+

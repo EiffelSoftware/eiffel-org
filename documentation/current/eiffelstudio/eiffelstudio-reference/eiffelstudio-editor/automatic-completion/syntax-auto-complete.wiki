@@ -1,0 +1,69 @@
+[[Property:title|Syntax auto complete]]
+[[Property:weight|1]]
+Syntax auto-complete in EiffelStudio editor is twofold :
+*  
+The editor can close brackets ("(", "{" and "[") and quotes(""", "'" and "`") automatically. This feature is disabled by default. It can be activated in the editor preferences.
+
+*  
+The editor can complete syntactic structures or part of them. The auto-complete is triggered when "Enter" or "Space" keys are pressed after a reserved word included in the following list:
+{| 
+|- 
+| class
+| ensure
+| invariant
+| require else
+|- 
+| check
+| ensure then
+| is
+| rescue
+|- 
+| create
+| export
+| local
+| select
+|- 
+| creation
+| external
+| loop
+| then
+|- 
+| debug
+| feature
+| obsolete
+| undefine
+|- 
+| deferred
+| from
+| once
+| until
+|- 
+| do
+| if
+| precursor
+| variant
+|- 
+| else
+| indexing
+| redefine
+| when
+|- 
+| elseif
+| inherit
+| rename
+|- 
+| end
+| inspect
+| require
+|}
+
+The way these reserved words are completed is fully [[Syntax automatic completion preferences|customizable]] . 
+
+
+{{seealso| '''See Also''' <br/>
+To see how the editor completes by default and how it can be changed, please read the following pages: [[Syntax automatic completion preferences|Syntax auto-complete preferences]]  <br/>
+}}
+
+
+
+

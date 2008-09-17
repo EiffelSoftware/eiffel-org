@@ -1,0 +1,196 @@
+[[Property:title|Predefined raw metrics]]
+[[Property:weight|7]]
+The environment should make it possible, for any project, to apply the elementary metrics in the following table, each with an associated unit and a one-identifier name. Each of the major divisions of the table starts with a raw metric, for example Classes, and, when appropriate, continues with selection criteria that yield derived metrics based on that raw metric, for example Deferred_classes.
+{| 
+|- 
+| '''Basic Count'''
+| '''Criterion'''
+| '''What to count'''
+| '''Unit'''
+|- 
+| Classes
+| 
+| Classes of a cluster or system
+| Class
+|- 
+| Deferred
+| Deferred classes (not completely implemented, as opposed to "effective", completely implemented).
+|- 
+| Invariant equipped
+| Classes having an invariant
+|- 
+| Obsolete
+| Classes marked as superseded by newer alternatives
+|- 
+| Dependents
+| 
+| Classes on which a class depends, directly or indirectly
+| Class
+|- 
+| Clients
+| Direct clients
+|- 
+| Heirs
+| Direct heirs in inheritance structure
+|- 
+| Parents
+| Direct parents in inheritance structure
+|- 
+| Suppliers
+| Direct suppliers
+|- 
+| Indirect clients
+| Indirect clients
+|- 
+| Indirect heirs
+| Indirect heirs in inheritance structure
+|- 
+| Indirect parents
+| Indirect parents in inheritance structure
+|- 
+| Indirect suppliers
+| Indirect suppliers
+|- 
+| Self
+| The class itself (value always 1)
+|- 
+| Groups
+| 
+| Groups of a system or sub-clusters of a cluster
+| Group
+|- 
+| Compilations
+| 
+| Compilations since start of project
+| Compilation
+|- 
+| All features
+| 
+| Inherited and immediate features of a class
+| Feature
+|- 
+| Attributes
+| Attributes (features represented by fields in instances of the class, as opposed to routines, represented by algorithms)
+|- 
+| Deferred
+| Deferred routines (not implemented, as opposed to effective features, which are implemented)
+|- 
+| Exported
+| Features available to all clients
+|- 
+| Functions
+| Value-returning routines
+|- 
+| Postcondition equipped
+| Routines having a postcondition
+|- 
+| Precondition equipped
+| Routines having a precondition
+|- 
+| Queries
+| Value-returning features, including both attributes and functions (routines returning a result, as opposed to procedures)
+|- 
+| Inherited
+| Features obtained from a parent (possibly in a different form)
+|- 
+| Immediate features
+| 
+| Immediate features of a class
+| Feature
+|- 
+| Attributes
+| Attributes (features represented by fields in instances of the class, as opposed to routines, represented by algorithms)
+|- 
+| Deferred
+| Deferred routines (not implemented, as opposed to effective features, which are implemented)
+|- 
+| Exported
+| Features available to all clients
+|- 
+| Functions
+| Value-returning routines
+|- 
+| Postcondition equipped
+| Routines having a postcondition
+|- 
+| Precondition equipped
+| Routines having a precondition
+|- 
+| Queries
+| Value-returning features, including both attributes and functions (routines returning a result, as opposed to procedures)
+|- 
+| All feature assertions
+| 
+| Clauses in routine's assertion, whether inherited or not
+| Assertion
+|- 
+| Postcondition clauses
+| Clauses in postcondition
+|- 
+| Precondition clauses
+| Clauses in precondition
+|- 
+| Immediate feature assertions
+| 
+| Clauses in routine's assertion, not inherited
+| Assertion
+|- 
+| Postcondition clauses
+| Clauses in postcondition
+|- 
+| Precondition clauses
+| Clauses in precondition
+|- 
+| Invariant clauses
+| 
+| Clauses in invariant
+| Assertion
+|- 
+| Formal generics
+| 
+| Formal generic parameters of a class
+| Generic
+|- 
+| Constrained
+| Formal parameters constrained by a type other than ANY
+|- 
+| All formals
+| 
+| Formal argument of a routine whether inherited or not
+| Local
+|- 
+| Immediate formals
+| 
+| Formal argument of a routine.
+| Local
+|- 
+| Lines
+| 
+| Source lines
+| Line
+|- 
+| All locals
+| 
+| Local entities of feature whether inherited or not (excluding Result)
+| Local
+|- 
+| Immediate locals
+| 
+| Local entities of feature (excluding Result)
+| Local
+|}
+
+A few comments on specific entries: 
+* The list of criteria for Features does not include Routines because a routine is a feature that is not an attribute; to obtain the number of routines, just count features that do not satisfy the Attributes criterion.
+* The selection criteria Attributes and Deferred for Features are, a noted earlier, not independent, since attributes may not be deferred. 
+* Another case of dependency: a procedure is never part of Queries but always a command. Queries, however, include both Attributes and Functions.
+* Two more cases of dependency: Redeclared and Renamed can only be satisfied for features that are inherited. A feature that is not inherited, but introduced fresh in the enclosing class, is called immediate. 
+* The Redeclared attribute has three values: a feature is redefined if it was effective in the parent, or it was deferred in the parent and the new class keeps it deferred with a different signature or contract; it is effected if it was deferred and the class makes it effective; or it may be neither of these.
+
+All metrics listed are product metrics with one exception: Compilations, the only process metric, counting the number of compilations of the project. There is room for more process metrics, such as cost estimates; this requires standard formats letting project managers enter the appropriate information, a point that future versions of the metrics policy described here may develop further.
+
+There is also room for elementary product metrics other than those in the preceding table. In fact, every syntactic construct is a candidate for an elementary metric that simply counts the number of its occurrences; but we should limit ourselves to those that we judge interesting. The metrics literature also suggests elementary metrics assessing complexity of the control structure through properties of the control graph (McCabe), or routine coherence through such properties as the number of attributes accessed by a routine; we should only add them if we can find convincing arguments for their theoretical soundness.
+
+
+
+

@@ -1,0 +1,431 @@
+[[Property:title|EiffelStore DataView Cluster]]
+[[Property:weight|3]]
+==1. Introduction==
+
+DataView cluster helps the programmer creating a GUI for a RDBMS. It gives a basic solution for a RDBMS GUI and also enables the developer to customize his GUI from this basic interface.
+
+This cluster is client of EiffelStore to interface with a RDBMS and EiffelVision2 to create a GUI. However, the use of EiffelStore and EiffelVision 2 is sufficiently encapsulated to let the programmer use other database/graphic libraries.
+
+Notice finally that DataView is based on some common O-O ''design patterns''. Knowing these patterns will help you understand how the library works. It can also give an example of patterns use. 
+
+==2. Specifications==
+
+This part draws the main capabilities that can be expected from the DataView cluster. These capabilities are not exhaustive since the cluster architecture enables to add easily new capabilities to it.
+
+===2.1. Required database structure===
+
+The cluster has been designed to work well with relational databases on Third Normal Form. Database tables must also have an unique numeric ID.
+* The cluster automatically performs associations between related tables. This is required to work fine with 3rd NF architectures.
+* The unique ID enables to update the database content. If you only intend to display database table content, unique IDs are not required.
+* The numeric ID enables to directly give IDs to new table rows. If you don't intend to create table rows, this is not necessary. Notice that with only a couple of redefinitions, the numeric ID requirement problem can be overcome.
+
+===2.2. Database content display===
+
+The cluster provides facilities to:
+* display a set of table rows.
+* select a (current) table row in the set.
+* display the current table row so that it can be edited.
+
+For instance, an interface can display a multi-column list of table rows. A given row can be selected in the list and its information can be then edited through a set of text fields and combo-boxes.
+
+The standard cluster usage is to define a GUI that will associate a given frame/window to a given database table, that is, the information that is displayed in a GUI area will be determined at compile-time. This enables to adapt the GUI display to the type of information displayed, which is recommended when creating a GUI for non-developer users (or any people that should not be aware of the database structure and functioning). Nevertheless, determining the type of information displayed by a frame/window at runtime is still possible as not hard-coded.
+
+Abstracting database in the GUI might not be as easy as only changing database attribute fields names. Information to display may not match the database tables structure. However, for consistency reasons, we can assume that he information to display within a GUI area belongs to a set of associated tables. The easiest solution is to create database views that directly contain the information to display on the GUI area. This implies though that the database has to be modified for the GUI needs.
+
+DataView cluster affords a second solution:
+* Model-View separation enables to merge graphically information that is separated in the process part (i.e. that is from a different table).
+* Table associations facilities enable to specify to display automatically content of table rows associated to a given table row. For instance, with a CONTACTS table associated to a COMPANIES table, the cluster can retrieve automatically a COMPANIES table row associated to a selected CONTACTS table row.
+
+===2.3. Actions performed on the database===
+
+The cluster provides facilities for the following actions:
+* Creating a table row
+* Deleting a table row
+* Updating the content of a table row
+* Selecting a set of table rows
+
+Other capabilities can be added to these ones, for instance by writing descendants of DataView cluster classes that would handle more database operations.
+
+Operations relative to the database structure modification, for instance creating a database table, may be more difficult to add since the database structure is hard-coded. But these advanced capabilities might not be necessary in a GUI for non-developer users.
+
+==3. General description==
+
+===3.1. Global architecture===
+
+The DataView cluster is based on 1 class called [[ref:libraries/store/reference/dv_table_component_chart|DV_TABLE_COMPONENT]]  that represents the interface for 1 relational database table. An architecture using ''DataView'' is centered on database table structure rather than the GUI structure. The basic idea is to have: 
+* 1 database relational table
+* 1 GUI window or frame
+* 1 [[ref:libraries/store/reference/dv_table_component_chart|DV_TABLE_COMPONENT]]  object
+
+This is then possible to adapt the code to have a GUI meeting the specifications, database structure can be totally abstracted in the interface, which might be more convenient for non-developer GUI users.
+
+===3.2. Library structure===
+
+The cluster can be separated into 3 main parts:
+* The '''model''': processes the information and interfaces with an abstract graphic interface (the handle) and an abstract database interface. 
+* The '''handle''': defines an abstract graphic interface for the model. 
+* The '''view''': implements the handle interface with EiffelVision2 widgets. 
+
+The abstract database interface is defined in the EiffelStore generation.tables_access cluster. This cluster can indeed been used independently from the DataView cluster.
+
+===3.3. Model cluster structure===
+
+The '''model''' cluster processes the information retrieved from the GUI and the database and update then both GUI and database. 
+
+The cluster is based on the [[ref:libraries/store/reference/dv_table_component_chart|DV_TABLE_COMPONENT]]  class which objects represents a database relational table (or view).
+
+DV_TABLE_COMPONENT objects can be interconnected to match the table associations. The [[ref:libraries/store/reference/dv_table_component_chart|DV_TABLE_COMPONENT]]  class has been designed to work with 3rd Normal Form relational databases. [[ref:libraries/store/reference/dv_table_component_chart|DV_TABLE_COMPONENT]]  achieves most of the work to retrieve associated table rows for a 3NF database. For instance, when deleting a table row, the component ensures that every associated table row is also deleted.
+
+[[ref:libraries/store/reference/dv_table_component_chart|DV_TABLE_COMPONENT]]  objects can be customized by adding some subcomponents to it. Subcomponents enable to display table rows content on screen, to navigate among table rows and to perform different database queries.
+
+[[Image:sub-component-objects]]  
+
+Process objects structure for a GUI
+
+===3.4. Design patterns===
+
+This cluster adapts several well-known O-O design patterns.
+
+====3.4.1. Model-View separation pattern====
+
+The GUI appearance is totally abstracted in the GUI processing part, this enables to change the GUI display without changing any part of the model part.This is implemented with 2 sets of classes:
+* A set of interfaces that corresponds to each type of abstract widgets needed by the model.
+* A set of classes that implements these interfaces. Notice that an implementation class can implement several interfaces and several classes can implement the same interface.
+
+Let's see an example through a BON diagram:
+
+[[Image:model-view-relationship]]  
+
+Model-View separation pattern implementation in ''DataView'' 
+* Light blue classes represents the model cluster.
+* Orange class represents the handle.
+* Yellow and green classes represents the view cluster.
+* Pink classes represents the EiffelVision2 library.
+
+====3.4.2. Strategy pattern====
+
+DataView cluster provides the developer with a basic GUI implementation AND lets them customize their application. This is possible with a strategy pattern:
+
+The developer assigns different subcomponents to a [[ref:libraries/store/reference/dv_table_component_chart|DV_TABLE_COMPONENT]]  object to define its behavior. The component object only uses the interface of each subcomponent.
+
+A default implementation is written for each interface to let the user use the cluster as quick as possible. To adapt components behavior to their needs, the developer can then create a new subcomponent class inheriting from the abstract interface.
+
+This BON diagram illustrates this for [[ref:libraries/store/reference/dv_creator_chart|DV_CREATOR]]  and [[ref:libraries/store/reference/dv_searcher_chart|DV_SEARCHER]]  subcomponents:
+
+[[Image:dv-table-component-strategy]]  
+
+Strategy pattern used in ''DataView'' model cluster 
+
+==4. Cluster interface==
+
+This part describes how to use the table component class and its subcomponents classes:
+* The [[ref:libraries/store/reference/dv_searcher_chart|DV_SEARCHER]]  class to [[#dv_searcher|select table rows from the database]] . 
+* The [[ref:libraries/store/reference/dv_tablerows_navigator_chart|DV_TABLEROW_NAVIGATOR]]  class to [[#dv_tablerow_navigator|navigate among selected table rows]] . 
+* The [[ref:libraries/store/reference/dv_creator_chart|DV_CREATOR]]  class to [[#dv_creator|create new table rows in the database]] . 
+* The [[ref:libraries/store/reference/dv_tablerow_fields_chart|DV_TABLEROW_FIELDS]]  class to [[#dv_tablerow_fields|edit a table row content]] . 
+
+===4.1. DV_TABLE_COMPONENT class===
+
+This class is responsible for the management of a database table. Its behavior is determined by its assigned subcomponents.
+
+To create a valid and functional [[ref:libraries/store/reference/dv_tablerows_component_chart|DV_TABLE_COMPONENT]]  object, follow these steps:
+# Call set_tablecode to specify which table the component will deal with.
+# Specify [[#output_handler|handlers to output messages]] . 
+# Set the [[#database_handler|database handler]] . 
+# Add different [[#controllers|controllers corresponding to actions to perform]] . 
+# Set [[#subcomponents|subcomponents]] . 
+# Set [[#associated_components|associated components]] . 
+# Call activate to let the component work. This will basically set different default values for non required information not set during the creation process.
+
+The component can then be used on an interface:
+* Input interactions are done via component and subcomponents controllers (4).
+* Output interactions are done via output handlers (2).
+
+====4.1.1. Output handlers====
+
+Output handlers are specific to the [[ref:libraries/store/reference/dv_tablerows_component_chart|DV_TABLE_COMPONENT]]  object, that is, you can output messages in a different way within your GUI. However, the same handlers will be used for subcomponents.
+
+3 handlers can be set:
+* `status_handler' to display status information
+* `warning_handler' to display warning information. Warnings usually correspond to database errors, they are called warnings because the database error is "caught" and the message should enable the user to round the problem.
+* `confirmation_handler' to ask for confirmation before an action.
+
+These handlers have default values, which are:
+* For `status_handler' and `warning_handler', messages are displayed on standard output (with {ANY}.io.put_string)
+* For `confirmation_handler', action is executed without confirmation.
+
+====4.1.2. Database handler====
+
+This handler is specific to the application. It must inherit from <eiffel>ABSTRACT_DB_TABLE_MANAGER</eiffel>. Since it is specific to the program, it can be set before creating any [[ref:libraries/store/reference/dv_table_component_chart|DV_TABLE_COMPONENT]]  object through {DV_DATABASE_HANDLER}.set_database_handler.The [[ref:libraries/store/reference/db_table_manager_chart|DB_TABLE_MANAGER]]  class is the default database handler for EiffelStore.
+
+4.1.3. Action controllers
+
+No subcomponent is associated to 'write', 'refresh' and 'delete' actions since these actions does not require specific behavioral choices.
+
+To perform 'write', 'refresh' and 'delete' at runtime, a controller is associated to each of these actions. This controller triggers the action when a determined user event is grabbed, for instance, when the user clicks a button.
+
+[[#dv_s_control|Controllers]]  are implemented by the abstract class [[ref:libraries/store/reference/dv_sensitive_control_chart|DV_SENSITIVE_CONTROL]]  of cluster user_interactions (handle). 
+
+====4.1.4. Subcomponents====
+
+Subcomponents can be assigned to a table component to specify its behavior to create table rows, select table rows from the database and navigate among selected table rows. A special subcomponent enable to display the ''current'' table row, i.e. the table row that can be edited to update the database. The default behavior for these subcomponents is that the functionality is not available, that is, subcomponents are not mandatory. 
+
+These components share the table component output handlers. They are automatically activated when table component is activated.
+
+====4.1.5. Associated components====
+
+Table components can be associated to reflect relation of database tables represented. Associated table components are organized:
+* 1 master component enables to manually select database table rows.
+* Slave components automatically select table rows that are associated to the current table row of the master component.
+
+{{note| '''Note''': Notice that table associations can be '''nested'''. }}
+
+2 types of associations are possible to reflect table relations:
+* The slave table is dependent on the master table (1:N relationship)
+* The slave table is necessary for the master table (N:1 relationship)
+
+Let us see an example with 3 relational tables:
+
+[[Image:table-objects-associations]]  
+
+Tables architecture and corresponding component objects
+
+The object architecture leads to a GUI where the user can select a company and see the company country information and contacts in this company.
+
+Finally, notice that by default slave components have the same output handlers as their master and slave components are activated when the master component is.
+
+===4.2. DV_SEARCHER class===
+
+====4.2.1. Overview====
+
+[[ref:libraries/store/reference/dv_searcher_chart|DV_SEARCHER]]  is responsible for retrieving table rows from the database. Let us see how it interacts with a table component:
+
+[[Image:component-search-relation]]  
+
+Basic relationship between table component class and search class
+* `display' assigns a set of table rows to the table component.
+* `refresh' asks to refresh the table rows from the same database query.
+
+[[ref:libraries/store/reference/dv_searcher_chart|DV_SEARCHER]]  component does not afford an extended interface. This interface is defined in its descendants. The implemented [[ref:libraries/store/reference/dv_searcher_chart|DV_SEARCHER]]  descendants are:
+* [[ref:libraries/store/reference/dv_typed_searcher_chart|DV_TYPED_SEARCHER]]  performs different [[#dv_typed_searcher|basic searches]]  used by the cluster. 
+* [[ref:libraries/store/reference/dv_interactive_searcher_chart|DV_INTERACTIVE_SEARCHER]]  enables to create a graphic interface to [[#dv_interactive_searcher|let user set search parameters]] . 
+
+====4.2.2. DV_TYPED_SEARCHER class====
+
+This class provides 3 types of searches:
+* "Every row" search: every rows of a table are fetched.
+* "ID selection" search: the selection is qualified by an ID.
+* "Qualified selection" search: the selection is qualified.
+
+=====4.2.2.1. "Every row" search=====
+
+Call read to set table rows on the associated table component.
+
+=====4.2.2.2. "ID selection" search=====
+
+Call read_from_tablerow to set table rows on the associated table component. Qualification ID is the ID of the table row in parameter. Table of row in parameter must be the table of rows to select.
+
+This capability is used by DataView cluster in [[ref:libraries/store/reference/dv_choice_creator_chart|DV_CHOICE_CREATOR]]  to select a just-created table row and display it on the table component.
+
+=====4.2.2.3. "Qualified selection" search=====
+
+Call read_from_table row to set table rows on the associated table component. Table of row in parameter may not be the table of rows to select.
+
+To extract the qualifier, the search component needs additional information:
+* The location of the qualifying value in the table row passed in parameter (set_row_attribute_code)
+* The qualifying attribute location in the table rows to select (set_criterion)
+
+This capability is used in [[ref:libraries/store/reference/dv_tablerows_component_chart|DV_TABLE_COMPONENT]]  when a table row is selected to set associated table rows to slave components. Take a look at add_necessary_table and add_dependent_table.
+
+====4.2.3. DV_INTERACTIVE_SEARCHER class====
+
+This class enables to create a graphic interface to let user perform basic searches. These searches are qualified by one table attribute. This interface has 5 parts:
+* A [[#dv_s_control| controller]]  that enables to launch the search 
+* A [[#dv_s_string| text input field]]  to set qualifying attribute 
+* A [[#dv_s_string| text input field]]  to set qualifying value 
+* A [[#dv_s_integer| typed input field]]  to set qualification type 
+* A [[#dv_s_check| Boolean input field]]  to set case sensitivity 
+
+Text input fields correspond to handle class [[ref:libraries/store/reference/dv_sensitive_string_chart|DV_SENSITIVE_STRING]] , typed input fields corresponds to handle class [[ref:libraries/store/reference/dv_sensitive_integer_chart|DV_SENSITIVE_INTEGER]]  and Boolean input fields corresponds to handle class [[ref:libraries/store/reference/dv_sensitive_check_chart|DV_SENSITIVE_CHECK]] .
+
+===4.3. DV_TABLEROW_NAVIGATOR class===
+
+====4.3.1. Overview====
+
+Table component class contains a set of table rows. This class lets table component class know which of these rows is the current one.
+
+[[Image:component-navigate-relation]]  
+
+Basic relationship between table component class and navigation class
+
+[[ref:libraries/store/reference/dv_choice_creator_chart|DV_CHOICE_CREATOR]]  also uses the class to enable to select associated table rows when creating a new table row (for instance, when creating a company, an existing country should be selected). Let us see how this is designed:
+
+[[Image:dv-tablerows-navigator-clients]]  
+
+DV_TABLEROWS_NAVIGATOR clients
+
+{{note| '''Note''': DV_TABLEROWS_COMPONENT class merely carries a set of table rows and enables to select one table row. }}
+
+DV_CONTROL_NAVIGATOR affords a way to navigate among searched table rows.
+
+====4.3.2. DV_CONTROL_NAVIGATOR class====
+
+This class enables 2 navigation systems:
+* Navigating among table rows with "previous" and "next" controllers.
+* Navigating among table rows through a display list.
+
+{{tip| '''Tip''': Notice that both systems can be used. }}
+
+You can directly set [[#dv_s_control| controllers]]  for "previous" and"next" actions. A 3rd controller, "edit list", enables to show or raise the display list. 
+
+{{warning| '''Caution''': Notice that DV_CONTROL_NAVIGATOR only manages this controller sensitivity. }}
+
+You can assign a [[#dv_tablerow_list| display list]]  to the navigator with a [[ref:libraries/store/reference/dv_tablerow_list_chart|DV_TABLEROW_LIST]]  component. 
+
+===4.4. DV_CREATOR class===
+
+====4.4.1. Overview====
+
+This class enables to create database table rows.
+
+[[Image:component-create-relation]]  
+
+Basic relationship between table component class and navigation class
+
+[[ref:libraries/store/reference/dv_creator_chart|DV_CREATOR]]  class contains minimum information to interact with [[ref:libraries/store/reference/dv_tablerows_component_chart|DV_TABLE_COMPONENT]] : when a table row is created, a creator component may display it on the table component. In this case, when the table component needs to refresh the table rows set, this refreshing action need to be managed by the creator component:
+* `set_just_created' informs a table component that displayed table row set comes from the creator component.
+* `refresh' lets the creation component refresh table component display.
+
+Much of the work, that is row creation, is totally abstracted in DV_CREATOR.DV_CHOICE_CREATOR implements DV_CREATOR and thus affords a creation procedure.
+
+====4.4.2. DV_CHOICE_CREATOR class====
+
+=====4.4.2.1. Overview=====
+
+This class creates a new table row and sets its key values:
+* Database handle gives the primary key value (ID) .
+* The class asks the user for foreign key values (for table associations) by displaying available values in a list.
+
+DV_TABLEROW_NAVIGATOR is used to select a foreign key value, let us see how this is implemented:
+
+[[Image:dv-choice-creator-fkeys-selection]]  
+
+[[ref:libraries/store/reference/dv_choice_creator_chart|DV_CHOICE_CREATOR]]  suppliers for foreign keys selection
+
+[[ref:libraries/store/reference/dv_tablerow_id_provider_chart|DV_TABLEROW_ID_PROVIDER]]  inherits from [[ref:libraries/store/reference/dv_tablerows_component_chart|DV_TABLEROWS_COMPONENT]]  to interface with [[ref:libraries/store/reference/dv_tablerows_navigator_chart|DV_TABLEROWS_NAVIGATOR]] .
+
+Relation between [[ref:libraries/store/reference/dv_choice_creator_chart|DV_CHOICE_CREATOR]]  and [[ref:libraries/store/reference/dv_tablerow_id_provider_chart|DV_TABLEROW_ID_PROVIDER]]  is basically:
+
+[[Image:creator-provider-relation]]  
+
+<eiffel>DV_CHOICE_CREATOR/DV_TABLEROW_ID_PROVIDER</eiffel> basic interactions
+
+Creation process and [[ref:libraries/store/reference/dv_choice_creator_chart|DV_CHOICE_CREATOR]]  objects creation procedure can help you use this class.
+
+=====4.4.2.2. Creation process=====
+
+Table row creation process is:
+# Table row creation is triggered by a [[#dv_s_control| controller]]  ("create") 
+#  <eiffel>DV_CHOICE_CREATOR</eiffel> creates a table row object
+#  <eiffel>DV_CHOICE_CREATOR </eiffel> requests a first foreign key value to [[ref:libraries/store/reference/dv_tablerow_id_provider_chart|DV_TABLEROW_ID_PROVIDER]]  (through `select_from_table')
+#  <eiffel>DV_TABLEROW_ID_PROVIDER </eiffel> loads the available table rows that can be referenced
+#  <eiffel>DV_TABLEROW_ID_PROVIDER</eiffel> assigns the table rows to <eiffel>DV_TABLEROWS_NAVIGATOR</eiffel> and pops up the interface with the table rows
+# Table row selection is triggered by a [[#dv_s_control| controller]]  ("ok") 
+#  <eiffel>DV_TABLEROW_ID_PROVIDER</eiffel> retrieves the selected table row ID and gives it back to <eiffel>DV_CHOICE_CREATOR</eiffel> (through `add_foreign_key_value')
+#  <eiffel>DV_CHOICE_CREATOR</eiffel> requests other foreign key values to <eiffel>DV_TABLEROW_ID_PROVIDER</eiffel>
+#  <eiffel>DV_CHOICE_CREATOR</eiffel> creates the database row with a new ID through the database handle
+
+=====4.4.2.3. Objects creation procedure=====
+
+To create a DV_CHOICE_CREATOR, follow these steps:
+# Create an object conforming to DV_TABLEROWS_NAVIGATOR
+# Create a <eiffel>DV_TABLEROW_ID_PROVIDER</eiffel> object and assign the <eiffel>DV_TABLEROWS_NAVIGATOR</eiffel> object to it
+# Set a [[#dv_s_control| controller]]  to trigger foreign key selection 
+# Set the action to perform to pop up the interface to select the foreign key
+# Create a <eiffel>DV_CHOICE_CREATOR</eiffel> object and assign the <eiffel>DV_TABLEROW_ID_PROVIDER</eiffel> object to it
+# Set a [[#dv_s_control| controller]]  to trigger table row creation 
+
+===4.5. DV_TABLEROW_FIELDS class===
+
+====4.5.1. Overview====
+
+This class enable to display and edit the current table row of a table component. Let us see first how it interacts with the table component:
+
+[[Image:component-fields-relation]]  
+
+DV_TABLE_COMPONENT/DV_TABLEROW_FIELDS basic interactions
+* refresh_tablerow refreshes display with a new table row
+* update_tablerow requests an updated table row for database update. Unchanged values are kept from a default table row
+* updated_tablerow is the last updated table row
+
+The class contains a list of fields that represent editable table attributes.The design is simple:
+
+[[Image:dv-tablerow-fields-design]]  
+
+Table row edition capability design
+
+====4.5.2. DV_TABLEROW_FIELD class====
+
+This class enables to edit a table row attribute value. The view is abstracted using the handle cluster [[ref:libraries/store/reference/dv_sensitive_string_chart|DV_SENSITIVE_STRING]]  class that [[#dv_s_string|represents the editable text value]] . 
+
+This class manages a field value but can also provide field name and type if [[#dv_s_string|graphic fields]]  are provided. Notice that standard [[ref:libraries/store/reference/dv_tablerow_field_chart|DV_TABLEROW_FIELD]]  objects can be generated through the [[ref:libraries/store/reference/dv_factory_chart|DV_FACTORY]]  class, which is a component factory. 
+
+==5. Handle cluster==
+
+This cluster provides the model with an interface to input or output data on the GUI. This enables to remove any link to a graphic implementation in the model, following the [[#model-view_sep|Model-View separation]]  design pattern. The cluster contains a set of interface classes to design this: 
+* The [[ref:libraries/store/reference/dv_sensitive_control_chart|DV_SENSITIVE_CONTROL]]  class to [[#dv_s_control|let the user trigger an action]] . 
+* The [[ref:libraries/store/reference/dv_sensitive_string_chart|DV_SENSITIVE_STRING]]  class to [[#dv_s_string|input or output a text value]] . 
+* The [[ref:libraries/store/reference/dv_sensitive_string_chart|DV_SENSITIVE_INTEGER]]  class to [[#dv_s_integer|input or output a quantity value]] . 
+* The [[ref:libraries/store/reference/dv_sensitive_check_chart|DV_SENSITIVE_CHECK]]  class to [[#dv_s_check|input or output a tag value]] . 
+* The [[ref:libraries/store/reference/dv_tablerow_list_chart|DV_TABLEROW_LIST]]  class to [[#dv_tablerow_list|display a set of table rows and grab events on it]] . 
+
+===5.1. DV_SENSITIVE_CONTROL class===
+
+The [[ref:libraries/store/reference/dv_sensitive_control_chart|DV_SENSITIVE_CONTROL]]  class lets a model class trigger a specific action on a determined user event. Furthermore, the model class lets the user know when its state enables to trigger the action, by setting the controller sensitivity (i.e. if the controller is insensitive, the action cannot be triggered).
+
+{{note| '''Note''': sensitivity excepted, these controllers could have been implemented by Eiffel ''agents''. }}
+
+{{note| '''Note''': sensitivity enables to let the user know ''before''triggering an action if this is possible or not. The other possibility is to let the user know ''after'' trying to trigger the action that it was not possible(with a warning for instance): this is often less convenient. }}
+
+The standard controllers are buttons or menu items: the specific action is triggered when button is clicked or menu item selected.
+
+[[ref:libraries/store/reference/dv_sensitive_control_chart|DV_SENSITIVE_CONTROL]]  is inherited by [[ref:libraries/store/reference/dv_button_chart|DV_BUTTON]]  that implements an EiffelVision2 button. Other implementations can be added, such as a menu item.
+
+===5.2. DV_SENSITIVE_STRING class===
+
+The [[ref:libraries/store/reference/dv_sensitive_string_chart|DV_SENSITIVE_STRING]]  class lets a model class input or output a text graphically. As for controllers, the model class lets the user know when a text value can be input by setting the widget sensitivity.
+
+The standard graphical widgets to perform this are text fields, but several other widgets can be used:
+* A combo-box so that the interface can suggest different values.
+* A label if the text only need to be output.
+
+{{note| '''Note''': customized, specific widgets can be defined, you can for instance take a look at the DV_STRING_LIST class. }}
+
+===5.3. DV_SENSITIVE_INTEGER class===
+
+This class lets a model class input or output an <eiffel>INTEGER</eiffel> value graphically. As for controllers, the model class lets the user know when an integer value can be input by setting the widget sensitivity.
+
+Different widgets can be used to implement this:
+* A text field. Notice that the value entered should be checked to ensure it is an <eiffel>INTEGER </eiffel>value.
+* A combo-box. Each combo-box option is associated to an integer.
+* A scroll button.
+
+===5.4. DV_SENSITIVE_CHECK class===
+
+This class lets a model class input or output a <eiffel>BOOLEAN </eiffel>value graphically. As for controllers, the model class lets the user know when a Boolean value can be input by setting the widget sensitivity.
+
+The standard widget to implement this is a check box.
+
+===5.5. DV_TABLEROW_LIST class===
+
+The [[ref:libraries/store/reference/dv_tablerow_list_chart|DV_TABLEROW_LIST]]  class provides an interface to display a set of table rows so that the user can select a particular row.
+* The model can be informed of a row selection or deselection: the class accepts actions (implemented by ''agents'') that are triggered when a row is selected or deselected. 
+* The model can retrieve the currently selected row: the class yields the current index position in the list.
+
+[[ref:libraries/store/reference/dv_tablerow_multilist_chart|DV_TABLEROW_MULTILIST]]  implements DV_TABLEROW_LIST with an EiffelVision2 multi-column list.
+
+{{note| '''Note''': This class is used for the [[#dv_control_navigator|standard implementation]]  of [[ref:libraries/store/reference/dv_tablerows_navigator_chart|DV_TABLEROW_NAVIGATOR]]  to [[#dv_tablerow_navigator|navigate among table rows]]  selected from the database. }}
+
+
+
+

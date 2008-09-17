@@ -1,0 +1,12 @@
+[[Property:title|Precondition]]
+[[Property:weight|4]]
+Enter a precondition in the <code> require </code> field. A precondition clause will be added to the feature: 
+<code>
+...
+require
+	n >= 0
+...</code>
+
+
+
+

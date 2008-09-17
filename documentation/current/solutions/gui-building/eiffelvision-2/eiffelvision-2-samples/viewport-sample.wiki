@@ -1,0 +1,36 @@
+[[Property:title|Viewport Sample]]
+[[Property:weight|4]]
+[[Image:viewport|viewport]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\vision2\viewport\''. 
+* Choose ''viewport.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+==Running==
+
+After launching the application, you will see a window displayed with a similar appearance to the one above. Modifying the values of the spin buttons will alter the position of the pixmapped button, relative to the viewport in which it is contained. 
+
+==Under the Hood==
+
+The features set_x_offset and set_y_offset are used to modify the position of the EV_VIEWPORT relative to the EV_BUTTON contained within. 
+
+This sample contains the following class: 
+* VIEWPORT
+
+
+{{seealso| '''See Also''' <br/>
+EV_VIEWPORT <br/>
+EV_SPIN_BUTTON <br/>
+[[ref:/libraries/vision2/reference/ev_button_chart|EV_BUTTON]]  <br/>
+}}
+
+
+
+

@@ -1,0 +1,15 @@
+[[Property:title|Creating aggregate client/supplier links]]
+[[Property:weight|2]]
+# Select the button '''Create new aggregate client/supplier links'''.  [[Image:new-aggregate-supplier-link-icon]]  
+# Start pick-and-drop on the class where the feature should be added.
+# Drop on the desired supplier class.
+# The '''Create feature''' dialog appears. See [[Adding an attribute|Creating an attribute]]  or [[Adding a function|Creating a function]]  using the feature wizard for more information. 
+
+{{seealso|'''See Also'''<br/>
+[[Creating client/supplier links|Creating client/supplier links]] <br/>
+[[Creating inheritance links|Creating Inheritance links]] <br/>
+[[New feature dialog: Introduction|Feature wizard]] }}
+
+
+
+

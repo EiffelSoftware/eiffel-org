@@ -1,0 +1,31 @@
+[[Property:title|Accelerator Sample]]
+[[Property:weight|0]]
+[[Image:accelerator|accelerator]]  <br/>
+<br/>
+
+==Compiling==
+
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\vision2\accelerator\''. 
+* Choose ''accelerator.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+
+==Running==
+After launching the application, you will see a window displayed with a similar appearance to the one above. When the window has the focus, the key combination Ctrl + Q will exit the application. 
+==Under the Hood==
+An EV_ACCELERATOR is created and associated with the EV_TITLED_WINDOW used for the main window of the application. The association is made by adding the accelerator to the accelerators list of the window. 
+This sample contains the following class: 
+* ACCELERATOR
+
+
+{{seealso| '''See Also''' <br/>
+[[ref:/libraries/vision2/reference/ev_accelerator_chart|EV_ACCELERATOR]]  <br/>
+[[ref:/libraries/vision2/reference/ev_key_chart|EV_KEY]]  <br/>
+}}
+
+
+
+

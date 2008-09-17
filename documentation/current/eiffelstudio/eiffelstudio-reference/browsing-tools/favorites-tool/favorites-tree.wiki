@@ -1,0 +1,13 @@
+[[Property:title|Favorites tree]]
+[[Property:weight|1]]
+The favorites tree gives a graphical representation of the favorite classes of the system, as opposed to the favorites menu.
+
+[[Image:favorites-tree]]  
+
+In this tree, the folders are user-definable through the [[Organize favorites dialog: Introduction|Organize Favorites dialog]] . They have no other goal than ordering the favorites. In particular, they are entirely independent from the clusters of the system. 
+
+Clicking a class in the favorites tree edits it. Keyboard navigation is also available. Favorite classes are [[Pick-and-drop mechanism|pickable]]  too, so that it is possible to send them to all interface components that accept classes. 
+
+
+
+

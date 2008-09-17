@@ -1,0 +1,14 @@
+[[Property:title|WEL_CHOOSE_COLOR_DIALOG]]
+[[Property:weight|0]]
+The [[ref:libraries/wel/reference/wel_choose_color_dialog_chart|WEL_CHOOSE_COLOR_DIALOG]]  is an encapsulation of the Win32 choose color dialog, and provides a means of selecting standard colors or creating custom colors. 
+
+==Appearance==
+ [[Image:wel-choose-color-dialog|wel_choose_color_dialog]]  <br/>
+<br/>
+
+{{seealso| '''See also''' <br/>
+[[Standard Dialogs|Standard dialogs]]  }}
+
+
+
+

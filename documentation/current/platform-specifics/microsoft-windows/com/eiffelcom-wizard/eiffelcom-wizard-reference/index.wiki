@@ -1,0 +1,18 @@
+[[Property:title|EiffelCOM Wizard Reference]]
+[[Property:weight|-12]]
+The EiffelCOM Wizard allows the creation of Eiffel projects implementing or reusing COM components. 
+*  [[How the EiffelCOM Wizard works|How the EiffelCOM Wizard works]]  describes the steps followed by the wizard when creating the Eiffel project. 
+*  [[Generated Files|Generated Files]]  describes the list of generated files and their usage. 
+*  [[Class Hierarchy|Class Hierarchy]]  describes the class hierarchy of the generated Eiffel project. 
+*  [[Eiffel Project Processing|Eiffel Project Processing]]  covers how to add a COM interface to an existing EiffelStudio project. 
+*  [[Reusing a COM Component|Accessing a COM Component]]  describes how to reuse an existing COM component. 
+*  [[Building a COM Component|Building a COM Component]]  describes how to build a new COM component. 
+*  [[Wizards: Command Line Options|Command Line Options]]  describes using the wizard from the command line. 
+
+{{seealso| '''See Also''' <br/>
+[[EiffelCOM Wizard Introduction|Introduction]]  <br/>
+[[EiffelCOM Wizard Guided Tour|Guided Tour]]  }}
+
+
+
+

@@ -1,0 +1,20 @@
+[[Property:title|Reference for `eif_adopt']]
+[[Property:link_title|eif_adopt]]
+[[Property:weight|-13]]
+==SYNOPSYS==
+<code>
+'''#include "eif_hector.h"
+
+EIF_OBJECT eif_adopt (EIF_OBJECT''' ''obj''''');'''</code>
+
+==DESCRIPTION==
+The '''eif_adopt()''' function adopts ''obj''. By adopting it, the user prevents ''obj'' from being unprotected automatically by the Eiffel run-time. The run-time protects automatically the Eiffel objects passed to a C external before entering in it and unprotects them after exiting the C external. To keep this protection later on, you must call '''eif_adopt()'''. 
+==RETURN VALUE==
+The '''eif_adopt()''' function returns an EIF_OBJECT. This return value can be used later on to access the nested protected Eiffel reference with '''eif_access()'''. 
+==CONFORMANCE==
+ISE Eiffel 4.1 and later. 
+==SEE ALSO==
+'''eif_access''' (1), '''eif_protect''' (1), '''eif_wean''' (1). 
+
+
+

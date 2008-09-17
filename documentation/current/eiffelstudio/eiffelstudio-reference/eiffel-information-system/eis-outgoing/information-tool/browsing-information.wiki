@@ -1,0 +1,52 @@
+[[Property:title|Browsing Information]]
+[[Property:weight|0]]
+[[Image:information-tool]]  
+==Information Tree==
+
+On the left of the tool window is the information tree. The tree displays all locations where annotations are, as well as a subtree of tags by which annotations can be better organized in tag style. Double clicking or pressing enter on tree nodes opens annotation list corresponding to that node.
+
+The following are types of nodes in the tree can be navigated to:
+*  Target
+*  Cluster
+*  Library
+*  Class
+*  Feature
+*  Targets without tags
+*  Listed tag
+
+==Annotation List==
+
+Double clicking on the tree node, the annotation list appears on the right of the tool window.
+
+The following columns are available in the list:
+*  Location - the development object where that piece of annotation belongs to. Typical locations are target, cluster, class and feature.
+*  Name - the name of the piece of annotation, given by users.
+*  Protocol - type of the annotation EIS treats. 
+{{seealso| '''See Also''' <br/>
+[[Protocols|Protocols]]  }}
+
+*  Source - normally the location EIS takes to open. Variables can be used.
+*  Tags - terms or phrases users use to categrize the piece of information. Tags are separated by '''","'''
+*  Others - other related attributes. Attributes are separated by '''","''' 
+{{note| '''Note: '''Only attributes used by '''protocol''' are taken into account. Otherwise, ignored. }}
+
+
+{{note| '''Hint: '''Clicking on title of each column sorts that column. }}
+
+==Openning Resources==
+
+Information or resources can be opened by either double clicking into the annotation list or pressing enter on it. EIS interpretes available attributes via the given protocol and opens the target resource.
+
+{{note| '''Note: '''Pressing '''F1''' in the editor, a list of all available information pops up, from which information can be accessed too. }}
+
+==Sweeping Information==
+
+Sweeping information synchronizes all information of current system into the tool. This is needed when changes may occur externally and EIS may need to know full information to display a correct list of existing tags. Two ways of sweeping:
+*  Automatic - EIS automatically sweeps information when Information tool is shown. Enabling the first button on the bottom toolbar activates this function.
+*  Manual - The second button on the bottom toolbar triggers a manual sweeping.
+
+The progress bar in the bottom of the tool indicates current sweeping progress.
+
+
+
+

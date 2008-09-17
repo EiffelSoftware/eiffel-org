@@ -1,0 +1,15 @@
+[[Property:title|Delete an object]]
+[[Property:weight|2]]
+To remove an [[EiffelBuild Notation|object]]  from your EiffelBuild system, [[EiffelBuild Notation|pick]]  the object you wish to delete, and [[EiffelBuild Notation|drop]]  it on  [[Image:icon-delete-small-color]] in the [[Main toolbar|main toolbar]] . 
+
+You may also delete via the keyboard by pressing the delete key while the tool containing the objects representation has the focus. Whichever [[EiffelBuild Notation|object]]  has the selection is deleted.
+
+{{note| '''Note''': To restore a deleted object, you may use the [[History|History]]  }}
+
+{{seealso| '''See Also''' <br/>
+[[History|History]]  <br/>
+[[Type selector|Type selector]]  }}
+
+
+
+

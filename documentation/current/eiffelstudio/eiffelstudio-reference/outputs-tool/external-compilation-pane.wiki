@@ -1,0 +1,24 @@
+[[Property:title|C Output tool]]
+[[Property:link_title|External compilation pane]]
+[[Property:weight|3]]
+The C Output tool is where C compilation output is shown.
+
+[[Image:coutput1|C output tool]]  
+
+If the C compiler uses a different locale than your default locale, you can select that particular locale in the "Locale" region.
+
+==Open a file mentioned in the C output==
+
+You can open a file mentioned in the C output in a specified external editor by selecting the file name and then clicking the  [[Image:metrics-tool--command-send-to-external-editor-icon|C output tool]]  button highlighted in the following figure:
+
+[[Image:coutput2|C output tool]]  
+
+==Find C code for a class/feature==
+
+Pick the class or feature whose related C code you want to see and drop it into the  [[Image:coutput4|C output tool]] button or the  [[Image:coutput5|C output tool]]  button. The related C code will be shown in specified editor. 
+
+[[Image:coutput3|C output tool]]  
+
+
+
+
