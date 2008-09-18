@@ -3,13 +3,13 @@
 [[Property:uuid|0f0913fe-d71c-43d3-6c22-706c8ed5d4ad]]
 == Eiffel Solutions, Technologies, and Class Libraries ==
 
- Provide content on the technologies Eiffel applies to solve common computing needs and, where applicable, the libraries and/or samples that support the technologies
+In this book you will find information about the facilities provided by Eiffel for satisfying many software development needs. 
 
-{{note|
-* The emphasis is primarily on needs of developers, then on Eiffel's offerings to satisfy those needs.
-* Items are ordered based on an intuitive assessment of likelihood of need. 
-* Most items labelled "tutorial" are those that were labelled "content" in the existing online documentation.}}
-
+This includes:
+* The documentation for the Eiffel class libraries
+** Tutorials and/or user guides
+** Class references -- the library, cluster, and class views
+* Other special instructions for handling commonly need tasks
 
 
 
