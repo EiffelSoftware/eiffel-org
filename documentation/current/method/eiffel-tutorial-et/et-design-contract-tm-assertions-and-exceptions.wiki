@@ -1,6 +1,7 @@
 [[Property:title|8 Design by Contract (tm), Assertions and Exceptions]]
 [[Property:link_title|ET: Design by Contract (tm), Assertions and Exceptions]]
 [[Property:weight|-8]]
+[[Property:uuid|2ef367c9-34d9-d45e-a722-163b39581405]]
 Eiffel directly implements the ideas of Design by Contract&#153; , which enhance software reliability and provide a sound basis for software specification, documentation and testing, as well as exception handling and the proper use of inheritance. 
 
 ==Design by Contract&#153; basics==
