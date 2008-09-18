@@ -1,0 +1,81 @@
+[[Property:title|Solutions]]
+[[Property:weight|-8]]
+[[Property:uuid|0f0913fe-d71c-43d3-6c22-706c8ed5d4ad]]
+== Eiffel Solutions, Technologies, and Class Libraries ==
+
+ Provide content on the technologies Eiffel applies to solve common computing needs and, where applicable, the libraries and/or samples that support the technologies
+
+{{note| 
+* The emphasis is primarily on needs of developers, then on Eiffel's offerings to satisfy those needs.
+* Items are ordered based on an intuitive assessment of likelihood of need. 
+* Most items labelled "tutorial" are those that were labelled "content" in the existing online documentation.
+}}
+
+
+
+* Fundamental computing and data structures
+** EiffelBase
+*** EiffelBase Tutorial    http://ise181.ise/book/documentation/eiffelbase
+*** EiffelBase class reference
+*** EiffelBase samples    http://ise181.ise/book/documentation/eiffelbase-samples
+* Graphical user interfaces
+** EiffelBuild    http://ise181.ise/book/documentation/eiffelbuild-introduction
+*** EiffelBuild How To's    http://ise181.ise/book/documentation/eiffelbuild-how-tos
+*** EiffelBuild Reference    http://ise181.ise/book/documentation/eiffelbuild-reference
+** EiffelVision 2    http://ise181.ise/book/documentation/eiffelvision-2-library
+*** EiffelVision 2 introduction    http://ise181.ise/book/documentation/eiffelvision-introduction
+*** EiffelVision 2 tutorial    http://ise181.ise/book/documentation/eiffelvision-interface-content
+*** EiffelVision 2 class reference
+*** EiffelVision 2 samples    http://ise181.ise/book/documentation/eiffelvision-2-samples
+* Date and time manipulation
+** EiffelTime
+*** EiffelTime tutorial    http://ise181.ise/book/documentation/eiffeltime
+*** EiffelTime class reference
+* Interacting with software in other languages  Put a reference to .NET and COM, as well as to external features syntax -Kwaxer 9/16/08 7:47 PM 
+** C externals tutorial   http://ise181.ise/book/documentation/c-externals
+** C++ externals tutorial   http://ise181.ise/book/documentation/c-externals-0
+** CECIL tutorial    http://ise181.ise/book/documentation/cecil
+** Eiffel2Java    http://ise181.ise/book/documentation/eiffel2java
+*** Eiffel2Java tutorial   http://ise181.ise/book/documentation/eiffel-java-interface
+*** Eiffel2Java class reference
+*** Eiffel2Java samples    http://ise181.ise/book/documentation/eiffel2java-sample
+* Platform porting of applications    http://ise181.ise/book/documentation/porting-instructions
+** Porting from Unix to Windows or vice versa    http://ise181.ise/book/documentation/porting-eiffel-application-unix-windows-or-vice-versa
+* Multi-threading
+** Threads tutorial    http://ise181.ise/book/documentation/threads
+** EiffelThread class reference
+* Network communication
+** EiffelNet    http://ise181.ise/book/documentation/eiffelnet-library
+*** EiffelNet tutorial    http://ise181.ise/book/documentation/eiffelnet
+*** EiffelNet class reference
+*** EiffelNet samples    http://ise181.ise/book/documentation/eiffelnet-samples 
+** cURL library？ -Larryliuming 08-9-16 下午11:46 
+* Database access
+** EiffelStore    http://ise181.ise/book/documentation/eiffelstore-library
+*** EiffelStore introduction    http://ise181.ise/book/documentation/eiffelstore-introduction
+*** EiffelStore tutorial    http://ise181.ise/book/documentation/eiffelstore-content
+*** EiffelStore class reference
+*** EiffelStore samples    http://ise181.ise/book/documentation/eiffelstore-samples
+* Web CGI forms processing
+** EiffelWeb    http://ise181.ise/book/documentation/eiffelweb-library
+*** EiffelWeb tutorial    http://ise181.ise/book/documentation/eiffelweb-content
+*** EiffelWeb class reference
+*** EiffelWeb samples    http://ise181.ise/book/documentation/eiffelweb-sample
+* Text processing (Lexical analysis and parsing)
+** EiffelLex    http://ise181.ise/book/documentation/eiffellex-library
+*** EiffelLex tutorial    http://ise181.ise/book/documentation/lexical-analysis-lex-library
+*** EiffelLex class reference
+*** EiffelLex samples    http://ise181.ise/book/documentation/lex-sample
+** EiffelParse    http://ise181.ise/book/documentation/eiffelparse-library
+*** EiffelParse tutorial    http://ise181.ise/book/documentation/parsing-parse-library
+*** EiffelParse class reference
+*** EiffelParse samples    http://ise181.ise/book/documentation/parse-sample
+* Application preferences management
+** EiffelPreference    http://ise181.ise/book/documentation/eiffelpreference-library
+*** EiffelPreference tutorial    http://ise181.ise/book/documentation/preference-library
+*** EiffelPreference class reference
+*** EiffelPreference samples    http://ise181.ise/book/documentation/preferences-sample
+
+
+
+

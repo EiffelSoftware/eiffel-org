@@ -1,6 +1,7 @@
 [[Property:title|7 CLASS VIEWS]]
 [[Property:link_title|Viewing Classes]]
 [[Property:weight|-9]]
+[[Property:uuid|78136af1-5d7a-f3d2-9619-17f4c0541f1e]]
 [[Help reading the EiffelStudio Guided Tour|Help reading this manual]]  
 
 We haven't even looked at a class text yet, but it's important anyway to see how EiffelStudio provides you with numerous, complementary <span>views</span> of your software. The Context Tool is the primary place to look for such views. 
@@ -16,7 +17,9 @@ You can get these panes back later by clicking the buttons in the toolbar or by 
 {{note| ''Another way to hide a pane is to click on the button in the toolbar or by unselecting them in the View, Tools Menu.'' }}
 
 Two panes remain, showing the Editing Tool and the Context Tool.
-<div>  [[Image:index-26]] [[general/guided_tour/studio/index-26.png|(link)]]  </div>
+
+[[Image:index-26]]
+
 Make sure the Context Tool pane is large enough; you can resize the window and, if necessary, narrow down the Editing Tool pane since we don't need it for the moment. Don't worry, though, if the Context Tool shows only part of the diagram, as it does on the last figure, since we will now use the Context Tool to display information other than the diagram, by selecting the corresponding tabs.
 
 ==The Class Tab==
@@ -26,13 +29,17 @@ The first tab we'll look at is the Class Tab. You'll find it at the bottom of th
 This gives you access to many forms of information about the current class -- the target of the Development Window. A set of buttons at the top of the Context Tool enables you to display a number of '''views''' of the class. The currently highlighted button indicates the default view: <code> Ancestors </code>. You can see the others' names by moving the cursor over the various view icons, '''without clicking''', and reading the tooltips. 
 
 The view currently displayed, <code> Ancestors </code>, shows the inheritance structure that leads to the current target, <code> LIST </code> : 
-<div>  [[Image:index-29]] [[general/guided_tour/studio/index-29.png|(link)]]  </div>
+
+[[Image:index-29]] 
+
 This shows that <code> LIST </code> is an heir of <code> CHAIN </code> which itself, as an example of multiple inheritance, is an heir of <code> CURSOR_STRUCTURE </code>, <code> INDEXABLE </code>, and -- twice, as an example of <span>repeated</span> inheritance -- <code> SEQUENCE </code>. If, because of direct or indirect repeated inheritance, a class appears more than once, the display doesn't repeat its ancestry the second and subsequent times; the omitted repetition appears as just three dots, '''...''', as illustrated here for the second occurrences of <code> BAG </code>, <code> ACTIVE </code> and others. 
 
 As you may have guessed, all the class names that appear on this display, by default in blue, can function as hyperlinks: you can use any one of them to retarget the Development Window to the corresponding class. This will be another major retargeting mechanism. But let's not pursue it for the moment and instead continue looking at the documentation views.
 
 Next to <code> Ancestors </code> button is <code> Descendants, </code>which will give you the descendants of a class in a similar format: 
- [[Image:index-30]] [[general/guided_tour/studio/index-30.png|(link)]]  
+
+[[Image:index-30]]
+
 The progeny of <code> LIST </code>, as you can see, is just as impressive as its ancestry. 
 
 Let's now look at the other formats, starting from the left. The first button, <code> Clickable </code>, gives the class text. It's essentially the same information as appears in the top Editing Tool (whose pane was reduced to its bare minimum in the last few pictures, showing only the first three lines or so), but with some differences: 

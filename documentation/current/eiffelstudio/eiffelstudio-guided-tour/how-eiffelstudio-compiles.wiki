@@ -1,6 +1,7 @@
 [[Property:title|16 HOW EIFFELSTUDIO COMPILES]]
 [[Property:link_title|How EiffelStudio Compiles]]
 [[Property:weight|3]]
+[[Property:uuid|6fc86303-8afe-78af-6ca7-2853e8bfcbc3]]
 [[Help reading the EiffelStudio Guided Tour|Help reading this manual]]  
 
 So far we have relied on the compiling capabilities of EiffelStudio without exploring them in any detail. We must now understand the principles behind EiffelStudio's compiling strategy, in particular how it reconciles fast turnaround, efficient generated code, and strong typing.
@@ -161,7 +162,7 @@ Note the <code> No </code> option: by default, freezing will start a C compilati
 
 Click <code> Yes </code> to confirm freeze and C-compilation. Once the Eiffel compilation is complete, a message in the Development Window ( <code> C compilation launched in background </code>) tells you when that C-compilation has started. C-compilation does not block EiffelStudio: at this point you can continue working with the environment. Any messages from C compiler will appear: 
 * On Windows, in a new console that comes up for the occasion (minimize it if you don't want to see the messages).
-* On Unix/Linux and VMS, in the window from which you launched EiffelStudio.
+* On Unix/Linux and OpenVMS, in the window from which you launched EiffelStudio.
 
 You will be able to execute the frozen system as soon as the C compilation finishes.
 

@@ -29,9 +29,13 @@ Whether you have one Development Window or many, each may have as its '''target'
 ==Retargeting by name==
 
 Our first example screen was targeted to the whole system. To retarget it to a particular class, you can just type the class name -- if you know it -- into the Class Field at the top left:
-<div>  [[Image:index-9]] [[general/guided_tour/studio/index-9.png|(link)]]  </div>
+
+[[Image:index-9]]
+
 Let's use one of the most basic classes, <code> ARRAY </code> from the Kernel Library of EiffelBase. Bring the cursor to the Class Field, click to make it active, type <code> array </code> (or <code> ARRAY </code> ) and the Enter key. As shown on the next figure, this retargets the tool to class <code> ARRAY </code>. Note that you didn't have to worry about where the class resides in the files of your computer. Also, the Class Field will now show the target's class name, <code> ARRAY </code>, in upper case, since that is the standard Eiffel convention for class names. It doesn't matter, when you enter the name into the field, whether you use lower or upper case, or some mix; EiffelStudio will show the name back in all upper case. 
-<div>  [[Image:index-10]] [[general/guided_tour/studio/index-10.png|(link)]]  </div>
+
+[[Image:index-10]]
+
 The Development Window is now targeted to class <code> ARRAY </code>. Each of the four panes contains a tool: 
 * Features Tree, top-left: a tree view of all the features of the class, grouped by the feature categories ( <code> Initialization </code>, <code> Access </code>, <span>...</span> ) as they appear in the class. 
 * Editing Tool, top-right: the source text of the class, editable. For the moment the pane is too small to display much of interest -- it only shows the very first few lines -- but we'll enlarge it when we need to modify class texts. (Not <code> ARRAY </code>, though, as it's not the kind of class you want to change during your first session with EiffelStudio, so just wait a bit.) 
@@ -41,17 +45,21 @@ The Development Window is now targeted to class <code> ARRAY </code>. Each of th
 ==A peek at diagram==
 
 There's indeed a lot in the Context Tool, too much to see right now, but to feed our curiosity let's just take a peek at the Diagram View. Click the <code> Diagram </code> Tab at the bottom: 
+
 [[Image:index-11]]
 
 This displays a class diagram in the Context Tool:
+
 [[Image:index-12]]
 
 {{note| ''If nothing appears in the Context Tool when you click the Diagram Tab, that's because the Context Tool and the Class View are not linked. Linking the two tools together will ensure that whenever a change is made in one tool the other will update to reflect that change. To link the tools select the menu entry '' <code> View </code> <code> --> </code> <code> Link context tool </code> ''; this will display the diagram as shown. We'll see the explanation for this behavior in '' [[10 RETARGETING THROUGH PICK-AND-DROP| ''Isolating the context, pg 68'' ]]  }}
 
 The diagram is cropped to the available area; to get the whole picture, resize the window from the bottom-right corner. You can now see the inheritance structure:
+
 [[Image:index-13]]
 
 The red arrows show <span>inheritance</span> relations: <code> STRING </code> inherits from <code> INDEXABLE </code> and so on. We'll see later how to display the other key inter-class relation, <span>client</span>, but it's not particularly interesting for <code> STRING </code>. The default placement of the classes is quite good in this case, but if you don't like it you can change it; your changes will be retained the next time you bring up this diagram, in this session or a later one. (That's part of the information the <code> Diagram </code> directory keeps.) It will also be used in Web diagrams if you choose to generate an HTML form. To move a class bubble, just use standard drag-and-drop. For example you may move everything to the left and make the figure more compact: 
+
 [[Image:index-14]]
 
 Later on you will learn how to use the Diagram View not just to display system structures graphically but also to build and modify systems. EiffelStudio indeed integrates the functionality of a CASE (Computer-Aided Software Engineering) workbench, seamlessly integrated with the programming facilities. But for the moment this peek at the Diagram View is enough, so let's get back to browsing.
@@ -59,22 +67,27 @@ Later on you will learn how to use the Diagram View not just to display system s
 ==Retargeting from the Cluster Tree==
 
 Your first browsing action used a class of which you knew the name, <code> STRING </code>. What if you don't know what's in the system and want to explore it? Among other techniques, you can let the Cluster Tree, in the Cluster Tool at the bottom left of the Development Window, guide you through the system's structure: 
-<div>  [[Image:index-15]] [[general/guided_tour/studio/index-15.png|(link)]]  </div>
+
+[[Image:index-15]]
+
 An Eiffel system, as you know, is organized into clusters and libraries (and assemblies on some .NET systems), clusters can be structured hierarchically into subclusters. Here we see one cluster: <code> root_cluster </code>, containing the few classes specific to our Guided Tour system. There are also two libraries: <code>base</code> which provides the base classes and <code>precompile</code> which does not provide any classes directly (precompiles are present to speed up compilation time by precompiling classes). Let's go into <code> base </code>, ISE's open-source library of fundamental reusable mechanisms. Click the little <code> + </code> sign to the left of its name; this expands the clusters and libraries in the base library. Expand now the base cluster and you will see the its six subclusters: <code> event </code> for event handling, <code> kernel </code> for the Kernel Library, <code> refactoring </code> for help with refactoring, <code> serialization </code> for serialization, <code> structures </code> for the Data Structure Library, and <code> support </code> for additional supporting mechanisms. 
 
 [[Image:index-16]]  
 
 The most extensive of these EiffelBase libraries is <code> structures </code>, which contains implementations of major data structures and algorithms of computing science. Click the <code> + </code> next to <code> structures </code> to see its own subclusters: 
+
 [[Image:index-17]]
 
 {{note| ''If you initially don't see as many details as shown on this figure, you may get them by resizing the window, moving the vertical pane boundary, and possibly scrolling.'' }}
 
 The EiffelBase Data Structure library and its subclusters are described in the book <span> [http://www.eiffel.com/doc/ Reusable Software]  </span>. Let's go to one of the most frequently used subclusters, <code> list </code>, containing implementations of list structures. Click the <code> + </code> next to <code> list </code>. This time, since list is a terminal cluster, it's not subclusters you'll see, but '''classes''', identified by small ellipses: 
+
 [[Image:index-18]]
 
 The ellipse, or "bubble", is indeed throughout EiffelStudio, as in the Business Object Notation (BON, the underlying graphical convention), the distinctive symbol for classes; remember the larger bubbles showing classes in the Diagram View a few moments ago.
 
 Our second technique for retargeting a Development Window to a class (other than typing the class name as we did before) is to click the class in the Cluster Tree. Do this now: click <code> LIST </code> in the tree. It doesn't matter whether you click on the class name or the adjacent bubble. This retargets the tool to class <code> LIST </code>. Because the Context Tool is still in <code> Diagram </code> view, it will display the inheritance structure for the new target class: 
+
 [[Image:index-19]]
 
 While this view is being produced you may see (or just get a glimpse of, if your machine is fast) messages indicating that it's producing the diagram for <code> LIST </code>. In a moment we'll switch views in the Context Tool as we won't need the diagrams. 
@@ -84,6 +97,7 @@ As the tool is now targeted to <code> LIST </code>, the Class Field at the top l
 ==Moving back and forth==
 
 Here now is a third way to retarget. Towards the top-left part of the Development Window there are <code> Back </code> and <code> Forth </code> buttons, which will enable you to revisit classes already seen during the current session: 
+
 [[Image:index-20]]
 
 Click the <code> Back </code> button. This retargets the tool to the class you visited previously: <code> STRING </code>. The <code> Forth </code> button, immediately to the right of <code> Back </code>, becomes active. Click it to retarget back to <code> LIST </code>. 
@@ -93,6 +107,7 @@ Note that all buttons of the interface have a "tooltip": if you move the cursor 
 ==The Target History==
 
 As a fourth way to retarget -- there are more, and after this one we'll stop counting -- you can also use the Target History menu, which you can bring up through the little arrow to the right of the Class Field:
+
 [[Image:index-21]]
 
 If you click this arrow -- the little black triangle -- you will see a menu of all your recent targets. Doing this now will only show the two classes visited so far, <code> STRING </code> and <code> LIST </code>, but later on there will be more entries. By default EiffelStudio remembers 10 classes; this is one of the settings you can change later if you wish, through the menu <code> Tools </code> <code> --> </code> <code> Preferences </code>. (There's no point in doing this now.) 
@@ -102,11 +117,13 @@ If you click this arrow -- the little black triangle -- you will see a menu of a
 If you find yourself often needing to examine a particular class, you can add it to your "Favorites", similar to the favorites, also called <span>bookmarks</span>, which you use to retain interesting pages in a Web browser. 
 
 It's easy to add the current target -- currently, <code> LIST </code> -- to your Favorites. Do it now: go to the <code> Favorites </code> menu and select <code> Add to favorites </code>. Now display the favorites; one way is to go back to that same Favorites menu and select <code> Show favorites </code>. The Favorites Tool appears below the Cluster Tree: 
+
 [[Image:index-22]] 
 
 This also means one more way to retarget a Development Window: click a class in the Favorites Tool. <span>Two</span> ways actually, since even if you don't see the Favorites Tool the class will appear in the <code> Favorites </code> menu and you can select it there. 
 
 Right now we don't need the Favorites Tool, so you can get rid of it by either selecting <code> Hide favorites </code> in the <code> Favorites </code> menu or clicking the little Close icon at the top right of the Favorites Tool: 
+
 [[Image:index-23]]
 
 ==Starting a new tool==
@@ -114,6 +131,7 @@ Right now we don't need the Favorites Tool, so you can get rid of it by either s
 With all the techniques seen so far, you were able to retarget the current Development Window to a new class. As noted, you may also wish to have two or more Development Windows targeted to different classes; this is useful to keep track of several things at once. A simple way to start a new tool on a class is to find the class somewhere in the interface and '''control-right-click''' it. 
 
 Here, for example, the editor lists <code> CHAIN </code>, as a parent of <code> LIST. </code> Go to that word and control-right-click it, that is to say, click with the rightmost button of the mouse while holding the CONTROL key on the keyboard. This starts a new Development Window, targeted to the chosen class, <code> CHAIN </code> : 
+
 [[Image:index-24]]
 
 The place where we found the class <code> CHAIN </code> in the original tool (the one targeted to <code> LIST </code> ) was the bubble representing the class in the Diagram View. But that's just one possibility. A general principle of EiffelStudio is '''semantic consistency''' : when you want to work with a development object -- a class, a feature, a cluster -- you can grab it wherever it appears in the interface, and in whatever format it is displayed: you might have spotted it be in the Diagram View, in the text of a class in the Editing Tool, in the Cluster or Feature Tree, or in any of the class documentation formats that we will soon see; and the form under which you found it may be text -- the name of the class in a text document -- or some graphical representation, such as a class bubble in a diagram. These variants don't matter: if the class or other development object catches your fancy, you can do whatever operations make sense for it, such as Control-right-click to start a new development object targeted to it, or any of the other operations we'll see next. 
