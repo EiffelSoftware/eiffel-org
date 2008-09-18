@@ -2,34 +2,5 @@
 [[Property:link_title|Tutorial]]
 [[Property:weight|2]]
 [[Property:uuid|4dbc41e2-ecfc-8c50-9288-fce30f4abd90]]
-==[[1 Overview|1 OVERVIEW]]==
-
-==[[2 General Properties|2 GENERAL PROPERTIES]]==
-
-==[[3 The Software Process in Eiffel|3 THE SOFTWARE PROCESS IN EIFFEL]]==
-
-==[[4 Hello World|4 HELLO WORLD]]==
-
-==[[5 The Static Picture: System Organization|5 THE STATIC PICTURE: SYSTEM ORGANIZATION]]==
-
-==[[6 The Dynamic Structure: Execution Model|6 THE DYNAMIC STRUCTURE: EXECUTION MODEL]]==
-
-==[[7 Genericity and Arrays|7 GENERICITY AND ARRAYS]]==
-
-==[[8 Design by Contract (tm), Assertions and Exceptions|8 DESIGN BY CONTRACT TM, ASSERTIONS, EXCEPTIONS]]==
-
-==[[9 Inheritance|9 INHERITANCE]]==
-
-==[[10 Other Mechanisms|10 OTHER MECHANISMS]]==
-
-==[[11 Agents|11 AGENTS]]==
-
-==[[12 Lexical Conventions and Style Rules|12 LEXICAL CONVENTIONS AND STYLE RULES]]==
-
-==[[13 To Learn More|13 TO LEARN MORE]]==
-
-
-
-[[MANUAL IDENTIFICATION AND COPYRIGHT: Tutorial|MANUAL IDENTIFICATION AND COPYRIGHT]]  
-
+From this tutorial you should get a solid understanding of what Eiffel is all about and why it is different from other technologies. Still more detail is available in [http://www.eiffel.com/doc/oosc/ Object-oriented Software Construction, 2nd Edition]. 
 
