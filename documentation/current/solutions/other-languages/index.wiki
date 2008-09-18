@@ -5,11 +5,11 @@
 == Interacting with software in other languages  ==
 {{note|Put a reference to .NET and COM, as well as to external features syntax -Kwaxer 9/16/08 7:47 PM }}
 
-** C externals tutorial   http://ise181.ise/book/documentation/c-externals
-** C++ externals tutorial   http://ise181.ise/book/documentation/c-externals-0
-** CECIL tutorial    http://ise181.ise/book/documentation/cecil
-** Eiffel2Java    http://ise181.ise/book/documentation/eiffel2java
-*** Eiffel2Java tutorial   http://ise181.ise/book/documentation/eiffel-java-interface
-*** Eiffel2Java class reference
-*** Eiffel2Java samples    http://ise181.ise/book/documentation/eiffel2java-sample
+* [[C externals|C externals tutorial]]
+* [[C++ Externals|C++ externals tutorial]]
+* [[CECIL|CECIL tutorial]]
+* [[Eiffel2Java|Eiffel2Java]]
+** [[Eiffel to Java Interface|Eiffel2Java tutorial]]
+** Eiffel2Java class reference
+** [[Eiffel2Java Sample|Eiffel2Java samples]]
 
