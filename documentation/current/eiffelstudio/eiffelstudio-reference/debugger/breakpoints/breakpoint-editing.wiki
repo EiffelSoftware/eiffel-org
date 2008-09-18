@@ -1,5 +1,6 @@
 [[Property:title|Breakpoint editing]]
 [[Property:weight|1]]
+[[Property:uuid|1ac830ab-7600-8e52-2351-c515bcc31d41]]
 In all flat views ( [[Feature formatters: Flat view|feature flat view]]  and [[Class formatters: Flat view|class flat view]] ), a margin is displayed on the left of the editor. [[Breakpoints: Introduction|Breakpoints]]  are there symbolized as circles, of a different appearance depending on their state: enabled (  [[Image:bp-enabled-icon]]  ), disabled (  [[Image:bp-disabled-icon]]  ) or not set (  [[Image:bp-slot-icon]]  ). A small question mark in the circle (  [[Image:bp-enabled-conditional-icon]] ,  [[Image:bp-disabled-conditional-icon]]  )indicates [[Breakpoint menu|conditional breakpoints]] . 
 
 Right-clicking on any breakpoint pops up a context menu:
