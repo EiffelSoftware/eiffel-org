@@ -1,9 +1,10 @@
 [[Property:title|3 STARTING EIFFELSTUDIO AND OPENING A PROJECT]]
 [[Property:link_title|Starting EiffelStudio and Opening a Project]]
 [[Property:weight|-13]]
+[[Property:uuid|676cf329-5640-69c4-d10b-b56fcd3f2ff9]]
 [[Help reading the EiffelStudio Guided Tour|Help reading this manual]]  
 
-In the rest of this Tour <code> YOURDIR </code> denotes the directory where the example resides (the original, <code> $ISE_EIFFEL/examples/studio/tour </code>, or a copy). Launching will use the operating system's mechanism for starting a program, so we look separately at Windows and at Unix/VMS. 
+In the rest of this Tour <code> YOURDIR </code> denotes the directory where the example resides (the original, <code> $ISE_EIFFEL/examples/studio/tour </code>, or a copy). Launching will use the operating system's mechanism for starting a program, so we look separately at Windows and at Unix/OpenVMS. 
 
 ==Launching EiffelStudio under Window==
 
@@ -14,9 +15,9 @@ where <span>Version</span> is the version number, e.g. 6.0. Alternatively, you c
 
 If this is the first time you are using EiffelStudio, you may get a dialog asking for an unlock code or inviting you to register the product. See <span> [[Software Installation for EiffelStudio 6.2|your platform installation instructions]]  </span> for registration information. 
 
-==Launching EiffelStudio under Unix or VMS==
+==Launching EiffelStudio under Unix or OpenVMS==
 
-To launch EiffelStudio on Unix or VMS, change directory to <code> YOURDIR </code> and, from the command line, type 
+To launch EiffelStudio on Unix or OpenVMS, change directory to <code> YOURDIR </code> and, from the command line, type 
 <code>	estudio</code>
 
 In general you can start EiffelStudio from any directory, but to make things simple for this Tour '''please make sure''' indeed to execute the <code> estudio </code> command from <code> YOURDIR </code>. (This will allow us to use relative rather than absolute names for some of the files involved.) 
