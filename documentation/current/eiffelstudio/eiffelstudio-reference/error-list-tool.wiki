@@ -1,5 +1,6 @@
 [[Property:title|Error List Tool]]
 [[Property:weight|-7]]
+[[Property:uuid|62f36efa-1d3a-9e48-3a6a-7da40b7e2046]]
 The Error List Tool is a general purpose tool for logging error and warning conditions raised when compiling or using other parts of the EiffelStudio IDE. The tool can optional filter both errors and warnings to aid in the process of fixing them. 
 <span id="accessing_the_tool"></span> 
 ==Accessing the Tool==
