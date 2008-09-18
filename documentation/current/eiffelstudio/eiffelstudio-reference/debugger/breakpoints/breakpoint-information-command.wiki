@@ -1,5 +1,6 @@
 [[Property:title|Breakpoint information command]]
 [[Property:weight|3]]
+[[Property:uuid|9fa30dd2-231f-c1f2-4139-f8e90df0e77f]]
 The breakpoint information command, located in the '''debug''' menu and in the '''project''' toolbar (  [[Image:tool-breakpoints-icon]]  ), displays the list of all set breakpoints in the system (enabled or disabled). 
 
 <center>Display all breakpoints in a grid<br/>
