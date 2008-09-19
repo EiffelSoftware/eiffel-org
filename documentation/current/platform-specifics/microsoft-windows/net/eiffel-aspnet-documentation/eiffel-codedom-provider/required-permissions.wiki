@@ -1,5 +1,6 @@
 [[Property:title|Required Permissions]]
 [[Property:weight|6]]
+[[Property:uuid|f55af6a0-b896-12b7-fe4a-ebb1787731e5]]
 The account running the Eiffel CodeDom Provider might have restricted permissions such as when used through ASP.NET. This section aims at defining the security permissions required for the execution of the Eiffel CodeDom Provider. 
 ==Eiffel Metadata Cache==
 Both when generating and compiling source code, the Eiffel CodeDom Provider needs to read and write from and to the Eiffel Metadata Cache. This repository stores the mapping information between .NET and Eiffel names for both types and their members. By default the Eiffel Metadata Cache is located in the ''Assemblies'' subfolder of the Eiffel CodeDom Provider directory. 

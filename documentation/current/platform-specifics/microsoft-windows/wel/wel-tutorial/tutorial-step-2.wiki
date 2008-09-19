@@ -1,5 +1,6 @@
 [[Property:title|Tutorial Step 2]]
 [[Property:weight|1]]
+[[Property:uuid|f4a73538-8a2f-ce6b-5190-6bd4d0e8c8d1]]
 This sample shows you how to respond to an event occurring within your application. It also demonstrates the use of a [[ref:libraries/wel/reference/wel_msg_box_chart|WEL_MSG_BOX]]  control and a redefinition of closeable from [[ref:libraries/wel/reference/wel_composite_window_chart|WEL_COMPOSITE_WINDOW]] .
  [[Image:step2|step2]]  <br/>
 <br/>

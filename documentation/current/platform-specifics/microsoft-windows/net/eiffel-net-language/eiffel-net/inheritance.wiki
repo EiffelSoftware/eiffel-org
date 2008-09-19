@@ -1,5 +1,6 @@
 [[Property:title|Inheritance]]
 [[Property:weight|3]]
+[[Property:uuid|7e4cb7ba-fda6-8eac-3e27-bbb8fafd8673]]
 Inheritance, along with client/supplier, are the two relationships that can exist between classes. 
 
 Inheritance lets us mirror in software the types of abstractions that are common in many problem domains, i.e., the more general to the more specialized. 

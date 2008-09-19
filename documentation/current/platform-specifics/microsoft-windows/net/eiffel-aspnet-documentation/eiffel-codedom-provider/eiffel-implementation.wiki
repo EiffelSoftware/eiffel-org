@@ -1,5 +1,6 @@
 [[Property:title|Eiffel Implementation]]
 [[Property:weight|7]]
+[[Property:uuid|3f945c36-521e-cd71-fc7b-d549a6c05a04]]
 There are a few topics specific to the implementation of the Eiffel CodeDom Provider that are worth mentioning. 
 ==Multiple Classes File==
 The Eiffel compiler expects that there is only one class per source file (file with extension '''.e'''), however the CodeDom interface specification requires multiple classes to be generated in the same file (actually in the same ''stream''). The Eiffel CodeDom Provider code generator generates files with the extension '''.es''' which may contain multiple class definitions. Each class definition is separated with a special marker that the Eiffel CodeDom Provider compiler will parse to create multiple '''.e''' files - each containing a single class definition - prior to calling the command line Eiffel compiler. 

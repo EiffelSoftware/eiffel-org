@@ -1,5 +1,6 @@
 [[Property:title|Building a COM Component]]
 [[Property:weight|5]]
+[[Property:uuid|eb299741-4570-c2f1-011a-69da3043c6eb]]
 The EiffelCOM wizard allows for the development of both in-process (DLLs) and out-of-process (EXEs) COM components in Eiffel. 
 
 ==Using the Generated Code==

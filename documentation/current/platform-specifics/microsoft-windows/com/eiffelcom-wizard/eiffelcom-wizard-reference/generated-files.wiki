@@ -1,5 +1,6 @@
 [[Property:title|Generated Files]]
 [[Property:weight|1]]
+[[Property:uuid|808d49ba-132d-f847-2d8c-f49fe8c499b1]]
 The EiffelCOM Wizard generates code into the specified destination folder. The file hierarchy is the following:
  [[Image:folders]]  
 *  The '''Client''' folder includes all the files used to access a COM component. The subfolders '''Clib''' and '''Include''' contain respectively the C++ source files and header files. The subfolder '''Component''' contains the Eiffel classes corresponding to the component's coclasses. Finally the subfolder '''Interface_proxy''' contains classes wrapping interfaces that may be returned by functions of the component. These classes may be of interest for systems implementing a new COM component as well. The '''Client''' folder also contains a ECF file that can be used to precompile the generated Eiffel classes if the project consists of accessing an existing component. It is also possible to directly use the ECF file as a library in an existing project. 

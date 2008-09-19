@@ -1,5 +1,6 @@
 [[Property:title|Using Eiffel (to write ASP.NET pages)]]
 [[Property:weight|3]]
+[[Property:uuid|c8e2ffa7-cfa8-0b4c-4b5e-e1f386b7ab11]]
 ==Inheritance==
 Eiffel handles inheritance in a different way than most languages. In C# or VB.NET the behavior of a newly introduced member in a class hierarchy is defined as part of the member declaration itself (for example C# will precede the member declaration with the keyword ''override'' to accomplish the same result as an Eiffel ''redefine'' clause). In Eiffel, classes are equipped with an inheritance clause which centralizes all the feature adaptations. 
 As a result, Eiffel for ASP.NET introduces '''inheritance snippets'''. Each Eiffel ASP.NET page may include at most one inheritance snippet. Such a snippet must start with the '''inherit''' keyword and may then list any valid Eiffel feature adaptation. 

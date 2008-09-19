@@ -1,5 +1,6 @@
 [[Property:title|Eiffel Project Processing]]
 [[Property:weight|3]]
+[[Property:uuid|d94c4060-af70-930b-5023-1c2b2d069633]]
 The EiffelCOM Wizard can be used to add a COM interface to an existing Eiffel project. The advantage of that approach is that it doesn't require any knowledge about IDL. The EiffelCOM Wizard will take care of generating the IDL from the Eiffel facade class. The generated IDL will define one coclass containing one interface that corresponds to the contract view of the facade class. 
 
 ==Designing the Facade Class==

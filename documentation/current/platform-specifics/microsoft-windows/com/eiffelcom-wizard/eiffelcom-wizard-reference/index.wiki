@@ -1,5 +1,6 @@
 [[Property:title|EiffelCOM Wizard Reference]]
 [[Property:weight|-12]]
+[[Property:uuid|d3564eb8-ef56-4ec1-599f-430b023fa7e8]]
 The EiffelCOM Wizard allows the creation of Eiffel projects implementing or reusing COM components. 
 *  [[How the EiffelCOM Wizard works|How the EiffelCOM Wizard works]]  describes the steps followed by the wizard when creating the Eiffel project. 
 *  [[Generated Files|Generated Files]]  describes the list of generated files and their usage. 

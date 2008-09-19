@@ -1,6 +1,7 @@
 [[Property:title|Accessing a COM component]]
 [[Property:link_title|Accessing a COM Component]]
 [[Property:weight|2]]
+[[Property:uuid|d27be959-8f8e-a6f0-cd20-12f6ce71307f]]
 The third tutorial describes how to access a COM component. It will build a client of the <eiffel>StringManipulator</eiffel> component built in the first tutorial. 
 ==Step by step instructions==
 #  In '''Project''', in the '''Current project''' input field, type in ''string_manipulator_client'' and press '''enter'''. 

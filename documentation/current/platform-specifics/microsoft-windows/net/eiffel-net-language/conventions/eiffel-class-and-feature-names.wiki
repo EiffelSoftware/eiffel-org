@@ -1,5 +1,6 @@
 [[Property:title|Eiffel Class and Feature Names]]
 [[Property:weight|2]]
+[[Property:uuid|16e4a231-7aae-4b37-52fd-67876cc222ad]]
 Certain naming conventions are respected by Eiffel programmers. Although Eiffel is not case-sensitive, convention dictates the use of upper and lower case in particular situations. When you program in EiffelEnvision, you create new Eiffel classes, but you also use types from .NET assemblies. These .NET types are presented to you in a view that is consistent with Eiffel conventions. 
 
 ==Eiffel Class Names==

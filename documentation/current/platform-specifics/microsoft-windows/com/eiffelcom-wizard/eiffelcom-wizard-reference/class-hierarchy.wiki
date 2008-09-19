@@ -1,5 +1,6 @@
 [[Property:title|Class Hierarchy]]
 [[Property:weight|2]]
+[[Property:uuid|3f78176c-179f-78a4-cf32-47ec548bbb16]]
 The generated Eiffel code reflects the architecture of the component described in the definition file. Each interface corresponds to a deferred Eiffel class that includes one deferred feature per interface function. The deferred features are implemented in heirs of the interface class. Classes inheriting from these interfaces implement either a coclass or an implemented interface (that is an interface whose instance might be used as an argument on one of the component interfaces functions). 
  [[Image:interface-inheritance]]  
 In a project accessing an existing component, the Eiffel classes corresponding to component coclasses inherit from the class [[ref:libraries/com/reference/ecom_queriable_chart| <eiffel>ECOM_QUERIABLE</eiffel> ]] , which is part of the EiffelCOM library. This class includes the feature <eiffel>make_from_other</eiffel> which allows initializing the component from another instance of [[ref:libraries/com/reference/ecom_interface_chart| <eiffel>ECOM_INTERFACE</eiffel> ]] . 

@@ -1,5 +1,6 @@
 [[Property:title|Referenced Assembly Type and Feature Name Conversion]]
 [[Property:weight|10]]
+[[Property:uuid|5d575090-35d9-f983-7308-172b1641173f]]
 The [[The Eiffel for .NET language|Eiffel for .NET language]]  is Eiffel. It is not a variant of Eiffel that spawned a new language, as is '''C#''', or a dramatic evolution of Eiffel, such as '''Visual Basic .NET''' is to '''VB6'''. As Eiffel stands today, and will probably remain, Eiffel's conventions for class names and features names do not match that of the Pascal and Camel-casing conventions recommended by Microsoft. Eiffel also does not support the notion of full quantified type names. The period (''''.'''') between namespace and type names is not valid Eiffel syntax. These naming convention rules pose a problem for maintaining the Eiffel language. To address this issue, when referencing .NET assemblies, all referenced assembly type names and feature names are converted into "Eiffel-case" when using Eiffel. 
 <span id="eiffel_case"></span> 
 ==What is Eiffel-Case?==

@@ -1,5 +1,6 @@
 [[Property:title|Creating a new component from an Eiffel project]]
 [[Property:weight|1]]
+[[Property:uuid|f1f6711a-989b-f182-377d-89dd827401d5]]
 The second tutorial describes creating a COM component from an Eiffel system. The tutorial example <eiffel>String</eiffel> is almost identical to <eiffel>StringManipulator</eiffel> of the previous tutorial. In the <eiffel>StringManipulator</eiffel> example the wizard starts from an IDL file and builds an Eiffel System; in contrast, the <eiffel>String</eiffel> example takes an Eiffel system and generates an IDL file and the required plumbing code to make the Eiffel project accessible to COM. 
 
 ==Step by step instructions==

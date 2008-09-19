@@ -1,6 +1,7 @@
 [[Property:title|4 Classes]]
 [[Property:link_title|I2E: Classes]]
 [[Property:weight|-11]]
+[[Property:uuid|218bead9-428e-f61d-1e45-7eea4291d895]]
 A class, it was said above, is an implementation of an abstract data type. This means that it describes a set of run-time objects, characterized by the ''' features''' (operations) applicable to them, and by the formal properties of these features. 
 
 Such objects are called the '''direct instances''' of the class. Classes and objects should not be confused: "class" is a compile-time notion, whereas objects only exist at run time. This is similar to the difference that exists in classical programming between a program and one execution of that program, or between a type and a run-time value of that type. 
@@ -13,7 +14,9 @@ A class <code> X </code> may become a client of <code> ACCOUNT </code> by declar
 <code>acc: ACCOUNT</code>
 
 The term "entity" generalizes the more common notion of "variable". An entity declared of a reference type, such as <code>acc</code>, may at any time during execution become " '''attached to''' " an object; the type rules imply that this object must be a direct instance of <code> ACCOUNT </code> -- or, as seen below, of a "descendant" of that class. 
- [[Image:invitation-2]]  
+
+[[Image:invitation-2]]  
+
 An entity is said to be void if it is not attached to any object. By default, entities are void at initialization. To obtain objects at run-time, a routine <code> r </code> appearing in the client class <code> X </code> may use a '''creation instruction''' of the form 
 
 <code>create acc</code>

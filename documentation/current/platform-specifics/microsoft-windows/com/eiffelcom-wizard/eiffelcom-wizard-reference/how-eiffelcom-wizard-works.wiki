@@ -1,5 +1,6 @@
 [[Property:title|How the EiffelCOM Wizard works]]
 [[Property:weight|0]]
+[[Property:uuid|2cbfb8ef-d163-fb01-ab8f-5ab156ea36fd]]
 Depending on the project settings there are between 2 and 6 major steps involved when generating the Eiffel system: 
 *  '''IDL Generation''': If the project consists of adding a COM interface to an existing Eiffel project, the first step accomplished by the EiffelCOM Wizard consists of generating an IDL file from the specified facade class (see [[Eiffel Project Processing|Adding a COM interface to an Eiffel project]]  for additional details). 
 *  '''IDL Compilation''': If the project uses an IDL file (whether it was specified or the result of processing a facade class from an existing Eiffel project), the EiffelCOM Wizard then compiles it into a type library. 

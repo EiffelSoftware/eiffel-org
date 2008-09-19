@@ -1,5 +1,6 @@
 [[Property:title|Reusing a COM Component]]
 [[Property:weight|4]]
+[[Property:uuid|ae910c51-2264-4b65-2567-9dfc1873beca]]
 The wizard generates the necessary code to access the existing component. The plumbing is already done so that instantiating an Eiffel class corresponding to one of the component's coclasses automatically calls the right COM initialization APIs. 
 
 ==Using the Generated Code==

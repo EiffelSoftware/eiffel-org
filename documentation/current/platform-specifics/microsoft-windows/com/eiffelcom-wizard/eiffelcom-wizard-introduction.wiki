@@ -1,5 +1,6 @@
 [[Property:title|EiffelCOM Wizard Introduction]]
 [[Property:weight|-14]]
+[[Property:uuid|b73bc137-55ce-5404-e178-d88565cb6b62]]
 The COM standard allows software components written in different languages to communicate with each other. However, building COM compliant applications requires the development of a large amount of code only dedicated to supporting the technology. The EiffelCOM wizard was designed to free Eiffel developers from having to write the plumbing code. 
 
 The EiffelCOM wizard is a powerful tool that enables the fast development of COM components in Eiffel and accessing COM components from Eiffel systems. It consists of a series of input fields, which ask about the component's characteristics. The wizard needs the data to produce an Eiffel system skeleton, the code to access or create a component, and the component-specific runtime libraries. 

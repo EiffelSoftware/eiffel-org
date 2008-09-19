@@ -1,5 +1,6 @@
 [[Property:title|Eiffel CodeDom Provider Manager]]
 [[Property:weight|-1]]
+[[Property:uuid|089e658f-4bd8-df8f-5647-0c176c00359b]]
 The Eiffel Codedom Provider Manager allows to graphically configure the Eiffel CodeDom Provider. There can be multiple configurations, each of them being associated with at least one application. 
 {{note| '''Note:''' The Eiffel for ASP.NET installation program will add a shortcut in the start menu to the Eiffel CodeDom Provider Manager. }}
 The main dialog of the Eiffel CodeDom Provider Manager is divided into two vertical panes. The left pane contains a list of available configurations while the right pane contains the settings corresponding to the currently selected configuration. Initially the only available configuration is the '''default''' configuration which applies to all applications. The configurable settings are listed below. 

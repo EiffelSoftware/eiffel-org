@@ -1,6 +1,7 @@
 [[Property:title|Controls]]
 [[Property:link_title|controls cluster]]
 [[Property:weight|1]]
+[[Property:uuid|622aa1e2-75a6-4b2e-ac1a-44f1e7be6a3b]]
 ==Overview==
 
 A Control is a window which provides a means of interacting with the application. For example, the [[ref:libraries/wel/reference/wel_edit_chart|WEL_EDIT]]  control provides a user with the means of entering and modifying text. There are many common controls available within this cluster, each with a specific use.

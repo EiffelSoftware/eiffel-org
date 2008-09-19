@@ -1,5 +1,6 @@
 [[Property:title|Using Referenced Assemblies]]
 [[Property:weight|8]]
+[[Property:uuid|acbe0407-b95e-6268-fc20-238f91df595e]]
 Eiffel for.NET is a first class citizen in the Microsoft.NET programming world. This means that if you are programming in Eiffel for.NET, say with ENViSioN!, you have full access to the thousands of software components in the .NET type libraries. But, that's not all. You also have full access to the thousands of components in the traditional Eiffel class libraries. And even that's not all. You have the ability to build software components which comply with.NET standards, so that they can be used by programmers using any other .NET language. Still not all. When you use Eiffel, you can choose to build software that will run under Microsoft.NET, but will be portable to other popular operating systems as well.
 
 Being an Eiffel for.NET programmer obviously put you in a very powerful position. How do you take advantage of it? 

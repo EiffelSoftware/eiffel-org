@@ -6,19 +6,19 @@
 
  Primary source for Eiffel platform specific support for Microsoft Windows
 
-
-* Eiffel for .NET documentation    http://ise181.ise/book/documentation/net
-** Installation instructions    http://ise181.ise/book/documentation/net-installation-instructions
-** Building a .NET application    http://ise181.ise/book/documentation/building-net-application
-** Eiffel for .NET language description    http://ise181.ise/book/documentation/eiffel-net-language
-** Samples    http://ise181.ise/book/documentation/samples
+* [[.NET| Eiffel for .NET documentation]]
+** [[.NET Installation instructions|Installation instructions]]  
+** [[Building a .NET application|Building a .NET application]]  
+** [[The Eiffel for .NET language|Eiffel for .NET language description]]  
+** [[Samples|Samples]]  
 * EiffelEnvision documentation    ?
-* Eiffel for ASP.NET    http://ise181.ise/book/documentation/eiffel-aspnet-documentation
-* WEL    http://ise181.ise/book/documentation/wel-library
-** WEL introduction    http://ise181.ise/book/documentation/wel-interface-content
-** WEL class reference
-** WEL samples    http://ise181.ise/book/documentation/wel-samples
-* EiffelCOM Wizard
-* ResourceBench
+* [[Eiffel for ASP.NET Documentation|Eiffel for ASP.NET]]
+* [[WEL Library|WEL]]
+** [[WEL Interface Content|WEL introduction]]  
+** [[ref:libraries/wel/reference/index|WEL class reference]]  
+** [[WEL Samples|WEL Samples]]  
+
+* [[EiffelCOM Wizard|EiffelCOM Wizard]]
+* [[ResourceBench|ResourceBench]]
 
 

@@ -1,5 +1,6 @@
 [[Property:title|WEL_SINGLE_SELECTION_LIST_BOX]]
 [[Property:weight|12]]
+[[Property:uuid|4123c28b-da84-8d4b-5d51-844716569c44]]
 A [[ref:libraries/wel/reference/wel_single_selection_list_box_chart|WEL_SINGLE_SELECTION_LIST_BOX]]  is a control used to display a list of <eiffel>STRING</eiffel>. Only one item may be selected at once. 
 
 ==Appearance==

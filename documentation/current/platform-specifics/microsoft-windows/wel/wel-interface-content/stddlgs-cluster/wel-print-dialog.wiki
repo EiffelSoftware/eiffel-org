@@ -1,5 +1,6 @@
 [[Property:title|WEL_PRINT_DIALOG]]
 [[Property:weight|4]]
+[[Property:uuid|c6c2866e-c14a-601c-8898-845c4b8d92a3]]
 The [[ref:libraries/wel/reference/wel_print_dialog_chart|WEL_PRINT_DIALOG]]  is an encapsulation of the Win32 print dialog and provides a means of specifying print preferences. 
 
 ==Appearance==
