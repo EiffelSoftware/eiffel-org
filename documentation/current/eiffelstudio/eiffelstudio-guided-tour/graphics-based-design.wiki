@@ -58,7 +58,7 @@ This is EiffelStudio's way of telling us that these two classes, listed because 
 <div> 
 ==Adding a client link==
 
-Let's add <code> HEIR2 </code> to the system by making <code> TESTROOT </code> a client of this class. Click the button that selects <code> Client </code> as the next relation to make links (the link creation buttons were shown on page [[EiffelStudio General: A Guided Tour|click here]] ). Pick-and-drop from the <code> TESTROOT </code> bubble to the <code> HEIR2 </code> bubble. This asks you what kind of client link you want: 
+Let's add <code> HEIR2 </code> to the system by making <code> TESTROOT </code> a client of this class. Click the button that selects <code> Client </code> as the next relation to make links. Pick-and-drop from the <code> TESTROOT </code> bubble to the <code> HEIR2 </code> bubble. This asks you what kind of client link you want: 
 <div>  [[Image:index-125]] [[general/guided_tour/studio/index-125.png|(link)]]  </div>
 This technique gives you many option and in fact is a convenient way to build your classes, whether at the analysis, design or implementation level. Here, fill the fields as follows. For the top choice, keep the default, <code> Attribute </code>; we'll give class <code> TESTROOT </code> an attribute of type <code> HEIR2 </code>. For its feature category, keep the choice currently displayed, <code> Access </code>. For its name, replace the default, <code> new_feature </code>, by the name <code> my_heir </code>. In the <code> invariant </code> clause, choose 
 <code>
