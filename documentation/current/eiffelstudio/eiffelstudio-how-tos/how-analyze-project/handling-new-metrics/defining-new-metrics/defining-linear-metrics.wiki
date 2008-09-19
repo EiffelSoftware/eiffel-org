@@ -1,5 +1,6 @@
 [[Property:title|Defining linear metrics]]
 [[Property:weight|2]]
+[[Property:uuid|bfcfffff-08ec-8e18-fed4-3f39ac3772da]]
 To define a linear metric, you must select the '''Metric Definition''' tab and click the '''New metric''' button. A menu appears asking you the kind of metric you want to define. Select '''Linear metric''' and then the type of the results you are looking for (i.e. Class, Feature, Line, ...). Once done, you can perform the following steps:
 # Enter a name for the metric in the "Name" field. Next to the field you will see the type of metric as well as the unit for this metric.
 # Enter a description for the metric. The description is shown as a tooltip when you navigate the list of available metrics.

@@ -1,6 +1,7 @@
 [[Property:title|Rename class]]
 [[Property:link_title|Rename Class]]
 [[Property:weight|3]]
+[[Property:uuid|e70f2760-389a-4c54-ed10-b731dc70e952]]
 # Start pick-and-drop on the class bubble of which you want to change the name.
 # Drop it in the '''Rename Feature/Class''' hole.  [[Image:refactor-rename-icon]]  
 # After a compilation the '''Refactoring: Class Rename''' dialog appears. You can enter a new name. 

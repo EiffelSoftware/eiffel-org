@@ -1,5 +1,6 @@
 [[Property:title|Rename Feature]]
 [[Property:weight|4]]
+[[Property:uuid|03a8b4de-3c7b-0f9e-ecd2-48ff2035eaf9]]
 # Start pick-and-drop on the feature bubble of which you want to change the name.
 # Drop it in the '''Rename Feature/Class''' hole.  [[Image:refactor-rename-icon]]  
 # After a compilation the '''Refactoring: Feature Rename''' dialog appears. You can enter a new name. 

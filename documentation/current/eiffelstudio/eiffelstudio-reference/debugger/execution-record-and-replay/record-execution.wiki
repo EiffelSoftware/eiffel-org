@@ -1,5 +1,6 @@
 [[Property:title|Record execution]]
 [[Property:weight|1]]
+[[Property:uuid|1255beef-e115-b8ae-87f6-08e267fe3d8f]]
 For performance reason, the recording mechanism has a few parameters. For now there is no way to change them easily with the graphical debugger, however you can change those parameters by editing (and recompiling) <code>{RT_DBG_EXECUTION_PARAMETERS}.make</code>. 
 * integer parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.'''maximum_record_count'''</code> (default: 1_000_000): <br/>
 the recording keeps only the last '''maximum_record_count''' object's records.

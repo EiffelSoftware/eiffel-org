@@ -1,5 +1,6 @@
 [[Property:title|Select the Compilation mode]]
 [[Property:weight|0]]
+[[Property:uuid|b43f018b-b924-234b-727f-8d80c1d18fb4]]
 The first screen of the wizard lets you specify the mode in which the profiled system was compiled.
 
 If you have run a finalized system under the control of the profiler then select '''Finalized mode''' and click '''Next'''. On the contrary if you have executed the system in Workbench mode then select '''Workbench mode''' and click '''Next'''. 

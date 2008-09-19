@@ -1,5 +1,6 @@
 [[Property:title|Debuggee's Object Storage]]
 [[Property:weight|-9]]
+[[Property:uuid|b26fb1b0-85ef-26b5-9b9d-6e3b8ad977c2]]
 This command can be accessed through the context menu, and from the objects tool, and watches tools thanks to the tool bar's button [ [[Image:execution-object-storage-icon]] ]. 
 
 By Pick-and-Dropping a debuggee object onto the button [ [[Image:execution-object-storage-icon]] ], you raise the "save" dialog. Then you need to choose the target filename where we'll store the debuggee object. 

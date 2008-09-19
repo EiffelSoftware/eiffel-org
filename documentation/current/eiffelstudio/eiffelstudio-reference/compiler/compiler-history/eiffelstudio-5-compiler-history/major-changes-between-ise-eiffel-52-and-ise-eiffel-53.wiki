@@ -1,6 +1,7 @@
 [[Property:title|Major changes between ISE Eiffel 5.2 and ISE Eiffel 5.3]]
 [[Property:link_title|5.3]]
 [[Property:weight|-10]]
+[[Property:uuid|c4a7cbf4-da42-791d-cc80-862692233ed9]]
 ==What's new==
 * Finalized executable with option `exception trace' enabled will now display the instruction number (usually equivalent to the line number in the routine) being executed when a failure occurred. It was already displaying this information in workbench/melted mode, we have just extended this feature to finalize mode.
 * Incremental compilation is now available for .NET code generation. Meaning that if you modify one class, only this class is being recompiled. It dramatically improves development time when targeting .NET.

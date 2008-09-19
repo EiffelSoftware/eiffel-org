@@ -1,5 +1,6 @@
 [[Property:title|EiffelStudio window overview]]
 [[Property:weight|1]]
+[[Property:uuid|db4e1555-8bf3-7418-f754-9defe584044b]]
 ==Window layout==
 
 In EiffelStudio all windows have the same components. However, components to be displayed are chosen by the user. Moreover, windows have two modes: the edition mode and the debug mode. Basically, a standard window looks like this:

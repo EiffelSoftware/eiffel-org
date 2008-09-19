@@ -1,5 +1,6 @@
 [[Property:title|Group Options]]
 [[Property:weight|3]]
+[[Property:uuid|a321f24d-3158-d123-f2f6-cf7b38172877]]
 This is where you can configure the groups of your project. A group is a container for classes and has some additional options associated. There are five types of groups
 * Cluster: represents a directory or directory structure on the disk with class files in it
 * Override cluster: similar to cluster but overrides classes in other clusters with the same name, can only appear in an application, never in a library

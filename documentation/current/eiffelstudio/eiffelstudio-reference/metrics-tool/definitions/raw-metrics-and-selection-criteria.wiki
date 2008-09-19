@@ -1,5 +1,6 @@
 [[Property:title|Raw metrics and selection criteria]]
 [[Property:weight|5]]
+[[Property:uuid|99f51fd0-4439-08f5-9419-53c8771b50f8]]
 Elementary metrics measure patterns whose occurrences (in a product or process) can be counted. We need to decompose this notion further to avoid an explosion of the number of elementary metrics. For example the features of a class can be classified along several lines:
 *  Some are attributes (object fields), others are routines (algorithms). 
 *  Some are inherited from a parent, others immediate (defined in the class). 

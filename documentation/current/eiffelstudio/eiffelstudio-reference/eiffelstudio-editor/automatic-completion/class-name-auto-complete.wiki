@@ -1,5 +1,6 @@
 [[Property:title|Class name auto complete]]
 [[Property:weight|3]]
+[[Property:uuid|0f11a078-7dab-54d1-b624-4c04476564a5]]
 EiffelStudio editor offers the possibility to complete class names automatically. This means that when the user types " ''a_variable: AN_INCOMPLETE_CLASS_NAME''" and then triggers the auto-complete, the editor will propose a list of possible valid class names. <br/>
 To be more precise, a window will pop up and display the list of classes that match ''AN_INCOMPLETE_CLASS_NAME''. The user can accept the suggested name, choose another name (in the list or not), or simply cancel the auto-complete. 
 

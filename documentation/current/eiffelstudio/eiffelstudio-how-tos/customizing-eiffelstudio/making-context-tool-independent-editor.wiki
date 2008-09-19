@@ -1,5 +1,6 @@
 [[Property:title|Making the context tool independent from the editor]]
 [[Property:weight|3]]
+[[Property:uuid|895ca03f-b14c-e0c5-f3e7-6757b47f5bc3]]
 By default, [[EiffelStudio Editor Introduction|the editor]]  and the [[EiffelStudio window overview|context tool]]  are [[Centering tools on a component|centered]]  on the same cluster, class or feature. It is possible to make the context tool independent from the editor. It has then its own address bar and can display information on a totally different component than the one on which the editor is centered. 
 To do so, click on or select '''Isolate context tool''' in the '''View''' menu. To go back to the previous configuration, click on the same icon again or select '''Merge context tool''' in the '''View''' menu. 
 

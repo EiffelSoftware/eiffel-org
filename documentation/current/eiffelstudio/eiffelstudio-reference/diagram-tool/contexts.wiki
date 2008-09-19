@@ -1,5 +1,6 @@
 [[Property:title|Contexts]]
 [[Property:weight|4]]
+[[Property:uuid|6adec8c0-0eb4-d616-c7be-ef7480673b1c]]
 A diagram in the diagram tool is always the context of a certain class or cluster. Context means the direct relations up to a certain depth.
 
 For clusters, the relations are:

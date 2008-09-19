@@ -1,6 +1,7 @@
 [[Property:title|Release notes for EiffelStudio 5.2]]
 [[Property:link_title|5.2]]
 [[Property:weight|-10]]
+[[Property:uuid|4e54c64b-d9a3-8683-d266-1972217a7a1a]]
 ==Graphical environment==
 * Added a status bar, which gives a lot of information, such as the state of the compilation or the name of the current project.
 * Clicking feature clauses in the feature tree now centers the editor on the selected feature clause.

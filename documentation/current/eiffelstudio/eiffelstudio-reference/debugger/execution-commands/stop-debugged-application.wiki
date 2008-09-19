@@ -1,5 +1,6 @@
 [[Property:title|Stop a debugged application]]
 [[Property:weight|-6]]
+[[Property:uuid|648fdd76-c393-982d-5367-1e9b02669248]]
 This command kills the debugged application, if any. This stops the debugging session.
 
 It is accessible through the '''project''' toolbar (  [[Image:debug-stop-icon]]  ) or through the '''debug''' menu. 

@@ -1,6 +1,7 @@
 [[Property:title|Major changes between ISE Eiffel 5.3 and ISE Eiffel 5.4]]
 [[Property:link_title|5..4]]
 [[Property:weight|-11]]
+[[Property:uuid|2fa36c0f-5b6a-f3f8-67a6-6bd73f63732d]]
 ==What's new==
 * Support for assertion checking on external routines.
 * Removed limitation about implementing or redefining a non-external routine by an external one and vice versa.

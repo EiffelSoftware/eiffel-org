@@ -1,5 +1,6 @@
 [[Property:title|Customizing class text views]]
 [[Property:weight|6]]
+[[Property:uuid|386c40f1-3427-cf1c-1043-46aeac1bc3c5]]
 It is possible in EiffelStudio to customize some properties of [[Formatters: Introduction|class text views]]  (other than basic texts) displayed in the editor or class and feature tabs of the context tool. Besides [[Changing texts display|graphical appearance]] , you may modify: 
 * the order of feature clauses.
 * the type of callers and suppliers displayed in the corresponding views.

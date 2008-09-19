@@ -1,5 +1,6 @@
 [[Property:title|Breakpoint commands]]
 [[Property:weight|2]]
+[[Property:uuid|3631e866-0acd-005d-b1f5-f43377b6e27f]]
 Located in the '''debug''' menu and the '''project''' toolbar, these three commands allow to change the state of set [[Breakpoints: Introduction|breakpoints]]  in the system. 
 
 Enable breakpoints (  [[Image:16x16--breakpoints-enable-icon]]  ), disable breakpoints (  [[Image:16x16--breakpoints-disable-icon]]  ) and remove breakpoints (  [[Image:breakpoints-delete-icon]]  ) have all global and local actions. Left-clicking on them has a global action: all set breakpoints of the system will be respectively enabled, disabled, or discarded. However, it is also possible to [[Pick-and-drop mechanism|drop]]  a feature or a class onto them, in which case only set breakpoints of the feature/class will be affected. 

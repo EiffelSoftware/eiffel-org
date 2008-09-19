@@ -1,5 +1,6 @@
 [[Property:title|Profiler wizard guided tour]]
 [[Property:weight|1]]
+[[Property:uuid|e6166282-aa91-e4a9-9951-819f32d50b88]]
 #  [[Select the Compilation mode|'''First step:''' Select which version of your system you ran using the profiler: Workbench or Finalized]] . 
 # [[Reuse or Generate an Execution Profile| '''Second step (only appears when an ''' ''Execution Profile'' '''has already been generated for this system)''': Select an existing ''Execution Profile'' or choose to generate a new ''Execution Profile'' from a ''Run-time information record''. ]]  
 #  [[Select a Run-time information record to generate the Execution Profile| '''Third step (only appears when generating a new ''' ''Execution Profile''''')''': Generate a new ''Execution Profile'' from a ''Run-time information record''. ]]  

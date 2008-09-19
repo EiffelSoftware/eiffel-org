@@ -1,5 +1,6 @@
 [[Property:title|Class menu]]
 [[Property:weight|2]]
+[[Property:uuid|441d6cbb-2c48-5d44-8cb1-0884ade26b98]]
 The Class command (c or C) in the main menu will only work if the system has been successfully compiled, and will give you information based on the result of the last successful compilation. It produces the following menu:
 <code>
 	(A) Ancestors    : show the ancestors of a class.

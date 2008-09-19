@@ -1,5 +1,6 @@
 [[Property:title|Advanced Options]]
 [[Property:weight|4]]
+[[Property:uuid|be1dc034-2bca-3d3a-5dfc-8597b2cc7051]]
 [[Image:advanced-options|Advanced dialog]]  
 * Address Expression: lets you pass ` '''$(s.to_c)'''' to a feature instead of declaring `a' of type '''ANY''', and then assigning ` '''s.to_c'''' to `a' and passing ` '''$a''''. Turn this option on only if you have advanced knowledge of the garbage collector insides, since using this syntax illegally can lead to bugs very hard to trace. 
 *  Automatic Backup: generate a backup of the class and configuration files during recompilation? 

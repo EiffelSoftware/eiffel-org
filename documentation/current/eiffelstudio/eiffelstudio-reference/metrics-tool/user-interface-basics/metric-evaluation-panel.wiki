@@ -1,5 +1,6 @@
 [[Property:title|Metric Evaluation Panel]]
 [[Property:weight|0]]
+[[Property:uuid|c31fddbb-7421-fe4b-57d3-7eea32f5e9e0]]
 The Metric Evaluation panel is the place to do metric evaluation. After selecting a metric from the "Select metric" area and setting an input domain in the "Setup input domain" area, you can click the run button to start metric evaluation. You can start metric evaluation with and empty input domain and the result will be always zero.
 
 [[Image:interface1|Defining an input domain]]  

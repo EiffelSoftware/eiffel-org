@@ -1,5 +1,6 @@
 [[Property:title|EiffelStudio: Creating a new project]]
 [[Property:weight|0]]
+[[Property:uuid|e73ed6ac-47ba-7e08-a352-0b1cca4ddc62]]
 The first thing to do to start Eiffeling is to create a project. Most commands are disabled when no project is created.
 
 When opening EiffelStudio, by default a dialog is popped up that proposes to create or open a project:

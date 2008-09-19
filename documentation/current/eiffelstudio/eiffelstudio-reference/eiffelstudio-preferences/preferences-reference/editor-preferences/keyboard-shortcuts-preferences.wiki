@@ -1,5 +1,6 @@
 [[Property:title|Keyboard shortcuts preferences]]
 [[Property:weight|2]]
+[[Property:uuid|1fbfc5fe-cbaf-9a55-cd5c-672f9b7a3e24]]
 Some of the keyboard shortcuts used in the editor can be customized. A subfolder of the"Keyboard Shortcuts" folder in the editor preferences corresponds to each of these customizable shortcuts. There are four values to set to define a shortcut: which key must be pressed and whether Ctrl, Alt or Shift have to be pressed at the same time. You will find a combination of all in each shortcut subfolder. The customizable shortcuts are:
 * Autocomplete: Shortcut to trigger the feature call automatic completion. The default key combination is "Ctrl+Space".
 * Class name autocomplete: Shortcut to trigger the class name automatic completion. The default key combination is "Ctrl+Shift+Space".

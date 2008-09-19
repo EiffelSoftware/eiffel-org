@@ -1,5 +1,6 @@
 [[Property:title|Supported exceptions]]
 [[Property:weight|3]]
+[[Property:uuid|f3b4498a-0772-32fb-041d-13428e258f52]]
 Here is a list of exceptions that may appear in the [[Call stack tool: Interface|call stack tool]] . When they are raised, a tag may be there to give more information, if necessary. All these exceptions are declared in <eiffel>EXCEPT_CONST</eiffel>. 
 
 '''Feature call on Void target''': An attempt was made to calla feature on an object that is Void. The tag indicates the name of the feature of the feature that could not be called. For instance if the code line is <eiffel>a.b.c</eiffel> and the tag is "c" then <eiffel>a.b</eiffel> was Void. 

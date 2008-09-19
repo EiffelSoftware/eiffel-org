@@ -1,5 +1,6 @@
 [[Property:title|Eiffel Editor Preferences]]
 [[Property:weight|2]]
+[[Property:uuid|0fd6b874-1a89-0acb-ee2e-47bab3b4c819]]
 The Eiffel category under the main Editor category contains preferences for Eiffel specific editor values. For example, here you can customize the behavour of autocompletion in the editor, syntax completion on Eiffel keywords, or the colors of Eiffel keywords.
 {| border="1" 
 |- 

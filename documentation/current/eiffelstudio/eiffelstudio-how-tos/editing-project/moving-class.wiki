@@ -1,5 +1,6 @@
 [[Property:title|Moving a class]]
 [[Property:weight|7]]
+[[Property:uuid|10947266-61c8-ddd5-445e-9eb0de61cd05]]
 To move a class from a cluster to another one, you have to use the [[Diagram tool: Introduction|Diagram tool]] . First, [[Centering tools on a component|center the tool]]  on the cluster that contains the class you want to move. Then, if the destination cluster is not shown on the diagram, [[Pick-and-drop mechanism|pick]]  it in the [[Cluster tool: Introduction|cluster tool]]  and drop it in the [[Diagram tool: Introduction|diagram]] . Once both clusters are displayed, you just have to drag the class to its destination. 
 {{seealso| '''See Also''' <br/>
 [[Looking for a class|Find where a class is]]  <br/>

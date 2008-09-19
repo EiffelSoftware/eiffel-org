@@ -1,5 +1,6 @@
 [[Property:title|Diagram tool: Code generation]]
 [[Property:weight|5]]
+[[Property:uuid|f0ed7470-cc28-a0e3-df16-36a47d34f852]]
 All actions taken in the diagram tool that modify a part of the system are immediately reflected in the Eiffel system. Following is a summary of these actions.
 * When you create a new class, this is the generated empty class: <br/>
 <code>

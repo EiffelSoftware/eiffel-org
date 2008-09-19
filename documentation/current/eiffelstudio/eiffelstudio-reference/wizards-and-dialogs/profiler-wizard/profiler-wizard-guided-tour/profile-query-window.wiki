@@ -1,5 +1,6 @@
 [[Property:title|Profile query window]]
 [[Property:weight|4]]
+[[Property:uuid|1158eeb3-ccf5-8f29-3551-4e511258fa80]]
 The profile query window displays the results of the query you have formulated in the [[Select the information you need and formulate your query|Final state]]  of the Profiler wizard. It also lets you change the sub queries of the current query. 
 
 To add a new sub query to the current query, fill in the text field labeled '''Define new sub query''' (type in ''calls <20'' for example) and click the '''And''' or '''Or''' button. To display the results of the new query click on the '''Update''' button. 

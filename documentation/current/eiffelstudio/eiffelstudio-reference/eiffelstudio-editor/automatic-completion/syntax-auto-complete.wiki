@@ -1,5 +1,6 @@
 [[Property:title|Syntax auto complete]]
 [[Property:weight|1]]
+[[Property:uuid|aafa7c51-7a4d-385d-9c34-5e9dbba075fe]]
 Syntax auto-complete in EiffelStudio editor is twofold :
 *  
 The editor can close brackets ("(", "{" and "[") and quotes(""", "'" and "`") automatically. This feature is disabled by default. It can be activated in the editor preferences.

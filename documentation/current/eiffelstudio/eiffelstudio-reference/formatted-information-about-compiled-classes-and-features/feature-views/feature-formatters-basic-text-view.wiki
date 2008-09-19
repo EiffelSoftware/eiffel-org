@@ -1,5 +1,6 @@
 [[Property:title|Feature formatters: Basic text view]]
 [[Property:weight|1]]
+[[Property:uuid|ad171d9e-9d67-7fb9-10e5-db237b04e40e]]
 Basic text view  [[Image:view-editor-feature-icon]] displays the text of the current feature as it is written in the enclosing class. <br/>
 It does not work with [[Breakpoints|breakpoints]] ; in order to do this the [[Feature formatters: Flat view|flat view]]  has to be used. 
 

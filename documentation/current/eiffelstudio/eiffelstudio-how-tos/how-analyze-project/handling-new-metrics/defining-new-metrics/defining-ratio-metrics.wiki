@@ -1,5 +1,6 @@
 [[Property:title|Defining ratio metrics]]
 [[Property:weight|3]]
+[[Property:uuid|40394359-600c-5392-8609-6f994920a3b1]]
 To define a ratio metric, you must select the '''Metric Definition''' tab and click the '''New metric''' button. A menu appears asking you the kind of metric you want to define. Select '''Ratio metric'''. Once done, you can perform the following steps:
 # Enter a name for the metric in the "Name" field. Next to the field you will see the type of metric as well as the unit for this metric.
 # Enter a description for the metric. The description is shown as a tooltip when you navigate the list of available metrics.

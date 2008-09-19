@@ -1,5 +1,6 @@
 [[Property:title|Interrupting an application]]
 [[Property:weight|1]]
+[[Property:uuid|89bc6f76-ca23-950f-485a-35973022554b]]
 There are two ways a debugged application can be interrupted: its execution can be paused, or it can be killed.
 
 Two methods can be used to pause a debugged application:

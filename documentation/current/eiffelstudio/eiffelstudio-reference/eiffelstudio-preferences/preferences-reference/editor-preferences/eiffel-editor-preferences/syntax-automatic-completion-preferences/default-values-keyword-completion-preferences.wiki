@@ -1,5 +1,6 @@
 [[Property:title|Default values for keyword completion preferences]]
 [[Property:weight|3]]
+[[Property:uuid|17738f37-4f85-c762-4074-5add286c9281]]
 This document contains the description of default completion for recognized keywords. The [[Keyword completion customization|syntax]]  used is the one used to redefine keyword completion in the preferences. <br/>
 Four tables list default values for each of the [[Keywords automatic completion preferences|four preferences]]  attached to each keyword. 
 #  

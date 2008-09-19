@@ -1,5 +1,6 @@
 [[Property:title|Toolbar customization]]
 [[Property:weight|2]]
+[[Property:uuid|f02205ad-2d3e-a9f1-d104-ca96e1fd2d77]]
 It is possible to choose which icons appear in the [[Main toolbars|standard toolbar]]  and in the [[Main toolbars|project toolbar]] . To customize the standard toolbar, select '''Customize standard toolbar...''' in the '''Toolbars''' sub-menu of the '''View''' menu. To customize the project toolbar, select '''Customize project toolbar...''' in the same sub-menu. 
 In both cases, a toolbar customization window will appear. Two lists of icons are displayed in the window. The list on the right shows the icons that are in the toolbar. The list on the left gathers the icons that are currently not in the toolbar and that may be added. It also contains a separator that may be used to organize icons.
 

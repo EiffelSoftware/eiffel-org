@@ -1,5 +1,6 @@
 [[Property:title|Set-procedure]]
 [[Property:weight|10]]
+[[Property:uuid|46b84038-099b-070c-15d7-2b7884a50e01]]
 When creating an attribute, it is common that you will also need a set-procedure for it. For example, for attribute <eiffel>property</eiffel> you need a procedure <eiffel>set_property</eiffel> to set it. This feature takes one argument of the same type as <eiffel>property</eiffel> or is anchored to it. The only thing you have to do with the feature wizard is check the button '''Generate set procedure'''. 
 <div>  [[Image:feature-wizard-setprocedure]]  </div>
 The feature that is generated in addition to the attribute itself is placed in feature clause <code> Element change </code> and is exported to all classes. If you have selected or entered an invariant, the precondition will protect this invariant. Example of a generated set-procedure: 

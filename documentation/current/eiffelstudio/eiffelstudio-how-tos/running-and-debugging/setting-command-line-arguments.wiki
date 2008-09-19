@@ -1,5 +1,6 @@
 [[Property:title|Setting the command line arguments]]
 [[Property:weight|6]]
+[[Property:uuid|4aed0363-4aa9-89ce-aaa7-6dce00410afb]]
 To debug a program that uses command line parameters, it is possible to have the debugger call the generated program with certain command line arguments automatically.
 
 To change the command line arguments used when debugging:

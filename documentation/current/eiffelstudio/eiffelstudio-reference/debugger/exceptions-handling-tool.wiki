@@ -1,5 +1,6 @@
 [[Property:title|Exceptions handling tool]]
 [[Property:weight|-7]]
+[[Property:uuid|9a62611f-46ba-7d74-ba1c-989f6709074b]]
 This tool is used to precise whether the debugger stops or continues on specific exceptions.<br/>
 To show this tool, go to menu : '''Debug > Exception handling''' .<br/>
 Note: now that exception are object in Eiffel too, the mechanism is unified for classic and dotnet system using the Eiffel exception class names. 

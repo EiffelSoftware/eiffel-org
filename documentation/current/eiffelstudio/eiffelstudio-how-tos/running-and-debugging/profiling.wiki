@@ -1,5 +1,6 @@
 [[Property:title|Profiling]]
 [[Property:weight|7]]
+[[Property:uuid|cd9f3f2d-25bf-4b1a-eaf9-9b9d056228eb]]
 The profiler is a tool that gives dynamic execution time information. It is very useful to detect which parts of a program need to be optimized most.
 
 To use the profiler, the first thing to do is to enable it.

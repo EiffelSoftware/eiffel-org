@@ -1,5 +1,6 @@
 [[Property:title|Using breakpoints]]
 [[Property:weight|3]]
+[[Property:uuid|f25c8058-8278-7ee3-79cb-ff97e224e74a]]
 To change the status of one breakpoint, it is possible to use the [[Breakpoint editing|breakpoints menu]] , which changes the state of a single breakpoint at a time. 
 
 To change the status of several breakpoints at the same time, the easiest way is to use the [[Breakpoint commands|breakpoints-related commands]] , which have actions at feature-scope, class-scope and system-scope. 

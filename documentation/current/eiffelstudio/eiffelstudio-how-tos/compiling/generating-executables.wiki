@@ -1,5 +1,6 @@
 [[Property:title|Generating executables]]
 [[Property:weight|0]]
+[[Property:uuid|d089f44a-9d01-41cf-9ba5-a58570ca5365]]
 There are several ways to compile an executable with EiffelStudio.
 
 Compilation modes include the following: melting, freezing and finalizing. To learn more about the compilation semantics in EiffelStudio, see the [[Compiler: introduction|compiler reference]] . 

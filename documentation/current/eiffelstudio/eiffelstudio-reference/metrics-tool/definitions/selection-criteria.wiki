@@ -1,5 +1,6 @@
 [[Property:title|Selection Criteria]]
 [[Property:weight|6]]
+[[Property:uuid|d492c7f5-71ec-ae04-c62b-6845f30ed762]]
 A selection criterion is used to filter out candidate code elements and only leave and count those satisfied elements. For example, criterion is_deferred in a basic class metric is only satisfied when a candidate class is deferred. A selection criterion can have modifiers which indicate how the associated criterion will perform its filtering task. There are four kinds of modifiers, shown as follows:
 *  Text modifier - String text, and this text is called criterion text 
 *  Domain modifier - Domain, and this domain is called criterion domain 

@@ -1,5 +1,6 @@
 [[Property:title|Feature call auto complete]]
 [[Property:weight|2]]
+[[Property:uuid|40ae30a6-c033-dae7-8dae-2569e7ba0adc]]
 EiffelStudio editor now offers the possibility to complete feature calls automatically. This means that when the user types " ''an_identifier.an_incomplete_feature_name''" and then triggers the auto-complete, the editor will propose a list of possible feature names correct in this situation. <br/>
 To be more precise, a window will pop up and display the list of features that can be called on ''an_identifier'' and that match ''an_incomplete_feature_name''. The user can accept the suggested name, choose another name (in the list or not), or simply cancel the auto-complete. 
 

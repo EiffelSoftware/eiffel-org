@@ -1,5 +1,6 @@
 [[Property:title|Customizing toolbars]]
 [[Property:weight|2]]
+[[Property:uuid|583811a0-abcc-e26f-60e9-0cd6d4f9a8a8]]
 There may be up to 26 buttons in the [[Main toolbars|standard toolbar]]  and up to 17 in the [[Main toolbars|project toolbar]] . All those buttons are not shown by default though. Only 16 icons are displayed in the default standard toolbar for instance. 
 It is possible to choose which button are shown and in which order they appear in the toolbars. To do so, use [[Toolbar customization|toolbar customization]]  windows. they appear when you choose '''Customize standard toolbar...''' or '''Customize project toolbar...''' in the toolbars sub-menu of the View menu or in the contextual menu of the toolbars (which is displayed when you right-click in the empty space on the right of the toolbars). 
 

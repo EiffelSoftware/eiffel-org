@@ -1,5 +1,6 @@
 [[Property:title|Configuring an external editor]]
 [[Property:weight|7]]
+[[Property:uuid|15ecd536-139b-e880-d199-9c54aa88c892]]
 By clicking on, or by [[Pick-and-drop mechanism|dropping a pebble]]  on the external editor toolbar button( [[Image:command-send-to-external-editor-icon]] ), you can launch an external editor. By default, this editor is VI on Unix and Notepad on Windows. You can tell EiffelStudio to launch another editor by editing the preferences. 
 To do so, first open the [[Preferences Reference|preferences window]]  by choosing '''Preferences...''' in the '''Tools''' menu. Select then the "Global preferences" category in the preferences tree. Click on "Command used to launch an external editor" and modify the command line so that it calls your favorite editor. You can use keywords that represent the filename ($target)and the line number ($line) as is explained in the [[Preferences Reference|preferences reference]] . 
 

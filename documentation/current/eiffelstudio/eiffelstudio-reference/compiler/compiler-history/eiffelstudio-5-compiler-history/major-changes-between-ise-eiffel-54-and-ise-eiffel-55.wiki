@@ -1,6 +1,7 @@
 [[Property:title|Major changes between ISE Eiffel 5.4 and ISE Eiffel 5.5]]
 [[Property:link_title|5.5]]
 [[Property:weight|-12]]
+[[Property:uuid|1d8b9ba7-0609-b664-a4cf-16be1132b071]]
 ==What's new==
 * Full support for new <code>convert</code> keyword.
 * Made <code>Void,</code> previously a feature of <eiffel>ANY</eiffel>, a keyword. This prevents the renaming of <eiffel>Void</eiffel> into <eiffel>not_void</eiffel> previously possible when it was a routine of <eiffel>ANY</eiffel>.

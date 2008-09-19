@@ -1,5 +1,6 @@
 [[Property:title|Definition file]]
 [[Property:weight|2]]
+[[Property:uuid|3a4b017c-ede1-7af1-2934-c7a28b303764]]
 The syntax is pretty simple when you understand what you need to export a feature: you need the name of the '''feature''', the name of the concerned '''class''', and the name of a '''creation procedure'''. What is optional is to specify an '''alias''', an '''index''' and a '''calling convention'''. The index and calling convention are mainly used to create a DLL for windows, and the alias to export the feature under a different name. 
 
 ===Syntax===

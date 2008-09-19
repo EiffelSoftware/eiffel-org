@@ -1,5 +1,6 @@
 [[Property:title|Select a Run-time information record to generate the Execution Profile]]
 [[Property:weight|2]]
+[[Property:uuid|c3f3e068-2313-ff14-2a33-8bf5297b9779]]
 The third screen of the wizard lets you generate an ''Execution Profile'' from a ''Run-time information record''. You should provide the ''Run-time information record'' produced by the profiler in the text field labeled '''Run-time information record'''. If the file provided by default is not the desired one change it by clicking on the '''Browse''' button or by directly entering it in the text field. 
 
 Then, in the combo box labeled '''Profiler used to produce the above record''', select the profiler that has been used to produce the ''Run-time information record'' you have entered. If the profiler used to execute the system does not appear in the combo box, you have to add it. See [[How to set up a Profiler Configuration File|How to set up a Profiler Configuration File]]  for more details on how to do so. 

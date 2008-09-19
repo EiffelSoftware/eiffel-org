@@ -1,5 +1,6 @@
 [[Property:title|Domains]]
 [[Property:weight|9]]
+[[Property:uuid|128ecc21-9d82-d590-fc3e-d0fe52991ac1]]
 A domain is a list of code elements, it can contain different kinds of code elements. A domain is used as input to a metric, as output of a metric to review some details, and as an argument passed to some criteria. Domain is used to specify scope.
 
 ==Domain Convention==

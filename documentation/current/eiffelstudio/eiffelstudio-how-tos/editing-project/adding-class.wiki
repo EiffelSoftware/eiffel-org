@@ -1,5 +1,6 @@
 [[Property:title|Adding a class]]
 [[Property:weight|2]]
+[[Property:uuid|592f9c3a-4533-d849-a0d7-5c00864e5c26]]
 A dialog window is dedicated to the creation of new classes. 
 [[Image:new-class-dialog]]  
 A list of all the clusters of the system lets you to choose in which one the new class will be inserted. The name of the new class and the name of the corresponding file can be set thank to two text fields above the list. It is also possible to define whether the class should be deferred or expanded, what its creation feature is (if any), what its parents are and whether the default feature clauses should be generated. 

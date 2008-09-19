@@ -1,5 +1,6 @@
 [[Property:title|System Options]]
 [[Property:weight|0]]
+[[Property:uuid|cd9e01c6-dc0e-9ebe-a62a-a7d9d7c2d055]]
 This is where you can configure the most general aspects of your system. For example you can set the name of your application and the targets in the system.
 
 Here is what you will see when opening the project settings window for the first time in a session when using the ecf file of the calculator example located at $ISE_EIFFEL|examples|base|calculator:

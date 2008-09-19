@@ -1,5 +1,6 @@
 [[Property:title|Profile menu]]
 [[Property:weight|6]]
+[[Property:uuid|09c424b0-8ba1-626c-0658-32e5d5e1f81b]]
 An execution of an instrumented system will generate a file that contains profiling information. This file (named profinfo) is located in the same directory as your compiled system. You must process it through a profile converter to produce the Execution Profile. 
 The profile menu will enable you to produce the Execution profile and to extract information from it.
 

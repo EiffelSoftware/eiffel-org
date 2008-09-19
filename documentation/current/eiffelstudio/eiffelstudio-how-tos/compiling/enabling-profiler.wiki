@@ -1,5 +1,6 @@
 [[Property:title|Enabling the profiler]]
 [[Property:weight|4]]
+[[Property:uuid|62732b12-c41f-c87e-f798-8839664dc118]]
 To profile an executable, the profiler must first be enabled. To enable the profiler:
 * Open the [[General Target Options|Project Settings]]  dialog. 
 * In the '''Target''' section, enable '''Profile'''. 

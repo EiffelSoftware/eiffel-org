@@ -1,5 +1,6 @@
 [[Property:title|Tuning a program]]
 [[Property:weight|6]]
+[[Property:uuid|74d7c168-c9c1-2d43-fb76-4854cf4b69c7]]
 The best way to speed up a program is of course to improve the algorithms and data structures you are using. Spotting the functions that slow down the execution and improving can change a lot in a program. [[Profiling|Profiling]]  can be used for this. 
 
 Try to keep the number of classes and objects in your system as low as possible to ensure maximum efficiency. This should never hinder the design of the system, though.

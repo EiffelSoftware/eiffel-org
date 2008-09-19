@@ -1,6 +1,7 @@
 [[Property:title|EiffelStudio: Command line options]]
 [[Property:link_title|Using command line options]]
 [[Property:weight|1]]
+[[Property:uuid|a6b6a676-8660-ce2d-6f37-03de7f23a78e]]
 You may start ec through a command of the following form: 
 <code>'''ec''' ''option'' ... [''class_name''][''feature_name'']</code>
 

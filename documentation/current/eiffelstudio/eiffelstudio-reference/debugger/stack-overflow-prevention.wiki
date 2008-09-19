@@ -1,5 +1,6 @@
 [[Property:title|Stack overflow prevention]]
 [[Property:weight|-6]]
+[[Property:uuid|bd988599-a444-6090-c3c4-a5c7de20b294]]
 Accessible via the '''Debug/Overflow prevention...''' menu, this command makes it possible to detect stack overflows before they occur. Selecting it pops up a dialog that lets you decide at which call stack depth a warning should be issued. 
 
 [[Image:stack-overflow-dlg]]  

@@ -1,5 +1,6 @@
 [[Property:title|Breakpoint menu]]
 [[Property:weight|4]]
+[[Property:uuid|dd68a84b-9bb7-98d5-8aa3-7e16969086f1]]
 A condition breakpoint is a breakpoint in which debugger will stop if a certain condition is met. To set a conditional breakpoint use the [[Breakpoint editing|breakpoint menu]]  and choose `Set conditional breakpoint': 
 
 [[Image:breakpoint-context-menu]]  

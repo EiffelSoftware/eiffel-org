@@ -1,5 +1,6 @@
 [[Property:title|Debugging preferences]]
 [[Property:weight|-4]]
+[[Property:uuid|05e820ff-917f-e41f-d921-990283ac886f]]
 Two main preferences are available for the debugger, in order to speed up the objects display :
 * Enable/disable the debug_output display (see [[Debug output|debug output]] ) 
 * Enable/disable the full generic type display (for instance see <eiffel>ARRAY [INTEGER] </eiffel>instead of only <eiffel>ARRAY</eiffel>

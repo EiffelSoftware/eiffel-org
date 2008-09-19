@@ -1,5 +1,6 @@
 [[Property:title|Notation]]
 [[Property:weight|1]]
+[[Property:uuid|615baff7-4dbe-2f2f-9a02-c05b20143478]]
 The diagram tool uses the [http://bon-method.com BON]  (Business Object Notation) to represent Eiffel systems. This article will give a summary of all components of an EiffelStudio diagram. For detailed information on BON, please read [http://bon-method.com/book.htm Seamless Object-Oriented Software Architecture]  by Kim Walden and Jean-MarcNerson, Prentice Hall 1994. 
 
 ==Class==

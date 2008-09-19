@@ -1,6 +1,7 @@
 [[Property:title|Looking for an expression in a text]]
 [[Property:link_title|Looking for an expression in text]]
 [[Property:weight|3]]
+[[Property:uuid|d71e4302-3f44-5cd8-7a26-365af4a6ecf6]]
 To find a word or an expression in a text, you can use the [[Search tool|search tool]] . If it is not displayed, you can make it appear by clicking on its icon  [[Image:tool-search-icon]]  in the tool bar. This tool will allow you to search a word or a regular expression and to replace it if you want to. It can be case sensitive and look for isolated words. 
 '''Note''': The [[Search tool|search tool]]  will look for the wanted word in the editor or in the context tool, depending on which one has the focus. 
 

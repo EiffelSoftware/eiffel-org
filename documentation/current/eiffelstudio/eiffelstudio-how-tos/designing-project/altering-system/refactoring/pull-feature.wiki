@@ -1,5 +1,6 @@
 [[Property:title|Pull up Feature]]
 [[Property:weight|5]]
+[[Property:uuid|445f93dc-b81a-29ea-440b-42e394038c53]]
 # Start pick-and-drop on the feature bubble which you want to pull up.
 # Drop it in the '''Pull up Feature''' hole.  [[Image:refactor-feature-up-icon]]  
 # After a compilation the '''Select Class''' dialog appears. You can choose the parent where to pull the feature. 

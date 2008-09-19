@@ -1,5 +1,6 @@
 [[Property:title|Choosing classes to be ignored in BON diagrams]]
 [[Property:weight|5]]
+[[Property:uuid|18dcc14f-2ad0-3f3b-4b2e-fc9251035b6f]]
 Every class in your system inherits from <eiffel>ANY</eiffel>. <eiffel>INTEGER</eiffel>, like other classes that represent basic types, is very often a supplier of the classes the user wrote. It may therefore not be interesting to display classes such as <eiffel>ANY</eiffel> or <eiffel>INTEGER</eiffel> in [[Diagram tool: Introduction|BON diagrams]] . 
 EiffelStudio allows you to customize a list of classes that it has to ignore when it creates diagrams. This list is stored in the [[EiffelStudio preferences: Introduction|preferences]] . To modify it, first open the [[Preference window overview|preferences window]]  by choosing '''Preferences...''' in the '''Tools''' menu. Select then the "context tool" sub-category of the "Tools" category in the preferences tree. On the right, you will then see a table of preferences, which includes "Show ALL classes in the diagram" and "Names of classes that should not appear in generated diagrams". If "Show ALL classes in the diagram" is not False, click on it and set it to False. Then click on "Names of classes that should not appear in generated diagrams" and edit the list. Class names must be separated by semicolons. 
 

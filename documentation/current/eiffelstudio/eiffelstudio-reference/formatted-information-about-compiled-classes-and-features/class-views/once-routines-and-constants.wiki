@@ -1,5 +1,6 @@
 [[Property:title|Once routines and constants]]
 [[Property:weight|0]]
+[[Property:uuid|05007945-20fd-99d6-95cb-ec96845c131f]]
 The once view  [[Image:class-features-once-icon]] displays all the [[Routines|routines]]  declared as '''once''' and the constant [[Attributes|attributes]]  in the current class (or in its [[Ancestors|ancestors.]] ). <br/>
 It is available through the '''Class''' tab of the [[EiffelStudio window overview|context tool]] . 
 

@@ -1,5 +1,6 @@
 [[Property:title|Units]]
 [[Property:weight|2]]
+[[Property:uuid|fa08d5aa-7ea4-e7bb-bb59-e4982a583976]]
 Metrics will be expressed in units, such as Line (numbers of source lines) or Feature (number of features).
 
 {{note| '''Unit rule:''' The definition of any metric must specify an associated unit. }}

@@ -1,5 +1,6 @@
 [[Property:title|Selection]]
 [[Property:weight|2]]
+[[Property:uuid|d2da7848-75c5-1512-0e35-38247a71e803]]
 In EiffelStudio editor, you can select text by using either the mouse or the keyboard.
 
 To select a text zone with the keyboard, [[Cursor moves|move the cursor]]  to one end of the zone. Then press "Shift" and maintain the key pressed until you moved the cursor to the other end of the zone. The selected zone will appear in reverse video. If you want to select the entire text, press "Ctrl" and "A". 

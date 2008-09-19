@@ -1,5 +1,6 @@
 [[Property:title|Using debug clauses]]
 [[Property:weight|5]]
+[[Property:uuid|78e0273d-525e-a338-dfe4-d5fc27cd06d3]]
 Eiffel provides ways to add debug code to features to help during their debugging. You may think of it as the well-known C construct: <code></code> 
 
 <code>#ifdef MY_DEBUG_FLAG/* Debug code is here */ #endif</code>

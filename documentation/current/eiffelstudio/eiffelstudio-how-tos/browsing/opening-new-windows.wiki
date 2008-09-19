@@ -1,5 +1,6 @@
 [[Property:title|Opening new windows]]
 [[Property:weight|2]]
+[[Property:uuid|1d3066d2-f1ad-9287-ecd2-5341d3c24b61]]
 There are several ways to open a new window. First, you can use the pick and drop shortcut. Then, you can use new window menu items and the corresponding icons. There are three such commands: 
 * Clicking on '''New window''' in the '''File''' menu or on  [[Image:new-window-icon]]  make an new window appear. In this window, the editor and the context tool will be visible. 
 * Clicking on '''New editor window''' in the '''File''' menu or on  [[Image:new-editor-icon]]  does the same as the previous command but the context tool is minimized in the new window. 

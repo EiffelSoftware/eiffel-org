@@ -1,5 +1,6 @@
 [[Property:title|Feature clauses]]
 [[Property:weight|0]]
+[[Property:uuid|019ea318-e0e0-dae9-a818-e12232aa8431]]
 The feature you create will be inserted in the feature clause you specified. If the feature clause was not already in your class, or not in the right place, EiffelStudio adds the feature clause to the class text based on the feature clause order specified in the [[Preferences Reference|preferences]] . By default, this is the order used by the Eiffel Software libraries, such as EiffelBase. 
 ==Export status==
 The export status is the class the feature is accessible for. Usually, this is <eiffel>ANY</eiffel> for public features, or <eiffel>NONE</eiffel> for implementation features, but you can specify any class here. 

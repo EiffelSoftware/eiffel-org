@@ -1,5 +1,6 @@
 [[Property:title|Dynamic library builder]]
 [[Property:weight|1]]
+[[Property:uuid|e64cdcf2-6da1-98d5-8356-28b50d01374b]]
 In order to facilitate the creation of C dynamic libraries using EiffelStudio, a wizard helps generate the definition files used to define the contents of the shared library. If for some reason you need to override the wizard, the [[Definition file|syntactic rules]]  of the definition files are available, but their knowledge is not necessary to use the generation of dynamic libraries in EiffelStudio. 
 
 The wizard is accessible in the '''Tools'''/ '''Dynamic library builder''' menu. 

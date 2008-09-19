@@ -1,5 +1,6 @@
 [[Property:title|Argument list]]
 [[Property:weight|2]]
+[[Property:uuid|f2d63c29-6be2-b3d9-a735-b18e08c5a678]]
 For functions and procedures, you can build a formal argument list. You can do this by clicking on the '''New argument''' button as many times as you need arguments. 
 
 {{note| '''Note''': Even though this dialog always shows parentheses, they are not generated if the list is empty (Eiffel's command-query separation (CQS) principle). }}

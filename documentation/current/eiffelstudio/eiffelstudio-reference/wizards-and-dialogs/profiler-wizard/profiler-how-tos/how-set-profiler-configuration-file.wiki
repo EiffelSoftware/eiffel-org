@@ -1,5 +1,6 @@
 [[Property:title|How to set up a Profiler Configuration File]]
 [[Property:weight|0]]
+[[Property:uuid|0cf0f7bc-1932-fe42-e62d-b37e2e0c424e]]
 Once executing an instrumented system has generated the proper file, you must have a profile converter process it in order to produce the Execution Profile. The need for the converter comes from the various formats that profilers use to record run-time information during an execution; a simple Profiler Configuration File enables you to describe the format used by any particular profiler.
 
 The Profiler Configuration File is a file found in the directory $ISE_EIFFEL/studio/profiler where $ISE_EIFFEL is the location of the Eiffel installation. The name of the Profiler Configuration File in that directory is Eiffel for internal profiling and, for external profiling, the name of the profiler tool as specified in the profiler option. EiffelStudio comes with 3 preconfigured external profilers:

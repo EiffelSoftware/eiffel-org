@@ -1,5 +1,6 @@
 [[Property:title|External commands editor dialog]]
 [[Property:weight|4]]
+[[Property:uuid|9f8de904-3d17-7ce2-1df8-f4824fab5ae3]]
 From EiffelStudio, you can define up to 10 external commands. Those commands will have their output redirected in the output pane of the context tool. You can execute them through the Tools menu. A typical usage is to use those external commands to integrate with your source control management solution (e.g. CVS, Visual SourceSafe,...)
 
 To define your own command, select "External commands..." in the Tools menu. Then the following dialog will appear:

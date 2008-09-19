@@ -1,5 +1,6 @@
 [[Property:title|Error wizard]]
 [[Property:weight|2]]
+[[Property:uuid|0c9686a0-2b9b-291f-4f01-930d9017810b]]
 More often than wanted, Eiffel compilations are not successful. The good point is that when an error is detected by the compiler, it will not be a problem at run-time. The bad point is that you have to fix compilation errors before being able to launch and debug your system.
 
 When an error occurs during an Eiffel compilation in EiffelStudio, the '''Output''' tab of the context tool displays a description of the error and its location, which looks more or less like this: 

@@ -1,5 +1,6 @@
 [[Property:title|C++ Externals]]
 [[Property:weight|2]]
+[[Property:uuid|e74e2661-5d7f-2f08-5279-1c24fd16a532]]
 ==Introduction==
 
 Before making C++ calls in EiffelStudio, you may want to learn the basics of making [[C externals|C calls]] , since these basics are not repeated here but they might be useful for C++ users as well and are necessary to fully benefit from this document. 

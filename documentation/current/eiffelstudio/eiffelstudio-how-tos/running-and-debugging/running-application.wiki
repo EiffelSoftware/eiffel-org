@@ -1,5 +1,6 @@
 [[Property:title|Running an application]]
 [[Property:weight|0]]
+[[Property:uuid|61be4ec3-d50c-21b9-0649-fac9cd7796b9]]
 There are several ways to launch an application. Not all are available depending on the way you compiled your system.
 
 Melted and frozen executables can be debugged. Several methods can be used to launch such an executable:

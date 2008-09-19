@@ -1,5 +1,6 @@
 [[Property:title|Externals Options]]
 [[Property:weight|7]]
+[[Property:uuid|0e46ef16-4946-8bc7-6481-0d069cbb506b]]
 [[Image:external-options|Externals dialog]]  
 
 In most cases this is not needed but for some C/C++ externals and in some .NET projects it is necessary to specify additional includes, objects or resources.

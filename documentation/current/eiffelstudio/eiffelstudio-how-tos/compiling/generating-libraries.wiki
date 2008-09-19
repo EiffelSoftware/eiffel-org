@@ -1,5 +1,6 @@
 [[Property:title|Generating libraries]]
 [[Property:weight|1]]
+[[Property:uuid|a2862dd7-1702-50b6-2505-74f9e1ac4b70]]
 There are two main types of libraries in Eiffel: precompiled Eiffel libraries and C libraries. Both kinds of libraries can be created via EiffelStudio. The former can only be used in Eiffel projects, C libraries can be used either in Eiffel programs, or in standard C programs.
 
 To generate an Eiffel precompiled library:

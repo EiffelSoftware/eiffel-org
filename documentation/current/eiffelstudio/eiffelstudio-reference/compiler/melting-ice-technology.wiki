@@ -1,5 +1,6 @@
 [[Property:title|Melting Ice Technology]]
 [[Property:weight|-15]]
+[[Property:uuid|17c5cf39-2bb3-67e4-11e3-2b6d021e5df1]]
 EiffelStudio relies on Melting Ice Technology, the proprietary compilation mechanism of Eiffel Software, which offers three forms of compilation:
 *  ''melting'' for making a few changes. The fastest of the mechanisms, typically taking a few seconds after small changes. Melting time is proportional to the size of the changed parts and affected classes, while the time needed to freeze or finalize is partly proportional to the size of the whole system. As long as you do not include new external C/C++ code, a C/C++ compiler is not required. However, execution speed is not optimal. The generated executable is debuggable. 
 *  ''freezing'' generates C code from the active system, and then compiles it into machine code; you must have a C/C++ compiler installed. You need to use this option if you add new agents or external C/C++ calls. Unless you add external code, you can re-freeze every couple of days. The rest of the time, you can melt your software to receive immediate feedback. The speed is still slower than when finalizing, but the generated executable is still debuggable. 

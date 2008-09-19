@@ -1,5 +1,6 @@
 [[Property:title|Changing system exploration depth]]
 [[Property:weight|1]]
+[[Property:uuid|edb48c11-23fb-65d2-28c2-75cda5659dd8]]
 * If you want to change the context of the current cluster or class in the diagram, click the '''Select depth of relations''' button.  [[Image:diagram-depth-of-relations-icon]]  <br/>
 The '''Context''' dialog appears. The layout depends on whether the current context is one of a class or cluster. 
 ** Context is a class: 
