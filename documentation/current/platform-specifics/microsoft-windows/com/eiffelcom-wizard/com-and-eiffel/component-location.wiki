@@ -1,5 +1,6 @@
 [[Property:title|The Component Location]]
 [[Property:weight|4]]
+[[Property:uuid|083c0120-2eda-9353-ceae-f63e7f407341]]
 <div> 
 ==Types of Components==
  ActiveX, DirectX, OCX, COM+, ADO+, ASP etc. who never heard of these technologies? They all represent yet another use of the COM standard. This paragraph will focus on categorizing COM components according to their own properties as well as the context in which they are used. The categorization will define how the EiffelCOM wizard should be used to wrap or create a component. </div>The first criteria that defines the type of component is from where it will be accessed: will the component be loaded in the client process or will the component be a remote server for a distributed application? In the former case, the component is compiled as a Dynamic Link Libraries (DLL) while in the latter case it is a standard executable. <div> 

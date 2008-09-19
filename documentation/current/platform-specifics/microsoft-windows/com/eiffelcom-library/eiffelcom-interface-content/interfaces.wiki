@@ -1,5 +1,6 @@
 [[Property:title|Interfaces]]
 [[Property:weight|0]]
+[[Property:uuid|7f65c561-cac3-6870-5d1c-6f73beeed872]]
 COM interfaces have several facets. First, an interface is a deferred, or an abstract, class. This means that an interface is a specification of a type. Second, an interface pointer represents a COM object, which is callable by a client application. An object can expose several interfaces, or represent several types. 
 
 ==ECOM_INTERFACE==

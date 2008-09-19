@@ -1,5 +1,6 @@
 [[Property:title|COM Interfaces]]
 [[Property:weight|2]]
+[[Property:uuid|1dbc3fb2-cf0b-b129-1102-ba01e26d8f74]]
 Interfaces are at the heart of any COM component. Interfaces are described in the definition file of a component. They consist of a group of semantically related functions that can be accessed by the clients of the component. Although they are a specification, they also have a physical representation. A client can request a pointer on an interface and access the component functions through that pointer. Interfaces are the only possible way to access functions from a component. They enforce information hiding by providing only the public functions to the client.
 
 Interfaces also define the type of a component. Each interface corresponds to a specific view of the component. It can be compared to polymorphism in the Object Oriented world. Whenever an interface from a component is requested, only the functions defined on that interface are accessible as if the component was polymorphically cast into an object of the type of that interface. 

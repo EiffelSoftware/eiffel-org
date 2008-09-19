@@ -1,5 +1,6 @@
 [[Property:title|CECIL - How to compile the samples?]]
 [[Property:weight|4]]
+[[Property:uuid|3548e1b4-9488-10d5-561e-f817c15d6ff0]]
 ==Compiling for Windows==
 
 Depending on your C compiler different steps have to be done, but do not forget to do the following before starting the C compiler specific part in a DOS console:

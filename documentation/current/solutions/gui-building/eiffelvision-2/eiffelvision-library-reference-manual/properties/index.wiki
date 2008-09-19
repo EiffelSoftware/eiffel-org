@@ -1,5 +1,6 @@
 [[Property:title|Properties]]
 [[Property:weight|5]]
+[[Property:uuid|0d46c1eb-bce4-2d67-0272-da4aa5950c65]]
 This cluster contains all the common properties available for Vision2 [[Widgets|widgets]]  and [[Items|items]] . Every Vision2 widget has the same set of properties inherited from EV_WIDGET, but many widgets also inherit additional properties, further refining the behavior of the widget. 
 
 EV_WIDGET inherits the following properties: 

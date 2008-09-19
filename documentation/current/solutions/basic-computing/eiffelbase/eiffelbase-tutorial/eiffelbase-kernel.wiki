@@ -1,5 +1,6 @@
 [[Property:title|EiffelBase, The Kernel]]
 [[Property:weight|0]]
+[[Property:uuid|f6229125-dd7e-a50d-5b97-3ad7cd6071d5]]
 In addition to basic concepts close to the language level, the Kernel covers such common needs as '''input''' and '''output''', '''storage''' and '''retrieval''' of objects on persistent storage, fine control over '''exception handling''' and '''memory management''', and access to '''operating system facilities'''. The kernel can be divided into 5 logical clusters of classes: 
 * The first cluster contains the universal class defining facilities accessible to all other classes: [[ref:/libraries/base/reference/any_chart|ANY]] . Every developer-defined class is a descendant of this class. 
 * The second cluster includes classes whose facilities are directly related to language concepts: 

@@ -1,5 +1,6 @@
 [[Property:title|Same Machine]]
 [[Property:weight|3]]
+[[Property:uuid|d10e1e4b-94c1-2725-f465-79da88730196]]
 ==Compiling==
 
 To compile the example, you must compile two projects: ''client'' and ''server.'' 

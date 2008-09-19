@@ -1,5 +1,6 @@
 [[Property:title|Support]]
 [[Property:weight|6]]
+[[Property:uuid|fd72dc5e-32bd-55aa-0e2e-2c7af69c72fd]]
 The support cluster contains many classes providing useful facilities within the library. Many of the classes within this cluster are constant classes, which are filled with constant values for specific contexts, generally indicated by their names. The following constant classes are available within this cluster: 
 * [[ref:libraries/vision2/reference/ev_dialog_constants_chart|EV_DIALOG_CONSTANTS]] 
 * [[ref:libraries/vision2/reference/ev_drawable_constants_chart|EV_DRAWABLE_CONSTANTS]] 

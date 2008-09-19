@@ -1,0 +1,45 @@
+[[Property:title|Preferences Sample]]
+[[Property:link_title|EiffelPreferences Sample]]
+[[Property:weight|2]]
+[[Property:uuid|f492e71c-07a8-9b1d-f72a-d59330acbf16]]
+<br/>
+<br/>
+
+==Compiling==
+
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\preferences\''. 
+* Choose ''preferences_example.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Choose the target: ''registry'' (Windows only) will use the registry to store the preferences, ''xml'' will use a xml file to store the preferences.
+* Click '''OK'''. 
+
+
+==Running==
+
+After launching the application, you will see a window displayed with 2 buttons. When clicked each will display a window showing the preferences, one is the default view provided with the library, the other is a custom view for purposes of example. The default view looks like:
+
+[[Image:normal|preferences_example_normal_view]]  
+
+The custom view looks like: 
+
+[[Image:custom|preferences_example_normal_view]]  
+
+In each dialog you can select the preferences and alter the values. 
+==Under the Hood==
+
+This example shows you how to achieve the following tasks: 
+
+* Create preferences using the library supplied preference types and associated views
+* Use the default widget for viewing preferences and manipulating their values
+* Create a custom preference (a preference for storing correctly formatted directory path names)
+* Create a widget to view and change the custom preference type value
+* Create a custom manager to register custom types to the system
+* Create a custom dialog for viewing all the preferences
+
+
+
+
+
+

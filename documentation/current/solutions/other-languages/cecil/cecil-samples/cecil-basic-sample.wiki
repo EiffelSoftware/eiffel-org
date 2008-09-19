@@ -1,5 +1,6 @@
 [[Property:title|CECIL - Basic sample]]
 [[Property:weight|2]]
+[[Property:uuid|ed699d37-f480-0cef-817f-9f4a857c1691]]
 ==cecil-test==
 
 After you have done the appropriate steps to compile the example, you will get a `cecil.exe' on windows, or `cecil' on Unix. 

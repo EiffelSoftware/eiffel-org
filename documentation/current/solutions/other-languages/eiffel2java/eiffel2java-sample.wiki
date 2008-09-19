@@ -1,5 +1,6 @@
 [[Property:title|Eiffel2Java Sample]]
 [[Property:weight|1]]
+[[Property:uuid|90ef17d4-8e23-34dd-1cb8-488533561dd4]]
 This example shows how to create an instance of the Java Virtual Machine and the creation of an object of type <eiffel>test</eiffel>, a java class reproduced below: 
 <code>
 (Java Code)

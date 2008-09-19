@@ -1,6 +1,7 @@
 [[Property:title|4 Hello World]]
 [[Property:link_title|ET: Hello World]]
 [[Property:weight|-12]]
+[[Property:uuid|5b286f94-dd63-1169-a64e-74b5f8c5ef14]]
 When discovering any approach to software construction, however ambitious its goals, it is reassuring to see first a small example of the big picture -- a complete program to print the famous "Hello World" string. Here is how to perform this fascinating task in the Eiffel notation. 
 
 You write a class <code> HELLO </code> with a single procedure, say <code> make </code>, also serving as creation procedure. If you like short texts, here is a minimal version: 

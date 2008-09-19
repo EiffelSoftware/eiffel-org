@@ -1,5 +1,6 @@
 [[Property:title|Thread library overview]]
 [[Property:weight|1]]
+[[Property:uuid|2bdeeb91-1917-f443-ebfc-4f877107edd7]]
 This is only a quick overview of the [[EiffelThread Library|Thread library]] . The reference of this library should give all its content. 
 
 ==Creating and launching threads: the class THREAD (deferred)==
@@ -40,7 +41,7 @@ To run the thread, use the feature <eiffel>launch</eiffel> from <eiffel>THREAD</
 <code>	my_thread.launch</code>
 On the Eiffel side, the procedure <eiffel>execute</eiffel> will be launched. This procedures deferred in class <eiffel>THREAD</eiffel>, you have to define it in <eiffel>MY_THREAD</eiffel>. 
 On the C side, a C thread will be created and launched. 
-{{warning| '''Caution''': you may call <eiffel>join_all</eiffel> and the end of the execution of the parent thread if you do not want it to die before its child, otherwise they may prematurely terminate. 
+{{warning| '''Caution''': you may call <eiffel>join_all</eiffel> and the end of the execution of the parent thread if you do not want it to die before its child, otherwise they may prematurely terminate. }}
 ==The class MUTEX==
 
 The implementation of the class <eiffel>MUTEX</eiffel> is mapped on the C standard thread library. An instance of class <eiffel>MUTEX</eiffel> can be shared between different thread. 

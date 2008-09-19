@@ -2,13 +2,13 @@
 [[Property:weight|-6]]
 [[Property:uuid|e74b5b47-d87d-2eb0-49ba-981dae52d338]]
 == Text processing (Lexical analysis and parsing) ==
-* EiffelLex    http://ise181.ise/book/documentation/eiffellex-library
-** EiffelLex tutorial    http://ise181.ise/book/documentation/lexical-analysis-lex-library
+* [[EiffelLex Library|EiffelLex]]
+** [[Lexical analysis: the Lex library|EiffelLex tutorial]]
 ** EiffelLex class reference
-** EiffelLex samples    http://ise181.ise/book/documentation/lex-sample
-* EiffelParse    http://ise181.ise/book/documentation/eiffelparse-library
-** EiffelParse tutorial    http://ise181.ise/book/documentation/parsing-parse-library
+** [[Lex Sample|EiffelLex samples]]
+* [[EiffelParse Library|EiffelParse]]
+** [[Parsing: The Parse Library|EiffelParse tutorial]]
 ** EiffelParse class reference
-** EiffelParse samples    http://ise181.ise/book/documentation/parse-sample
+** [[Parse Sample|EiffelParse samples]]
 
 

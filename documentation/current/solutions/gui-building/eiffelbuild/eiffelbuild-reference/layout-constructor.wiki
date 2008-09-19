@@ -1,5 +1,6 @@
 [[Property:title|Layout constructor]]
 [[Property:weight|3]]
+[[Property:uuid|eb93c9bf-53b3-6718-5c30-d17133633c6f]]
 The layout constructor provides a view of the [[EiffelBuild Notation|objects]]  you have defined in your system, in which the [[EiffelBuild Notation|objects]]  may be manipulated. The root node of the tree is the object currently selected within the [[Widget selector|widget selector]]  and objects may be added/moved within the displayed widget structure by picking and dropping the objects as required. For example, in the screenshot below, you could add another list to the vertical box, by picking a list from the [[Type selector|type selector]]  and dropping it on the vertical box object. 
 
 [[Image:layout-constructor]]  

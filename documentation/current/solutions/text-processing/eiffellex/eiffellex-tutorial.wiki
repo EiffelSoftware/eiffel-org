@@ -1,6 +1,7 @@
 [[Property:title|Lexical analysis: the Lex library]]
 [[Property:link_title|EiffelLex Tutorial]]
 [[Property:weight|0]]
+[[Property:uuid|9ea43bef-1483-fbf2-4791-2be6a31d394d]]
 ==OVERVIEW==
 
 When analyzing a text by computer, it is usually necessary to split it into individual components or '''tokens'''. In human languages, the tokens are the words; in programming languages, tokens are the basic constituents of software texts, such as identifiers, constants and special symbols. 

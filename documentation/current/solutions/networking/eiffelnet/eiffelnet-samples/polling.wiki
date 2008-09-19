@@ -1,5 +1,6 @@
 [[Property:title|Polling]]
 [[Property:weight|1]]
+[[Property:uuid|3bdc742f-2214-c5fb-2336-bc613b721c0d]]
 ==Compiling==
 
 To compile the example, you must compile two projects: ''client'' and ''server.'' 

@@ -1,5 +1,6 @@
 [[Property:title|Database control]]
 [[Property:weight|7]]
+[[Property:uuid|432c6e51-36d5-b469-c924-eb821713256a]]
 Use the [[ref:/libraries/store/reference/db_control_flatshort|DB_CONTROL]]  class to check or change database status and behavior. The main operations you are likely to use are:
 *  [[#errors|Handling]]  database errors. 
 *  [[#connection|Connecting]]  to the database. 

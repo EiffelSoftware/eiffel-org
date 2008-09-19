@@ -1,5 +1,6 @@
 [[Property:title|EiffelBase, Sets]]
 [[Property:weight|4]]
+[[Property:uuid|44d33f46-cfa9-2aca-6b4f-2d9d91723d85]]
 Sets are containers where successive occurrences of the same item are not distinguished: inserting the same item twice has the same observable effect as inserting it once.
 
 ==Deferred classes==

@@ -1,5 +1,6 @@
 [[Property:title|EiffelBase, Dispensers]]
 [[Property:weight|2]]
+[[Property:uuid|4f65d62b-940b-c3c2-557e-d709a2a1bcaf]]
 A dispenser is called that way because of the image of a vending machine (a dispenser) of a rather primitive nature, in which there is only one button. If you press the button and the dispenser is not empty, you get one of its items in the exit tray at the bottom, but you do not choose that item: the machine does. There is also an input slot at the top, into which you may deposit new items; but you have no control over the order in which successive button press operations will retrieve these items.
 
 The deferred class [[ref:/libraries/base/reference/dispenser_chart|DISPENSER]]  provides the facilities which will be shared by all specialized classes. In fact, the interface of all dispenser classes is nearly identical, with the exception of a few extra possibilities offered by priority queues. Many kinds of dispenser are possible, each defined by the relation that the machine defines between the order in which items are inserted and the order in which they arereturned. The Base libraries support three important categories - stacks, queues, and priority queues:

@@ -1,5 +1,6 @@
 [[Property:title|Data Object Coupling]]
 [[Property:weight|4]]
+[[Property:uuid|c51311cd-8782-0bc3-3ef7-000ea6eee37c]]
 A smart way to work with relational databases is to have Eiffel objects directly mapping relational tables. Three EiffelStore classes enable this coupling:
 * [[ref:/libraries/store/reference/db_repository_flatshort|DB_REPOSITORY]]  objects [[#describe|describe a relational table]]  and allow Eiffel to create objects mapping database tables. 
 * [[ref:/libraries/store/reference/db_store_flatshort|DB_STORE]]  works directly with [[ref:/libraries/store/reference/db_repository_flatshort|DB_REPOSITORY]]  objects to [[#insert|insert data into relational tables]] . 

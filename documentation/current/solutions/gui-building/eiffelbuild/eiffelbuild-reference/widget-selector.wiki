@@ -1,5 +1,6 @@
 [[Property:title|Widget selector]]
 [[Property:weight|9]]
+[[Property:uuid|0626dd3a-28f2-ade6-8e6a-f992c2198fd6]]
 The Widget Selector allows you to manage windows, dialogs and "top level" objects within the EiffelBuild project, with all windows accessible through this tool. Using the widget selector, you may add new windows to your project; delete windows; assign a root window (launched from the generated application); and group windows into directories. All objects contained in the Widget Selector are generated as individual classes at generation time. The Widget Selector has the following appearance:
 
 [[Image:window-selector]]  

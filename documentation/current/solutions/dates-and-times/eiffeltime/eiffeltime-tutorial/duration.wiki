@@ -1,5 +1,6 @@
 [[Property:title|Duration]]
 [[Property:weight|1]]
+[[Property:uuid|64672bd0-b696-0c39-1e30-5ac64aae4a99]]
 <eiffel>TIME_DURATION</eiffel>, <eiffel>DATE_DURATION</eiffel> AND <eiffel>DATE_TIME_DURATION</eiffel> 
 
 The classes dealing with duration inherit DURATION, which inherits GROUP_ELEMENT and PART_COMPARABLE. An instance of <eiffel>TIME_DURATION</eiffel>, <eiffel>DATE_DURATION</eiffel> or <eiffel>DATE_TIME_DURATION</eiffel> is an element of a group, i.e. there is a zero and addition operations (infix +,infix -, prefix + and prefix -). Duration is used as an amount of time, without link to an origin. It may be added to the respective absolute notion (time + time_duration is possible, not time + date_time_duration nor date_time + time_duration...see classes <eiffel>TIME</eiffel>, <eiffel>DATE</eiffel> and <eiffel>DATE_TIME</eiffel>). 

@@ -1,6 +1,7 @@
 [[Property:title|7 Exceptions]]
 [[Property:link_title|I2E: Exceptions]]
 [[Property:weight|-8]]
+[[Property:uuid|e3e10dac-0dd7-bbe1-240c-6a6985c7376a]]
 Whenever there is a contract, the risk exists that someone will break it. This is where exceptions come in. 
 
 Exceptions -- contract violations -- may arise from several causes. One is an assertion violation, if you've selected run-time assertion monitoring. Another is a signal triggered by the hardware or operating system to indicate an abnormal condition such as arithmetic overflow, or an attempt to create a new object when there's not enough memory available. 

@@ -1,5 +1,6 @@
 [[Property:title|EiffelBase, Trees]]
 [[Property:weight|3]]
+[[Property:uuid|8357fc1a-a089-c846-aee8-18b8fb26c288]]
 Trees and their immediate generalization, forests, are useful for any system that manipulates hierarchically organized information. The range of applications is broad, from abstract syntax trees in compilers through document structures in text processing systems to company organization charts in business software. <br/>
 Trees, in particular binary trees and their variants, also provide convenient implementations of container data structures. 
 

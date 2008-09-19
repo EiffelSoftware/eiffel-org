@@ -1,5 +1,6 @@
 [[Property:title|EiffelVision Pick and Drop]]
 [[Property:weight|0]]
+[[Property:uuid|309203de-6536-fe26-4f73-cb1f4a450e6f]]
 Pick and drop is a mechanism which allows data to be transported from a '''source''' object to a '''target'''. Any Vision2 object inheriting [[ref:libraries/vision2/reference/ev_pick_and_dropable_chart|EV_PICK_AND_DROPABLE]]  can be used to transport or receive data. 
 
 ==A simple pick and drop example==

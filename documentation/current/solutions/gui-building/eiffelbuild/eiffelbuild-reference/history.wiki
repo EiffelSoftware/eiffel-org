@@ -1,5 +1,6 @@
 [[Property:title|History]]
 [[Property:weight|11]]
+[[Property:uuid|5bc08c08-be0d-bebd-dcfe-ec20b40c1e26]]
 EiffelBuild has an limitless undo/redo mechanism built in. However, this mechanism only applies to the structure of the [[EiffelBuild Notation|objects]]  you are developing in your project. 
 
 For example, every time you [[Create an object|create]] , [[Reparent an Object| reparent]]  or [[Delete an object|delete]]  an [[EiffelBuild Notation|object]]  in your project, this is recorded in the history. If you modify properties of an [[EiffelBuild Notation|object]]  (Using an [[Object editor|object editor]] ), these modifications are not recorded in the history. 

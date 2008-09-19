@@ -1,6 +1,7 @@
 [[Property:title|6 Design by Contract and Assertions]]
 [[Property:link_title|I2E: Design by Contract and Assertions]]
 [[Property:weight|-9]]
+[[Property:uuid|f563aa75-3a5a-5110-b4f1-07da5448f668]]
 If classes are to deserve their definition as abstract data type implementations, they must be known not just by the available operations, but also by the formal properties of these operations, which did not yet appear in the preceding example. 
 
 ==The role of assertions==

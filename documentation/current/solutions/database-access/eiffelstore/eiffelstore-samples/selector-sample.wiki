@@ -1,5 +1,6 @@
 [[Property:title|Selector Sample]]
 [[Property:weight|1]]
+[[Property:uuid|3d608710-5537-04e4-fa89-a608ee6864cd]]
 This sample creates a <eiffel>DB_BOOK</eiffel> table in your database, enters sample data in it and lets you select rows from this table with author's name. 
 
 ==Compiling==

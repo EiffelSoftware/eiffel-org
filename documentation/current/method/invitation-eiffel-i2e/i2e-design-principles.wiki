@@ -1,6 +1,7 @@
 [[Property:title|2 Design Principles]]
 [[Property:link_title|I2E: Design Principles]]
 [[Property:weight|-13]]
+[[Property:uuid|529659bd-ec13-5805-87f2-2fd9318ad442]]
 The aim of Eiffel is to help specify, design, implement and modify quality software. This goal of quality in software is a combination of many factors; the language design concentrated on the three factors which, in the current state of the industry, are in direct need of improvements: reusability, extendibility and reliability. Also important were other factors such as efficiency, openness and portability. 
 
 '''Reusability''' is the ability to produce components that may serve in many different applications. Central to the Eiffel approach is the presence of predefined libraries such as EiffelBase, and the language's support for the production of new libraries. 

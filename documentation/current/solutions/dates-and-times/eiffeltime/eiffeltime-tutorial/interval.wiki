@@ -1,5 +1,6 @@
 [[Property:title|Interval]]
 [[Property:weight|2]]
+[[Property:uuid|d33d0216-fa71-60dc-f3b0-61ff42d621e6]]
 Class <eiffel>INTERVAL</eiffel> deals with intervals between two instances of the same class which conform to<eiffel> ABSOLUTE</eiffel> ( <eiffel>DATE</eiffel>, <eiffel>TIME</eiffel>, <eiffel>DATE_TIME</eiffel>). The notions of interval is directly linked with the notion of order. 
 
 The <eiffel>start_bound</eiffel> must be before the <eiffel>end_bound</eiffel>.

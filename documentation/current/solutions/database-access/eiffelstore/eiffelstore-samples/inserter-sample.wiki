@@ -1,5 +1,6 @@
 [[Property:title|Inserter Sample]]
 [[Property:weight|2]]
+[[Property:uuid|fa0b8601-ca7a-b1cc-384d-f366be33ac40]]
 This sample lets the user insert a DB_BOOK object in your database using EiffelStore insertion facilities. 
 
 ==Compiling==

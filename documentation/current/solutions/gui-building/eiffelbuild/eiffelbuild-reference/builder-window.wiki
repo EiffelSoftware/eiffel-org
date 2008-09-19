@@ -1,5 +1,6 @@
 [[Property:title|Builder window]]
 [[Property:weight|7]]
+[[Property:uuid|e82ca336-cab6-bc60-6ddc-b359a7c86811]]
 The Builder window provides a view of the [[EiffelBuild Notation|objects]]  in your system, in which the [[EiffelBuild Notation|objects]]  may be manipulated. 
 
 This window may either be shown or hidden (default). To change between these two states, click  [[Image:icon-builder-window-color]]  on the [[Main toolbar| main toolbar]] , or select '''Show/Hide builder window''' from the '''View''' menu. 

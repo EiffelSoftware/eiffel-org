@@ -1,5 +1,6 @@
 [[Property:title|Docking]]
 [[Property:weight|3]]
+[[Property:uuid|1434e995-4445-cbce-187c-cd7e078197e9]]
 The docking mechanism permits customization of the EiffelBuild interface through the re-ordering of tools to suit your preferences. You may simply "drag" one of the supported tools to a new location as desired. The [[Type selector|Type Selector]] , [[Component selector|Component Selector]]  and [[Widget selector|Widget Selector]]  all support docking. 
 
 ==Performing a dock==

@@ -1,5 +1,6 @@
 [[Property:title|Kernel]]
 [[Property:weight|1]]
+[[Property:uuid|d830dc77-cd77-1f52-0e39-e0ec1cffa028]]
 The kernel cluster contains classes that provide functionality that are common to most Windowed application. These classes are considered the core, or kernel of any Vision2 application. The most important of these classes is [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]] . This is used to initialize the graphical toolkit and event loop of your Vision2 application. Kernel also includes classes such as [[ref:libraries/vision2/reference/ev_timeout_chart| EV_TIMEOUT]]  that calls procedures (via agents) at a set interval, and [[ref:libraries/vision2/reference/ev_color_chart| EV_COLOR]]  which is used for coloring widgets and items. To start programming with Vision2, you first have to correctly initialize [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]] . 
 
 ==Launching your application with EV_APPLICATION - The heart of all Vision2 systems==

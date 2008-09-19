@@ -1,5 +1,6 @@
 [[Property:title|Access Type]]
 [[Property:weight|5]]
+[[Property:uuid|0d049617-9737-7cc8-810a-9f6f9ca603ec]]
 Regardless of its location, a COM components can be accessed either directly through interface's virtual table or through OLE Automation. 
 ==Automation==
 Accessing a COM component through Automation means using a well known interface to access to a group of methods and properties. This interface is called IDispatch, and it includes the method <eiffel>invoke</eiffel> that allows to call a method, set or get a property on the Automation server. One advantage of that approach is that the interface has a known virtual table layout. As a result, Windows can include a built-in marshaler for that interface (See [[Deeper into COM|Marshaling]]  for information on what a marshaler is). The supported types (known as Automation types) and their Eiffel equivalents are listed in the following table: 

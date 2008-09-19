@@ -3,7 +3,6 @@
 [[Property:weight|-12]]
 [[Property:uuid|6029d6d9-bb73-5c74-02f6-70d202a65ceb]]
 == Interacting with software in other languages  ==
-{{note|Put a reference to .NET and COM, as well as to external features syntax -Kwaxer 9/16/08 7:47 PM }}
 
 * [[C externals|C externals tutorial]]
 * [[C++ Externals|C++ externals tutorial]]
@@ -12,4 +11,6 @@
 ** [[Eiffel to Java Interface|Eiffel2Java tutorial]]
 ** Eiffel2Java class reference
 ** [[Eiffel2Java Sample|Eiffel2Java samples]]
+
+{{note|Put a reference to .NET and COM, as well as to external features syntax -Kwaxer 9/16/08 7:47 PM }}
 

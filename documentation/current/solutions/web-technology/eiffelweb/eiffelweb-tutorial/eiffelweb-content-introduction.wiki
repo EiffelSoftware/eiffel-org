@@ -1,5 +1,6 @@
 [[Property:title|EiffelWeb Content Introduction]]
 [[Property:weight|0]]
+[[Property:uuid|df90086d-4265-4451-06bf-5e6e0603036e]]
 ==CGI Applications==
 
 The way a CGI application communicates with the Web browser is simple: when the user presses a button on an HTML form, with an associated action (such as ''Submit''), the browser starts the application whose path is indicated inside the HTML form declaration. It sends data corresponding to the HTTP request and to the input form information in the usual file descriptor ''In'', stores within environment variables the transaction environment of the request, and waits for the application message, expected in its ''Out'' canal. The ''In'' and '' Out ''canals are accessible via the class CGI_IN_AND_OUT. <br/>

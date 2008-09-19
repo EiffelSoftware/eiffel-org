@@ -1,5 +1,6 @@
 [[Property:title|More precision]]
 [[Property:weight|4]]
+[[Property:uuid|fadf5bc2-bb72-f681-b9c4-bab7f0633209]]
 <eiffel>TIME</eiffel> and <eiffel>TIME_DURATION</eiffel> are designed to deal with high precision in time. The only limit is the one from number representation. 
 
 The classes <eiffel>TIME</eiffel> and <eiffel>TIME_DURATION</eiffel> have an attribute <eiffel>fine_second</eiffel> (inherited from <eiffel>TIME_VALUE</eiffel>) which allows high precision. This attribute represents the number of seconds with fractions (it is an instance of <eiffel>DOUBLE</eiffel>). From this attribute are calculated second and fractional_second (which are functions): second is the truncated-to-integer part and fractional_second is the difference between the two previous one, so that the sum of second and fractional_second is always equal to fine_second (see invariant in <eiffel>TIME_VALUE</eiffel>). 

@@ -1,5 +1,6 @@
 [[Property:title|Stored Procedures]]
 [[Property:weight|6]]
+[[Property:uuid|9979af90-07c3-8b20-448e-04454a75c801]]
 When sending requests to the database, the request is first parsed then executed. Instead of parsing many times the same requests, i.e. with only changes in expression values, most of RDBMS enable to '''precompile''' requests. These requests can then be executed as routines and are identified by a name and a signature. 
 
 EiffelStore lets you use stored procedures with [[ref:/libraries/store/reference/db_proc_flatshort|DB_PROC]]  class to:

@@ -1,5 +1,6 @@
 [[Property:title|Using a CECIL archive]]
 [[Property:weight|2]]
+[[Property:uuid|e8438c9b-65ae-368f-6559-a0d5b28db4b7]]
 ==Linking the CECIL archive into a program==
 The CECIL archive already incorporates the Eiffel run-time. To use the functions provided in the CECIL archive, simply write the C programs according to the CECIL specifications of ETL, and then include the CECIL archive in the link line of your C application. This line looks like: 
 on Unix/linux:

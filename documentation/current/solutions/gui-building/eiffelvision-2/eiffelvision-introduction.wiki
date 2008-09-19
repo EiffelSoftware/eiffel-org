@@ -1,5 +1,6 @@
 [[Property:title|EiffelVision Introduction]]
 [[Property:weight|0]]
+[[Property:uuid|f964651a-e36d-4e9e-00ea-37803a26373a]]
 The EiffelVision library offers an object-oriented framework for graphical user interface (GUI) development. Using EiffelVision, developers can access all necessary GUI components, called [[Widgets|widgets]]  (buttons, windows, list views) as well as truly graphical elements such as points, lines, arcs, polygons and the like -- to develop a modern, functional and good-looking graphical interactive application. 
 
 EiffelVision has played a major role at Eiffel Software and provided numerous Eiffel projects with a powerful, portable graphics development platform. EiffelStudio is totally reliant on EiffelVision for its graphical elements and overall interaction with the user. 

@@ -1,5 +1,6 @@
 [[Property:title|CECIL interface overview]]
 [[Property:weight|3]]
+[[Property:uuid|7d8b4785-6f05-02c9-ba1c-12bad3d4b331]]
 ==Eiffel basic types==
 The EIFFEL include files define types for every EIFFEL types: 
 * An Eiffel <eiffel>INTEGER</eiffel> is an ''EIF_INTEGER'', 

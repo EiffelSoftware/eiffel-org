@@ -1,5 +1,6 @@
 [[Property:title|Eiffel scanner]]
 [[Property:weight|0]]
+[[Property:uuid|c0d6ad9d-2bac-c5ad-69b6-873db2e47aa9]]
 In the directory '''$ISE_EIFFEL/examples/lex''' you will find a system that scans Eiffel classes. It consists of the class [[EIFFEL_SCAN Text|EIFFEL_SCAN]] . It uses the file [[EiffelLex Samples|eiffel_regular]]  as lexical grammar to analyze an Eiffel class passed on the command line. 
 
 When compiling the example, the executable '''eiffel_scan(.exe)''' is created. Use the program as follows: 

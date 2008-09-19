@@ -1,5 +1,6 @@
 [[Property:title|Positioning table children]]
 [[Property:weight|1]]
+[[Property:uuid|7e302887-c3fd-1f30-866e-545aba53454e]]
 If the current [[EiffelBuild Notation|object]]  in the object editor is of type <eiffel>EV_TABLE</eiffel>, a button marked "position children..." is contained in the object editor. Click this button, to display the following window: 
 
 [[Image:table-child-positioner]]  

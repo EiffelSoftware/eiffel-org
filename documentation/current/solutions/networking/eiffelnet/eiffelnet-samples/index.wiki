@@ -1,5 +1,6 @@
 [[Property:title|EiffelNet Samples]]
 [[Property:weight|2]]
+[[Property:uuid|c9c0fe01-a80f-5834-8503-aad1063e1503]]
 =Description=
 
 Here is a set of five examples written thanks to the EiffelNet library to show some basic applications. Two of them rely on specific code to Unix Operating systems and consequently could not be run under Windows.

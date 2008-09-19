@@ -1,5 +1,6 @@
 [[Property:title|Merging radio button groups]]
 [[Property:weight|0]]
+[[Property:uuid|069fa6c5-ed77-9cd3-f565-d41d43c406fe]]
 If the current [[Object editor|object editor]]  contains an <eiffel>EV_CONTAINER</eiffel> [[EiffelBuild Notation|object]] , then the following control will be available: 
 
 [[Image:empty-radio-merge]]  

@@ -1,5 +1,6 @@
 [[Property:title|CECIL - C to Eiffel]]
 [[Property:weight|0]]
+[[Property:uuid|c3b64ef2-28b2-920e-44fb-4cff2320c099]]
 ==array==
 This example shows how to create an Eiffel array from an existing C array. After you have done the appropriate steps to compile the example, you will get a `cecil.exe' on windows, or `cecil' on Unix. Launch the program and you will be prompted for 10 integers that will be inserted in a C array, it will then initialize the Eiffel array and calls display from the MY_ARRAY class. A typical output will be: 
 <code>

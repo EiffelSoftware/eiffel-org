@@ -1,6 +1,7 @@
 [[Property:title|11 Polymorphism and Dynamic Binding]]
 [[Property:link_title|I2E: Polymorphism and Dynamic Binding]]
 [[Property:weight|-4]]
+[[Property:uuid|1c3221be-0237-1c9a-407d-652a4084de12]]
 Inheritance is not just a module combination and enrichment mechanism. It also enables the definition of flexible entities that may become attached to objects of various forms at run time, a property known as polymorphism. 
 
 This remarkable facility must be reconciled with static typing. The language convention is simple: an assignment of the form <code> a </code> <code> : </code> <code> b </code> is permitted not only if <code> a </code> and <code> b </code> are of the same type, but more generally if <code> a </code> and <code> b </code> are of reference types <code> A </code> and <code> B </code>, based on classes <code> A </code> and <code> B </code> such that <code> B </code> is a descendant of <code> A </code>. 

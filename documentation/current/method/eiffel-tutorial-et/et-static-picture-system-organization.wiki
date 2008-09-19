@@ -1,6 +1,7 @@
 [[Property:title|5 The Static Picture: System Organization]]
 [[Property:link_title|ET: The Static Picture: System Organization]]
 [[Property:weight|-11]]
+[[Property:uuid|46d3f41e-d41c-a443-4574-403dfebb60aa]]
 We now look at the overall organization of Eiffel software. 
 
 References to Eiffel Software's libraries appearing in subsequent examples include: '''EiffelBase''', the fundamental open-source library covering data structures and algorithms; the '''kernel library''', a subset of EiffelBase covering the most basic notions such as arrays and strings; and '''EiffelVision 2''', an advanced graphics and GUI library providing full compatibility across platforms (Unix, Windows, OpenVMS) with native look-and-feel on each. 

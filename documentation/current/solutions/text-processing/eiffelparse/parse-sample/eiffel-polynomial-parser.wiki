@@ -1,5 +1,6 @@
 [[Property:title|Eiffel polynomial parser]]
 [[Property:weight|0]]
+[[Property:uuid|63f0e737-4ad7-c574-3bbc-05e005815785]]
 In the directory '''$ISE_EIFFEL/examples/parse''' you will find a system that implements a processor for a grammar describing a simple language for expressin polynomials. A typical document in this language is the line 
 <code>x;y: x * (y + 8 - (2 * x))</code>
 The beginning of the line, separated from the rest by a colon, is the list of variables used in the polynomial, separated by semicolons. The rest of the line is the expression defining the polynomial. The grammar can be described with the following grammar: 

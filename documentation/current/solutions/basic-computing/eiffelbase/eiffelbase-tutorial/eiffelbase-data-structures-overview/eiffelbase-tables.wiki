@@ -1,5 +1,6 @@
 [[Property:title|EiffelBase, Tables]]
 [[Property:weight|5]]
+[[Property:uuid|194a63a2-e440-18dc-c9d5-6959dbe169fb]]
 Hash tables are a convenient mechanism tostore and retrieve objects identified by unique keys. 
 ==Why use hash tables?==
 The main advantage of hash tables is the efficiency of the basic operations: store ( [[ref:libraries/base/reference/hash_table_chart|put]] ) and retrieve ( [[ref:libraries/base/reference/hash_table_chart|item]] , [[ref:libraries/base/reference/hash_table_chart|remove]] ). <br/>

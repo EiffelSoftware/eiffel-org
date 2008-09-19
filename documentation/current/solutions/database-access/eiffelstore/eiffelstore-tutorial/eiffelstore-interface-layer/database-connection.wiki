@@ -1,5 +1,6 @@
 [[Property:title|Database Connection]]
 [[Property:weight|0]]
+[[Property:uuid|2cf2cb7c-e28d-5d06-b03e-e2b17c1f6879]]
 # To connect to your database, you have to create a '''handle''': this handle actually links the interface classes with corresponding implementation classes mapped to your DBMS. This handle is implemented by the DATABASE_APPL class:
 <code>
 	database_appl: DATABASE_APPL [ODBC]

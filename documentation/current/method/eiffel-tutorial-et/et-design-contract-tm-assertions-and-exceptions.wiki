@@ -9,11 +9,11 @@ Eiffel directly implements the ideas of Design by Contract&#153; , which enhance
 A system -- a software system in particular, but the ideas are more general -- is made of a number of cooperating components. Design by Contract&#153; states that their cooperation should be based on precise specifications -- contracts -- describing each party's expectations and guarantees. 
 
 An Eiffel contract is similar to a real-life contract between two people or two companies, which it is convenient to express in the form of tables listing the expectations and guarantees. Here for example is how we could sketch the contract between a homeowner and the telephone company:
-{| 
+{| border="1"
 |- 
-| <code>provide_service</code>|| style="width=10%;"
-| '''OBLIGATIONS'''|| style="width=35%;"
-| '''BENEFITS'''|| style="width=35%;"
+| <code>provide_service</code>|| style="width=10%"
+| '''OBLIGATIONS'''|| style="width=35%"
+| '''BENEFITS'''|| style="width=35%"
 |- 
 |   '''Client''' 
 |  (Satisfy precondition:) <br/>
@@ -93,7 +93,7 @@ The precondition of a routine expresses conditions that the routine is imposing 
 The postcondition of a routine expresses what the routine guaranteed to its clients for calls satisfying the precondition. The notation <code> old expression </code>, valid in postconditions ( <code> ensure </code> clauses) only, denotes the value that <code> expression </code> had on entry to the routine. 
 
 The precondition and postcondition state the terms of the contract between the routine and its clients, similar to the earlier example of a human contract:
-{| 
+{| border="1"
 |- 
 | <code>deposit</code>|| style="width=10%;"
 | '''OBLIGATIONS'''|| style="width=35%;"

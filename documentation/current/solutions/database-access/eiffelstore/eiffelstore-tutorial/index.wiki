@@ -1,6 +1,7 @@
 [[Property:title|EiffelStore Content]]
 [[Property:link_title|EiffelStore Tutorial]]
 [[Property:weight|1]]
+[[Property:uuid|542caa33-5dc1-d2ea-414b-b1739045edd9]]
 EiffelStore main classes are grouped into 2 main layers: 
 * The [[EiffelStore Interface Layer|interface layer]]  provides a high-level, unique interface for every DBMS. 
 * The [[EiffelStore Implementation Layer|implementation layer]]  customizes high-level routines to various DBMS handles. 

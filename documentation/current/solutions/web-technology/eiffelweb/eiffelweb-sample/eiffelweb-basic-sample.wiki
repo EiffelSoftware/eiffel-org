@@ -1,5 +1,6 @@
 [[Property:title|EiffelWeb Basic Sample]]
 [[Property:weight|0]]
+[[Property:uuid|da8f72cb-0ecd-464a-a558-cbf7d24301e3]]
 This sample shows how to retrieve and display information from a basic form on a web page.
 
 {{note| '''Note:''' This sample requires a web server supporting CGI in order to be run. Both the Internet Information Services web server from Microsoft and the GNU Apache server may be used. 

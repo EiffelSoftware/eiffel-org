@@ -1,6 +1,7 @@
 [[Property:title|3 The Software Process in Eiffel]]
 [[Property:link_title|ET: The Software Process in Eiffel]]
 [[Property:weight|-13]]
+[[Property:uuid|eef7f31a-25de-93cc-9a33-41d991c51ccb]]
 Eiffel, as noted, supports the entire lifecycle. The underlying view of the system development lifecycle is radically different not only from the traditional "Waterfall" model (implying a sequence of discrete steps, such as analysis, global design, detailed design, implementation, separated by major changes of method and notation) but also from its more recent variants such as the spiral model or "rapid prototyping", which remain predicated on a synchronous, full-product process, and retain the gaps between successive steps. 
 
 Clearly, not everyone using Eiffel will follow to the letter the principles outlined below; in fact, some highly competent and successful Eiffel developers may disagree with some of them and use a different process model. In the author's mind, however, these principles fit best with the language and the rest of the method, even if practical developments may fall short of applying their ideal form. 

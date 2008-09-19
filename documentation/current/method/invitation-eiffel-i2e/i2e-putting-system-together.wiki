@@ -1,6 +1,7 @@
 [[Property:title|14 Putting a System Together]]
 [[Property:link_title|I2E: Putting a System Together]]
 [[Property:weight|-1]]
+[[Property:uuid|97460714-8ae1-a7cb-8216-235827045ea6]]
 We have now studied the constituents of Eiffel software. It remains to see how you can combine these elements into executable '''systems''' (the Eiffel concept closest to the traditional notion of program) and libraries. 
 
 How do you get an executable system? All you need is to <br/>

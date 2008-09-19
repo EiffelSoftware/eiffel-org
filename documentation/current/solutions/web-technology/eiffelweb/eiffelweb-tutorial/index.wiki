@@ -1,6 +1,7 @@
 [[Property:title|EiffelWeb Content]]
 [[Property:link_title|EiffelWeb Tutorial]]
 [[Property:weight|0]]
+[[Property:uuid|e2b93aea-ec1b-5897-0b0a-adc5681a1dcb]]
 The Common Gateway Interface (CGI) emerged as the first way to present dynamically generated information on the World Wide Web. It allows the computer to process forms filled by the user and return appropriate information. <br/>
 EiffelWeb was developed by Interactive Software Engineering to provide Eiffel developers access to the CGI technology. The library makes it possible to write Eiffel systems that interact directly with the WEB. 
 {{seealso| '''See Also''' <br/>

@@ -1,5 +1,6 @@
 [[Property:title|Esql Sample]]
 [[Property:weight|0]]
+[[Property:uuid|04d03117-fdb2-8b73-677f-9b1a0c333dc4]]
 This sample consists of a command line SQL parser. SQL statements are filtered through a monitor and sent to the RDBMS. 
 
 ==Compiling==

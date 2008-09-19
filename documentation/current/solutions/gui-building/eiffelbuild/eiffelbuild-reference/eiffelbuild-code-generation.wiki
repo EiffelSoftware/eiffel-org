@@ -1,5 +1,6 @@
 [[Property:title|EiffelBuild: Code Generation]]
 [[Property:weight|15]]
+[[Property:uuid|536487f0-f681-3812-87cf-3580c51ef8dd]]
 To generate Eiffel code representing your system, select '''Generate code''' from the '''Project''' menu or click  [[Image:icon-code-generation-color]]  on the [[Main toolbar|main toolbar]] . 
 The length of time taken to generate your code is dependent on the speed of the system you are running, and the size of your interface, but typically takes a couple of seconds. A progress bar is displayed during the generation of your system.
 

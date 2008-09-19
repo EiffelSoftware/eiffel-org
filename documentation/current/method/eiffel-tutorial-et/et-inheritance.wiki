@@ -1,6 +1,7 @@
 [[Property:title|9 Inheritance]]
 [[Property:link_title|ET: Inheritance]]
 [[Property:weight|-7]]
+[[Property:uuid|c90e6ee3-b39d-48e5-2321-a34e12fd5327]]
 Inheritance is a powerful and attractive technique. A look at either the practice or literature shows, however, that it is not always well applied. Eiffel has made a particular effort to tame inheritance for the benefit of modelers and software developers. Many of the techniques are original with Eiffel. Paul Dubois has written (comp.lang.python Usenet newsgroup, 23 March 1997): there are two things that [Eiffel] got right that nobody else got right anywhere else: support for design by contract, and multiple inheritance. Everyone should understand these "correct answers" if only to understand how to work around the limitations in other languages.
 
 ==Basic inheritance structure==

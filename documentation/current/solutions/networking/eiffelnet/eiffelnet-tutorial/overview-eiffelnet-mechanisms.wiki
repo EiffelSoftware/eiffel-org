@@ -1,5 +1,6 @@
 [[Property:title|An overview of EiffelNet Mechanisms]]
 [[Property:weight|2]]
+[[Property:uuid|08d7ca19-65e3-7f35-fbce-a50d0aedf626]]
 To enable clients and servers to exchange objects, you will have to ensure that they can refer to a common '''address'''. At the predefined level this is really the only notion that you need to know, although it is useful to get the bigger picture, in particular the concept of '''socket '''(which enables systems to set up communication channels), the various forms of communication (single-machine versus multi-machine, stream versus datagram), the kinds of object structure that may be exchanged, the notion of packet, and how to associate commands with communication events. The following paragraphs review these ideas and the corresponding EiffelNet abstractions. 
 
 ===Establishing a common address===

@@ -1,5 +1,6 @@
 [[Property:title|Compiling an Eiffel system for CECIL]]
 [[Property:weight|1]]
+[[Property:uuid|94a549df-1919-9dcd-82b3-1cd82e064a03]]
 ==Compiling your Eiffel system for CECIL==
 It is very simple to "Cecilize" your Eiffel system, that is to say make its features available from the outside through CECIL. You will compile it as you normally would - either freeze it or finalize it. The only supplementary precaution is to protect from the dead-code remover any Eiffel features that are not called from the Eiffel system's root, and might thus be dead-code-removed by the optimization mechanism. 
 To do this, make the appropriate features and classes [[Group Options|visible]] . 

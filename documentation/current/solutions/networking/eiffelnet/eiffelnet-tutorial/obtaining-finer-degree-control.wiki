@@ -1,6 +1,7 @@
 [[Property:title|Obtaining a finer degree of control]]
 [[Property:link_title|]]
 [[Property:weight|6]]
+[[Property:uuid|9e2de24b-8ae3-5b57-9797-e163defe83d9]]
 Let us now take a more internal look at the workings of EiffelNet. The two examples that follow have the same behavior as the preceding one; since their text is less simple, they are only interesting as an illustration of the lower-level facilities that you may want to use in specific cases. If you are already familiar with socket programming, they will also give you a more precise idea of how EiffelNet encapsulates the basic socket mechanisms.
 
 As before, we have a client and a server class, still called <code>OUR_CLIENT</code> and <code>OUR_SERVER</code>, which are part of two different systems and will run concurrently. The communication uses streams rather than datagrams; the datagram form of communication will be examined in section [[Using datagram sockets|using datagram sockets]] . 

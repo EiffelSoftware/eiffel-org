@@ -1,5 +1,6 @@
 [[Property:title|Component viewer]]
 [[Property:weight|10]]
+[[Property:uuid|51a8cb3e-7486-7ab4-b608-95acfedd32f7]]
 The Component viewer allows you to view the structure of a [[EiffelBuild Notation|component]]  without having to create new [[EiffelBuild Notation|objects]]  from the [[EiffelBuild Notation|component]] . 
 
 This tool is displayed in a separate window, and may either be shown or hidden (default). To change between these two states, click  [[Image:icon-component-viewer-color]]  on the [[Main toolbar| main toolbar]] , or select '''Show/Hide component viewer''' from the '''View''' menu. 

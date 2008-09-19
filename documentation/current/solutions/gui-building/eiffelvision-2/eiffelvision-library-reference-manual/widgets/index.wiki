@@ -1,5 +1,6 @@
 [[Property:title|Widgets]]
 [[Property:weight|2]]
+[[Property:uuid|595bb73e-146a-ea19-221f-40f3415aad34]]
 ==What is a Widget?==
 
 A Widget is the fundamental building block of your applications GUI, components such as Windows, Buttons and Labels are examples of such. The widget set of Vision2 provides you with the flexibility to easily create powerful graphical applications. All widgets in Vision2 inherit from [[ref:/libraries/vision2/reference/ev_widget_chart| EV_WIDGET]]  and the features provided in <eiffel> EV_WIDGET</eiffel> may be called on any widget. 

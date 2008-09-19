@@ -1,5 +1,6 @@
 [[Property:title|Object editor]]
 [[Property:weight|5]]
+[[Property:uuid|f00025e2-f39b-d0a2-9b2b-207768771905]]
 An object editor is a tool which allows you to edit the properties of a selected [[EiffelBuild Notation|object]] . Common properties include minimum width and height, color, text etc. 
 
 An object editor can only reference one [[EiffelBuild Notation|object]]  at once, and when not empty, it is considered to be "targeted" to the [[EiffelBuild Notation|object]]  whose properties it references. 

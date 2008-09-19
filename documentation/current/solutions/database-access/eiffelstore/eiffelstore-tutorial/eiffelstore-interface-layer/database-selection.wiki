@@ -1,5 +1,6 @@
 [[Property:title|Database Selection]]
 [[Property:weight|2]]
+[[Property:uuid|de759a74-b3e1-c937-e620-67526c116925]]
 Use the [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  class to select data from the database. Once you have selected the data, you can [[Selection Access|access]]  it with convenience using adaptative EiffelStore structures. 
 
 {{note| '''Note''': Take a look at the [[Data Object Coupling|Database/Eiffel objects Coupling]]  if you need information about your database structure. }}

@@ -1,5 +1,6 @@
 [[Property:title|Two Machines]]
 [[Property:weight|4]]
+[[Property:uuid|52307bfe-116d-f5c4-ccf1-98f330ef82e5]]
 ==Compiling==
 
 To compile the example, you must compile two projects: ''client'' and ''server.'' 

@@ -1,5 +1,6 @@
 [[Property:title|Create an object]]
 [[Property:weight|1]]
+[[Property:uuid|b2ef8e81-a045-dce2-725f-c8db5ab1b6db]]
 An EiffelBuild [[EiffelBuild Notation|object]]  is a representation of a Vision2 component and its properties. 
 
 To create a new instance of an object, [[EiffelBuild Notation|pick]]  a type from the [[Type selector|type selector]]  and [[EiffelBuild Notation|drop]]  onto an existing [[EiffelBuild Notation|object]]  (Accessible from the [[Layout constructor|layout constructor]]  or [[Builder window|builder window]] ). You will only be able to complete the [[EiffelBuild Notation|drop]]  if the targeted [[EiffelBuild Notation|object]]  will accept a new object of the transported type. 

@@ -1,5 +1,6 @@
 [[Property:title|Selection Access]]
 [[Property:weight|3]]
+[[Property:uuid|3b4fdde3-d903-55c8-0068-cee2407db280]]
 Once you have [[Database Selection|selected data]]  from the database, it returns a set of rows containing queried columns values. Each row loaded with DB_SELECTION is stored in a DB_RESULT object. The easiest way to access the data is thus to refer to DB_RESULT objects themselves. 
 
 {{note| '''Note''': Take a look at the [[Data Object Coupling|Database/Eiffel objects Coupling]]  to learn advanced data handling features. }}

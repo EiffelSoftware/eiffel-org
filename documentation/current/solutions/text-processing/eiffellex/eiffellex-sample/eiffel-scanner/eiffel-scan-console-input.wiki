@@ -1,5 +1,6 @@
 [[Property:title|eiffel_scan console input]]
 [[Property:weight|2]]
+[[Property:uuid|ce4da828-6772-e1c3-0917-82f6669cccf9]]
 <code>
 -- Example of a lexical analyzer based on the Eiffel syntax.
 -- The analyzer itself is found in the file ``eiffel_lex'', which

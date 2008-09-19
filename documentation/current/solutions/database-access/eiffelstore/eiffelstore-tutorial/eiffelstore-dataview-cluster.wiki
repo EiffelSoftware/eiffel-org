@@ -1,5 +1,6 @@
 [[Property:title|EiffelStore DataView Cluster]]
 [[Property:weight|3]]
+[[Property:uuid|75f8cc72-7ccf-28a4-f6b2-beeb2219dc43]]
 ==1. Introduction==
 
 DataView cluster helps the programmer creating a GUI for a RDBMS. It gives a basic solution for a RDBMS GUI and also enables the developer to customize his GUI from this basic interface.

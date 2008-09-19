@@ -1,5 +1,6 @@
 [[Property:title|Interface for preferences]]
 [[Property:weight|2]]
+[[Property:uuid|6f4964b1-8cf6-d9d4-0778-94d8a3737cad]]
 This document describes the use of graphical widgets to display and manipulate preferences.
 
 The preference library contains a cluster called <eiffel>interface</eiffel>. This cluster provides some basic classes which can be used to graphically display and manipulate the <eiffel>PREFERENCE</eiffel> types used by the library. There are various widget classes which correspond to particular types of preferences and can be used to view and change the values of an associated preference. The table below illustrates which widgets are used to display each of the known preference types: 

@@ -1,5 +1,6 @@
 [[Property:title|EiffelStore Interface Layer]]
 [[Property:weight|0]]
+[[Property:uuid|abd6c880-e0d8-0961-8cd2-d2ca43c1ce28]]
 The Interface layer gathers a set of classes covering all the capabilities an application need to interface efficiently with a DBMS.
 
 The interface affords these main capabilities:

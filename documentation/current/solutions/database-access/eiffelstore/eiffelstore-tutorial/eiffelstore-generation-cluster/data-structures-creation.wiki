@@ -1,5 +1,6 @@
 [[Property:title|Data structures creation]]
 [[Property:weight|1]]
+[[Property:uuid|d8845cb9-2581-f85d-aad1-460816711356]]
 ==1. Overview==
 
 EiffelStore enables to create data structures mapped to your own database. This part describes how the EiffelStore wizard generates these structures mapped to your database and how you can map your own classes to your database with EiffelStore.

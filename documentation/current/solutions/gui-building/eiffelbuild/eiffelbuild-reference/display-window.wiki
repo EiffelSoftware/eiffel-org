@@ -1,5 +1,6 @@
 [[Property:title|Display window]]
 [[Property:weight|6]]
+[[Property:uuid|baed48d9-3a5a-c1a3-be32-dae7cab6071b]]
 The Display window provides a view of the [[EiffelBuild Notation|objects]]  in your system, but unlike the [[Layout constructor|layout constructor]]  and [[Builder window|builder window]] , the objects cannot be manipulated. 
 
 This window may either be shown or hidden (default). To change between these two states, click  [[Image:icon-display-window-color]] on the [[Main toolbar|main toolbar]] , or select '''Show/Hide display window''' from the '''View''' menu. 
