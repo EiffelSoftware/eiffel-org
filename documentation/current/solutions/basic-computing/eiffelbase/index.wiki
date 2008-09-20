@@ -1,13 +1,15 @@
 [[Property:title|EiffelBase]]
 [[Property:weight|1]]
 [[Property:uuid|0153c1de-bf88-fa0d-52a5-e50ffcc4e8c8]]
-EiffelBase, covered by the open-source [[IFELL|IFFEL license]] , is one of the principal contributions of Eiffel: a library of fundamental structures and algorithms covering the basics of computing, and resulting from a "Linnaean" effort at a general-purpose taxonomy of computing structures. EiffelBase is one of the most carefully designed and extensively used libraries in the object-oriented industry. 
+ Type: Library
+ Platform: Any
+ Availability: Open Source, [[IFELL|IFFEL License]]. 
 
-The EiffelBase library includes:
-* A [[EiffelBase, The Kernel|Kernel]]  that defines the core classes of all Eiffel systems. 
-* A [[EiffelBase Data Structures Overview|Data Structures]]  cluster including classes for all the major data structures (sets, lists, tables etc...) 
-* A [[EiffelBase Support Cluster|Support]]  cluster that provide access to the environment, basic math operations and a few other helper classes. 
+==The EiffelBase Class Library==
 
+The EiffelBase class library, covered by the open-source [[IFELL|IFFEL license]], is one of the principal contributions of Eiffel: a library of fundamental structures and algorithms covering the basics of computing, and resulting from a "Linnaean" effort at a general-purpose taxonomy of computing structures. EiffelBase is one of the most carefully designed and extensively used libraries in the object-oriented industry. 
+
+The pages here will provide you with an overview of the organization, structure and intent of the classes in the library, a link to the class specifications, sample applications using EiffelBase, and the text of the IFELL License.
 
 
 
