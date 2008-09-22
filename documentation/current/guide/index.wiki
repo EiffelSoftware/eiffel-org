@@ -2,19 +2,17 @@
 [[Property:link_title|Information Guide]]
 [[Property:weight|-10]]
 [[Property:uuid|68b37685-64e9-f564-9258-29e709a55f44]]
-==Guide to Eiffel Information==
-
 There is a wealth of information on Eiffel available from many sources. Let this be your guide. 
-
-
-----
-
-==The Eiffel Online Documentation==
-
 These pages are the official documentation pages for the products and technologies of Eiffel Software, Inc.
-
-The documentation is organized into virtual books. Each book covers an important aspect of the world of Eiffel. 
-
+The documentation is organized into virtual books. Each book covers an important aspect of the world of Eiffel.
+*[[Guide]]
+*[[Why Eiffel?]]
+*[[Method]]
+*[[EiffelStudio]]
+*[[Solutions]]
+*[[Windows]]
+*[[Community]]
+<!--break-->
 Here is a short description of the documentation books:
 
 ===Guide to Eiffel Information===
@@ -114,8 +112,5 @@ This [http://dev.eiffel.com wiki site] is the hub of development activity for th
 
 ===EiffelStudio on Origo===
 
-[http://eiffelstudio.origo.ethz.ch/ EiffelStudio on Origo] contains blogs and forums focusing on Eiffel and EiffelStudio topics. 
-
-
-
+[http://eiffelstudio.origo.ethz.ch/ EiffelStudio on Origo] contains blogs and forums focusing on Eiffel and EiffelStudio topics.
 
