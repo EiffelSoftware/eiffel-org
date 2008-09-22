@@ -1,13 +1,10 @@
 [[Property:title|EiffelBase Tutorial]]
 [[Property:weight|-2]]
 [[Property:uuid|d540615d-802b-8e12-af74-4d01d1fc4760]]
-==EiffelBase Organization==
+==EiffelBase Tutorial==
 
-The EiffelBase library includes:
+Learn about the EiffelBase library.
 
-* A Kernel cluster of core classes used in all Eiffel systems. These include a universal class providing facilities potentially useful for all classes: ANY. Every class is a descendant of this classes. The kernel also defines classes needed for exception handling, standard arithmetic operations, hashable elements for use with hash tables and basic arithmetic conversions.
-* A Data Structures cluster provides implementations of fundamental data structures and algorithms: Abstract structures, describing broad categories; lists in their various forms; list elements; circular chains; sorted sets and lists; various trees and binary trees; cursor trees; hash tables (dictionaries); various stacks, queues and priority queues; and more.
-* A Support cluster provides helper classes for specific needs. These needs include basic math support, random numbers generation, and a few others such as the list of ASCII constants.
 
 
 

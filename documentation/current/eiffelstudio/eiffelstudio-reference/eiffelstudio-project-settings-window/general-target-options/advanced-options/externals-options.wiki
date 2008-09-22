@@ -6,7 +6,7 @@
 In most cases this is not needed but for some C/C++ externals and in some .NET projects it is necessary to specify additional includes, objects or resources.
 
 If you use a library, externals of this library are automatically included. E.g. if you use vision2 the externals for vision2 don't need to be added to the project itself.
-* Include: This is where you can enter the location of the directories where the C/C++ compiler will look for the header files that are required. The header files which the C/C++ compiler will look for are the ones that appear in an encapsulation of a C/C++ external in an Eiffel class. Click [[External features: Introduction|here]]  to have more information about C/C++ externals specification.
+* Include: This is where you can enter the location of the directories where the C/C++ compiler will look for the header files that are required. The header files which the C/C++ compiler will look for are the ones that appear in an encapsulation of a C/C++ external in an Eiffel class. See "[[Interacting with other languages]]"  to learn more about specifying C/C++ externals.
 * Object: additional C/C++ object files
 * Library: like object files, but will be added last, needed for some very strict C compilers
 * Makefile: additional makefiles, if possible use tasks instead
