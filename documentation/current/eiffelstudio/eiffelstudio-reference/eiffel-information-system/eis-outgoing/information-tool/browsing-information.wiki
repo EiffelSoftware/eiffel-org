@@ -23,22 +23,21 @@ The following columns are available in the list:
 *  Location - the development object where that piece of annotation belongs to. Typical locations are target, cluster, class and feature.
 *  Name - the name of the piece of annotation, given by users.
 *  Protocol - type of the annotation EIS treats. 
-{{seealso| '''See Also''' <br/>
-[[Protocols|Protocols]]  }}
+{{seealso| [[Protocols|Protocols]]  }}
 
 *  Source - normally the location EIS takes to open. Variables can be used.
 *  Tags - terms or phrases users use to categrize the piece of information. Tags are separated by '''","'''
 *  Others - other related attributes. Attributes are separated by '''","''' 
-{{note| '''Note: '''Only attributes used by '''protocol''' are taken into account. Otherwise, ignored. }}
+{{note|Only attributes used by '''protocol''' are taken into account. Otherwise, ignored. }}
 
 
-{{note| '''Hint: '''Clicking on title of each column sorts that column. }}
+{{tips| Clicking on title of each column sorts that column. }}
 
-==Openning Resources==
+==Opening Resources==
 
 Information or resources can be opened by either double clicking into the annotation list or pressing enter on it. EIS interpretes available attributes via the given protocol and opens the target resource.
 
-{{note| '''Note: '''Pressing '''F1''' in the editor, a list of all available information pops up, from which information can be accessed too. }}
+{{note| Pressing '''F1''' in the editor, a list of all available information pops up, from which information can be accessed too. }}
 
 ==Sweeping Information==
 
