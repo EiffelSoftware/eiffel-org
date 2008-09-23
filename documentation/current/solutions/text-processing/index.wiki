@@ -1,14 +1,6 @@
 [[Property:title|Text processing]]
 [[Property:weight|-6]]
 [[Property:uuid|e74b5b47-d87d-2eb0-49ba-981dae52d338]]
-== Text processing (Lexical analysis and parsing) ==
-* [[EiffelLex Library|EiffelLex]]
-** [[Lexical analysis: the Lex library|EiffelLex tutorial]]
-** EiffelLex class reference
-** [[Lex Sample|EiffelLex samples]]
-* [[EiffelParse Library|EiffelParse]]
-** [[Parsing: The Parse Library|EiffelParse tutorial]]
-** EiffelParse class reference
-** [[Parse Sample|EiffelParse samples]]
+== Text processing (lexical analysis and parsing) solutions==
 
 

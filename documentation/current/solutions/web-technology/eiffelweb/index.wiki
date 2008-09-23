@@ -1,17 +1,11 @@
-[[Property:title|EiffelWeb Library]]
-[[Property:link_title|EiffelWeb]]
+[[Property:title|EiffelWeb]]
 [[Property:weight|1]]
 [[Property:uuid|b8a31d00-8ecb-7e32-df14-d92c91019826]]
+==EiffelWeb Class Library==
+
 Type: Library <br/>
 Platform: Any <br/>
 
-
-See: 
-*  [[EiffelWeb Content|Content]]  
-*  [[EiffelWeb Sample|Samples]]  
-*  [[ref:libraries/web/reference/index|Reference]]  
-
-
-
+Eiffel classes that facilitate processing CGI web forms.
 
 

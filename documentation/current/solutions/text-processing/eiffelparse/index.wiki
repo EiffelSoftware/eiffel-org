@@ -1,17 +1,11 @@
-[[Property:title|EiffelParse Library]]
-[[Property:link_title|EiffelParse]]
+[[Property:title|EiffelParse]]
 [[Property:weight|5]]
 [[Property:uuid|0984d15a-6ee9-3bd4-71d6-31df2987af3a]]
+==EiffelParse Library==
+
 Type: Library <br/>
 Platform: Any <br/>
 
-
-See: 
-*  [[Parsing: The Parse Library|Content]]  
-*  [[Parse Sample|Samples]]  
-*  [[ref:libraries/parse/reference/index|Reference]]  
-
-
-
+Eiffel classes for building parsers.
 
 

@@ -1,5 +1,4 @@
-[[Property:title|Parsing: The Parse Library]]
-[[Property:link_title|EiffelParse Tutorial]]
+[[Property:title|EiffelParse Tutorial]]
 [[Property:weight|0]]
 [[Property:uuid|b5861080-e5fd-dbb8-bf89-452915b3483e]]
 ==OVERVIEW==
@@ -54,7 +53,7 @@ Parsing is seldom an end in itself; rather, it serves as an intermediate step fo
 
 Parsing takes care of one of the basic tasks of a document processor: reconstructing the logical organization of a document, which must conform to a certain '''syntax''' (or structure), defined by a '''grammar'''. 
 
-{{note| '''Note''': the more complete name '''syntactic grammar''' avoids any confusion with the ''lexical'' grammars discussed in the [[Lexical analysis: the Lex library|previous chapter]] . By default, "grammar" with no further qualification will always denote a syntactic grammar. A syntactic grammar normally relies on a lexical grammar, which gives the form of the most elementary components - the tokens - appearing in the syntactic structure. }}
+{{note| '''Note''': the more complete name '''syntactic grammar''' avoids any confusion with the ''lexical'' grammars discussed in the [[EiffelLex Tutorial]]. By default, "grammar" with no further qualification will always denote a syntactic grammar. A syntactic grammar normally relies on a lexical grammar, which gives the form of the most elementary components - the tokens - appearing in the syntactic structure. }}
 
 Once parsing has reconstructed the structure of a document, the document processor will perform various operations on the basis of that structure. For example a compiler will generate target code corresponding to the original text; a command language interpreter will execute the operations requested in the commands; and a documentation tool such as the short and flat-short commands for Eiffel will produce some information on the parsed document. Such operations are called '''semantic actions'''. One of the principal requirements on a good parsing mechanism is that it should make it easy to graft semantics onto syntax, by adding semantic actions of many possible kinds to the grammar. 
 
@@ -585,6 +584,8 @@ where ''s'' is a specimen of <eiffel>SUM</eiffel>, is written as
 
 The commit after the recognition of the keyword "(" is there to use the following piece of higher-level knowledge:
 <code>No choice production of the grammar that has NESTED
+
+
 as one of its alternatives has another alternative construct whose
 specimens could begin with an opening parenthesis "(".</code>
 

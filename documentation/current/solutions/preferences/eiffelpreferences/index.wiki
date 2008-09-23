@@ -1,15 +1,12 @@
-[[Property:title|EiffelPreference Library]]
+[[Property:title|EiffelPreference]]
 [[Property:link_title|EiffelPreferences]]
 [[Property:weight|1]]
 [[Property:uuid|f56ec405-6032-67dd-55e1-5a5ff7a4193c]]
+==EiffelPreference Library==
+
 Type: Library <br/>
 Platform: Any <br/>
 
-See: 
-*  [[Preference Library|Content]]  
-*  [[Preferences Sample|Samples]]  
-*  [[ref:libraries/preferences/reference/index|Reference]]  
-
-
+Eiffel classes for adding preferences and settings to applications.
 
 

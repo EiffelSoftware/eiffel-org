@@ -3,13 +3,5 @@
 [[Property:uuid|c9c0fe01-a80f-5834-8503-aad1063e1503]]
 =Description=
 
-Here is a set of five examples written thanks to the EiffelNet library to show some basic applications. Two of them rely on specific code to Unix Operating systems and consequently could not be run under Windows.
-*  [[Advanced|Advanced]] : for Unix Operating systems. 
-*  [[Polling|Polling]]  
-*  [[Predef|Predef]]  
-*  [[Same Machine|Same mach]] : for Unix Operating systems. 
-*  [[Two Machines|Two mach]]  
-
-
-
+Here is a set of five examples written thanks to the EiffelNet library to show some basic applications. Two of them (Advanced and Same Machine) rely on specific code to Unix Operating systems and consequently cannot be run under Windows.
 

@@ -1,5 +1,4 @@
-[[Property:title|Lexical analysis: the Lex library]]
-[[Property:link_title|EiffelLex Tutorial]]
+[[Property:title|EiffelLex Tutorial]]
 [[Property:weight|0]]
 [[Property:uuid|9ea43bef-1483-fbf2-4791-2be6a31d394d]]
 ==OVERVIEW==
@@ -10,7 +9,7 @@ The process of recognizing the successive tokens of a text is called lexical ana
 
 Besides recognizing the tokens, it is usually necessary to recognize the deeper syntactic structure of the text. This process is called '''parsing''' or '''syntax analysis''' and is studied in the next chapter. 
 
-Figure 1 shows the inheritance structure of the classes discussed in this chapter. Class [[ref:/libraries/parse/reference/l_interface_chart|L_INTERFACE]]  has also been included although we will only study it in the [[Parsing: The Parse Library|next chapter]] ; it belongs to the Parse library, where it takes care of the interface between parsing and lexical analysis. 
+Figure 1 shows the inheritance structure of the classes discussed in this chapter. Class [[ref:/libraries/parse/reference/l_interface_chart|L_INTERFACE]]  has also been included although we will only study it in the [[EiffelParse Tutorial]]; it belongs to the Parse library, where it takes care of the interface between parsing and lexical analysis. 
  [[Image:figure1]]  
 Figure 1: Lexical classes
 

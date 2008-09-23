@@ -1,17 +1,11 @@
-[[Property:title|EiffelLex Library]]
-[[Property:link_title|EiffelLex]]
+[[Property:title|EiffelLex]]
 [[Property:weight|1]]
 [[Property:uuid|52e88d58-1a02-d4e2-5503-e405253e7656]]
+==EiffelLex Library==
+
 Type: Library <br/>
 Platform: Any <br/>
 
-
-See: 
-*  [[Lexical analysis: the Lex library|Content]]  
-*  [[Lex Sample|Samples]]  
-*  [[ref:libraries/lex/reference/index|Reference]]  
-
-
-
+Eiffel classes to facilitate lexical analysis.
 
 
