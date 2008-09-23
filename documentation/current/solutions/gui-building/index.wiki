@@ -3,13 +3,6 @@
 [[Property:weight|-14]]
 [[Property:uuid|df3cec75-5fe4-7b6b-c5f3-f07932857e70]]
 == Graphical user interface solutions ==
-* [[EiffelBuild|EiffelBuild]]
-** [[EiffelBuild How To's|EiffelBuild How To's]]
-** [[EiffelBuild Reference|EiffelBuild Reference]]
-* [[EiffelVision 2 Library|EiffelVision 2]]
-** [[EiffelVision Introduction|EiffelVision 2 introduction]]
-** [[EiffelVision Interface Content|EiffelVision 2 tutorial]]
-** EiffelVision 2 class reference
-** [[EiffelVision 2 Samples|EiffelVision 2 samples]]
 
+Eiffel provides platform independent graphical user interface facilities. EiffelVision 2 is a library of classes for building graphical user interfaces. EiffelBuild is a tool that automatically puts together the EiffelVision 2 classes that you need to achieve a certain effect.
 

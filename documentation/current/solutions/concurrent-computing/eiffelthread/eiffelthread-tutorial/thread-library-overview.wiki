@@ -1,7 +1,7 @@
 [[Property:title|Thread library overview]]
 [[Property:weight|1]]
 [[Property:uuid|2bdeeb91-1917-f443-ebfc-4f877107edd7]]
-This is only a quick overview of the [[EiffelThread Library|Thread library]] . The reference of this library should give all its content. 
+This is only a quick overview of the EiffelThread Library. The class reference for this library should give its complete interface. 
 
 ==Creating and launching threads: the class THREAD (deferred)==
 
