@@ -25,7 +25,7 @@ In addition to the external command name, you can pass as many options as you wa
 * $group_name: this will be replaced by the group name of the targeted class in editor
 * $line: this will be replaced by the line number of the cursor of the targeted class in editor
 * $w_code: this will be replaced by the W_code directory of current system, if defined
-* $w_code: this will be replaced by the F_code directory of current system, if defined
+* $f_code: this will be replaced by the F_code directory of current system, if defined
 
 
 
