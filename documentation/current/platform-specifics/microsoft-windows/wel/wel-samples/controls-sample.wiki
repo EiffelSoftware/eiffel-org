@@ -1,5 +1,4 @@
-[[Property:title|Wel Sample: Controls]]
-[[Property:link_title|Controls Sample]]
+[[Property:title|Controls Sample]]
 [[Property:weight|-11]]
 [[Property:uuid|7f9a091f-61af-9ea2-18c3-469573ba14f3]]
 [[Image:controls|controls]]  <br/>
@@ -17,7 +16,7 @@ To compile the example:
 
 ==Running==
 
-After launching the program, an empty window will be displayed. There are numerous menus in the window, each relating to a different type of [[Controls|control]] . Each menu has "Create" and "Delete" along with a other options specific to each control. By selecting these menu options, controls will be created and modified as demonstrated in the above illustration. 
+After launching the program, an empty window will be displayed. There are numerous menus in the window, each relating to a different type of [[Controls cluster|control]]. Each menu has "Create" and "Delete" along with a other options specific to each control. By selecting these menu options, controls will be created and modified as demonstrated in the above illustration. 
 
 ==Under the Hood==
 

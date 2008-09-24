@@ -20,7 +20,7 @@ The two tiers play complementary roles:
 * At the top level, EiffelVision provides fully portable graphics.
 * At the lower level, platform-specific libraries cover the graphical mechanisms of graphics platforms such as Windows and GTK.
 
-The lower tier serves for the implementation of the upper tier, but can also be used independently. For example [[WEL Introduction|WEL]]  has had a resounding success with Windows developers who need an advanced mechanism for building Windows-specific graphical applications, taking advantage of every facility of the Windows API (Application Programming Interface) and of the Eiffel approach, but do not need portability on the client side. The GEL library is a '''wrapper''' library, automatically generated from the entire GTK API by a tool named '''The Gote Converter'''. 
+The lower tier serves for the implementation of the upper tier, but can also be used independently. For example [[WEL]]  has had a resounding success with Windows developers who need an advanced mechanism for building Windows-specific graphical applications, taking advantage of every facility of the Windows API (Application Programming Interface) and of the Eiffel approach, but do not need portability on the client side. The GEL library is a '''wrapper''' library, automatically generated from the entire GTK API by a tool named '''The Gote Converter'''. 
 
 ==Features==
 

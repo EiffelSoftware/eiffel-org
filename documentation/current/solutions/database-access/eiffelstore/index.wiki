@@ -1,9 +1,10 @@
 [[Property:title|EiffelStore]]
 [[Property:weight|1]]
 [[Property:uuid|f43ab3e6-4551-632a-384b-4964d1436730]]
+==EiffelStore Library==
+
 Type: Library <br/>
 Platform: Any <br/>
 
 EiffelStore provides facilities for interfacing an application with various DataBase Management Systems (DBMS). It contains a powerful set of classes grouped into layers representing different levels of abstraction. 
-
 

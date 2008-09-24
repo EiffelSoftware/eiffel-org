@@ -5,7 +5,7 @@
 * Set the option multithreaded in the project settings under Advanced. 
 * Do not use a non-multi-threaded precompiled library. The corresponding multi-threaded libraries of base, WEL and Vision2 should be located in $ISE_EIFFEL/precomp/spec/$PLATFORM/ with the mt prefix. 
 * You may want to include the thread library (located at "$ISE_EIFFEL/library/thread") to your project. This setting can be done in [[Group Options| the groups section of the project settings window]] . 
-* When using external C libraries, be sure that they are MT-safe: on the platforms where the Eiffel Threads are available. For example [[WEL Library|Wel]]  and [[EiffelNet Library|Net]]  multi-threaded libraries can be recognized by the `mt' prefix. 
+* When using external C libraries, be sure that they are MT-safe: on the platforms where the Eiffel Threads are available. For example [[WEL]]  and [[EiffelNet]] multi-threaded libraries can be recognized by the `mt' prefix. 
 
 ==Compilation==
 
@@ -18,7 +18,7 @@ The C files that you link with a multi-threaded Eiffel application must be compi
 * If you are using CECIL in multi-threaded mode, you must compile your C files with the same defined symbols as those used to compile the generated C-code in multi-threaded mode. 
 * Threaded code can safely refer to unsafe code ONLY from the initial thread. 
 
-{{note|'''Note''': if you use the libraries Net and MEL in multi-threaded mode, you should use libmtnet. a and libmtmel. a. When using MEL, you have to be aware that Motif 1. 2 is not threaded-safe (i.e not reentrant). Motif 2. x is threaded-safe.}}
+{{note|If you use the libraries EiffelNet and MEL in multi-threaded mode, you should use libmtnet. a and libmtmel. a. When using MEL, you have to be aware that Motif 1. 2 is not threaded-safe (i.e not reentrant). Motif 2. x is threaded-safe.}}
 
 ==Thread Safe Eiffel libraries==
 

@@ -1,7 +1,10 @@
 [[Property:title|EiffelNet]]
 [[Property:weight|4]]
 [[Property:uuid|80fbd984-da52-b573-6282-33f499d67ab5]]
-==EiffelNet Class Library==
+==EiffelNet Library==
+
+Type: Library<br/>
+Platform: Any
 
 A library providing classes that facilitate network communication through sockets.
 
