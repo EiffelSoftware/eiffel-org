@@ -1,11 +1,9 @@
 [[Property:title|Favorites tool]]
 [[Property:weight|4]]
 [[Property:uuid|75cfeda2-3823-ef29-130a-39e686116f40]]
-*  [[Favorites tool: Introduction|Introduction]]  
-*  [[Favorites tree|Tree representation]]  
-*  [[Favorites menu|Menu representation]]  
-*  [[Organize Favorites dialog|Organize Favorites dialog]]  
+The favorites tool (  [[Image:tool-favorites-icon]] ) gives a quick access to often used classes and features. These may be either classes of a library or classes that are often being modified. They are project-wide, which means they are shared by all development windows working on the same project. 
 
+[[Image:favorites-tool]]  
 
-
+The favorites tool mainly consists of [[Favorites menu|the favorites menu]]  and of the left-panel tool, giving a [[Favorites tree|tree representation]]  of the favorite classes. 
 

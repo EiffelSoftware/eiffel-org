@@ -2,6 +2,6 @@
 [[Property:weight|0]]
 [[Property:uuid|95175328-cc1b-0b0f-974d-5be7fde40e92]]
 If you know the name of a cluster but not where it is located in the system, there are two ways to find this out: 
-* You can try to find it in the [[Cluster tool: Introduction|cluster tool]]  by expanding the cluster tree. 
-* In a window where the context tool is independent from the editor, you can type the name of the cluster in [[Context tool address bar|context tool address bar]] . You may use wildcards ("*" or "?") if you know only a part of the name. You can then locate the cluster in the system by [[Pick-and-drop mechanism|picking]]  the cluster stone in the [[Context tool address bar|address bar]]  and dropping it on the [[Locate command|view icon ]]   [[Image:general-search-icon]]  of the [[Cluster tool: Introduction|cluster tool]] . 
+* You can try to find it in the [[Cluster tool|cluster tool]]  by expanding the cluster tree. 
+* In a window where the context tool is independent from the editor, you can type the name of the cluster in [[Context tool address bar|context tool address bar]] . You may use wildcards ("*" or "?") if you know only a part of the name. You can then locate the cluster in the system by [[Pick-and-drop mechanism|picking]]  the cluster stone in the [[Context tool address bar|address bar]]  and dropping it on the [[Locate command|view icon ]]   [[Image:general-search-icon]]  of the [[Cluster tool|cluster tool]] . 
 

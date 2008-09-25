@@ -1,11 +1,8 @@
 [[Property:title|How to analyze a project]]
 [[Property:weight|6]]
 [[Property:uuid|85d47406-926e-8754-0c15-a2af5b151658]]
-*  [[How to analyze a project: Introduction|Introduction]]  
-*  [[Computing a measure|Computing a measure]]  
-*  [[Handling new metrics|Handling new metrics]]  
-*  [[Handling archives|Handling archives]]  
+The metric tab in the context tool allows project analyzing. Built on a suitable metric theory, this tool provides a set of elementary metrics that can be evaluated to test projects design and implementation.
 
-
+The metric tool provides an interface to evaluate measures, save them or delete some of them when no longer needed.
 
 

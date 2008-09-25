@@ -6,7 +6,7 @@ The '''favorites''' menu is composed of two parts.
 First, there are three commands:
 * The '''Add to Favorites''' command, that adds the currently edited class to the root of the favorites tree. 
 * The '''Show/Hide Favorites''' command, that shows or hides the [[Favorites tree|favorites tree]] . 
-* The '''Organize Favorites''' command, that displays the [[Organize favorites dialog: Introduction|Organize Favorites dialog]] . 
+* The '''Organize Favorites''' command, that displays the [[Organize favorites dialog|Organize Favorites dialog]] . 
 
 After the separator, the favorites are displayed in a menu representation. Clicking on any of these menu items will send the selected favorite class to the editor.
 

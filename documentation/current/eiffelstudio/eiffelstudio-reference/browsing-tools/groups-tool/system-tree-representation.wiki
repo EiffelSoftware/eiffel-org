@@ -19,6 +19,3 @@ Left-clicking on any item will send it to the editor. It is also possible to [[P
 
 [[Pick-and-drop mechanism|Dropping]]  a class in this tree representation moves it to a different cluster (either the cluster it is dropped on or the cluster containing the class it is dropped on, according to where it is dropped). This is only possible if the dropped class is not in a library cluster, if its source file is readable and writable, and if the destination cluster is not a library or precompiled cluster itself. 
 
-
-
-

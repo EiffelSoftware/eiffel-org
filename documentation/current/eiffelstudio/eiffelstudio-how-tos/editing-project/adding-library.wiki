@@ -1,11 +1,13 @@
 [[Property:title|Adding a library]]
 [[Property:weight|1]]
 [[Property:uuid|6d711ed5-7cd4-481f-1ea3-7bc0eb4e1730]]
-A dialog window has been designed to help you to add a library to your project. 
-[[Image:new-library-dialog]]  
+A dialog window has been designed to help you to add a library to your project.
+
+
+[[Image:new-library-dialog]]
 
 There are two ways to make this window appear. You can:
-* Click  [[Image:new-library-icon]]  in the [[Cluster tool: Introduction|Cluster tool]] . 
+* Click  [[Image:new-library-icon]]  in the [[Cluster tool|cluster tool]] . 
 * Select '''Add library''' in the '''Tools''' menu. 
 Using this dialog, you can either choose a library from a list or select your own library. 
 
