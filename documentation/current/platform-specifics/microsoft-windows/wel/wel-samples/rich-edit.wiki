@@ -22,7 +22,7 @@ After launching the program, a window will be displayed as shown above. The prog
 
 Both the menu items and the tool bar buttons are handled by on_menu_command which has been redefined in MAIN_WINDOW.
 
-Four of the [[Standard Dialogs|standard dialogs]]  provided by WEL are used to receive input from the user. 
+Four of the [[stddlgs cluster|standard dialogs]]  provided by WEL are used to receive input from the user. 
 This sample contains the following classes: 
 * APPLICATION_IDS
 * MAIN_WINDOW

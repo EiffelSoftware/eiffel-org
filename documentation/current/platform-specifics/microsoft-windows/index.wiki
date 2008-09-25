@@ -4,21 +4,5 @@
 [[Property:uuid|b6513eee-a12c-1f9f-4257-b08d2e18cef4]]
 == Eiffel with Microsoft Windows ==
 
-Primary source for Eiffel platform specific support for Microsoft Windows
-
-* [[.NET| Eiffel for .NET documentation]]
-** [[.NET Installation instructions|Installation instructions]]  
-** [[Building a .NET application|Building a .NET application]]  
-** [[The Eiffel for .NET language|Eiffel for .NET language description]]  
-** [[Samples|Samples]]  
-* EiffelEnvision documentation    ?
-* [[Eiffel for ASP.NET Documentation|Eiffel for ASP.NET]]
-* [[WEL Library|WEL]]
-** [[WEL Interface Content|WEL introduction]]  
-** [[ref:libraries/wel/reference/index|WEL class reference]]  
-** [[WEL Samples|WEL Samples]]  
-
-* [[EiffelCOM Wizard|EiffelCOM Wizard]]
-* [[ResourceBench|ResourceBench]]
-
+The primary source for Eiffel platform specific support for Microsoft Windows.
 

@@ -1,5 +1,4 @@
-[[Property:title|EiffelCOM Content]]
-[[Property:link_title|EiffelCOM Interface Content]]
+[[Property:title|EiffelCOM Interface Content]]
 [[Property:weight|-2]]
 [[Property:uuid|a6543000-6009-970e-8a68-a6f3b18c1fc6]]
 The EiffelCOM library includes the following clusters: 
@@ -9,7 +8,7 @@ The EiffelCOM library includes the following clusters:
 * A [[ref:libraries/com/reference/index|Support]]  cluster provides access to helper classes. 
 
 {{seealso| '''See Also''' <br/>
-[[EiffelCOM|The Component Object Model]]  <br/>
+[[About COM and Eiffel]]  <br/>
 [[EiffelCOM Wizard|EiffelCOM wizard]]  }}
 
 

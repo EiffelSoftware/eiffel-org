@@ -13,14 +13,14 @@ ECOM_EXCEPTION provides support for triggering and catching exceptions. Accordin
 
 The status code is mapped by the EiffelCOM runtime to Eiffel exceptions. To raise COM-specific exceptions, the class ECOM_EXCEPTION provides the feature <eiffel>trigger</eiffel>: 
 <code>
-			trigger (code: INTEGER)
+	trigger (code: INTEGER)
       		-- Raise exception with code `code'.
       		-- See class ECOM_EXCEPTION_CODES for possible values.
 		</code>
 
 The class also has several features that help analyzing exceptions and error codes received from the COM runtime. 
 <code>
-			hresult: INTEGER
+	hresult: INTEGER
        			-- Original HRESULT.
    		require
        			applicable: is_developer_exception
@@ -83,32 +83,32 @@ which specifies the actual type of the variant. The class has multiple features 
 
 <eiffel>ECOM_VARIANT_ACCESS</eiffel> provides the feature: 
 <code>
-			  missing: ECOM_VARIANT
-					 -- Value representing the default value of a COM optional argument.
-					 -- Equivalent to an omitted VB argument, or C++ vtMissing, or .NET System.Reflection.Missing.
-		</code>
+	missing: ECOM_VARIANT
+		-- Value representing the default value of a COM optional argument.
+		-- Equivalent to an omitted VB argument, or C++ vtMissing, or .NET System.Reflection.Missing.
+</code>
 
 Many COM Automation servers have routines that take arguments with default values. This is very common, for example, in Microsoft Office applications such as Excel and Word. In Visual Basic, such arguments are optional and, when omitted, the server uses the default value. In languages that cannot omit arguments, a special VARIANT value representing the omitted argument must be passed. EiffelCOM applications can pass missing for this purpose. 
 
 For example, the following adds a new workbook to Excel. The default argument tells Excel to decide for itself how many worksheets to put in the new workbook: 
 <code>
-			  class
-					  MY_EXCEL_APPLICATION
+	  class
+		MY_EXCEL_APPLICATION
 
-			  inherit
-					  APPLICATION_PROXY
+	  inherit
+		APPLICATION_PROXY
 
-					  ECOM_VARIANT_ACCESS
+		ECOM_VARIANT_ACCESS
 
-			  feature
+	  feature
 
-					  add_workbook is
-							  local
-									  workbook: WORKBOOK_PROXY
-							  do
-									  workbook := workbooks.add (missing, 0)
-							  end
-		</code>
+		add_workbook is
+			local
+				workbook: WORKBOOK_PROXY
+			do
+				workbook := workbooks.add (missing, 0)
+			end
+</code>
 
 
 

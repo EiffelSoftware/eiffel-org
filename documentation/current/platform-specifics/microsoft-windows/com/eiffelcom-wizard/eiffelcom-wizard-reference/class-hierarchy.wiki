@@ -5,7 +5,7 @@ The generated Eiffel code reflects the architecture of the component described i
  [[Image:interface-inheritance]]  
 In a project accessing an existing component, the Eiffel classes corresponding to component coclasses inherit from the class [[ref:libraries/com/reference/ecom_queriable_chart| <eiffel>ECOM_QUERIABLE</eiffel> ]] , which is part of the EiffelCOM library. This class includes the feature <eiffel>make_from_other</eiffel> which allows initializing the component from another instance of [[ref:libraries/com/reference/ecom_interface_chart| <eiffel>ECOM_INTERFACE</eiffel> ]] . 
  [[Image:interface-inheritance-server]]  
-In a project implementing a new component, the Eiffel classes corresponding to component coclasses inherit from the class [[ref:libraries/com/reference/ecom_stub_chart| <eiffel>ECOM_STUB</eiffel> ]] , which is part of the EiffelCOM library. This class includes the feature [[ref:libraries/com/reference/ecom_stub_chart]]  which allows initializing the component. 
+In a project implementing a new component, the Eiffel classes corresponding to component coclasses inherit from the class [[ref:libraries/com/reference/ecom_stub_chart|<eiffel>ECOM_STUB</eiffel>]], which is part of the EiffelCOM library. This class includes the feature [[ref:libraries/com/reference/ecom_stub_chart|<eiffel>create_item</eiffel>]] which allows initializing the component. 
 
 The '''Interface_proxy''' folder includes Eiffel classes wrapping interfaces that may be returned by functions on other interfaces. These classes inherit from both the deferred interface class located in '''Common\Interfaces''' and [[ref:libraries/com/reference/ecom_queriable_chart| <eiffel>ECOM_QUERIABLE</eiffel> ]] . 
  [[Image:implemented-interface]]  
