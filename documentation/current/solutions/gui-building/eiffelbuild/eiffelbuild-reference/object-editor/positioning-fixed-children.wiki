@@ -7,7 +7,7 @@ If the current [[EiffelBuild Notation|object]]  in the object editor is of type 
 *  '''Moving''' - Press and hold the left mouse button within the selected child, and move the mouse. 
 *  '''Resizing''' - Move the mouse over the border of the child, until the cursor changes to a resize cursor, then press and hold the left mouse button to re-size the child. 
 
-{{note| '''Note''': As placing a child in an <eiffel>EV_FIXED</eiffel> does not modify the size of the child, it is possible that some children have a size of 0x0 pixels, and hence do not show up in the diagram. In this case, there will be the following displayed in the status bar "Widget is 0x0 pixels, click HERE to enlarge". If you subsequently click on the status bar, then the widget will be enlarged to a more useful size. }}
+{{note|As placing a child in an <eiffel>EV_FIXED</eiffel> does not modify the size of the child, it is possible that some children have a size of 0x0 pixels, and hence do not show up in the diagram. In this case, there will be the following displayed in the status bar "Widget is 0x0 pixels, click HERE to enlarge". If you subsequently click on the status bar, then the widget will be enlarged to a more useful size. }}
 
 ==Grid Properties==
 

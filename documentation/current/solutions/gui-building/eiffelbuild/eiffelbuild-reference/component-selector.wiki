@@ -24,13 +24,13 @@ If the [[EiffelBuild Notation|pick and drop]]  completed successfully, then you 
 
 To remove a [[EiffelBuild Notation|component]]  from your EiffelBuild system, [[EiffelBuild Notation|pick]]  it, and then [[EiffelBuild Notation|drop]]  it on  [[Image:icon-delete-small-color]]  in the [[Main toolbar| main toolbar]] . 
 
-{{note| '''Note''': The deletion of a [[EiffelBuild Notation|component]]  cannot be undone. }}
+{{note|The deletion of a [[EiffelBuild Notation|component]]  cannot be undone. }}
 
 ==Viewing a component==
 
 To view an existing component, use the [[Component viewer|component_viewer]] . 
 
-{{seealso| '''See also''' <br/>
+{{seealso|<br/>
 [[Component viewer|Component_viewer]]  <br/>
 [[Builder window|Builder window]]  <br/>
 [[Layout constructor| Layout Constructor]]  }}

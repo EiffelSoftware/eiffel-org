@@ -11,7 +11,7 @@ The "Unindent" command corresponds to the '''Unindent selection''' entry in the 
 
 
 
-{{note| '''Note''': If there is no selection, you may still use the unindent shortcut "Shift+Tab". The command will be applied to the current line. <br/>
+{{note|If there is no selection, you may still use the unindent shortcut "Shift+Tab". The command will be applied to the current line. <br/>
 }}
 
 

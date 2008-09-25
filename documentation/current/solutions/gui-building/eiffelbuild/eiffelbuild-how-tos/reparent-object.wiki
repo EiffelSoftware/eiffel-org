@@ -7,11 +7,11 @@ When an [[EiffelBuild Notation|object]]  is inserted into a parent, it is always
 
 You can access [[EiffelBuild Notation|objects]]  from both the [[Builder window|builder window]]  and [[Layout constructor|layout constructor]] . 
 
-{{note|'''Note''' Although window and dialog objects may be accessed within the [[Widget selector|widget selector]] , it is not possible to build into these objects, you should use the [[Layout constructor|layout constructor]]  or [[Builder window|builder window]]  directly in this situation. }}
+{{note|Although window and dialog objects may be accessed within the [[Widget selector|widget selector]] , it is not possible to build into these objects, you should use the [[Layout constructor|layout constructor]]  or [[Builder window|builder window]]  directly in this situation. }}
 
 For more information about an [[EiffelBuild Notation|objects]]  capacity and permitted children, see the [[EiffelVision Introduction|EiffelVision2]]  documentation. 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Create an object|Create an object]]  <br/>
 [[Delete an object|Delete an object]]  <br/>
 [[Builder window|Builder window]]  <br/>

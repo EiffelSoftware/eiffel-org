@@ -21,7 +21,7 @@ If the "generate as client" option is selected for a particular object (changeab
 
 [[Image:class-project-diagram-client]]  
 
-{{note| '''Note''': All other diagrams on this page show only the non client version of the settings, where the generated widget inherits from the EiffelVision class. }}
+{{note|All other diagrams on this page show only the non client version of the settings, where the generated widget inherits from the EiffelVision class. }}
 
 ==Project build type==
 
@@ -40,11 +40,11 @@ The choice to generate an interface and an implementation class for the windows 
 
 Using this mechanism, you can generate your initial system using EiffelBuild, and implement any event features that have been generated (in the interface) by EiffelBuild. If you then decide that you wish to modify the look and the feel of the interface, you can return to EiffelBuild, make the necessary adjustments and then re-generate the system.
 
-{{note| '''Note''': When returning to EiffelBuild to modify the interface, if you delete or rename controls, then it is quite possible that you will break your existing code. Care should be taken with all changes of this type. }}
+{{note|When returning to EiffelBuild to modify the interface, if you delete or rename controls, then it is quite possible that you will break your existing code. Care should be taken with all changes of this type. }}
 
 Looking at a generated system, you will see that the [[Object editor|events]]  connected to your controls are defined as deferred in the implementation and actually implemented in the interface class. This means that if you return to EiffelBuild with a previously generated system, and add a new event to a control, then you will have to implement the definition in the interface class yourself (as the class interface class is not re-generated). 
 
-{{seealso| '''See also''': <br/>
+{{seealso|<br/>
 [[EiffelBuild: Project settings window|Project settings]]  }}
 
 

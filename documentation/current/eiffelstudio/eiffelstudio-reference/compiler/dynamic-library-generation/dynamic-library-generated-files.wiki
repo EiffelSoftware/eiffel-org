@@ -3,7 +3,7 @@
 [[Property:uuid|f3926dd7-eb68-7a82-39f0-b4f5ea891436]]
 Basically, once the Eiffel definition file is created, the compiler will generate a set of files and will compile them to generate the Dynamic library into the ''EIFGENs/target_name/W_code'' or ''EIFGENs/target_name/F_code'' directory. 
 
-{{note| '''Note''': To generate and compile these files, you have to indicate the definition file that should be used in the [[Advanced Options|advanced node of the project settings]]  of your system. This way EiffelStudio will know which one to use. If you do not specify any definition file, nothing will be generated. }}
+{{note|To generate and compile these files, you have to indicate the definition file that should be used in the [[Advanced Options|advanced node of the project settings]]  of your system. This way EiffelStudio will know which one to use. If you do not specify any definition file, nothing will be generated. }}
 
 The set of files is composed of:
 <div> 

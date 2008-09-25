@@ -25,7 +25,7 @@ After running the metric, you should see the following result in the Detailed Re
 
 [[Image:domain-example2|Metric detailed result]]  
 
-{{note|Note: an element can appear more than one time in a domain, but the detailed result list show only distinct items, so it is possible that the calculated metric value is not equal to the number of items in the detailed result list.}}
+{{note|an element can appear more than one time in a domain, but the detailed result list show only distinct items, so it is possible that the calculated metric value is not equal to the number of items in the detailed result list.}}
 
 
 A domain can be used as an argument of a relation criterion, see the following example:
@@ -52,10 +52,10 @@ And when this metric is calculated over input domain {<eiffel>APPLICATION</eiffe
 
 [[Image:domain-example6|Actual semantic for input domain item]]  
 
-{{note|Note: Only code element target, group, folder, class, feature, delayed item, input domain item and application target can be specified through domain selector in Metrics tool. And code element generic, assertion, argument, local, line cannot be specified in domain selector, but they may present in the detailed result domain list.}}
+{{note|Only code element target, group, folder, class, feature, delayed item, input domain item and application target can be specified through domain selector in Metrics tool. And code element generic, assertion, argument, local, line cannot be specified in domain selector, but they may present in the detailed result domain list.}}
 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Units|Units]]  <br/>
 [[Scopes|Scopes]]  }}
 

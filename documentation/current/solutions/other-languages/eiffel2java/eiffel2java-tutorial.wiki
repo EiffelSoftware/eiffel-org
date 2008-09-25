@@ -51,7 +51,7 @@ Access to Java classes. Static methods and attributes are accessed via this clas
 
 This class gives Eiffel access to Java objects. You can use it directly or inherit from to and create a more convenient Eiffel class that makes the Java object look like an Eiffel object. The Eiffel representation of a Java Object. 
 
-{{warning| '''Warning:''' to access the static fields or routines of a Java Class, you have to use the features of a JAVA_CLASS instance!! }}
+{{warning|to access the static fields or routines of a Java Class, you have to use the features of a JAVA_CLASS instance!! }}
 
 ===JAVA_EXTERNALS===
 

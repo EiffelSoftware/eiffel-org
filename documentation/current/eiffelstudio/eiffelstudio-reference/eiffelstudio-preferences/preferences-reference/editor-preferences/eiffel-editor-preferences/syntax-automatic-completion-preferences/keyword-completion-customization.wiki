@@ -66,10 +66,10 @@ The four ''%B'' will remove ''end'' plus one character before ''end'' (the tabul
 ''$indent$%B$cursor$'' means that the cursor will be moved to the end of the line where one less blank space than before the original ''end'' will have been inserted. 
 
 
-{{note| '''Note''': EiffelStudio editor can insert spaces instead of tabulation when you use special character ''%T''. This is set in [[General Editor Preferences|another section of the preferences]] . <br/>
+{{note|EiffelStudio editor can insert spaces instead of tabulation when you use special character ''%T''. This is set in [[General Editor Preferences|another section of the preferences]] . <br/>
 }}
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Keywords automatic completion preferences|Keywords automatic completion preferences]]  <br/>
 [[Default values for keyword completion preferences|Default values for keyword completion preferences]]  <br/>
 }}

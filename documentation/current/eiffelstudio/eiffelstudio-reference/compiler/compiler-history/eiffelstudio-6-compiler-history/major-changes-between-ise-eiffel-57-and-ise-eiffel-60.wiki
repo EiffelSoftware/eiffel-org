@@ -4,7 +4,7 @@
 [[Property:uuid|83f6c19c-b0da-6acb-0333-a92d445cfe56]]
 ==What's new==
 
-{{seealso|See also: [[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
+{{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
 * Added support for multiple constraints in formal generic parameters.
 * The root class can now be a generic class, and thus one can now specify a root type.
 * The notion of creation readiness according to ECMA Eiffel standard (2nd edition, chapter 8.12.12) is implemented.

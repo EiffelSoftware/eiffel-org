@@ -13,9 +13,9 @@ The button marked "Restore Defaults" in the lower left hand corner of the dialog
 
 When you have finished modifying the preferences, select the "Close" button to close the dialog.
 
-{{note| '''Note''': The preferences are saved automatically by EiffelBuild, even if the open project is not saved, the preferences are saved whenever a property changes. }}
+{{note|The preferences are saved automatically by EiffelBuild, even if the open project is not saved, the preferences are saved whenever a property changes. }}
 
-{{seealso| '''See also''': <br/>
+{{seealso|<br/>
 [[EiffelBuild: General interface description|General interface description]]  <br/>
 [[EiffelBuild Reference|EiffelBuild reference]]  }}
 

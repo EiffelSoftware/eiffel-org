@@ -11,7 +11,7 @@ Depending the nature of the dropped object, you can view it with several viewers
 * '''Object browse''': browse the object, as you would do in objects or watch tools
 * '''Object internal''': display a few internal data such as <code>class_name</code>, <code>type_name</code>, <code>dynamic_type</code>, <code>field_count</code>, <code>deep_physicial_size</code>, and <code>physical_size</code>
 
-{{note|Note that the "string display" viewer is available for object with a string representation, for instance object conformed to [[ref:/libraries/base/reference/string_8_chart]]  or conform to [[ref:/libraries/base/reference/debug_output_chart]]  (see [[Debug output|Debug Output]] )}}
+{{note|that the "string display" viewer is available for object with a string representation, for instance object conformed to [[ref:/libraries/base/reference/string_8_chart]]  or conform to [[ref:/libraries/base/reference/debug_output_chart]]  (see [[Debug output|Debug Output]] )}}
 
 {{note|And the "XML display" is available for object eligible to "String display", and whose string representation has XML content. The viewer is display XML in a basic tree enabled grid.}}
 

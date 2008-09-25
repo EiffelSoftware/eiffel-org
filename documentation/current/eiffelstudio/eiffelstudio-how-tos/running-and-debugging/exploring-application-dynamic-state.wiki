@@ -9,7 +9,7 @@ To follow an object state between pauses of the application, pick and drop it in
 
 You can also query features dynamically by using the evaluation tool, which can be very useful to have glimpses of the C memory of the system, for instance.
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Interrupting an application|Pausing an application]]  <br/>
 [[Callstack tool: Introduction|Call stack tool]]  <br/>
 [[Objects tool: Introduction|Object tool]]  <br/>

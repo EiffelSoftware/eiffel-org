@@ -19,7 +19,7 @@ A simple example of this is demonstrated here:
 
 As print takes an argument of type [[ref:/libraries/base/reference/string_8_chart|STRING_8]] , button2 becomes a valid target for the pebble contained in button1. Right clicking the mouse pointer over the '''source''' will start the transport, and right clicking with the mouse pointer over a valid '''target''' will end the transport. The transport can be canceled anytime with a simple left click, just as you would do in EiffelStudio. 
 
-{{note| '''Note''': When a transport completes, the '''pebble''' that was transported is passed as an argument to all features in the '''targets'''drop_actions whose argument type matches the '''pebble''' }}
+{{note|When a transport completes, the '''pebble''' that was transported is passed as an argument to all features in the '''targets'''drop_actions whose argument type matches the '''pebble''' }}
 
 ==Three different modes of transport==
 

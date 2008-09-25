@@ -25,9 +25,9 @@ Looking at the screenshot above, you will see that the last action in the histor
 
 If you execute an action which will be added to the history while the history is not at the final position, all history events after this current position will be removed, and the history will be up to date again.
 
-{{note| '''Note''': If you use the history list to move through many recorded actions at once, there may be a slight delay dependent on the systems complexity and steps moved. }}
+{{note|If you use the history list to move through many recorded actions at once, there may be a slight delay dependent on the systems complexity and steps moved. }}
 
-{{seealso| '''See also''' <br/>
+{{seealso|<br/>
 [[Builder window|Builder window]]  <br/>
 [[Layout constructor| Layout constructor]]  }}
 

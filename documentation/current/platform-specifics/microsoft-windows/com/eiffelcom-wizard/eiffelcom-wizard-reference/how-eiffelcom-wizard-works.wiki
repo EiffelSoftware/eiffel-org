@@ -11,7 +11,7 @@ Depending on the project settings there are between 2 and 6 major steps involved
 
 Optionally, EiffelStudio can be opened on the generated system by clicking the corresponding button after the system has been compiled. 
 
-{{note| '''Note''': The EiffelStudio button will only be enabled if the Eiffel code was compiled. }}
+{{note|The EiffelStudio button will only be enabled if the Eiffel code was compiled. }}
 
 {{seealso| '''See Also''': [[Generated Files|Generated Files]] , [[Class Hierarchy|Class Hierarchy]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Reusing a COM Component|Accessing a COM Component]] , [[Building a COM Component|Building a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
 

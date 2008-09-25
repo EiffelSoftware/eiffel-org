@@ -11,7 +11,7 @@ These commands are also available in the '''Project''' toolbar  [[Image:project-
 
 To solve the errors that occur during the Eiffel compilation, use the [[Error wizard|compilation error wizard]] . For errors occurring during the C compilation, check that the installation is not corrupted and refer to your C compiler documentation for more information. 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Command line: Introduction|Command line options]]  <br/>
 [[Compiler|Compiler]]  }}
 

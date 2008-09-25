@@ -5,7 +5,7 @@ This command launches an application compiled in Workbench mode. The application
 
 It is accessible through the '''project''' toolbar (  [[Image:debug-run-without-breakpoint-icon]]  ) or through the '''debug''' menu. 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Eiffel Debugger Execution: Introduction|Execution commands]]  <br/>
 [[Generating executables|Compiling in Workbench mode]]  }}
 

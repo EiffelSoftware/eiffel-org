@@ -30,7 +30,7 @@ This would be in place of
 	a_button.set_text ("Click Me")
 </code>
 
-{{note|Note: When a widget is created no extra initialization has to be performed. '''The only exception is for a window where you have to call show in order for it to be displayed on screen'''. }}
+{{note|When a widget is created no extra initialization has to be performed. '''The only exception is for a window where you have to call show in order for it to be displayed on screen'''. }}
 
 ==Sizing==
 
@@ -38,7 +38,7 @@ As [[ref:libraries/vision2/reference/ev_primitive_chart|EV_PRIMITIVE]]  is of ty
 
 The minimum size of a widget is the smallest possible size that it can possibly be inside its parent container. If an [[ref:libraries/vision2/reference/ev_button_chart|EV_BUTTON]]  was created and set with a minimum_size of width/height (100, 100), if this button was inserted in to an [[ref:libraries/vision2/reference/ev_horizontal_box_chart| EV_HORIZONTAL_BOX]] , then the box's size could never be below (100, 100) or it would break the minimum size of the button. '''The size of a container must always be greater or equal to the minimum sizes of its children.''' 
 
-{{note| '''Note: '''In Vision2, there is no way to set the current size of the primitive. The current size is dependent on the size of the parent or the minimum_size. }}
+{{note|In Vision2, there is no way to set the current size of the primitive. The current size is dependent on the size of the parent or the minimum_size. }}
 
 ==Now what do I do?==
 Now that you can create a widget, you will need to actually make it usable to your intended user. This will usually involve these three steps. <br/>

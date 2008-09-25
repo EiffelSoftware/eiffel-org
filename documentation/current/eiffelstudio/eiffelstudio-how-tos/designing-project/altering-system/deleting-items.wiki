@@ -5,9 +5,9 @@
 
 {{warning| '''Caution''': An action that deletes one or more files or directories cannot be undone! }}
 
-{{tip| '''Tip''': Turn on '''Automatic backups'''. EiffelStudio will make a copy of each class file every time a compilation is done. }}
+{{tip|Turn on '''Automatic backups'''. EiffelStudio will make a copy of each class file every time a compilation is done. }}
 
-{{seealso|'''See also'''<br/>
+{{seealso|<br/>
 [[Removing items from a view|Removing items from the view only]] }}
 
 

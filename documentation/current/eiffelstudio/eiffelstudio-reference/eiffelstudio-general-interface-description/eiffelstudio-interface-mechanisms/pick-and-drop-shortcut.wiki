@@ -3,9 +3,9 @@
 [[Property:uuid|2cb70fcf-913c-0b74-d2a9-5928caa5904a]]
 In the [[EiffelStudio Editor Introduction|editor]]  and the [[EiffelStudio window overview|context tool]] , pressing the '''control''' key while right-clicking on a development object opens a new development window which is centered on the clicked object. 
 
-{{tip| '''Tip''': The effect of control-picking is now configurable in the [[Preferences Reference|preferences]] . }}
+{{tip|The effect of control-picking is now configurable in the [[Preferences Reference|preferences]] . }}
 
-{{seealso| '''See Also'''<br/>
+{{seealso|<br/>
 [[Pick-and-drop mechanism|Pick-and-drop mechanism]]  }}
 
 

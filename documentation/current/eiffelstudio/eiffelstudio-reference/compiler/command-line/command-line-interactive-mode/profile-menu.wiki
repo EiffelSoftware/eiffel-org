@@ -148,7 +148,7 @@ When running the Generate command with no arguments, you will be prompted for th
 You can also type in the arguments directly without waiting to be prompted, as in command => g profinfo finalize eiffel <br/>
 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Profiler Wizard|Profiler wizard]]  }}
 
 

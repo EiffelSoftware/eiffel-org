@@ -19,7 +19,7 @@ A [[ref:/libraries/store/reference/db_repository_flatshort|DB_REPOSITORY]]  obje
 	end
 </code>
 
-{{tip| '''Tip''': Loading a table description is often a costly operation: table has to be fetched among existing tables then every table column description must be loaded. Hence it is better to store and reuse a repository (maybe with a HASH_TABLE) once it has been loaded. }}
+{{tip|Loading a table description is often a costly operation: table has to be fetched among existing tables then every table column description must be loaded. Hence it is better to store and reuse a repository (maybe with a HASH_TABLE) once it has been loaded. }}
 
 Using the table information, [[ref:/libraries/store/reference/db_repository_flatshort|DB_REPOSITORY]]  then helps generating Eiffel classes mapping relational tables: 
 * You can directly use {[[ref:/libraries/store/reference/db_repository_flatshort|DB_REPOSITORY]] }.generate_class. Generated class may look like:
@@ -40,7 +40,7 @@ Using the table information, [[ref:/libraries/store/reference/db_repository_flat
 	...
 </code>
 
-{{note| '''Note''': The EiffelStore Wizard uses the generation.generator cluster to generate the classes mapped to your database. }}
+{{note|The EiffelStore Wizard uses the generation.generator cluster to generate the classes mapped to your database. }}
 
 
 ==Inserting data in the database==
@@ -79,10 +79,10 @@ This is straight-forward since you only have to give [[ref:/libraries/store/refe
 	end
 </code>
 
-{{note| '''Note''': You can see how actions are used in [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]] . }}
+{{note|You can see how actions are used in [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]] . }}
 <br/>
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Database Selection|Performing a database selection.]]  <br/>
 [[Data structures use|Database-specific structures use.]]  <br/>
 }}

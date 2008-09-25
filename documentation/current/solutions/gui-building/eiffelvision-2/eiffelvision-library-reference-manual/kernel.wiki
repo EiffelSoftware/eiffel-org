@@ -7,7 +7,7 @@ The kernel cluster contains classes that provide functionality that are common t
 
 [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]]  is the basis for every Vision2 application and is considered the most important class in the library. It is responsible for initializing the underlying toolkit that is driving the windowing system on the platform that you decide to compile your system on. It also also where the main event loop that drives your application is executed. 
 
-{{note| '''Note:''' It is ''' not''' possible to create a Vision2 component unless an application exists (query [[ref:/libraries/vision2/reference/ev_environment_chart|EV_ENVIRONMENT]] ). }}
+{{note|It is ''' not''' possible to create a Vision2 component unless an application exists (query [[ref:/libraries/vision2/reference/ev_environment_chart|EV_ENVIRONMENT]] ). }}
 You may inherit [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]]  or use it as a client in order to create your vision2 application. A simple method of using EV_APPLICATION is as follows: 
 # Create an instance of EV_APPLICATION.
 # Create one or more windows for your application.
@@ -71,7 +71,7 @@ This is the same Vision2 application but instead using <eiffel>[/libraries/visio
 
 ==What does Launch actually do?==
 In Vision2, to launch an application means to pass control to the underlying graphical toolkit. Simply creating an application does not launch it. An explicit call to launch is required for the event processing to begin. 
-{{note| '''Note: '''A Vision2 system is event based. This means that you do not have control of the execution within a Vision2 system, but must respond appropriately to [[Events|events]]  as they occur. Therefore, if you call launch on an [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]] , the processing for the application will continue indefinitely unless you have provided a way to exit the application. It is essential to initialize your components correctly, so your application can be exited (call <eiffel>destroy</eiffel> on the application). }}
+{{note|A Vision2 system is event based. This means that you do not have control of the execution within a Vision2 system, but must respond appropriately to [[Events|events]]  as they occur. Therefore, if you call launch on an [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]] , the processing for the application will continue indefinitely unless you have provided a way to exit the application. It is essential to initialize your components correctly, so your application can be exited (call <eiffel>destroy</eiffel> on the application). }}
 
 ==Building your application skeleton==
 

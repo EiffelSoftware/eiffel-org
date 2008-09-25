@@ -7,7 +7,7 @@ This dialog also allows you to select which target to compile and you can also s
 
 '''Reset user settings''' removes all stored custom information about the project (but not the configuration of the project itself). For example last used target, locations where this project has been compiled, arguments and working directory. 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[EiffelStudio: Creating a new project|Creating a new project]]  }}
 
 

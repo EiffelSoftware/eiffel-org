@@ -209,7 +209,7 @@ You may declare multiple <code> feature </code> statements. This helps you group
 
 Although the words " <code> Initialization </code>" and " <code> Access </code>" are actually in comments after the <code> feature </code> keyword, some language processing tools apply some significance to these, for example, ordering the groups in "pretty-printed" views of a class. Also, some tools allow you to build templates for creating new classes which have <code> feature </code> clauses already in place for predetermined groups. 
 
-{{tip| '''Tip:''' There is not a technical requirement governing the grouping or ordering of features in a class. It is the option of the producer of a class to group and order the features in some fashion that has some meaning. Many years of Eiffel development experience are reflected in the classes in the Eiffel Base Library. This is a good place to look for examples of well constructed classes. }}
+{{tip|There is not a technical requirement governing the grouping or ordering of features in a class. It is the option of the producer of a class to group and order the features in some fashion that has some meaning. Many years of Eiffel development experience are reflected in the classes in the Eiffel Base Library. This is a good place to look for examples of well constructed classes. }}
 
 
 ===Invariant===

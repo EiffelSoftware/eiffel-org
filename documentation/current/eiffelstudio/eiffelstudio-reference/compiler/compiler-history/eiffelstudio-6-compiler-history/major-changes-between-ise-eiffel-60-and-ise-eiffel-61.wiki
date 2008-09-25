@@ -4,7 +4,7 @@
 [[Property:uuid|32beeca8-08df-4918-b231-8a14114fdd62]]
 ==What's new==
 
-{{seealso|See also: [[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
+{{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
 * Multiple errors are reported for each compilation degree.
 * Experimental support for Non-conforming Inheritance has been added (Classic only). Classes may now be inherited (using inherit {NONE} but no conformance of that class is implied.
 * Attachment marks are supported. Now it's possible to specify whether an entity is attached or detachable:

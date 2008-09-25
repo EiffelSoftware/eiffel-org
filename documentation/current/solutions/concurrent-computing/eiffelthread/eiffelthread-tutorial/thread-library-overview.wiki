@@ -36,7 +36,7 @@ Creating a thread is like creating an Eiffel object:
 	create my_thread
 </code>
 
-{{note| '''Note''': You have created a thread object but have not started the thread itself yet. <br/>
+{{note|You have created a thread object but have not started the thread itself yet. <br/>
 To run the thread, use the feature <eiffel>launch</eiffel> from <eiffel>THREAD</eiffel>. }}
 <code>	my_thread.launch</code>
 On the Eiffel side, the procedure <eiffel>execute</eiffel> will be launched. This procedures deferred in class <eiffel>THREAD</eiffel>, you have to define it in <eiffel>MY_THREAD</eiffel>. 
@@ -65,7 +65,7 @@ The implementation of the class <eiffel>MUTEX</eiffel> is mapped on the C standa
 <code>	my_mutex.is_set</code>
 
 
-{{note| '''Note''': on Windows: The <eiffel>MUTEX</eiffel> objects on Windows are recursive while they are not on Unix. A recursive mutex can be locked twice by the same thread. }}
+{{note|on Windows: The <eiffel>MUTEX</eiffel> objects on Windows are recursive while they are not on Unix. A recursive mutex can be locked twice by the same thread. }}
 
 {{warning| '''Caution''': be sure that a mutex is unlocked when it is disposed. }}
 

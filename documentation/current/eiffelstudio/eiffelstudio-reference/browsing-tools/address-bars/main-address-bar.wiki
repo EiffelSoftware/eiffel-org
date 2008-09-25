@@ -12,9 +12,9 @@ It has several components:
 
 It is possible to type a class or feature name to center the editor on it. Typing a class name that does not exist in the set of known classes pops up a dialog to create a class of that name.
 
-{{tip| '''Tip''': Wildcards (* and ?) are available in these fields. }}
+{{tip|Wildcards (* and ?) are available in these fields. }}
 
-{{tip| '''Tip''': The history is also accessible in the '''View/Go to''' menu. }}
+{{tip|The history is also accessible in the '''View/Go to''' menu. }}
 
 
 

@@ -23,7 +23,7 @@ The generated C library should be located in the EIFGENs|target_name|W_code dire
 
 To generate a C library from a C compiler, please refer to the documentation of your C compiler.
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Using libraries|Using libraries]]  <br/>
 [[CECIL|CECIL library: calling Eiffel routines from C programs]]  <br/>
 [[Command line: Introduction|Command line options]]  }}

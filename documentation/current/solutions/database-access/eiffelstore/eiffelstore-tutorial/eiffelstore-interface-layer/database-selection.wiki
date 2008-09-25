@@ -3,7 +3,7 @@
 [[Property:uuid|de759a74-b3e1-c937-e620-67526c116925]]
 Use the [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  class to select data from the database. Once you have selected the data, you can [[Selection Access|access]]  it with convenience using adaptative EiffelStore structures. 
 
-{{note| '''Note''': Take a look at the [[Data Object Coupling|Database/Eiffel objects Coupling]]  if you need information about your database structure. }}
+{{note|Take a look at the [[Data Object Coupling|Database/Eiffel objects Coupling]]  if you need information about your database structure. }}
 
 [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  enables your application to get database content using SQL 'select' queries:
 * You can carry out 'select' queries in an intuitive way using directly the SQL language:
@@ -15,11 +15,11 @@ Use the [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  
 	selection.execute
 </code>
 
-{{tip| '''Tip''': Always check the database status for errors after your 'select' query. }}
+{{tip|Always check the database status for errors after your 'select' query. }}
 
 * You can also customize your selection using [[Query variables|bind variables]] . 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Query variables|Binding variables in a database query.]]  <br/>
 [[Data Object Coupling|Coupling database objects with Eiffel objects.]]  <br/>
 [[Selection Access|Accessing selected data from the database.]]  <br/>

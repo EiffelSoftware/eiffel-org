@@ -9,7 +9,7 @@ The dynamic library window that appears when selecting this menu is mainly compo
 
 [[Image:shared-library-window]]  
 
-{{note| '''Note''': The layout of this wizard is slightly different on Windows and on Unix systems, because the index and calling convention fields never appear on Unix systems. }}
+{{note|The layout of this wizard is slightly different on Windows and on Unix systems, because the index and calling convention fields never appear on Unix systems. }}
 
 To add a new feature to the definition file, you can either:
 * Pick the feature from any place in EiffelStudio and drop it into the list. If several creation procedures exists in the container class, a dialog is popped up to give the choice between all possible creation procedures.
@@ -23,7 +23,7 @@ It is also possible to check the validity of the definition file. This command  
 
 Other commands, located in the '''File''' menu, give standard file operations, such as opening  [[Image:general-open-icon]]  a definition file, creating a new definition file  [[Image:new-document-icon]] ,or saving the current definition file  [[Image:16x16--general-save-icon]] . 
 
-{{tip| '''Tip''': Although the wizard can handle several files during the same EiffelStudio session, remember that only one file can be used in the project settings to effectively generate a shared library. }}
+{{tip|Although the wizard can handle several files during the same EiffelStudio session, remember that only one file can be used in the project settings to effectively generate a shared library. }}
 
 
 

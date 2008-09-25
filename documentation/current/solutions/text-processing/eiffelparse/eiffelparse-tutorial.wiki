@@ -53,7 +53,7 @@ Parsing is seldom an end in itself; rather, it serves as an intermediate step fo
 
 Parsing takes care of one of the basic tasks of a document processor: reconstructing the logical organization of a document, which must conform to a certain '''syntax''' (or structure), defined by a '''grammar'''. 
 
-{{note| '''Note''': the more complete name '''syntactic grammar''' avoids any confusion with the ''lexical'' grammars discussed in the [[EiffelLex Tutorial]]. By default, "grammar" with no further qualification will always denote a syntactic grammar. A syntactic grammar normally relies on a lexical grammar, which gives the form of the most elementary components - the tokens - appearing in the syntactic structure. }}
+{{note|the more complete name '''syntactic grammar''' avoids any confusion with the ''lexical'' grammars discussed in the [[EiffelLex Tutorial]]. By default, "grammar" with no further qualification will always denote a syntactic grammar. A syntactic grammar normally relies on a lexical grammar, which gives the form of the most elementary components - the tokens - appearing in the syntactic structure. }}
 
 Once parsing has reconstructed the structure of a document, the document processor will perform various operations on the basis of that structure. For example a compiler will generate target code corresponding to the original text; a command language interpreter will execute the operations requested in the commands; and a documentation tool such as the short and flat-short commands for Eiffel will produce some information on the parsed document. Such operations are called '''semantic actions'''. One of the principal requirements on a good parsing mechanism is that it should make it easy to graft semantics onto syntax, by adding semantic actions of many possible kinds to the grammar. 
 
@@ -109,7 +109,7 @@ An aggregate production defines a construct whose specimens are obtained by conc
 
 This means that a specimen of Conditional (a conditional instruction) is made of the keyword <code> if </code>, followed by a specimen of Then_part_list, followed by zero or one specimen of Else_part (the square brackets represent an optional component), followed by the keyword <code> end </code>. 
 
-{{note| '''Note''': this notation for productions uses conventions similar to those of the book Eiffel: The Language. Keywords are written in '''boldface italics''' and stand for themselves. Special symbols, such as the semicolon, are written in double quotes, as in ";". The [=] symbol means "is defined as" and is more accurate mathematically than plain =, which, however, is often used for this purpose (see "Introduction to the Theory of Programming Languages", Prentice Hall, 1991, for a more complete discussion of this issue). }}
+{{note|this notation for productions uses conventions similar to those of the book Eiffel: The Language. Keywords are written in '''boldface italics''' and stand for themselves. Special symbols, such as the semicolon, are written in double quotes, as in ";". The [=] symbol means "is defined as" and is more accurate mathematically than plain =, which, however, is often used for this purpose (see "Introduction to the Theory of Programming Languages", Prentice Hall, 1991, for a more complete discussion of this issue). }}
 
 A choice production defines a construct whose specimens are specimens of one among a number of specified constructs. For example, the production for construct Type in an Eiffel grammar may read:
 <code>Type [=] Class_type | Class_type_expanded | Formal_generic_name | Anchored | Bit_type</code>
@@ -469,7 +469,7 @@ For <eiffel>TERMINAL</eiffel>, only one semantic action makes sense. To avoid an
 
 Often, the semantic procedures need to compute various elements of information. These may be recorded using appropriate attributes of the corresponding construct classes.
 
-{{note| '''Note''': readers familiar with the theory of parsing and compiling will see that this scheme, using the attributes of Eiffel classes, provides a direct implementation of the "attribute grammar" mechanism. }}
+{{note|readers familiar with the theory of parsing and compiling will see that this scheme, using the attributes of Eiffel classes, provides a direct implementation of the "attribute grammar" mechanism. }}
 
 ===Polynomial semantics===
 
@@ -499,7 +499,7 @@ As an example let us examine the semantics of the Product construct for the poly
 
 Here each relevant construct class has an attribute info used to record the semantic information associated with polynomials and their components, such as child_value, an <eiffel>INTEGER</eiffel>. The post_action takes care of computing the product of all child_values for the children. First, of course, post_action must recursively be applied to each child, to compute its own child_value.
 
-{{note| '''Note''': recall that an instance of <eiffel>CONSTRUCT</eiffel> is also a node of the abstract syntax tree, so that all the <eiffel>TWO_WAY_TREE</eiffel> features such as child_value, child_start, child_after and many others are automatically available to access the syntactical structure. }}
+{{note|recall that an instance of <eiffel>CONSTRUCT</eiffel> is also a node of the abstract syntax tree, so that all the <eiffel>TWO_WAY_TREE</eiffel> features such as child_value, child_start, child_after and many others are automatically available to access the syntactical structure. }}
 
 ===Keeping syntax and semantics separate===
 
@@ -591,7 +591,7 @@ specimens could begin with an opening parenthesis "(".</code>
 
 Because of this property, if the parser goes so far as to recognize an opening parenthesis as part of parsing any construct <eiffel>C</eiffel> for which NESTED is an alternative, but further tokens do not match the structure of <eiffel>NESTED</eiffel> specimens, then we will have failed to recognize not only a <eiffel>NESTED</eiffel> but also a <eiffel>C</eiffel>. 
 
-{{note| '''Note''': some readers will have recognized commit as being close to the Prolog "cut" mechanism. }}
+{{note|some readers will have recognized commit as being close to the Prolog "cut" mechanism. }}
 
 In this example, <eiffel>NESTED</eiffel> is used in only one right-hand side production: the choice production for TERM, for which the other alternatives are <eiffel>SIMPLE_VAR</eiffel> and <eiffel>POLY_INTEGER</eiffel>, none of whose specimens can include an opening parenthesis.
 
@@ -611,7 +611,7 @@ Different processors for the same grammar may use different top constructs. }}
 
 A document processor will be a particular system made of construct classes, complemented by semantic classes, and usually by other auxiliary classes. One of the construct classes corresponds to the top construct and is called the '''top construct class'''. 
 
-{{note| '''Note''': this notion of top construct class has a natural connection to the notion of root class of a system, as needed to get executable software. The top construct class could indeed be used as root of the processor system. In line with the previous discussion, however, it appears preferable to keep the top construct class (which only depends on the syntax and remains independent of any particular processor) separate from the system's root class. With this approach the root class will often be a descendant of the top construct class. <br/>
+{{note|this notion of top construct class has a natural connection to the notion of root class of a system, as needed to get executable software. The top construct class could indeed be used as root of the processor system. In line with the previous discussion, however, it appears preferable to keep the top construct class (which only depends on the syntax and remains independent of any particular processor) separate from the system's root class. With this approach the root class will often be a descendant of the top construct class. <br/>
 This policy was adopted for the Polynomial language example as it appears in the delivery: the processor defined for this example uses <eiffel>LINE</eiffel> as the top construct class; the root of the processor system is a class <eiffel>PROCESS</eiffel>, which inherits from <eiffel>LINE</eiffel>. }}
 
 ===Steps in the execution of a document processor===

@@ -13,9 +13,9 @@ The interface affords these main capabilities:
 * Using [[Stored Procedures|stored procedures]] . 
 * Dealing with database [[Database control|status and behavior]] . 
 
-{{note| '''Note''': In general, each of these capabilities corresponds to one EiffelStore class. }}
+{{note|In general, each of these capabilities corresponds to one EiffelStore class. }}
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[EiffelStore Implementation Layer|The implementation layer]]  }}
 
 

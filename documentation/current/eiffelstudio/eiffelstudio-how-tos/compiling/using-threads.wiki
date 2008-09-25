@@ -11,7 +11,7 @@ To create a multithreaded program or library:
 
 {{warning| '''Caution''': Make sure the external and precompiled libraries you use have also been compiled with support for threads. }}
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Generating libraries|Creating libraries]]  }}
 
 

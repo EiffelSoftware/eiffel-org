@@ -16,7 +16,7 @@ The window contains several different tools, highlighted below:
 
 The [[Type selector|type selector]] , [[Component selector|component selector]]  and [[Widget selector|widget selector]]  may all be docked from their original position, permitting re-ordering and customization of the main window. Each of these may be docked external to the main window, permitting each to be displayed in their own movable window. For more information regarding the docking mechanism, see [[Docking|docking]] .
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Main toolbar| Main toolbar]]  <br/>
 [[Layout constructor| Layout constructor]]  <br/>
 [[Type selector|Type selector]]  <br/>

@@ -10,7 +10,7 @@ With this control, you can merge two or more instances of <eiffel>EV_CONTAINER</
 ==Merging==
 
 To create a new merge, [[EiffelBuild Notation|pick]]  an [[EiffelBuild Notation|object]]  of type <eiffel>EV_CONTAINER</eiffel>, and [[EiffelBuild Notation|drop]]  it anywhere on the control. This will merge the radio button group of the <eiffel>EV_CONTAINER</eiffel> referenced in the object editor, to the transported one. Each merge, will show up as a new item in the control. 
-{{note| '''Note''': Container objects may only be grouped once, and as such, you will not be permitted to add an [[EiffelBuild Notation|object]]  that is already contained in the list. }}
+{{note|Container objects may only be grouped once, and as such, you will not be permitted to add an [[EiffelBuild Notation|object]]  that is already contained in the list. }}
 
 
 ==Unmerging==

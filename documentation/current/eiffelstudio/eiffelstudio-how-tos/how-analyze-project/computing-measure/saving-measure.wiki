@@ -7,7 +7,7 @@ To save the result of evaluation of a metric:
 # Select a file to use to store the results. If you specify a non-existing file, it will be created, if you specify an existing file it will be overriden. The selection of the file can be done by clicking on the button with the three dots in the '''Archive Management''' frame.
 # Click the '''Start metric archive evaluation'''.
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Evaluating a measure|Evaluating a measure]]  <br/>
 [[Viewing measure details|Detailing measures]]  <br/>
 }}

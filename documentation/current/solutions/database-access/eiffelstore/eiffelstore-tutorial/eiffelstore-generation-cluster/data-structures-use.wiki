@@ -45,7 +45,7 @@ You can then access or modify [[ref:libraries/store/reference/db_table_flatshort
 		end
 </code>
 
-{{note| '''Note:''' to access attributes data with ''code'', you need to use the [[ref:/libraries/store/reference/db_table_description_flatshort|DB_TABLE_DESCRIPTION]]  object associated to your [[ref:libraries/store/reference/db_table_flatshort|DB_TABLE]]  object. }}
+{{note|to access attributes data with ''code'', you need to use the [[ref:/libraries/store/reference/db_table_description_flatshort|DB_TABLE_DESCRIPTION]]  object associated to your [[ref:libraries/store/reference/db_table_flatshort|DB_TABLE]]  object. }}
 
 ===2.3. Getting objects metadata===
 
@@ -168,7 +168,7 @@ As seen in the previous section, to manipulate abstract table/view rows content,
 
 As descriptions are unique, this means that description objects are also associated to a specific table object to deal with it (i.e. access or modify its content). Actually, the table_description feature associates the description with the current object and then returns this description.
 
-{{note| '''Note:''' The table_description feature is still a query as the association part should not be visible at the interface level. }}
+{{note|The table_description feature is still a query as the association part should not be visible at the interface level. }}
 
 On the whole, you have to pay attention to always execute table_descriptionon your table/view row to get the appropriate description.
 

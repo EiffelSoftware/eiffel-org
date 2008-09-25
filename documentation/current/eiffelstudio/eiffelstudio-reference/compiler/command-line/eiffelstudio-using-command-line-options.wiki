@@ -179,7 +179,7 @@ You must now run "finish_freezing" in:
 
 with | replaced by \ if your platform is Windows, / if it is Unix. To execute the C compilation and linking part of the finalization, change directory to ''your_project_path''|EIFGENs|''target_name''|F_code as indicated and execute '''finish_freezing'''. 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Batch compilation|Batch compilation]]  }}
 
 

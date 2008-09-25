@@ -4,7 +4,7 @@
 [[Property:uuid|c22fad22-3dce-cf2c-1d24-4e70fc29f3f3]]
 ==What's new==
 
-{{seealso|See also: [[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
+{{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
 * Implemented once manifest strings. They can be used at the same places where normal manifest strings can be used, e.g.: 
 <code>s := once "abc"
 io.put_string (once "Hello World!")</code>

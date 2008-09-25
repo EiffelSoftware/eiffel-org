@@ -40,7 +40,7 @@ Name: smith
 Password: mypass
 					</code>
 
-{{note| '''Note:''' '' Name'' and ''Password'' are no required with ODBC. If you don't need ''Name'' and ''Password'', you can simply hit '''Return''' when prompted. }}
+{{note|Name'' and ''Password'' are no required with ODBC. If you don't need ''Name'' and ''Password'', you can simply hit '''Return''' when prompted. }}
 
 * For Oracle: 
 <code>
@@ -49,7 +49,7 @@ Name: smith@HANDSON
 Password: mypass
 					</code>
 
-{{note| '''Note:''' you have to specify the Oracle User Name and Net Service Name with the syntax ''<user>@<service> ''where ''<user>'' stands for the User Name and ''<service>'' stands for the Net Service Name. }}
+{{note|you have to specify the Oracle User Name and Net Service Name with the syntax ''<user>@<service> ''where ''<user>'' stands for the User Name and ''<service>'' stands for the Net Service Name. }}
 
 
 Then you can select rows from this table with author's name, for instance: 
@@ -77,7 +77,7 @@ First publication:07/01/1992 12:00:00.0 AM
 Author? ('exit' to terminate):
 				</code>
 
-{{note| '''Note:''' enter ''exit'' to quit the application. }}
+{{note|enter ''exit'' to quit the application. }}
 
 ==Under the Hood==
 

@@ -3,9 +3,9 @@
 [[Property:uuid|52206181-e002-0914-d98d-c817d32ec02e]]
 Located in the '''View''' menu, named either '''Link context tool''' or '''Unlink context tool''', this command allows you to switch between the two possible [[Address bars: Introduction|addressing modes]] . It is also accessible through the main toolbar (  [[Image:context-link-icon]] ). 
 
-{{note| '''Note''': This command only applies to the development window where it is invoked, and this setting is not automatically saved when exiting EiffelStudio. }}
+{{note|This command only applies to the development window where it is invoked, and this setting is not automatically saved when exiting EiffelStudio. }}
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Development Window Preferences|Change the default data sharing]]  <br/>
 }}
 

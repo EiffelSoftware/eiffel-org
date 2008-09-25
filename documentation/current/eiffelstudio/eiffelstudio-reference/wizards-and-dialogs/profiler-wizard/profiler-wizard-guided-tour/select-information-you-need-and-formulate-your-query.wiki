@@ -50,7 +50,7 @@ Each sub-query must have the following syntax 'attribute operator value' where:
 Clicking '''Next''' will open the [[Profile query window|Profile query window]]  and display the results of the formulated query. 
 <br/>
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Profiler wizard: Introduction|How the Profiler wizard works]]  <br/>
 [[Profiling|How to profile a system]]  }}
 

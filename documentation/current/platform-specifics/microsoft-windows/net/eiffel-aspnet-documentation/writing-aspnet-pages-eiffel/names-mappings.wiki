@@ -2,7 +2,7 @@
 [[Property:weight|4]]
 [[Property:uuid|fa212869-ffb0-0a6a-cbd0-7a184b11491d]]
 Maybe the most striking difference when writing pages in Eiffel comes from the name of the .NET types and methods. Because of different naming conventions, overloading and differences in identifier validity rules, .NET identifiers cannot be mapped directly to Eiffel identifiers. As a consequence, the Eiffel compiler creates XML mapping files in the ''Eiffel Metadata Cache''. These files are created only once for each referenced assembly. 
-{{note| '''Note:''' The ASP.NET installation program pre-generates the Eiffel Metadata Cache for all assemblies required by ASP.NET by default. }}
+{{note|The ASP.NET installation program pre-generates the Eiffel Metadata Cache for all assemblies required by ASP.NET by default. }}
 The name mapping algorithm is quite complex but it is possible to guess the Eiffel identifier from the .NET identifier in most cases. The following simple steps can be followed to retrieve the Eiffel identifier corresponding to a .NET type: 
 #  Only the simple type name is used, the namespace isn't used by the Eiffel identifier:
 <code>System.Xml.NameTable -> NameTable</code>

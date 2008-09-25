@@ -3,7 +3,7 @@
 [[Property:uuid|3b4fdde3-d903-55c8-0068-cee2407db280]]
 Once you have [[Database Selection|selected data]]  from the database, it returns a set of rows containing queried columns values. Each row loaded with DB_SELECTION is stored in a DB_RESULT object. The easiest way to access the data is thus to refer to DB_RESULT objects themselves. 
 
-{{note| '''Note''': Take a look at the [[Data Object Coupling|Database/Eiffel objects Coupling]]  to learn advanced data handling features. }}
+{{note|Take a look at the [[Data Object Coupling|Database/Eiffel objects Coupling]]  to learn advanced data handling features. }}
 
 To use DB_RESULT, process in 2 steps:
 *  [[#retrieve|retrieve]]  DB_RESULT objects. 
@@ -41,7 +41,7 @@ To use DB_RESULT, process in 2 steps:
 	end
 </code>
 
-{{tip| '''Tip''': Provide [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  with the LIST structure convenient for what you need to do with the results. }}
+{{tip|Provide [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  with the LIST structure convenient for what you need to do with the results. }}
 
 * You want to '''select part''' of the result set: you can set an action in [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  that will be executed each time a row is loaded. This action can for instance manipulate current row and define a stop condition. 
 ** You need to define a descendant of class ACTION and set it to [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]] :
@@ -93,7 +93,7 @@ A DB_RESULT object merely carries data retrieved from the database. You have to 
 	end
 </code>
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Database Selection|Performing a database selection.]]  <br/>
 [[Data Object Coupling|Coupling database data and Eiffel objects.]]  <br/>
 }}

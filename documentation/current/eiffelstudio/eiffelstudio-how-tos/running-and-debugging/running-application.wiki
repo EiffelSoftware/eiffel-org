@@ -12,13 +12,13 @@ Melted and frozen executables can be debugged. Several methods can be used to la
 ** The [[Step out of a feature]] , which launches the application and stops it as soon as the application exits the feature it is stopped in. 
 
 
-{{tip| '''Tip''': All the above commands can be accessed either in the '''Project''' toolbar or in the '''Debug''' menu. <br/>
+{{tip|All the above commands can be accessed either in the '''Project''' toolbar or in the '''Debug''' menu. <br/>
 They can be used either to launch the program or to resume its execution after it has been paused. }}
 * It is also possible to select '''Run to breakpoint''' in a [[Breakpoint editing|breakpoint context menu]]  to have the application be launched and executed until it reaches the selected execution line. 
 
 Finalized executables can also be run, but they are not debuggable and cannot be interrupted. To run a finalized executable, use the [[Run a finalized executable]] , located in the '''Project''' menu and the '''Project''' toolbar. 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Generating executables|Compiling an executable]]  <br/>
 [[Using breakpoints|Using breakpoints]]  <br/>
 [[Interrupting an application|Interrupting an application]]  }}

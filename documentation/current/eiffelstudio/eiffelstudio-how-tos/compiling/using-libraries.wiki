@@ -8,7 +8,7 @@ To use an Eiffel precompiled library:
 * Add a new precompile group to your target.
 * You must [[Generating executables|recompile]]  your project from scratch for the changes to take effect. 
 
-{{note| '''Note''': You can only use one precompiled library at a time in a project. To use more than one, you should precompile all the libraries you want to use together in a single precompiled library. }}
+{{note|You can only use one precompiled library at a time in a project. To use more than one, you should precompile all the libraries you want to use together in a single precompiled library. }}
 
 To use a C library:
 * Open the [[Externals Options|Project Settings]]  dialog. 
@@ -17,7 +17,7 @@ To use a C library:
 * Click '''OK'''. 
 * You must [[Generating executables|recompile]]  your project for the changes to take effect. 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Generating libraries|Creating libraries]]  <br/>
 [[Adding a cluster|Adding classes and clusters from Eiffel libraries without precompiling the library]]  <br/>
 [[C externals|Making C calls in Eiffel]]  }}

@@ -176,7 +176,7 @@ end -- Class SOME_CLASS
 
 When you write a feature in a class, you typically will include some of the following: 
 * The feature's name 
-{{note| '''Note:''' In Eiffel every feature of a class must have a name that is unique within that class. }}
+{{note|In Eiffel every feature of a class must have a name that is unique within that class. }}
 
 * The feature's type (in the case of an attribute or a function)
 * The feature's formal argument list (in the case of a function or procedure that has arguments)
@@ -275,7 +275,7 @@ The precondition part of a feature is introduced by the keyword " <code> require
 
 This part contains the declarations for any "local entities" used by the feature. Sometimes the computation accomplished in a feature requires the use of entities which are only temporary. It would not be appropriate to make these attributes of the class. So, instead we can use local entities, which have scope only within the feature in which they are declared. In the example, <code> hd_item </code> is available as type <code> WEL_HD_ITEM </code> during the computation of feature <code> insert_text_header_item </code>. 
 
-{{note| '''Note:''' A local entity name must not be the same as any feature of the class in which its feature occurs or the same as any argument name of the feature in which it occurs. }}
+{{note|A local entity name must not be the same as any feature of the class in which its feature occurs or the same as any argument name of the feature in which it occurs. }}
 
 ===Routine Body===
 <code>
@@ -303,7 +303,7 @@ There are other forms that a routine body can take. Here are some examples of so
 
 The routine body above is for an "external" routine. External routines are used to represent within Eiffel classes, routines that are written in other languages.
 
-{{tip| '''Tip:''' Because of the high degree of language interaction provided by Microsoft.NET, it is not necessary in Eiffel for.NET to use externals to use software components from.NET assemblies. Instead, these components are presented to the Eiffel programmer as if they were Eiffel classes. Read more about this in [[Conventions|Conventions]] . }}
+{{tip|Because of the high degree of language interaction provided by Microsoft.NET, it is not necessary in Eiffel for.NET to use externals to use software components from.NET assemblies. Instead, these components are presented to the Eiffel programmer as if they were Eiffel classes. Read more about this in [[Conventions|Conventions]] . }}
 
 ====Once Routines====
 <code>

@@ -6,7 +6,7 @@
 Annotations may be applicable to:
 *  An individual class or feature. In this case the annotation figures in the class text, as part of an Eiffel "note" clause ("indexing" is still supported, it depends on which syntax level users choose).
 *  A target, library or cluster. In this case the annotation figures in the associated ECF file; EiffelStudio provides support for entering it through a Information (EIS) Tool. 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Information Tool|Information Tool]]  }}
 
 
@@ -24,7 +24,7 @@ The following example illustrates the basic form of an EIS note entry:
 
 The label (Node_entry as called in the ECMA/ISO Eiffel Standard syntax) is '''EIS'''. '''EIS''' Note_value tells the Eiffel Information System that this Note_entry is of interest to EIS, as distinct from any other information that might be expressed through a Note_entry. The file name (src) includes '''$PROJ''', referring to a variable, defining the project location. The protocol is PDF. The '''nameddest''' property (name destination) is a specific property of PDF documents. The tag '''requirement''' indicating that this entry links the enclosing Eiffel class or feature with some parts of the requirement documents.
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Variable Definition|Variable Definition]]  }}
 <code><note ise_support="EIS" protocol="pdf" name="Project Requirement" src="($PROJ)/docs/requirements.pdf" nameddest="4.1"/></code>
 

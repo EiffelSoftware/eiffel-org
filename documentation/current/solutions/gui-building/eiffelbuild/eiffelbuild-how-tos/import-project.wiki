@@ -14,7 +14,7 @@ Upon completion of the import, there are two possible outcomes:
 * One or more name clashes occurred: One or more objects or constants from the imported project had names that matched that of objects in the open project. As the names are used directly in the generated code, they must be unique within their scope (accessible within the code), and therefore EiffelBuild must resolve these clashes. A dialog is displayed on screen showing all the names that were resolved by EiffelBuild: 
 [[Image:import-project-clashes]]  
 
-{{note| '''Note''': If a name clash occurs, the names of the imported project are modified, not the open project. }}
+{{note|If a name clash occurs, the names of the imported project are modified, not the open project. }}
 
 
 

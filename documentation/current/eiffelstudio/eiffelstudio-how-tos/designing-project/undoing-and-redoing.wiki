@@ -3,7 +3,7 @@
 [[Property:uuid|35cb87d8-14c9-f3ce-5275-83c1ec61d746]]
 Almost all actions in the diagram tool are undoable. Every action that can be undone, can also be redone. For advanced undoing, open the history tool.
 
-{{tip| '''Tip''': Undo actions cannot be undone. Use redo to undo an undo action. }}
+{{tip|Undo actions cannot be undone. Use redo to undo an undo action. }}
 * To undo the last action, click '''Undo last action'''.  [[Image:general-undo-icon]]  
 * To redo the last action, click '''Redo last action'''.  [[Image:general-redo-icon]]  
 * To undo all actions up until a specific action: 
@@ -12,7 +12,7 @@ Almost all actions in the diagram tool are undoable. Every action that can be un
  [[Image:history-tool]]  
 
 
-{{note| '''Note''': When an action is performed that cannot be undone, the history tool is emptied. }}
+{{note|When an action is performed that cannot be undone, the history tool is emptied. }}
 
 
 

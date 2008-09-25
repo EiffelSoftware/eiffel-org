@@ -7,7 +7,7 @@ To do so, click on or select '''Isolate context tool''' in the '''View''' menu. 
 You can also modify the [[EiffelStudio preferences: Introduction|preferences]]  so that next time a window is opened, its context tool will be automatically independent: open the [[Preference window overview|preferences window]]  by choosing '''Preferences...''' in the '''Tools''' menu. Select then the "context tool" sub-category in the "Tools" of the preferences tree. Lastly click on "Share addresses between the editor and the context tool" and set it to '''False'''. <br/>
 Click on save and exit to complete the change. 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Preference window overview|Preference window description]]  <br/>
 [[EiffelStudio preferences: Introduction|Preferences reference]]  }}
 

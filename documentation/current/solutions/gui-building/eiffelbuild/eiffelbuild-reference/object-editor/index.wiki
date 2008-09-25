@@ -19,7 +19,7 @@ These object editors appear in their own window, and you may open as many of the
 
 To open a new floating object editor, [[EiffelBuild Notation|drop]]  an [[EiffelBuild Notation|object]]  on  [[Image:icon-object-editor-color]] , displayed in the [[Main toolbar| main toolbar]]  and also in each existing object editor. The new object editor will then be targeted to the [[EiffelBuild Notation|object]]  that was [[EiffelBuild Notation|dropped]] . 
 
-{{note| '''Note''': If the [[EiffelBuild Notation|object]]  targeted to floating object editor is deleted, then the editor will be destroyed. This helps stop the screen becoming cluttered with empty editors. }}
+{{note|If the [[EiffelBuild Notation|object]]  targeted to floating object editor is deleted, then the editor will be destroyed. This helps stop the screen becoming cluttered with empty editors. }}
 
 As a shortcut to a complete [[EiffelBuild Notation|pick and drop]]  transport, you may hold down the Ctrl key while starting the [[EiffelBuild Notation|pick]] , which will immediately open a new floating object editor targeted to the [[EiffelBuild Notation|object]]  you clicked. 
 
@@ -33,7 +33,7 @@ When an object editor is targeted to an [[EiffelBuild Notation|object]] , you wi
 
 All properties that may be manipulated in an object editor correspond directly to a property of the [[EiffelVision Introduction|EiffelVision2]]  control that is represented by the [[EiffelBuild Notation|object]]  (Displayed in an object editor as '''type'''). There is one exception to that rule though, and that is the '''Name''' field which is specific to EiffelBuild. This field is used for your identification of the [[EiffelBuild Notation|object]]  and as the attribute name in the generated code. For example, when EiffelBuild generates code corresponding to the [[EiffelBuild Notation|object]] targeted in the editor shown above, it would declare the vision2 component as - button1: EV_BUTTON 
 
-{{note| '''Note''': You may have as many object editors targeted to the same [[EiffelBuild Notation|object]]  as you wish. Whenever a change is made to the [[EiffelBuild Notation|object]]  through one of the editors, all other editors targeted to that [[EiffelBuild Notation|object]]  are synchronized. }}
+{{note|You may have as many object editors targeted to the same [[EiffelBuild Notation|object]]  as you wish. Whenever a change is made to the [[EiffelBuild Notation|object]]  through one of the editors, all other editors targeted to that [[EiffelBuild Notation|object]]  are synchronized. }}
 
 ==Using Constants==
 
@@ -52,7 +52,7 @@ For all "top level" objects (those contained within the [[Widget selector|widget
 
 As well as being able to manipulate the standard properties of an [[EiffelBuild Notation|object]] , facilities are provided for connecting to the events of an [[EiffelBuild Notation|object]] . Looking at the object editor screenshot above, you will see that there is a button marked '''Select events''' which is also available in all targeted editors. 
 
-{{note| '''Note''': The button will be marked '''Modify events''' when one or more events are already selected for the current [[EiffelBuild Notation|object]] . }}
+{{note|The button will be marked '''Modify events''' when one or more events are already selected for the current [[EiffelBuild Notation|object]] . }}
 
 Clicking this button will cause the following dialog to be displayed:
 
@@ -62,9 +62,9 @@ Looking at the screenshot above, you will see that this dialog contains all the 
 
 If you check a button connected with one of the action sequences, you will be then able to enter the name of a feature that you wish to connect to the action sequence. The screenshot above shows the user has connected a feature named `button_pressed' to the `select_actions'. When [[EiffelBuild: Code Generation|code is generated]] , this will cause EiffelBuild to generate an empty feature named `button_pressed' already connected to the `select_actions' of the button. 
 
-{{note| '''Note''': You will only be allowed to enter valid and unique Eiffel feature names. If a name is invalid, it will be highlighted in red, and a dialog will warn you when you attempt to close the dialog. }}
+{{note|You will only be allowed to enter valid and unique Eiffel feature names. If a name is invalid, it will be highlighted in red, and a dialog will warn you when you attempt to close the dialog. }}
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Create an object|Create an object]]  <br/>
 [[Delete an object|Delete an object]]  }}
 

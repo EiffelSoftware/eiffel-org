@@ -7,7 +7,7 @@ To profile an executable, the profiler must first be enabled. To enable the prof
 * Click '''OK'''. 
 * You must [[Generating executables|recompile]]  your project for the changes to take effect. 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Profiler wizard: Introduction|Profiler reference]]  }}
 
 

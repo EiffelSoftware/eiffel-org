@@ -30,7 +30,7 @@ Use <eiffel>minimum_width</eiffel> and <eiffel>minimum_height</eiffel> to find i
 
 
 
-{{note| '''Note:''' [[ref:libraries/vision2/reference/ev_containable_chart|EV_CONTAINABLE]]  has no features for setting the parent. In Vision2, a child has no features for setting its parent, while a parent such as ev_container contains routines for adding children (one example is <eiffel>extend</eiffel>). }}
+{{note|[[ref:libraries/vision2/reference/ev_containable_chart|EV_CONTAINABLE]]  has no features for setting the parent. In Vision2, a child has no features for setting its parent, while a parent such as ev_container contains routines for adding children (one example is <eiffel>extend</eiffel>). }}
 
 The following properties are also used within Vision2: 
 * [[ref:libraries/vision2/reference/ev_deselectable_chart|EV_DESELECTABLE]] 

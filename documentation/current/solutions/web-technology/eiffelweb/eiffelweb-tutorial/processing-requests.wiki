@@ -23,7 +23,7 @@ The browser sends in the ''In'' a stream containing the data relative to the use
 
 The response has to contain an HTTP header in order to be understood by the browser. Depending on the nature of the reply, an HTML page, a simple re-direction, an error notification, you will select different features and options. Your application must send at least a response header, indicating the status of the request if known. You may want to attach to it the text you wish to send back to the user. This text is usually written in HTML, so that it will display nicely on the user's browser; you can use for this purpose the class HTML_PAGE. You may then send the header followed by your text using the features send_to_browser of classes CGI_RESPONSE_HEADER and HTML_PAGE.
 
-{{note| '''Note''': You may not write into a file before you have sent the answer to the browser. }}
+{{note|You may not write into a file before you have sent the answer to the browser. }}
 
 ===Dealing with Cookies===
 

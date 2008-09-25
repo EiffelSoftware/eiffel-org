@@ -22,7 +22,7 @@ It is also possible to dynamically start and stop the profiler in a program. To 
 * Call [[ref:libraries/base/reference/profiling_setting_flatshort|start_profiling]]  on this object to start the profiler. 
 * Call [[ref:libraries/base/reference/profiling_setting_flatshort|stop_profiling]]  on this object to stop the profiler. 
 
-{{tip| '''Tip''': To profile only part of a program, turn off the profiler at the very beginning of the program, turn it on just before the part of the code that should be profiled, and turn it back off after this section. Typically, it results in the following code: }}
+{{tip|To profile only part of a program, turn off the profiler at the very beginning of the program, turn it on just before the part of the code that should be profiled, and turn it back off after this section. Typically, it results in the following code: }}
 
 In the root feature:
 
@@ -52,17 +52,17 @@ And in the feature(s) that needs to be profiled:
 	end</code>
 
 
-{{note| '''Note''': Even if the profiler should only work in certain sections of code, the '''Profiling''' check box of the [[General Target Options|Projects Settings]]  dialog must be checked or the '''profile''' option must be set on certain clusters. }}
+{{note|Even if the profiler should only work in certain sections of code, the '''Profiling''' check box of the [[General Target Options|Projects Settings]]  dialog must be checked or the '''profile''' option must be set on certain clusters. }}
 
 Once the profiler has been enabled and the program has been recompiled, it is necessary to launch the program.
 
-{{tip| '''Tip''': It is possible to profile debuggable(frozen/melted) executables as well as finalized ones. It is more interesting to profile finalized executables, though, since the execution speed is more representative of what will be obtained by your end users. }}
+{{tip|It is possible to profile debuggable(frozen/melted) executables as well as finalized ones. It is more interesting to profile finalized executables, though, since the execution speed is more representative of what will be obtained by your end users. }}
 
 When the program exits, a file named 'profinfo' should be generated next to it.
 
 All that's left to do is launch the [[Profiler wizard: Introduction|Profiler wizard]]  and follow the instructions. 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Generating executables|Generating executables]]  <br/>
 [[Running an application|Running a program]]  <br/>
 [[Tuning a program|Tuning a program]]  }}

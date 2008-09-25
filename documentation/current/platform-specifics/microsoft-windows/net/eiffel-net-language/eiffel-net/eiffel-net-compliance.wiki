@@ -3,7 +3,7 @@
 [[Property:uuid|1e19c2f0-995e-02c1-0588-c134a11e0003]]
 As of EiffelEnvision 2.6, Eiffel for ASP.NET 5.6 and EiffelStudio 5.7; Eiffel for .NET introduces the notion of '''Eiffel-Compliance'''. .NET specifies a number of language interopability rules in a [http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconwhatiscommonlanguagespecification.asp Common Language Specification-Compliance]  specification. Eiffel for .NET supports all CLS-Compliant type and features in .NET but now additionally supports a number of non-CLS-compliant types and features. This is the purpose of the Eiffel-Compliant notion. 
 
-{{note| '''Note''': The information contained within this page does not go into any depth on the Common Language Specification (CLS) or CLS-Compliance. For this information please see Microsoft's on-line documentation [http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconwhatiscommonlanguagespecification.asp What is the Common Language Specification?]  }}
+{{note|The information contained within this page does not go into any depth on the Common Language Specification (CLS) or CLS-Compliance. For this information please see Microsoft's on-line documentation [http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconwhatiscommonlanguagespecification.asp What is the Common Language Specification?]  }}
 <span id="applicablity"></span> 
 ==Applicability==
 

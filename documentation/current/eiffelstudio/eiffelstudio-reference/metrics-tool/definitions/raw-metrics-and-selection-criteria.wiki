@@ -37,7 +37,7 @@ This criterion independence principle is not absolute, however, and in some case
 
 A metric is either elementary or composite. An elementary metric is either a raw metric, such as "number of features", or a derived metric obtained from slicing a raw metric by selection criteria. Composite metrics are obtained from existing metrics (elementary, or previously defined composite metrics) by applying some mathematical formula.
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Elementary and composite metrics|Elementary metrics]]  <br/>
 [[Selection Criteria|Selection Criteria]]  <br/>
 [[Criterion References|Selection criterion reference]]  <br/>

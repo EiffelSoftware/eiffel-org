@@ -11,9 +11,9 @@ Under '''Create project''', several options are offered, which depend on the pla
 *  '''Vision2 application''' creates a new project that includes the [[EiffelVision Introduction|Eiffel Vision2 library]] . This is the perfect choice to start a platform-independent graphic application, or even any graphic application, since EiffelVision2 is easier to use than platform-specific libraries. This option is available on all platforms. 
 *  '''WEL application''' generates a project using the [[WEL|Windows Eiffel Library(WEL)]] . This option is recommended for projects needing advanced Windows features, or Windows applications that are time-critical, since the graphic functionality provided by WEL is more efficient than the one provided by Vision2, which on the other hand provides a platform-independent abstract interface. This wizard is only available on Windows. 
 All those options are also available in the ''' File'''/ '''New project...''' menu. This pops up a dialog with all the options to generate a new project:  [[Image:create-a-project]]  
-{{tip| '''Tip''': If you checked the "Don't show this dialog at startup" checkbox in the start-up dialog but want to get it back, you can use the [[Discardable dialogs|Preferences dialog]]  to reset the default value. }}
+{{tip|If you checked the "Don't show this dialog at startup" checkbox in the start-up dialog but want to get it back, you can use the [[Discardable dialogs|Preferences dialog]]  to reset the default value. }}
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Retrieving a project from a configuration file|Retrieving a project from an configuration file]]  }}
 
 

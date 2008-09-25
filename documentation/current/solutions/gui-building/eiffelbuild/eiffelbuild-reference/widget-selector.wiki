@@ -11,7 +11,7 @@ To add an Object to your project, [[EiffelBuild Notation|pick]]  the object type
 *  '''The Widget Selector itself''' - The newly created object is added to the root directory of the project. 
 *  '''A Directory node''' - The newly created object is added to the directory that was the target of the drop. 
 Both of these outcomes create a new object in your project that is to be generated as an individual class during code generation. 
-{{note| '''Note''': The selected object in the Widget Selector is automatically targeted as the root window of the [[Layout constructor|layout constructor]] , permitting building. You may not build directly into the representation of an object within the Widget Selector, as this must be performed within the [[Layout constructor|layout constructor]]  or [[Builder window|builder window]] . }}
+{{note|The selected object in the Widget Selector is automatically targeted as the root window of the [[Layout constructor|layout constructor]] , permitting building. You may not build directly into the representation of an object within the Widget Selector, as this must be performed within the [[Layout constructor|layout constructor]]  or [[Builder window|builder window]] . }}
 
 
 ==Root Window==
@@ -27,10 +27,10 @@ The ability to add directories to your project permit organization of objects in
 
 Enter a unique name that is not already in use, and select "OK" to add the directory to your project. The newly added directory is then visible, as a node in the Widget Selector.
 
-{{note| '''Note''': Creating a new directory in the Widget Selector causes the actual directory on the disk to be created immediately. }}
+{{note|Creating a new directory in the Widget Selector causes the actual directory on the disk to be created immediately. }}
 
 You may insert objects into a directory, or move an object between directories by [[EiffelBuild Notation|picking]]  the object from its representation in the Widget Selector, and [[EiffelBuild Notation|dropping]]  on the desired directory. Each object contained in the Widget Selector is generated as a seperate class and the parent directory is used as the generated location on disk. 
-{{note| '''Note''': If you move an object between directories within an EiffelBuild project that has already generated the Eiffel code for that object, the code files are moved immediately on the disk. }}
+{{note|If you move an object between directories within an EiffelBuild project that has already generated the Eiffel code for that object, the code files are moved immediately on the disk. }}
 
 Directories may be nested as deeply as required, and the following buttons are available to help with directory nesting:
 *  [[Image:directory-search-small]] Selecting this button recursively adds all directories from the current project location to the project.
@@ -50,7 +50,7 @@ The OK_CANCEL_BUTTONS object is used is used in two different places within the 
 
 To use an instance of a widget contained within the Widget Selector as a client, simply pick the representation of the object and drop into the desired parent object within the [[Type selector|type selector]]  
 
-{{seealso| '''See also''': <br/>
+{{seealso|<br/>
 [[Layout constructor|Layout constructor]]  }}
 
 

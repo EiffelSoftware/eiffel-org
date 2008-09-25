@@ -21,7 +21,7 @@ Note that through CECIL you can use an Eiffel system compiled in any of the Eiff
 * Finalized C code. 
 * Workbench (melted/frozen) code, usually for development purposes. In this case you must copy the ''<system name>.melted'' file ( where ''<system name>'' is the name of your system) located in EIFGENs\<target_name>\W_code to the directory where you intend to execute your C application from. 
 
-{{note| '''Note''': each time you melt the Eiffel system, the ''<system name>. melted'' file is updated. }}
+{{note|each time you melt the Eiffel system, the ''<system name>. melted'' file is updated. }}
 
 {{warning| '''Caution''': in the second case (workbench mode), it is not possible to call through the CECIL interface any routine that has been melted in the last compilation; this would raise the run-time exception: <br/>
 ''' $ applied to melted routine''' <br/>

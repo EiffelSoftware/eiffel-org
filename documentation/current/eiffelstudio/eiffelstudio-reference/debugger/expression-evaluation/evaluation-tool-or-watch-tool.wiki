@@ -11,9 +11,9 @@ In the screenshot, you can see various expressions, the 4th one, is a dropped ob
 
 The 5th expression has an error, the icon is different, and the 'value' shows there is an error, double click on it for more details 
 
-{{tip| '''Tip''': If the expression returns a non-Void (and non basic type) object, then the corresponding row in the list is pickable, and can be dropped for example in the Watch tool to evaluate expression on it, or even to keep the object over the steppings. }}
+{{tip|If the expression returns a non-Void (and non basic type) object, then the corresponding row in the list is pickable, and can be dropped for example in the Watch tool to evaluate expression on it, or even to keep the object over the steppings. }}
 
-{{tip| '''Tip''': holding the mouse pointer over the expression's cell will popup a tooltip with details on the pointed expression }}
+{{tip|holding the mouse pointer over the expression's cell will popup a tooltip with details on the pointed expression }}
 
 On top of the list, four buttons can be found.
 * the button  [[Image:toolbar-dropdown-icon]]  is used to create/close watch tools via a menu popup
@@ -35,7 +35,7 @@ The associated key shortcut is F2.
 The associated key shortcut is Del. 
 * And the last two buttons are used to move up and down the expressions. You can also move the expressions up and down using [CONTROL] + [-] or [CONTROL] + [+]. 
 
-{{tip| '''Tip''': Dropping an object onto this list lets you define quickly an expression whose context is the dropped object. This avoids having to type object addresses manually. <br/>
+{{tip|Dropping an object onto this list lets you define quickly an expression whose context is the dropped object. This avoids having to type object addresses manually. <br/>
 If you press the [Control] key during the dropping, you will add the dropped object as itself. }}
 
 

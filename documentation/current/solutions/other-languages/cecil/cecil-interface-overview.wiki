@@ -14,9 +14,9 @@ The EIFFEL include files define types for every EIFFEL types:
 
 Generally, you should use these types when implementing external C functions bound to be used from Eiffel or when you want to manipulate Eiffel objects from the C side. EIF_REFERENCE, EIF_OBJECT, EIF_POINTER all correspond in C to a (char *), but their semantic remains different in Eiffel. 
 
-{{note|'''Note:''' In the following code samples, the class <eiffel>OBJECT</eiffel> is a placeholder for one of your type that you wish to use via CECIL.}}
+{{note|In the following code samples, the class <eiffel>OBJECT</eiffel> is a placeholder for one of your type that you wish to use via CECIL.}}
 
-{{sample| '''Sample''': Calling C external `foo' from Eiffel, which takes a pointer and an eiffel object of type OBJECT as arguments and returns an INTEGER. }}
+{{sample|Calling C external `foo' from Eiffel, which takes a pointer and an eiffel object of type OBJECT as arguments and returns an INTEGER. }}
 <div> 
 <code>
 	c_foo (ptr: POINTER; obj: OBJECT): INTEGER is
@@ -118,7 +118,7 @@ EIF_INTEGER foo (EIF_POINTER ptr, EIF_OBJECT obj);
 
 '''Important rules when using eif_access:'''
 
-{{note| '''Note''': The first argument of ''(ep)'' is the target of the function (the eiffel object to which you want to apply the Eiffel feature ''(ep)'') and the second argument corresponds to the first argument of ` ''print'''. Any Eiffel object could have been the 1st argument of ''(ep)'' since all of them inherit ''ANY''. }}
+{{note|The first argument of ''(ep)'' is the target of the function (the eiffel object to which you want to apply the Eiffel feature ''(ep)'') and the second argument corresponds to the first argument of ` ''print'''. Any Eiffel object could have been the 1st argument of ''(ep)'' since all of them inherit ''ANY''. }}
 
 
 *  '''Never pre compute the value returned by eif_access. ''' <br/>
@@ -262,7 +262,7 @@ main (int argc,char **argv,char **envp)
 </code>
 
 
-{{note| '''Note''': `eif_create' does not call any creation procedure. It just allocates memory and initializes an object. }}
+{{note|`eif_create' does not call any creation procedure. It just allocates memory and initializes an object. }}
 
 ===Protecting the objects returned by Eiffel functions.===
 
@@ -309,7 +309,7 @@ main (int argc,char **argv,char **envp)
 </code>
 
 
-{{note| '''Note''': Although you must protect Eiffel references returned by eif_attribute, you do not have to protect attributes of basic types - they are not Eiffel references and not supposed to move. }}
+{{note|Although you must protect Eiffel references returned by eif_attribute, you do not have to protect attributes of basic types - they are not Eiffel references and not supposed to move. }}
 
 ===Getting the type id of an Eiffel type: eif_type_id===
 '''# include "eif_gen_conf. h"''' # include "eif_gen_conf. h" 
@@ -375,7 +375,7 @@ EIF_REFERENCE eif_wean(EIF_OBJECT object)
 
 Tell the GC to remove the artificial reference to the nested Eiffel reference returned by eif_access (object). Then, the GC will be able to collect this nested object, as soon as it is not referenced from Eiffel any longer. 
 
-{{note| '''Note:''' Object must have been previously created with eif_adopt, eif_protect or eif_create. }}
+{{note|Object must have been previously created with eif_adopt, eif_protect or eif_create. }}
 eif_wean (object) returns an Eiffel reference, which corresponds to eif_access (object). After a call to eif_wean (object), eif_access (object) is NULL, which does not mean that the nested Eiffel object is Void, but that the indirection pointer does not reference it any longer. It is possible to reuse object later on. <br/>
 Calling eif_wean (external_argument) where external_argument is an Eiffel object given by a C external can cause erratic behaviors. Indeed, external_argument is an indirection pointer, which is automatically deleted after the external call (not the nested Eiffel object), deleting it prematurely can corrupt the indirection pointers stack. <br/>
 See also <eiffel>eif_access</eiffel>. 
@@ -423,7 +423,7 @@ RETURN VALUE:
 <div>upon failure, it returns (EIFFEL_TYPE) 0, otherwise, the attribute is returned. If the return value is not a basic type, you must protect it with eif_protect</div>
 COMPATIBILITY:
 <div>eif_attribute (object, name, type, NULL) is equivalent to eif_field (object, name, type)</div>
-{{tip| '''Tips''': You cannot access a constant attribute, or the result of a function (once or not) with eif_attribute. Use eif_procedure or eif_xx_function instead. <br/>
+{{tip|s''': You cannot access a constant attribute, or the result of a function (once or not) with eif_attribute. Use eif_procedure or eif_xx_function instead. <br/>
 <br/>
 EIF_BOOLEAN attribute_exists (EIF_REFERENCE object, char *name) returns EIF_TRUE or EIF_FALSE depending if the attribute exists or not, is visible or not. }}
 
@@ -443,7 +443,7 @@ Return the address of the Eiffel routine by giving its name rout_name and the ty
 
 The Eiffel object returned by an Eiffel function must be protected afterwards with 'eif_protect' (this only applies for functions whose addresses are returned by `eif_reference_function', since the other function types returns basic types, which are not Eiffel objects). 
 
-{{note| '''Note''': The address returned by these functions must be called between parenthesis. }}
+{{note|The address returned by these functions must be called between parenthesis. }}
 
 {{warning| '''Caution''': Be sure that the Eiffel routine is not a C External. In this case, you should call directly the C external instead of its Eiffel wrapper. }}
 
@@ -461,7 +461,7 @@ EIF_REFERENCE eif_string (char *string) /* Macro */
 
 Return the direct reference to an Eiffel string by giving the corresponding C string . The result of eif_string does not reference the C string passed as argument: it copies it, before creating the Eiffel string. 
 
-{{note| '''Notes''': The return value must be protected with eif_protect for later use. <br/>
+{{note|s''': The return value must be protected with eif_protect for later use. <br/>
 <br/>
 The C string must be manually freed by the user, if it has been dynamically allocated. }}
 
@@ -494,7 +494,7 @@ printf ("type is %d\n");    /* Should be EIF_INTEGER_TYPE since it returns an Ei
 </code>
 
 
-{{tip| '''Tip''': *(EIFFEL_TYPE *) eif_attribute_safe (EIF_REFERENCE object, char *name, int type_int, int *status) can be used for debugging or type checking. It returns the attribute reference of name from the object of type type_int. status contains the status of the function call: it can be EIF_CECIL_OK, EIF_CECIL_ERROR, EIF_NO_ATTRIBUTE or EIF_WRONG_TYPE (type_int does not match with real type of object). }}
+{{tip|*(EIFFEL_TYPE *) eif_attribute_safe (EIF_REFERENCE object, char *name, int type_int, int *status) can be used for debugging or type checking. It returns the attribute reference of name from the object of type type_int. status contains the status of the function call: it can be EIF_CECIL_OK, EIF_CECIL_ERROR, EIF_NO_ATTRIBUTE or EIF_WRONG_TYPE (type_int does not match with real type of object). }}
 
 ===Getting the class name corresponding to a type id: eif_name===
 ''' #include "eif_cecil. h"''' 

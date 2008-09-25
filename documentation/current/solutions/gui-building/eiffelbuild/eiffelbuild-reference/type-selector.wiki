@@ -7,7 +7,7 @@ The type selector contains all the available Vision2 types supported by EiffelBu
 
 The types are organized into three groups - Primitives, Containers and Items. All types that may be used in EiffelBuild have a text in uppercase, corresponding to their type in [[EiffelVision Introduction|EiffelVision2]] . For example, looking at the screenshot above, the <eiffel>BUTTON</eiffel> item represents an <eiffel>EV_BUTTON</eiffel>, and the <eiffel>EV_COMBO_BOX</eiffel> item represents <eiffel>EV_COMBO_BOX</eiffel>. 
 
-{{note| '''Note''': The types available in the type selector are fixed, and cannot be modified. Almost all [[EiffelVision Introduction|EiffelVision2]]  components are available. }}
+{{note|The types available in the type selector are fixed, and cannot be modified. Almost all [[EiffelVision Introduction|EiffelVision2]]  components are available. }}
 
 ==Creating a new object==
 [[EiffelBuild Notation|Objects]]  are the building blocks used in EiffelBuild to construct your interface. To create a new [[EiffelBuild Notation|object]]  for use in your system, [[EiffelBuild Notation|pick]]  the type corresponding to the type of object you wish to create,and [[EiffelBuild Notation|drop]]  onto an [[EiffelBuild Notation|object]]  representation. If an object is full, or does not allow other objects of the new type to be contained, then you will not be able to [[EiffelBuild Notation|drop]]  on it. <br/>
@@ -18,7 +18,7 @@ This shows how simple it is to Build new [[EiffelBuild Notation|objects]]  in Ei
 
 You may drop an object directly from the Type Selector into the [[Widget selector|widget selector]]  which creates the object as a "top level object" ensuring that upon generation, it is represented by an individual set of classes. These top level objects may then be re-used within your interface as desired. 
 
-{{note| '''Note''': To understand the types accepted, and the capacity of objects, you should consult the [[EiffelVision Introduction|EiffelVision2]]  library reference. }}
+{{note|To understand the types accepted, and the capacity of objects, you should consult the [[EiffelVision Introduction|EiffelVision2]]  library reference. }}
 
 ==Changing the type of an existing object==
 
@@ -32,7 +32,7 @@ The following rules govern if the type of an existing object may be changed to a
 * The parent of the existing [[EiffelBuild Notation|object]]  must accept children of type corresponding to the new type. 
 * The new type must be able to accept all of the existing [[EiffelBuild Notation|objects]]  children. 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Layout constructor|Layout constructor]]  <br/>
 }}
 

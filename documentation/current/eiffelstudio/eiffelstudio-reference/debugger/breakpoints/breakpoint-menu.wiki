@@ -14,7 +14,7 @@ The condition is a Boolean expression that follows the same rule as the expressi
 
 {{warning|'''Caution''': if you enter an expression that is not supported or which raises an error during evaluation, by default the condition is considered as True (then the debugger will stop) }}
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Breakpoint editing|Breakpoint menu]]  <br/>
 [[Breakpoint commands|Breakpoints commands]]  <br/>
 [[Breakpoint information command|Breakpoint information command]]  <br/>

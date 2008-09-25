@@ -5,9 +5,9 @@ To remove an [[EiffelBuild Notation|object]]  from your EiffelBuild system, [[Ei
 
 You may also delete via the keyboard by pressing the delete key while the tool containing the objects representation has the focus. Whichever [[EiffelBuild Notation|object]]  has the selection is deleted.
 
-{{note| '''Note''': To restore a deleted object, you may use the [[History|History]]  }}
+{{note|To restore a deleted object, you may use the [[History|History]]  }}
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[History|History]]  <br/>
 [[Type selector|Type selector]]  }}
 

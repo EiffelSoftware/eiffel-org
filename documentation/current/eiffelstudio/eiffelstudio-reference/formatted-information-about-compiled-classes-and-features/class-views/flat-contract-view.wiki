@@ -5,7 +5,7 @@ The Flat Contract view  [[Image:view-flat-contracts-icon]] displays the contract
 
 {{warning| '''Caution''': For classes with many [[Ancestors|ancestors]] , computation of the Flat Contract view may require a few seconds. }}
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Class formatters: Flat view|Flat view]]  <br/>
 [[Contract view|Contract view]]  }}
 

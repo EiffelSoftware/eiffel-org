@@ -41,7 +41,7 @@ You may convert an existing widget structure into a locked instance of a widget 
 
 {{note|Double clicking on a locked object within the Layout Constructor, targets the object of which it is an instance to the Layout Constructor. }}
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Builder window|Builder window]]  <br/>
 [[Object editor|Object editor]]  <br/>
 [[Display window|Layout window]]  }}

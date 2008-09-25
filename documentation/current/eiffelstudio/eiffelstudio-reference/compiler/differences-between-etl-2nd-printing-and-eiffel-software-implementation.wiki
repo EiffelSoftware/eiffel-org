@@ -2,7 +2,7 @@
 [[Property:link_title|]]
 [[Property:weight|-9]]
 [[Property:uuid|fc1e73f4-5646-aa41-e7fe-97dc6f3ceb04]]
-{{seealso|See also: [[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]]  }}
+{{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]]  }}
 
 ==Added classes==
 * New basic classes have been added: <eiffel>INTEGER_8</eiffel>, <eiffel>INTEGER_16</eiffel>, <eiffel>INTEGER_64</eiffel> and <eiffel>WIDE_CHARACTER</eiffel>. <eiffel>INTEGER</eiffel> is now specified as having a 32 bits representation

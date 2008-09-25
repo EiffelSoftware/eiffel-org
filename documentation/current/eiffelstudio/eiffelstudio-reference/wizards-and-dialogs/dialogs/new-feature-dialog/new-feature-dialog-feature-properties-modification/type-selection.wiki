@@ -5,14 +5,14 @@ Whenever you need to give a type of something in the dialog, the type selection 
 <div>  [[Image:feature-wizard-typeselection]]  </div>
 When you select a class that is in the system and has formal generic parameters, the type selection component lets you specify an actual generic parameter in another type selection.
 <div>  [[Image:feature-wizard-generictype]]  </div>
-{{note| '''Note''': the window might grow in size because of the added component. }}
+{{note|the window might grow in size because of the added component. }}
 
 Since the actual generic type selection is also a type selection, you can select another class with generic parameters and nest them as deep as you need.
 <div>  [[Image:feature-wizard-generictyperec]]  </div>
 You can also select the type <eiffel>TUPLE</eiffel>, which is a special class that can have zero or more generic parameters. When you select it, it has no parameters, but you can add one by clicking on the '''Add parameter''' button. Click it as often as the number of generic parameters that you need. 
 <div>  [[Image:feature-wizard-tupletype2]]  <br/>
 </div>
-{{warning| '''Warning''': if you need a very complex type, it is better not to use the dialog, as the window might grow bigger than your screen. After you completed the feature, edit it manually in the class text. }}
+{{warning|if you need a very complex type, it is better not to use the dialog, as the window might grow bigger than your screen. After you completed the feature, edit it manually in the class text. }}
 
 The code generated for the selected type is quite straightforward, an example:
 <div>  [[Image:feature-wizard-complextype]]  <br/>

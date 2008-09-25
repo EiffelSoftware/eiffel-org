@@ -25,7 +25,7 @@ The diagram tool uses the [http://bon-method.com BON]  (Business Object Notation
 [[Image:bon-class-root]]  
 
 
-{{seealso| '''See also''' <br/>
+{{seealso|<br/>
 [[Rename class|Changing class names]]  }}
 
 ==Cluster==
@@ -33,7 +33,7 @@ The diagram tool uses the [http://bon-method.com BON]  (Business Object Notation
 A cluster is a collection of classes and sub-clusters. It is represented by a stippled, rounded rectangle. The cluster name is in a similar rectangle, by default located at the top of the cluster just outside of it. A cluster can be iconified, which means it is minimized to take up as less space as possible.
 <div>  [[Image:bon-cluster-iconified]]   [[Image:bon-cluster]]  </div><br/>
 
-{{seealso| '''See also''' <br/>
+{{seealso|<br/>
 [[Iconifying and restoring a cluster|Iconifying a cluster]]  }}
 
 ==Inheritance links==
@@ -42,7 +42,7 @@ Inheritance between classes is represented by an arrow from a class to its paren
 <div>  [[Image:bon-inheritance]]  </div><br/>
 <br/>
 
-{{seealso| '''See also''' <br/>
+{{seealso|<br/>
 [[Creating inheritance links|Creating inheritance links]]  }}
 
 ==Client/supplier links==
@@ -51,7 +51,7 @@ Client relationships between classes are represented by an arrow with a double l
 <div>  [[Image:bon-client]]   [[Image:bon-agg-client]]  </div><br/>
 <br/>
 
-{{seealso| '''See also''' <br/>
+{{seealso|<br/>
 [[Creating client/supplier links|Creating client/supplier links]]  }}
 
 

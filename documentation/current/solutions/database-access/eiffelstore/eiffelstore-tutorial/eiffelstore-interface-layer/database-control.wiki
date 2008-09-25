@@ -59,7 +59,7 @@ The loop performs a multi-step transaction. If transaction is not carried out en
 
 {{warning| '''Caution''': Some databases can be in an auto-commit mode. Furthermore, some special database commands can automatically commit database changes. }}
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Database Connection|Database connection]]  <br/>
 [[EiffelStore Implementation Layer|Implementation]]  <br/>
 }}

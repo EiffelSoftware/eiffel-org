@@ -3,7 +3,7 @@
 [[Property:uuid|850bd867-5cbf-34d0-f94c-97a75bfa244b]]
 The feature name field is a text box that lets you enter a name for the feature. For help on how to choose the right name for a feature, see: [http://www.eiffel.com/doc/oosc/ Object-Oriented Software Construction, Second Edition] , paragraph 26.2. 
 
-{{warning| '''Warning''': EiffelStudio performs no validation on the name you choose. For example if you type a space in it, it will generate the code, and detect a syntax error only when compiling. }}
+{{warning|EiffelStudio performs no validation on the name you choose. For example if you type a space in it, it will generate the code, and detect a syntax error only when compiling. }}
 
 
 

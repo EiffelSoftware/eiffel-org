@@ -64,7 +64,7 @@ Let us give some details about the set_base feature:
 ** Login information.
 ** Status information. 
 
-{{note| '''Note''': When database is inactive, its information is stored in the <eiffel>DATABASE_APPL</eiffel> object. }}
+{{note|When database is inactive, its information is stored in the <eiffel>DATABASE_APPL</eiffel> object. }}
 
 
 The corresponding code looks like:
@@ -82,7 +82,7 @@ The corresponding code looks like:
 		...
 </code>
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[EiffelStore Interface Layer|The interface layer]]  <br/>
 }}
 

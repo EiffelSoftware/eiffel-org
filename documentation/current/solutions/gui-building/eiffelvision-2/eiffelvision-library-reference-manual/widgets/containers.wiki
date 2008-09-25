@@ -7,7 +7,7 @@ All Vision2 containers inherit [[ref:libraries/vision2/reference/ev_container_ch
 
 A container is a Vision2 widget that may contain other widgets. Some containers such as [[ref:libraries/vision2/reference/ev_cell_chart|EV_CELL]]  may only hold one widget while containers such as [[ref:libraries/vision2/reference/ev_box_chart|EV_BOX]]  may hold multiple widgets. As a container is of type [[ref:libraries/vision2/reference/ev_widget_chart|EV_WIDGET]] , this means that a container may be placed within a container. Windows inherit from [[ref:libraries/vision2/reference/ev_cell_chart|EV_CELL]]  and are therefore classed as containers also. 
 
-{{note| '''Note: '''Containers may only contain other widgets. Items may only be placed in certain primitives. For example, an [[ref:libraries/vision2/reference/ev_list_item_chart| EV_LIST_ITEM]]  may be contained in an [[ref:libraries/vision2/reference/ev_list_chart| EV_LIST]] . }}
+{{note|Containers may only contain other widgets. Items may only be placed in certain primitives. For example, an [[ref:libraries/vision2/reference/ev_list_item_chart| EV_LIST_ITEM]]  may be contained in an [[ref:libraries/vision2/reference/ev_list_chart| EV_LIST]] . }}
 
 ==Inheritance from Base==
 
@@ -47,7 +47,7 @@ The mapping of a Vision2 container interface is very close to that of containers
 * To empty a container call `wipe_out'.
 * To traverse the container, you can use features such as start, forth, item and off.
 
-{{note| '''Note''': When a widget is added to a container, the container is the parent of the widget. }}
+{{note|When a widget is added to a container, the container is the parent of the widget. }}
 
 ==Size of widget within a container==
 
@@ -55,7 +55,7 @@ The size of a widget in a container is always at least its minimum size. By defa
 
 ==Sizing of containers==
 As [[ref:libraries/vision2/reference/ev_container_chart|EV_CONTAINER]]  is of type [[ref:libraries/vision2/reference/ev_widget_chart|EV_WIDGET]] , the following facilities are provided for setting the minimum size: set_minimum_width, set_minimum_height and set_minimum_size. It is important to remember that as a general rule, '''the current size of a container is always at least the minimum size of all its contents.''' 
-{{note| '''Note: '''The exception to this is: [[ref:libraries/vision2/reference/ev_fixed_chart|EV_FIXED]] , [[ref:libraries/vision2/reference/ev_viewport_chart|EV_VIEWPORT]]  and [[ref:libraries/vision2/reference/ev_scrollable_area_chart|EV_SCROLLABLE_AREA]]  which do actually allow their contents to be larger than their current size. <br/>
+{{note|The exception to this is: [[ref:libraries/vision2/reference/ev_fixed_chart|EV_FIXED]] , [[ref:libraries/vision2/reference/ev_viewport_chart|EV_VIEWPORT]]  and [[ref:libraries/vision2/reference/ev_scrollable_area_chart|EV_SCROLLABLE_AREA]]  which do actually allow their contents to be larger than their current size. <br/>
 }}
 
 

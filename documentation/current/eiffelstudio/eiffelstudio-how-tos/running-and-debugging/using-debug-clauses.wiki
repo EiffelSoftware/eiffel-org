@@ -22,7 +22,7 @@ To modify the debug clauses status:
 * Click '''OK'''. 
 * You must [[Generating executables|recompile]]  your project for the changes to take effect. 
 
-{{tip| '''Tip''': Debug clauses make it easy to remove all debug messages when finalizing a system. }}
+{{tip|Debug clauses make it easy to remove all debug messages when finalizing a system. }}
 
 
 

@@ -19,9 +19,9 @@ Looking at the left-hand screenshot above, you can see that the  [[Image:icon-co
 *  '''Builder view''' - This view is similar to the view used by the [[Display window|display window]] . i.e. the [[EiffelVision Introduction|EiffelVision2]]  controls are displayed exactly as is defined in the [[EiffelBuild Notation|component]] . 
 *  '''Display view''' - This view is similar to the view used by the [[Builder window|builder window]] . i.e. all [[EiffelVision Introduction|EiffelVision2]]  containers are represented by frames so they are immediately visible. This makes the actual structure represented by the [[EiffelBuild Notation|component]]  completely visible. 
 
-{{note| '''Note''': The type of the "root_object" within the component is displayed in the toolbar of the component viewer. }}
+{{note|The type of the "root_object" within the component is displayed in the toolbar of the component viewer. }}
 
-{{seealso| '''See also''' <br/>
+{{seealso|<br/>
 [[Builder window|Builder window]]  <br/>
 [[Layout constructor| Layout constructor]]  }}
 

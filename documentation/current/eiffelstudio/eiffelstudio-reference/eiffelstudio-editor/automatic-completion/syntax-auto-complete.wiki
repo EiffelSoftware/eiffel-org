@@ -61,7 +61,7 @@ The editor can complete syntactic structures or part of them. The auto-complete 
 The way these reserved words are completed is fully [[Syntax automatic completion preferences|customizable]] . 
 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 To see how the editor completes by default and how it can be changed, please read the following pages: [[Syntax automatic completion preferences|Syntax auto-complete preferences]]  <br/>
 }}
 

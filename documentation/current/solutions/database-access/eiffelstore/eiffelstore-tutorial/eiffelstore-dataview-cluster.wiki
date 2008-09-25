@@ -179,7 +179,7 @@ Table components can be associated to reflect relation of database tables repres
 * 1 master component enables to manually select database table rows.
 * Slave components automatically select table rows that are associated to the current table row of the master component.
 
-{{note| '''Note''': Notice that table associations can be '''nested'''. }}
+{{note|Notice that table associations can be '''nested'''. }}
 
 2 types of associations are possible to reflect table relations:
 * The slave table is dependent on the master table (1:N relationship)
@@ -265,7 +265,7 @@ Basic relationship between table component class and navigation class
 
 DV_TABLEROWS_NAVIGATOR clients
 
-{{note| '''Note''': DV_TABLEROWS_COMPONENT class merely carries a set of table rows and enables to select one table row. }}
+{{note|DV_TABLEROWS_COMPONENT class merely carries a set of table rows and enables to select one table row. }}
 
 DV_CONTROL_NAVIGATOR affords a way to navigate among searched table rows.
 
@@ -275,7 +275,7 @@ This class enables 2 navigation systems:
 * Navigating among table rows with "previous" and "next" controllers.
 * Navigating among table rows through a display list.
 
-{{tip| '''Tip''': Notice that both systems can be used. }}
+{{tip|Notice that both systems can be used. }}
 
 You can directly set [[#dv_s_control| controllers]]  for "previous" and"next" actions. A 3rd controller, "edit list", enables to show or raise the display list. 
 
@@ -384,9 +384,9 @@ This cluster provides the model with an interface to input or output data on the
 
 The [[ref:libraries/store/reference/dv_sensitive_control_chart|DV_SENSITIVE_CONTROL]]  class lets a model class trigger a specific action on a determined user event. Furthermore, the model class lets the user know when its state enables to trigger the action, by setting the controller sensitivity (i.e. if the controller is insensitive, the action cannot be triggered).
 
-{{note| '''Note''': sensitivity excepted, these controllers could have been implemented by Eiffel ''agents''. }}
+{{note|sensitivity excepted, these controllers could have been implemented by Eiffel ''agents''. }}
 
-{{note| '''Note''': sensitivity enables to let the user know ''before''triggering an action if this is possible or not. The other possibility is to let the user know ''after'' trying to trigger the action that it was not possible(with a warning for instance): this is often less convenient. }}
+{{note|sensitivity enables to let the user know ''before''triggering an action if this is possible or not. The other possibility is to let the user know ''after'' trying to trigger the action that it was not possible(with a warning for instance): this is often less convenient. }}
 
 The standard controllers are buttons or menu items: the specific action is triggered when button is clicked or menu item selected.
 
@@ -400,7 +400,7 @@ The standard graphical widgets to perform this are text fields, but several othe
 * A combo-box so that the interface can suggest different values.
 * A label if the text only need to be output.
 
-{{note| '''Note''': customized, specific widgets can be defined, you can for instance take a look at the DV_STRING_LIST class. }}
+{{note|customized, specific widgets can be defined, you can for instance take a look at the DV_STRING_LIST class. }}
 
 ===5.3. DV_SENSITIVE_INTEGER class===
 
@@ -425,7 +425,7 @@ The [[ref:libraries/store/reference/dv_tablerow_list_chart|DV_TABLEROW_LIST]]  c
 
 [[ref:libraries/store/reference/dv_tablerow_multilist_chart|DV_TABLEROW_MULTILIST]]  implements DV_TABLEROW_LIST with an EiffelVision2 multi-column list.
 
-{{note| '''Note''': This class is used for the [[#dv_control_navigator|standard implementation]]  of [[ref:libraries/store/reference/dv_tablerows_navigator_chart|DV_TABLEROW_NAVIGATOR]]  to [[#dv_tablerow_navigator|navigate among table rows]]  selected from the database. }}
+{{note|This class is used for the [[#dv_control_navigator|standard implementation]]  of [[ref:libraries/store/reference/dv_tablerows_navigator_chart|DV_TABLEROW_NAVIGATOR]]  to [[#dv_tablerow_navigator|navigate among table rows]]  selected from the database. }}
 
 
 

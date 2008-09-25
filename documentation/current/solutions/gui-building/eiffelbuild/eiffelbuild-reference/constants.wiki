@@ -30,7 +30,7 @@ To add a new constant to your project, select the type of the constant that you 
 *  '''Font''' - Enter a name in the "Name" field, and then select "New" which displays a font dialog. Selecting a font from this dialog and pressing "OK" adds the new font constant to the project. 
 *  '''Color''' - Enter a name in the "Name" field, and then select "New" which displays a color dialog. Selecting a color from this dialog and pressing "OK" adds the new color constant to the project. 
 
-{{note| '''Note''': After adding a new constant, it is immediately displayed with all constants in the dialog. }}
+{{note|After adding a new constant, it is immediately displayed with all constants in the dialog. }}
 
 
 ===Modifying an existing constant===
@@ -50,7 +50,7 @@ To remove a constant from the project, select it in the multi column list, and s
 
 As objects are reliant on the constant you are removing, you must confirm that you really wish to remove it from the system. If you select "OK", the constant is removed, and the object property relying on that constant is converted to a manifest value. For example, if you are using an Integer constant with a value of 100, and you remove the constant, the property no longer references the constant, but is set explicitly to 100.
 
-{{note| '''Note''': You may sort the constants displayed in the dialog, by clicking the associated column header. }}
+{{note|You may sort the constants displayed in the dialog, by clicking the associated column header. }}
 
 ==String constant==
 
@@ -148,7 +148,7 @@ The Pixmap Constant dialog is used to select pixmaps for addition to an EiffelBu
 [[Image:pixmap-selection-dialog]]  
 
 An individual pixmap may be selected, or a whole directory of pixmaps may be selected from this dialog for addition. In the screenshot above, a directory containing two pixmaps was selected. The "Build from" option at the bottom of the dialog permits you to select if you wish to add an absolute or relative pixmap, and if multiple pixmaps are being added, the currently selected pixmap from the list above is active. The relative "DIRECTORY" for relative pixmaps is filled in automatically if EiffelBuild finds a directory constant in the system that matches the path chosen. If not, you may enter a name in this field to create a new directory matching the required path. If you do not enter a directory name for one or more relative pixmaps, upon closing the dialog, you will be prompted to enter a name for a directory constant used for these pixmaps. 
-{{note| '''Note''': If you are selecting new pixmaps, and they appear in the dialog as unchecked, it means that an equivalent pixmap already exists in the project. }}
+{{note|If you are selecting new pixmaps, and they appear in the dialog as unchecked, it means that an equivalent pixmap already exists in the project. }}
 
 
 ==Loading constants==
@@ -162,9 +162,9 @@ By default, all constant values are hard coded into the implementation class, bu
 Constants may be associated to properties of your [[EiffelBuild Notation|objects]]  via an [[Object editor|object editor]]  targeted to that [[EiffelBuild Notation|object]] . The  [[Image:icon-format-onces-color]]  button denotes the use of a constant value. For more information regarding using constants, in [[Object editor|object editors]] , see [[Object editor|object editor]] . 
 
 When an EiffelBuild project is generated, all constants are added to a class, inherited by each window class. There is an "_IMP" and interface versions of these classes as with each window. For more information regarding the generation of constants, see [[EiffelBuild: Code Generation|code generation]] . 
-{{note| '''Note''': To modify pixmap constants based on the current installation of an EiffelBuild generated interface, simply redefine the Directory constant used to access the pixmaps within the interface constants class (not "_IMP"), which is not re-generated if it already exists. }}
+{{note|To modify pixmap constants based on the current installation of an EiffelBuild generated interface, simply redefine the Directory constant used to access the pixmaps within the interface constants class (not "_IMP"), which is not re-generated if it already exists. }}
 
-{{seealso| '''See also''': <br/>
+{{seealso|<br/>
 [[EiffelBuild: Code Generation|Code generation]]  <br/>
 [[Object editor|Object editor]]  <br/>
 [[EiffelBuild: Project settings window|Project settings]]  }}

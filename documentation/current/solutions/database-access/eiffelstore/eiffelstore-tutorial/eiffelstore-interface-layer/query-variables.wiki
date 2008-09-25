@@ -22,7 +22,7 @@ Variables syntax is simple: the ':' special character followed by the variable n
 	selection.set_query ("Select * from CONTACTS where Firstname = ':" + Bind_var + "'")
 </code>
 
-{{note| '''Note''': The code example shows how to bind variables to a [[ref:/libraries/store/reference/db_selection_chart|DB_SELECTION]]  object but the mechanism is exactly the same for [[ref:/libraries/store/reference/db_change_chart|DB_CHANGE]]  objects. }}
+{{note|The code example shows how to bind variables to a [[ref:/libraries/store/reference/db_selection_chart|DB_SELECTION]]  object but the mechanism is exactly the same for [[ref:/libraries/store/reference/db_change_chart|DB_CHANGE]]  objects. }}
 
 ==Binding variables to a query==
 
@@ -40,7 +40,7 @@ Once you have created your query, you can map variable names to values and execu
 	end
 </code>
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Database Selection|Performing a database selection.]]  <br/>
 [[Data Modification|Modifying database content.]]  <br/>
 }}

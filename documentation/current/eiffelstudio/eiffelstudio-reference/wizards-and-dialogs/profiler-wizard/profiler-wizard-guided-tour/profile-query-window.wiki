@@ -13,11 +13,11 @@ To change the operator affecting an existing sub query, select it in either the 
 
 Click on the '''Save''' button to save the currently displayed results in a text file. 
 
-{{tip| '''Tip''': To visualize the result in Microsoft Excel or any other spreadsheet, select the entire text (except the first three lines where the Execution Profile file is specified), copy it and then paste it into Excel. }}
+{{tip|To visualize the result in Microsoft Excel or any other spreadsheet, select the entire text (except the first three lines where the Execution Profile file is specified), copy it and then paste it into Excel. }}
 <br/>
  [[Image:profiler-query-window]]  <br/>
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Profiler wizard: Introduction|How the Profiler wizard works]]  <br/>
 [[Profiling|How to profile a system]]  }}
 

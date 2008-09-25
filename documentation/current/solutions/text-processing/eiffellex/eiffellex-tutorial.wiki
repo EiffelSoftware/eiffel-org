@@ -171,7 +171,7 @@ If you do not want to make the class a descendant of [[ref:/libraries/base/refer
 
 To analyze a text, call <eiffel>set_file </eiffel>or <eiffel>set_string </eiffel>to specify the document to be parsed. With the first call, the analysis will be applied to a file; with the second, to a string.
 
-{{note| '''Note''': if you use procedure analyze of [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] , you do not need any such call, since analyze calls set_file on the file name passed as argument. }}
+{{note|if you use procedure analyze of [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] , you do not need any such call, since analyze calls set_file on the file name passed as argument. }}
 
 ===Obtaining the tokens===
 
@@ -354,7 +354,7 @@ You may freely combine the various construction mechanisms to describe complex r
 ===Dealing with keywords===
 
 Many languages to be analyzed have keywords - or, more generally, "reserved words". Eiffel, for example, has reserved words such as <code> class </code> and <code> Result </code>. 
-{{note| '''Note''': in Eiffel terminology reserved words include keywords; a keyword is a marker playing a purely syntactical role, such as <code> class </code>. Predefined entities and expressions such as <code> Result </code> and <code> Current </code>, which have an associated value, are considered reserved words but not keywords. The present discussion uses the term "keyword" although it can be applied to all reserved words. }}
+{{note|in Eiffel terminology reserved words include keywords; a keyword is a marker playing a purely syntactical role, such as <code> class </code>. Predefined entities and expressions such as <code> Result </code> and <code> Current </code>, which have an associated value, are considered reserved words but not keywords. The present discussion uses the term "keyword" although it can be applied to all reserved words. }}
 
 In principle, keywords could be handled just as other token types. In Eiffel, for example, one might treat each reserved words as a token type with only one specimen; these token types would have names such as Class or Then and would be defined in the lexical grammar file:
 
@@ -386,7 +386,7 @@ BOOLEAN
 
 {{warning| '''Caution''': every keyword in the keyword section must be a specimen of one of the token types defined for the grammar, and that token type must be the last one defined in the lexical grammar file, just before the '''Keywords''' line. So in Eiffel where the keywords have the same lexical structure as identifiers, the last line before the keywords must be the definition of the token type ''Identifier'', as shown above. }}
 
-{{note| '''Note''': the rule that all keywords must be specimens of one token type is a matter of convenience and simplicity, and only applies if you are using SCANNING and lexical grammar files. There is no such restriction if you rely directly on the more general facilities provided by [[ref:/libraries/lex/reference/metalex_chart|METALEX]]  or [[ref:/libraries/lex/reference/lex_builder_chart|LEX_BUILDER]] . Then different keywords may be specimens of different regular expressions; you will have to specify the token type of every keyword, as explained later in this chapter. }}
+{{note|the rule that all keywords must be specimens of one token type is a matter of convenience and simplicity, and only applies if you are using SCANNING and lexical grammar files. There is no such restriction if you rely directly on the more general facilities provided by [[ref:/libraries/lex/reference/metalex_chart|METALEX]]  or [[ref:/libraries/lex/reference/lex_builder_chart|LEX_BUILDER]] . Then different keywords may be specimens of different regular expressions; you will have to specify the token type of every keyword, as explained later in this chapter. }}
 
 ===Case sensitivity===
 
@@ -467,7 +467,7 @@ The calls seen so far record a number of regular expressions and keywords, but d
 <code>	make_analyzer</code>
 
 After that call, you may not record any new regular expression or keyword. The analyzer is usable through attribute analyzer. 
-{{note| '''Note''': for readers knowledgeable in the theory of lexical analysis: one of the most important effects of the call to make_analyzer is to transform the non-deterministic finite automaton resulting from calls such as the ones above into a deterministic finite automaton. }}
+{{note|for readers knowledgeable in the theory of lexical analysis: one of the most important effects of the call to make_analyzer is to transform the non-deterministic finite automaton resulting from calls such as the ones above into a deterministic finite automaton. }}
 
 Remember that if you use procedure read_grammar, you need not worry about make_analyzer, as the former procedure calls the latter. 
 Another important feature of class [[ref:/libraries/lex/reference/metalex_chart|METALEX]]  is procedure <eiffel>store_analyzer</eiffel>, which stores the analyzer into a file whose name is passed as argument, for use by later lexical analysis sessions. To retrieve the analyzer, simply use procedure <eiffel>retrieve_analyzer</eiffel>, again with a file name as argument.

@@ -16,7 +16,7 @@ The tool may now be freely moved to any location on screen, in the same fashion 
 **  '''Closing the window''' - Clicking the cross displayed to the right hand side of the windows title bar causes the window to be destroyed, and the tool contained to be restored back to its original position within the main window. 
 
 
-{{note| '''Note''': The position of tools that have been docked, is maintained automatically between EiffelBuild sessions. When a new project is opened, they are restored to the positions that they had during the last use. }}
+{{note|The position of tools that have been docked, is maintained automatically between EiffelBuild sessions. When a new project is opened, they are restored to the positions that they had during the last use. }}
 
 ==Main window with externally docked tools==
 
@@ -24,7 +24,7 @@ The following screenshot illustrates the appearance of the main window with all 
 [[Image:main-window-with-docked-tools]]  
 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[EiffelBuild: General interface description|General interface description]]  }}
 
 

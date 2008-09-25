@@ -30,7 +30,7 @@ on_paint (paint_dc: WEL_PAINT_DC; invalid_rect: WEL_RECT) is
 	end 
 	</code>
 
-{{note| '''Note:''' If you look at MAIN_WINDOW, you will see that it contains many features. However, nearly all of these are features are inherited from WEL_FRAME_WINDOW. }}
+{{note|If you look at MAIN_WINDOW, you will see that it contains many features. However, nearly all of these are features are inherited from WEL_FRAME_WINDOW. }}
 
 This sample contains the following classes: 
 * HELLO_DEMO

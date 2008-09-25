@@ -53,7 +53,7 @@ Note that any existing breakpoint can be referenced by an implicit tag with ''"'
 
 <center> [[Image:breakpoint-dialog-when-hits]]  </center>
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[Breakpoint commands|Breakpoint commands]]  <br/>
 [[Breakpoint information command|Breakpoint information command]]  <br/>
 }}
