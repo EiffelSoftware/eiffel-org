@@ -5,6 +5,3 @@ There are two simple ways to find a class if you know its name or a part of it :
 * You may use the [[Cluster tool: Introduction|cluster tool]] . This tool presents the entire universe of your project. By developing the [[System tree representation|cluster tree]] , you will be able to find what you are looking for. This method is quick if you already have an idea of where the class is in the universe. 
 * Using [[Address bars: Introduction|address bars]]  will be quicker if you do not have this information or if the size of your project is important. If you type the name of the searched class (you can use wildcards, i.e."*" and "?") in the [[Main address bar|main address bar]]  - and then select the right class in the displayed list if there are several possibilities - the editor will be centered on the class you are looking for. The information about the class location will be displayed in the title bar of the window. If you need more complete information about the class location, you can [[Pick-and-drop mechanism|pick]]  the name of the class in the editor and drop it on the [[Locate command|view icon ]]   [[Image:general-search-icon]]  of the [[Cluster tool: Introduction|cluster tool]] . This tool will then show where the class is in the universe. 
 
-
-
-

@@ -7,13 +7,13 @@ The layout constructor provides a view of the [[EiffelBuild Notation|objects]]  
 
 Each item in the tree represents one object. The screenshot above represents the following [[EiffelVision Introduction|EiffelVision2]]  interface definition - An EV_TITLED_WINDOW containing one child, of type EV_VERTICAL_BOX. Within the vertical box there is an EV_HORIZONTAL_BOX and an EV_LIST. The list is empty, but the horizontal box contains three different objects of type EV_BUTTON. 
 
-{{note|'''Note''': The widget displayed as the root of the Layout Constructor is the currently selected object in the [[Widget selector|Widget Selector]] . To edit the contents of a different widget, select the widget you wish to manipulate from the [[Widget selector|widget selector]] .}}
+{{note|The widget displayed as the root of the Layout Constructor is the currently selected object in the [[Widget selector|Widget Selector]] . To edit the contents of a different widget, select the widget you wish to manipulate from the [[Widget selector|widget selector]] .}}
 
 The information displayed, only shows you the structure of the [[EiffelBuild Notation|objects]] , and although it gives you an indication of the final appearance of the interface you are building, you cannot see the details of the interface. i.e. color, sizes, tool tips etc. To view an accurate representation of the widget structure you are building, show the [[Display window|Layout window]] . 
 
 All [[EiffelBuild Notation|objects]]  displayed in the Layout Constructure are [[EiffelBuild Notation|pickable]] , so can be easily manipulated, e.g. [[Delete an object|deleted]]  or [[Reparent an Object|reparented]] . 
 
-{{note| '''Note''': If the [[EiffelBuild Notation|object]]  in the tree has the '''Name''' property set, then the text corresponds to the name, otherwise, the text is the type of the [[EiffelBuild Notation|object]] . }}
+{{note|If the [[EiffelBuild Notation|object]]  in the tree has the '''Name''' property set, then the text corresponds to the name, otherwise, the text is the type of the [[EiffelBuild Notation|object]] . }}
 
 If you have just started a new project, then the layout constructor will only contain one tree item, TITLED_WINDOW. 
 ==Selection==
@@ -39,7 +39,7 @@ To add a locked object to your interface, simply pick the object that you wish t
 
 You may convert an existing widget structure into a locked instance of a widget by picking the object to be used as the root of the structure (may not be locked) and dropping it into the [[Widget selector|widget selector]] . This creates a new "top level" object within the [[Widget selector|widget selector]]  and places a locked instance of this at the original location in the widget structure where it was picked from. 
 
-{{note| '''Note''': Double clicking on a locked object within the Layout Constructor, targets the object of which it is an instance to the Layout Constructor. }}
+{{note|Double clicking on a locked object within the Layout Constructor, targets the object of which it is an instance to the Layout Constructor. }}
 
 {{seealso| '''See Also''' <br/>
 [[Builder window|Builder window]]  <br/>

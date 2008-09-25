@@ -1,5 +1,4 @@
-[[Property:title|Looking for an expression in a text]]
-[[Property:link_title|Looking for an expression in text]]
+[[Property:title|Looking for an expression in text]]
 [[Property:weight|3]]
 [[Property:uuid|d71e4302-3f44-5cd8-7a26-365af4a6ecf6]]
 To find a word or an expression in a text, you can use the [[Search tool|search tool]] . If it is not displayed, you can make it appear by clicking on its icon  [[Image:tool-search-icon]]  in the tool bar. This tool will allow you to search a word or a regular expression and to replace it if you want to. It can be case sensitive and look for isolated words. 
@@ -7,8 +6,8 @@ To find a word or an expression in a text, you can use the [[Search tool|search 
 
 {{tip| '''Tip''': There are several accelerators that will make it even easier to perform a search. They are detailed in the [[Search functionality|editor help]] . }}
 
-{{tip| '''Tip''': You can use the quicksearch to search in the current text. Press CTRL + F to get the quick search bar. }}
 
+{{tip| '''Tip''': You can use the quicksearch to search in the current text. Press CTRL + F to get the quick search bar. }}
 
 
 

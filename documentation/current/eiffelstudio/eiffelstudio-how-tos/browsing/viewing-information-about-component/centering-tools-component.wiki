@@ -8,5 +8,3 @@ There are three kind of tools directly available in a default development tool :
 The context tool can be [[Change data share mode|independent]]  from the editor. If it is not, both the editor and the context tool will be centered on the same component. If it is, there is a [[Context tool address bar|second address bar]] , in the context tool title bar. You may then center the context tool on a component by using the three methods described for the editor. You can also center the context tool on the same component as the editor ( the context tool remaining independent): Just click  [[Image:context-sync-icon]] or select '''Send to the context''' tool in the '''View''' menu. <br/>
 To make the context tool independent if it is not, click  [[Image:context-link-icon]]  or select '''Isolate context tool''' in the '''View''' menu. To do the opposite, click the same icon or select '''Merge context tool''' in the '''View''' menu. 
 
-
-
