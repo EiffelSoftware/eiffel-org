@@ -11,7 +11,9 @@ When clicking '''Attribute''', the window changes to the attribute layout. It ha
 *  [[Set-procedure|Set-procedure check box]]  
 
 ==Example==
-<div>  [[Image:feature-wizard-attribute-example]]  </div>
+This dialog box:<br/>
+<div>  [[Image:feature-wizard-attribute-example]]  </div><br/>
+Produces this feature:<br/>
 <code>class
 	PRODUCT
 

@@ -4,7 +4,8 @@
 Basic text view  [[Image:view-editor-feature-icon]] displays the text of the current feature as it is written in the enclosing class. <br/>
 It does not work with [[Breakpoints|breakpoints]] ; in order to do this the [[Feature formatters: Flat view|flat view]]  has to be used. 
 
-'''Note''': This view is not available to .NET features which are imported through by means of an assembly. This is because the assembly .exe or .dll exposes only the interface methods and therefore is no feature implementation to display. The feature interface may be viewed, in a clickable format using the Flat View. 
+{{note|This view is not available to .NET features which are imported through by means of an assembly. This is because the assembly .exe or .dll exposes only the interface methods and therefore is no feature implementation to display. The feature interface may be viewed, in a clickable format using the Flat View. }}
+
 
 {{seealso|<br/>
 [[Class formatters: Basic text view|Class basic text view]]  }}

@@ -4,7 +4,7 @@
 [[Property:uuid|933b22f0-c181-fd65-9b52-be20270b00af]]
 The homonyms view  [[Image:feature-homonyms-icon]]  displays all the features in the system which have the same name as the current feature. 
 
-{{warning| '''Caution''': This operation may take a long time if the system has a lot of classes. }}
+{{warning|: This operation may take a long time if the system has a lot of classes. }}
 
 {{seealso|<br/>
 [[Implementers|Implementers]]  }}

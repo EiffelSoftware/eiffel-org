@@ -10,7 +10,7 @@ and so on. Many combinations of these properties may be worth counting on their 
 
 To avoid this we must identify a subset of elementary metrics as '''raw metrics''': metrics whose results are counted directly. "Number of features in a class" is a raw metric. From a raw metric, we may then derive other elementary metrics by applying '''selection criteria''' such as "Is this feature an attribute?" or "Is this feature exported?" Here are the definitions: 
 
-{{note| '''Raw metric, selection criterion, derived metric:''' <br/>
+{{definition|Raw metric, selection criterion, derived metric|<br/>
 An elementary metric is either '''raw''' or '''derived'''. A '''selection criterion''' for a raw metric is a property, with a fixed set of possible values (two or more), characterizing the patterns or events being counted by the metric. <br/>
 A '''derived metric''' is an elementary metric defined from a raw metric by counting only the patterns satisfying a certain combination of its selection criteria. }}
 

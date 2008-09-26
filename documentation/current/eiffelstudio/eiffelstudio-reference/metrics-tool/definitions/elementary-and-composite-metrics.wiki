@@ -3,7 +3,7 @@
 [[Property:uuid|ef89f3c3-180e-3390-74b5-d6d537921453]]
 Some of our metrics will be elementary and some composite. An elementary metric is measured directly from the product or a project record:
 
-{{note| '''Elementary_metric''': <br/>
+{{definition|Elementary product metric, elementary process metric|<br/>
 - An '''elementary product metric''' is a product metric whose values (integers) indicate the number of occurrences of a certain pattern in a product. <br/>
 - An '''elementary process metric''' is a process metric whose values reflect measurements drawn directly from project records. }}
 
@@ -13,11 +13,11 @@ Elementary metrics are provided by default by the metric tool. There is no means
 
 From these elementary metrics we may define composite ones:
 
-{{note| '''Composite metric ''': A '''composite metric''' is a metric whose values are defined by a mathematical formula involving other metrics (elementary, or previously defined composite metrics). }}
+{{definition|Composite metric|A '''composite metric''' is a metric whose values are defined by a mathematical formula involving other metrics (elementary, or previously defined composite metrics). }}
 A later section will introduce a number of operations for defining composite metrics out of elementary ones. 
 Again we may distinguish between product and process:
 
-{{note| '''Composite product metric, composite process metric:''' <br/>
+{{definition|Composite product metric, composite process metric|<br/>
 - A '''composite product metric''' is a composite metric defined entirely in terms of product metrics. <br/>
 - A '''composite process metric''' is a composite metric whose definition involves one or more process metrics. }}
 

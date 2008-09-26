@@ -13,7 +13,10 @@ When clicking '''Procedure''', the window changes to the procedure layout. It ha
 *  [[Postcondition|Postcondition field]]  
 
 ==Example==
-<div>  [[Image:feature-wizard-procedure-example]]  </div>
+
+This dialog box:<br/>
+<div>  [[Image:feature-wizard-procedure-example]]  </div><br/>
+Produces this feature:<br/>
 <code>class
 	PRODUCT
 

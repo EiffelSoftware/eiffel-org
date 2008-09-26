@@ -3,7 +3,7 @@
 [[Property:uuid|303fb469-9f2b-d7cc-55e7-d657fb87b8fe]]
 Every metric has a scope:
 
-{{note| '''Scope of a metric''': <br/>
+{{definition|Scope of a metric|<br/>
 The '''scope''' of a metric is defined as follows: <br/>
 - For a raw product metric, the type of product over which the metric is counted, such as: a feature, a class, a group, an archive built for a given system to make it possible to compare systems. <br/>
 - For a raw process metric, the type of process on which the metric is measured, such as analysis, documentation, entire project etc. <br/>
@@ -14,7 +14,7 @@ The '''scope''' of a metric is defined as follows: <br/>
 
 This notion also applies to measures:
 
-{{note| '''Scope of a measure''': <br/>
+{{definition|Scope of a measure|<br/>
 The '''scope''' of a measure is defined as follows: <br/>
 - For an elementary measure (the application of an elementary metric, raw or derived), the set of products or processes to which the associated metric has been applied to yield the measure. <br/>
 - For a composite measure, the union of (recursively) the scopes of its constituent measures. }}

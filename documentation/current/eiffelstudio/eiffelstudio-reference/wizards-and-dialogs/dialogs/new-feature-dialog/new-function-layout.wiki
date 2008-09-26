@@ -14,7 +14,9 @@ When clicking '''Function''', the dialog changes to the function layout. It has 
 *  [[Postcondition|Postcondition field]]  
 
 ==Example==
-<div>  [[Image:feature-wizard-function-example]]  </div>
+This dialog box:<br/>
+<div>  [[Image:feature-wizard-function-example]]  </div><br/>
+Produces this feature:<br/>
 <code>class
 	PRODUCT
 

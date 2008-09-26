@@ -1,15 +1,22 @@
 [[Property:title|Feature views]]
 [[Property:weight|2]]
 [[Property:uuid|81c09c3a-0c0e-ecab-b708-0f5cd8860031]]
-*  [[Feature formatters: Introduction|Introduction]]  
-*  [[Feature formatters: Basic text view|Basic text view]]  
-*  [[Feature formatters: Flat view|Flat view]]  
-*  [[Callers|Callers]]  
-*  [[Implementers|Implementers]]  
-*  [[Ancestor versions|Ancestor versions]]  
-*  [[Descendant versions|Descendant versions]]  
-*  [[Homonyms|Homonyms]]  
+[[Image:feature-format-bar]]  
 
+Feature views are all available through the '''Feature''' tab of the [[EiffelStudio window overview|context tool]] . <br/>
+These views (and their associated icon) are: 
+*   [[Image:view-editor-feature-icon]]  [[Feature formatters: Basic text view|Basic text view]]  
+*   [[Image:view-clickable-feature-icon]]  [[Feature formatters: Flat view|Clickable view]]  
+*   [[Image:feature-callers-icon]]  [[Callers|Callers]]  
+*   [[Image:feature-assigners-icon]]  Assigners 
+*   [[Image:feature-creators-icon]]  Creators 
+*   [[Image:feature-callees-icon]]  Callees 
+*   [[Image:feature-assignees-icon]]  Assignees 
+*   [[Image:feature-creaters-icon]]  Creations 
+*   [[Image:feature-implementers-icon]]  [[Implementers|Implementers]]  
+*   [[Image:feature-ancestors-icon]]  [[Ancestor versions|Ancestor versions]]  
+*   [[Image:feature-descendents-icon]]  [[Descendant versions|Descendant versions]]  
+*   [[Image:feature-homonyms-icon]]  [[Homonyms|Homonyms]]  
 
 
 

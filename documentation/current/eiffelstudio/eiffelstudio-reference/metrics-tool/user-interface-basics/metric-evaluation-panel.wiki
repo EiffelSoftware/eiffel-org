@@ -12,11 +12,11 @@ Let's first have a look at the buttons in the main toolbar, see the following fi
 [[Image:metrics-tool--debug-run-icon|Defining an input domain]]  Start metric evaluation <br/>
 Press this button to start evaluating the currently selected metric. 
 
-[[Image:metrics-tool--debug-stop-icon|Defining an input domain]]  Stope metric<br/>
+[[Image:metrics-tool--debug-stop-icon|Defining an input domain]]  Stop metric<br/>
 Press this button to terminate a running metric evaluation. 
 
 [[Image:metrics-tool--metric-send-to-archive-icon|Defining an input domain]]  Send last result to metric history<br/>
-After a metric evaluation this button will be sensitive and clicking it will record the evaluated metric as well as it's input domain and result in the metric history. This faciliates to evaluate it again and let's you compare different metric runs. 
+After a metric evaluation this button will be sensitive and clicking it will record the evaluated metric as well as its input domain and result in the metric history. This facilitates evaluating it again and lets you compare different metric runs. 
 
 [[Image:metrics-tool--metric-run-and-show-details-icon|Defining an input domain]]  Keep detailed result when evaluating metric<br/>
 Normally, evaluating a metric will give you a number as result, but sometimes, you want to investigate into those items which make up that value. For example, evaluating '''Classes''' metric over the base library gives you 242, which means there are 242 classes in the base library, and sometimes, you want to know which they are. With this option enabled, you'll have a detailed result listed in the detailed result panel after a metric evaluation. This option only has effect when evaluating basic metrics, because the detailed result has no meaning for derived metrics (linear or ratio metrics) in general. Suppose you have a linear metric defined as 5 * Classes, then the notion of detailed result has no meaning. Another use of this option is for performance: keeping a detailed result can be quite expensive in some cases, such as when you calculate the metric '''Lines of code''' for a large system, which may result in hundred of thousands of lines in the result. So turning it off in such as case may be a good idea. 

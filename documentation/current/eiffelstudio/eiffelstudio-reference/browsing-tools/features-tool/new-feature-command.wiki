@@ -1,7 +1,7 @@
 [[Property:title|New feature command]]
 [[Property:weight|2]]
 [[Property:uuid|3a670193-29dd-b829-0c90-eec8dd7e74b6]]
-The new feature command  [[Image:new-feature-icon]] located in the [[Feature tool|feature tool]]  acts like the [[New feature dialog: Introduction|main new feature command]] . Clicking it pops up the same dialog, making it possible to add a new feature in the currently edited class. 
+The new feature command  [[Image:new-feature-icon]] located in the [[Feature tool|feature tool]]  acts like the [[New feature dialog|main new feature command]] . Clicking it pops up the same dialog, making it possible to add a new feature in the currently edited class. 
 
 This command is only available when the class currently in the editor is compiled, can be modified, and has a file on the disk (this may not be the case if the class is precompiled).
 

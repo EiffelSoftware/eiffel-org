@@ -3,8 +3,7 @@
 [[Property:uuid|17738f37-4f85-c762-4074-5add286c9281]]
 This document contains the description of default completion for recognized keywords. The [[Keyword completion customization|syntax]]  used is the one used to redefine keyword completion in the preferences. <br/>
 Four tables list default values for each of the [[Keywords automatic completion preferences|four preferences]]  attached to each keyword. 
-#  
-Default value for [[Keywords automatic completion preferences|"Customized autocomplete (Space after keyword was typed)"]]  <br/>
+* Default value for [[Keywords automatic completion preferences|"Customized autocomplete (Space after keyword was typed)"]]  <br/>
 
 {| border="1" 
 |- 
@@ -127,8 +126,7 @@ Default value for [[Keywords automatic completion preferences|"Customized autoco
 |}
 <br/>
 
-#  
-Default value for [[Keywords automatic completion preferences|"Customized autocomplete (Return after keyword was typed)"]]  <br/>
+* Default value for [[Keywords automatic completion preferences|"Customized autocomplete (Return after keyword was typed)"]]  <br/>
 
 {| border="1" 
 |- 
@@ -251,8 +249,7 @@ Default value for [[Keywords automatic completion preferences|"Customized autoco
 |}
 <br/>
 
-#  
-Default value for [[Keywords automatic completion preferences|"Customized autocomplete (Space, other cases)"]]  <br/>
+* Default value for [[Keywords automatic completion preferences|"Customized autocomplete (Space, other cases)"]]  <br/>
 
 {| border="1" 
 |- 
@@ -375,8 +372,7 @@ Default value for [[Keywords automatic completion preferences|"Customized autoco
 |}
 <br/>
 
-#  
-Default value for [[Keywords automatic completion preferences|"Customized autocomplete (Return, other cases)"]]  <br/>
+* Default value for [[Keywords automatic completion preferences|"Customized autocomplete (Return, other cases)"]]  <br/>
 
 {| border="1" 
 |- 
@@ -504,7 +500,6 @@ Default value for [[Keywords automatic completion preferences|"Customized autoco
 [[Keywords automatic completion preferences|Keywords automatic completion preferences]]  <br/>
 [[Keyword completion customization|Keyword completion customization]]  <br/>
 }}
-
 
 
 
