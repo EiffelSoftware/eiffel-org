@@ -7,29 +7,43 @@ Lets have a look at the buttons in the main toolbar highlighted in the following
 
 [[Image:interface14|Metric history panel]]  
 
-[[Image:metrics-tool--debug-run-icon|Run history]]  
 
-[[Image:metrics-tool--debug-stop-icon|Stop history]]  
+[[Image:metrics-tool--debug-run-icon|Run history]]  Recalculate history<br/>Recalculate selected metric history items
 
-[[Image:metrics-tool--metric-run-and-show-details-icon|Keep detailed result]]  
 
-[[Image:metrics-tool--metric-unit-assertion-icon|Check warning]]  
+[[Image:metrics-tool--debug-stop-icon|Stop history]]  Stop history recalculation<br/>Stop running metric history recalculation.
 
-[[Image:metrics-tool--general-reset-icon|Remove detailed result]]  
 
-[[Image:metrics-tool--general-remove-icon|Remove history]]  
+[[Image:metrics-tool--metric-run-and-show-details-icon|Keep detailed result]]  Keep detailed metric result<br/>
+If this option is enabled, the detailed metric result will be kept and will be available after a metric history recalculation.
 
-[[Image:metrics-tool--metric-group-icon|Show tree]]  
 
-[[Image:interface16|Hide old metrics]]  
+[[Image:metrics-tool--metric-unit-assertion-icon|Check warning]]  Check metric history warnings<br/>If this option is enabled, specified metric history warnings will be checked.
 
-[[Image:select-all|select all history]]  
 
-[[Image:deselect-all|deselect all history]]  
+[[Image:metrics-tool--general-reset-icon|Remove detailed result]]  Remove detailed metric result<br/>Remove detailed metric result, if any.
 
-[[Image:select-recalculatable|select all calculatable]]  
 
-[[Image:deselect-recalculatable|deselect all calculatable]]  
+[[Image:metrics-tool--general-remove-icon|Remove history]]  Remove metric history item<br/>Remove selected metric history items.
+
+
+[[Image:metrics-tool--metric-group-icon|Show tree]]  Display tree view<br/>If this option is enabled, the metric history items will be displayed in a tree view.
+
+
+[[Image:interface16|Hide old metrics]]  Hide old metric history<br/>Hide metric history items which are calculated before the specified number of days
+
+
+[[Image:select-all|select all history]]  Select All<br/>Select all recorded metric history items.
+
+
+[[Image:deselect-all|deselect all history]]  Deselect All<br/>Deselect all recorded metric history items.
+
+
+[[Image:select-recalculatable|select all calculatable]]  Select all recalculatable history items<br/>Select all recalculatable metric history items. A metric history item is recalculatable if its associated metric is valid and its specified input domain is valid.
+
+
+[[Image:deselect-recalculatable|deselect all calculatable]]  Deselect all recalculatable history items<br/>Deselect all recalculatable metric history items.
+
 
 ==Recalculate Metric History==
 

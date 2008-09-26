@@ -31,19 +31,19 @@ Buffer is a way to refer to text of a class, a feature or text/selected text in 
 * {<eiffel>SOME_CLASS</eiffel>}.<eiffel>some_feature</eiffel> represents text of <eiffel>some_feature</eiffel> from <eiffel>SOME_CLASS</eiffel>
 
 For example, if you run the command: 
-{{note| gvim {<eiffel>ANY</eiffel>} }}
+{{sample| gvim {<eiffel>ANY</eiffel>} }}
 The text of class <eiffel>ANY</eiffel> will be displayed in a gvim window. 
 
 If you run the command: 
-{{note| gvim @{<eiffel>ANY</eiffel>} }}
+{{sample| gvim @{<eiffel>ANY</eiffel>} }}
 And if class <eiffel>ANY</eiffel> is opened in an editor tab and some text is selected there, the selected text will be displayed in a gvim window. 
 
 If you run the command: 
-{{note| gvim @{<eiffel>ANY</eiffel>}.<eiffel>is_equal</eiffel> }}
+{{sample| gvim @{<eiffel>ANY</eiffel>}.<eiffel>is_equal</eiffel> }}
 The text of feature <eiffel>is_equal</eiffel> from class <eiffel>ANY</eiffel> will be displayed in a gvim window. 
 
 If you run the command: 
-{{note| gvim -d {<eiffel>ANY</eiffel>}.<eiffel>is_equal</eiffel> {<eiffel>APPLICATION</eiffel>}.<eiffel>is_equal</eiffel> }}
+{{sample| gvim -d {<eiffel>ANY</eiffel>}.<eiffel>is_equal</eiffel> {<eiffel>APPLICATION</eiffel>}.<eiffel>is_equal</eiffel> }}
 A gvim windows in diff mode will be opened showing the difference between <eiffel>ANY</eiffel>.<eiffel>is_equal</eiffel> and <eiffel>APPLICATION</eiffel>.<eiffel>is_equal</eiffel>. 
 
 The text used in buffer is stored in a temporary file so whatever change done to that text won't affect the text used in EiffelStudio. 

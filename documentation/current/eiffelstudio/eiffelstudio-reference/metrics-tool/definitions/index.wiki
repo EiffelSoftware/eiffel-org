@@ -1,20 +1,7 @@
 [[Property:title|Definitions]]
 [[Property:weight|2]]
 [[Property:uuid|a562c37f-843c-cbbc-def5-32cda604f269]]
-*  [[Definitions: Introduction|Introduction]]  
-*  [[Attributes, metrics and measures|Attributes, metrics and measures]]  
-*  [[Units|Units]]  
-*  [[Metric framework and theory|Metric frame work theory]]  
-*  [[Elementary and composite metrics|Elementary and composite metrics]]  
-*  [[Raw metrics and selection criteria|Raw metrics and selection criteria]]  
-*  [[Selection Criteria|Selection Criterion]]  
-*  [[Predefined raw metrics|Predefined raw metrics and predefined selection criteria]]  
-*  [[Scopes|Scopes]]  
-*  [[Domains|Domains]]  
-*  [[Measurement archive|Measurement archives]]  
-*  [[Under the Hood - How metrics work|Under the Hood - How Metrics Work]]  
-*  [[Criterion References|Selection Criteria Reference]]  
+The metric tool needs a consistent metric theory on which to rely. Indeed, metrics are notoriously subject to abuse and we must be really accurate when defining metrics and related notions.
 
-
-
+This section introduces a set of definitions essential to handle the metric tool.
 

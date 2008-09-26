@@ -60,7 +60,7 @@ Once the profiler has been enabled and the program has been recompiled, it is ne
 
 When the program exits, a file named 'profinfo' should be generated next to it.
 
-All that's left to do is launch the [[Profiler wizard: Introduction|Profiler wizard]]  and follow the instructions. 
+All that's left to do is launch the [[Profiler wizard]]  and follow the instructions. 
 
 {{seealso|<br/>
 [[Generating executables|Generating executables]]  <br/>

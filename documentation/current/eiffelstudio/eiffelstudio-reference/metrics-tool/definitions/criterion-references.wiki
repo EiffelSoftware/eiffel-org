@@ -62,11 +62,11 @@
 '''Applicable on:''' Class, Feature<br/>
 '''Remark:''' This criterion will evaluate to True if candidate class (or feature) is descendant of any (if more than one are possible) of the class (or feature) specified in the criterion domain.<br/>
 For example, in a class metric, 
-{{note|ancestor_is {<eiffel>STRING_8</eiffel>}}}
+{{sample|ancestor_is {<eiffel>STRING_8</eiffel>} }}
 <br/>
 will evaluate to True when a candidate class is a descendant of class <eiffel>STRING_8</eiffel>.<br/>
 In a class metric, 
-{{note|ancestor_is {<eiffel>LINKED_LIST</eiffel>, <eiffel>DS_LINKED_LIST</eiffel>} }}
+{{sample|ancestor_is {<eiffel>LINKED_LIST</eiffel>, <eiffel>DS_LINKED_LIST</eiffel>} }}
 will evaluate to True when a candidate class is a descendant of either <eiffel>LINKED_LIST</eiffel> or <eiffel>DS_LINKED_LIST</eiffel>. 
 
 '''proper_ancestor_is'''<br/>
@@ -201,6 +201,7 @@ only_current_verision modifier is a boolean modifier, if it's True, when the cri
 '''is_implementors_of'''<br/>
 '''Syntax:''' is_implementors_of {domain}<br/>
 '''Applicable on:''' Feature<br/>
+
 '''Remark:''' This criterion will evaluate to True if the candidate feature is an implementer of some features listed in criterion domain.<br/>
 
 

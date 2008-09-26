@@ -2,9 +2,4 @@
 [[Property:weight|3]]
 [[Property:uuid|cf25a603-5446-9964-892c-227c4077a829]]
 Incoming mechanism is based on URI, and introduces a new URI scheme: '''eiffel'''. By entering the URI into address of a browser, or clicking on the hyper link, an existing EiffelStudio instance or new EiffelStudio instance will try to resolve the URI and display corresponding resources.
-*  [[Eiffel Scheme Syntax|Eiffel scheme Syntax]]  
-*  [[EIS incoming Examples|Examples]]  
-
-
-
 

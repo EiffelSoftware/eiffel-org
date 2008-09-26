@@ -1,13 +1,5 @@
 [[Property:title|User interface basics]]
 [[Property:weight|3]]
 [[Property:uuid|c2b8d8b6-661c-1cb5-a991-388e8374c696]]
-EiffelStudio includes a Metric tool based on the previously defined metric theory. This tool provides many facilities like computing measures over a project, including smaller scopes, defining new metrics according to users needs and handling archives to compare projects
-*  [[Metric Evaluation Panel|Metric Evaluation panel]]  
-*  [[Detailed Result Panel|Detailed Result panel]]  
-*  [[Metric Definition Panel|Metric Definition panel]]  
-*  [[Metric History Panel|Metric History panel]]  
-*  [[Metric Archive Panel|Metric Archive panel]]  
-
-
-
+EiffelStudio includes a Metric tool based on the previously defined metric theory. This tool provides many facilities like computing measures over a project, including smaller scopes, defining new metrics according to users needs, and handling archives to compare projects.
 

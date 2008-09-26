@@ -11,23 +11,40 @@ The following figure shows the layout of the metric definition panel:
 
 [[Image:interface6|Metric definition panel]]  
 
+
 Let's have a look at the buttons in the main toolbar which is highlighted in the following figure:
+
 
 [[Image:interface7|Main toolbar buttons]]  
 
-[[Image:metrics-tool--new-metric-icon|New metric]]  
 
-[[Image:metrics-tool--new-document-icon|Clone metric]]  
+[[Image:metrics-tool--new-metric-icon|New metric]]  New metric
+Use this button to create a new metric. First you need to select a metric type (basic, linear or ratio) and then you may need to select a unit (only for basic and linear metrics). Once a metric is created, its unit cannot be changed.
 
-[[Image:metrics-tool--general-remove-icon|Remove metric]]  
 
-[[Image:metrics-tool--general-save-icon|Save metric]]  
+[[Image:metrics-tool--new-document-icon|Clone metric]]  Clone selected metric to a new metric
+If you want to define a new metric but the new metric is quite similar to an existing one, then you can use this button to simplify your work: just clone an existing one and do the modifications.
 
-[[Image:metrics-tool--command-send-to-external-editor-icon|External editor]]  
 
-[[Image:metrics-tool--general-open-icon|Reload metrics]]  
+[[Image:metrics-tool--general-remove-icon|Remove metric]]  Remove metric
+Remove current selected metric. This button will be insensitive when the current selected metric is a predefined metric.
 
-[[Image:metrics-tool--metric-export-to-file-icon|import]]  
+
+[[Image:metrics-tool--general-save-icon|Save metric]]  Save metric
+To make your newly defined or modified metric take effect, you need to save it first. This button will be insensitive when the current selected metric is a predefined metric.
+
+
+[[Image:metrics-tool--command-send-to-external-editor-icon|External editor]]  Open user-defined metric file in external editor
+Metrics are stored in XML format, and this button opens the XML file of user-defined metrics in a an external editor which can be specified in the preferences.
+
+
+[[Image:metrics-tool--general-open-icon|Reload metrics]]  Reload metrics
+This button reloads all metrics including predefined and user-defined metrics. It's useful when you modify the metric XML file in an external editor and want the changes to have an effect without restarting EiffelStudio.
+
+
+[[Image:metrics-tool--metric-export-to-file-icon|import]]  Import metrics
+This button opens a dialog to backup or import metrics.
+
 
 ==Define New Metrics==
 
