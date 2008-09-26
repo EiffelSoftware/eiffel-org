@@ -7,9 +7,6 @@ This gives access to dynamic information concerning the application, such as the
 
 It is accessible through the '''project''' toolbar (  [[Image:debug-pause-icon]]  ) or through the '''debug''' menu. 
 
-{{seealso|<br/>
-[[Eiffel Debugger Execution: Introduction|Execution commands]]  }}
-
-
+{{seealso| [[Eiffel Debugger Execution: Introduction|Execution commands]]  }}
 
 

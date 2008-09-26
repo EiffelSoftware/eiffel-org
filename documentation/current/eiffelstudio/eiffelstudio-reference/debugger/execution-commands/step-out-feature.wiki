@@ -7,10 +7,7 @@ If an application was stopped, it attempts to exit the feature where the applica
 
 It is accessible through the '''project''' toolbar (  [[Image:debug-step-out-icon]]  ) or through the '''debug''' menu. 
 
-{{seealso|<br/>
-[[Eiffel Debugger Execution: Introduction|Execution commands]]  <br/>
-[[Generating executables|Compiling in Workbench mode]]  }}
-
+{{seealso| [[Eiffel Debugger Execution: Introduction|Execution commands]], [[Generating executables|Compiling in Workbench mode]]  }}
 
 
 
