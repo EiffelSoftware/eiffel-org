@@ -5,11 +5,11 @@ Eiffel for.NET is a first class citizen in the Microsoft.NET programming world. 
 
 Being an Eiffel for.NET programmer obviously put you in a very powerful position. How do you take advantage of it? 
 
-To use.NET software components from Eiffel for.NET requires you to have some understanding of both.NET and Eiffel and how their respective object models differ. If you have read the rest of the help topics in [[Eiffel for.NET Language| this section]]  then you have a pretty good idea of what the Eiffel method and language are all about. 
+To use.NET software components from Eiffel for.NET requires you to have some understanding of both.NET and Eiffel and how their respective object models differ. If you have read the rest of the help topics in [[Eiffel for .NET|this section]]  then you have a pretty good idea of what the Eiffel method and language are all about. 
 
 When you begin to build software in Eiffel for.NET, you will likely find a need to reuse types from the.NET libraries. These libraries are called assemblies. When you reference a assembly using Eiffel for.NET, the types in the assembly become available to you in a form that makes them look like so many Eiffel classes. The names for types and members will conform to Eiffel conventions. The same thing happens when you are programming against assemblies in Visual Basic.NET or Visual C#.NET.
 
-The section called [[Eiffel for .NET Conventions|Conventions]]  covers the details the Eiffel conventions and how the.NET types are made available to Eiffel for.NET programmers. 
+The section called [[Conventions]]  covers the details the Eiffel conventions and how the.NET types are made available to Eiffel for.NET programmers. 
 
 
 

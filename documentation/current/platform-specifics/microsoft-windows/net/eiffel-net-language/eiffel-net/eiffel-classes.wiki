@@ -15,17 +15,9 @@ Having read the above, you should be convinced that the concept of class is impo
 
 Let's take a look at how classes are structured.
 
-==Structure of a Class==
-
 The code that makes up an Eiffel class is divided into the following parts:
-*  [[#indexing|Indexing]]  
-*  [[#class header|Class header]]  
-*  [[#formal generics|Formal generics]]  
-*  [[#obsolete|Obsolete]]  
-*  [[#inheritance|Inheritance]]  
-*  [[#creators|Creators]]  
-*  [[#features|Features]]  
-*  [[#invariant|Invariant]]  
+
+==Structure of a Class==
 
 All of the above, except Class header, are optional. So the simplest Eiffel class you could build would look like this:
 <code>
@@ -209,7 +201,7 @@ You may declare multiple <code> feature </code> statements. This helps you group
 
 Although the words " <code> Initialization </code>" and " <code> Access </code>" are actually in comments after the <code> feature </code> keyword, some language processing tools apply some significance to these, for example, ordering the groups in "pretty-printed" views of a class. Also, some tools allow you to build templates for creating new classes which have <code> feature </code> clauses already in place for predetermined groups. 
 
-{{tip|There is not a technical requirement governing the grouping or ordering of features in a class. It is the option of the producer of a class to group and order the features in some fashion that has some meaning. Many years of Eiffel development experience are reflected in the classes in the Eiffel Base Library. This is a good place to look for examples of well constructed classes. }}
+{{tip|There is not a technical requirement governing the grouping or ordering of features in a class. It is the option of the producer of a class to group and order the features in a fashion that holds some meaning. Many years of Eiffel development experience are reflected in the classes in the Eiffel Base Library. This is a good place to look for examples of well constructed classes. }}
 
 
 ===Invariant===
