@@ -105,7 +105,7 @@ The cursor attached to a cursor tree is not just a conceptual notion but an actu
 ===Traversals===
 
 A useful notion associated with trees and particularly applicable to cursor trees is that of traversal. <br/>
-A traversal is a certain policy for ordering all the nodes in a tree - usually to apply an operation to all these nodes in the resulting order. [[ref:libraries/base/reference/cursor_tree_chart]]  and its descendants support three forms of traversal: preorder, postorder and breadth-first. They correspond to the most commonly used traversal policies on trees, illustrated on the figure (where the children of each node are assumed to be ordered from left to right): 
+A traversal is a certain policy for ordering all the nodes in a tree - usually to apply an operation to all these nodes in the resulting order. [[ref:libraries/base/reference/cursor_tree_chart|CURSOR_TREE]]  and its descendants support three forms of traversal: preorder, postorder and breadth-first. They correspond to the most commonly used traversal policies on trees, illustrated on the figure (where the children of each node are assumed to be ordered from left to right): 
  [[Image:tree|tree]]  
 * Preorder is the traversal that visits the root first, then (recursively) traverses each subtree in order. On the figure we will visit node ''A'' first then, recursively, the subtrees rooted at ''B'' (which implies visiting ''E'' and ''F''), ''C'' and ''D''. The resulting order is: ''A B E F C D G H I''. 
 * Postorder first traverses (recursively) the subtrees, then visits the root. On the example this gives: '' E F B C G H I D A''. 
