@@ -16,13 +16,13 @@ The most general class describing sets is [[ref:libraries/base/reference/set_cha
 The deferred class [[ref:libraries/base/reference/comparable_set_chart|COMPARABLE_SET]] , declared as 
 <code>
 	deferred class
-		[[ref:libraries/base/reference/comparable_set_chart|COMPARABLE_SET]] [G -> [[ref:libraries/base/reference/comparable_chart|COMPARABLE]] ]
+		COMPARABLE_SET [G -> COMPARABLE]
 
 	inherit
-		[[ref:libraries/base/reference/subset_chart|SUBSET]]  [G]
-		[[ref:/libraries/base/reference/comparable_struct_chart|COMPARABLE_STRUCT]]  [G]
+		SUBSET  [G]
+		COMPARABLE_STRUCT  [G]
 	...
-		</code>
+</code>
 
 describes sets whose items may be compared by a total order relation. The class has the features [[ref:libraries/base/reference/comparable_set_chart|min]]  and [[ref:libraries/base/reference/comparable_set_chart|max]] . <br/>
 Two implementations of [[ref:libraries/base/reference/comparable_set_chart|COMPARABLE_SET]]  are provided. One, [[ref:libraries/base/reference/two_way_sorted_set_chart|TWO_WAY_SORTED_SET]] , uses sorted two-way lists. The other, [[ref:libraries/base/reference/binary_search_tree_set_chart|BINARY_SEARCH_TREE_SET]] , uses binary search trees. <br/>
