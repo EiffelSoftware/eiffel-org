@@ -51,6 +51,8 @@ The classes of the Iteration library address this need. Using them offers two be
 
 =Simple Examples=
 
+
+
 To get a first grasp of how one can work with the Iteration library, let us look at a typical iteration class and a typical iteration client.
 
 ==An example iterator routine==
@@ -172,7 +174,9 @@ There are only four Iteration classes, whose simple inheritance structure appear
 
 As you will remember from the [[EiffelBase, Abstract Container Structures: The Taxonomy|presentation]]  of the abstract overall taxonomy, the traversal hierarchy describes how data structures can be traversed; its most general class is [[ref:/libraries/base/reference/two_way_list_chart|TRAVERSABLE]] . <br/>
 Each one of the iterator classes is paired with a traversal class (or two in one case): 
-{| 
+
+
+{| border="1"
 |- 
 | [[ref:/libraries/base/reference/iterator_chart|ITERATOR]] 
 | [[ref:/libraries/base/reference/two_way_list_chart|TRAVERSABLE]] 
@@ -189,6 +193,7 @@ Each one of the iterator classes is paired with a traversal class (or two in one
 | [[ref:/libraries/base/reference/cursor_tree_iterator_chart|CURSOR_TREE_ITERATOR]] 
 | [[ref:/libraries/base/reference/cursor_tree_chart|CURSOR_TREE]] 
 |}
+
 
 Each iterator class relies on the corresponding traversal class to provide the features for traversing the corresponding data structures, such as <eiffel>start</eiffel>, <eiffel>forth</eiffel> and <eiffel>exhausted</eiffel> for linear structures. <br/>
 Of course the data structure class used in connection with a given iterator class does not need to be the iterator's exact correspondent as given by the above table; it may be any one of its descendants. For example you may use [[ref:/libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]]  to iterate over data structures described not just by [[ref:/libraries/base/reference/linear_chart|LINEAR]]  but also by such descendants as [[ref:/libraries/base/reference/list_chart|LIST]] , [[ref:/libraries/base/reference/linked_list_chart|LINKED_LIST]] , [[ref:/libraries/base/reference/arrayed_list_chart|ARRAYED_LIST]] , or even [[ref:/libraries/base/reference/two_way_list_chart|TWO_WAY_LIST]]  if you do not need the backward iteration features (for which you will have to use [[ref:/libraries/base/reference/two_way_chain_iterator_chart|TWO_WAY_CHAIN_ITERATOR]]  ). 
