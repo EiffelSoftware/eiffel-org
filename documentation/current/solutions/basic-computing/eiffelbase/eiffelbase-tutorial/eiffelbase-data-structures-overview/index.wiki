@@ -9,14 +9,4 @@ The highest-level class is [[ref:libraries/base/reference/container_chart| CONTA
 *  [[ref:libraries/base/reference/box_chart|BOX]] , which describes their storage properties, such as being bounded or unbounded. 
 
 The documentation further discusses:
-* The [[EiffelBase, Abstract Container Structures: The Taxonomy|taxonomy]]  of the abstract container structures. 
-* The [[EiffelBase Data Structures, Lists|list-based structures hierarchy]] . 
-* The [[EiffelBase, Dispensers|dispenser-based structures hierarchy]] . 
-* The [[EiffelBase, Trees|tree-based structures hierarchy]] . 
-* The [[EiffelBase, Sets|set-based structures hierarchy]] . 
-* The [[EiffelBase, Tables|table-based structures hierarchy]] . 
-* The [[EiffelBase, Iteration|iteration mechanisms]] . 
-
-
-
 
