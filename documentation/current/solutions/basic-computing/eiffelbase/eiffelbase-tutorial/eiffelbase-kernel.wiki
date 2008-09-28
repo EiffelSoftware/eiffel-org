@@ -183,7 +183,7 @@ In particular all tuple types conform to [[ref:/libraries/base/reference/tuple_c
 	to a type T, then TUPLE [T1, T2, ..., Tn] conforms
 	to [[ref:/libraries/base/reference/array_chart|ARRAY]]  [T].</code>
 
-Definition: a "tuple type" is any type based on class [[ref:/libraries/base/reference/tuple_chart|TUPLE]] , i.e. any type of the form [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  [T <code>1</code>, T <code>2</code>, ..., T <code>n</code>] for any n (including 0, for which there is no generic parameter). 
+{{Definition|Tuple Type|A "tuple type" is any type based on class [[ref:/libraries/base/reference/tuple_chart|TUPLE]] , i.e. any type of the form <code>TUPLE</code>  [T <code>1</code>, T <code>2</code>, ..., T <code>n</code>] for any n (including 0, for which there is no generic parameter). }}
 
 {{note|(Note 1: CONF1 should be understood in terms of the underlying mathematical model. Mathematically, [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  [T <code>1</code>, T <code>2</code>, ..., T <code>n</code>] is the set TUPLE <code>n</code> of all partial functions f from N+ (the set of non-negative integers) to T <code>1</code> U T <code>2</code> U ... T <code>n</code>, such that: 
 * The domain of f contains the interval 1..n (in other words, f is defined for any i such that 1 <= i <= n). 

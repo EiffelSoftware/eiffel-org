@@ -6,7 +6,7 @@ Eiffel software texts are free-format: distribution into lines is not semantical
 
 Successive declarations or instructions may be separated by semicolons. Eiffel's syntax has been so designed, however, that (except in rare cases) '''the semicolon is optional'''. Omitting semicolons for elements appearing on separate lines lightens text and is the recommended practice since semicolons, as used by most programming languages, just obscure the text by distracting attention from the actual contents. Do use semicolons if you occasionally include successive elements on a single line. 
 
-63 names -- all unabbreviated single English words, except for <code> elseif </code> which is made of two words -- are reserved, meaning that you cannot use them to declare new entities. Here is the list: 
+56 names -- all unabbreviated single English words, except for <code> elseif </code> which is made of two words -- are reserved, meaning that you cannot use them to declare new entities. Here is the list: 
 {| border="1"
 |- 
 | <code>agent</code>

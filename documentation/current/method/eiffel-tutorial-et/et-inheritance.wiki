@@ -78,7 +78,7 @@ The inheritance mechanism is relevant to both roles of classes: module and type.
 
 '''Polymorphic assignment''' supports this second role. In an assignment <code> x := y </code>, the types of <code> x </code> and <code> y </code> do not have, with inheritance, to be identical; the rule is that the type of <code> y </code> must simply '''conform''' to the type of <code> x </code>. A class <code> D </code> conforms to a class <code> A </code> if and only if it is a descendant of <code> A </code> (which includes the case in which <code> A </code> and <code> D </code> are the same class); if these classes are generic, conformance of <code> D </code> <code> [ </code> <code> U </code> <code> ] </code> to <code> C </code> <code> [ </code> <code> T </code> <code> ] </code> requires in addition that type <code> U </code> conform to type <code> T </code> (through the recursive application of the same rules). 
 
-{{note|In addition, it follows from the earlier discussion of tuples ( [[10 Other Mechanisms|"Tuple types", page 90]] ), that <code> TUPLE [X] </code> conforms to <code> TUPLE </code>, <code> TUPLE [X, Y] </code> to <code> TUPLE [X] </code> and so on. }}
+{{note|In addition, it will be shown in the discussion of tuples ([[10 Other Mechanisms|"Tuple types"]]), that <code> TUPLE [X] </code> conforms to <code> TUPLE </code>, <code> TUPLE [X, Y] </code> to <code> TUPLE [X] </code> and so on. }}
 
 So with the inheritance structure that we have seen, the declarations
 <code>
@@ -580,10 +580,7 @@ If there are separate accounts for students' course work and for faculty, you ma
 
 The Eiffel rule enables, once again, the software developer to craft the resulting class so as to tune it to the exact requirements. Not surprisingly, it is based on names, in accordance with the Final Name rule (no in-class overloading):
 
-{{note| '''Repeated Inheritance rule''' <br/>
-* A feature inherited multiply under one name will be shared: it is considered to be just one feature in the repeated descendant. 
-* A feature inherited multiply under different names will be replicated, yielding as many variants as names. 
-}}
+{{note| '''Repeated Inheritance rule:''' <br/>A feature inherited multiply under one name will be shared: it is considered to be just one feature in the repeated descendant.<br/>A feature inherited multiply under different names will be replicated, yielding as many variants as names. }}
 
 So to tune the repeated descendant, feature by feature, for sharing and replication it suffices to use renaming. 
 

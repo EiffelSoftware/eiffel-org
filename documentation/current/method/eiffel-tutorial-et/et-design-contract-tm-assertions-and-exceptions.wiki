@@ -11,15 +11,15 @@ A system -- a software system in particular, but the ideas are more general -- i
 An Eiffel contract is similar to a real-life contract between two people or two companies, which it is convenient to express in the form of tables listing the expectations and guarantees. Here for example is how we could sketch the contract between a homeowner and the telephone company:
 {| border="1"
 |- 
-| <code>provide_service</code>|| style="width=10%"
-| '''OBLIGATIONS'''|| style="width=35%"
-| '''BENEFITS'''|| style="width=35%"
+| style="width=10%" |provide telephone service 
+| style="width=35%" |'''OBLIGATIONS'''
+| style="width=35%" |'''BENEFITS'''
 |- 
 |   '''Client''' 
 |  (Satisfy precondition:) <br/>
 Pay bill. 
 |  (From postcondition:) <br/>
-Get telephone service Supplier. 
+Receive telephone service from Supplier. 
 |- 
 |   '''Supplier''' 
 |  (Satisfy precondition:) <br/>
@@ -95,9 +95,9 @@ The postcondition of a routine expresses what the routine guaranteed to its clie
 The precondition and postcondition state the terms of the contract between the routine and its clients, similar to the earlier example of a human contract:
 {| border="1"
 |- 
-| <code>deposit</code>|| style="width=10%;"
-| '''OBLIGATIONS'''|| style="width=35%;"
-| '''BENEFITS'''|| style="width=35%;"
+| style="width=10%" |<code>deposit</code>
+| style="width=35%"| '''OBLIGATIONS'''
+| style="width=35%" | '''BENEFITS'''
 |- 
 |   '''Client''' 
 |  (Satisfy precondition:) <br/>
