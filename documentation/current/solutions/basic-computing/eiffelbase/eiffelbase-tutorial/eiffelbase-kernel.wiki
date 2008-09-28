@@ -181,7 +181,7 @@ In particular all tuple types conform to [[ref:/libraries/base/reference/tuple_c
 <code>[CONF2]
 	For n >= 0 If *every* one of the types T1, T2, ..., Tn conforms
 	to a type T, then TUPLE [T1, T2, ..., Tn] conforms
-	to [[ref:/libraries/base/reference/array_chart|ARRAY]]  [T].</code>
+	to ARRAY  [T]</code>
 
 {{Definition|Tuple Type|A "tuple type" is any type based on class [[ref:/libraries/base/reference/tuple_chart|TUPLE]] , i.e. any type of the form <code>TUPLE</code>  [T <code>1</code>, T <code>2</code>, ..., T <code>n</code>] for any n (including 0, for which there is no generic parameter). }}
 
