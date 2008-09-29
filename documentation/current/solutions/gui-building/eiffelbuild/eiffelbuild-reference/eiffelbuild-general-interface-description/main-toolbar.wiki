@@ -61,7 +61,8 @@ The complete list of the icons in the toolbar is displayed below. <br/>
 
 
 The screenshot at the top of this page shows all of the buttons enabled. As the state of the currently open project changes, the state of each of these buttons is updated to reflect this. For example, immediately after saving the project, the save button is disabled until the project is modified again.
-'''Note''': It is not possible to customize the toolbar. 
+
+{{note|It is not possible to customize the toolbar. }}
 
 
 

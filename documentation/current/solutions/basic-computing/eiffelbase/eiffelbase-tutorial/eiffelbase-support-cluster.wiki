@@ -15,16 +15,16 @@ Two classes provide basic mathematical functions such as logarithms and trigonom
 
 Class [[ref:/libraries/base/reference/internal_chart|INTERNAL]]  provides low-level access to internal object structures. It, too, is meant to be used as ancestor by classes needing its features. <br/>
 Here are some of the most useful calls and what they yield, <eiffel>obj</eiffel> being an entity attached to an object <eiffel>O</eiffel> and <eiffel>i</eiffel> an integer: 
-* [[ref:/libraries/base/reference/internal_flatshort|class_name]]  (<eiffel>obj</eiffel>): the name of the generator class for O.
-* [[ref:/libraries/base/reference/internal_flatshort|dynamic_type ]]  <code> ( obj ) </code>: the integer code for the type of <eiffel>O</eiffel>, where each type in a system is identified by a unique code. 
-* [[ref:/libraries/base/reference/internal_flatshort|field_count ]]  <code> ( obj ) </code>: the number of fields in <eiffel>O</eiffel>. 
-* [[ref:/libraries/base/reference/internal_flatshort|physical_size ]]  <code> ( obj ) </code>: the space occupied by <eiffel>O</eiffel>, in bytes. 
-*  <eiffel>field_xx</eiffel> <code> ( i, obj ) </code> where <eiffel>xx</eiffel> is name or offset: name or offset of the i-th field of <eiffel>O</eiffel>. 
-* [[ref:/libraries/base/reference/internal_flatshort|field ]]  <code> ( i, obj ) </code>: the value of the i-th field of , if a reference; declared of type ANY in the class. 
-*  <eiffel>yy_field</eiffel> <code> ( i, obj ) </code> where <eiffel>yy</eiffel> is boolean, character, integer, real or double: the value of the i-th field of <eiffel>O</eiffel>, if of the corresponding type; each declared of the appropriate type in the class. 
-* [[ref:/libraries/base/reference/internal_flatshort|is_special ]]  <code> ( obj ) </code>, a boolean query which indicates whether <eiffel>O</eiffel> is a special object (the sequence of values representing the elements of an array or the characters of a string). 
+* <eiffel>class_name (obj)</eiffel> : the name of the generator class for O.
+* <eiffel>dynamic_type (obj) </eiffel> : the integer code for the type of <eiffel>O</eiffel>, where each type in a system is identified by a unique code. 
+* <eiffel>field_count (obj) </eiffel> : the number of fields in <eiffel>O</eiffel>. 
+* <eiffel>physical_size (obj) </eiffel> : the space occupied by <eiffel>O</eiffel>, in bytes. 
+*  <eiffel>field_xx (i, obj) </eiffel> where <eiffel>xx</eiffel> is name or offset: name or offset of the i-th field of <eiffel>O</eiffel>. 
+* <eiffel>field (i, obj) </eiffel> : the value of the i-th field of , if a reference; declared of type ANY in the class. 
+*  <eiffel>yy_field (i, obj) </eiffel> where <eiffel>yy</eiffel> is boolean, character, integer, real or double: the value of the i-th field of <eiffel>O</eiffel>, if of the corresponding type; each declared of the appropriate type in the class. 
+* <eiffel>is_special (obj) </eiffel> : a boolean query which indicates whether <eiffel>O</eiffel> is a special object (the sequence of values representing the elements of an array or the characters of a string). 
 
-{{warning| '''CAUTION:''' Only very special cases justify the use of this class. Unless you are writing the lowest level of an interface between an Eiffel application and external tools (such as a database management system), and this requires passing to those tools information about the internals of Eiffel objects, you almost certainly should not use [[ref:/libraries/base/reference/internal_chart|INTERNAL]] . }}
+{{warning|Only very special cases justify the use of the class [[ref:/libraries/base/reference/internal_chart|INTERNAL]]. Unless you are writing the lowest level of an interface between an Eiffel application and external tools (such as a database management system), and this requires passing to those tools information about the internals of Eiffel objects, you almost certainly should not use [[ref:/libraries/base/reference/internal_chart|INTERNAL]] . }}
 
 
 

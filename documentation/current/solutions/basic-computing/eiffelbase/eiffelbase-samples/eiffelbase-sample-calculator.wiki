@@ -5,8 +5,6 @@ This sample consists of a command line reverse Polish notation (RPN) calculator.
 
 {{note|A RPN calculator works slightly differently from standard calculators. It consists of a stack of numbers. Operations are applied to the two numbers on top of the stack. The result is then put on top of the stack so that it can be used in the next operation. This sample refers to the top of the stack as ''Accumulator''.This sample consists of a command line reverse Polish notation (RPN) calculator. }}
 
-{{note|A RPN calculator works slightly differently from standard calculators. It consists of a stack of numbers. Operations are applied to the two numbers on top of the stack. The result is then put on top of the stack so that it can be used in the next operation. This sample refers to the top of the stack as ''Accumulator''. }}
-
 ==Compiling==
 
 To compile the example: 
@@ -39,7 +37,7 @@ Enter a number, followed by :
 
 Enter the first number to be put onto the stack, for example <code>3</code>. 
 
-{{note|Failing to enter a number at this stage will cause the sample to stop. This sample was designed to showcase the use of EiffelBase data structures and is not protected against unexpected entries. }}
+{{caution|Failing to enter a number at this stage will cause the sample to stop. This sample was designed to showcase the use of EiffelBase data structures and is not protected against unexpected entries. }}
 
 You may then add another number on the stack by entering the character <code>a</code>: 
 <code>

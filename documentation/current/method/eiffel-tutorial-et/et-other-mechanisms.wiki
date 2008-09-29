@@ -143,7 +143,7 @@ end
 a.r (x)
 </code>
 
-{{note|the recommended convention: extra indentation of the <code> check </code> part to separate it from the algorithm proper; and inclusion of a comment listing the rationale behind the developer's decision not to check explicitly for the precondition. }}
+{{recommended|An extra indentation of the <code> check </code> part to separate it from the algorithm proper; and inclusion of a comment listing the rationale behind the developer's decision not to check explicitly for the precondition. }}
 
 In production mode with assertion monitoring turned off, this instruction will have no effect. But it will be precious for a maintainer of the software who is trying to figure out what it does, and in the process to reconstruct the original developer's reasoning. (The maintainer might of course be the same person as the developer, six months later.) And if the rationale is wrong somewhere, turning assertion checking on will immediately uncover the bug. 
 
@@ -253,6 +253,7 @@ Features available on tuple types include <code> count: INTEGER </code>, yieldin
 
 Tuples are appropriate when these are the only operations you need, that is to say, you are using sequences with no further structure or properties. Tuples give you "anonymous classes" with predefined features <code> count </code>, <code> item </code> and <code> put </code>. A typical example is a general-purpose output procedure that takes an arbitrary sequence of values, of arbitrary types, and prints them. It may simply take an argument of type <code> TUPLE </code>, so that clients can call it under the form 
 <code>
+
 write ([ ''your_integer'' , ''your_real'', ''your_account'']) 
 </code>
 

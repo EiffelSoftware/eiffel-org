@@ -250,7 +250,7 @@ Rather than using a separate method and notation for analysis and design, this a
 
 The following sketch (from the book [http://eiffel.com/doc/oosc/ Object-Oriented Software Construction] ) illustrates these ideas on theexample of scheduling the programs of a TV station. This is pure modeling of an application domain; no computers or software are involved yet. The class describes the notion of program segment. 
 
-Note the use of assertions to define semantic properties of the class, its instances and its features. Although often presented as high-level, most object-oriented analysis methods (with the exception of Waldn's and Nerson's Business Object Notation) have no support for the expression of such properties, limiting themselves instead to the description of broad structural relationships. 
+Note the use of assertions to define semantic properties of the class, its instances and its features. Although often presented as high-level, most object-oriented analysis methods (with the exception of Walden's and Nerson's Business Object Notation) have no support for the expression of such properties, limiting themselves instead to the description of broad structural relationships. 
 <code>
 indexing
 	description: "Individual fragments of a broadcasting schedule"
@@ -398,7 +398,7 @@ Here both <code> LIST </code> and <code> ARRAY </code> have features called <cod
 
 Every feature of a class has a '''final name''' : for a feature introduced in the class itself ("immediate" feature) it is the name appearing in the declaration; for an inherited feature that is not renamed, it is the feature's name in the parent; for a renamed feature, it is the name resulting from the renaming. This definition yields a precise statement of the rule against in-class overloading: 
 
-{{note| '''Final Name rule''': Two different features of a class may not have the same final name. }}
+{{rule|Final Name|Two different features of a class may not have the same final name. }}
 
 It is interesting to compare renaming and redefinition. The principal distinction is between features and feature names. Renaming keeps a feature, but changes its name. Redefinition keeps the name, but changes the feature. In some cases, it is of course appropriate to do both. 
 
@@ -412,7 +412,7 @@ A proper understanding of inheritance requires looking at the mechanism in the f
 
 The first rule is that invariants accumulate down an inheritance structure:
 
-{{note| '''Invariant Accumulation rule''': The invariants of all the parents of a class apply to the class itself. }}
+{{rule|Invariant Accumulation|The invariants of all the parents of a class apply to the class itself. }}
 
 The invariant of a class is automatically considered to include -- in the sense of logical "and" -- the invariants of all its parents. This is a consequence of the view of inheritance as an "is" relation: if we may consider every instance of <code> B </code> as an instance of <code> A </code>, then every consistency constraint on instances of <code> A </code> must also apply to instances of <code> B </code>. 
 
@@ -433,7 +433,7 @@ The rule, then, is that for the redefinition to be correct the new precondition 
 
 Because it is impossible to check simply that an assertion is weaker or stronger than another, the language rule relies on different forms of the assertion constructs, <code> else require </code> and <code> then ensure </code>, for redeclared routines. They rely on the mathematical property that, for any assertions <code> p </code> and <code> q, </code> <code> p implies ( p or q ) </code>, and <code> (p and q) implies p </code>. For a precondition, using <code> else require </code> with a new assertion will perform an <code> or </code>, which can only weaken the original; for a postcondition, <code> then ensure </code> will perform an <code> and </code>, which can only strengthen the original. Hence the rule: 
 
-{{note| '''Assertion Redeclaration rule''': In the redeclared version of a routine, it is not permitted to use a require or ensure clause. Instead you may: Introduce a new condition with require else, for or-ing with the original precondition. Introduce a new condition with ensure then, for and-ing with the original postcondition. In the absence of such a clause, the original assertions are retained. }}
+{{rule|Assertion Redeclaration|In the redeclared version of a routine, it is not permitted to use a require or ensure clause. Instead you may: Introduce a new condition with require else, for or-ing with the original precondition. Introduce a new condition with ensure then, for and-ing with the original postcondition. In the absence of such a clause, the original assertions are retained. }}
 
 The last case -- retaining the original -- is frequent but by no means universal. 
 
@@ -579,7 +579,7 @@ If there are separate accounts for students' course work and for faculty, you ma
 
 The Eiffel rule enables, once again, the software developer to craft the resulting class so as to tune it to the exact requirements. Not surprisingly, it is based on names, in accordance with the Final Name rule (no in-class overloading):
 
-{{note| '''Repeated Inheritance rule:''' <br/>A feature inherited multiply under one name will be shared: it is considered to be just one feature in the repeated descendant.<br/>A feature inherited multiply under different names will be replicated, yielding as many variants as names. }}
+{{rule|Repeated Inheritance|<br/>A feature inherited multiply under one name will be shared: it is considered to be just one feature in the repeated descendant.<br/>A feature inherited multiply under different names will be replicated, yielding as many variants as names. }}
 
 So to tune the repeated descendant, feature by feature, for sharing and replication it suffices to use renaming. 
 
@@ -728,7 +728,7 @@ We introduce an heir <code> BUSINESS_ACCOUNT </code> of <code> ACCOUNT </code> t
  [[Image:tutorial-14]]  
 Clearly, we must redefine <code> owner </code> in class <code> BUSINESS_ACCOUNT </code> to yield a result of type <code> BUSINESS </code>; the same signature redefinition must be applied to the argument of <code> set_owner </code>. This case is typical of the general scheme of signature redefinition: in a descendant, you may need to redefine both results and arguments to types conforming to the originals. This is reflected by a language rule: 
 
-{{note| '''Covariance rule''': In a feature redeclaration, both the result type if the feature is a query (attribute or function) and the type of any argument if it is a routine (procedure or function) must conform to the original type as declared in the precursor version. }}
+{{rule|Covariance|In a feature redeclaration, both the result type if the feature is a query (attribute or function) and the type of any argument if it is a routine (procedure or function) must conform to the original type as declared in the precursor version. }}
 
 The term "covariance" reflects the property that all types -- those of arguments and those of results -- vary together in the same direction as the inheritance structure. 
 

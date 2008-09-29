@@ -3,7 +3,9 @@
 [[Property:uuid|eb93c9bf-53b3-6718-5c30-d17133633c6f]]
 The layout constructor provides a view of the [[EiffelBuild Notation|objects]]  you have defined in your system, in which the [[EiffelBuild Notation|objects]]  may be manipulated. The root node of the tree is the object currently selected within the [[Widget selector|widget selector]]  and objects may be added/moved within the displayed widget structure by picking and dropping the objects as required. For example, in the screenshot below, you could add another list to the vertical box, by picking a list from the [[Type selector|type selector]]  and dropping it on the vertical box object. 
 
+
 [[Image:layout-constructor]]  
+
 
 Each item in the tree represents one object. The screenshot above represents the following [[EiffelVision Introduction|EiffelVision2]]  interface definition - An EV_TITLED_WINDOW containing one child, of type EV_VERTICAL_BOX. Within the vertical box there is an EV_HORIZONTAL_BOX and an EV_LIST. The list is empty, but the horizontal box contains three different objects of type EV_BUTTON. 
 
@@ -33,7 +35,11 @@ An [[EiffelBuild Notation|object]]  contained in a system may be highlighted in 
 ==Locked Objects==
 
 Objects that are instances of other objects are displayed as locked objects within the Layout Constructor as illustrated below:
+
+
 [[Image:layout-constructor-locked]]  
+
+
 The object of type OK_CANCEL_BUTTONS is a locked instance of another object as illustrated by the locked icon displayed on top of it's type icon. As a locked object is simply an instance of another object, its internal structure may not be manipulated directly within the Layout Constructor. To change the structure of a locked object, you must directly change the object of which it is an instance. 
 To add a locked object to your interface, simply pick the object that you wish to re-use from the [[Widget selector|widget selector]]  and drop it into the desired parent object within the Layout Constructor. In this case, the instance of the OK_CANCEL_BUTTONS object is actually comprised of a number of widgets which may only be modified through manipulation of the original OK_CANCEL_BUTTONS_OBJECT. Changes made to this original object are then applied to all instances within your interface structures. 
 

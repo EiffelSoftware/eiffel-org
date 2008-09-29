@@ -2,7 +2,7 @@
 [[Property:link_title|ET: The Dynamic Structure: Execution Model]]
 [[Property:weight|-10]]
 [[Property:uuid|1f3f2707-9129-4dca-76c7-157143d7ae74]]
-A system with a certain static structure describes a set of possible executions. The run-time model governs the structure of the data ( <code> objects </code>) created during such executions. 
+A system with a certain static structure describes a set of possible executions. The run-time model governs the structure of the data (objects) created during such executions. 
 
 The properties of the run-time model are not just of interest to implementers; they also involve concepts directly relevant to the needs of system modelers and analysts at the most abstract levels. 
 
