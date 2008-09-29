@@ -12,7 +12,7 @@ Manipulation on second and fractional_second are in fact always made through fin
 Features dealing with <eiffel>fine_second</eiffel> and <eiffel>fractional_second</eiffel> are described here.
 
 ====Creation (common to  <eiffel>TIME, </eiffel> <eiffel>TIME_DURATION</eiffel>)====
-* <eiffel>make_fine</eiffel> looks like make but it takes a <eiffel>DOUBLE </eiffel>for its third argument (instead of an <eiffel>INTEGER</eiffel>). fine_second is then set to this value.
+* <eiffel>make_fine</eiffel> looks like make but it takes a <eiffel>DOUBLE</eiffel> for its third argument (instead of an <eiffel>INTEGER</eiffel>). fine_second is then set to this value.
 * <eiffel>make_by_fine_seconds</eiffel> looks like <eiffel>make_by_seconds</eiffel> but it takes a <eiffel>DOUBLE</eiffel> for argument (instead of an <eiffel>INTEGER</eiffel>). Comparison (common) There are no new features. The same ones are available since they are written to deal with precision. It is possible to compare two instances, one with precision and the other one without.
 
 ====Measurement and access====

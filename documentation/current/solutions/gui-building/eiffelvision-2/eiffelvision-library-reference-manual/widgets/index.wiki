@@ -46,6 +46,3 @@ Now that you can create a widget, you will need to actually make it usable to yo
 * Making the widget respond to user [[Events| events]]  via the use of agents and action sequences. 
 * Placing the widget inside a [[Containers| container]]  widget (either a window or a child of a window) so it can be shown on screen. 
 
-
-
-

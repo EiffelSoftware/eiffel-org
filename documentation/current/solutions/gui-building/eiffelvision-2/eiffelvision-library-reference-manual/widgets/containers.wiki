@@ -1,22 +1,22 @@
 [[Property:title|Containers]]
 [[Property:weight|1]]
 [[Property:uuid|aa71e29d-f0e0-9eb2-a289-675d24aac927]]
-All Vision2 containers inherit [[ref:libraries/vision2/reference/ev_container_chart|EV_CONTAINER]] 
+All EiffelVision 2 containers inherit [[ref:libraries/vision2/reference/ev_container_chart|EV_CONTAINER]] 
 
 ==What is a container?==
 
-A container is a Vision2 widget that may contain other widgets. Some containers such as [[ref:libraries/vision2/reference/ev_cell_chart|EV_CELL]]  may only hold one widget while containers such as [[ref:libraries/vision2/reference/ev_box_chart|EV_BOX]]  may hold multiple widgets. As a container is of type [[ref:libraries/vision2/reference/ev_widget_chart|EV_WIDGET]] , this means that a container may be placed within a container. Windows inherit from [[ref:libraries/vision2/reference/ev_cell_chart|EV_CELL]]  and are therefore classed as containers also. 
+A container is a EiffelVision 2 widget that may contain other widgets. Some containers such as [[ref:libraries/vision2/reference/ev_cell_chart|EV_CELL]]  may only hold one widget while containers such as [[ref:libraries/vision2/reference/ev_box_chart|EV_BOX]]  may hold multiple widgets. As a container is of type [[ref:libraries/vision2/reference/ev_widget_chart|EV_WIDGET]] , this means that a container may be placed within a container. Windows inherit from [[ref:libraries/vision2/reference/ev_cell_chart|EV_CELL]]  and are therefore classed as containers also. 
 
 {{note|Containers may only contain other widgets. Items may only be placed in certain primitives. For example, an [[ref:libraries/vision2/reference/ev_list_item_chart| EV_LIST_ITEM]]  may be contained in an [[ref:libraries/vision2/reference/ev_list_chart| EV_LIST]] . }}
 
 ==Inheritance from Base==
 
-Wherever possible, Vision2 containers reuse the container structures provided by Base. This provides three main advantages: 
-# Familiarity for operations such as access, insertions and removals. Anybody who already uses [[EiffelBase Library|Base]]  should find it easy to adapt to using Vision2 containers. 
+Wherever possible, EiffelVision 2 containers reuse the container structures provided by [[EiffelBase]]. This provides three main advantages: 
+# Familiarity for operations such as access, insertions and removals. Anybody who already uses [[EiffelBase]]  should find it easy to adapt to using EiffelVision 2 containers. 
 # The underlying structures used have been tried and tested for many years and their design has been proved to be robust and effective.
-# It provides powerful methods of querying the contents. In the original Vision library, you needed to keep reference to widgets as you could not query the contents of a container.
+# It provides powerful methods of querying the contents. In the original EiffelVision library, you needed to keep reference to widgets as you could not query the contents of a container.
 
-For example, [[ref:libraries/vision2/reference/ev_container_chart|EV_CONTAINER]]  inherits <eiffel>BOX</eiffel> and <eiffel>COLLECTION</eiffel>. Descendents of [[ref:libraries/vision2/reference/ev_container_chart|EV_CONTAINER]]  such as [[ref:libraries/vision2/reference/ev_box_chart|EV_BOX]]  may also inherit other structures from [[EiffelBase Library|Base]] . 
+For example, [[ref:libraries/vision2/reference/ev_container_chart|EV_CONTAINER]]  inherits <eiffel>BOX</eiffel> and <eiffel>COLLECTION</eiffel>. Descendents of [[ref:libraries/vision2/reference/ev_container_chart|EV_CONTAINER]]  such as [[ref:libraries/vision2/reference/ev_box_chart|EV_BOX]]  may also inherit other structures from [[EiffelBase]] . 
 
 ==Usage of Containers==
 
@@ -41,7 +41,7 @@ A code example of adding widgets to a container is as follows:
 		end
 </code>
 
-The mapping of a Vision2 container interface is very close to that of containers in Base, such as a linked list. 
+The mapping of a EiffelVision 2 container interface is very close to that of containers in [[EiffelBase]], such as a linked list. 
 * To add a widget to a container call `extend'.
 * To remove a widget from the container call `prune'.
 * To empty a container call `wipe_out'.
@@ -57,11 +57,6 @@ The size of a widget in a container is always at least its minimum size. By defa
 As [[ref:libraries/vision2/reference/ev_container_chart|EV_CONTAINER]]  is of type [[ref:libraries/vision2/reference/ev_widget_chart|EV_WIDGET]] , the following facilities are provided for setting the minimum size: set_minimum_width, set_minimum_height and set_minimum_size. It is important to remember that as a general rule, '''the current size of a container is always at least the minimum size of all its contents.''' 
 {{note|The exception to this is: [[ref:libraries/vision2/reference/ev_fixed_chart|EV_FIXED]] , [[ref:libraries/vision2/reference/ev_viewport_chart|EV_VIEWPORT]]  and [[ref:libraries/vision2/reference/ev_scrollable_area_chart|EV_SCROLLABLE_AREA]]  which do actually allow their contents to be larger than their current size. <br/>
 }}
-
-
-
-
-
 
 
 

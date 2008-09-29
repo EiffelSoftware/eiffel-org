@@ -142,10 +142,3 @@ The relative points also support rotation and scaling. These factors work just l
 
 The scaling factor is divided into a horizontal and vertical component. If the factor is 0.5, everything is displayed at half its size. The rotation factor is in radians.
 
-
-
-
-
-
-
-

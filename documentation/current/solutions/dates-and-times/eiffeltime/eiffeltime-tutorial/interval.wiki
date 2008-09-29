@@ -13,7 +13,7 @@ It would have been possible to create intervals with references to date or time,
 
 ====Interval measurement====
 
-The measure of intervals is made by duration: the result is an instance of the class <eiffel>DURATION</eiffel>. However, as <eiffel>DURATION</eiffel> is the common parent of <eiffel>TIME_DURATION</eiffel>, <eiffel>DATE_DURATION</eiffel> and <eiffel>DATE_TIME_DURATION</eiffel>, it does not have many features available. Some features in class <eiffel>TIME</eiffel>, <eiffel>DATE</eiffel>, <eiffel>DATE_TIME</eiffel> return the same result and are more efficient to use. <eiffel>DURATION</eiffel> has to be use as the last solution. 
+The measure of intervals is made by duration: the result is an instance of the class <eiffel>DURATION</eiffel>. However, as <eiffel>DURATION</eiffel> is the common parent of <eiffel>TIME_DURATION</eiffel>, <eiffel>DATE_DURATION</eiffel>, and <eiffel>DATE_TIME_DURATION</eiffel>, it does not have many features available. Some features in class <eiffel>TIME</eiffel>, <eiffel>DATE</eiffel>, and <eiffel>DATE_TIME</eiffel> return the same result and are more efficient to use. <eiffel>DURATION</eiffel> has to be use as the last solution. 
 
 ====Comparison====
 

@@ -168,14 +168,14 @@ It is important to note that this optimization, if at all necessary, should at m
 ==Tuples==
 
 A new Kernel Library class is introduced: [[ref:/libraries/base/reference/tuple_chart|TUPLE]] . <br/>
-Alone among all classes, class [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  has a variable number of generic parameters. [[ref:/libraries/base/reference/tuple_chart|TUPLE]] , [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  [X], [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  [X, Y], [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  [X, Y, Z] and so on are all valid types, assuming valid types X, Y, Z and so on. <br/>
+Alone among all classes, class TUPLE has a variable number of generic parameters. TUPLE, TUPLE [X], TUPLE [X, Y], TUPLE [X, Y, Z] and so on are all valid types, assuming valid types X, Y, Z and so on. <br/>
 Conformance rules: 
 <code>[CONF1]
 	For n >= 0
 	TUPLE [U1, U2, ..., Un, Un+1] conforms to
 	TUPLE [U1, U2, ..., Un]</code>
 
-(and hence to [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  [T <code>1</code>, T <code>2</code>, ..., T <code>n</code>] if each of the U <code>i</code> conforms to each of the T <code>i</code> for 1 <= i <= n.) 
+(and hence to TUPLE  [T1, T2, ..., Tn] if each of the Ui conforms to each of the Ti for 1 <= i <= n.) 
 
 In particular all tuple types conform to [[ref:/libraries/base/reference/tuple_chart|TUPLE]] , with no parameter. 
 <code>[CONF2]
@@ -184,7 +184,7 @@ In particular all tuple types conform to [[ref:/libraries/base/reference/tuple_c
 	to ARRAY  [T]</code>
 
 
-{{Definition|Tuple Type|A "tuple type" is any type based on class [[ref:/libraries/base/reference/tuple_chart|TUPLE]] , i.e. any type of the form <code>TUPLE</code>  [T <code>1</code>, T <code>2</code>, ..., T <code>n</code>] for any n (including 0, for which there is no generic parameter). }}
+{{Definition|Tuple Type|A "tuple type" is any type based on class [[ref:/libraries/base/reference/tuple_chart|TUPLE]] , i.e. any type of the form <code>TUPLE [T1, T2, ..., Tn]</code> for any n (including 0, for which there is no generic parameter). }}
 
 
 {{note|CONF1 should be understood in terms of the underlying mathematical model. <br/>
@@ -192,7 +192,7 @@ Mathematically, TUPLE [T1, T2, ..., Tn] is the set TUPLE n of all partial functi
 
 With this definition, TUPLE <code>n</code> is indeed a subset of TUPLE <code>n+1</code>, and in particular TUPLE <code>0</code>, the empty set, is a subset of TUPLE <code>n</code> for any n.) 
 
-Semantics: an instance of [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  [T <code>1</code>, T <code>2</code>, ..., T <code>n</code>] is a tuple whose first element is an instance of T <code>1</code>, the second element being an instance of T <code>2</code> etc. (The precise definition is the mathematical one given in note 1.) Note that there can be more than n elements to the tuple: for example a tuple with first element 5 and second element "FOO" is an instance of all of the following tuple types: [[ref:/libraries/base/reference/tuple_chart|TUPLE]] ; [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  [[[ref:/libraries/base/reference/integer_32_chart|INTEGER]] ]; [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  [[[ref:/libraries/base/reference/integer_32_chart|INTEGER]] , [[ref:/libraries/base/reference/string_8_chart|STRING]] ]. 
+Semantics: an instance of TUPLE [T1, T2, ..., Tn] is a tuple whose first element is an instance of T1, the second element being an instance of T2 etc. (The precise definition is the mathematical one given in note 1.) Note that there can be more than n elements to the tuple: for example a tuple with first element 5 and second element "FOO" is an instance of all of the following tuple types: TUPLE; TUPLE [INTEGER]; TUPLE [INTEGER, STRING]. 
 
 It may seem restrictive at first to permit only one class, [[ref:/libraries/base/reference/tuple_chart|TUPLE]] , to have an arbitrary number of actual generic parameters. Why not have a general mechanism for declaring any class C so that all of C [X], C [X, Y] etc. are valid? But in fact this is not really a restriction. To obtain this effect without any complicated language convention, just declare C as 
 C [G -> TUPLE]
@@ -208,42 +208,42 @@ so we have all the necessary flexibility.)
 
 ==Tuple expressions==
 
-Let e <code>1</code>, e <code>2</code>, ..., e <code>n</code> be expressions of respective types T <code>1</code>, T <code>2</code>, ..., T <code>n</code>. Then the expression 
+Let e1, e2, ..., en be expressions of respective types T1, T2, ..., Tn. Then the expression 
 
-[e <code>1</code>, e <code>2</code>, ..., e <code>n</code>] 
+[e1, e2, ..., en] 
 
-denotes an instance of [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  [T <code>1</code>, T <code>2</code>, ..., T <code>n</code>], whose first element is e <code>1</code>, the second element being e <code>2</code> etc. <br/>
+denotes an instance of TUPLE [T1, T2, ..., Tn], whose first element is e1, the second element being e2, etc. <br/>
 Tuple expressions can be nested: whereas 
 
 [1, 2, 3]
 
-is a tuple with three elements (representing an instance of [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  [[[ref:/libraries/base/reference/integer_32_chart|INTEGER]] , [[ref:/libraries/base/reference/integer_32_chart|INTEGER]] , [[ref:/libraries/base/reference/integer_32_chart|INTEGER]] ]), 
+is a tuple with three elements (representing an instance of TUPLE [INTEGER, INTEGER, INTEGER]), 
 
 [1, [2, 3]]
 
-is a tuple with two elements, the second one itself a tuple; the overall expression represents an instance of [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  [[[ref:/libraries/base/reference/integer_32_chart|INTEGER]] , [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  [[[ref:/libraries/base/reference/integer_32_chart|INTEGER]] , [[ref:/libraries/base/reference/integer_32_chart|INTEGER]] ]. <br/>
+is a tuple with two elements, the second one itself a tuple; the overall expression represents an instance of TUPLE [INTEGER, TUPLE [INTEGER, INTEGER]]. <br/>
 As a special case of tuple expression syntax, the delimiters [ and ] are replaced by parentheses for the tuple representing the actual argument list of a routine call (see section 4). 
 
 ==Tuple features==
 
 The exact specification of class [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  will be described in an addition to ELKS. The principal features are: 
 *  [[ref:/libraries/base/reference/tuple_chart|count]]  (number of significant elements) 
-*  [[ref:/libraries/base/reference/tuple_chart|item]]  (i), with the obvious precondition: the i-th element, of type [[ref:/libraries/base/reference/any_chart]]  (since the value of i is not known at compile time); also first, second, third, fourth and fifth, of the appropriate types. 
+*  [[ref:/libraries/base/reference/tuple_chart|item]]  (i), with the obvious precondition: the i-th element, of type [[ref:/libraries/base/reference/any_chart|ANY]]  (since the value of i is not known at compile time); also first, second, third, fourth and fifth, of the appropriate types. 
 *  [[ref:/libraries/base/reference/tuple_chart|put]]  (x, i), with the obvious precondition: replace i-th element with x. If argument x is not of the appropriate type T <code>i</code> there is no effect. 
 *  [[ref:/libraries/base/reference/tuple_chart|is_equal]] : redefined to consider only the first n elements, where n is the smaller length. 
 
 Other features under consideration include:
-* stripped (i): a tuple of type [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  [T <code>1</code>, T <code>2</code>, T <code>i-1</code>, T <code>i+1</code>, ..., T <code>n</code>], derived from the current one by removing the i-th component, again with the obvious precondition. 
+* stripped (i): a tuple of type TUPLE [T1, T2, Ti-1, Ti+1, ..., Tn], derived from the current one by removing the i-th component, again with the obvious precondition. 
 * wedged (x, i): a tuple with one more element, inserted at position i.
 *  '''infix''' "+": tuple concatenation 
 *  '''infix''' "++": element concatenation; t ++ x is the same thing as t.wedged (x, t.count + 1). 
 
 ==What have we gained?==
 
-First we have solved the only case in the Eiffel language in which an expression has no precisely defined type: polymorphic manifest arrays. We don't have manifest arrays any more, but manifest tuples, with a precisely defined type. No incompatibility is introduced thanks to rule CONF2. The original syntax for manifest arrays, Result := <<e <code>1</code>, e <code>2</code>, ..., e <code>n</code>>>, will continue to be supported. <br/>
-Second, we can define functions that return multiple results. This is a quite significant increase in expressive power. No common language has that. (You have to go to Lisp and functional languages.) Just define [[ref:/libraries/base/reference/tuple_chart|TUPLE]]  [...] as the result type; in the function, you will write things like 
+First we have solved the only case in the Eiffel language in which an expression has no precisely defined type: polymorphic manifest arrays. We don't have manifest arrays any more, but manifest tuples, with a precisely defined type. No incompatibility is introduced thanks to rule CONF2. The original syntax for manifest arrays, Result := <<e1, e2, ..., en>>, will continue to be supported. <br/>
+Second, we can define functions that return multiple results. This is a quite significant increase in expressive power. No common language has that. (You have to go to Lisp and functional languages.) Just define TUPLE [...] as the result type; in the function, you will write things like 
 
-Result := [e <code>1</code>, e <code>2</code>, ..., e <code>n</code>] 
+Result := [e1, e2, ..., en] 
 
 Also, from a theoretical viewpoint, feature calls are simpler and more homogeneous: every feature takes exactly one tuple as argument and returns exactly one tuple as a result. (Either of these tuples may be empty: the first for a feature with no argument, the second for a procedure.) The syntax for a call becomes
 <code>Feature Arguments</code>
@@ -284,10 +284,10 @@ The argument indicates the number of characters for the initial allocation. This
 The object attached at run-time to an entity such declared of type [[ref:/libraries/base/reference/string_8_chart|STRING]]  is not the actual sequence of characters but a string descriptor, which contains a reference to the actual string contents.
 
 As a result, four assignment or assignment-like operations are possible:
-*  '''A1''' <code> s1 </code> <code>  :=  </code> <code> s </code> 
-*  '''A2''' <code> s2 </code> <code> . </code>share <code> ( </code> <code> s </code> <code> ) </code> 
-*  '''A3''' <code> s3 </code> <code>  :=  </code>clone <code> ( </code> <code> s </code> <code> ) </code> 
-*  '''A4''' <code> s4 </code> <code> . </code>copy <code> ( </code> <code> s </code> <code> ) </code> 
+*  '''A1''' <code> s1  :=  s </code> 
+*  '''A2''' <code> s2.share (s) </code> 
+*  '''A3''' <code> s3  :=  clone (s) </code> 
+*  '''A4''' <code> s4.copy (s) </code> 
 
 As illustrated below, ''' A1''' is a reference assignment: <code> s1 </code> will be attached to the same descriptor as s. ''' A2''' keeps the descriptors distinct, but make them refer to the same sequence of characters. ''' A3''' uses the redefinition of clone for class [[ref:/libraries/base/reference/string_8_chart|STRING]] : <code> s3 </code> will be attached to a new string, completely distinct from the string attached to <code> s1 </code> although made of identical characters. ''' A4''' has almost the same effect as '''A3''', but is only applicable if <code> s4 </code> was not void, and will override the existing descriptor rather than creating a new one. 
  [[Image:strings]]  
@@ -367,7 +367,7 @@ Sometime you will be in a position where the schema of a class will have changed
 * attributes have been renamed 
 * attributes type have changed
 
-The storable mechanism allows you to retrieve the old version of the object only if it was saved using the <eiffel>independent_store</eiffel> facility. Each time you retrieve an object of a certain base class whose schema has changed, the feature <eiffel>correct_mismatch</eiffel> will be called. This feature is defined in <eiffel>[/libraries/base/reference/any_chart.xml|ANY]</eiffel> and by default will raise an exception. To handle the mismatch, you need to redefine <eiffel>correct_mismatch</eiffel> in the base class whose schema has been changed. For example in EiffelBase, <eiffel>[/libraries/base/reference/hash_table_chart.xml|HASH_TABLE]</eiffel> has changed between version 5.1 and version 5.2 to use <eiffel> SPECIAL</eiffel> rather than <eiffel>[/libraries/base/reference/array_chart.xml|ARRAY]</eiffel>for its internal data storage. To retrieve a 5.1 version of <eiffel>[/libraries/base/reference/hash_table_chart.xml|HASH_TABLE]</eiffel>, you need to define <eiffel>correct_mismatch</eiffel> as following: 
+The storable mechanism allows you to retrieve the old version of the object only if it was saved using the <eiffel>independent_store</eiffel> facility. Each time you retrieve an object of a certain base class whose schema has changed, the feature <eiffel>correct_mismatch</eiffel> will be called. This feature is defined in [[ref:/libraries/base/reference/any_chart|ANY]] and by default will raise an exception. To handle the mismatch, you need to redefine <eiffel>correct_mismatch</eiffel> in the base class whose schema has been changed. For example in EiffelBase, [[ref:/libraries/base/reference/hash_table_chart|HASH_TABLE]] has changed between version 5.1 and version 5.2 to use <eiffel> SPECIAL</eiffel> rather than [[ref:/libraries/base/reference/array_chart|ARRAY]] for its internal data storage. To retrieve a 5.1 version of [[ref:/libraries/base/reference/hash_table_chart|HASH_TABLE]], you need to define <eiffel>correct_mismatch</eiffel> as following: 
 <code>
 correct_mismatch is
 		-- Attempt to correct object mismatch during retrieve using `mismatch_information'.
@@ -406,9 +406,9 @@ correct_mismatch is
 	end
 		</code>
 
-Note the use of <eiffel>mismatch_information</eiffel>, this is a once feature of <eiffel>[/libraries/base/reference/any_chart.xml|ANY]</eiffel> of type <eiffel> MISMATCH_INFORMATION </eiffel>which behaves like a <eiffel>[/libraries/base/reference/hash_table_chart.xml|HASH_TABLE]</eiffel>. The keys of the table are the names of the attributes on which a mismatch occurred and the values are the corresponding object fields as they were originally stored. In this particular case of <eiffel>[/libraries/base/reference/hash_table_chart.xml|HASH_TABLE]</eiffel> we know that the previous version was an <eiffel>[/libraries/base/reference/array_chart.xml|ARRAY]</eiffel>, so we do an assignment attempt and if it succeeds we assign its <eiffel>area </eiffel>to the corresponding attribute of <eiffel>[/libraries/base/reference/hash_table_chart.xml|HASH_TABLE]</eiffel>. 
+Note the use of <eiffel>mismatch_information</eiffel>, this is a once feature of [[ref:/libraries/base/reference/any_chart|ANY]] of type <eiffel>MISMATCH_INFORMATION</eiffel> which behaves like a [[ref:/libraries/base/reference/hash_table_chart|HASH_TABLE]]. The keys of the table are the names of the attributes on which a mismatch occurred and the values are the corresponding object fields as they were originally stored. In this particular case of [[ref:/libraries/base/reference/hash_table_chart|HASH_TABLE]] we know that the previous version was an [[ref:/libraries/base/reference/array_chart|ARRAY]], so we do an assignment attempt and if it succeeds we assign its <eiffel>area</eiffel> to the corresponding attribute of [[ref:/libraries/base/reference/hash_table_chart|HASH_TABLE]]. 
 
-If a class name changed, then you need to create an instance of <eiffel>CLASS_NAME_TRANSLATIONS</eiffel>, it behaves like a <eiffel>[/libraries/base/reference/hash_table_chart.xml|HASH_TABLE]</eiffel> where the keys represent the old name, and the value the new name. This instance needs to be created before the call to retrieved. 
+If a class name changed, then you need to create an instance of <eiffel>CLASS_NAME_TRANSLATIONS</eiffel>, it behaves like a [[ref:/libraries/base/reference/hash_table_chart|HASH_TABLE]] where the keys represent the old name, and the value the new name. This instance needs to be created before the call to retrieved. 
 
 =Access To Internal Properties=
 
@@ -452,15 +452,11 @@ MEM_INFO, the result type for query <eiffel>memory_statistics</eiffel> in [[ref:
 ==Command-line arguments==
 
 Writing, assembling and compiling a system yields an executable command. The system's users will call that command with arguments. These are normally provided in textual form on the command line, as in
-<code>'''your_system''' arg1 arg2 arg3 </code>
+<code>your_system arg1 arg2 arg3 </code>
 
 although one may conceive of other ways of entering the command arguments, such as tabular or graphical form-filling. In any case the software must be able to access the values passed as command arguments. <br/>
-A language mechanism is available for that purpose: the Root Class rule indicates that the creation procedure of the root class may have a single argument (in the Eiffel sense of argument to a routine) of type [[ref:/libraries/base/reference/array_chart|ARRAY]]  [[[ref:/libraries/base/reference/string_8_chart|STRING]]  <code> ] </code>. The corresponding array of strings will be initialized at the beginning of the system's execution with the values entered as arguments to that execution of the command. <br/>
+A language mechanism is available for that purpose: the Root Class rule indicates that the creation procedure of the root class may have a single argument (in the Eiffel sense of argument to a routine) of type [[ref:/libraries/base/reference/array_chart|ARRAY]] [ [[ref:/libraries/base/reference/string_8_chart|STRING]]  <code> ] </code>. The corresponding array of strings will be initialized at the beginning of the system's execution with the values entered as arguments to that execution of the command. <br/>
 Although this facility suffices in many cases, it is not always convenient if you suddenly need to access the command arguments in a class that is far-away from the root. An alternative mechanism, class ARGUMENTS, is available. Once again, this is a class from which you should inherit if you need its facilities. It has just two exported features: 
 * <eiffel>argument_count</eiffel>, a non-negative integer, is the number of command arguments. 
 * <eiffel>argument</eiffel> <code>(</code>i<code>)</code>, a string, is the i-th command argument. Here <code> i </code> must be between 0 and <eiffel>argument_count</eiffel>; the convention is that for <code> i  </code> <code> = 0 </code> the result is the name of the command itself. 
-
-
-
-
 

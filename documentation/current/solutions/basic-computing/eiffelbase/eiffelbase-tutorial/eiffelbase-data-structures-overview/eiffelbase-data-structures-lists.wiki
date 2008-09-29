@@ -138,8 +138,8 @@ SEQUENCE is constructed with the full extent of the technique described in the d
 
 To the features of [[ref:/libraries/base/reference/bilinear_chart|BILINEAR]] , [[ref:/libraries/base/reference/sequence_chart|SEQUENCE]]  principally adds features for adding, changing and removing items. A few procedures in particular serve to insert items at the end:
 *  <code> s .put ( v ) adds v at the end of a sequence s </code>. 
-* <eiffel>extend</eiffel> and <eiffel>force</eiffel>, at the [[ref:/libraries/base/reference/sequence_chart|SEQUENCE]]  level, do the same as <eiffel>put</eiffel>.
-*  <code> s .append ( s1 ) adds to the end of s the items of s1 (another sequence), preserving their s1 </code> order. 
+*  <eiffel> extend</eiffel> and <eiffel>force</eiffel>, at the [[ref:/libraries/base/reference/sequence_chart|SEQUENCE]] level, do the same as <eiffel>put</eiffel>.
+*  <code> s .append ( s1 )</code> adds to the end of s the items of s1 (another sequence), preserving their s1  order. 
 
 Other procedures work on the current position:
 *  <code> s . </code><eiffel>remove</eiffel> removes the item at current position. 
@@ -170,7 +170,7 @@ By default, chains can only be extended at the end, through <eiffel>extend</eiff
 * Procedures <eiffel>remove_left</eiffel> and remove_right remove an item at the left and right or the cursor position.
 * Procedures <eiffel>merge_left</eiffel> and <eiffel>merge_right</eiffel> are similar to <eiffel>put_left</eiffel> and <eiffel>put_right</eiffel> but insert another dynamic chain rather than a single item. As the word 'merge' suggests, the merged structure, passed as argument, does not survive the process; it is emptied of its items. To preserve it, perform a <eiffel>clone</eiffel> or <eiffel>copy</eiffel> before the merge operation.
 
-The class also provides implementations of <eiffel>prune</eiffel>, <eiffel>prune_all</eiffel> and <eiffel>wipe_out</eiffel> from [[ref:libraries/base/reference/collection_chart]] . To make these implementations useful, it defines queries <eiffel>extendible</eiffel> and <eiffel>prunable</eiffel> so that they return the value true. 
+The class also provides implementations of <eiffel>prune</eiffel>, <eiffel>prune_all</eiffel> and <eiffel>wipe_out</eiffel> from [[ref:libraries/base/reference/collection_chart|COLLECTION]] . To make these implementations useful, it defines queries <eiffel>extendible</eiffel> and <eiffel>prunable</eiffel> so that they return the value true. 
 
 =Lists And Circular Structures=
 
@@ -227,6 +227,7 @@ would not work if <code> lin </code> is a non-empty circular structure: <eiffel>
 Using <eiffel>exhausted</eiffel> in lieu of off solves this problem. In class [[ref:/libraries/base/reference/circular_chart|CIRCULAR]] , <eiffel>exhausted</eiffel> is an attribute which is set to false by <eiffel>start</eiffel> and <eiffel>finish</eiffel>, and is set to true by <eiffel>forth</eiffel> when advancing from the last item to the first and by <eiffel>back</eiffel> when backing up from the first item to the last. So you should write the loop as 
 <code>from
 	lin.start
+
    	some_optional_initializing_operation (lin)
 until
    	lin.exhausted
@@ -272,7 +273,7 @@ The instance of type [[ref:/libraries/base/reference/linked_list_chart|LINKED_LI
 <code>my_list: LINKED_LIST [SOME_TYPE] </code>
 
 will have as its run-time value (if not void) a reference to such an object, which is really a list header. The actual list content is given by the [[ref:/libraries/base/reference/linkable_chart|LINKABLE]]  instances, each of which contains a value of type <eiffel>SOME_TYPE</eiffel> and a reference to the next item, called <eiffel>right</eiffel>. <br/>
-Clearly, a header of type [[ref:/libraries/base/reference/linked_list_chart|LINKED_LIST]]  <code> [ </code> <eiffel>SOME_TYPE</eiffel> <code> ] will be associated with cells of type [[ref:/libraries/base/reference/linkable_chart|LINKABLE]]   [ </code> <eiffel>SOME_TYPE</eiffel> <code> ] </code>. <br/>
+Clearly, a header of type <code>LINKED_LIST [SOME_TYPE]</code> will be associated with cells of type <code>LINKABLE  [SOME_TYPE]</code>. <br/>
 Features such as active and first are used only for the implementation; they are not exported, and so you will not find them in the flat-short specifications, although the figures show them to illustrate the representation technique. <br/>
 A similar implementation is used for two-way-linked structures such as two-way lists and two-way circular chains. 
  [[Image:two-way-list|fig.4: Two way linked list]]  
