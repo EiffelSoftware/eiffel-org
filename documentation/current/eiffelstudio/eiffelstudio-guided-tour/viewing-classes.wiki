@@ -1,4 +1,4 @@
-[[Property:title|7 CLASS VIEWS]]
+[[Property:title|7 Class Views]]
 [[Property:link_title|Viewing Classes]]
 [[Property:weight|-9]]
 [[Property:uuid|78136af1-5d7a-f3d2-9619-17f4c0541f1e]]
@@ -90,9 +90,4 @@ The remaining Class View buttons all display information in the same format. Eac
 *  <code> Once and constants </code> : constant attributes, "once functions" which provide shared objects (close to the "singleton" pattern), and once procedures which provide a convenient initialization mechanism. <code> LIST </code> has 'Operating_environment' and 'Io' inherited from the parent class ANY. 
 *  <code> External </code> features, implemented as calls to routines, macros or other elements implemented in other languages. <code> LIST </code> hasn't any. 
 *  <code> Exported </code> features: those available to all clients. <code> LIST </code> has quite a few. 
-
-[[6 STARTING TO BROWSE|<< Previous]]  [[8 PRODUCING AND EXPORTING DOCUMENTATION|Next >>]]  
-
-
-
 

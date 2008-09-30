@@ -1,4 +1,4 @@
-[[Property:title|18 EXECUTING A SYSTEM WITHIN AND WITHOUT EIFFELSTUDIO]]
+[[Property:title|18 Executing a System Within and Without EiffelStudio]]
 [[Property:link_title|Executing a System Within and Without EiffelStudio]]
 [[Property:weight|5]]
 [[Property:uuid|8256398e-d1a9-0471-664a-3225c7dfb306]]
@@ -40,8 +40,4 @@ A system compiled in "Workbench mode" -- frozen or melted -- is normally meant f
 
 With this discussion of compilation and execution we have finished our review of the key capabilities of EiffelStudio. Not everything has been covered, but you are now familiar with the essentials and ready to discover the rest by yourself, both by trying out various capabilities -- most of which should be self-explanatory -- and examining the extensive online documentation that accompanies the product. 
 </div>
-[[17 THE COMMAND-LINE COMPILER|<< Previous]]  [[19 APPENDIX: WRITING DOCUMENTATION FILTERS WITH EFF, THE EIFFEL FILTER FORMAT|Next >>]]  
-
-
-
 

@@ -1,4 +1,4 @@
-[[Property:title|6 STARTING TO BROWSE]]
+[[Property:title|6 Starting To Browse]]
 [[Property:link_title|Starting To Browse]]
 [[Property:weight|-10]]
 [[Property:uuid|cb6c2e52-d238-9b55-0b78-ab3af9568550]]
@@ -137,9 +137,4 @@ Here, for example, the editor lists <code> CHAIN </code>, as a parent of <code> 
 The place where we found the class <code> CHAIN </code> in the original tool (the one targeted to <code> LIST </code> ) was the bubble representing the class in the Diagram View. But that's just one possibility. A general principle of EiffelStudio is '''semantic consistency''' : when you want to work with a development object -- a class, a feature, a cluster -- you can grab it wherever it appears in the interface, and in whatever format it is displayed: you might have spotted it be in the Diagram View, in the text of a class in the Editing Tool, in the Cluster or Feature Tree, or in any of the class documentation formats that we will soon see; and the form under which you found it may be text -- the name of the class in a text document -- or some graphical representation, such as a class bubble in a diagram. These variants don't matter: if the class or other development object catches your fancy, you can do whatever operations make sense for it, such as Control-right-click to start a new development object targeted to it, or any of the other operations we'll see next. 
 
 While you are at it, try a couple of other ways to create a new Development Window. Go to <code> File </code> <code> --> </code> <code> New window </code> ; this creates a new tool, untargeted. The title bar says " <code> Empty development tool #1 </code> ". You can get the same effect by clicking the Create New Window icon, leftmost on the top row of buttons, just below " <code> File </code>". The corresponding keyboard accelerator is CTRL- <code> N </code>. 
-
-[[5 A LOOK AT THE PROJECT DIRECTORY|<< Previous]]  [[7 CLASS VIEWS|Next >>]] 
-
-
-
 

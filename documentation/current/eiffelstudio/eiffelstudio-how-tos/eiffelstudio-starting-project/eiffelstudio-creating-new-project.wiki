@@ -4,18 +4,22 @@
 The first thing to do to start Eiffeling is to create a project. Most commands are disabled when no project is created.
 
 When opening EiffelStudio, by default a dialog is popped up that proposes to create or open a project:
- [[Image:startup-dialog]]  
+
+[[Image:startup-dialog|center]]
+
 Under '''Create project''', several options are offered, which depend on the platform you are on. 
 *  '''Basic application''' is the most basic new project that can be generated. It only includes the [[EiffelBase|base library]]  and by default only creates the frame of the project. This is the ideal choice to start a textual (console) application, or to discover Eiffel. Indeed, the project is very light and includes only things that are essential in any project. It is available on all platforms. 
 *  '''.NET application''' has by default all essential components to start a project targeting the Microsoft .NET platform. Of course, it is only available on Windows, and only if you have chosen to install the .NET support during the installation. 
 *  '''Vision2 application''' creates a new project that includes the [[EiffelVision Introduction|Eiffel Vision2 library]] . This is the perfect choice to start a platform-independent graphic application, or even any graphic application, since EiffelVision2 is easier to use than platform-specific libraries. This option is available on all platforms. 
 *  '''WEL application''' generates a project using the [[WEL|Windows Eiffel Library(WEL)]] . This option is recommended for projects needing advanced Windows features, or Windows applications that are time-critical, since the graphic functionality provided by WEL is more efficient than the one provided by Vision2, which on the other hand provides a platform-independent abstract interface. This wizard is only available on Windows. 
-All those options are also available in the ''' File'''/ '''New project...''' menu. This pops up a dialog with all the options to generate a new project:  <br/>[[Image:create-a-project]]  
+All those options are also available in the ''' File'''/ '''New project...''' menu. This pops up a dialog with all the options to generate a new project:  
+
+[[Image:create-a-project|center]]  
+
 {{tip|If you checked the "Don't show this dialog at startup" checkbox in the start-up dialog but want to get it back, you can use the [[Discardable dialogs|Preferences dialog]]  to reset the default value. }}
 
 
-{{seealso|<br/>
-[[Retrieving a project from a configuration file|Retrieving a project from an configuration file]]  }}
+{{seealso| [[Retrieving a project from a configuration file|Retrieving a project from an configuration file]]  }}
 
 
 

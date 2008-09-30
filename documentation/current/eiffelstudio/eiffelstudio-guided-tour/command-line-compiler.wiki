@@ -1,4 +1,4 @@
-[[Property:title|17 THE COMMAND-LINE COMPILER]]
+[[Property:title|17 The Command-Line Compiler]]
 [[Property:link_title|The Command-Line Compiler]]
 [[Property:weight|4]]
 [[Property:uuid|62bd8d62-a734-3ec0-9533-eaa096e7b81f]]
@@ -12,9 +12,4 @@ To use the command-line compiler -- <code> ec </code> for Eiffel Compilation -- 
 		</code>
 
 Specify <code> class_name </code> and <code> feature_name </code> only if you wish to produce information about a class or a feature. Otherwise <code> ec </code> will compile a system according to each specified <code> option </code>. [[EiffelStudio: Command line options|Click here to see the set of supported options.]]  
-
-[[16 HOW EIFFELSTUDIO COMPILES|<< Previous]]  [[18 EXECUTING A SYSTEM WITHIN AND WITHOUT EIFFELSTUDIO|Next >>]]  
-
-
-
 

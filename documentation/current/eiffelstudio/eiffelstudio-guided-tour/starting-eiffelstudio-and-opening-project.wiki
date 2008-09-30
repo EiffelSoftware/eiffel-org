@@ -1,4 +1,4 @@
-[[Property:title|3 STARTING EIFFELSTUDIO AND OPENING A PROJECT]]
+[[Property:title|3 Starting EiffelStudio and Opening a Project]]
 [[Property:link_title|Starting EiffelStudio and Opening a Project]]
 [[Property:weight|-13]]
 [[Property:uuid|676cf329-5640-69c4-d10b-b56fcd3f2ff9]]
@@ -21,9 +21,5 @@ To launch EiffelStudio on Unix or OpenVMS, change directory to <code> YOURDIR </
 <code>	estudio</code>
 
 In general you can start EiffelStudio from any directory, but to make things simple for this Tour '''please make sure''' indeed to execute the <code> estudio </code> command from <code> YOURDIR </code>. (This will allow us to use relative rather than absolute names for some of the files involved.) 
-
-[[2 COPYING THE EXAMPLE FILES|<< Previous]]  [[4 COMPILING AND EXECUTING A SYSTEM|Next >>]]  
-
-
 
 

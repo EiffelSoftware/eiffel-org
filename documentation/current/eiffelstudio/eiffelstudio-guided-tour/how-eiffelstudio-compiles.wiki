@@ -1,4 +1,4 @@
-[[Property:title|16 HOW EIFFELSTUDIO COMPILES]]
+[[Property:title|16 How EiffelStudio Compiles]]
 [[Property:link_title|How EiffelStudio Compiles]]
 [[Property:weight|3]]
 [[Property:uuid|6fc86303-8afe-78af-6ca7-2853e8bfcbc3]]
@@ -184,8 +184,4 @@ Note that cross-development does not <span>require</span> finalization, since yo
 
 Finalize the example system now by selecting the menu entry <code> Project </code> <code> --> </code> <code> Finalize </code>. Here too you will be asked to confirm, although the dialog enables you to suppress that confirmation for later attempts, and you may skip C compilation. You will note that finalization is longer than freezing, but still remains quite reasonable thanks to the extensive optimization of the Eiffel compilation process and the structure of the generated C code. 
 </div>
-[[15 GRAPHICS-BASED DESIGN|<< Previous]]  [[17 THE COMMAND-LINE COMPILER|Next >>]]  
-
-
-
 

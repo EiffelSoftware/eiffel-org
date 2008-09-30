@@ -1,4 +1,4 @@
-[[Property:title|13 DEBUGGING AND RUN-TIME MONITORING]]
+[[Property:title|13 Debugging and Run-time Monitoring]]
 [[Property:link_title|Debugging and Run-time Monitoring]]
 [[Property:weight|-2]]
 [[Property:uuid|a53f6a74-7145-35ab-ed5e-2905aeb88774]]
@@ -96,8 +96,4 @@ In debugging sessions for more advanced applications, you will also find self-ex
 
 The combination of these facilities provides you with a level of <span>dynamic</span> information on the execution of your system that matches the <span>static</span> information that the browsing mechanisms studied in preceding sections provide about the system's structure. 
 </div>
-[[12 HANDLING SYNTAX AND VALIDITY ERRORS|<< Previous]]  [[14 COMPUTING PROJECT METRICS|Next >>]] 
-
-
-
 

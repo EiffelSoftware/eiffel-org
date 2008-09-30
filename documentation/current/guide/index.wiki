@@ -32,7 +32,7 @@ Sources of information on Eiffel include:
 
 :A summary of the arguments for using Eiffel.
 
-===[[Method]] -- The Eiffel Method and Language===
+===[[Method|Method and Language]] -- The Eiffel Method and Language===
 
 :Materials promoting the understanding of the Eiffel software development method and Eiffel the language.
 
@@ -44,13 +44,13 @@ Sources of information on Eiffel include:
 
 :There are technologies available with Eiffel that provide solutions to many ordinary development needs ... and to some extraordinary needs, too. This book addresses these requirements and the Eiffel technologies that satisfy them.
 
-===[[Windows]] -- Eiffel with Microsoft Windows===
+===[[Platform specifics]] -- Support for particular operating systems===
 
-:Although the majority of Eiffel is completely platform independent, Eiffel does provide solutions for some development needs that are strictly related to Microsoft Windows. Those technologies are described in this book.
+:Although the majority of Eiffel is completely platform independent, Eiffel does provide solutions for some development needs that are strictly related to specific operating systems. Those technologies are described in this book.
 
 ===[[Community]] -- Community Contributions===
 
-:Eiffel is a community. Developers have been using Eiffel to build high-quality software systems for many years. During that time, valuable software libraries and other assets have emerged, and their authors have been willing to share them with other Eiffel users for the greater good. This book contains information about those contributions.
+:Eiffel is a community. Members of the Eiffel community can contribute to this documentation through this book.
 
 
 ----

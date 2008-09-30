@@ -1,4 +1,4 @@
-[[Property:title|2 COPYING THE EXAMPLE FILES]]
+[[Property:title|2 Copying the Example Files]]
 [[Property:link_title|Copying the Example Files]]
 [[Property:weight|-14]]
 [[Property:uuid|bb8ff7d7-2e93-d150-339c-d9afb967bc98]]
@@ -22,9 +22,4 @@ Once you have compiled the example under EiffelStudio, relying on the precompile
 The final executable generated through " ''finalization''" (optimized compilation) will take only about 300 kilobytes. 
 
 Without precompiled EiffelBase you would need about 3.5 megabytes, plus about 25 megabytes of generated C code and auxiliary files. The executable in that case will take up about 250 kilobytes. 
-
-[[1 OVERVIEW AND PREREQUISITES|<< Previous]]  [[3 STARTING EIFFELSTUDIO AND OPENING A PROJECT|Next >>]]  
-
-
-
 

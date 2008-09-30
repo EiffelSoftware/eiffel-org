@@ -1,4 +1,4 @@
-[[Property:title|19 APPENDIX: WRITING DOCUMENTATION FILTERS WITH EFF, THE EIFFEL FILTER FORMAT]]
+[[Property:title|19 Appendix: Writing Documentation Filters with EFF, the Eiffel Filter Format]]
 [[Property:link_title|Appendix: Writing Documentation Filters with EFF, the Eiffel Filter Format]]
 [[Property:weight|6]]
 [[Property:uuid|0d17d433-3d4f-9575-49f7-d97eccb1a5b1]]
@@ -118,9 +118,4 @@ EFF uses Eiffel-like conventions, based on the percent sign, for control charact
 If <code> c </code> is not one of the characters for which special conventions have been listed, <code> % </code> <code> c </code> denotes the character <code> c </code> itself. 
 
 A multi-line entry uses the Eiffel convention for string continuations: <code> % </code> at the end of a line to signal that there is a continuation; a continuation line begins with zero or more spaces and tabs followed by a <code> % </code> ; the characters after the <code> % </code> are the continuation of the string. 
-
-[[18 EXECUTING A SYSTEM WITHIN AND WITHOUT EIFFELSTUDIO|<< Previous]]  
-
-
-
 

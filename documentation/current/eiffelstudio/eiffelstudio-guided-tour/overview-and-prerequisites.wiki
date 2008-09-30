@@ -1,4 +1,4 @@
-[[Property:title|1 OVERVIEW AND PREREQUISITES]]
+[[Property:title|1 Overview and Prerequisites]]
 [[Property:link_title|Overview and Prerequisites]]
 [[Property:weight|-15]]
 [[Property:uuid|acf5433b-14e9-1d21-c8cf-997db7821550]]
@@ -80,9 +80,4 @@ Please take a moment to locate the example files on your installation. They all 
 <code>$ISE_EIFFEL/examples/studio/tour</code>
 
 (Windows users: remember that instead of the slash <code> / </code> your platform uses a backslash <code> \ </code>. OpenVMS users: this is to be replaced by the OpenVMS path naming conventions.) 
-
-[[2 COPYING THE EXAMPLE FILES|Next >>]]  
-
-
-
 

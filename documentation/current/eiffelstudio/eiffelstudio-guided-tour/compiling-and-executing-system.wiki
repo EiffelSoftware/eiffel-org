@@ -1,4 +1,4 @@
-[[Property:title|4 COMPILING AND EXECUTING A SYSTEM]]
+[[Property:title|4 Compiling and Executing a System]]
 [[Property:link_title|Compiling and Executing a System]]
 [[Property:weight|-12]]
 [[Property:uuid|58494be3-f29f-3a15-a27e-e635bdc71c53]]
@@ -49,9 +49,4 @@ This little application doesn't use graphics or anything fancy but simply create
 The message " <code> Press Return to finish the execution </code>" would not appear if you executed the system from outside of EiffelStudio, for example from a command line. Its purpose within EiffelStudio is clear: to let you see the console output; without it, the console would go away at the end of execution. (None of this applies to Unix/Linux/OpenVMS since there is no new console window to get rid of.) 
 
 If before closing the console window you look at the main EiffelStudio window (by moving away the console window) you will notice that it looks different from before, since it now shows the fields useful in monitoring execution and debugging. But we'll look at this later. For the moment just dismiss the console by following the advice to " <code> Press Return </code>": hit the Return or Enter key. 
-
-[[2 COPYING THE EXAMPLE FILES|<< Previous]]  [[5 A LOOK AT THE PROJECT DIRECTORY|Next >>]]  
-
-
-
 
