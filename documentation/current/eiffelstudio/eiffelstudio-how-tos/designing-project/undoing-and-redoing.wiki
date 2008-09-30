@@ -14,8 +14,9 @@ Almost all actions in the diagram tool are undoable. Every action that can be un
 * To redo the last action, click '''Redo last action'''.  [[Image:general-redo-icon]]  
 * To undo all actions up until a specific action: 
 *# Click the '''History tool''' button.  [[Image:general-undo-history-icon]]  
-*# The '''History tool''' dialog appears with a list of all undoable actions. By clicking on one of the actions, the diagram returns to the state it was in just after you performed this action. <br/>
- [[Image:history-tool]]  
+*# The '''History tool''' dialog appears with a list of all undoable actions. By clicking on one of the actions, the diagram returns to the state it was in just after you performed this action.
+
+[[Image:history-tool|center]] 
 
 
 {{note|When an action is performed that cannot be undone, the history tool is emptied. }}
