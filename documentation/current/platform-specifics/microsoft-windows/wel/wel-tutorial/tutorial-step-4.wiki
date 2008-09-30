@@ -19,7 +19,7 @@ This sample builds on the knowledge learned in the previous tutorials ( [[Tutori
 After launching the sample, you will see a [[ref:libraries/wel/reference/wel_frame_window_chart|WEL_FRAME_WINDOW]]  displayed. By holding down the left mouse button, and moving the mouse (Within the client area of the window), you will be able to draw on the client area of the window. Pressing the right mouse button within the window will clear the client area of the window. 
 ==Under the Hood==
 
-This system is an improvement over tutorial [[Tutorial Step 3|step3]]  and only uses WEL techniques demonstrated in previous [[Tutorial|tutorials]]  to allow you to draw on the client DC of the window. 
+This system is an improvement over tutorial [[Tutorial Step 3|step3]]  and only uses WEL techniques demonstrated in previous tutorials to allow you to draw on the client DC of the window. 
 
 This sample contains the following classes: 
 * <code>TUTORIAL_STEP4</code>

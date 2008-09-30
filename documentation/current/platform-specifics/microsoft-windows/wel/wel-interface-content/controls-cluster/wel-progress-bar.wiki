@@ -3,7 +3,7 @@
 [[Property:uuid|6c8b5b4c-2d55-9635-1c29-361c28f09b14]]
 A [[ref:libraries/wel/reference/wel_progress_bar_chart|WEL_PROGRESS_BAR]]  control is an encapsulation of the Win32 progress bar. It can be used to display the progress of a lengthy operation. 
 
-{{note| '''Note:''' By specifying the style Pbs_vertical, the progress bar will be displayed vertically. }}
+{{note|By specifying the style Pbs_vertical, the progress bar will be displayed vertically. }}
 
 ==Appearance==
 A [[ref:libraries/wel/reference/wel_progress_bar_chart|WEL_PROGRESS_BAR]] . <br/>

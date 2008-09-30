@@ -7,7 +7,7 @@ Briefly said, the Component Object Model is a Microsoft binary standard that est
 
 The advantages of such an approach include an increased reusability (binary reuse), a better version management (COM standard implies that new component versions are compatible with the older ones) and a built-in runtime environment. The binary reuse aspect of COM added with the source reuse ability of Eiffel offer the developer an ideal platform to increase considerably their productivity. 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[EiffelCOM Wizard|EiffelCOM wizard]]  <br/>
 [[EiffelCOM Library| EiffelCOM library]]  <br/>
 [[Generalities| Generalities]]  <br/>

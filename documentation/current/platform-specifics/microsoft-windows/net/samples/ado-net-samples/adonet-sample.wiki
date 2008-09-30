@@ -1,5 +1,6 @@
 [[Property:title|ADO.NET Sample]]
 [[Property:weight|0]]
+[[Property:uuid|45d24893-63d0-c2a9-9f62-ead08ca4b901]]
 This sample consist of a command line showing how to interact with a database.
 
 The DataReader object is somewhat synonymous with a read-only/forward-only cursor over data. The DataReader API supports flat as well as hierarchical data. A DataReader object is returned after executing a command against a database. The format of the returned DataReader object is different from a recordset. For example, you might use the DataReader to show the results of a search list in a web page.

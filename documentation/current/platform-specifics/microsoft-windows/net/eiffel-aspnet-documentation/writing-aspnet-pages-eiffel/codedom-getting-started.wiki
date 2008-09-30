@@ -9,7 +9,7 @@ Writing ASP.NET pages in Eiffel also requires to be familiar with the Eiffel lan
 The '''Samples''' folder of the Eiffel for ASP.NET delivery includes ASP.NET pages written in Eiffel. To run the samples you can either click on the corresponding link in the ''Start'' menu or open the page [http://localhost/EiffelSample http://localhost/EiffelSample]  in your internet browser. Each sample comes with an extensively commented source code. 
 {{note|The samples will only be available if IIS was installed prior to installing Eiffel for ASP.NET. }}
 
-{{seealso| '''See also:''' [[Using Eiffel (to write ASP.NET pages)|Using Eiffel]]  }}
+{{seealso|[[Using Eiffel (to write ASP.NET pages)|Using Eiffel]]  }}
 
 
 

@@ -9,9 +9,9 @@ Another use of the CodeDom technology is via the WSDL utility. This utility is p
 Wsdl /language:"EiffelSoftware.CodeDom.CodeDomProvider, EiffelSoftware.CodeDom, Version=2.0.1.1402, Culture=neutral, PublicKeyToken=def26f296efef469"<br/>
 http://api.google.com/GoogleSearch.wsdl</code>
 
-{{note| '''Note:''' The vesion number used above might differ depending on the version of the Eiffel CodeDom Provider dll installed on your system. }}
+{{note|The vesion number used above might differ depending on the version of the Eiffel CodeDom Provider dll installed on your system. }}
 
-{{note| '''Note:''' The example above uses the Google web service, the corresponding URL is correct at the time of writing but there is no guarentee it won't change (or be removed) in the future. }}
+{{note|The example above uses the Google web service, the corresponding URL is correct at the time of writing but there is no guarentee it won't change (or be removed) in the future. }}
 This will generate a file with the extension '''.es''' which contains multiple Eiffel class definitions. Compiling this file will require using the CodeDom compiler (programmatically via the CodeDom <code>ICodeCompiler</code> interface) or using the [[eSplitter|eSplitter]]  tool to generate standard Eiffel source files ('''.e''' files) that can then be compiled by the standard Eiffel compiler. 
 
 

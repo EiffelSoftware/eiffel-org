@@ -10,7 +10,7 @@ One main difference with out-of-process components (other than the nature of the
 </div><div> 
 ==Out-of-process Components==
 These components are standard executable acting as servers that can be accessed locally or over a network. Typically used in a three tier client server architecture, the major difference with in-process servers (other than the module type - executable instead of DLL) is their lifetime. In-process components are typically loaded to achieve a specific task and unloaded just after while out-of-process components are servers supposed to run continuously. The EiffelCOM wizard allows to build clients for such servers in Eiffel. It also provides the ability to create such servers. </div>
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[EiffelCOM Wizard|EiffelCOM wizard]]  <br/>
 [[EiffelCOM Library| EiffelCOM library]]  <br/>
 [[EiffelCOM: Introduction| Introduction]]  <br/>

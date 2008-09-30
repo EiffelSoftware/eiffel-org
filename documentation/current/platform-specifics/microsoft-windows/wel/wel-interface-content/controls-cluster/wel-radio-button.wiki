@@ -1,5 +1,6 @@
 [[Property:title|WEL_RADIO_BUTTON]]
 [[Property:weight|9]]
+[[Property:uuid|ce7c3bfb-7950-95fb-0f92-7e33abdefa3b]]
 A [[ref:libraries/wel/reference/wel_radio_button_chart|WEL_RADIO_BUTTON]]  control can take two states, checked or unchecked. By placing more than one of these in a [[ref:libraries/wel/reference/wel_group_box_chart|WEL_GROUP_BOX]] , they will become grouped, and only one may be checked at once. 
 
 ==Appearance==

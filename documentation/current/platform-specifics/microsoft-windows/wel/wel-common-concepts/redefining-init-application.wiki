@@ -3,6 +3,3 @@
 [[Property:uuid|95d9b971-7470-9191-3023-b99c22354e8f]]
 [[ref:libraries/wel/reference/wel_application_chart|WEL_APPLICATION]]  contains a feature <eiffel>init_application</eiffel> which does nothing by default, but is called before the application is started. This can be redefined to execute tasks that must be performed before the application is running. A common redefinition is to allow the loading of common dll's, see [[List View|list_view]]  sample for a demonstration of this technique. 
 
-
-
-

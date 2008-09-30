@@ -1,5 +1,6 @@
 [[Property:title|Troubleshooting]]
 [[Property:weight|2]]
+[[Property:uuid|775c2f23-7138-c830-4e14-4d9898043229]]
 If you have problems when you parse a resource file, you can first try to remove the grammar file (its name is "rb.gram"), and then re-launch Resource Bench. It creates again the grammar file to allow parsing resource files (on a Pentium 120 it takes less than one minute). 
 
 

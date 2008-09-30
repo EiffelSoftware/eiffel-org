@@ -7,7 +7,7 @@ The EiffelCOM library includes the following clusters:
 * A [[Structures|Structures]]  cluster includes wrappers for COM structures and additional data structures. 
 * A [[ref:libraries/com/reference/index|Support]]  cluster provides access to helper classes. 
 
-{{seealso| '''See Also''' <br/>
+{{seealso|<br/>
 [[About COM and Eiffel]]  <br/>
 [[EiffelCOM Wizard|EiffelCOM wizard]]  }}
 

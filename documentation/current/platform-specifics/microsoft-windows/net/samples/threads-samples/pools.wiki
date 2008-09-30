@@ -1,5 +1,6 @@
 [[Property:title|Pools]]
 [[Property:weight|0]]
+[[Property:uuid|ace044b0-1fb7-22a0-6c18-880281ed3b6d]]
 This sample demonstrates use of the <eiffel>THREAD_POOL</eiffel> (ThreadPool) class. The sample queues up an asynchronous method call that is executed by a thread from the thread pool managed by the Common Language Runtime. The method "does some work" and then sets an event indicating that the work has finished. The main thread waits on the event and then exits. 
 
 ==Compiling==

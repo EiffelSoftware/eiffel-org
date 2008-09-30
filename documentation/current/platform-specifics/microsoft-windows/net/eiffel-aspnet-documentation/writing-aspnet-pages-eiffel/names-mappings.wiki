@@ -27,7 +27,7 @@ The steps to follow to retrieve the Eiffel identifier corresponding to a .NET me
 <code>Max_Occurs_String -> max_occurs_string</code>
 
 Although these simplified steps will work in most cases there are certain .NET identifiers that require additional manipulation to be translated into Eiffel. The [[Name Mapper|Name Mapper]]  utility should be used when such cases arise. 
-{{seealso| '''See also:''' [[Name Mapper|Name Mapper]]  }}
+{{seealso|[[Name Mapper|Name Mapper]]  }}
 
 
 

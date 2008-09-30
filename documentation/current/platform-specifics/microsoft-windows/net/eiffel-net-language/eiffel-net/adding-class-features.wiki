@@ -201,7 +201,7 @@ In this feature:
 * "INTEGER" (after the argument list) is the feature's type.
 * "do " introduces the implementation code.
 * "Result := an_attribute + an_int" is an instruction. 
-{{warning| '''Note:'''This feature is a function. As a consequence the computation uses the keyword "Result" as an entity name for the value to be returned by the function }}
+{{note|This feature is a function. As a consequence the computation uses the keyword "Result" as an entity name for the value to be returned by the function }}
 
 * "end" ends the feature declaration
 

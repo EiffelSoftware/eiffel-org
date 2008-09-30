@@ -13,7 +13,7 @@ The wizard generates code from a Type Library and additional information given b
  [[Image:introduction]]  
 The wizard can automatically compile the generated C and Eiffel code. To produce a Type Library corresponding to a given IDL file the wizard relies on '''MIDL''', the Microsoft IDL compiler. You may also provide the wizard with a Type Library directly. The wizard can also be used to add a COM interface to an existing Eiffel project. For the rest of the manual a '''COM Definition File''' will refer to the input file given to the wizard (either an IDL file, a Type Library or an Eiffel project file). 
 
-{{seealso| '''See Also''': [[EiffelCOM Wizard Guided Tour|Guided Tour]] , [[EiffelCOM Wizard Reference|EiffelCOM wizard reference]]  }}
+{{seealso|[[EiffelCOM Wizard Guided Tour|Guided Tour]] , [[EiffelCOM Wizard Reference|EiffelCOM wizard reference]]  }}
 
 
 

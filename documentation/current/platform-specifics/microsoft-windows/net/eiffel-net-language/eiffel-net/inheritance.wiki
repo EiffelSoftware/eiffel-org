@@ -192,7 +192,7 @@ The redefine part lists the names of effective features for which the producer o
 
 So, in this example the implementation for <code> linear_representation </code>, for example, that <code> LINKED_QUEUE </code> would have inherited from <code> QUEUE </code> will not be used. Instead <code> LINKED_QUEUE </code> implements its own version of <code> linear_representation </code>. 
 
-{{note| '''Note:''' When a class implements a version of an inherited feature which was deferred in its parent, this is known as "effecting" the feature. Because features being effected are getting their first implementation, it is not necessary to list their names in the redefine part, or anywhere else in the inheritance part of the heir. }}
+{{note|When a class implements a version of an inherited feature which was deferred in its parent, this is known as "effecting" the feature. Because features being effected are getting their first implementation, it is not necessary to list their names in the redefine part, or anywhere else in the inheritance part of the heir. }}
 
 ===Select===
 <code>

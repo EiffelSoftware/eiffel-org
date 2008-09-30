@@ -13,7 +13,7 @@ Optionally, EiffelStudio can be opened on the generated system by clicking the c
 
 {{note|The EiffelStudio button will only be enabled if the Eiffel code was compiled. }}
 
-{{seealso| '''See Also''': [[Generated Files|Generated Files]] , [[Class Hierarchy|Class Hierarchy]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Reusing a COM Component|Accessing a COM Component]] , [[Building a COM Component|Building a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
+{{seealso|[[Generated Files|Generated Files]] , [[Class Hierarchy|Class Hierarchy]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Reusing a COM Component|Accessing a COM Component]] , [[Building a COM Component|Building a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
 
 
 

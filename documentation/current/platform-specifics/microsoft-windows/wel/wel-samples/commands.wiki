@@ -18,7 +18,7 @@ To compile the example:
 After launching the program, you will see a window displayed with a similar appearance to the one illustrated above. Please follow the instructions displayed in the window. 
 ==Under the Hood==
 <code>MAIN_DIALOG</code> inherits [[ref:libraries/wel/reference/wel_main_dialog_chart|WEL_MAIN_DIALOG]]  which provides the feature put_command, used to associate a [[ref:libraries/wel/reference/wel_command_chart|WEL_COMMAND]]  to a Windows message received by the window. A [[ref:libraries/wel/reference/wel_command_chart|WEL_COMMAND]]  contains a deferred feature, execute which is executed when the command is fired. <code>SHOW_COMMAND_INFORMATION</code>, <code>SHOW_MOUSE_BUTTON_INFORMATION</code> and <code>SHOW_MOVE_INFORMATION</code> all inherit [[ref:libraries/wel/reference/wel_command_chart|WEL_COMMAND]] . 
-{{note| '''Note '''execute has an argument of type <code>ANY</code> which is used to pass any additional information required. }}
+{{note|execute has an argument of type <code>ANY</code> which is used to pass any additional information required. }}
 
 This sample contains the following classes: 
 * <code>APPLICATION_IDS</code>

@@ -92,22 +92,22 @@ Many COM Automation servers have routines that take arguments with default value
 
 For example, the following adds a new workbook to Excel. The default argument tells Excel to decide for itself how many worksheets to put in the new workbook: 
 <code>
-	  class
-		MY_EXCEL_APPLICATION
+class
+	MY_EXCEL_APPLICATION
 
-	  inherit
-		APPLICATION_PROXY
+inherit
+	APPLICATION_PROXY
 
-		ECOM_VARIANT_ACCESS
+	ECOM_VARIANT_ACCESS
 
-	  feature
+feature
 
-		add_workbook is
-			local
-				workbook: WORKBOOK_PROXY
-			do
-				workbook := workbooks.add (missing, 0)
-			end
+	add_workbook is
+		local
+			workbook: WORKBOOK_PROXY
+		do
+			workbook := workbooks.add (missing, 0)
+		end
 </code>
 
 

@@ -26,7 +26,7 @@ class
 end
 </code>
 
-Okay, so class SIMPLE is only interesting in its simplicity. Let's look at a more useful example:
+Okay, so class SIMPLE is only interesting in its simplicity. Let's look at an example that is more illustrative:
 <code>
 indexing
 	description: Objects that model lists
@@ -72,7 +72,7 @@ invariant
 	before_constraint: before implies (active = first_element)
 	after_constraint: after implies (active = last_element)
 </code>
-Here is a class that, although somewhat contrived, utilizes all of the required and optional parts of the class. Let's look at each part individually. 
+Here is a class that, although completely contrived, utilizes all of the required and optional parts of the class. Let's look at each part individually. 
 ===Indexing===
 <code>
 indexing

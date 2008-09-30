@@ -1,5 +1,6 @@
 [[Property:title|WEL_LIST_VIEW]]
 [[Property:weight|3]]
+[[Property:uuid|730f6b22-f858-816f-090e-c32ec1bebfd9]]
 A [[ref:libraries/wel/reference/wel_list_view_chart|WEL_LIST_VIEW]]  control is an encapsulation of the Windows List View control and provides several ways of displaying a collection of items. Each item can consist of a text and an icon. Certain styles allow additional information to be displayed in columns to the right of the icon and label. 
 ==Appearance==
 A [[ref:libraries/wel/reference/wel_list_view_chart|WEL_LIST_VIEW]]  with the Lvs_report style. <br/>

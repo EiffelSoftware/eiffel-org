@@ -14,7 +14,7 @@ There are three types of events that can be logged: information events, warnings
 
 ==Log Location==
 All the Eiffel CodeDom Provider events are logged into the Windows '''System''' Log. This log can be viewed via the Windows administrative tool ''Event Viewer''. The source for the events raised by the Eiffel CodeDom Provider is ''Eiffel CodeDom Provider''. By default all the events are logged on the machine running the Eiffel CodeDom Provider but it is possible to change its configuration so that the events are logged on a different machine (see [[Required Permissions|Required permissions]] ). 
-{{seealso| '''See also''': [[Eiffel CodeDom Provider Manager|Eiffel CodeDom Provider Manager]] , [[Supported Constructs|Supported constructs]] , [[Required Permissions|Required permissions]]  }}
+{{seealso|[[Eiffel CodeDom Provider Manager|Eiffel CodeDom Provider Manager]] , [[Supported Constructs|Supported constructs]] , [[Required Permissions|Required permissions]]  }}
 
 
 

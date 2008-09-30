@@ -5,7 +5,7 @@
 
 A Control is a window which provides a means of interacting with the application. For example, the [[ref:libraries/wel/reference/wel_edit_chart|WEL_EDIT]]  control provides a user with the means of entering and modifying text. There are many common controls available within this cluster, each with a specific use.
 
-{{note| '''Note:''' Each control inherits from [[ref:libraries/wel/reference/wel_control_chart|WEL_CONTROL]]  which is a descendent of [[ref:libraries/wel/reference/wel_window_chart|WEL_WINDOW]]  This provides the control with a large number of general features (including full window functionality). Each control also provides its own feature set which give access to specific properties of that control. }}
+{{note|Each control inherits from [[ref:libraries/wel/reference/wel_control_chart|WEL_CONTROL]]  which is a descendent of [[ref:libraries/wel/reference/wel_window_chart|WEL_WINDOW]]  This provides the control with a large number of general features (including full window functionality). Each control also provides its own feature set which give access to specific properties of that control. }}
 
 ==Creating controls==
 

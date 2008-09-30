@@ -1,5 +1,6 @@
 [[Property:title|MDI Details]]
 [[Property:weight|0]]
+[[Property:uuid|f39b5ac5-64ae-781d-8d43-305954ae8d28]]
 Multiple Document Interface (MDI) applications have a single, primary window (the parent window) that contains a set of windows within its client region (child windows). Each child window is a form that is constrained to appear only within the parent. Children typically share the menu bar, tool bar, and other parts of the parent's interface. Secondary windows like dialog boxes are not constrained to the parent window's client region. 
 
 ==Creating an MDI Application==

@@ -1,5 +1,6 @@
 [[Property:title|Genericity]]
 [[Property:weight|4]]
+[[Property:uuid|3a0bfe10-78e7-00eb-d9a0-b977d1fa352a]]
 We got a very short introduction to generic classes when we were looking at the formal generic part of class structure in [[Eiffel Classes|Eiffel Classes]] . That discussion left to the imagination the motivation and benefits for creating generic classes. 
 
 You will see that most of the generic classes model containers for multiple items and at least one of their formal generic parameters represents the type of items that are to be stored in the container. Some generic classes, like <code> LINKABLE </code>, care for only one instance of the type represented by their formal generic parameter. 

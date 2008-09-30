@@ -1,5 +1,6 @@
 [[Property:title|eSplitter]]
 [[Property:weight|0]]
+[[Property:uuid|2cf7249c-fd1e-b8e0-08ab-c2995b2b8227]]
 This tool comes in two flavors: a command line only utility ''esplit.exe'' and a graphical tool ''esplitter.exe''. Both applications achieve the same goal: to produce standard Eiffel source files ('''.e''' files) from Eiffel CodeDom Provider generated source files ('''.es''' files). 
 ==Command Line Utility (esplit.exe)==
 This utility is located in the ''Codedom\bin'' subfolder of the Eiffel for ASP.NET directory. The command line syntax is: 

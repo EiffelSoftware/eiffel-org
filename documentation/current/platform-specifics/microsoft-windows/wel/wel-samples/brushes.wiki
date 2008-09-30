@@ -18,7 +18,7 @@ To compile the example:
 After launching the program you will see a window displayed containing three push buttons marked "Brushes", "Rectangles" and "3D". Clicking "Brushes" will open a new window demonstrating different brushes available. Clicking "Rectangles" will open a new window within which many different shaped and colored rectangles will be drawn. Clicking"3D" will open a new window demonstrating the use of multiple bitmaps for animation. 
 ==Under the Hood==
 Each of the three windows that are opened from the programs <code>MAIN_WINDOW</code> inherit [[ref:libraries/wel/reference/wel_frame_window_chart|WEL_FRAME_WINDOW]]  and contains code for generating their output. <code>BRUSHES_DEMO</code> redefines <code>idle_action</code> to force a re-draw on the applicable windows. 
-{{note| '''Note'''. If <code>enable_idle_action</code> is not called, then <code> idle_action</code> is never executed. }}
+{{note|. If <code>enable_idle_action</code> is not called, then <code> idle_action</code> is never executed. }}
 
 This sample contains the following classes: 
 * <code>APPLICATION_IDS</code>

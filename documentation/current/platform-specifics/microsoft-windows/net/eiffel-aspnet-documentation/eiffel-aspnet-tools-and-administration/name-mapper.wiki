@@ -8,7 +8,7 @@ The assemblies the tool will look into for the .NET type whose name was given in
 {{note|When adding an assembly and if the assembly has not been consumed (i.e. the XML names mapping files have not been generated in the Eiffel Metadata Cache) then the Name Mapper will consume the assembly, this may take a while. }}
 
 
-{{seealso| '''See also:''' [[Names Mappings|Names Mapping]]  }}
+{{seealso|[[Names Mappings|Names Mapping]]  }}
 
 
 

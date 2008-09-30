@@ -1,5 +1,6 @@
 [[Property:title|Exception Mechanism]]
 [[Property:weight|6]]
+[[Property:uuid|84a159dd-4a19-af73-7b0b-0618a284142a]]
 ==Motivation: Concerning Robustness==
 
 The notion of software correctness that we saw in [[Design by Contract and Assertions|Design by Contract and Assertions]]  is half of the formula for software reliability. Correctness covers what the software is supposed to do, that is, its specification. 

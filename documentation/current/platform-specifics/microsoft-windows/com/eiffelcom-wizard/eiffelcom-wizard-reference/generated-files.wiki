@@ -8,7 +8,7 @@ The EiffelCOM Wizard generates code into the specified destination folder. The f
 *  Optionally, the EiffelCOM Wizard may generate a '''idl''' folder which contains the IDL file generated from the Eiffel facade class if the project consists of adding a COM interface to an existing Eiffel project. 
 *  The '''Server''' folder includes files used to implement a COM component. Apart from the usual C++ folders, it also includes a '''Component''' folder which contains Eiffel classes corresponding to the component's coclasses and a '''Interface_stub''' folder which contains Eiffel classes wrapping interfaces that may be given as argument to the component. This last folder may also be useful when accessing a COM component. The '''Server''' folder also includes a ECF file which can be used to compile the generated system if the project consists of creating a new component. 
 
-{{seealso| '''See Also''': [[How the EiffelCOM Wizard works|How the EiffelCOM Wizard Works]] , [[Class Hierarchy|Class Hierarchy]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Reusing a COM Component|Accessing a COM Component]] , [[Building a COM Component|Building a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
+{{seealso|[[How the EiffelCOM Wizard works|How the EiffelCOM Wizard Works]] , [[Class Hierarchy|Class Hierarchy]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Reusing a COM Component|Accessing a COM Component]] , [[Building a COM Component|Building a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
 
 
 

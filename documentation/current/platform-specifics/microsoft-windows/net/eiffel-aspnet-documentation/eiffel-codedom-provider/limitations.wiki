@@ -1,5 +1,6 @@
 [[Property:title|Limitations]]
 [[Property:weight|8]]
+[[Property:uuid|6d8ab90d-f051-5010-55df-218a020d9cb5]]
 ==Generation Only==
 The current implementation of the Eiffel CodeDom Provider does not support parsing Eiffel source code to produce a CodeDom tree. Only code generation and compilation are supported in the current release. 
 ==Managed Code Only==

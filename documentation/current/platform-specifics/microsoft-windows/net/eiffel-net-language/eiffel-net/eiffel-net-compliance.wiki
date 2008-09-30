@@ -1,9 +1,10 @@
 [[Property:title|Eiffel for .NET Compliance]]
 [[Property:weight|9]]
 [[Property:uuid|1e19c2f0-995e-02c1-0588-c134a11e0003]]
-As of EiffelEnvision 2.6, Eiffel for ASP.NET 5.6 and EiffelStudio 5.7; Eiffel for .NET introduces the notion of '''Eiffel-Compliance'''. .NET specifies a number of language interopability rules in a [http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconwhatiscommonlanguagespecification.asp Common Language Specification-Compliance]  specification. Eiffel for .NET supports all CLS-Compliant type and features in .NET but now additionally supports a number of non-CLS-compliant types and features. This is the purpose of the Eiffel-Compliant notion. 
+As of Eiffel for ASP.NET 5.6 and EiffelStudio 5.7; Eiffel for .NET introduces the notion of '''Eiffel-Compliance'''. .NET specifies a number of language interoperability rules in a [http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconwhatiscommonlanguagespecification.asp Common Language Specification-Compliance]  specification. Eiffel for .NET supports all CLS-Compliant type and features in .NET but now additionally supports a number of non-CLS-compliant types and features. This is the purpose of the Eiffel-Compliant notion. 
 
-{{note|The information contained within this page does not go into any depth on the Common Language Specification (CLS) or CLS-Compliance. For this information please see Microsoft's on-line documentation [http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconwhatiscommonlanguagespecification.asp What is the Common Language Specification?]  }}
+The information contained within this page does not go into any depth on the Common Language Specification (CLS) or CLS-Compliance. For this information please see Microsoft's on-line documentation [http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconwhatiscommonlanguagespecification.asp What is the Common Language Specification?] 
+
 <span id="applicablity"></span> 
 ==Applicability==
 
@@ -11,7 +12,7 @@ The CLS states a number of rules .NET tools have to abide by to be CLS-compliant
 <span id="what_is_compliant"></span> 
 ==What is Eiffel-Compliant?==
 
-As already state, anything CLS-compliant is Eiffel-compliant. Eiffel-Compliancy merely allows for exceptions so that non-CLS-compliant assemblies, types and members can be used in Eiffel for .NET. 
+As already stated, anything CLS-compliant is Eiffel-compliant. Eiffel-Compliancy merely allows for exceptions so that non-CLS-compliant assemblies, types and members can be used in Eiffel for .NET. 
 
 The following list outlines the supported non-CLS-compliant types: 
 * All unsigned numerical basic types such as <eiffel>System.UInt32</eiffel> as <eiffel>System.UInt64</eiffel>, represented by <eiffel>NATURAL_xx</eiffel>.

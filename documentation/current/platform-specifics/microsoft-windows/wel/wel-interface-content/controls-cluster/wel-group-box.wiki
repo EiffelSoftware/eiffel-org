@@ -1,5 +1,6 @@
 [[Property:title|WEL_GROUP_BOX]]
 [[Property:weight|2]]
+[[Property:uuid|9ef874da-4d1f-b3f4-9645-9b50b1718daf]]
 A [[ref:libraries/wel/reference/wel_group_box_chart|WEL_GROUP_BOX]]  is used to enclose other controls, and certain controls such as a [[WEL_RADIO_BUTTON|WEL_RADIO_BUTTON]]  have special behavior when parented in a [[ref:libraries/wel/reference/wel_group_box_chart|WEL_GROUP_BOX]] . 
 
 ==Appearance==

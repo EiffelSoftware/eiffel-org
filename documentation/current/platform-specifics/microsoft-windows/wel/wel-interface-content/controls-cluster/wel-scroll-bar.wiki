@@ -1,5 +1,6 @@
 [[Property:title|WEL_SCROLL_BAR]]
 [[Property:weight|10]]
+[[Property:uuid|74da6cc8-0398-0b51-885b-d73b7ec104e0]]
 A [[ref:libraries/wel/reference/wel_scroll_bar_chart|WEL_SCROLL_BAR]]  control is an encapsulation of the Windows scroll bar control and is often used to specify which portion of a large control that cannot be viewed completely, is currently visible. 
 
 ==Appearance==

@@ -1,5 +1,6 @@
 [[Property:title|Coclass]]
 [[Property:weight|3]]
+[[Property:uuid|7f91f9ce-e042-1d48-9d01-f9b794269ec4]]
 We have seen that interfaces can be perceived as views of a component. This conceptual representation actually maps the implementation of an EiffelCOM component since the coclass inherits from the interfaces and implements their deferred features. Indeed, interfaces are deferred classes with all features accessible from outside deferred. The coclass is an Eiffel class that inherits from these interfaces and implements all the features. This design is not specific to Eiffel though and can be found in other languages as well. The coclass defines the behavior of the interface functions. <br/>
 
 ==Class Object==

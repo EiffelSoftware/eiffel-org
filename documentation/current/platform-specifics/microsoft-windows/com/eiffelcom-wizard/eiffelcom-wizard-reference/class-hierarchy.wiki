@@ -11,7 +11,7 @@ The '''Interface_proxy''' folder includes Eiffel classes wrapping interfaces tha
  [[Image:implemented-interface]]  
 The '''Interface_stub''' folder includes Eiffel classes implementing interfaces that may be given to the component as an argument. These classes inherit from both the deferred interface class and [[ref:libraries/com/reference/ecom_stub_chart| <eiffel>ECOM_STUB</eiffel> ]] . 
  [[Image:implemented-interface-server]]  
-{{seealso| '''See Also''': [[How the EiffelCOM Wizard works|How the EiffelCOM Wizard Works]] , [[Generated Files|Generated Files]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Reusing a COM Component|Accessing a COM Component]] , [[Building a COM Component|Building a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
+{{seealso|[[How the EiffelCOM Wizard works|How the EiffelCOM Wizard Works]] , [[Generated Files|Generated Files]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Reusing a COM Component|Accessing a COM Component]] , [[Building a COM Component|Building a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
 
 
 

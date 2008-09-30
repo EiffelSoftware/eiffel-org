@@ -87,7 +87,7 @@ feature -- Basic Operations
 
 end -- class COCLASS_CLIENT</code>
 
-{{seealso| '''See Also''': [[How the EiffelCOM Wizard works|How the EiffelCOM Wizard Works]] , [[Generated Files|Generated Files]] , [[Class Hierarchy|Class Hierarchy]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Building a COM Component|Reusing a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
+{{seealso|[[How the EiffelCOM Wizard works|How the EiffelCOM Wizard Works]] , [[Generated Files|Generated Files]] , [[Class Hierarchy|Class Hierarchy]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Building a COM Component|Reusing a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
 
 
 

@@ -65,7 +65,7 @@ In the following sample, we use these features of <code> STRING </code> to make 
 	end
 </code>
 
-{{note| '''Note:''' As shown in the above example, it is necessary to apply <code> to_cil </code> to a manifest string if you are assigning it to a <code> System.String </code> or passing it as an argument where a <code> System.String </code> is called for. <br/>
+{{note|As shown in the above example, it is necessary to apply <code> to_cil </code> to a manifest string if you are assigning it to a <code> System.String </code> or passing it as an argument where a <code> System.String </code> is called for. <br/>
 This is expected to change in a future release. It shall become unnecesary to apply <code> to_cil </code> to manifest strings. Instead, whether a <code> STRING </code> or <code> System.String </code> is needed will be determined by the context in which the manifest string is being used, and the proper type of object will be generated. }}
 
 ===Other Similar Types===

@@ -2,11 +2,4 @@
 [[Property:weight|-1]]
 [[Property:uuid|7027e7f3-38e1-5e26-c936-20aea0e0c205]]
 Eiffel for ASP.NET allows running ASP.NET pages written in Eiffel. It should be installed on both the web server and the developer's machine. This documentation includes the following sections: 
-*  [[Eiffel for ASP.NET Installation|Installation]]  describes the steps involved in installing Eiffel for ASP.NET. 
-*  [[CodeDom: Getting Started|Getting started]]  lists resources that will help getting started with Eiffel for ASP.NET. 
-*  [[Using Eiffel (to write ASP.NET pages)|Using Eiffel]]  lists a few points that are specific to using Eiffel for writing ASP.NET pages. 
-*  [[Names Mappings|Names mapping]]  explains how to retrieve Eiffel identifiers from .NET ones. 
-
-
-
 

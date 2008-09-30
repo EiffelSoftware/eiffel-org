@@ -1,5 +1,6 @@
 [[Property:title|Menu Details]]
 [[Property:weight|0]]
+[[Property:uuid|81ae03a0-387d-f776-17b9-f4a83c49b75f]]
 Windows Forms supports menus and context menus. Main menus are displayed on a menu bar that is located immediately below the title bar of a form. The menu bar contains top-level menu items that are used to group related submenu items. For example, by clicking a '''File''' top-level menu item, you can display menu items that are related to file operations. Menu items typically appear as commands for your application (such as '''New''' and '''Open'''),but they can also appear as separator bars and submenu items. You can display a check mark next to a menu item to display the state of a command or a the state of a feature in your application. In Windows Forms, main menus are represented by the '''MainMenu''' control. 
 
 Context menus can be displayed for a specific control or area of your form. They are typically accessed by clicking the right mouse button. In Windows Forms, context menus are represented by the '''ContextMenu''' control. 

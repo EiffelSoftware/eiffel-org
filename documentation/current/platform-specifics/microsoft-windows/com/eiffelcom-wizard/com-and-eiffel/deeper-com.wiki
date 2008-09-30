@@ -1,5 +1,6 @@
 [[Property:title|Deeper into COM]]
 [[Property:weight|6]]
+[[Property:uuid|f28ee911-1b15-260c-a290-540b9531113a]]
 The next paragraph gives some details on the COM internals. The understanding of these details are not required to use the EiffelCOM wizard but might help making better decisions when designing new EiffelCOM components. 
 
 ==Apartments==

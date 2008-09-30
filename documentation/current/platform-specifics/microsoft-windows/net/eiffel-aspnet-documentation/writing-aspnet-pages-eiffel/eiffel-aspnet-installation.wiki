@@ -11,7 +11,7 @@ Without IIS, ASP.NET pages cannot be loaded and thus the samples will not be ins
 ==ASP.NET Installation==
 Please consult the corresponding documentation (available online at [http://msdn.microsoft.com/asp.net/ http://msdn.microsoft.com/asp.net/]  ) for configuring ASP.NET properly. In particular, be aware that by default ASP.NET is disabled on Windows 2003 Server. 
 
-{{seealso| '''See also:''' [[CodeDom: Getting Started|Getting Started]]  }}
+{{seealso|[[CodeDom: Getting Started|Getting Started]]  }}
 
 
 

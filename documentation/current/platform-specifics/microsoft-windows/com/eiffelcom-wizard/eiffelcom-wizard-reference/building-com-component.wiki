@@ -64,7 +64,7 @@ end -- class ECOM_SERVER_COCLASS_IMP</code>
 
 This class inherits from the generated Eiffel coclass and from <eiffel>ECOM_EXCEPTION</eiffel>. It redefines the feature <eiffel>coclass_feature</eiffel> from the generated coclass. This feature is part of the interface functions that can be called by clients of the component. Its implementation uses the feature<eiffel>trigger</eiffel> from <eiffel>ECOM_EXCEPTION</eiffel> to raise exceptions in case the feature cannot be executed normally (invalid argument). The EiffelCOM runtime catches the exception and maps it into an <eiffel>HRESULT</eiffel> that is sent back to the client. 
 
-{{seealso| '''See Also''': [[How the EiffelCOM Wizard works|How the EiffelCOM Wizard Works]] , [[Generated Files|Generated Files]] , [[Class Hierarchy|Class Hierarchy]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Reusing a COM Component|Accessing a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
+{{seealso|[[How the EiffelCOM Wizard works|How the EiffelCOM Wizard Works]] , [[Generated Files|Generated Files]] , [[Class Hierarchy|Class Hierarchy]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Reusing a COM Component|Accessing a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
 
 
 

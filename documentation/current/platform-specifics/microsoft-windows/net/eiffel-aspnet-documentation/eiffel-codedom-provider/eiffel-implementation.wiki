@@ -16,7 +16,7 @@ Another interesting snippet member is the ''indexing clause snippet'' which must
 
 ==Eiffel Configuration==
 There are several Eiffel specific settings that can be set in the Eiffel CodeDom Provider which will affect the generated code as well as the CodeDom compiler behavior. These settings are covered in the [[Configuration|Configuration]]  section. 
-{{seealso| '''See also:''' [[eSplitter|eSplitter]] , [[Configuration|Configuration]]  }}
+{{seealso|[[eSplitter|eSplitter]] , [[Configuration|Configuration]]  }}
 
 
 

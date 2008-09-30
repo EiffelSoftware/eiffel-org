@@ -1,5 +1,6 @@
 [[Property:title|Constructors and Creation Procedures]]
 [[Property:weight|4]]
+[[Property:uuid|f06eb414-c284-902b-0481-3f00da82d47e]]
 This section deals with what happens when objects, that is runtime instances of types, get created and initialized. When a new instance is created, there is an opportunity to initialize the state of the instance. This is done with a constructor in .NET, and with a creation procedure in Eiffel. 
 
 ==Eiffel Creation Procedures==

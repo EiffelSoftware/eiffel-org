@@ -13,7 +13,7 @@ However if an instance of <eiffel>STRING</eiffel> is passed as an argument to an
 
 ==Compilation and Timeouts==
 Eiffel compilations can take longer than the default timeouts set in ASP.NET. In particular ASP.NET will run batch compilations on the entire directory that is being accessed by IIS each time the time stamp of that directory changes. If the batch compilation takes longer than the ''batchTimeout'' property defined in the machine wide configuration file (''machine.config'') then ASP.NET will start another compilation just for the requested file. This can be quite resource intensive for the Web server and thus it might be beneficial to increase the default value of 15 seconds for ''batchTimeout''. 
-{{seealso| '''See also:''' [[Names Mappings|Names Mapping]]  }}
+{{seealso|[[Names Mappings|Names Mapping]]  }}
 
 
 

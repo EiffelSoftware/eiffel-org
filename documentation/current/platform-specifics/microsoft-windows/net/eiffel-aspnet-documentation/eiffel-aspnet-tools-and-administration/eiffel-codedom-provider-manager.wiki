@@ -32,7 +32,7 @@ This last setting will only appear for configurations other than the default con
 New configurations may be created by clicking the ''New'' button or the ''New'' entry in the ''File'' menu. The New Configuration dialog box asks for the name and the path of the configuration. It will create a file with the extension '''.ecd''' ('''E'''iffel '''C'''ode'''D'''om) with the specified name in the directory located at the specified path. Whenever one of the applications listed at the bottom of the New Configuration dialog loads the Eiffel CodeDom Provider, it will use this new configuration. 
 ==Configuration Properties==
 Double clicking on the configuration name in the configurations list, clicking the ''Properties'' button or choosing the ''Properties'' menu entry in the ''File'' menu will open the Configuration Properties dialog. This dialog gives the dates of creation and last modification of the configuration as well as the list of applications that use it if it's not the default configuration. 
-{{seealso| '''See also:''' [[Configuration|Configuration]] , [[Logging|Logging]]  }}
+{{seealso|[[Configuration|Configuration]] , [[Logging|Logging]]  }}
 
 
 

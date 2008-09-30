@@ -1,5 +1,6 @@
 [[Property:title|Type Organization]]
 [[Property:weight|3]]
+[[Property:uuid|1837e091-695b-339c-f04f-cbfaea791a6c]]
 In any comprehensive object-oriented system, the act of programming results in creation of new data types. There must be a way of organizing these types and/or their static representation as classes. This section tells you how classes are organized in Eiffel and in .NET, and how these organization methods are used together. 
 
 ==Eiffel Clusters==
