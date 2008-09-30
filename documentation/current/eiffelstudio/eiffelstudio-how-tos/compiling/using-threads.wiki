@@ -1,7 +1,7 @@
 [[Property:title|Using threads]]
 [[Property:weight|7]]
 [[Property:uuid|9f53d641-093a-38cb-50bb-568aaadfeb34]]
-Eiffel supports multithreaded programs. The [[EiffelThread]]  provides ways to handle threads safely inside an Eiffel program. Make sure you [[Adding a library|add]]  it to your project if you want to use threads. 
+Eiffel supports multithreaded programs. The [[EiffelThread]] Library provides ways to handle threads safely inside an Eiffel program. Make sure you [[Adding a library|add]]  it to your project if you want to use threads. 
 
 To create a multithreaded program or library:
 * Open the [[Advanced Options|Project Settings]]  dialog. 
