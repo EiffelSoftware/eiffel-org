@@ -10,10 +10,6 @@ The abstract [[ref:/libraries/store/reference/database_flatshort|DATABASE]]  cla
 EiffelStore enables to link common interface objects with database-specific implementation objects using a '''handle'''. This handle also enables to switch between different databases. 
 
 Let us see in 4 steps how EiffelStore implements this handle system: 
-* The [[#handle|active database handle]] . 
-* The [[#association|association between interface and implementation]]  objects. 
-* The [[#access|access to the DBMS call interface]]  from the implementation layer. 
-* The [[#selection|active database selection]]  from the database application.0 
 
 ==The active database handle==
 

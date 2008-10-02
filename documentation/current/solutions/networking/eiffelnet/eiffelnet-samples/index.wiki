@@ -3,5 +3,5 @@
 [[Property:uuid|c9c0fe01-a80f-5834-8503-aad1063e1503]]
 =Description=
 
-Here is a set of five examples written thanks to the EiffelNet library to show some basic applications. Two of them (Advanced and Same Machine) rely on specific code to Unix Operating systems and consequently cannot be run under Windows.
+Here is a set of five examples written to show some basic applications using the EiffelNet library . Two of them (Advanced and Same Machine) rely on specific code to Unix Operating systems and consequently cannot be run under Windows.
 

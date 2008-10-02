@@ -19,7 +19,9 @@ A [[ref:/libraries/store/reference/db_repository_flatshort|DB_REPOSITORY]]  obje
 	end
 </code>
 
+
 {{tip|Loading a table description is often a costly operation: table has to be fetched among existing tables then every table column description must be loaded. Hence it is better to store and reuse a repository (maybe with a HASH_TABLE) once it has been loaded. }}
+
 
 Using the table information, [[ref:/libraries/store/reference/db_repository_flatshort|DB_REPOSITORY]]  then helps generating Eiffel classes mapping relational tables: 
 * You can directly use {[[ref:/libraries/store/reference/db_repository_flatshort|DB_REPOSITORY]] }.generate_class. Generated class may look like:
@@ -39,6 +41,7 @@ Using the table information, [[ref:/libraries/store/reference/db_repository_flat
 		end
 	...
 </code>
+
 
 {{note|The EiffelStore Wizard uses the generation.generator cluster to generate the classes mapped to your database. }}
 
@@ -78,6 +81,7 @@ This is straight-forward since you only have to give [[ref:/libraries/store/refe
 		Result := list_filling.list
 	end
 </code>
+
 
 {{note|You can see how actions are used in [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]] . }}
 <br/>

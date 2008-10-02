@@ -7,12 +7,14 @@ As Eiffel Software's technology relies heavily on the use of a C/C++ ANSI compil
 
 The sections concerning [[#macros|Macros]]  and [[#structs|Structs]]  are also available for C++ if the macro or the struct is defined in a C++ header file. 
 <span id="C"></span> 
+
+
 ==C routines==
 
 You can encapsulate routines that are defined in a C header file. We will take some examples and will show you how to write wrappers in Eiffel.
 
 If in a header file called `my_header.h', you have the following declaration:
-<code>
+<code lang="c">
 	/* Routine with no parameter */
 extern void no_param(void);
 
@@ -24,6 +26,7 @@ extern size_t no_param_return(void);
 
 	/* Routine returning a value with one parameter */
 extern size_t one_param_return(FILE *f);</code>
+
 
 Here is the corresponding Eiffel code:
 <code>
@@ -61,18 +64,23 @@ Here is the corresponding Eiffel code:
 			"one_param_return"
 		end</code>
 <span id="macros"></span> 
+
+
 ==Macros==
 
 If in a header file called `my_header.h', you have the following declaration:
-<code>
+<code lang="c">
 	/* Predefined constants */
 #define ID_MENU		128
 #define ID_MENU_CHARACTER	'c'
 
-	/* Access the `i'-th element of `a' where `a' * is an array of EIF_INTEGER */
+	/* Access the 'i'-th element of 'a' where 'a' * is an array of EIF_INTEGER */
 #define i_th(a,i)((a) + (i)*sizeof(EIF_INTEGER))</code>
 
+
 Then, the corresponding Eiffel code will look like:
+
+
 <code>
 	menu_id: INTEGER is
 			-- `ID_MENU' C encapsulation.
@@ -98,17 +106,22 @@ Then, the corresponding Eiffel code will look like:
 			"i_th"
 		end</code>
 <span id="structs"></span> 
+
+
 ==Structs==
 
 The struct encapsulation enables you to wrap C/C++ structures easily without having to write any additional code in a C header file as it was the case until Eiffel Software introduced this new keyword in the external specification with the 4.5 release of the Eiffel Software environment. With the struct encapsulation you can set and retrieve the value of a certain field of a struct.
 
 If in a header file called `my_header.h', you have the following declaration of the `Point' structure whose `x' and `y' fields we want to access and set:
-<code>
+
+
+<code lang="c">
 	/* Definition of `Point' */
 typdef struct point {
 	int x;
 	int y;
 } Point;</code>
+
 
 Then, the corresponding Eiffel code will look like:
 <code>
@@ -144,6 +157,8 @@ Then, the corresponding Eiffel code will look like:
 			"y"
 		end</code>
 <span id="windows"></span> 
+
+
 ==Windows externals==
 
 ===DLLs===
@@ -153,6 +168,8 @@ With EiffelStudio you now have two different ways to call C routines exported in
 * __stdcall referred to as the Pascal way
 
 Therefore if you want to call an external routine defined in a DLL supposed to be called using the `_cdecl' method, you have to use the '''dll32''' sub-language option. For `__stdcall' you need to use the '''dllwin32''' sub-language option. Here is an example: 
+
+
 <code>
 	my_cdecl_routine (a: INTEGER): POINTER is
 			-- Encapsulation of a dll function with the `_cdecl' call mechanism.
@@ -166,7 +183,9 @@ Therefore if you want to call an external routine defined in a DLL supposed to b
 			"C [dllwin32 %"my_dll.dll%"] (int): EIF_POINTER"
 		end</code>
 
-{{warning| '''Caution''': Using wrongly '''dll32''' instead of '''dllwin32''' and reciprocally will conduce to a crash of your system since the C call stack will be corrupted. For more information please read your C compiler documentation. }}
+
+{{warning|Using '''dll32''' in cases calling for '''dllwin32''' and vice versa will cause your system to crash, because the C call stack will be corrupted. For more information please read your C compiler documentation. }}
+
 
 ===Windows API===
 
@@ -174,13 +193,19 @@ As described in the previous section concerning routines exported in a DLL, the 
 
 Here is an example that has been taken from WEL, the Windows Eiffel Library, to encapsulate the Windows `SendMessage' function:
 Windows defined SendMessage as: 
-<code>LRESULT SendMessage(
+
+
+<code lang="cpp">LRESULT SendMessage(
 	HWND hWnd,      // handle to destination window
 	UINT Msg,       // message
 	WPARAM wParam,  // first message parameter
 	LPARAM lParam   // second message parameter
 );</code>
+
+
 In WEL, the encapsulation is written as: 
+
+
 <code>
 	cwin_send_message (hwnd: POINTER; msg, wparam, param: INTEGER) is
 			-- SDK SendMessage (without the result)
@@ -189,6 +214,7 @@ In WEL, the encapsulation is written as:
 		alias
 			"SendMessage"
 		end</code>
+
 
 {{seealso|<br/>
 [[C++ Externals|C++ externals]]  }}

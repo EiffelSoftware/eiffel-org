@@ -23,7 +23,7 @@ Note that through CECIL you can use an Eiffel system compiled in any of the Eiff
 
 {{note|each time you melt the Eiffel system, the ''<system name>. melted'' file is updated. }}
 
-{{warning| '''Caution''': in the second case (workbench mode), it is not possible to call through the CECIL interface any routine that has been melted in the last compilation; this would raise the run-time exception: <br/>
+{{caution|In the second case (workbench mode), it is not possible to call through the CECIL interface any routine that has been melted in the last compilation; this would raise the run-time exception: <br/>
 ''' $ applied to melted routine''' <br/>
 The solution is simply to refreeze the system. }}
 

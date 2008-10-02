@@ -2,15 +2,15 @@
 [[Property:weight|7]]
 [[Property:uuid|432c6e51-36d5-b469-c924-eb821713256a]]
 Use the [[ref:/libraries/store/reference/db_control_flatshort|DB_CONTROL]]  class to check or change database status and behavior. The main operations you are likely to use are:
-*  [[#errors|Handling]]  database errors. 
-*  [[#connection|Connecting]]  to the database. 
-*  [[#commit|Committing]]  changes in the database. 
+*  Handling database errors. 
+*  Connecting to the database. 
+*  Committing changes in the database. 
 
 ==Handling database errors==
 
 Every EiffelStore interface class has an is_ok feature. This enables to check directly if the last database operation has been successful.
 
-When an error is detected, you can access through [[ref:/libraries/store/reference/db_control_flatshort|DB_CONTROL]]  further information about the error:
+When an error is detected, you can use [[ref:/libraries/store/reference/db_control_flatshort|DB_CONTROL]] to obtain further information about the error:
 * error_message provides a description of the error that occurred.
 * error_code returns a code corresponding to the error type. This code enables to handle specific errors within your code without parsing the error_message.
 * warning_message provides a warning message about the last transaction performed. 
@@ -19,7 +19,7 @@ Once you have handled your error, for instance by displaying the error_message o
 
 ==Managing database connection==
 
-[[ref:/libraries/store/reference/db_control_flatshort|DB_CONTROL]]  lets you connect, check connection and disconnect from the database.
+[[ref:/libraries/store/reference/db_control_flatshort|DB_CONTROL]]  lets you connect, check your connection, and disconnect from the database.
 
 The following example sum up these capabilities:
 <code>
@@ -34,9 +34,9 @@ The following example sum up these capabilities:
 
 ==Committing changes in the database==
 
-Every modification you do in the database are usually not directly saved. This enables to limit damage caused by mishandlings. You can then manage database modification through 2 commands:
+With many database systems, modifications you make to the database are usually not saved immediately. Rather, changes are accumulated in a "transaction". At some point the entire transaction is committed to the database (i.e., the changes are actually made to the data) or the entire transaction is rolled back (i.e., absolutely no changes are made to the data.) You can manage database modification through 2 commands:
 *  ''Commit'' saves the changes in the database. 
-*  ''Rollback'' restores the database content corresponding to last commitment. 
+*  ''Rollback'' restores the database content to its state after the most recent commit. 
 
 The following example illustrates the use of these commands:
 <code>
@@ -57,7 +57,7 @@ The following example illustrates the use of these commands:
 
 The loop performs a multi-step transaction. If transaction is not carried out entirely, the database could stay in an invalid state: this code ensures that database remains in a valid state.
 
-{{warning| '''Caution''': Some databases can be in an auto-commit mode. Furthermore, some special database commands can automatically commit database changes. }}
+{{caution|Some databases can be in an auto-commit mode. Furthermore, some special database commands can automatically commit database changes. }}
 
 {{seealso|<br/>
 [[Database Connection|Database connection]]  <br/>

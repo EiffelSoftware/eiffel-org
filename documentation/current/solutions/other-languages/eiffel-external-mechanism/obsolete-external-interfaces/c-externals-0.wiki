@@ -14,7 +14,7 @@ The C++/Eiffel interface offers the following mechanisms:
 * You can apply to these objects all the corresponding operations from the C++ class: executing functions ("methods"), accessing data members, executing destructors.
 * On Windows, you can use the Legacy++ tool to produce an Eiffel "wrapper class" encapsulating all the features of a C++ class, so that the result will look to the rest of the Eiffel software as if it had been written in Eiffel.
 
-The discussion concentrates on using C++ software from Eiffel. In the other direction, you can use [[CECIL: Introduction|the Cecil library (C-Eiffel Call-In Library)]] . 
+The discussion concentrates on using C++ software from Eiffel. In the other direction, you can use [[CECIL|the Cecil library (C-Eiffel Call-In Library)]] . 
 
 ==Syntax specification==
 

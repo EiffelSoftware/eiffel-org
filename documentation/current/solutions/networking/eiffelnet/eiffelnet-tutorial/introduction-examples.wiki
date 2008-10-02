@@ -7,7 +7,7 @@ The examples start with the most simple uses involving high-level classes coveri
 
 All the examples discussed here appear in the directory ''$ISE_EIFFEL/examples/net'' of the Eiffel distribution. 
 
-{{warning| '''Caution''': On Windows, the `advanced' and the `same_mach' are not working since they are using specific code to Unix Operating systems. }}
+{{caution|On Windows, the examples `advanced' and the `same_mach' are nonfunctional. This is because these examples use code specific to Unix Operating systems. }}
 
 
 

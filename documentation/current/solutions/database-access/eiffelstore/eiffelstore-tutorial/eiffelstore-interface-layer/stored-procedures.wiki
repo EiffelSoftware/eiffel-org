@@ -22,10 +22,13 @@ To execute a stored procedure:
 </code>
 
 * Execute the procedure through a [[ref:/libraries/store/reference/db_selection_chart|DB_SELECTION]]  (if a result is expected) or a [[ref:/libraries/store/reference/db_change_chart|DB_CHANGE ]] object (otherwise). 
+
 {{note|Requests with a result ([[ref:/libraries/store/reference/db_selection_chart|DB_SELECTION]] ) or without ([[ref:/libraries/store/reference/db_change_chart|DB_CHANGE]] ) are both abstract '''expressions'''. DB_PROC executes an abstract expression using an object of [[ref:/libraries/store/reference/db_expression_chart|DB_EXPRESSION]]  type, which corresponds to an abstract expression. [[ref:/libraries/store/reference/db_selection_chart|DB_SELECTION]]  and [[ref:/libraries/store/reference/db_change_chart|DB_CHANGE]]  inherits from [[ref:/libraries/store/reference/db_expression_chart|DB_EXPRESSION]] . }}
+
 You can execute your request mostly like a basic one: 
 ** Create your request.
 ** Bind request variables. Variables are stored procedure arguments. 
+
 {{note|Take a look at how to [[Query variables|bind variables]]  to a query. }}
 
 ** Execute the query through the DB_PROC object.
@@ -61,6 +64,7 @@ The following example shows how to overwrite a procedure in the database:
 		procedure.store ("update contacts set firstname = one_arg where contactid = 1")
 	end
 </code>
+
 
 {{seealso|<br/>
 [[Database Selection|Performing a database selection.]]  <br/>

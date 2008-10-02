@@ -1,10 +1,7 @@
 [[Property:title|Using datagram sockets]]
 [[Property:weight|7]]
 [[Property:uuid|ba27b7dd-77db-7f6f-9b8c-2a3111d9d432]]
-{| border="1" 
-|- 
-| The example classes discussed in this section appear in the subdirectory ''datagram ''of the example directory 
-|}
+{{note|The example classes discussed in this section appear in the subdirectory ''datagram ''of the example directory. }}
 
 Using datagram sockets implies a few differences from the preceding schemes. You create a [[ref:libraries/net/reference/network_datagram_socket_chart|NETWORK_DATAGRAM_SOCKET]]  or a <eiffel>UNIX_DATAGRAM_SOCKET</eiffel> as before. You do not need to call ''listen'', ''accept'' or ''connect''. Once you have created your sockets using the ''make_client ''or ''make_server'' creation procedure, you can use the ''send ''and ''received ''routines, specifying the socket to which you want to send, or from which you want to receive. 
 

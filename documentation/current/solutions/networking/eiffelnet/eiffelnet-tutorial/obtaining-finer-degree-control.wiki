@@ -165,10 +165,8 @@ Here now is the client class:
 </code>
 
 ===Communication between two different machines===
-{| border="1" 
-|- 
-| The example classes discussed in this section appear in the subdirectory ''two_mach ''of the example directory 
-|}
+{{note|The example classes discussed in this section appear in the subdirectory ''two_mach ''of the example directory }}
+
 
 Let us now assume that the client and the server will run on two separate machines. Instead of UNIX_ sockets, we must now use sockets of type <code>NETWORK_STREAM_SOCKET</code>.
 
