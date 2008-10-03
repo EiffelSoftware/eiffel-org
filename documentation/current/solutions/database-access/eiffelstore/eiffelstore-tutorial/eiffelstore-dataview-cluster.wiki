@@ -279,7 +279,7 @@ This class enables 2 navigation systems:
 
 You can directly set [[#dv_s_control| controllers]]  for "previous" and"next" actions. A 3rd controller, "edit list", enables to show or raise the display list. 
 
-{{warning| '''Caution''': Notice that DV_CONTROL_NAVIGATOR only manages this controller sensitivity. }}
+{{caution|Notice that DV_CONTROL_NAVIGATOR only manages this controller sensitivity. }}
 
 You can assign a [[#dv_tablerow_list| display list]]  to the navigator with a [[ref:libraries/store/reference/dv_tablerow_list_chart|DV_TABLEROW_LIST]]  component. 
 

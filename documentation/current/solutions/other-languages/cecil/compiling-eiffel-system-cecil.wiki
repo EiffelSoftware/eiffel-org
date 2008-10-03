@@ -8,14 +8,18 @@ To do this, make the appropriate features and classes [[Group Options|visible]] 
 ==Building a CECIL archive==
 The EiffelStudio compiler produces both C code and a "Makefile". The Makefile compiles and links that C code in a subdirectory one level below the EIFGENs directory of a project. For frozen/melted code, the Makefile is located in the W_code subdirectory. For finalized code, it is in the F_code subdirectory. 
 To produce a CECIL library, you must: open a shell (unix) or the MS-DOS prompt (Windows), go to the subdirectory that contains the Makefile, and then type:
-<code>
-		'''make cecil''' (on unix and on windows with Borland)'''
-		nmake cecil''' (on windows with VC++)</code>
+
+
+ <code>	make cecil </code>   (on unix and on windows with Borland)
+ <code>	nmake cecil </code>  (on windows with VC++)
 
 This generates a CECIL archive whose name derived from the name system name of the Eiffel system, as follows:
-<code>
-		lib<system name>.a (on unix)
-		lib<system name>.lib (on Windows)</code>
+
+
+ <code>	lib<system name>.a   </code>  (on unix)
+ <code>	lib<system name>.lib </code>  (on Windows)
+
+
 For example, the corresponding archive for an Eiffel system called "test", would be called either "libtest.a" (Unix) or "libtest.lib" (Windows). 
 Note that through CECIL you can use an Eiffel system compiled in any of the Eiffel compilation modes:
 * Finalized C code. 

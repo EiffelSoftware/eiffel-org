@@ -181,7 +181,7 @@ Legacy++ is only supported on the windows platform.
 ==Example==
 
 Consider the following C++ class, which has an example of every kind of facility that one may wish to access from the Eiffel side:
-<code>
+<code lang="cpp">
 class IntArray {
 	public:
 		IntArray(int size);

@@ -30,7 +30,7 @@ Generally, you should use these types when implementing external C functions bou
 
 In the C side, The C function `foo' is defined as follow:
 
-<code>
+<code lang="c">
 EIF_INTEGER foo (EIF_POINTER ptr, EIF_OBJECT obj)
 	{
 		/* some code */
@@ -38,7 +38,7 @@ EIF_INTEGER foo (EIF_POINTER ptr, EIF_OBJECT obj)
 </code>
 
 </div>In some cases, you may not be able to change the signature of a C function you want to use. In this case, you must describe its actual signature in the Eiffel code. On the C side, foo is already defined as below: <div> 
-<code>
+<code lang="c">
 int foo (void *arg1, char c, FILE *file)
 	{
 		/* some code */
@@ -79,7 +79,10 @@ The cecil library provides the user with numerous macros and functions, which re
 An Eiffel object which is passed as an argument of a C external is automatically protected: the value passed to C is not a direct Eiffel reference. In fact, it is a temporary indirection pointer, which is only valid until the C external returned. This indirection pointer is to be used to access the direct reference of the Eiffel object with ''eif_access (eiffel_object)'' where ''eiffel_object'' is the argument (an ''EIF_OBJECT)'' of the C external which corresponds to the Eiffel object. Only Eiffel objects passed to C is automatically protected. This excludes basic expanded types, since they cannot be moved. 
 ===Accessing the direct reference to an Eiffel object: eif_access===
 '''# include "eif_hector. h"''' 
+
+
 '''EIF_REFERENCE eif_access (EIF_OBJECT object) /* Macro */'''
+
 
 The GC moves the objects every time it runs a collection cycle. A collection cycle can only occur during an Eiffel call. This includes calls to Eiffel routines and calls to CECIL functions (other than ''eif_access''). Thus, it may be unsafe to access a "raw" reference to an Eiffel object, (of type ''EIF_REFERENCE'') "as is", since the latter can be obsolete after each collection. To avoid this, you must access a direct reference through a "protection", which is a safe, non-moving pointer (of type ''EIF_OBJECT''). Call the macro ''eif_access'' as follows: ''eif_access (protection)'' , where ''protection'' is either a value returned by <eiffel>eif_create</eiffel>, <eiffel>eif_adopt</eiffel> or <eiffel>eif_protect,</eiffel> or an Eiffel object which is an argument of a C external. 
 
@@ -100,7 +103,7 @@ Use ''eif_access'' to pass an Eiffel object to an Eiffel routine or to return th
 the Eiffel run-time will protect obj, which can asynchronously move, and give a static and safe indirection to C. 
 
 '''Here is an example of how accessing obj: OBJECT:'''
-<code>
+<code lang="c">
 EIF_INTEGER foo (EIF_POINTER ptr, EIF_OBJECT obj);
 {
 	/* Print the Eiffel object `obj', with the feature `print'
@@ -125,7 +128,7 @@ EIF_INTEGER foo (EIF_POINTER ptr, EIF_OBJECT obj);
 '''Example:''' <br/>
 <u>Example:</u> <br/>
 Instead of the code above, it would have been dangerous to write: 
-<code>
+<code  lang="c">
 EIF_REFERENCE e_ref = eif_access (obj);
 ...
 (ep) (e_ref, e_ref);
@@ -139,7 +142,7 @@ because e_ref is the direct reference to the Eiffel object when calling ''eif_ac
 (eif_access in not an eiffel call) 
 '''Example:''' 
 
-<code>
+<code lang="c">
 (ep) (eif_access (a), eif_string ("Hello world"));
 	/* eif_string is a macro returning a direct reference to an Eiffel string,
 	* which corresponds to the C string passed as its argument.
@@ -149,7 +152,7 @@ Nothing guarantees that the direct reference returned by `eif_access (a)' will b
 
 The correct code is
 
-<code>
+<code lang="c">
 EIF_REFERENCE my_string;
 /* some code */
 my_string = eif_string ("Hello world");
@@ -159,7 +162,7 @@ my_string = eif_string ("Hello world");
 
 In this case, you do not need to protect `my_string' since the GC is not likely to be triggered after the call to ''eif_string'' and before `my_string' is given as argument in ''(ep). '' A collection is triggered only during Eiffel calls. If an Eiffel call had been performed, you would have had to use ''eif_protect'' (see paragraph 3. 2): 
 
-<code>
+<code lang="c">
 EIF_REFERENCE my_string;
 EIF_OBJECT i_my_string;
 /* some code */
@@ -174,7 +177,10 @@ eif_wean (i_my_string); /* Release protection. */
 
 ===Keeping a reference from C after an external call: eif_adopt===
 '''# include "eif_hector. h"''' 
+
+
 EIF_OBJECT eif_adopt (EIF_OBJECT object)
+
 
 When passing Eiffel objects to C, you may need to keep a reference to them after the C external is called. Since the Eiffel run-time automatically will unprotect the Eiffel object references passed to a C external after execution, if one of the Eiffel objects is not referenced any longer from Eiffel, then the garbage collector will collect it because it is not aware that you may still need to reference this object from the C side. 
 
@@ -202,7 +208,7 @@ In Eiffel:
 </div>
 On the C side:
 <div> 
-<code>
+<code lang="c">
 EIF_OBJECT my_obj;  /* Protection of the object of type OBJECT. */
 EIF_INTEGER foo (EIF_POINTER ptr, EIF_OBJECT obj)
 {
@@ -230,7 +236,10 @@ Between the call of ` ''c_foo''' and ` ''c_display_obj''', the global object ''(
 
 ===Creating Eiffel objects from C: eif_create===
 ''' # include "eif_cecil. h"''' 
+
+
 EIF_OBJECT eif_create (EIF_TYPE_ID type_id)
+
 
 All CECIL calls are not completed using C externals. It is possible to create and manipulate Eiffel objects from a C program and still reap benefits from the garbage collector and design by contract methodology provided by Eiffel (see also [[Compiling an Eiffel system for CECIL|How to run a CECIL program]] ). This function does not call any creation procedure. 
 
@@ -240,7 +249,7 @@ The CECIL function ''eif_create'' takes a type identifier ''type_id'' as argumen
 
 Creating an object of type "OBJECT":
 
-<code>
+<code lang="c">
 #include eif_setup.h" /* for EIF_INITIALIZE and EIF_DISPOSE_ALL */
 #include "eif_eiffel.h" /* for other exported routines from the Eiffel run-time */
 main (int argc,char **argv,char **envp)
@@ -266,8 +275,11 @@ main (int argc,char **argv,char **envp)
 
 ===Protecting the objects returned by Eiffel functions.===
 
-> '''# include "eif_hector. h"''' <br/>
+'''# include "eif_hector. h"''' 
+
+
 ''' EIF_OBJECT eif_protect (EIF_REFERENCE object)''' 
+
 
 This function is used to tell explicitly the GC that you want to keep a reference to an eiffel object from the C. It returns a static indirection pointer which is to be used afterwards to access the direct Eiffel reference object with eif_access (returned_value) where returned_value is the value returned by eif_protect . With this call, the GC artificially references object, so that it cannot collect it. It is unsafe to access directly (i.e without using eif_access) the Eiffel reference object, which may be obsolete after any collection cycle (the GC moves the objects). Ignore this rule, if you are sure that there is no Eiffel call after you pass the direct Eiffel reference to a C function and before you read it. 
 
@@ -279,7 +291,7 @@ See also eif_adopt, eif_create, eif_wean, eif_access.
 
 '''Example:''' Assume that you want to access an attribute `tab' of type <eiffel>ARRAY [INTEGER]</eiffel> in the class <eiffel>OBJECT</eiffel>. 
 
-<code>
+<code lang="c">
 #include eif_setup.h"
 #include "eif_eiffel.h"
 main (int argc,char **argv,char **envp)
@@ -313,7 +325,10 @@ main (int argc,char **argv,char **envp)
 
 ===Getting the type id of an Eiffel type: eif_type_id===
 '''# include "eif_gen_conf. h"''' # include "eif_gen_conf. h" 
+
+
 EIF_TYPE_ID eif_type_id (char *type_string)
+
 
 Return the type identifier corresponding to the type described in type_string. If the type does not exist, is not visible or an instance of it is not declared in the root class, it returns EIF_NO_TYPE. 
 
@@ -321,7 +336,7 @@ COMPATIBILITY:
 eif_type_id is equivalent to eif_type_by_name. 
 '''Example:''' type_id of STD_FILES so as to call 'put_string'. 
 
-<code>
+<code lang="c">
 EIF_PROCEDURE p_put_string;     /* 'put_string' from STD_FILES. */
 EIF_TYPE_ID tid;
 EIF_REFERENCE_FUNCTION fn_io;    /* once function `io' from ANY (and STD_FILES by inheritance). */
@@ -349,7 +364,7 @@ eif_type_id is also used for returning the type identifier of generic types but 
 
 '''Example:'''
 
-<code>
+<code lang="c">
 EIF_PROCEDURE p_make;     /* 'make' from ARRAY [INTEGER] . */
 EIF_TYPE_ID tid;
 tid = eif_type_id ("ARRAY[INTEGER]");
@@ -361,9 +376,11 @@ p_make = eif_procedure ("make", tid);
 Obsolete: see eif_type_id. 
 ===Raising an eiffel panic: eif_panic.===
 ''' # include "eif_except. h"''' 
+
+
 void eif_panic(char *msg)
 
-#include "eif_threads. h"
+<nowiki># include "eif_threads. h"</nowiki>
 
 void eif_thr_panic (char *msg)
 
@@ -371,7 +388,10 @@ Raise an Eiffel panic with Eiffel exception trace with message msg. In MT mode, 
 
 ===Releasing an Eiffel indirection pointer: eif_wean===
 '''# include "eif_hector. h"''' 
+
+
 EIF_REFERENCE eif_wean(EIF_OBJECT object)
+
 
 Tell the GC to remove the artificial reference to the nested Eiffel reference returned by eif_access (object). Then, the GC will be able to collect this nested object, as soon as it is not referenced from Eiffel any longer. 
 
@@ -390,7 +410,7 @@ In Eiffel:
 </code>
 
 In C:
-<code>
+<code lang="c">
 EIF_REFERENCE foo () {
 	EIF_REFERENCE str;
 	EIF_OBJECT i_str;
@@ -404,7 +424,10 @@ EIF_REFERENCE foo () {
 
 ===Getting the attribute from an Eiffel object: eif_attribute===
 ''' # include "eif_cecil. h"''' 
+
+
 EIFFEL_TYPE eif_attribute (EIF_REFERENCE object, char *name, EIFFEL_TYPE, int *status)
+
 
 Return the attribute of an Eiffel object. 
 
@@ -423,9 +446,9 @@ RETURN VALUE:
 <div>upon failure, it returns (EIFFEL_TYPE) 0, otherwise, the attribute is returned. If the return value is not a basic type, you must protect it with eif_protect</div>
 COMPATIBILITY:
 <div>eif_attribute (object, name, type, NULL) is equivalent to eif_field (object, name, type)</div>
-{{tip|s''': You cannot access a constant attribute, or the result of a function (once or not) with eif_attribute. Use eif_procedure or eif_xx_function instead. <br/>
+{{tip|You cannot access a constant attribute, or the result of a function (once or not) with eif_attribute. Use eif_procedure or eif_xx_function instead. }}<br/>
 <br/>
-EIF_BOOLEAN attribute_exists (EIF_REFERENCE object, char *name) returns EIF_TRUE or EIF_FALSE depending if the attribute exists or not, is visible or not. }}
+{{tip|EIF_BOOLEAN attribute_exists (EIF_REFERENCE object, char *name) returns EIF_TRUE or EIF_FALSE depending if the attribute exists or not, is visible or not. }}
 
 ===Getting the address of an Eiffel routine===
 ''' #include "eif_cecil. h"''' <br/>
@@ -439,16 +462,20 @@ EIF_BOOLEAN attribute_exists (EIF_REFERENCE object, char *name) returns EIF_TRUE
 ''' EIF_BIT_FUNCTION eif_bit_function (char *rout_name, EIF_TYPE_ID type_id)''' <br/>
 ''' EIF_BOOLEAN_FUNCTION eif_boolean_function (char *rout_name, EIF_TYPE_ID type_id)''' <br/>
 ''' EIF_POINTER_FUNCTION eif_pointer_function (char *rout_name, EIF_TYPE_ID type_id)''' 
+
+
 Return the address of the Eiffel routine by giving its name rout_name and the type id type_id of the class, in which it is declared. Returns a NULL pointer or raises a visible exception (if enabled) when there is no corresponding routine with name rout_name or the routine is not visible. The first argument of an Eiffel routine has to be the target of the Eiffel routine. 
 
 The Eiffel object returned by an Eiffel function must be protected afterwards with 'eif_protect' (this only applies for functions whose addresses are returned by `eif_reference_function', since the other function types returns basic types, which are not Eiffel objects). 
 
 {{note|The address returned by these functions must be called between parenthesis. }}
 
-{{warning| '''Caution''': Be sure that the Eiffel routine is not a C External. In this case, you should call directly the C external instead of its Eiffel wrapper. }}
+{{caution|Be sure that the Eiffel routine is not a C External. In this case, you should call directly the C external instead of its Eiffel wrapper. }}
 
 ===Enabling/Disabling the visible exception===
 ''' #include "eif_cecil. h"''' 
+
+
 ''' void eif_enable_visible_exception ()''' <br/>
 ''' void eif_disable_visible_exception ()''' 
 
@@ -457,7 +484,10 @@ By default, the visible exception is disabled (since v4. 5).
 
 ===Creating an Eiffel string: eif_string===
 '''#include "eif_plug. h"''' 
+
+
 EIF_REFERENCE eif_string (char *string) /* Macro */
+
 
 Return the direct reference to an Eiffel string by giving the corresponding C string . The result of eif_string does not reference the C string passed as argument: it copies it, before creating the Eiffel string. 
 
@@ -469,7 +499,10 @@ COMPATIBILITY:
 <div>eif_string ("ABC") is equivalent to RTMS ("ABC") and eif_make_string ("ABC", strlen ("ABC")). </div>
 ===Getting the return-type of an attribute: eif_attribute_type===
 ''' #include "eif_cecil. h"''' 
+
+
 int eif_attribute_type (char *attr_name, EIF_TYPE_ID tid)
+
 
 ''' #define EIF_REFERENCE_TYPE 1''' <br/>
 ''' #define EIF_CHARACTER_TYPE 2''' <br/>
@@ -487,7 +520,7 @@ Return the type of the attribute described by its name attr_name and the type id
 
 '''Example:''' Get the type of count from STRING
 
-<code>
+<code lang="c">
 int i;
 i = eif_attribute_type ("count", eif_type_id ("STRING");
 printf ("type is %d\n");    /* Should be EIF_INTEGER_TYPE since it returns an Eiffel Integer */
@@ -498,7 +531,10 @@ printf ("type is %d\n");    /* Should be EIF_INTEGER_TYPE since it returns an Ei
 
 ===Getting the class name corresponding to a type id: eif_name===
 ''' #include "eif_cecil. h"''' 
+
+
 char *eif_name (EIF_TYPE_ID tid)
+
 
 Return the corresponding name (C string) of the Eiffel class, given a type identifier type_id. If the type identifier is a generic type identifier, no generic parameter type is given. Return NULL if an invalid type identifier is given. 
 
@@ -510,7 +546,10 @@ COMPATIBILITY:
 <div>eif_name is equivalent to eif_name_by_tid</div>
 ===Getting the type id of an Eiffel object: eif_type, eif_type_by_reference.===
 ''' #include "eif_cecil. h"''' 
+
+
 EIF_TYPE_ID eif_type (EIF_OBJECT object)
+
 
 EIF_TYPE_ID eif_type_by_reference (EIF_REFERENCE reference)
 
@@ -522,7 +561,9 @@ COMPATIBILITY:
 <div>eif_type is equivalent to eif_type_by_object.eif_type (object) is equivalent to eif_type_by_reference (eif_access (object)). </div>
 ===Converting a C array into an Eiffel array: eif_make_from_c.===
 '''eif_make_from_c(eif_array, c_array, int nelts, int type) /* Macro */''' (since 4. 5) 
-eif_array is an EIF_REFERENCE, c_array is a C array of type (type *), nelts is the number of elements in the array. 
+
+
+eif_array is an EIF_REFERENCE, c_array is a C array of type (type *), "nelts" is the number of elements in the array. 
 <div> 
 
 </div>

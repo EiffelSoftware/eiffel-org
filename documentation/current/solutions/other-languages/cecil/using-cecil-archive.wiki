@@ -64,7 +64,7 @@ Even though the main thread of control resides in the "C side" of the program, t
 In the C file containing the "main" C function, you must add the following line to include the header file "eif_setup. h" provided with this example:
 
 
-<code>
+<code lang="c">
 #include "eif_setup.h"  /* Macros EIF_INITIALIZE and EIF_DISPOSE_ALL */
 #include "eif_eiffel.h" /* Exported functions of the Eiffel run-time */</code>
 
@@ -72,7 +72,7 @@ In the C file containing the "main" C function, you must add the following line 
 Your "main" function must have the three standard arguments of the C "main" function: "argc", "argv" and "envp" and include the following macros that are defined in "eif_setup. h":
 
 
-<code>
+<code lang="c">
 int main(int argc, char **argv, char **envp)
 	/* Please respect this signature: 'argc', 'argv' and 'envp' are used * in EIF_INITIALIZE. */
 {
