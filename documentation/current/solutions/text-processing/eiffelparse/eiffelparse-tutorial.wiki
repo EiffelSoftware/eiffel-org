@@ -12,7 +12,9 @@ This chapter describes the Parse library, which you can use to process documents
 Because it concentrates on the higher-level structure, the Parse library requires auxiliary mechanisms for identifying a document's lexical components: words, numbers and other such elementary units. To address this need it is recommended, although not required, to complement Parse with the Lex library studied in the previous chapter.
 
 Figure 1 shows the inheritance structure of the classes discussed in this chapter.
- [[Image:figure1]]  
+
+[[Image:figure1]]  
+
 Figure 1: Parse class structure
 
 ==WHY USE THE PARSE LIBRARY==
@@ -53,7 +55,7 @@ Parsing is seldom an end in itself; rather, it serves as an intermediate step fo
 
 Parsing takes care of one of the basic tasks of a document processor: reconstructing the logical organization of a document, which must conform to a certain '''syntax''' (or structure), defined by a '''grammar'''. 
 
-{{note|the more complete name '''syntactic grammar''' avoids any confusion with the ''lexical'' grammars discussed in the [[EiffelLex Tutorial]]. By default, "grammar" with no further qualification will always denote a syntactic grammar. A syntactic grammar normally relies on a lexical grammar, which gives the form of the most elementary components - the tokens - appearing in the syntactic structure. }}
+{{note|The more complete name '''syntactic grammar''' avoids any confusion with the ''lexical'' grammars discussed in the [[EiffelLex Tutorial]]. By default, "grammar" with no further qualification will always denote a syntactic grammar. A syntactic grammar normally relies on a lexical grammar, which gives the form of the most elementary components - the tokens - appearing in the syntactic structure. }}
 
 Once parsing has reconstructed the structure of a document, the document processor will perform various operations on the basis of that structure. For example a compiler will generate target code corresponding to the original text; a command language interpreter will execute the operations requested in the commands; and a documentation tool such as the short and flat-short commands for Eiffel will produce some information on the parsed document. Such operations are called '''semantic actions'''. One of the principal requirements on a good parsing mechanism is that it should make it easy to graft semantics onto syntax, by adding semantic actions of many possible kinds to the grammar. 
 
@@ -105,19 +107,25 @@ The rest of this section concentrates on the parsing-specific part: non-terminal
 ===Varieties of non-terminal constructs and productions===
 
 An aggregate production defines a construct whose specimens are obtained by concatenating ("aggregating") specimens of a list of specified constructs, some of which may be optional. For example, the production for construct Conditional in an Eiffel grammar may read:
-<code>Conditional [=] if Then_part_list [Else_part] end</code>
+<code>
+Conditional [=] if Then_part_list [Else_part] end
+</code>
 
-This means that a specimen of Conditional (a conditional instruction) is made of the keyword <code> if </code>, followed by a specimen of Then_part_list, followed by zero or one specimen of Else_part (the square brackets represent an optional component), followed by the keyword <code> end </code>. 
+This means that a specimen of Conditional (a conditional instruction) is made of the keyword <code>if</code>, followed by a specimen of Then_part_list, followed by zero or one specimen of Else_part (the square brackets represent an optional component), followed by the keyword <code>end</code>. 
 
-{{note|this notation for productions uses conventions similar to those of the book Eiffel: The Language. Keywords are written in '''boldface italics''' and stand for themselves. Special symbols, such as the semicolon, are written in double quotes, as in ";". The [=] symbol means "is defined as" and is more accurate mathematically than plain =, which, however, is often used for this purpose (see "Introduction to the Theory of Programming Languages", Prentice Hall, 1991, for a more complete discussion of this issue). }}
+{{note|This notation for productions uses conventions similar to those of the book Eiffel: The Language. Keywords are written in '''boldface italics''' and stand for themselves. Special symbols, such as the semicolon, are written in double quotes, as in ";". The <nowiki>[=]</nowiki> symbol means "is defined as" and is more accurate mathematically than plain <nowiki>=</nowiki>, which, however, is often used for this purpose (see "Introduction to the Theory of Programming Languages", Prentice Hall, 1991, for a more complete discussion of this issue). }}
 
 A choice production defines a construct whose specimens are specimens of one among a number of specified constructs. For example, the production for construct Type in an Eiffel grammar may read:
-<code>Type [=] Class_type | Class_type_expanded | Formal_generic_name | Anchored | Bit_type</code>
+<code>
+Type [=] Class_type | Class_type_expanded | Formal_generic_name | Anchored | Bit_type
+</code>
 
 This means that a specimen of Type is either a specimen of Class_type, or a specimen of Class_type_expanded etc.
 
 Finally, a repetition production defines a construct whose specimens are sequences of zero or more specimens of a given construct (called the '''base''' of the repetition construct), separated from each other by a '''separator'''. For example, the production for construct Compound in an Eiffel grammar may read 
-<code>Compound [=] {Instruction ";" ...}</code>
+<code>
+Compound [=] {Instruction ";" ...}
+</code>
 
 This means that a specimen of Compound is made of zero or more specimens of Instruction, each separated from the next (if any) by a semicolon.
 
@@ -133,13 +141,13 @@ The beginning of the line, separated from the rest by a colon, is the list of va
 
 Using the conventions defined above, the grammar may be written as:
 <code>
-Line	[=] Variables ":" Sum
+Line		[=] Variables ":" Sum
 Variables	[=] {Identifier ";" ...}
-Sum	[=] {Diff "+" ...}
-Diff	[=] {Product "-" ...}
-Product	[=] {Term " * " ...}
-Term	[=] Simple_var Int_constant Nested
-Nested	[=] "(" Sum ")"
+Sum		[=] {Diff "+" ...}
+Diff		[=] {Product "-" ...}
+Product		[=] {Term " * " ...}
+Term		[=] Simple_var Int_constant Nested
+Nested		[=] "(" Sum ")"
 </code>
 
 This grammar assumes a terminal Identifier, which must be defined as a token type in the lexical grammar. The other terminals are keywords, shown as strings appearing in double quotes, for example "+".
@@ -253,7 +261,7 @@ For any keyword of associated string ''symbol'', such as the colon ":" in the ex
 	keyword (symbol)
 </code>
 
-The order of the various calls to put (for non-keywords) and keyword (for keywords) must be the order of the components in the production. Also, every <code> create </code> <code> component </code> <code> . </code>make instruction must occur before the corresponding call to put <code> ( </code> <code> symbol </code> <code> ) </code>. 
+The order of the various calls to put (for non-keywords) and keyword (for keywords) must be the order of the components in the production. Also, every <code>create</code> <code>component</code> <code>. </code>make instruction must occur before the corresponding call to put <code> ( </code> <code>symbol</code> <code> ) </code>. 
 
 All components in the above example are required. In the general case an aggregate production may have optional components. To signal that a component component of the right-hand side is optional, include a call of the form
 <code>
@@ -272,7 +280,9 @@ This call may appear anywhere after the corresponding <code> create </code> <cod
 The production function for a descendant of <eiffel>CHOICE</eiffel> will describe how to build a specimen of the corresponding function as a specimen of one of the alternative constructs.
 
 As an example, consider the production function of class <eiffel>TERM</eiffel> for the Polynomial example language. The corresponding production is
-<code>Term [=] Simple_var Poly_integer Nested</code>
+<code>
+Term [=] Simple_var Poly_integer Nested
+</code>
 <br/>
 where Simple_var, Poly_integer and Nested are other constructs. This means that every specimen of Term consists of one specimen of any one of these three constructs. Here is the corresponding production function as it appears in class <eiffel>TERM</eiffel>:
 <code>
@@ -293,7 +303,7 @@ where Simple_var, Poly_integer and Nested are other constructs. This means that 
 		end
 </code>
 
-As shown by this example, the production function for a choice construct class must declare a local entity - here <code> id </code>, <code> val </code> and <code> nest </code> - for each alternative component of the right-hand side. The type of each entity is the corresponding construct class - here <eiffel>SIMPLE_VAR</eiffel>, <eiffel>POLY_INTEGER</eiffel> and <eiffel>NESTED</eiffel>. 
+As shown by this example, the production function for a choice construct class must declare a local entity - here <code>id</code>, <code>val</code> and <code>nest</code> - for each alternative component of the right-hand side. The type of each entity is the corresponding construct class - here <eiffel>SIMPLE_VAR</eiffel>, <eiffel>POLY_INTEGER</eiffel> and <eiffel>NESTED</eiffel>. 
 
 The body of the function must begin by
 <code>
@@ -301,20 +311,22 @@ The body of the function must begin by
 	Result.forth
 </code>
 
-Then for each alternative component represented by a local entity component (in the example this applies to <code> id </code>, <code> val </code> and <code> nest </code>) there should be two instructions of the form 
+Then for each alternative component represented by a local entity component (in the example this applies to <code>id</code>, <code>val</code> and <code>nest</code>) there should be two instructions of the form 
 <code>
 	create component.make
 	put (component)
 </code>
 
-{{note| '''Caution''': the order of the various calls to put is irrelevant in principle. When a document is parsed, however, the choices will be tried in the order given; so if you know that certain choices occur more frequently than others it is preferable to list them first to speed up the parsing process. }}
+{{caution|The order of the various calls to put is irrelevant in principle. When a document is parsed, however, the choices will be tried in the order given; so if you know that certain choices occur more frequently than others it is preferable to list them first to speed up the parsing process. }}
 
 ===Repetitions===
 
 The production function for a descendant of [[ref:/libraries/parse/reference/repetition_chart|REPETITION]]  will describe how to build a specimen of the corresponding function as a sequence or zero or more (or, depending on the grammar, one or more) specimens of the base construct. The class must also effect a feature separator of type <eiffel>STRING</eiffel>, usually as a constant attribute. (This feature is introduced as deferred in class [[ref:/libraries/parse/reference/repetition_chart|REPETITION]] .)
 
 As an example, consider the construct Variables in the Polynomial example language. The right-hand side of the corresponding production is <br/>
-<code>Variables [=] {Identifier ";" ...}</code>
+<code>
+Variables [=] {Identifier ";" ...}
+</code>
 <br/>
 where Identifier is another construct, and the semicolon ";" is a terminal. This means that every specimen of Variables consists of zero or more specimens of Identifier, separated from each other (if more than one) by semicolons. 
 
@@ -469,11 +481,11 @@ For <eiffel>TERMINAL</eiffel>, only one semantic action makes sense. To avoid an
 
 Often, the semantic procedures need to compute various elements of information. These may be recorded using appropriate attributes of the corresponding construct classes.
 
-{{note|readers familiar with the theory of parsing and compiling will see that this scheme, using the attributes of Eiffel classes, provides a direct implementation of the "attribute grammar" mechanism. }}
+{{note|Readers familiar with the theory of parsing and compiling will see that this scheme, using the attributes of Eiffel classes, provides a direct implementation of the "attribute grammar" mechanism. }}
 
 ===Polynomial semantics===
 
-As an example let us examine the semantics of the Product construct for the polynomial language. It is a repetition construct, with Term as the base construct; in other words a specimen of Product is a sequence of one or more terms, representing the product term <code>1</code> * term <code>2</code> ... * term <code>n</code>. Here is the post_action procedure in the corresponding class <eiffel>PRODUCT</eiffel>: 
+As an example let us examine the semantics of the Product construct for the polynomial language. It is a repetition construct, with Term as the base construct; in other words a specimen of Product is a sequence of one or more terms, representing the product term<code>1</code> * term<code>2</code> ... * term<code>n</code>. Here is the post_action procedure in the corresponding class <eiffel>PRODUCT</eiffel>: 
 <code>
 	post_action is
 	     local
@@ -499,7 +511,7 @@ As an example let us examine the semantics of the Product construct for the poly
 
 Here each relevant construct class has an attribute info used to record the semantic information associated with polynomials and their components, such as child_value, an <eiffel>INTEGER</eiffel>. The post_action takes care of computing the product of all child_values for the children. First, of course, post_action must recursively be applied to each child, to compute its own child_value.
 
-{{note|recall that an instance of <eiffel>CONSTRUCT</eiffel> is also a node of the abstract syntax tree, so that all the <eiffel>TWO_WAY_TREE</eiffel> features such as child_value, child_start, child_after and many others are automatically available to access the syntactical structure. }}
+{{note|Recall that an instance of <eiffel>CONSTRUCT</eiffel> is also a node of the abstract syntax tree, so that all the <eiffel>TWO_WAY_TREE</eiffel> features such as child_value, child_start, child_after and many others are automatically available to access the syntactical structure. }}
 
 ===Keeping syntax and semantics separate===
 
@@ -533,10 +545,13 @@ If a choice is attempted and fails (because it encounters input that does not co
 ===Left recursion===
 
 Recursive descent implies the danger of infinite looping when parsing is attempted for left-recursive productions of the form <br/>
-<code>A [=] A ...</code>
+<code>
+A [=] A ...
+</code>
 <br/>
 or, more generally, cases in which the left recursion is indirect, as in <br/>
-<code> A [=] B ...
+<code>
+A [=] B ...
 B [=] C ...
 ...
 L [=] A ...
@@ -554,12 +569,8 @@ Another potential problem may arise from too much backtracking. In contrast with
 Two techniques are available to minimize backtracking. One, mentioned above, is to organize the production functions for choice construct classes so that they list the most frequent cases first. The other is to use the commit procedure in the production functions for aggregate constructs.
 
 A call to commit in an aggregate A is a hint to the parser, which means:
-<code>"If you get to this point in trying to recognize a specimen of A
-as one among several possible choices for a choice construct C,
-and you later fail to obtain an A, then forget about other choices
-for C: you won't be able to find a C here.  You may go back to the
-next higher-level choice before C - or admit failure if there is
-no such choice left." </code>
+
+:''If you get to this point in trying to recognize a specimen of A as one among several possible choices for a choice construct C, and you later fail to obtain an A, then forget about other choices for C: you won't be able to find a C here.  You may go back to the next higher-level choice before C - or admit failure if there is no such choice left.'' 
 
 Such a hint is useful when you want to let the parser benefit from some higher-level knowledge about the grammar, which is not directly deducible from the way the productions have been written.
 
@@ -583,15 +594,13 @@ where ''s'' is a specimen of <eiffel>SUM</eiffel>, is written as
 </code>
 
 The commit after the recognition of the keyword "(" is there to use the following piece of higher-level knowledge:
-<code>No choice production of the grammar that has NESTED
 
+:''No choice production of the grammar that has NESTED as one of its alternatives has another alternative construct whose specimens could begin with an opening parenthesis "(".''
 
-as one of its alternatives has another alternative construct whose
-specimens could begin with an opening parenthesis "(".</code>
 
 Because of this property, if the parser goes so far as to recognize an opening parenthesis as part of parsing any construct <eiffel>C</eiffel> for which NESTED is an alternative, but further tokens do not match the structure of <eiffel>NESTED</eiffel> specimens, then we will have failed to recognize not only a <eiffel>NESTED</eiffel> but also a <eiffel>C</eiffel>. 
 
-{{note|some readers will have recognized commit as being close to the Prolog "cut" mechanism. }}
+{{note|Some readers will have recognized commit as being close to the Prolog "cut" mechanism. }}
 
 In this example, <eiffel>NESTED</eiffel> is used in only one right-hand side production: the choice production for TERM, for which the other alternatives are <eiffel>SIMPLE_VAR</eiffel> and <eiffel>POLY_INTEGER</eiffel>, none of whose specimens can include an opening parenthesis.
 
@@ -605,13 +614,13 @@ We are ready now to put together the various elements required to build a docume
 
 The documents to be processed will be specimens of a certain construct. This construct is called the '''top construct''' for that particular processing. 
 
-{{warning| '''Caution''': be sure to note that with the Parse library there is no room for a concept of top construct of a '''grammar''': the top construct is only defined with respect to a particular processor for that grammar. <br/>
+{{caution|Be sure to note that with the Parse library there is no room for a concept of top construct of a '''grammar''': the top construct is only defined with respect to a particular processor for that grammar. <br/>
 Attempting to define the top of a grammar would be contrary to the object-oriented approach, which de-emphasizes any notion of top component of a system. <br/>
 Different processors for the same grammar may use different top constructs. }}
 
 A document processor will be a particular system made of construct classes, complemented by semantic classes, and usually by other auxiliary classes. One of the construct classes corresponds to the top construct and is called the '''top construct class'''. 
 
-{{note|this notion of top construct class has a natural connection to the notion of root class of a system, as needed to get executable software. The top construct class could indeed be used as root of the processor system. In line with the previous discussion, however, it appears preferable to keep the top construct class (which only depends on the syntax and remains independent of any particular processor) separate from the system's root class. With this approach the root class will often be a descendant of the top construct class. <br/>
+{{note|This notion of top construct class has a natural connection to the notion of root class of a system, as needed to get executable software. The top construct class could indeed be used as root of the processor system. In line with the previous discussion, however, it appears preferable to keep the top construct class (which only depends on the syntax and remains independent of any particular processor) separate from the system's root class. With this approach the root class will often be a descendant of the top construct class. <br/>
 This policy was adopted for the Polynomial language example as it appears in the delivery: the processor defined for this example uses <eiffel>LINE</eiffel> as the top construct class; the root of the processor system is a class <eiffel>PROCESS</eiffel>, which inherits from <eiffel>LINE</eiffel>. }}
 
 ===Steps in the execution of a document processor===
@@ -707,9 +716,9 @@ Many languages include an expression construct having the properties of traditio
 It is of course possible to apply the Parse library in its current state to support expressions, as illustrated by this extract from the Polynomial grammar given in full above:
 <code>
 Variables	[=] {Identifier ";" ...}
-Sum	[=] {Diff "+" ...}
-Diff	[=] {Product "-" ...}
-Product	[=] {Term "*" ...}
+Sum		[=] {Diff "+" ...}
+Diff		[=] {Product "-" ...}
+Product		[=] {Term "*" ...}
 </code>
 
 The problem then is not expressiveness but efficiency. For such expressions the recursive descent technique, however well adapted to the higher-level structures of a language, takes too much time and generates too many tree nodes. Efficient bottom-up parsing techniques are available for this case.
@@ -721,7 +730,9 @@ Beyond the addition of an <eiffel>EXPRESSION</eiffel> class, some changes in the
 ===Yooc===
 
 To describe the syntax of a language, it is convenient to use a textual format such as the one that has served in this chapter to illustrate the various forms of production. The correspondence between such a format and the construct classes is straightforward; for example, as explained above, the production <br/>
-<code>Line [=] Variables ":" Sum</code>
+<code>
+Line [=] Variables ":" Sum
+</code>
 <br/>
 will yield the class
 <code>

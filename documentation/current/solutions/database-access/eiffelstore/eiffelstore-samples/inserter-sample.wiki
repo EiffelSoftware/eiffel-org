@@ -31,7 +31,7 @@ Name: smith
 Password: mypass
 </code>
 
-{{note|Name'' and ''Password'' are no required with ODBC. If you don't need ''Name'' and ''Password'', you can simply hit '''Return''' when prompted ''.'' }}
+{{note|''Name'' and ''Password'' are not required with ODBC. If you don't need ''Name'' and ''Password'', you can simply hit '''Return''' when prompted ''.'' }}
 
 * For Oracle: 
 <code>
@@ -42,7 +42,7 @@ Name: smith@HANDSON
 Password: mypass
 </code>
 
-{{note|you have to specify the Oracle User Name and Net Service Name with the syntax ''<user>@<service> ''where ''<user>'' stands for the User Name and ''<service>'' stands for the Net Service Name. }}
+{{note|You must specify the Oracle User Name and Net Service Name with the syntax ''<user>@<service> ''where ''<user>'' stands for the User Name and ''<service>'' stands for the Net Service Name. }}
 
 
 Then you can insert a book in the database, for instance: 
@@ -64,7 +64,7 @@ Double value? 12.675
 Object inserted
 </code>
 
-{{note|if your database does not contain a <eiffel>DB_BOOK</eiffel> table, this example will create it. }}
+{{note|If your database does not contain a <eiffel>DB_BOOK</eiffel> table, this example will create it. }}
 
 ==Under the Hood==
 

@@ -10,7 +10,10 @@ The process of recognizing the successive tokens of a text is called lexical ana
 Besides recognizing the tokens, it is usually necessary to recognize the deeper syntactic structure of the text. This process is called '''parsing''' or '''syntax analysis''' and is studied in the next chapter. 
 
 Figure 1 shows the inheritance structure of the classes discussed in this chapter. Class [[ref:/libraries/parse/reference/l_interface_chart|L_INTERFACE]]  has also been included although we will only study it in the [[EiffelParse Tutorial]]; it belongs to the Parse library, where it takes care of the interface between parsing and lexical analysis. 
- [[Image:figure1]]  
+
+
+[[Image:figure1]]  
+
 Figure 1: Lexical classes
 
 ==AIMS AND SCOPE OF THE LEX LIBRARY==
@@ -36,7 +39,9 @@ For the user of the Lex libraries, the classes of most direct interest are [[ref
 An instance of [[ref:/libraries/lex/reference/token_chart|TOKEN]]  describes a token read from an input file being analyzed, with such properties as the token type, the corresponding string and the position in the text (line, column) where it was found.
 
 An instance of [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]]  is a lexical analyzer for a certain lexical grammar. Given a reference to such an instance, say analyzer, you may analyze an input text through calls to the features of class [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]] , for example:
-<code>	analyzer.get_token</code>
+<code>
+	analyzer.get_token
+</code>
 
 Class [[ref:/libraries/lex/reference/metalex_chart|METALEX]]  defines facilities for building such lexical analyzers. In particular, it provides features for reading the grammar from a file and building the corresponding analyzer. Classes that need to build and use lexical analyzers may be written as descendants of [[ref:/libraries/lex/reference/metalex_chart|METALEX]]  to benefit from its general-purpose facilities.
 
@@ -108,7 +113,7 @@ Token_type_2 Regular_expression_2
 Token_type_m Regular_expression_m
 
 
-'''-- Keywords'''
+-- Keywords
 
 Keyword_1
 Keyword_2
@@ -151,15 +156,21 @@ Let us look more precisely at how we can use a lexical analyzer to analyze an in
 Procedure analyze takes care of the most common needs of lexical analysis. But if you need more advanced lexical analysis facilities you will need an instance of class [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]]  (a direct instance of [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]]  itself or of one of its proper descendants). If you are using class [[ref:/libraries/lex/reference/scanning_chart|SCANNING]]  as described above, you will have access to such an instance through the attribute analyzer.
 
 This discussion will indeed assume that you have an entity attached to an instance of [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]] . The name of that entity is assumed to be analyzer, although it does not need to be the attribute from [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] . You can apply to that analyzer the various exported features features of class [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]] , explained below. All the calls described below should use analyzer as their target, as in
-<code>	analyzer.set_file ("my_file_name")</code>
+<code>
+	analyzer.set_file ("my_file_name")
+</code>
 
 ===Creating, retrieving and storing an analyzer===
 
 To create a new analyzer, use
-<code>	create analyzer.make_new</code>
+<code>
+	create analyzer.make_new
+</code>
 
 You may also retrieve an analyzer from a previous session. [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]]  is a descendant from [[ref:/libraries/base/reference/storable_chart|STORABLE]] , so you can use feature retrieved for that purpose. In a descendant of [[ref:/libraries/base/reference/storable_chart|STORABLE]] , simply write
-<code>	analyzer ?= retrieved</code>
+<code>
+	analyzer ?= retrieved
+</code>
 
 If you do not want to make the class a descendant of [[ref:/libraries/base/reference/storable_chart|STORABLE]] , use the creation procedure make of [[ref:libraries/lex/reference/lexical_chart|LEXICAL]] , not to be confused with make_new above:
 <code>
@@ -215,7 +226,9 @@ The Lex library supports a powerful set of construction mechanisms for describin
 Let us now study the format of regular expressions. This format is used in particular for the lexical grammar files needed by class [[ref:/libraries/lex/reference/scanning_chart|SCANNING]]  and (as seen below) by procedure <eiffel>read_grammar</eiffel> of class [[ref:/libraries/lex/reference/metalex_chart|METALEX]] . The ''eiffel_regular'' grammar file in the examples directory provides an extensive example. 
 
 Each regular expression denotes a set of tokens. For example, the first regular expression seen above, <br/>
-<code>	'0'..'9'</code>
+<code>
+	'0'..'9'
+</code>
 <br/>
 denotes a set of ten tokens, each consisting of a single digit. 
 
@@ -265,7 +278,7 @@ A parenthesized expression, written ( ''exp'') where ''exp'' is a regular expres
 
 A difference, written ''interval - char'', where ''interval'' is an interval expression and ''char'' is a character expression, describes the set of tokens which are in ''exp'' but not in ''char''. For example, the difference '''0'..'9' - '4''' describes all single-decimal-digit tokens except those made of the digit 4. 
 
-{{warning| '''Caution''': a difference may only apply to an interval and a single character. }}
+{{caution|A difference may only apply to an interval and a single character. }}
 
 ===Iterations===
 
@@ -303,7 +316,7 @@ The following non-elementary forms are abbreviations for commonly needed regular
 | Role
 |- 
 |  '''$L''' 
-|  '''\n''' 
+|  '' '\n' ''
 | New-line character
 |- 
 |  '''$N''' 
@@ -311,15 +324,15 @@ The following non-elementary forms are abbreviations for commonly needed regular
 | Natural integer constants
 |- 
 |  '''$R''' 
-|  ''['+'|'-'] +('0'..'9') '.' *('0'..'9')['e'|'E' ['+'|'-'] +('0'..'9')]'' 
+|  '' <nowiki>['+'|'-'] +('0'..'9') '.' *('0'..'9')['e'|'E' ['+'|'-'] +('0'..'9')]</nowiki> '' 
 | Floating point constants
 |- 
 |  '''$W''' 
-| +( '''$P''' - ' ' - '\t' - '\n' - '\r') 
+| '' +( '''$P''' - ' ' - '\t' - '\n' - '\r') '' 
 | Words
 |- 
 |  '''$Z''' 
-|  ''['+'|'-'] +('0'..'9')'' 
+|  '' <nowiki>['+'|'-'] +('0'..'9')</nowiki> '' 
 | Possibly signed integer constants
 |}
 
@@ -331,7 +344,7 @@ One more form of regular expression, case-sensitive expressions, using the ~ sym
 You may freely combine the various construction mechanisms to describe complex regular expressions. Below are a few examples.
 {| border="1" 
 |- 
-|  '''a'..'z' - 'c' - 'e''' 
+|  '' 'a'..'z' - 'c' - 'e' '' 
 | Single-lower-case-letter tokens, except ''c'' and ''e''. 
 |- 
 |  ''$? - '\007''' 
@@ -340,7 +353,7 @@ You may freely combine the various construction mechanisms to describe complex r
 |  ''+('a'..'z')'' 
 | One or more lower-case letters.
 |- 
-|  ''['+'|'-'] '1'..'9' *('0'..'9')'' 
+|  '' <nowiki>['+'|'-'] '1'..'9' *('0'..'9')</nowiki> '' 
 | Integer constants, optional sign, no leading zero.
 |- 
 |  ''->"*/"'' 
@@ -353,8 +366,8 @@ You may freely combine the various construction mechanisms to describe complex r
 
 ===Dealing with keywords===
 
-Many languages to be analyzed have keywords - or, more generally, "reserved words". Eiffel, for example, has reserved words such as <code> class </code> and <code> Result </code>. 
-{{note|in Eiffel terminology reserved words include keywords; a keyword is a marker playing a purely syntactical role, such as <code> class </code>. Predefined entities and expressions such as <code> Result </code> and <code> Current </code>, which have an associated value, are considered reserved words but not keywords. The present discussion uses the term "keyword" although it can be applied to all reserved words. }}
+Many languages to be analyzed have keywords - or, more generally, "reserved words". Eiffel, for example, has reserved words such as <code>class</code> and <code>Result</code>. 
+{{note|in Eiffel terminology reserved words include keywords; a keyword is a marker playing a purely syntactical role, such as <code>class</code>. Predefined entities and expressions such as <code>Result</code> and <code>Current</code>, which have an associated value, are considered reserved words but not keywords. The present discussion uses the term "keyword" although it can be applied to all reserved words. }}
 
 In principle, keywords could be handled just as other token types. In Eiffel, for example, one might treat each reserved words as a token type with only one specimen; these token types would have names such as Class or Then and would be defined in the lexical grammar file:
 
@@ -372,21 +385,20 @@ For example the final part of the example Eiffel lexical grammar file appears as
 <code>
  ... Other token type definitions ...
 Identifier  ~('a'..'z') *(~('a'..'z') | '_' | ('0'..'9'))
-'''
+
 -- Keywords
 alias
 all
 and
 as
-'''
 BIT
 BOOLEAN
 ... Other reserved words ...
 </code>
 
-{{warning| '''Caution''': every keyword in the keyword section must be a specimen of one of the token types defined for the grammar, and that token type must be the last one defined in the lexical grammar file, just before the '''Keywords''' line. So in Eiffel where the keywords have the same lexical structure as identifiers, the last line before the keywords must be the definition of the token type ''Identifier'', as shown above. }}
+{{caution|Every keyword in the keyword section must be a specimen of one of the token types defined for the grammar, and that token type must be the last one defined in the lexical grammar file, just before the '''Keywords''' line. So in Eiffel where the keywords have the same lexical structure as identifiers, the last line before the keywords must be the definition of the token type ''Identifier'', as shown above. }}
 
-{{note|the rule that all keywords must be specimens of one token type is a matter of convenience and simplicity, and only applies if you are using SCANNING and lexical grammar files. There is no such restriction if you rely directly on the more general facilities provided by [[ref:/libraries/lex/reference/metalex_chart|METALEX]]  or [[ref:/libraries/lex/reference/lex_builder_chart|LEX_BUILDER]] . Then different keywords may be specimens of different regular expressions; you will have to specify the token type of every keyword, as explained later in this chapter. }}
+{{note|The rule that all keywords must be specimens of one token type is a matter of convenience and simplicity, and only applies if you are using SCANNING and lexical grammar files. There is no such restriction if you rely directly on the more general facilities provided by [[ref:/libraries/lex/reference/metalex_chart|METALEX]]  or [[ref:/libraries/lex/reference/lex_builder_chart|LEX_BUILDER]] . Then different keywords may be specimens of different regular expressions; you will have to specify the token type of every keyword, as explained later in this chapter. }}
 
 ===Case sensitivity===
 
@@ -397,18 +409,26 @@ The regular expression syntax introduced above offers a special notation to spec
 You may change this default behavior through a set of procedures introduced in class [[ref:libraries/lex/reference/lex_builder_chart|LEX_BUILDER]]  and hence available in its descendants [[ref:libraries/lex/reference/metalex_chart|METALEX ]] and [[ref:libraries/lex/reference/scanning_chart|SCANNING]] .
 
 To make subsequent regular expressions case-sensitive, call the procedure
-<code>	distinguish_case</code>
+<code>
+	distinguish_case
+</code>
 
 To revert to the default mode where case is not significant, call the procedure
-<code>	ignore_case</code>
+<code>
+	ignore_case
+</code>
 
 Each of these procedures remains in effect until the other one is called, so that you only need one call to define the desired behavior.
 
 For keywords, the policy is less tolerant. A single rule is applied to the entire grammar: keywords are either all case-sensitive or all case-insensitive. To make all keywords case-sensitive, call
-<code>	keywords_distinguish_case</code>
+<code>
+	keywords_distinguish_case
+</code>
 
 The inverse call, corresponding to the default rule, is
-<code>	keywords_ignore_case</code>
+<code>
+	keywords_ignore_case
+</code>
 
 Either of these calls must be executed before you define any keywords; if you are using [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] , this means before calling procedure build. Once set, the keyword case-sensitivity policy cannot be changed.
 
@@ -431,6 +451,8 @@ The following extract from a typical descendant of [[ref:/libraries/lex/referenc
 	put_expression("+('0'..'7'"), Octal_constant, "Octal")
 	put_expression ("'a'..'z' *('a'..'z'|'0'..'9'|'_')", Lower_identifier, "Lower")
 	put_expression ("'A'..'Z' *('A'..'Z'|'0'..'9'|'_' )", Upper_identifier, "Upper")
+
+
 	dollar_w (Word)
 	...
 	put_keyword ("begin", Lower_identifier)
@@ -447,9 +469,11 @@ This example follows the general scheme of building a lexical analyzer with the 
 # "Freeze" the analyzer by a call to <eiffel>make_analyzer</eiffel>.
 
 To perform steps 2 to 4 in a single shot and generate a lexical analyzer from a lexical grammar file, as with [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] , you may use the procedure
-<code>	read_grammar (grammar_file_name: STRING)</code>
+<code>
+	read_grammar (grammar_file_name: STRING)
+</code>
 
-In this case all the expressions and keywords are taken from the file of name <code> grammar_file_name </code> rather than passed explicitly as arguments to the procedures of the class. You do not need to call make_analyzer, since read_grammar includes such a call. 
+In this case all the expressions and keywords are taken from the file of name <code>grammar_file_name</code> rather than passed explicitly as arguments to the procedures of the class. You do not need to call make_analyzer, since read_grammar includes such a call. 
 
 The rest of this discussion assumes that the four steps are executed individually as shown above, rather than as a whole using read_grammar. 
 ===Recording token types and regular expressions===
@@ -459,12 +483,16 @@ As shown by the example, each token type, defined by a regular expression, must 
 Procedure put_expression records a regular expression. The first argument is the expression itself, given as a string built according to the rules seen earlier in this chapter. The second argument is the integer code for the expression. The third argument is a string which gives a name identifying the expression. This is useful mostly for debugging purposes; there is also a procedure put_nameless_expression which does not have this argument and is otherwise identical to put_expression.
 
 Procedure dollar_w corresponds to the '''$W''' syntax for regular expressions. Here an equivalent call would have been 
-<code>	put_nameless_expression ( "$W" ,Word ) </code>
+<code>
+	put_nameless_expression ( "$W" ,Word ) 
+</code>
 
 Procedure <eiffel>declare_keyword</eiffel> records a keyword. The first argument is a string containing the keyword; the second argument is the regular expression of which the keyword must be a specimen. The example shows that here - in contrast with the rule enforced by [[ref:/libraries/lex/reference/scanning_chart|SCANNING]]  - not all keywords need be specimens of the same regular expression. 
 
 The calls seen so far record a number of regular expressions and keywords, but do not give us a lexical analyzer yet. To obtain a usable lexical analyzer, you must call
-<code>	make_analyzer</code>
+<code>
+	make_analyzer
+</code>
 
 After that call, you may not record any new regular expression or keyword. The analyzer is usable through attribute analyzer. 
 {{note|for readers knowledgeable in the theory of lexical analysis: one of the most important effects of the call to make_analyzer is to transform the non-deterministic finite automaton resulting from calls such as the ones above into a deterministic finite automaton. }}
@@ -473,6 +501,8 @@ Remember that if you use procedure read_grammar, you need not worry about make_a
 Another important feature of class [[ref:/libraries/lex/reference/metalex_chart|METALEX]]  is procedure <eiffel>store_analyzer</eiffel>, which stores the analyzer into a file whose name is passed as argument, for use by later lexical analysis sessions. To retrieve the analyzer, simply use procedure <eiffel>retrieve_analyzer</eiffel>, again with a file name as argument.
 
 ==BUILDING A LEXICAL ANALYZER WITH LEX_BUILDER==
+
+
 
 To have access to the most general set of lexical analysis mechanisms, you may use class [[ref:/libraries/lex/reference/lex_builder_chart|LEX_BUILDER]] , which gives you an even finer grain of control than [[ref:/libraries/lex/reference/metalex_chart|METALEX]] . This is not necessary in simple applications.
 
