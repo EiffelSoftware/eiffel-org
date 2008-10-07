@@ -2,8 +2,6 @@
 [[Property:link_title|Handling Syntax and Validity Errors]]
 [[Property:weight|-3]]
 [[Property:uuid|c2be8123-b793-f8ce-e082-d4fdacc6bbe6]]
-[[Help reading the EiffelStudio Guided Tour|Help reading this manual]]  
-
 So far we have tried to make sure that everything went smoothly. But in actual software development you may encounter error situations, and it is useful to know what can happen then.
 <div> 
 ==Levels of language description==
@@ -23,7 +21,9 @@ Syntax and validity errors will be detected by the compilation process. For sema
 ==A syntax error==
 
 To see what happens for a syntax error, replace the keyword <code> is </code> by <code> ist </code> in the first line of routine <code> display </code> of class <code> PARENT </code> (click the position immediately after the <code> s </code> and type a <code> t </code>.). Save the file by clicking the Save button or using CTRL- <code> S </code> and then compile the system. 
-<div>  [[Image:index-75]] [[general/guided_tour/studio/index-75.png|(link)]]  </div>
+
+[[Image:index-75]]
+
 To correct the error, just bring the mouse back to its location, remove the spurious <code> t </code>, and click Save again; also click Compile to make sure that the project is recompiled up-to-date. 
 
 You may wonder why the syntax error messages are not a little more verbose than just <code> Syntax error </code>. The reason is merely that Eiffel's syntax, being simple and regular, does not require sophisticated error messages; syntax errors usually result from trivial oversights. If you make a syntax error and the reason is not immediately clear, check the syntax summary in the appendix of <span> [http://www.eiffel.com/doc/ Eiffel: The Language]  </span>. 
@@ -39,23 +39,35 @@ To see this mechanism at work, let us introduce a validity error. There is in fa
 -- inv: INVALID;</code>
 
 If uncommented, this is a declaration of a feature of type <code> INVALID </code>. A class called <code> INVALID </code> indeed exists in file <code> invalid.e </code> of the root cluster, but it contains a validity error. To see what it is, remove the initial double-dash <code> -- </code> in the above line from class <code> TESTROOT </code> so that it is not a comment any more. 
-<div>  [[Image:index-76]] [[general/guided_tour/studio/index-76.png|(link)]]  </div>
-Click <code> Save </code>, then <code> Compile </code>. Compilation starts but after a few degrees it stops with an error message that appears in the bottom Context Tool (you may have to do some resizing to see it in its entirety): 
-<div>  [[Image:index-77]] [[general/guided_tour/studio/index-77.png|(link)]]  </div>
+
+[[Image:index-76]]
+
+Click <code> Save </code>, then <code> Compile </code>. Compilation starts but after a few degrees it stops with an error message that appears in the bottom Context Tool (you may have to do some resizing to see it in its entirety):
+
+[[Image:index-77]]
+
 As the error message indicates, you have (shame on you) violated the validity rule <code> VUAR </code>, which requires the number and types of actual arguments in a routine call to match the number and types of formal arguments declared in the routine. 
 
 One of the interesting properties of the error message is that everything in color is '''clickable''' : class name, feature name, but also the error code. This means that you can start a Pick-and-Drop on any of these elements to find out more. 
 
 For example, to see the exact context of the error, pick-and-drop the name of the affected feature, <code> display </code> -- appearing on the fifth non-blank line, after <code> Feature: </code> -- and pick-and-drop it to the top Text window. (As you remember this means: right-click on it and release; move the mouse to the text window, without clicking any button; right-click again. During the move the cursor shows a cross, the symbol for features.) This displays the erroneous feature: 
-<div>  [[Image:index-78]] [[general/guided_tour/studio/index-78.png|(link)]]  </div>
+
+[[Image:index-78]]
+
 Note on this display a special property of Pick-and-Drop when its source is a feature name appearing in a validity error message: the instruction that causes the error is highlighted.
 
 In the error message in the Context Tool, the error code itself, <code> VUAR </code>, is also clickable. Assuming the message was not sufficient to understand the error, you can use it to start a Pick-and-Drop. Do this now, by picking that code and starting to move the mouse, but not dropping yet: 
-<div>  [[Image:index-79]] [[general/guided_tour/studio/index-79.png|(link)]]  </div>
+
+[[Image:index-79]]
+
 The icon shape for such information elements is a question mark <code> ? </code>. If it is not on a droppable target, as in the bottom Context Tool, that icon will be crossed. In principle the place to drop is the Explanation hole in the Project toolbar, the only one that remains highlighted during the Move step of Pick-and-Drop: 
-<div>  [[Image:index-80]] [[general/guided_tour/studio/index-80.png|(link)]]  </div>
+
+[[Image:index-80]]
+
 As is often the case when dropping into a specific hole, you don't need to shoot straight; dropping the pebble anywhere in the Editing Tool has the same effect as dropping it into the Explanation hole:
-<div>  [[Image:index-81]] [[general/guided_tour/studio/index-81.png|(link)]]  </div>
+
+[[Image:index-81]]
+
 The result is to display the complete text of the violated rule, straight from the pages of <span> [http://www.eiffel.com/doc/ Eiffel: The Language]  </span>. 
 
 The rule has several clauses, numbered. Since the error message showed the error code as <code> VUAR(1) </code>, the violated clause is the first; this convention of showing the clause number in parentheses applies to all multi-clause validity constraints. 

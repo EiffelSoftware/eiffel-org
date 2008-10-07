@@ -2,8 +2,6 @@
 [[Property:link_title|Executing a System Within and Without EiffelStudio]]
 [[Property:weight|5]]
 [[Property:uuid|8256398e-d1a9-0471-664a-3225c7dfb306]]
-[[Help reading the EiffelStudio Guided Tour|Help reading this manual]]  
-
 To complete this study of the compilation process let's see a few more properties of how you can <span>execute</span> an Eiffel system, both in EiffelStudio and as a compiled system that you deliver to its users, who may need to run it without EiffelStudio. 
 <div> 
 ==Arguments==

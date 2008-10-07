@@ -2,8 +2,6 @@
 [[Property:link_title|How EiffelStudio Compiles]]
 [[Property:weight|3]]
 [[Property:uuid|6fc86303-8afe-78af-6ca7-2853e8bfcbc3]]
-[[Help reading the EiffelStudio Guided Tour|Help reading this manual]]  
-
 So far we have relied on the compiling capabilities of EiffelStudio without exploring them in any detail. We must now understand the principles behind EiffelStudio's compiling strategy, in particular how it reconciles fast turnaround, efficient generated code, and strong typing.
 <div> 
 ==Compilation is automatic==
@@ -157,7 +155,9 @@ Only two operations, noted above, <span>require</span> freezing: the addition of
 Except for the addition of external routines or agents, freezing is never strictly necessary. It is indeed possible to use melting throughout a development, never requesting a freeze after the first compilation. But as the melted-to-frozen ratio grows, you may detect a certain degradation in the performance of the system (determined by how big a share of your system is melted, not how many times you melt it). After a while, then, you may want to refreeze. Like melting, freezing is incremental: only those parts of a system that have been logically changed will be recompiled; as with melting, the determination of what needs to be recompiled is entirely performed by the environment, without any manual intervention on the developer's part.
 
 The principal difference is that freezing takes longer than melting. Because of this you are requested to confirm the first time you freeze. Freeze the example system by choosing the menu entry <code> Project </code> <code> --> </code> <code> Freeze </code>. You get the following dialog: 
-<div>  [[Image:index-142]] [[general/guided_tour/studio/index-142.png|(link)]]  </div>
+
+[[Image:index-142]]
+
 Note the <code> No </code> option: by default, freezing will start a C compilation, but you can stop after C generation if you wish. This is useful for example if you want to generate a C package for cross-development, C-compiling the result on a different platform. 
 
 Click <code> Yes </code> to confirm freeze and C-compilation. Once the Eiffel compilation is complete, a message in the Development Window ( <code> C compilation launched in background </code>) tells you when that C-compilation has started. C-compilation does not block EiffelStudio: at this point you can continue working with the environment. Any messages from C compiler will appear: 

@@ -2,8 +2,6 @@
 [[Property:link_title|Recompiling and Editing]]
 [[Property:weight|-4]]
 [[Property:uuid|6574a573-48b9-6088-aa98-53d7119d7c5c]]
-[[Help reading the EiffelStudio Guided Tour|Help reading this manual]]  
-
 So far we have relied on existing class texts. Fascinating as it may be to explore excellent software such as EiffelBase, you probably want to write your own too (with the help of the reusable components in the Eiffel libraries). EiffelStudio provides a built-in editor -- as well as the ability to use some other editor if you prefer -- and sophisticated compilation mechanisms.
 
 ==Recompiling==
@@ -15,7 +13,9 @@ When we started, we compiled the example system. Let's recompile it, just to see
 We don't want to touch EiffelBase classes (and in fact can't, since it is used in precompiled form), so let's focus on classes of our small root cluster. In the Cluster tree on the left, expand cluster <code> root_cluster </code> and click class <code> PARENT </code> to retarget the Development Window to it. 
 
 Make sure that the Editing Tool is big enough to display the text of the class:
-<div>  [[Image:index-66]] [[general/guided_tour/studio/index-66.png|(link)]]  </div>
+
+[[Image:index-66]] 
+
 The Editing Tool hosts a text editor which you can use to change the class text. Here the routine <code> display </code> starts by outputting a simple message; let's precede it by another line of display to check that we affected the outcome. We'll want to add the following two lines just after the <code> do </code>, before the first two instructions of the routine: 
 <code>
 	io.put_string ("This is some more added text") 
@@ -23,7 +23,9 @@ The Editing Tool hosts a text editor which you can use to change the class text.
 </code>
 
 They are very similar to the current first two lines of the routine, so you can just use copy-paste: select the first two lines with the mouse, copy them using CTRL- <code> C </code> (or <code> Copy </code> from the <code> Edit </code> menu), then paste them just after the <code> do </code> using CTRL- <code> V </code> (or <code> Paste </code> from the <code> Edit </code> menu). Add or remove tabs to align with the rest of the routine, and change the string to <code> THIS IS SOME MORE ADDED TEXT </code> so that the result will look like what's shown on the next figure. This is all there is to change; the second line remains untouched. Please check the result and be careful not to introduce any mistakes; in the next section we'll study how EiffelStudio will report syntax and other errors, but right now we want to see what happens when everything is right! 
-<div>  [[Image:index-67]] [[general/guided_tour/studio/index-67.png|(link)]]  </div>
+
+[[Image:index-67]] 
+
 Now save your changes; you may indifferently use CTRL- <code> S </code>, the <code> Save </code> entry from the <code> Edit </code> menu, or the Save button highlighted on the figure. (If you forget to save, the next compilation will tell you so, and ask you if from now on you want all non-saved class edits to be saved automatically.) 
 </div><div> 
 ==Recompiling and executing after a change==
@@ -71,7 +73,9 @@ To start a search, make sure the Search Tool is active by clicking the Search bu
 {{note|If you press CTRL - <code>F</code> in a tool you will get a quick search bar that quickly allows to search for something in the current text.}}
 
 The Search Tool presents a number of self-explanatory options:
-<div>  [[Image:index-69]] [[general/guided_tour/studio/index-69.png|(link)]]  </div>
+
+[[Image:index-69]] 
+
 You can enter a term to replace your search term in the <code> Replace with </code> box. 
 
 Having filled the two fields, you can elect to replace the last found occurrence, or all occurrences at once.
@@ -85,11 +89,15 @@ Particularly interesting are the editor's '''automatic completion''' facilities.
 The EiffelStudio Editor knows about Eiffel syntax and will recognize syntactic elements as you type them. It will color them according to standard conventions: basic elements in black, keywords in blue, comments in dark red. You can change these conventions through Preferences.
 
 If you start typing a control structure through its opening keyword, such as <code> if </code>, or <code> from </code> for a loop, the editor will automatically display the structure of the whole construct. Here for example is the result if you type the <code> from </code> followed by Return/Enter at the beginning of our example routine: 
-<div>  [[Image:index-71]] [[general/guided_tour/studio/index-71.png|(link)]]  </div>
+
+[[Image:index-71]]
+
 This has produced the structure of an Eiffel loop: <code> from </code> <span>...</span> <code> until </code> <span>...</span> <code> loop </code> <span>...</span> <code> end </code>. You can then fill in the blanks with the appropriate expression and instructions. The generated lines start with the appropriate number of Tab characters to support the standard Eiffel indenting conventions. If you want a more compact style, follow the <code> from </code> with a space rather than Return. Typing <code> if </code> followed by Return or a space will similarly produce the outline of a conditional instruction. 
 
 To start a routine, type the routine name followed by the keyword <code> is </code> and a Return. The editor generates the basic structure of a routine text: 
-<div>  [[Image:index-72]] [[general/guided_tour/studio/index-72.png|(link)]]  </div>
+
+[[Image:index-72]]
+
 This prompts you to enter the header comment (no self-respecting Eiffel developer even <span>thinks</span> of writing a feature without a header comment). At the end of the header comment, type Return if the header comment continues, otherwise type a down arrow to continue with the indentation for the beginning of the routine, with one of the keywords <code> require </code>, <code> local </code>, <code> do </code>, <code> external </code>, <code> once </code>. Once you type <code> do </code>, followed by a Return or space, the completion mechanism will insert the appropriate <code> end </code>, but other than that it doesn't try to produce an entire routine structure because there are too many syntactical choices (precondition or not, postcondition or not, locals or not etc.). 
 
 Also interesting is '''feature completion''', using the '''CTRL-SPACE''' key. It works at two levels: 
@@ -99,7 +107,9 @@ Also interesting is '''feature completion''', using the '''CTRL-SPACE''' key. It
 In both cases, if more than one completion is possible, you will get a menu of the possibilities. You can scroll through it with the up and down arrow keys, or the mouse, and select one through Enter or double-click. You can also or give up through the Escape key.
 
 Here for example is the menu you will see in the body of our example routine if you type <code> io </code> <span>. </span> followed by CTRL-SPACE, where <code> io </code> is the feature, coming from class <code> ANY </code>, that provides access to standard input and output facilities: 
-<div>  [[Image:index-73]] [[general/guided_tour/studio/index-73.png|(link)]]  </div>
+
+[[Image:index-73]]
+
 The following properties enhance the convenience of the completion mechanisms:
 * If only one completion is possible, no menu appears; the completion is selected.
 * If the cursor is just after the name of a query (which you have fully typed, or obtained through completion), typing CTRL-SPACE once more will produce a period, as if you had typed it.

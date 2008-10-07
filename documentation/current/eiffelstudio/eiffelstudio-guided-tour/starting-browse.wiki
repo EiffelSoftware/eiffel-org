@@ -2,8 +2,6 @@
 [[Property:link_title|Starting To Browse]]
 [[Property:weight|-10]]
 [[Property:uuid|cb6c2e52-d238-9b55-0b78-ab3af9568550]]
-[[Help reading the EiffelStudio Guided Tour|Help reading this manual]]  
-
 It was important to take a look at how EiffelStudio stores your project, but unless your idea of fun is to poke around directories to look at compiler-generated files that's not really the exciting part yet. Among the most innovative aspects of EiffelStudio is a unique set of facilities to <span>browse</span> through a software system. 
 
 ==Browsing style==
@@ -17,7 +15,9 @@ Browsing -- traversing the structure -- is particularly important in object-orie
 ==A Development Window==
 
 Let's see how this works. First, take a look at the EiffelStudio window:
-<div>  [[Image:index-8]] [[general/guided_tour/studio/index-8.png|(link)]]  </div>
+
+<div>  [[Image:index-8]]   </div>
+
 {{note| ''If some parts are too small, just resize the window to arrive at something like what's on the figure. When it first comes up, EiffelStudio initially uses a fairly small window, because it's designed to run on a 800x600 display, although of course a bigger display is recommended. But as soon as you have resized it, EiffelStudio will come up, in the next session, with the size you've set.'' }}
 
 You can see five panes, marked on the figure: <code> Features </code>, <code> Class </code>, <code> Properties </code>, <code> Clusters </code>, <code> Context </code>. There will be others, such as <code> Search </code>, and you can remove any of them, except <code> Class </code>, at any time to make room for the others. 

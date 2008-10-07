@@ -2,8 +2,6 @@
 [[Property:link_title|A Look at the Project Directory]]
 [[Property:weight|-11]]
 [[Property:uuid|d82eae3f-fe0d-3e27-008e-61afd05f8cb0]]
-[[Help reading the EiffelStudio Guided Tour|Help reading this manual]]  
-
 Before we proceed with the facilities of the environment, let's take a look at the way EiffelStudio organizes project files.
 
 With EiffelStudio, you build projects. Most projects yield an executable system, although you can also build a project just to define a library for use by such systems.
@@ -13,7 +11,9 @@ Every session is relative to a project; you can start a new project from within 
 Every project has a '''project directory''' which will contain the files generated and managed by EiffelStudio. The project directory may also host some of the source files containing your Eiffel classes, the ECF (eiffel configurationl file), and external software written in other languages, but that is not required; the source files and ecf may reside anywhere. Some users, in fact, like to put nothing else than the EiffelStudio-generated files in the project directory; this separates user-managed and system-managed files, and can facilitate configuration management, backups and porting. 
 
 In this simple Tour, things have been set up so that all the files of interest, source texts as well as generated ones, will appear in the project directory <code> YOURDIR </code> (either <code> $ISE_EIFFEL\examples\studio\tour </code> or the copy that you have made). Go to that project directory using the Windows explorer or a <code> cd </code> command, and look at its contents (using <code> ls </code> on Unix/Linux): 
-<div>  [[Image:index-7]] [[general/guided_tour/studio/index-7.png|(link)]]  </div>
+
+[[Image:index-7]]
+
 The contents of this <code> YOURDIR </code> directory include the following: 
 * First you see a number of files with the extension <span>.</span> <code> e </code>, for "Eiffel": <code> heir.e </code>, <code> invalid.e </code> and others. These are the Eiffel source files, each containing one class. The recommended convention is to store a class of name <code> CLASS_NAME </code> into a file of name <code> class_name </code> <code> .e </code>, where <code> class_name </code> is the lower-case version of <code> CLASS_NAME </code> ; here, file <code> heir.e </code> contains the class <code> HEIR </code> and so on. As you may remember, Eiffel is case-insensitive, but the standard convention for class names is to write them in all upper case. Calling the file <code> class_name </code> <code> .e </code> is only a recommendation, not an obligation; but you <span>are</span> required to store one class per file. This keeps things simple and facilitates project and configuration management. 
 * You also notice a file with an <code> ecf </code> extension. This is the configuration file that specifies this project. As you remember, the ECF file for this example was available as part of the delivery; we used it to compile the project. In most practical cases, however, you won't need to build an ECF; if you use the " <code> Create project </code>" option of EiffelStudio, EiffelStudio will build the ECF for you; if you change the Project Settings during a session, EiffelStudio will update the ECF. ECF are written in a xml notation. 

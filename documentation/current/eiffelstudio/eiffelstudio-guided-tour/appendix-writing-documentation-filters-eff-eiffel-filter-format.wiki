@@ -2,8 +2,6 @@
 [[Property:link_title|Appendix: Writing Documentation Filters with EFF, the Eiffel Filter Format]]
 [[Property:weight|6]]
 [[Property:uuid|0d17d433-3d4f-9575-49f7-d97eccb1a5b1]]
-[[Help reading the EiffelStudio Guided Tour|Help reading this manual]]  
-
 This appendix provides reference information, not needed in simple uses of EiffelStudio.
 
 We saw in the [[8 PRODUCING AND EXPORTING DOCUMENTATION|section on documentation]]  that you can output documentation about your system in many different formats. A number of predefined formats are available, from Postscript to Microsoft's Rich Text Format, FrameMaker, HTML with and without style sheets, TEX and others. There's nothing special about these formats: they just make their conventions known to EiffelStudio through a '''filter''' expressed in a simple notation called EFF, or Eiffel Filter Format. If you have a favorite format that you'd like EiffelStudio to use for producing documentation, you can define your own filter in EFF. Applications include: 
@@ -50,7 +48,7 @@ which, thanks to the asterisk, will govern all construct specimens of the <code>
 
 The following general syntactic constructs may appear as the left-hand side, <code> Construct </code>, of an entry: 
 <code>
-'''Class_declaration
+Class_declaration
 Class_end
 Class_header
 Class_name
@@ -69,7 +67,8 @@ New_line
 Obsolete_clause
 Suffix
 Symbol
-Tab'''</code>
+Tab
+</code>
 
 Most of these denote Eiffel constructs as they appear in the official language reference, the book <span> [http://www.eiffel.com/doc/ Eiffel: The Language]  </span>. Since the Eiffel construct names <code> Feature </code>, <code> Invariant </code> and <code> Obsolete </code> are also keywords and EFF, like Eiffel, is case-insensitive, the EFF construct names use the suffix <code> _clause </code>, for example <code> Feature_clause </code>. 
 

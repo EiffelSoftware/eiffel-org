@@ -2,8 +2,6 @@
 [[Property:link_title|Producing and Exporting Documentation]]
 [[Property:weight|-7]]
 [[Property:uuid|ca43a3c2-9e1a-a69f-81cf-55d0b12294ea]]
-[[Help reading the EiffelStudio Guided Tour|Help reading this manual]]  
-
 Software development is, most of the time, cooperative work. You must tell the rest of the team what you're up to, and find out what they can offer you. Bring in distributed development -- increasingly common these days, with some people working at headquarters, others at home, others traveling, an offshore team half a world away <span>...</span> -- and the problem becomes even more critical. 
 
 EiffelStudio provides unique facilities to make such distributed development possible in a safe, effective, harmonious way. Some of the key criteria are:
@@ -21,7 +19,9 @@ EiffelStudio's documentation generation satisfies all these requirements.
 Let's see how documentation works by starting to generate it for our Guided Tour system -- which really means for EiffelBase, since that's what it mostly consists of. The HTML result is available as part of the present documentation (we'll tell you where in just a minute), so you don't have to regenerate it unless you want to. Indeed we'll show you when to click <code> Cancel </code> if you are happy with the pre-generated version. But let's get started anyway to understand the principles and possibilities. 
 
 Click the following menu entry, used to generate documentation:
-<code>Project --> Generate documentation...</code>
+<code lang="text">
+	Project --> Generate documentation...
+</code>
 
 This is the next-to-last entry in the <code> Project </code> menu. The last one, by the way, <code> XMI Export </code> <span>...</span>, is directly relevant too: it will make it possible to export information in the standard XML representation for UML, for consumption by third-party products such as Rational Rose. But for the moment we choose the <code> Documentation </code> entry to start the Eiffel Documentation Wizard. 
 

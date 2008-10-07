@@ -2,8 +2,6 @@
 [[Property:link_title|Viewing Classes]]
 [[Property:weight|-9]]
 [[Property:uuid|78136af1-5d7a-f3d2-9619-17f4c0541f1e]]
-[[Help reading the EiffelStudio Guided Tour|Help reading this manual]]  
-
 We haven't even looked at a class text yet, but it's important anyway to see how EiffelStudio provides you with numerous, complementary <span>views</span> of your software. The Context Tool is the primary place to look for such views. 
 
 We'll need just one Development Window for the moment, the one that was targeted to <code> LIST </code>. You can get rid of the others by closing their windows (through the top right cross mark on Windows and the equivalent in other window managers), or through <code> File </code> <code> --> </code> <code> Close </code> -- but don't select "Exit" which would take you out of EiffelStudio altogether! 
@@ -82,7 +80,9 @@ The only two classes that <code> LIST </code> needs for its own algorithms are b
 ==Feature information in the Class View==
 
 Let's resist the natural urge to go see now what the classes <code> INTEGER_32 </code> and <code> BOOLEAN </code> look like, and instead continue our survey of views. The remaining views will all display information about the '''features''' of the class. The first of them, <code> Attributes </code>, lists the attributes. It's not very interesting for <code> LIST </code>, a deferred class with only one attribute -- you can check this for yourself by clicking the <code> Attributes </code> button -- so let's look at the next one. Click the <code> Routines </code> button now to display information about the routines of class <code> LIST </code> : 
-<div>  [[Image:index-36]] [[general/guided_tour/studio/index-36.png|(link)]]  </div>
+
+[[Image:index-36]]
+
 The sections of this display group routines according to the ancestors of <code> LIST </code> -- including <code> LIST </code> itself -- that first introduced them; for example (second and third sections) <code> extendible </code> originally comes from <code> COLLECTION </code> and <code> extend </code> from <code> BAG </code>. Much of the benefit of this display comes from its support for browsing: all the colored elements, representing classes and features, will be "clickable" hyperlinks. 
 
 The remaining Class View buttons all display information in the same format. Each selects a specific subset of the target class's features. The last two selected attributes and routines. You can now try any of the others by clicking the corresponding button:
