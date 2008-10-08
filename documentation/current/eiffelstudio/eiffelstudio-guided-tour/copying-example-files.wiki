@@ -9,10 +9,12 @@ If you are going to work on a copy, choose or create a directory of your own; le
 To copy all the files of the example to <code> YOURDIR </code>: 
 * On Windows, open a Windows Explorer, go to <code> $ISE_EIFFEL\examples\studio\tour </code>, select all the files in that directory, and drag-and-drop them to <code> YOURDIR </code>. 
 * On Unix execute the shell command 
-<code>	cp $ISE_EIFFEL/examples/studio/tour/* YOURDIR</code>
+<code lang="text">
+	cp $ISE_EIFFEL/examples/studio/tour/* YOURDIR</code>
 
 * On OpenVMS execute the command 
-<code>	copy $ISE_EIFFEL:[examples.studio.tour]*.* YOURDIR</code>
+<code lang=text">
+	copy $ISE_EIFFEL:[examples.studio.tour]*.* YOURDIR</code>
 
 
 Once you have compiled the example under EiffelStudio, relying on the precompiled EiffelBase library (the default), and without optimization, the contents of <code> YOURDIR </code> will take up less than one megabyte, including information on diagrams and metrics. 
