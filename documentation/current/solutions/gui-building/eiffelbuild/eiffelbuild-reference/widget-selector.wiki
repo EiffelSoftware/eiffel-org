@@ -44,14 +44,13 @@ The  [[Image:icon-expand-all-small-color]]  button displayed at the top of the W
 
 All objects within the Widget Selector that are used as clients within other object structures have client information displayed as subnodes of their representation, as illustrated in the following screenshot: 
 
-[[Image:images/eiffelbuild/screenshots/widget_selector_clients.png]]  
+[[Image:widget-selector-clients]]  
 
 The OK_CANCEL_BUTTONS object is used is used in two different places within the project: once within INPUT_DIALOG and once within MAIN_WINDOW. If you select the tree node representing the instance of OK_CANCEL_BUTTONS within MAIN_WINDOW, the MAIN_WINDOW is targetted to the [[Type selector|type selector]]  with the instance of the OK_CANCEL_BUTTONS object selected. 
 
 To use an instance of a widget contained within the Widget Selector as a client, simply pick the representation of the object and drop into the desired parent object within the [[Type selector|type selector]]  
 
-{{seealso|<br/>
-[[Layout constructor|Layout constructor]]  }}
+{{seealso| [[Layout constructor|Layout constructor]]  }}
 
 
 
