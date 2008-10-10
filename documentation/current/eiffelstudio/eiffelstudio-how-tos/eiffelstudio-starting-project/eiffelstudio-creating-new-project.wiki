@@ -5,7 +5,9 @@ The first thing to do to start Eiffeling is to create a project. Most commands a
 
 When opening EiffelStudio, by default a dialog is popped up that proposes to create or open a project:
 
-[[Image:startup-dialog|center]]
+
+[[Image:startup-dialog]]
+
 
 Under '''Create project''', several options are offered, which depend on the platform you are on. 
 *  '''Basic application''' is the most basic new project that can be generated. It only includes the [[EiffelBase|base library]]  and by default only creates the frame of the project. This is the ideal choice to start a textual (console) application, or to discover Eiffel. Indeed, the project is very light and includes only things that are essential in any project. It is available on all platforms. 
@@ -14,7 +16,9 @@ Under '''Create project''', several options are offered, which depend on the pla
 *  '''WEL application''' generates a project using the [[WEL|Windows Eiffel Library(WEL)]] . This option is recommended for projects needing advanced Windows features, or Windows applications that are time-critical, since the graphic functionality provided by WEL is more efficient than the one provided by Vision2, which on the other hand provides a platform-independent abstract interface. This wizard is only available on Windows. 
 All those options are also available in the ''' File'''/ '''New project...''' menu. This pops up a dialog with all the options to generate a new project:  
 
-[[Image:create-a-project|center]]  
+
+[[Image:create-a-project]]  
+
 
 {{tip|If you checked the "Don't show this dialog at startup" checkbox in the start-up dialog but want to get it back, you can use the [[Discardable dialogs|Preferences dialog]]  to reset the default value. }}
 
