@@ -20,15 +20,24 @@ However the following parts are suggested:
 ==Syntax for Annotations==
 
 The following example illustrates the basic form of an EIS note entry:
-<code>EIS: "name=Project Requirement", "src=($PROJ)/docs/requirements.pdf", "protocol=PDF", "nameddest=4.1", "tag=requirement"</code>
+<code lang="text">
+EIS: "name=Project Requirement", "src=($PROJ)/docs/requirements.pdf", "protocol=PDF", "nameddest=4.1", "tag=requirement"
+</code>
 
 The label (Node_entry as called in the ECMA/ISO Eiffel Standard syntax) is '''EIS'''. '''EIS''' Note_value tells the Eiffel Information System that this Note_entry is of interest to EIS, as distinct from any other information that might be expressed through a Note_entry. The file name (src) includes '''$PROJ''', referring to a variable, defining the project location. The protocol is PDF. The '''nameddest''' property (name destination) is a specific property of PDF documents. The tag '''requirement''' indicating that this entry links the enclosing Eiffel class or feature with some parts of the requirement documents.
 
-{{seealso|<br/>
-[[Variable Definition|Variable Definition]]  }}
-<code><note ise_support="EIS" protocol="pdf" name="Project Requirement" src="($PROJ)/docs/requirements.pdf" nameddest="4.1"/></code>
+
+Similarly, the following example demonstrates how annotations look like in ECF files: 
+
+<code lang="text">
+<note ise_support="EIS" protocol="pdf" name="Project Requirement" src="($PROJ)/docs/requirements.pdf" nameddest="4.1"/></code>
+
 
 There is only one major difference here - the attribute '''ise_support'''. '''ise_support''' takes place of label of Node_entry. '''EIS''' plays the same role as the one appears in note entry. '''ise_support''' tells the parser the note element is of interest of tools from ISE rather than other third-party ones. The note element in ECF is supported in [schema 1.4].
+
+
+{{seealso|<br/>
+[[Variable Definition|Variable Definition]]  }}
 
 
 
