@@ -14,12 +14,16 @@ For feature clause names it is recommended that you pick one from the standard o
 
 ==Generated code==
 The code that is inserted in your class as a result of the selections made for the feature clause, is of the form: <br/>
-<code>feature {EXPORT} -- Clause name</code><br/>
-except if you specified <eiffel>ANY</eiffel> as export status, which is similar to having no export status. <br/>
-<code>feature  --Clause name</code>
+<code>
+	feature {EXPORT} -- Clause name</code><br/>
+except if you specified <eiffel>ANY</eiffel> as export status, which has the same meaning as not specifying class names in the export status: <br/>
+<code>
+	feature  --Clause name</code>
 <br/>
+
 For example, if you specified a the "Initialization" feature clause name, and specified <eiffel>NONE</eiffel> as export status, you get: <br/>
-<code>feature {NONE} -- Initialization</code>
+<code>
+	feature {NONE} -- Initialization</code>
 
 
 

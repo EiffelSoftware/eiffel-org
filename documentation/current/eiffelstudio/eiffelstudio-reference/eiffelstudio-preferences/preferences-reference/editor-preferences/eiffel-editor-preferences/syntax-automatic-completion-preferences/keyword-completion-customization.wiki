@@ -13,59 +13,73 @@ This document describes the syntax used to customize keyword automatic completio
 **  ''%T'' represents the tabulation 
 **  ''%B'' represents the back space 
 <br/>
-<br/>
 
 
 Examples :
-#  
-You want the lines of code :
 
-''if'' <br/>
-next_line_of_code <br/>
+1) You want the lines of code :
+
+<code>
+if 
+next_line_of_code
+</code><br/>
 
 to become: 
-''if'' <cursor here> ''then'' <br/>
-<one more tabulation> <br/>
-''end'' <br/>
-next_line_of_code <br/>
 
+<code>
+if <cursor here> then
+<one more tabulation> 
+end 
+next_line_of_code
+</code>
 
-as you press Space just after typing ''if''. You should define the "Customized auto complete (Space after keyword was typed)" string for ''if'' as : 
+as you press Space just after typing <code>if</code>. 
 
-" $cursor$ then%N$indent$%T%N$indent$end"
+To make this happen, you should define the "Customized auto complete (Space after keyword was typed)" string for <code>if</code> as : 
 
-First, EiffelStudio editor has to insert a blank space after ''if''. The string begins therefore by a blank space. <br/>
+<code lang="text">
+$cursor$ then%N$indent$%T%N$indent$end
+</code>
+
+First, EiffelStudio editor has to insert a blank space after <code>if</code>. The string begins therefore by a blank space. <br/>
 Then, ''$cursor$'' tells EiffelStudio to move the cursor to this position after the completion. <br/>
-''then'' is inserted after the cursor position. <br/>
-''%N'' indicates that you want to insert a new line after ''then''. <br/>
-''$indent$%T'' means that this line is filled with as many blank spaces as there are before ''if'' plus a tabulation. <br/>
+<code>then</code> is inserted after the cursor position. <br/>
+''%N'' indicates that you want to insert a new line after <code>then</code>. <br/>
+''$indent$%T'' means that this line is filled with as many blank spaces as there are before <code>if</code> plus a tabulation. <br/>
 Another line is inserted with ''%N''. <br/>
-Then ''$indent$end'' means that ''end'' will be inserted in this new line with the same indentation as ''if''. 
+Then ''$indent$end'' means that <code>end</code> will be inserted in this new line with the same indentation as <code>if</code>. 
 
-#  
-You want the lines of code :
 
-''end'' <br/>
+2) You want the lines of code :
+
+<code>
+end
 next_line_of_code 
+</code>
 
 to become:
 
-''end'' <br/>
-<br/>
+<code>
+end
+
 next_line_of_code 
+</code>
 
-as you press Return just after typing ''end''. You should define the "Customized auto complete (Return after keyword was typed)" string for ''end'' as : 
+as you press Return just after typing <code>end</code>.
 
-"%B%B%B%Bend%N$indent$%B$cursor$"
+To make this happen, you should define the "Customized auto complete (Return after keyword was typed)" string for <code>end</code> as : 
 
-The four ''%B'' will remove ''end'' plus one character before ''end'' (the tabulation character). <br/>
-''end'' will be inserted at this new position. <br/>
+<code lang="text">
+%B%B%B%Bend%N$indent$%B$cursor$
+</code>
+
+The four ''%B'' will remove <code>end</code> plus one character before <code>end</code> (the tabulation character). <br/>
+<code>end</code> will be inserted at this new position. <br/>
 ''%N'' indicates that you want to insert a new line. <br/>
-''$indent$%B$cursor$'' means that the cursor will be moved to the end of the line where one less blank space than before the original ''end'' will have been inserted. 
+''$indent$%B$cursor$'' means that the cursor will be moved to the end of the line where one less blank space than before the original <code>end</code> will have been inserted. 
 
 
-{{note|EiffelStudio editor can insert spaces instead of tabulation when you use special character ''%T''. This is set in [[General Editor Preferences|another section of the preferences]] . <br/>
-}}
+{{note|EiffelStudio editor can insert spaces instead of tabulation when you use special character ''%T''. This is set in [[General Editor Preferences|another section of the preferences]] .}}
 
 {{seealso|<br/>
 [[Keywords automatic completion preferences|Keywords automatic completion preferences]]  <br/>

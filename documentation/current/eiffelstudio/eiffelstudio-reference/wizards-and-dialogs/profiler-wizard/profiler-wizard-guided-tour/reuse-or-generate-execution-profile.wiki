@@ -12,14 +12,13 @@ However, if you have not executed your system since the generation of the last '
 
 {{tip|If you want to archive different ''Execution Profiles'' (to compare them for example), rename the ''profinfo.pfi'' file into a new name but keep the .pfi extension. The profiler wizard detects existing Execution Profiles by checking the file extensions. }}
 <br/>
- [[Image:profiler-wizard-second-state]]  <br/>
+[[Image:profiler-wizard-second-state]]  <br/>
 <br/>
 
 Clicking '''Next''' will lead you to the [[Select a Run-time information record to generate the Execution Profile|Third state]]  if you have selected '''Generate a profile from Run-time information record'''. On the other hand if you have selected '''Use existing profile''' you will go to the [[Select the information you need and formulate your query|Final state]] . 
 <br/>
 
 {{seealso|<br/>
-[[Profiler wizard]]  <br/>
 [[Profiling|How to profile a system]]  }}
 
 

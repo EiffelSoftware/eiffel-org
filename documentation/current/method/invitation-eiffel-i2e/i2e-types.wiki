@@ -8,9 +8,13 @@ Any type <code> T </code> is based on a class, which defines the operations that
 
 A non-expanded class such as <code> ACCOUNT </code> yields a reference type. As a result, an entity of type <code> ACCOUNT </code>, such as <code> acc </code> in the earlier client example (see the declaration of <code> acc </code> and the accompanying picture as given on page [[Invitation to Eiffel|6]] ), denotes possible run-time references to objects of type <code> ACCOUNT </code>. 
 
-In contrast, the value of an entity <code> acc </code> declared of type <code> expanded  </code> <code> ACCOUNT </code> is an object such as the one shown on the figure below, with no reference. The only difference with the earlier figure is that the value of <code> acc </code> is now an <code> ACCOUNT </code> object, not a reference to such an object. No creation instruction is needed in this case. (The figure does not show the <code> PERSON </code> object to which the <code> owner </code> field of the <code> ACCOUNT </code> object -- itself a reference -- is attached.) 
- [[Image:invitation-3]]  
-An important group of expanded types, based on library classes, includes the basic types <code> CHARACTER, DOUBLE, REAL, INTEGER </code> and <code> BOOLEAN </code>. Clearly, the value of an entity declared of type <code> INTEGER </code> should be an integer, not a reference to an object containing an integer value. Operations on these types are defined by prefix and infix operators such as "+" and "<". 
+In contrast, the value of an entity <code> acc </code> declared of type <code>expanded ACCOUNT </code> is an object such as the one shown on the figure below, with no reference. The only difference with the earlier figure is that the value of <code> acc </code> is now an <code> ACCOUNT </code> object, not a reference to such an object. No creation instruction is needed in this case. (The figure does not show the <code> PERSON </code> object to which the <code> owner </code> field of the <code> ACCOUNT </code> object -- itself a reference -- is attached.) 
+
+
+[[Image:invitation-3]]  
+
+
+An important group of expanded types, based on library classes, includes the basic types <code> CHARACTER, DOUBLE, REAL, INTEGER </code> and <code>BOOLEAN</code>. Clearly, the value of an entity declared of type <code> INTEGER </code> should be an integer, not a reference to an object containing an integer value. Operations on these types are defined by prefix and infix operators such as "+" and "<". 
 
 As a result of these conventions, the type system is uniform and consistent: all types, including the basic types, are defined from classes, either as reference types or as expanded types. 
 

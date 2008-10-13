@@ -16,19 +16,21 @@ When clicking '''Procedure''', the window changes to the procedure layout. It ha
 
 This dialog box:<br/>
 <div>  [[Image:feature-wizard-procedure-example]]  </div><br/>
+
 Produces this feature:<br/>
-<code>class
+<code>
+class
 	PRODUCT
 
 feature {PERSON} -- Element change
 
 	place_order (person: PERSON; quantity: INTEGER) is
 			-- Mail `quantity' to `person'.
-        		require
+        	require
   			person /= Void and quantity > 0
-        		do
+        	do
 			person.mail_order (Current, quantity)
-        		ensure
+        	ensure
 			person.has_ordered (Current)
 		end
 

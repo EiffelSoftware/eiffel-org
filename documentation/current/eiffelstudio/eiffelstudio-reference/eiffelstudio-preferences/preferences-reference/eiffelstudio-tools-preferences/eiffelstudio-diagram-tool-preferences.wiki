@@ -37,6 +37,7 @@ This category gathers the preferences related to the EiffelStudio BON Diagram to
 | Show suppliers of a class up to a level of preference value.
 |}
 
+
 ==BON Preferences==
 
 {| border="1" 
@@ -92,6 +93,7 @@ This category gathers the preferences related to the EiffelStudio BON Diagram to
 | Bon inheritance line width
 | Line width for BON inheritance links.
 |}
+
 
 ==UML Preferences==
 
@@ -166,6 +168,7 @@ This category gathers the preferences related to the EiffelStudio BON Diagram to
 | Uml inheritance color
 | Color for UML inheritance links.
 |}
+
 
 {{seealso|<br/>
 [[EiffelStudio Tools Preferences|Preferences for other tools]]  }}

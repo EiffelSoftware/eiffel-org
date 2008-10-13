@@ -19,7 +19,7 @@ Usually, only a few routines of a system will explicitly include a <code> rescue
 
 An example using the exception mechanism is a routine <code> attempt_transmission </code> that tries to transmit a message over a phone line. The actual transmission is performed by an external, low-level routine <code> transmit </code>; once started, however, <code> transmit </code> may abruptly fail, triggering an exception, if the line is disconnected. Routine <code> attempt_transmission </code> tries the transmission at most 50 times; before returning to its caller, it sets a boolean attribute <code> successful </code> to <code> True </code> <code>  or  </code> <code> False </code> depending on the outcome. Here is the text of the routine: 
 <code>
-attempt_transmission (message: STRING) is 
+attempt_transmission (message: STRING) 
 		-- Try to transmit message, at most 50 times.
 		-- Set successful accordingly.
 	local 

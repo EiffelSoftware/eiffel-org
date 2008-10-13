@@ -13,7 +13,8 @@ Eiffel encourages software developers to express formal properties of classes by
 
 
 With appropriate assertions, the class <code> ACCOUNT </code> becomes: 
-<code>class ACCOUNT
+<code>
+class ACCOUNT
 create
 	make
 
@@ -21,7 +22,7 @@ feature
 	... Attributes as before:
        		balance , minimum_balance , owner , open ...
 
-	deposit (sum: INTEGER) is
+	deposit (sum: INTEGER)
 			-- Deposit sum into the account.
 		require
 			sum >= 0
@@ -31,7 +32,7 @@ feature
 			balance = old balance + sum
 		end
 
-	withdraw (sum: INTEGER) is
+	withdraw (sum: INTEGER)
 			-- Withdraw sum from the account.
 		require
 			sum >= 0
@@ -48,7 +49,7 @@ feature {NONE}
 
 	add ... 
 
-	make (initial: INTEGER) is
+	make (initial: INTEGER)
 			-- Initialize account with balance initial.
 		require
 			initial >= minimum_balance
@@ -67,16 +68,23 @@ The notation <code> old </code> <code> expression </code> is only valid in a rou
 ==Creation procedures==
 
 In its last version above, the class now includes a creation procedure, <code> make </code>. With the first version, clients used creation instructions such as <code> create  </code> <code> acc1 </code> to create accounts; but then the default initialization, setting balance to zero, violated the invariant. By having one or more creation procedures, listed in the <code> create </code> clause at the beginning of the class text, a class offers a way to override the default initializations. The effect of 
-<code>create acc1.make (5_500)</code>
+<code>
+	create acc1.make (5_500)</code>
 
 is to allocate the object (as with the default creation) and to call procedure <code> make </code> on this object, with the argument given. This call is correct since it satisfies the precondition; it will ensure the invariant. 
 
-{{info|The underscore <code> _ </code> in the integer constant <code> 5_500 </code> has no semantic effect. The general rule is that you can group digits by sets of three from the right to improve the readability of integer constants. }}
+{{info|The underscore <code>_</code> in the integer constant ''5_500'' has no semantic effect. The general rule is that you can group digits by sets of three from the right to improve the readability of integer constants. }}
+
 
 Note that the same keyword, <code> create </code>, serves both to introduce creation instructions and the creation clause listing creation procedures at the beginning of the class. 
 
-A procedure listed in the creation clause, such as <code> make </code>, otherwise enjoys the same properties as other routines, especially for calls. Here the procedure <code> make </code> is secret since it appears in a clause starting with <code> feature  </code> <code> { </code> <code> NONE </code> <code> } </code>; so it would be invalid for a client to include a call such as 
-<code>acc.make (8_000)</code>
+A procedure listed in the creation clause, such as <code> make </code>, otherwise enjoys the same properties as other routines, especially for calls. Here the procedure <code> make </code> is secret since it appears in a clause starting with 
+<code>
+	feature {NONE} </code>
+
+so it would be invalid for a client to include a call such as 
+<code>
+	acc.make (8_000)</code>
 
 To make such a call valid, it would suffice to move the declaration of <code> make </code> to the first <code> feature </code> clause of class <code> ACCOUNT </code>, which carries no export restriction. Such a call does not create any new object, but simply resets the balance of a previously created account. 
 
@@ -104,14 +112,14 @@ feature
 	balance: INTEGER
 	...
 
-	deposit (sum: INTEGER) is
+	deposit (sum: INTEGER)
 			-- Deposit sum into the account.
 		require
 			sum >= 0
 		ensure
 			balance = old balance + sum
 
-	withdraw (sum: INTEGER) is
+	withdraw (sum: INTEGER)
 			-- Withdraw sum from the account.
 		require
 			sum >= 0
