@@ -9,11 +9,19 @@ Clearly, not everyone using Eiffel will follow to the letter the principles outl
 ==Clusters and the cluster model==
 
 Unlike earlier approaches, the Eiffel model assumes that the system is divided into a number of subsystems or '''clusters'''. It keeps from the Waterfall a sequential approach to the development of each cluster (without the gaps), but promotes '''concurrent engineering''' for the overall process, as suggested by the following picture: 
- [[Image:tutorial-2]]  
+
+
+[[Image:tutorial-2]]  
+
+
 The Eiffel techniques developed below, in particular information hiding and Design by Contract, make the concurrent engineering process possible by letting the clusters rely on each other through clearly defined interfaces, strictly limiting the amount of knowledge that one must acquire to use the cluster, and permitting separate testing. When the inevitable surprises of a project happen, the project leader can take advantage of the model's flexibility, advancing or delaying various clusters and steps through dynamic reallocation of resources. 
 
 Each of the individual cluster life cycles is based on a continuous progression of activities, from the more abstract to the more implementation-oriented:
- [[Image:tutorial-3]]  
+
+
+[[Image:tutorial-3]]  
+
+
 You may view this picture as describing a process of accretion (as with a stalactite), where each steps enriches the results of the previous one. Unlike traditional views, which emphasize the multiplicity of software products -- analysis document, global and detailed design documents, program, maintenance reports... --, the principle is here to treat the software as a '''single product''' which will be repeatedly refined, extended and improved. The Eiffel language supports this view by providing high-level notations that can be used throughout the lifecycle, from the most general and software-independent activities of system modeling to the most exacting details of implementation tuned for optimal run-time performance. 
 
 These properties make Eiffel span the scope of both "object-oriented methods", with their associated notations such as UML and supporting CASE tools (whereas most such solutions do not yield an executable result), and "programming languages" (whereas most such languages are not suitable for design and analysis). 

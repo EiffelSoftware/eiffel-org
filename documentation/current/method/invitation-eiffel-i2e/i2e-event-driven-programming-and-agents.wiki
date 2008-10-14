@@ -11,7 +11,7 @@ In some circumstances it is useful to define an object that denotes an operation
 
 each involves a '''control''' (here the OK button), an '''event''' (mouse click) and an '''operation''' (update the file). This can be programmed by having an "event loop", triggered for each event, which performs massive decision-making ( <code>if  "The latest event was `left mouse click on button 23'" then "Appropriate instructions" else if  </code>... and so on with many branches); but this leads to bulky software architectures where introducing any new control or event requires updating a central part of the code. It's preferable to let any element of the system that encounters a new control-event-operation association 
 <code>
-[control, event, operation]
+	[control, event, operation]
 </code>
 
 store it as a triple of objects into an object structure, such as an array or a list. Triples in that structure may come from different parts of the system; there is no central know-it-all structure. The only central element is a simple mechanism which can explore the object structure to execute each <code> operation </code> associated with a certain <code> control </code> and a certain <code> event </code>. The mechanism is not just simple; it's also independent of your application, since it doesn't need to know about any particular control, event or operation (it will find them in the object structure). So it can be programmed once and for all, as part of a library such as EiffelVision 2 for platform-independent graphics. 

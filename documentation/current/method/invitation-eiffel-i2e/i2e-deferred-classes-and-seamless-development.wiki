@@ -9,42 +9,51 @@ Declaring a feature <code> f </code> as deferred in a class <code> C </code> exp
 For example, a system used by a Department of Motor Vehicles to register vehicles might include a class of the form
 <code>
 deferred class
-	VEHICLE
+    VEHICLE
 
 feature
 
-	dues_paid (year: INTEGER): BOOLEAN is
-		do ... end
+    dues_paid (year: INTEGER): BOOLEAN
+        do ... end
 
-	valid_plate (year: INTEGER): BOOLEAN is
-		do ... end
+    valid_plate (year: INTEGER): BOOLEAN
+        do ... end
 
-	register (year: INTEGER) is
-			-- Register vehicle for year.
-		require
-			dues_paid (year)
-		deferred
-		ensure
-			valid_plate (year)
-		end
+    register (year: INTEGER)
+            -- Register vehicle for year.
+        require
+            dues_paid (year)
+        deferred
+        ensure
+            valid_plate (year)
+        end
 
-	... Other features, deferred or effective ...
+    ... Other features, deferred or effective ...
 
 end -- VEHICLE
 </code>
 
 This example assumes that no single registration algorithm applies to all kinds of vehicle; passenger cars, motorcycles, trucks etc. are all registered differently. But the same precondition and postcondition apply in all cases. The solution is to treat register as a deferred routine, making VEHICLE a deferred class. Descendants of class VEHICLE, such as CAR or TRUCK, effect this routine, that is to say, give effective versions. An effecting is similar to a redefinition; only here there is no effective definition in the original class, just a specification in the form of a deferred routine. The term '''redeclaration''' covers both redefinition and effecting.
- [[Image:invitation-5]]  
+
+
+[[Image:invitation-5]]
+
+  
 Whereas an effective class described an implementation of an abstract data types, a deferred class describes a set of possible implementations. You may not instantiate a deferred class: create v is invalid if v is declared of type VEHICLE. But you may assign to v a reference to an instance of an effective descendant of VEHICLE. For example, assuming CAR and TRUCK provide effective definitions for all deferred routines of VEHICLE, the following will be valid: 
 <code>
-v: VEHICLE; c: CAR; t: TRUCK
-... create c; create t ...
-if "Some test" then
-	v := c
-else
-	v := t
-end
-v.register (2003)</code>
+        v: VEHICLE
+        c: CAR
+        t: TRUCK
+            ... 
+        create c
+        create t 
+            ...
+        if "Some test" then
+            v := c
+        else
+            v := t
+        end
+        v.register (2008)</code>
 
 This example fully exploits polymorphism: depending on the outcome of "Some test", <code>v</code> will be treated as a car or a truck, and the appropriate registration algorithm will be applied. Also, "Some test" may depend on some event whose outcome is impossible to predict until run-time, for example the user clicking with the mouse to select one among several vehicle icons displayed on the screen.
 
