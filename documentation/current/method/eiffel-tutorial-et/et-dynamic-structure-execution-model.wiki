@@ -195,49 +195,49 @@ A <code>create</code> clause may list zero or more (here just one) procedures of
 
 {{info|Note the use of the same keyword, <code>create</code> , for both a creation clause, as here, and creation instructions such as <code>create x </code>. }}
 
-In this case the original form of creation instruction, <code>create  x </code> , is not valid any more for creating an instance of <code> ACCOUNT1 </code>; you must use the form 
+In this case the original form of creation instruction, <code>create x</code> , is not valid any more for creating an instance of <code>ACCOUNT1</code>; you must use the form 
 <code>
 	create x.make (2000)</code>
 
-known as a creation call. Such a creation call will have the same effect as the original form -- creation, initialization, attachment to -- <code> x </code> followed by the effect of calling the selected creation procedure, which here will call <code> deposit </code> with the given argument. 
+known as a creation call. Such a creation call will have the same effect as the original form -- creation, initialization, attachment to -- <code>x</code> followed by the effect of calling the selected creation procedure, which here will call <code>deposit</code> with the given argument. 
 
-Note that in this example all that <code> make </code> does is to call <code> deposit </code>. So an alternative to introducing a new procedure <code> make </code> would have been simply to introduce a creation clause of the form <code> create </code> <code> deposit </code>, elevating <code> deposit </code> to the status of creation procedure. Then a creation call would be of the form <code> create x.deposit (2000)</code> . 
+Note that in this example all that <code>make</code> does is to call <code>deposit</code>. So an alternative to introducing a new procedure <code>make</code> would have been simply to introduce a creation clause of the form <code>create deposit</code> , elevating <code>deposit</code> to the status of creation procedure. Then a creation call would be of the form <code>create x.deposit (2000)</code> . 
 
 {{info|Some variants of the basic creation instruction will be reviewed later: instruction with an explicit type; creation expressions. See [[10 Other Mechanisms#Creation_variants|"Creation variants"]] . }}
 
 ==Entities==
 
-The example assumed <code> x </code> declared of type <code> ACCOUNT </code> (or <code> ACCOUNT1 </code>). Such an <code> x </code> is an example of '''entity''', a notion generalizing the well-known concept of variable. An entity is a name that appears in a class text to represent possible run-time values (a value being, as defined earlier, an object or a reference). An entity is one of the following: <br/>
-*  An attribute of the enclosing class, such as <code> balance </code> and <code> all_deposits </code>. 
-*  A formal argument of a routine, such as <code> sum </code> for <code> deposit </code> and <code> make </code>. 
+The example assumed <code>x</code> declared of type <code>ACCOUNT</code> (or <code>ACCOUNT1</code>). Such an <code>x</code> is an example of '''entity''', a notion generalizing the well-known concept of variable. An entity is a name that appears in a class text to represent possible run-time values (a value being, as defined earlier, an object or a reference). An entity is one of the following: <br/>
+*  An attribute of the enclosing class, such as <code>balance</code> and <code>all_deposits</code>. 
+*  A formal argument of a routine, such as <code>sum</code> for <code>deposit</code> and <code>make</code>. 
 *  A local entity declared for the internal needs of a routine. 
-*  The special entity <code> Result </code> in a function. 
+*  The special entity <code>Result</code> in a function. 
 
 
 The third case, local entities, arises when a routine needs some auxiliary values for its computation. Here is an example of the syntax:
 <code>
 deposit (sum: INTEGER)
-		-- Add sum to account.
-	local
-		new: AMOUNT
-	do
-		create new.make (sum)
-		all_deposits.extend (new)
-		balance := balance + sum
-	end
+        -- Add sum to account.
+    local
+        new: AMOUNT
+    do
+        create new.make (sum)
+        all_deposits.extend (new)
+        balance := balance + sum
+    end
 </code>
 
-This example is a variant of <code> deposit </code> for which we assume that the elements of a <code> DEPOSIT_LIST </code> such as <code> all_deposits </code> are no longer just integers, but objects, instances of a new class, <code> AMOUNT </code>. Such an object will contain an integer value, but possibly other information as well. So for the purpose of procedure <code> deposit </code> we create an instance of <code> AMOUNT </code> and insert it, using procedure <code> extend </code>, into the list <code> all_deposits </code>. The object is identified through the local entity <code> new </code>, which is only needed within each execution of the routine (as opposed to an attribute, which yields an object field that will remain in existence for as long as the object). 
+This example is a variant of <code> deposit </code> for which we assume that the elements of a <code>DEPOSIT_LIST</code> such as <code>all_deposits</code> are no longer just integers, but objects, instances of a new class, <code>AMOUNT</code>. Such an object will contain an integer value, but possibly other information as well. So for the purpose of procedure <code>deposit</code> we create an instance of <code>AMOUNT</code> and insert it, using procedure <code>extend</code>, into the list <code>all_deposits</code>. The object is identified through the local entity <code>new</code>, which is only needed within each execution of the routine (as opposed to an attribute, which yields an object field that will remain in existence for as long as the object). 
 
-The last case of entity, <code> Result </code>, serves to denote, within the body of a function, the final result to be returned by that function. This was illustrated by the function <code> deposit_count </code>, which read 
+The last case of entity, <code>Result</code>, serves to denote, within the body of a function, the final result to be returned by that function. This was illustrated by the function <code>deposit_count</code>, which read 
 <code>
 deposit_count: INTEGER
-		-- Number of deposits made since opening (provisional version)
-	do
-		if all_deposits /= Void then
-			Result := all_deposits.count
-		end
-	end
+        -- Number of deposits made since opening (provisional version)
+    do
+        if all_deposits /= Void then
+            Result := all_deposits.count
+        end
+    end
 </code>
 
 The value returned by any call will be the value of the expression <code>all_deposits.count</code> (to be explained in detail shortly) for that call, unless <code>all_deposits /code> is a <code>Void</code> reference ( <code>/=</code> means "not equal"). 
@@ -268,9 +268,9 @@ Following the principle of Uniform Access (mentioned earlier in the section ''Ob
 In the case of a routine with arguments -- procedure or function -- the routine will be declared, in its class, as
 <code>
 feature (formal1: TYPE1; ...)
-	do
-	...
-	end
+    do
+        ...
+    end
 </code>
 
 meaning that, at the time of each call, the value of each formal will be set to the corresponding actual ( <code>formal1</code> to <code>argument1</code> and so on). 
@@ -279,21 +279,21 @@ In the routine body, it is not permitted to change the value of a formal argumen
 
 ==Infix and prefix notation==
 
-Basic types such as <code> INTEGER </code> are, as noted, full-status citizens of Eiffel's type system, and so are declared as classes (part of the Kernel Library). <code> INTEGER </code>, for example, is characterized by the features describing integer operations: plus, minus, times, division, less than, and so on. 
+Basic types such as <code>INTEGER</code> are, as noted, full-status citizens of Eiffel's type system, and so are declared as classes (part of the Kernel Library). <code>INTEGER</code>, for example, is characterized by the features describing integer operations: plus, minus, times, division, less than, and so on. 
 
-With the dot notation seen so far, this would imply that simple arithmetic operations would have to be written with a syntax such as <code> i.plus (j) </code> instead of the usual <code> i + j </code>. This would be awkward. Infix and prefix features solve the problem, reconciling the object-oriented view of computation with common notational practices of mathematics. The addition function is declared in class <code> INTEGER </code> as 
+With the dot notation seen so far, this would imply that simple arithmetic operations would have to be written with a syntax such as <code>i.plus (j)</code> instead of the usual <code>i + j</code>. This would be awkward. Infix and prefix features solve the problem, reconciling the object-oriented view of computation with common notational practices of mathematics. The addition function is declared in class <code>INTEGER</code> as 
 <code>
 infix "+" (other: INTEGER): INTEGER
-	do
-	...
-	end
+    do
+        ...
+    end
 </code>
 
-Such a feature has all the properties and prerogatives of a normal "identifier" feature, except for the form of the calls, which is infix, as in <code> i + j</code> , rather than using dot notation. An infix feature must be a function, and take exactly one argument. Similarly, a function can be declared as <code> prefix  "-" </code>, with no argument, permitting calls of the form <code> -3 </code> rather than <code> (3).negated</code> . 
+Such a feature has all the properties and prerogatives of a normal "identifier" feature, except for the form of the calls, which is infix, as in <code>i + j</code> , rather than using dot notation. An infix feature must be a function, and take exactly one argument. Similarly, a function can be declared as <code>prefix  "-" </code>, with no argument, permitting calls of the form <code> -3 </code> rather than <code>(3).negated</code> . 
 
-Predefined library classes covering basic types such as <code>INTEGER</code>, <code>CHARACTER</code>, <code>BOOLEAN</code>, <code>REAL</code>, <code>DOUBLE</code> are known to the Eiffel compiler, so that a call of the form <code> j + i </code>, although conceptually equivalent to a routine call, can be processed just as efficiently as the corresponding arithmetic expression in an ordinary programming language. This brings the best of both worlds: conceptual simplicity, enabling Eiffel developers, when they want to, to think of integers and the like as objects; and efficiency as good as in lower-level approaches. 
+Predefined library classes covering basic types such as <code>INTEGER</code>, <code>CHARACTER</code>, <code>BOOLEAN</code>, <code>REAL</code>, <code>DOUBLE</code> are known to the Eiffel compiler, so that a call of the form <code j + i</code>, although conceptually equivalent to a routine call, can be processed just as efficiently as the corresponding arithmetic expression in an ordinary programming language. This brings the best of both worlds: conceptual simplicity, enabling Eiffel developers, when they want to, to think of integers and the like as objects; and efficiency as good as in lower-level approaches. 
 
-Infix and prefix features are available to any class, not just the basic types' predefined classes. For example a graphics class could use the name <code> infix "|-|" </code> for a function computing the distance between two points, to be used in expressions such as <code>point1 |-|  point2</code> . 
+Infix and prefix features are available to any class, not just the basic types' predefined classes. For example a graphics class could use the name <code>infix "|-|"</code> for a function computing the distance between two points, to be used in expressions such as <code>point1 |-|  point2</code> . 
 
 ==Type declaration==
 
@@ -307,9 +307,9 @@ This applies to attributes, formal arguments of routines and local entities. You
 	deposit_count: INTEGER ...
 </code>
 
-Specifying such a function result type also declares, implicitly, the type for <code> Result </code> as used in the function's body. 
+Specifying such a function result type also declares, implicitly, the type for <code>Result</code> as used in the function's body. 
 
-What is a type? With the elements seen so far, every type is a <code>class</code> . <code>INTEGER</code>, used in the declaration of <code>deposits_count</code>, is, as we have seen, a library class; and the declaration <code> all_deposits </code>: <code> DEPOSIT_LIST </code> assumes the existence of a class <code> DEPOSIT_LIST </code>. 
+What is a type? With the elements seen so far, every type is a <code>class</code> . <code>INTEGER</code>, used in the declaration of <code>deposits_count</code>, is, as we have seen, a library class; and the declaration <code>all_deposits: DEPOSIT_LIST</code> assumes the existence of a class <code>DEPOSIT_LIST</code> . 
 
 Three mechanisms introduced below -- expanded types, genericity, and anchored declarations -- will generalize the notion of type slightly. But they do not change the fundamental property that '''every type is based on a class''', called the type's '''base class'''. In the examples seen so far, each type is a class, serving as its own base class. 
 
@@ -329,29 +329,29 @@ it defines a reference type. The entities declared of that type will denote refe
 	x: ACCOUNT
 </code>
 
-the possible run-time values for <code> x </code> are references, which will be either void or attached to instances of class <code> ACCOUNT </code>. 
+the possible run-time values for <code> x </code> are references, which will be either void or attached to instances of class <code>ACCOUNT</code> . 
 
 Instead of <code>class</code>, however, you may use the double keyword <code>expanded class</code> , as in the EiffelBase class definition 
 <code>
 indexing
-	description : "Integer values"
+    description : "Integer values"
 
 expanded class
-	INTEGER
+    INTEGER
 
 feature -- Basic operations
 
-	infix "+" (other: INTEGER): INTEGER
-		do
-		...
-		end
+    infix "+" (other: INTEGER): INTEGER
+        do
+            ...
+        end
 
-	... Other feature declarations ...
+    ... Other feature declarations ...
 
 end -- class INTEGER
 </code>
 
-In this case the value of an entity declared as <code> n:INTEGER</code> is not a reference to an object, but the object itself -- in this case an atomic object, an integer value. 
+In this case the value of an entity declared as <code>n: INTEGER</code> is not a reference to an object, but the object itself -- in this case an atomic object, an integer value. 
 
 It is also possible, for some non-expanded class C, to declare an entity as
 <code>
@@ -368,24 +368,24 @@ class CAR
 
 feature
 
-	engine: expanded ENGINE
+    engine: expanded ENGINE
 
-	originating_plant: PLANT
+    originating_plant: PLANT
 
 end -- class CAR
 </code>
 
-Here is an illustration of the structure of a typical instance of <code> CAR </code>: 
+Here is an illustration of the structure of a typical instance of <code>CAR</code>: 
 
 
 [[Image:tutorial-8]]  
 
 
-This example also illustrates that the distinction between expanded and reference types is important not just for system implementation purposes but for high-level system modeling as well. Consider the example of a class covering the notion of car. Many cars share the same <code> originating_plant </code>, but an <code> engine </code> belongs to just one car. References represent the modeling relation "knows about"; subobjects, as permitted by expanded types, represent the relation "has part", also known as aggregation. The key difference is that sharing is possible in the former case but not in the latter. 
+This example also illustrates that the distinction between expanded and reference types is important not just for system implementation purposes but for high-level system modeling as well. Consider the example of a class covering the notion of car. Many cars share the same <code>originating_plant</code>, but an <code>engine</code> belongs to just one car. References represent the modeling relation "knows about"; subobjects, as permitted by expanded types, represent the relation "has part", also known as aggregation. The key difference is that sharing is possible in the former case but not in the latter. 
 
 ==Basic operations==
 
-To assign, copy and compare values, you can rely on a number of mechanisms. Two of them, assignment and equality testing, are language constructs; the others are library features, coming from the top-level class <code> ANY </code> seen earlier (page [[5 The Static Picture: System Organization|15]] ). 
+To assign, copy and compare values, you can rely on a number of mechanisms. Two of them, assignment and equality testing, are language constructs; the others are library features, coming from the top-level class <code>ANY</code> seen earlier (page [[5 The Static Picture: System Organization|15]] ). 
 
 Assignment uses the symbol <code> := </code>. The assignment instruction 
 <code>
@@ -398,7 +398,7 @@ updates the value of <code>x</code> to be the same as that of <code>y</code>. Th
 [[Image:tutorial-9]]  
 
 
-For entities of reference types, the value of <code> x </code> will be a void reference if the value of <code> y </code> is void, and otherwise <code> x </code> will be attached to the same object OBJ2 as <code> y </code>: 
+For entities of reference types, the value of <code>x</code> will be a void reference if the value of <code>y</code> is void, and otherwise <code>x</code> will be attached to the same object OBJ2 as <code>y</code>: 
 
 
 [[Image:tutorial-9]]  
