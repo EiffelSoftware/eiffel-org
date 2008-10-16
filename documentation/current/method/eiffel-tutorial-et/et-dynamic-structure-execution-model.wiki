@@ -6,7 +6,7 @@ A system with a certain static structure describes a set of possible executions.
 
 The properties of the run-time model are not just of interest to implementers; they also involve concepts directly relevant to the needs of system modelers and analysts at the most abstract levels. 
 
-==Objects, fields, values and references==
+==Objects, fields, values, and references==
 
 A class was defined as the static description of a type of run-time data structures. The data structures described by a ca class are called '''instances''' of the class, which in turn is called their '''generating class''' (or just "generator"). An instance of <code> ACCOUNT </code> is a data structure representing a bank account; an instance of <code> LINKED_LIST </code> is a data structure representing a linked list. 
 
@@ -191,9 +191,9 @@ feature -- Initialization
 end -- class ACCOUNT1
 </code>
 
-A <code> create </code> clause may list zero or more (here just one) procedures of the class. 
+A <code>create</code> clause may list zero or more (here just one) procedures of the class. 
 
-{{info|Note the use of the same keyword, <code>create</code> , for both a creation clause, as here, and creation instructions such as <code> create x </code>. }}
+{{info|Note the use of the same keyword, <code>create</code> , for both a creation clause, as here, and creation instructions such as <code>create x </code>. }}
 
 In this case the original form of creation instruction, <code>create  x </code> , is not valid any more for creating an instance of <code> ACCOUNT1 </code>; you must use the form 
 <code>
@@ -203,7 +203,7 @@ known as a creation call. Such a creation call will have the same effect as the 
 
 Note that in this example all that <code> make </code> does is to call <code> deposit </code>. So an alternative to introducing a new procedure <code> make </code> would have been simply to introduce a creation clause of the form <code> create </code> <code> deposit </code>, elevating <code> deposit </code> to the status of creation procedure. Then a creation call would be of the form <code> create x.deposit (2000)</code> . 
 
-{{info|Some variants of the basic creation instruction will be reviewed later: instruction with an explicit type; creation expressions. See [[10 Other Mechanisms|"Creation variants", page 89]] . }}
+{{info|Some variants of the basic creation instruction will be reviewed later: instruction with an explicit type; creation expressions. See [[10 Other Mechanisms#Creation_variants|"Creation variants"]] . }}
 
 ==Entities==
 
@@ -235,14 +235,14 @@ deposit_count: INTEGER
 		-- Number of deposits made since opening (provisional version)
 	do
 		if all_deposits /= Void then
-			Result := all_deposit.count
+			Result := all_deposits.count
 		end
 	end
 </code>
 
-The value returned by any call will be the value of the expression <code> all_deposits </code>. <code> count </code>(to be explained in detail shortly) for that call, unless <code> all_deposits </code> has value <code> ensure </code>, denoting a void reference ( <code>/</code> is "not equal"). 
+The value returned by any call will be the value of the expression <code>all_deposits.count</code> (to be explained in detail shortly) for that call, unless <code>all_deposits /code> is a <code>Void</code> reference ( <code>/=</code> means "not equal"). 
 
-The default initialization rules seen earlier for attributes (see the table on page [[6 The Dynamic Structure: Execution Model|21]] ) also serve to initialize local entities and <code> Result </code> on routine entry. So in the last example, if <code> all_deposits </code> is void (as in the case on initialization with the class as given so far), <code> Result </code> keeps its default value of 0, which will be returned as the result of the function. 
+The default initialization rules seen earlier for attributes (see the table above) also serve to initialize local entities and <code>Result</code> on routine entry. So in the last example, if <code>all_deposits</code> is void (as in the case on initialization with the class as given so far), <code>Result</code> keeps its default value of 0, which will be returned as the result of the function. 
 
 ==Calls==
 
@@ -251,19 +251,19 @@ Apart from object creation, the basic computational mechanism, in the object-ori
 	target.feature (argument1, ...)
 </code>
 
-where <code> target </code> is an entity or more generally an expression, <code> feature </code> is a feature name, and there may be zero or more <code> argument </code> expressions. In the absence of any <code> argument </code> the part in parentheses should be removed. 
+where <code>target</code> is an entity or more generally an expression, <code>feature</code> is a feature name, and there may be zero or more <code>argument</code> expressions. In the absence of any <code>argument</code> the part in parentheses should be removed. 
 
-We have already seen such calls. If the <code> feature </code> denotes a procedure, the call is an instruction, as in 
+We have already seen such calls. If the <code>feature</code> denotes a procedure, the call is an instruction, as in 
 <code>
 	all_deposits.extend (new)
 </code>
 
-If <code> feature </code> denotes a query (function or attribute), the call is an expression, as in the right-hand side of 
+If <code>feature</code> denotes a query (function or attribute), the call is an expression, as in the right-hand side of 
 <code>
 	Result := all_deposits.count
 </code>
 
-Following the principle of Uniform Access (page [[6 The Dynamic Structure: Execution Model|19]] ), this form is the same for calls to attributes and to functions without arguments. In this example, feature <code> count </code> from class <code> DEPOSIT_LIST </code> may indeed be implemented in either of these two ways: we can keep a <code> count </code> field in each list, updating it for each insertion and removal; or we can compute <code> count </code>, whenever requested, by traversing the list and counting the number of items. 
+Following the principle of Uniform Access (mentioned earlier in the section ''Objects, fields, values, and references''), this form is the same for calls to attributes and to functions without arguments. In this example, feature <code>count</code> from class <code>DEPOSIT_LIST</code> may indeed be implemented in either of these two ways: we can keep a <code>count /code> field in each list, updating it for each insertion and removal; or we can compute <code>count</code>, whenever requested, by traversing the list and counting the number of items. 
 
 In the case of a routine with arguments -- procedure or function -- the routine will be declared, in its class, as
 <code>
@@ -273,7 +273,7 @@ feature (formal1: TYPE1; ...)
 	end
 </code>
 
-meaning that, at the time of each call, the value of each formal will be set to the corresponding actual ( <code> formal1 </code> to <code> argument1 </code> and so on). 
+meaning that, at the time of each call, the value of each formal will be set to the corresponding actual ( <code>formal1</code> to <code>argument1</code> and so on). 
 
 In the routine body, it is not permitted to change the value of a formal argument, although it is possible to change the value of an attached object through a procedure call such as <code> formal1.some_procedure ( ... )</code> . 
 
@@ -291,9 +291,9 @@ infix "+" (other: INTEGER): INTEGER
 
 Such a feature has all the properties and prerogatives of a normal "identifier" feature, except for the form of the calls, which is infix, as in <code> i + j</code> , rather than using dot notation. An infix feature must be a function, and take exactly one argument. Similarly, a function can be declared as <code> prefix  "-" </code>, with no argument, permitting calls of the form <code> -3 </code> rather than <code> (3).negated</code> . 
 
-Predefined library classes covering basic types such as <code> INTEGER </code>, <code> CHARACTER </code>, <code> BOOLEAN </code>, <code> REAL </code>, <code> DOUBLE </code> are known to the Eiffel compiler, so that a call of the form <code> j + i </code>, although conceptually equivalent to a routine call, can be processed just as efficiently as the corresponding arithmetic expression in an ordinary programming language. This brings the best of both worlds: conceptual simplicity, enabling Eiffel developers, when they want to, to think of integers and the like as objects; and efficiency as good as in lower-level approaches. 
+Predefined library classes covering basic types such as <code>INTEGER</code>, <code>CHARACTER</code>, <code>BOOLEAN</code>, <code>REAL</code>, <code>DOUBLE</code> are known to the Eiffel compiler, so that a call of the form <code> j + i </code>, although conceptually equivalent to a routine call, can be processed just as efficiently as the corresponding arithmetic expression in an ordinary programming language. This brings the best of both worlds: conceptual simplicity, enabling Eiffel developers, when they want to, to think of integers and the like as objects; and efficiency as good as in lower-level approaches. 
 
-Infix and prefix features are available to any class, not just the basic types' predefined classes. For example a graphics class could use the name <code> infix "|-|" </code> for a function computing the distance between two points, to be used in expressions such as <code> point1 |-|  point2 </code>. 
+Infix and prefix features are available to any class, not just the basic types' predefined classes. For example a graphics class could use the name <code> infix "|-|" </code> for a function computing the distance between two points, to be used in expressions such as <code>point1 |-|  point2</code> . 
 
 ==Type declaration==
 
@@ -309,11 +309,11 @@ This applies to attributes, formal arguments of routines and local entities. You
 
 Specifying such a function result type also declares, implicitly, the type for <code> Result </code> as used in the function's body. 
 
-What is a type? With the elements seen so far, every type is a <code> class </code>. <code> INTEGER </code>, used in the declaration of <code> deposits_count </code>, is, as we have seen, a library class; and the declaration <code> all_deposits </code>: <code> DEPOSIT_LIST </code> assumes the existence of a class <code> DEPOSIT_LIST </code>. 
+What is a type? With the elements seen so far, every type is a <code>class</code> . <code>INTEGER</code>, used in the declaration of <code>deposits_count</code>, is, as we have seen, a library class; and the declaration <code> all_deposits </code>: <code> DEPOSIT_LIST </code> assumes the existence of a class <code> DEPOSIT_LIST </code>. 
 
-Three mechanisms introduced below -- expanded types (page [[6 The Dynamic Structure: Execution Model|26]] ), genericity (page [[7 Genericity and Arrays|36]] ) and anchored declarations (page [[9 Inheritance|79]] ) -- will generalize the notion of type slightly. But they do not change the fundamental property that '''every type is based on a class''', called the type's '''base class'''. In the examples seen so far, each type is a class, serving as its own base class. 
+Three mechanisms introduced below -- expanded types, genericity, and anchored declarations -- will generalize the notion of type slightly. But they do not change the fundamental property that '''every type is based on a class''', called the type's '''base class'''. In the examples seen so far, each type is a class, serving as its own base class. 
 
-An instance of a class <code> C </code> is also called "an object of type <code> C </code>". 
+An instance of a class <code>C</code> is also called "an object of type <code>C</code>". 
 
 ==Type categories==
 
@@ -355,12 +355,12 @@ In this case the value of an entity declared as <code> n:INTEGER</code> is not a
 
 It is also possible, for some non-expanded class C, to declare an entity as
 <code>
-	x: expanded 
+	x: expanded C
 </code>
 
-so that the values for <code> x </code> will be objects of type <code> C </code>, rather than references to such objects. This is our first example of a type -- <code> expanded C </code> -- that is not directly a class, although it is based on a class, <code> C </code>. The base type of such a type is <code> C </code>. 
+so that the values for <code>x</code> will be objects of type <code>C</code>, rather than references to such objects. This is our first example of a type -- <code>expanded C</code> -- that is not directly a class, although it is based on a class, <code>C</code>. The base type of such a type is <code>C</code>. 
 
-Note that the value of an entity of an expanded type can never be void; only a reference can. Extending the earlier terminology, an expanded entity is always '''attached to''' an object, atomic (as in the case of <code> n:INTEGER</code> ) or composite (as in <code> x : expanded ACCOUNT </code>). 
+Note that the value of an entity of an expanded type can never be void; only a reference can. Extending the earlier terminology, an expanded entity is always '''attached to''' an object, atomic (as in the case of <code>n: INTEGER</code> ) or composite (as in <code>x: expanded ACCOUNT</code>). 
 
 Expanded declarations make it possible to construct composite objects with subobjects, as in the following abbreviated class declaration (indexing clause and routines omitted):
 <code>
@@ -406,55 +406,62 @@ For entities of reference types, the value of <code> x </code> will be a void re
 
 For entities of expanded types, the values are objects; the object attached to <code> x </code> will be overwritten with the contents of the object attached to <code> y </code>. In the case of atomic objects, as in <code> n := 3 </code> with the declaration <code> n: INTEGER</code> , this has the expected effect of assigning to <code> n </code> the integer value <code> 3 </code>; in the case of composite objects, this overwrites the fields for <code> x </code>, one by one, with the corresponding <code> y </code> fields. 
 
-To copy an object, use <code> x.copy (y) </code> which assumes that both <code> x </code> and <code> y </code> are non-void, and copies the contents of <code> y </code>'s attached object onto those of <code> x </code>'s. For expanded entities the effect is the same as that the of the assignment <code> x := y </code>. 
+To copy an object, use <code>x.copy (y)</code> which assumes that both <code>x</code> and <code>y</code> are non-void, and copies the contents of <code>y</code>'s attached object onto those of <code>x</code>'s. For expanded entities the effect is the same as that the of the assignment <code>x := y</code>. 
 
-A variant of the <code>copy</code> operation is <code> twin</code> . The expression <code> y.twin</code> produces a newly created object, initialized with a copy of the object attached to <code> y </code>, or a void value if <code> y </code> itself is void. For a reference type (the only interesting case) the returned result for non-void is <code> y</code> a reference to the new object. This means we may view <code> twin</code> as a function that performs 
+An operation performing similar duty to the <code>copy</code> is <code> twin</code> . The assignment
+<code>
+	x := y.twin
+</code>
+produces a newly created object (provided that <code>y</code> is non-void), initialized with a copy of the object attached to <code>y</code> and attaches the result to <code>x</code> . This means we may view <code> twin</code> as a function that performs the following two steps:
 <code>
 	create Result
-	Result.copy (y)
+	Result.copy (Current)
 </code>
+The new object is created, then its content is updated to match the content of <code>y</code> to which the <code>twin</code> call is targeted. 
 
-So in the assignment <code> x := y.twin</code> , assuming both entities of reference types and <code> y </code> not void, will attach <code> x </code> to a '''new object''' identical to <code> y </code> 's attached object, as opposed to the assignment <code> x := y </code> which attaches <code> x </code> to the '''same object''' as <code> y </code>. 
+So, assuming both entities of reference types and <code>y</code> not void, the assignment above will attach <code>x</code> to a '''new object''' identical to <code>y</code>'s attached object, as opposed to the assignment <code> x := y </code> which attaches <code>x</code> to the '''same object''' as <code>y</code>. 
 
-To determine whether two values are equal, use the expression <code> x := y </code>. For references, this comparison will yield true if the values are either both void or both attached to the same object; this is the case in the last figure in the state after the assignment, but not before. The symbol for not equal is <code> /= </code>, as in <code> x /= y </code>. 
 
-As with assignment, there is also a form that works on objects rather than references: <code> x </code>. <code> is_equal </code> ( <code> y </code>) will return true when <code> x </code> and <code> y </code> are both non-void and attached to field-by-field identical objects. This can be true even when <code> x </code> <code> y </code> is not, for example, in the figure, <code> before </code> the assignment, if the two objects shown are field-by-field equal. 
+To determine whether two values are equal, use the expression <code> x = y </code>. For references, this comparison will yield true if the values are either both void or both attached to the same object; this is the case in the last figure in the state after the assignment, but not before. The symbol for not equal is <code> /= </code>, as in <code> x /= y </code>. 
 
-A more general variant of <code> is_equal </code> is used under the form <code> equal </code> ( <code> x </code>, <code> y </code>). This is always defined, even if <code> x </code> is void, returning true whenever <code> is_equal </code> would but also if <code> x </code> and <code> y </code> are both void. (In contrast, <code> x </code>. <code> is_equal </code> ( <code> y </code>) is not defined for void <code> x </code> and would, if evaluated, yield an exception as explained in [[8 Design by Contract (tm), Assertions and Exceptions|"Exception handling", page 46]]  below.) 
+As with assignment, there is also a form that works on objects rather than references: <code>x.is_equal (y)</code> will return true when <code>x</code> and <code>y</code> are both non-void and attached to field-by-field identical objects. This can be true even when <code>x = y</code> is not, for example, in the figure, before the assignment, if the two objects shown are field-by-field equal. 
 
-<code>Void</code> denotes a void reference. So you can make <code> x </code> void through the assignment <code> x := Void </code>, and test whether it is void through <code> if  </code> <code> x = Void </code> <code> then </code> ... 
+A more general variant of <code>is_equal</code> is used under the form <code>equal (x, y)</code> . This is always defined, even if <code>x</code> is void, returning true whenever <code>is_equal</code> would but also if <code>x</code> and <code>y</code> are both void. (In contrast, <code>x.is_equal (y)</code> is not defined for void <code>x</code> and would, if evaluated, yield an exception as explained in [[8 Design by Contract (tm), Assertions and Exceptions#Exception_handling|"Exception handling"]]  below.) 
 
-Where assignment <code> := </code> and the equality operators <code> = </code> and <code> /= </code> were language constructions, <code> copy </code>, <code> twin</code>, <code> is_equal </code>, <code> equal </code> and <code> ensure </code> are '''library features''' coming from class <code> ANY </code>. The type of <code> ensure </code>, as declared in <code> ANY </code>, is <code> NONE </code>, the "bottom" type. 
+<code>Void</code> denotes a void reference. So you can make <code>x</code> void through the assignment <code>x := Void</code>, and test whether it is void through:
+<code>
+	if  x = Void then ...</code>
 
-Using the redefinition mechanisms to be seen in the discussion of inheritance, a class can redefine <code> copy </code> and <code> is_equal </code> to cover specific notions of copy and equality. The assertions will ensure that the two remain compatible: after <code> x.copy (y)</code> , the property <code> x .is_equal (y)</code> must always be true. The effect of <code> twin</code> will automatically follow a redefinition of <code> copy </code>, and <code> equal </code> will follow <code> is_equal </code>. 
+Where assignment, <code>:=</code> , and the equality operators, <code>=</code> and <code>/=</code> , were language constructions, <code>copy</code>, <code>twin</code>, <code>is_equal</code>, and <code>equal</code> are '''library features''' coming from class <code> ANY </code>. 
 
-To guarantee the original, non-redefined semantics you may use the variants <code> standard_copy </code>, <code> standard_twin</code>, <code> standard_equal </code>, all defined in <code> ANY </code> as "frozen", that is to say non-redefinable. 
+<code>Void</code> is a language keyword with built-in functionality, but it is not far out of bounds to think of <code>Void</code> as another feature declared in <code> ANY </code>, but with type of <code>NONE</code>, the "bottom" type. 
+
+Using the redefinition mechanisms to be seen in the discussion of inheritance, a class can redefine <code>copy</code> and <code>is_equal</code> to cover specific notions of copy and equality. The assertions will ensure that the two remain compatible: after <code>x.copy (y)</code> , the property <code>x .is_equal (y)</code> must always be true. The effect of <code>twin</code> will automatically follow a redefinition of <code>copy</code>, and <code>equal</code> will follow <code>is_equal</code>. 
+
+To guarantee the original, non-redefined semantics you may use the variants <code>standard_copy</code>, <code>standard_twin</code>, <code>standard_equal</code>, all defined in <code>ANY</code> as "frozen", that is to say non-redefinable. 
 
 ==Deep operations and persistence==
 
-Feature <code> twin</code> only duplicates one object. If some of the object's fields are references to other objects, the references themselves will be copied, not those other objects. 
+Feature <code>twin</code> only duplicates one object. If some of the object's fields are references to other objects, the references themselves will be copied, not those other objects. 
 
-It is useful, in some cases, to duplicate not just one object but an entire object structure. The expression <code> y.deep_twin</code> achieves this goal: assuming non-void <code> y </code>, it will produce a duplicate not just of the object attached to <code> y </code> but of the entire object structure starting at that object. The mechanism respects all the possible details of that structure, such as cyclic reference chains. Like the preceding features, <code> deep_twin</code> comes from class <code> ANY </code>. 
+It is useful, in some cases, to duplicate not just one object but an entire object structure. The expression <code>y.deep_twin</code> achieves this goal: assuming non-void <code>y</code>, it will produce a duplicate not just of the object attached to <code>y</code> but of the entire object structure starting at that object. The mechanism respects all the possible details of that structure, such as cyclic reference chains. Like the preceding features, <code>deep_twin</code> comes from class <code>ANY</code>. 
 
 A related mechanism provides a powerful '''persistence''' facility. A call of the form 
 <code>
 	x.store (Some_file_or_network_connection)
 </code>
 
-will store a copy of the entire object structure starting at <code> x </code>, under a suitable representation. Like <code> deep_twin</code>, procedure <code> store </code> will follow all references to the end and maintain the properties of the structure. The function <code> retrieved </code> can then be used -- in the same system, or another -- to recreate the structure from the stored version. 
+will store a copy of the entire object structure starting at <code> x </code>, under a suitable representation. Like <code>deep_twin</code>, procedure <code>store</code> will follow all references to the end and maintain the properties of the structure. The function <code>retrieved</code> can then be used -- in the same system, or another -- to recreate the structure from the stored version. 
 
-As the name suggests, <code> Some_file_or_network_connection </code> can be an external medium of various possible kinds, not just a file but possibly a database or network. The EiffelNet client-server library indeed uses the <code> store </code> - <code> retrieved </code> mechanism to exchange object structures over a network, between compatible or different machine architectures, for example a Windows client and a Unix server. 
+As the name suggests, <code>Some_file_or_network_connection</code> can be an external medium of various possible kinds, not just a file but possibly a database or network. The EiffelNet client-server library indeed uses the <code> store </code>-<code> retrieved </code> mechanism to exchange object structures over a network, between compatible or different machine architectures, for example a Windows client and a Unix server. 
 
 ==Memory management==
 
-Reference reattachments 
-<code>
-	x := y </code> 
-of the form illustrated by the figure just above can cause objects to become unreachable. This is the case for the object identified as OBJ1 on that figure (the object to which <code> x </code> was attached before the assignment) if no other reference was attached to it. 
+Reference reattachments, <code>x := y</code> , of the form illustrated by the figure just above can cause objects to become unreachable. This is the case for the object identified as OBJ1 on that figure (the object to which <code>x</code> was attached before the assignment) if no other reference was attached to it. 
 
-In all but toy systems, it is essential to reclaim the memory that has been allocated for such objects; otherwise memory usage could grow forever, as a result of creation instructions <code> create x</code> ... and calls to <code> twin</code> and the like, leading to thrashing and eventually to catastrophic termination. 
+In all but toy systems, it is essential to reclaim the memory that has been allocated for such objects; otherwise memory usage could grow forever, as a result of creation instructions <code>create x</code> ... and calls to <code>twin</code> and the like, leading to thrashing and eventually to catastrophic termination. 
 
-The Eiffel method suggests that the task of detecting and reclaiming such unused object space should be handled by an automatic mechanism (part of the Eiffel run-time environment), not manually by developers (through calls to procedures such as Pascal's <code> dispose </code> and C/C++'s <code> free </code>). The arguments for this view are: 
+The Eiffel method suggests that the task of detecting and reclaiming such unused object space should be handled by an automatic mechanism (part of the Eiffel run-time environment), not manually by developers (through calls to procedures such as Pascal's <code>dispose</code> and C/C++'s <code>free</code>). The arguments for this view are: 
 
 '''Simplicity''' : handling memory reclamation manually can add enormous complication to the software, especially when -- as is often the case in object-oriented development -- the system manipulates complex run-time data structures with many links and cycles. 
 
@@ -464,13 +471,12 @@ The Eiffel Software's implementation of Eiffel provides a sophisticated '''garba
 
 ==Information hiding and the call rule==
 
-The basic form of computation, it has been noted, is a call of the form <code> target.feature (...)</code> . This is only meaningful if <code> feature </code> denotes a feature of the generating class of the object to which <code> target </code> (assumed to be non-void) is attached. The precise rule is the following: 
+The basic form of computation, it has been noted, is a call of the form <code>target.feature (...)</code> . This is only meaningful if <code>feature</code> denotes a feature of the generating class of the object to which <code>target</code> (assumed to be non-void) is attached. The precise rule is the following: 
+
+{{rule|name=Feature Call|text=A call of the form <code>target.feature (...)</code> appearing in a class C is only valid if feature is a feature of the base class of target 's type, and is available to C.}}
 
 
-{{note|Feature Call rule A call of the form <code>target.feature (...)</code> appearing in a class C is only valid if feature is a feature of the base class of target 's type, and is available to C.}}
-
-
-The first condition simply expresses that if <code>target</code> has been declared as <code> target: A</code> then <code> feature </code> must be the name of one of the features of <code> A </code>. The second condition reflects Eiffel's application of the principles of information hiding. A <code> feature </code> clause, introducing one or more feature declarations, may appear not only as 
+The first condition simply expresses that if <code>target</code> has been declared as <code>target: A</code> then <code>feature</code> must be the name of one of the features of <code>A</code>. The second condition reflects Eiffel's application of the principles of information hiding. A <code>feature</code> clause, introducing one or more feature declarations, may appear not only as 
 <code>
 feature -- Comment identifying the feature category
 
@@ -483,7 +489,7 @@ feature -- Comment identifying the feature category
 </code>
 
 
-but may also include a list of classes in braces, <code> feature {A, B, ... } </code>, as was illustrated for <code> ACCOUNT </code>: 
+but may also include a list of classes in braces, <code>feature {A, B, ... }</code> , as was illustrated for <code>ACCOUNT</code>: 
 <code>
 feature {NONE} -- Implementation
 
@@ -491,25 +497,27 @@ feature {NONE} -- Implementation
             -- List of deposits since account's opening.
 </code>
 
-This form indicates that the features appearing in that clause are only '''available''' -- in the sense of available for calls, as used in the Feature Call rule -- to the classes listed. In the example feature <code> all_deposits </code> is only available to <code> NONE </code>. Because of the global inheritance structure (page [[5 The Static Picture: System Organization|15]] ) this means it is in fact available to no useful client at all, and is equivalent in practice to <code> feature </code> <code>  { </code> <code> } </code> with an empty class list, although the form listing <code> NONE </code> explicitly is more visible and hence preferred. 
+This form indicates that the features appearing in that clause are only '''available''' -- in the sense of available for calls, as used in the Feature Call rule -- to the classes listed. In the example feature <code> all_deposits </code> is only available to <code> NONE </code>. Because of the [[5 The Static Picture: System Organization#The_global_inheritance_structure|global inheritance structure]], this means it is in fact available to no useful client at all, and is equivalent in practice to <code>feature { }</code> with an empty class list, although the form listing <code> NONE </code> explicitly is more visible and hence preferred. 
 
-With this specification a class text including the declaration <code> acc: ACCOUNT</code> and a call of the form 
+
+
+With this specification a class text including the declaration <code>acc: ACCOUNT</code> and a call of the form 
 <code>
 	acc.all_deposits
 </code>
 
 violates the Feature Call rule and will be rejected by the EiffelStudio compiler. 
 
-Besides fully exported features (introduced by <code> feature ... </code>; without further qualification) and fully secret ones ( <code>feature {  }</code> or <code>feature {NONE}</code> ), it is possible to export features selectively to some specified classes, using the specification 
+Besides fully exported features (introduced by <code>feature ... </code>; without further qualification) and fully secret ones (<code>feature {  }</code> or <code>feature {NONE}</code> ), it is possible to export features selectively to some specified classes, using the specification 
 <code>
 feature {A, B,  ...}
 </code>
 
-for arbitrary classes <code> A, B</code>, ... This enables a group of related classes to provide each other with privileged access, without requiring the introduction of a special module category above the class level (see [[5 The Static Picture: System Organization|"Clusters", page 15]] ). 
+for arbitrary classes <code>A, B</code>, ... This enables a group of related classes to provide each other with privileged access, without requiring the introduction of a special module category above the class level (see [[5 The Static Picture: System Organization#Clusters|"Clusters"]] ). 
 
-Exporting features selectively to a set of classes <code> A, B</code>, ... also makes them available to the descendants of these classes. So a feature clause beginning with just <code> feature </code> is equivalent to one starting with <code> feature {ANY}</code> . 
+Exporting features selectively to a set of classes <code>A, B</code>, ... also makes them available to the descendants of these classes. So a feature clause beginning with just <code>feature</code> is equivalent to one starting with <code>feature {ANY}</code> . 
 
-These rules enable successive feature clauses to specify exports to different clients. In addition, the recommended style, illustrated in the examples of this chapter, suggests writing separate feature clauses -- regardless of their use for specifying export privileges -- to group features into separate categories. The standard style rules define a number of fundamental categories and the order in which they should appear; they include: <code> Initialization </code> for creation procedures, <code> Access </code> for general queries, <code> Status report </code> for boolean-valued queries, <code> Status setting </code>, <code> Element change </code>, <code> Implementation </code> (for selectively exported or secret features. Every feature in the EiffelBase library classes belongs to one of the predefined categories. 
+These rules enable successive feature clauses to specify exports to different clients. In addition, the recommended style, illustrated in the examples of this chapter, suggests writing separate feature clauses -- regardless of their use for specifying export privileges -- to group features into separate categories. The standard style rules define a number of fundamental categories and the order in which they should appear; they include: <code>Initialization</code> for creation procedures, <code>Access</code> for general queries, <code>Status report</code> for boolean-valued queries, <code>Status setting</code>, <code>Element change</code>, <code>Implementation</code> (for selectively exported or secret features. Every feature in the EiffelBase library classes belongs to one of the predefined categories. 
 
 The Feature Call rule is the first of the rules that make Eiffel a '''statically typed''' approach, where the applicability of operations to objects is verified at compile time rather than during execution. Static typing is one of the principal components of Eiffel's support for reliability in software development. 
 
@@ -522,7 +530,7 @@ At any time during the execution of a system, one object is the '''current objec
 	balance := balance + sum
 </code>
 
-appearing in the body of procedure <code> deposit </code> of class <code> ACCOUNT </code>, the name of the attribute <code> balance </code>, in both occurrences, denotes the <code> balance </code> field of the current object, assumed to be an instance of <code> ACCOUNT </code>. In the same way, the procedure body that we used for the creation procedure <code> make </code> in the <code> ACCOUNT1 </code> variant 
+appearing in the body of procedure <code>deposit</code> of class <code>ACCOUNT</code>, the name of the attribute <code>balance</code>, in both occurrences, denotes the <code>balance</code> field of the current object, assumed to be an instance of <code>ACCOUNT</code>. In the same way, the procedure body that we used for the creation procedure <code>make</code> in the <code>ACCOUNT1</code> variant 
 <code>
 make (sum: INTEGER)
             -- Initialize account with sum .
@@ -531,15 +539,15 @@ make (sum: INTEGER)
         end
 </code>
 
-contains a call to the procedure <code> deposit </code>. Contrary to earlier calls written in dot notation as <code>target.feature (...) </code>, the call to <code> deposit </code> has no explicit target; this means its target is the current object, an instance of <code> ACCOUNT1 </code>. Such a call is said to be '''unqualified'''; those using dot notations are '''qualified''' calls. 
+contains a call to the procedure <code>deposit</code>. Contrary to earlier calls written in dot notation as <code>target.feature (...)</code>, the call to <code>deposit</code> has no explicit target; this means its target is the current object, an instance of <code>ACCOUNT1</code>. Such a call is said to be '''unqualified'''; those using dot notations are '''qualified''' calls. 
 
-Although most uses of the current object are implicit, a class may need to name it explicitly. The predefined expression <code> Current </code> is available for that purpose. A typical use, in a routine <code>merge (other: ACCOUNT )</code> of class <code> ACCOUNT </code>, would be a test of the form 
+Although most uses of the current object are implicit, a class may need to name it explicitly. The predefined expression <code>Current</code> is available for that purpose. A typical use, in a routine <code>merge (other: ACCOUNT )</code> of class <code>ACCOUNT</code>, would be a test of the form 
 <code>
-if other = Current then
-    report_error ("Error: trying to merge an account with itself!")
-else
-    ... Normal processing (merging two different account) ...
-end
+	if other = Current then
+	    report_error ("Error: trying to merge an account with itself!")
+	else
+	    ... Normal processing (merging two different account) ...
+	end
 </code>
 
 With these notions it is not hard to define precisely the overall scenario of a system execution by defining which object and routine will, at each instant, be the current object and the current routine:
@@ -548,7 +556,7 @@ Starting a system execution, as we have seen, consists in creating an instance o
 
 From then on only two events can change the current object and current procedure: a qualified routine call; and the termination of a routine. 
 
-In a call of the form <code> target.routine (...)</code> , <code> target </code>denotes a certain object TC. (If not, that is to say, if the value of target is void, attempting to execute the call will trigger an exception, as studied below.) The generating class of TC must, as per the Feature Call rule, contain a routine of name <code> routine </code>. As the call starts, TC becomes the new current object and <code> routine </code> becomes the new current routine. 
+In a call of the form <code>target.routine (...)</code> , <code>target</code>denotes a certain object TC. (If not, that is to say, if the value of target is void, attempting to execute the call will trigger an exception, as studied below.) The generating class of TC must, as per the Feature Call rule, contain a routine of name <code>routine</code>. As the call starts, TC becomes the new current object and <code>routine</code> becomes the new current routine. 
 
 When a routine execution terminates, the target object and routine of the most recent non-terminated call -- which, just before just before the terminated call, were the current object and the current routine -- assume again the role of current object and current routine. 
 
@@ -556,9 +564,9 @@ The only exception to the last rule is termination of the original root procedur
 
 ==Abstraction==
 
-The description of assignments stated that in <code> x := y </code> the target <code> x </code> must be an entity. More precisely it must be a '''writable''' entity. This notion excludes formal routine arguments: as noted, a routine <code> r (arg: SOME_TYPE)</code> may assign to <code> arg </code> (reattaching it to a different object), although it can change the attached objects through calls of the form <code> arg.procedure (...)</code> . 
+The description of assignments stated that in <code>x := y</code> the target <code>x</code> must be an entity. More precisely it must be a '''writable''' entity. This notion excludes formal routine arguments: as noted, a routine <code>r (arg: SOME_TYPE)</code> may assign to <code>arg</code> (reattaching it to a different object), although it can change the attached objects through calls of the form <code>arg.procedure (...)</code> . 
 
-Restricting assignment targets to entities precludes assignments of the form <code> obj.some_attribute := some_value</code> , since the left-hand side <code> obj.some_attribute</code> is an expression (a feature call), not an entity: you may no more assign to <code> obj.some_attribute</code> than to, say, <code> b + a </code> -- another expression that is also, formally, a feature call. 
+Restricting assignment targets to entities precludes assignments of the form <code>obj.some_attribute := some_value</code> , since the left-hand side <code>obj.some_attribute</code> is an expression (a feature call), not an entity: you may no more assign to <code>obj.some_attribute</code> than to, say, <code>b + a</code> -- another expression that is also, formally, a feature call. 
 
 To obtain the intended effect of such an assignment you may use a procedure call of the form <code> obj.set_attribute (some_value)</code> , where the base class of <code>obj</code>'s type has defined the procedure 
 <code>
