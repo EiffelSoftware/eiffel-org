@@ -406,37 +406,65 @@ For entities of reference types, the value of <code>x</code> will be a void refe
 
 For entities of expanded types, the values are objects; the object attached to <code>x</code> will be overwritten with the contents of the object attached to <code>y</code>. In the case of atomic objects, as in <code>n := 3</code> with the declaration <code> n: INTEGER</code> , this has the expected effect of assigning to <code>n</code> the integer value <code>3</code>; in the case of composite objects, this overwrites the fields for <code>x</code>, one by one, with the corresponding <code>y</code> fields. 
 
-To copy an object, use <code>x.copy (y)</code> which assumes that both <code>x</code> and <code>y</code> are non-void, and copies the contents of <code>y</code>'s attached object onto those of <code>x</code>'s. For expanded entities the effect is the same as that the of the assignment <code>x := y</code>. 
+To copy an object, use 
+<code>
+	x.copy (y)
+</code>
+which assumes that both <code>x</code> and <code>y</code> are non-void, and copies the contents of <code>y</code>'s attached object onto those of <code>x</code>'s. For expanded entities the effect is the same as that the of the assignment <code>x := y</code>. 
 
 An operation performing similar duty to the <code>copy</code> is <code>twin</code> . The assignment
 <code>
 	x := y.twin
 </code>
-produces a newly created object (provided that <code>y</code> is non-void), initialized with a copy of the object attached to <code>y</code> and attaches the result to <code>x</code> . This means we may view <code> twin</code> as a function that performs the following two steps:
+produces a newly created object (provided that <code>y</code> is non-void), initialized with a copy of the object attached to <code>y</code> and attaches the result to <code>x</code> . This means we may view <code>twin</code> as a function that performs the following two steps:
 <code>
 	create Result
 	Result.copy (Current)
 </code>
 The new object is created, then its content is updated to match the content of <code>y</code> to which the <code>twin</code> call is targeted. 
 
-So, assuming both entities of reference types and <code>y</code> not void, the assignment above will attach <code>x</code> to a '''new object''' identical to <code>y</code>'s attached object, as opposed to the assignment <code> x := y </code> which attaches <code>x</code> to the '''same object''' as <code>y</code>. 
+So, assuming both entities of reference types and <code>y</code> not void, the assignment above will attach <code>x</code> to a '''new object''' identical to <code>y</code>'s attached object, as opposed to the assignment <code>x := y</code> which attaches <code>x</code> to the '''same object''' as <code>y</code>. 
 
 
-To determine whether two values are equal, use the expression <code> x = y </code>. For references, this comparison will yield true if the values are either both void or both attached to the same object; this is the case in the last figure in the state after the assignment, but not before. The symbol for not equal is <code> /= </code>, as in <code> x /= y </code>. 
+To determine whether two values are equal, use the expression:
 
-As with assignment, there is also a form that works on objects rather than references: <code>x.is_equal (y)</code> will return true when <code>x</code> and <code>y</code> are both non-void and attached to field-by-field identical objects. This can be true even when <code>x = y</code> is not, for example, in the figure, ''before'' the assignment, if the two objects shown are field-by-field equal.
+<code>
+	x = y 
+</code> 
+For references, this comparison will yield true if the values are either both void or both attached to the same object; this is the case in the last figure in the state after the assignment, but not before. The symbol for not equal is <code> /= </code>, as in: 
+<code>
+	x /= y
+</code> 
 
-The expression <code>x.is_equal (y)</code> can also be expressed in a notation analogous to <code>x = y</code>. The expression <code>x ~ y</code> will be true only in cases in which <code>x.is_equal (y)</code> is true.
+As with assignment, there is also a form that works on objects rather than references: 
+<code>
+	x.is_equal (y)
+</code>
+will return true when <code>x</code> and <code>y</code> are both non-void and attached to field-by-field identical objects. This can be true even when <code>x = y</code> is not, for example, in the figure, ''before'' the assignment, if the two objects shown are field-by-field equal.
 
-A more general variant of <code>is_equal</code> is used under the form <code>equal (x, y)</code> . This is always defined, even if <code>x</code> is void, returning true whenever <code>is_equal</code> would but also if <code>x</code> and <code>y</code> are both void. (In contrast, <code>x.is_equal (y)</code> is not defined for void <code>x</code> and would, if evaluated, yield an exception as explained in [[8 Design by Contract (tm), Assertions and Exceptions#Exception_handling|"Exception handling"]]  below.) 
+The expression <code>x.is_equal (y)</code> can be written alternatively in a notation similar in form to <code>x = y</code> . The expression:
+<code>
+	x ~ y
+</code>
+will be true only in cases in which <code>x.is_equal (y)</code> is true.
 
-<code>Void</code> denotes a void reference. So you can make <code>x</code> void through the assignment <code>x := Void</code>, and test whether it is void through:
+A more general variant of <code>is_equal</code> is used under the form:
+<code>
+	equal (x, y)
+</code>
+This is always defined, even if <code>x</code> is void, returning true whenever <code>is_equal</code> would but also if <code>x</code> and <code>y</code> are both void. (In contrast, <code>x.is_equal (y)</code> is not defined for void <code>x</code> and would, if evaluated, yield an exception as explained in [[8 Design by Contract (tm), Assertions and Exceptions#Exception_handling|"Exception handling"]]  below.) 
+
+<code>Void</code> denotes a void reference. So you can make <code>x</code> void through the assignment 
+<code>
+	x := Void
+</code>
+and test whether it is void through:
 <code>
 	if  x = Void then ...</code>
 
-Where assignment, <code>:=</code> , and the equality operators, <code>=</code> and <code>/=</code> , were language constructions, <code>copy</code>, <code>twin</code>, <code>is_equal</code>, and <code>equal</code> are '''library features''' coming from class <code> ANY </code>. 
+Note that the assignment, <code>:=</code> , and the equality operators, <code>=</code>, <code>~</code>, <code>/~</code>,  and <code>/=</code> , are language constructions, whereas <code>copy</code>, <code>twin</code>, <code>is_equal</code>, and <code>equal</code> are '''library features''' coming from class <code>ANY</code> . 
 
-<code>Void</code> is a language keyword with built-in functionality, but it is not far out of bounds to think of <code>Void</code> as another feature declared in <code> ANY </code>, but with type of <code>NONE</code>, the "bottom" type. 
+<code>Void</code> is a language keyword with built-in functionality, but it is not harmful to think of <code>Void</code> as another feature declared in <code> ANY </code>, but with type of <code>NONE</code>, the "bottom" type. 
 
 Using the redefinition mechanisms to be seen in the discussion of inheritance, a class can redefine <code>copy</code> and <code>is_equal</code> to cover specific notions of copy and equality. The assertions will ensure that the two remain compatible: after <code>x.copy (y)</code> , the property <code>x .is_equal (y)</code> must always be true. The effect of <code>twin</code> will automatically follow a redefinition of <code>copy</code>, and <code>equal</code> will follow <code>is_equal</code>. 
 
@@ -558,7 +586,7 @@ Starting a system execution, as we have seen, consists in creating an instance o
 
 From then on only two events can change the current object and current procedure: a qualified routine call; and the termination of a routine. 
 
-In a call of the form <code>target.routine (...)</code> , <code>target</code>denotes a certain object TC. (If not, that is to say, if the value of target is void, attempting to execute the call will trigger an exception, as studied below.) The generating class of TC must, as per the Feature Call rule, contain a routine of name <code>routine</code>. As the call starts, TC becomes the new current object and <code>routine</code> becomes the new current routine. 
+In a call of the form <code>target.routine (...)</code> , <code>target</code> denotes a certain object TC. (If not, that is to say, if the value of target is void, attempting to execute the call will trigger an exception, as studied below.) The generating class of TC must, as per the Feature Call rule, contain a routine of name <code>routine</code>. As the call starts, TC becomes the new current object and <code>routine</code> becomes the new current routine. 
 
 When a routine execution terminates, the target object and routine of the most recent non-terminated call -- which, just before just before the terminated call, were the current object and the current routine -- assume again the role of current object and current routine. 
 
