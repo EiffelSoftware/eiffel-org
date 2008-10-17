@@ -404,11 +404,11 @@ For entities of reference types, the value of <code>x</code> will be a void refe
 [[Image:tutorial-9]]  
 
 
-For entities of expanded types, the values are objects; the object attached to <code> x </code> will be overwritten with the contents of the object attached to <code> y </code>. In the case of atomic objects, as in <code> n := 3 </code> with the declaration <code> n: INTEGER</code> , this has the expected effect of assigning to <code> n </code> the integer value <code> 3 </code>; in the case of composite objects, this overwrites the fields for <code> x </code>, one by one, with the corresponding <code> y </code> fields. 
+For entities of expanded types, the values are objects; the object attached to <code>x</code> will be overwritten with the contents of the object attached to <code y</code>. In the case of atomic objects, as in <code>n := 3</code> with the declaration <code> n: INTEGER</code> , this has the expected effect of assigning to <code>n</code> the integer value <code>3</code>; in the case of composite objects, this overwrites the fields for <code>x</code>, one by one, with the corresponding <code>y</code> fields. 
 
 To copy an object, use <code>x.copy (y)</code> which assumes that both <code>x</code> and <code>y</code> are non-void, and copies the contents of <code>y</code>'s attached object onto those of <code>x</code>'s. For expanded entities the effect is the same as that the of the assignment <code>x := y</code>. 
 
-An operation performing similar duty to the <code>copy</code> is <code> twin</code> . The assignment
+An operation performing similar duty to the <code>copy</code> is <code>twin</code> . The assignment
 <code>
 	x := y.twin
 </code>
@@ -424,7 +424,9 @@ So, assuming both entities of reference types and <code>y</code> not void, the a
 
 To determine whether two values are equal, use the expression <code> x = y </code>. For references, this comparison will yield true if the values are either both void or both attached to the same object; this is the case in the last figure in the state after the assignment, but not before. The symbol for not equal is <code> /= </code>, as in <code> x /= y </code>. 
 
-As with assignment, there is also a form that works on objects rather than references: <code>x.is_equal (y)</code> will return true when <code>x</code> and <code>y</code> are both non-void and attached to field-by-field identical objects. This can be true even when <code>x = y</code> is not, for example, in the figure, before the assignment, if the two objects shown are field-by-field equal. 
+As with assignment, there is also a form that works on objects rather than references: <code>x.is_equal (y)</code> will return true when <code>x</code> and <code>y</code> are both non-void and attached to field-by-field identical objects. This can be true even when <code>x = y</code> is not, for example, in the figure, ''before'' the assignment, if the two objects shown are field-by-field equal.
+
+The expression <code>x.is_equal (y)</code> can also be expressed in a notation analogous to <code>x = y</code>. The expression <code>x ~ y</code> will be true only in cases in which <code>x.is_equal (y)</code> is true.
 
 A more general variant of <code>is_equal</code> is used under the form <code>equal (x, y)</code> . This is always defined, even if <code>x</code> is void, returning true whenever <code>is_equal</code> would but also if <code>x</code> and <code>y</code> are both void. (In contrast, <code>x.is_equal (y)</code> is not defined for void <code>x</code> and would, if evaluated, yield an exception as explained in [[8 Design by Contract (tm), Assertions and Exceptions#Exception_handling|"Exception handling"]]  below.) 
 
