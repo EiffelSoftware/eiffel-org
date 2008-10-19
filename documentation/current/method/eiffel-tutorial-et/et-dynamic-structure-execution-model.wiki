@@ -267,21 +267,29 @@ Following the principle of Uniform Access (mentioned earlier in the section ''Ob
 
 In the case of a routine with arguments -- procedure or function -- the routine will be declared, in its class, as
 <code>
-feature (formal1: TYPE1; ...)
+some_feature (formal_1: TYPE_1; ...)
     do
         ...
     end
 </code>
 
-meaning that, at the time of each call, the value of each formal will be set to the corresponding actual ( <code>formal1</code> to <code>argument1</code> and so on). 
+meaning that, at the time of each call, the value of each formal will be set to the corresponding actual (<code>formal_1</code> to <code>argument_1</code> and so on). 
 
-In the routine body, it is not permitted to change the value of a formal argument, although it is possible to change the value of an attached object through a procedure call such as <code> formal1.some_procedure ( ... )</code> . 
+In the routine body, it is not permitted to change the value of a formal argument, although it is possible to change the value of an attached object through a procedure call such as <code>formal_1.some_procedure ( ... )</code> . 
 
 ==Infix and prefix notation==
 
 Basic types such as <code>INTEGER</code> are, as noted, full-status citizens of Eiffel's type system, and so are declared as classes (part of the Kernel Library). <code>INTEGER</code>, for example, is characterized by the features describing integer operations: plus, minus, times, division, less than, and so on. 
 
-With the dot notation seen so far, this would imply that simple arithmetic operations would have to be written with a syntax such as <code>i.plus (j)</code> instead of the usual <code>i + j</code>. This would be awkward. Infix and prefix features solve the problem, reconciling the object-oriented view of computation with common notational practices of mathematics. The addition function is declared in class <code>INTEGER</code> as 
+With the dot notation seen so far, this would imply that simple arithmetic operations would have to be written with a syntax such as 
+<code>
+	i.plus (j)
+</code>
+instead of the usual 
+<code>
+	i + j
+</code>
+This would be awkward. Infix and prefix features solve the problem, reconciling the object-oriented view of computation with common notational practices of mathematics. The addition function is declared in class <code>INTEGER</code> as 
 <code>
 infix "+" (other: INTEGER): INTEGER
     do
@@ -289,11 +297,14 @@ infix "+" (other: INTEGER): INTEGER
     end
 </code>
 
-Such a feature has all the properties and prerogatives of a normal "identifier" feature, except for the form of the calls, which is infix, as in <code>i + j</code> , rather than using dot notation. An infix feature must be a function, and take exactly one argument. Similarly, a function can be declared as <code>prefix  "-" </code>, with no argument, permitting calls of the form <code> -3 </code> rather than <code>(3).negated</code> . 
+Such a feature has all the properties and prerogatives of a normal "identifier" feature, except for the form of the calls, which is infix, as in <code>i + j</code> , rather than using dot notation. An infix feature must be a function, and take exactly one argument. Similarly, a function can be declared as <code>prefix "-" </code>, with no argument, permitting calls of the form <code>-3</code> rather than <code>(3).negated</code> . 
 
 Predefined library classes covering basic types such as <code>INTEGER</code>, <code>CHARACTER</code>, <code>BOOLEAN</code>, <code>REAL</code>, <code>DOUBLE</code> are known to the Eiffel compiler, so that a call of the form <code>j + i</code>, although conceptually equivalent to a routine call, can be processed just as efficiently as the corresponding arithmetic expression in an ordinary programming language. This brings the best of both worlds: conceptual simplicity, enabling Eiffel developers, when they want to, to think of integers and the like as objects; and efficiency as good as in lower-level approaches. 
 
-Infix and prefix features are available to any class, not just the basic types' predefined classes. For example a graphics class could use the name <code>infix "|-|"</code> for a function computing the distance between two points, to be used in expressions such as <code>point1 |-|  point2</code> . 
+Infix and prefix features are available to any class, not just the basic types' predefined classes. For example a graphics class could use the name <code>infix "|-|"</code> for a function computing the distance between two points, to be used in expressions such as 
+<code>
+	point1 |-|  point2
+</code> 
 
 ==Type declaration==
 
@@ -412,7 +423,7 @@ To copy an object, use
 </code>
 which assumes that both <code>x</code> and <code>y</code> are non-void, and copies the contents of <code>y</code>'s attached object onto those of <code>x</code>'s. For expanded entities the effect is the same as that the of the assignment <code>x := y</code>. 
 
-An operation performing similar duty to the <code>copy</code> is <code>twin</code> . The assignment
+An operation performing similar duty to <code>copy</code> is <code>twin</code> . The assignment
 <code>
 	x := y.twin
 </code>
@@ -427,7 +438,6 @@ So, assuming both entities of reference types and <code>y</code> not void, the a
 
 
 To determine whether two values are equal, use the expression:
-
 <code>
 	x = y 
 </code> 
@@ -464,7 +474,7 @@ and test whether it is void through:
 
 Note that the assignment, <code>:=</code> , and the equality operators, <code>=</code>, <code>~</code>, <code>/~</code>,  and <code>/=</code> , are language constructions, whereas <code>copy</code>, <code>twin</code>, <code>is_equal</code>, and <code>equal</code> are '''library features''' coming from class <code>ANY</code> . 
 
-<code>Void</code> is a language keyword with built-in functionality, but it is not harmful to think of <code>Void</code> as another feature declared in <code> ANY </code>, but with type of <code>NONE</code>, the "bottom" type. 
+<code>Void</code> is a language keyword with built-in characteristics, but it is not harmful to imagine <code>Void</code> as another feature declared in class <code>ANY</code>, with type of <code>NONE</code>, the "bottom" type. This convenience allows any assignment of the for <code>x := Void</code> to be valid without any making exceptions to the type rules, regardless of the type of <code>x</code> .
 
 Using the redefinition mechanisms to be seen in the discussion of inheritance, a class can redefine <code>copy</code> and <code>is_equal</code> to cover specific notions of copy and equality. The assertions will ensure that the two remain compatible: after <code>x.copy (y)</code> , the property <code>x .is_equal (y)</code> must always be true. The effect of <code>twin</code> will automatically follow a redefinition of <code>copy</code>, and <code>equal</code> will follow <code>is_equal</code>. 
 

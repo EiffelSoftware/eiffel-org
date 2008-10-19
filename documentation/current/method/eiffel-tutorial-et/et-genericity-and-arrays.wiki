@@ -22,7 +22,7 @@ Within the class text, feature declarations can freely use <code>G</code> even t
     first: G    
             -- Value of first list item
 
-    extend (val: G) is    
+    extend (val: G)
             -- Add a new item of value val at end of list    
         ...
 </code>
@@ -45,23 +45,23 @@ Genericity reconciles extendibility and reusability with the static type checkin
 
 ==Arrays==
 
-An example of generic class from the Kernel Library is <code>ARRAY</code> <code>[</code> <code>G</code> <code>]</code>, which describes direct-access arrays. Features include: 
-*  <code>put</code> to replace an element's value, as in <code>my_array</code>. <code>put</code> <code>(</code> <code>val</code>, <code>25</code> <code>)</code> which replaces by <code>val</code> the value of the array entry at index 25. 
-*  <code>item</code> to access an entry, as in <code>my_array</code>. <code>item</code> <code>(</code> <code>25</code> <code>)</code> yielding the entry at index 25. A synonym is <code>infix</code> <code>"@"</code>, so that you may also write more tersely, for the same result, <code>my_array</code> <code>@</code> <code>25</code>. 
+An example of generic class from the Kernel Library is <code>ARRAY</code> <code>[G]</code>, which describes direct-access arrays. Features include: 
+*  <code>put</code> to replace an element's value, as in <code>my_array.put (val, 25)</code> which replaces by <code>val</code> the value of the array entry at index 25. 
+*  <code>item</code> to access an entry, as in <code>my_array.item (25)</code> yielding the entry at index 25. A synonym is <code>infix</code> <code>"@"</code>, so that you may also write more tersely, for the same result, <code>my_array</code> <code>@</code> <code>25</code> . 
 *  <code>lower</code>, <code>upper</code> and <code>count</code>: queries yielding the bounds and the number of entries. 
-*  The creation procedure <code>make</code>, as in <code>create</code> <code>my_array</code>. <code>make</code> <code>( 1, 50 )</code> which creates an array with the given index bounds. It is also possible to resize an array through <code>resize</code>, retaining the old elements. In general, the Eiffel method abhors built-in limits, favoring instead structures that resize themselves when needed, either from explicit client request or automatically. 
+*  The creation procedure <code>make</code>, as in <code>create my_array.make (1, 50)</code> which creates an array with the given index bounds. It is also possible to resize an array through <code>resize</code>, retaining the old elements. In general, the Eiffel method abhors built-in limits, favoring instead structures that resize themselves when needed, either from explicit client request or automatically. 
 
-The comment made about <code>INTEGER</code> and other basic classes applies to <code>ARRAY</code> too: Eiffel compilers know about this class, and will be able to process expressions of the form <code>my_array</code>. <code>put</code> <code>(</code> <code>val</code>, <code>25</code> <code>)</code> and <code>my_array</code> <code>@</code> <code>25</code> in essentially the same way as a C or Fortran array access -- <code>my_array</code> <code>[</code> <code>25</code> <code>]</code> in C. But it is consistent and practical to let developers treat <code>ARRAY</code> as a class and arrays as objects; many library classes in EiffelBase, for example, inherit from <code>ARRAY</code>. Once again the idea is to get the best of both worlds: the convenience and uniformity of the object-oriented way of thinking; and the efficiency of traditional approaches. 
+The comment made about <code>INTEGER</code> and other basic classes applies to <code>ARRAY</code> too: Eiffel compilers know about this class, and will be able to process expressions of the form <code>my_array.put (val, 25)</code> and <code>my_array</code> <code>@</code> <code>25</code> in essentially the same way as a C or Fortran array access -- <code>my_array</code> <code>[25]</code> in C. But it is consistent and practical to let developers treat <code>ARRAY</code> as a class and arrays as objects; many library classes in EiffelBase, for example, inherit from <code>ARRAY</code>. Once again the idea is to get the best of both worlds: the convenience and uniformity of the object-oriented way of thinking; and the efficiency of traditional approaches. 
 
 A similar technique applies to another Kernel Library class, that one not generic: <code>STRING</code>, describing character strings with a rich set of string manipulation features. 
 
 ==Generic derivation==
 
-The introduction of genericity brings up a small difference between classes and types. A generic class <code>C</code> is not directly a type since you cannot declare an entity as being of type <code>C</code>: you must use some actual generic parameter <code>T</code> -- itself a type. <code>C</code> <code>[</code> <code>T</code> <code>]</code> is indeed a type, but class <code>C</code> by itself is only a type template. 
+The introduction of genericity brings up a small difference between classes and types. A generic class <code>C</code> is not directly a type since you cannot declare an entity as being of type <code>C</code>: you must use some actual generic parameter <code>T</code> -- itself a type. <code>C</code> <code>[T]</code> is indeed a type, but class <code>C</code> by itself is only a type template. 
 
-The process of obtaining a type <code>C</code> <code>[</code> <code>T</code> <code>]</code> from a general class <code>C</code> is known as a '''generic derivation'''; <code>C</code> <code>[</code> <code>T</code> <code>]</code> is a '''generically derived type'''. Type <code>T</code> itself is, recursively, either a non-generic class or again a generically derived type <code>D</code> <code>[</code> <code>U</code> <code>]</code> for some <code>D</code> and <code>U</code>, as in <code>LIST</code> <code>[</code> <code>ARRAY</code> <code>[</code> <code>INTEGER</code> <code>]]</code>.) 
+The process of obtaining a type <code>C</code> <code>[T]</code> from a general class <code>C</code> is known as a '''generic derivation'''; <code>C</code> <code>[T]</code> is a '''generically derived type'''. Type <code>T</code> itself is, recursively, either a non-generic class or again a generically derived type <code>D</code> <code>[U]</code> for some <code>D</code> and <code>U</code>, as in <code>LIST</code> <code>[ARRAY [INTEGER]]</code>.) 
 
-It remains true, however, that every type is based on a class. The base class of a generically derived type <code>C</code> <code>[</code> <code>T</code> <code>]</code> is <code>C</code>. 
+It remains true, however, that every type is based on a class. The base class of a generically derived type <code>C</code> <code>[T]</code> is <code>C</code>. 
 
 
 
