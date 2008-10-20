@@ -9,6 +9,8 @@ Eiffel directly implements the ideas of Design by Contract&#153; , which enhance
 A system -- a software system in particular, but the ideas are more general -- is made of a number of cooperating components. Design by Contract&#153; states that their cooperation should be based on precise specifications -- contracts -- describing each party's expectations and guarantees. 
 
 An Eiffel contract is similar to a real-life contract between two people or two companies, which it is convenient to express in the form of tables listing the expectations and guarantees. Here for example is how we could sketch the contract between a homeowner and the telephone company:
+
+
 {| border="1"
 |- 
 | style="width=10%" |provide telephone service 
@@ -28,6 +30,7 @@ Provide telephone service.
 No need to provide anything if bill not paid. 
 |}
 
+
 Note how the obligation for each of the parties maps onto a benefit for the other. This will be a general pattern. 
 
 The client's obligation, which protects the supplier, is called a '''precondition'''. It states what the client must satisfy before requesting a certain service. The client's benefit, which describes what the supplier must do (assuming the precondition was satisfied), is called a '''postcondition'''. 
@@ -36,50 +39,50 @@ In addition to preconditions and postconditions, contract clauses include '''cla
 
 ==Expressing assertions==
 
-Eiffel provides syntax for expressing preconditions ( <code>require</code>), postconditions ( <code>ensure</code>) and class invariants ( <code>invariant</code>), as well as other assertion constructs studied later (see [[10 Other Mechanisms|"Instructions", page 84]] ): loop invariants and variants, check instructions. 
+Eiffel provides syntax for expressing preconditions (<code>require</code>), postconditions (<code>ensure</code>) and class invariants (<code>invariant</code>), as well as other assertion constructs studied later (see [[10 Other Mechanisms#Instructions|"Instructions"]] ): loop invariants and variants, check instructions. 
 
 Here is a partial update of class <code>ACCOUNT</code> with more assertions: 
 <code>
 indexing
-	description: "Simple bank accounts"
+    description: "Simple bank accounts"
 
 class
-	ACCOUNT
+    ACCOUNT
 
 feature -- Access
 
-	balance: INTEGER
-		-- Current balance
+    balance: INTEGER
+            -- Current balance
 
-	deposit_count: INTEGER is
-			-- Number of deposits made since opening
-		do
-			... As before ...
-		end
+    deposit_count: INTEGER
+            -- Number of deposits made since opening
+        do
+            ... As before ...
+        end
 
 feature -- Element change
 
-	deposit (sum: INTEGER) is
-			-- Add `sum' to account.
-		require
-			non_negative: sum >= 0
-		do
-			... As before ...
-		ensure
-			one_more_deposit: deposit_count = old deposit_count + 1
-			updated: balance = old balance + sum
-		end
+    deposit (sum: INTEGER)
+            -- Add `sum' to account.
+        require
+            non_negative: sum >= 0
+        do
+            ... As before ...
+        ensure
+            one_more_deposit: deposit_count = old deposit_count + 1
+            updated: balance = old balance + sum
+        end
 
 feature {NONE} -- Implementation
 
-	all_deposits: DEPOSIT_LIST
-			-- List of deposits since account's opening.
+    all_deposits: DEPOSIT_LIST
+            -- List of deposits since account's opening.
 
 invariant
-	consistent_balance: (all_deposits /= Void) implies
-			(balance = all_deposits . total)
-	zero_if_no_deposits: (all_deposits = Void) implies
-			(balance = 0)
+    consistent_balance: (all_deposits /= Void) implies
+            (balance = all_deposits . total)
+    zero_if_no_deposits: (all_deposits = Void) implies
+            (balance = 0)
 
 end -- class ACCOUNT
 </code>
@@ -93,6 +96,8 @@ The precondition of a routine expresses conditions that the routine is imposing 
 The postcondition of a routine expresses what the routine guaranteed to its clients for calls satisfying the precondition. The notation <code>old expression</code>, valid in postconditions ( <code>ensure</code> clauses) only, denotes the value that <code>expression</code> had on entry to the routine. 
 
 The precondition and postcondition state the terms of the contract between the routine and its clients, similar to the earlier example of a human contract:
+
+
 {| border="1"
 |- 
 | style="width=10%" |<code>deposit</code>
@@ -112,18 +117,21 @@ Update deposits list and balance.
 No need to handle negative arguments. 
 |}
 
+
 The class invariant, as noted, applies to all features. It must be satisfied on exit by any creation procedure, and is implicitly added to both the precondition and postcondition of every exported routine. In this respect it is both good news and bad news for the routine implementer: good news because it guarantees that the object will initially be in a stable state, averting the need in the example to check that the total of <code>all_deposits</code> is compatible with the <code>balance</code>; bad news because, in addition to its official contract as expressed by its specific postcondition, every routine must take care of restoring the invariant on exit. 
 
 A requirement on meaningful contracts is that they should be in good faith: satisfiable by an honest partner. This implies a consistency rule: if a routine is exported to a client (either generally or selectively), any feature appearing in its precondition must also be available to that client. Otherwise -- for example if the precondition included <code>require n > 0</code>, where <code>n</code> is a secret attribute -- the supplier would be making demands that a good-faith client cannot possibly check for. 
 
 Note in this respect that guaranteeing a precondition does not necessarily mean, for the client, testing for it. Assuming <code>n</code> is exported, a call may test for the precondition 
 <code>
-if x.n > 0 then x.r end
+        if x.n > 0 then
+            x.r
+        end
 </code>
 
 possibly with an <code>else</code> part. But if the context of the call, in the client's code, implies that <code>n</code> is positive -- perhaps because some preceding call set it to the sum of two squares -- then there is no need for an <code>if</code> or similar construct. 
 
-{{note|In such a case, a <code>check</code> instruction as introduced later ( [[10 Other Mechanisms|"Instructions", page 84]] ) is recommended if the reason for omitting the test is non-trivial. }}
+{{note|In such a case, a <code>check</code> instruction as introduced later ( [[10 Other Mechanisms#Instructions|"Instructions"]] ) is recommended if the reason for omitting the test is non-trivial. }}
 
 ==Using contracts for built-in reliability==
 
@@ -137,12 +145,11 @@ Contracts in Eiffel are not just wishful thinking. They can be monitored at run 
 
 It should be clear from the preceding discussion that contracts are not a mechanism to test for special conditions, for example erroneous user input. For that purpose, the usual control structures ( <code>if deposit_sum > 0 then</code> ...) are available, complemented in applicable cases by the exception handling mechanism reviewed next. An assertion is instead a '''correctness condition''' governing the relationship between two software modules (not a software module and a human, or a software module and an external device). If <code>sum</code> is negative on entry to <code>deposit</code>, violating the precondition, the culprit is some other software element, whose author was not careful enough to observe the terms of the deal. Bluntly: 
 
-{{note| '''Assertion Violation rule '''A run-time assertion violation is the manifestation of a bug. }}
+{{rule|name=Assertion Violation|text=A run-time assertion violation is the manifestation of a bug. }}
 
 To be more precise: <br/>
 *  A precondition violation signals a bug in the client, which did not observe its part of the deal. 
 *  A postcondition (or invariant) violation signals a bug in the supplier -- the routine -- which did not do its job. 
-
 
 That violations indicate bugs explains why it is legitimate to enable or disable assertion monitoring through mere compilation options: for a correct system -- one without bugs -- assertions will always hold, so the compilation option makes no difference to the semantics of the system. 
 
@@ -150,15 +157,15 @@ But of course for an incorrect system the best way to find out where the bug is 
 *  <code>no</code> : assertions have no run-time effect. 
 *  <code>require</code> : monitor preconditions only, on routine entry. 
 *  <code>ensure</code> : preconditions on entry, postconditions on exit. 
-*  <code>invariant</code> : like <code>ensure</code>, plus class invariant on both entry and exit for qualified calls. 
-*  <code>all</code> : like <code>invariant</code>, plus <code>check</code> instructions, loop invariants and loop variants ( [[10 Other Mechanisms|"Exception handling", page 46]] ). 
+*  <code>invariant</code> : same as <code>ensure</code>, plus class invariant on both entry and exit for qualified calls. 
+*  <code>all</code> : same as <code>invariant</code>, plus <code>check</code> instructions, loop invariants and loop variants.
 
 
-An assertion violation, if detected at run time under one of these options other than the first, will cause an exception ( [[8 Design by Contract (tm), Assertions and Exceptions|"Instructions", page 84]] ). Unless the software has an explicit "retry" plan as explained in the discussion of exceptions, the violation will cause produce an exception trace and cause termination (or, in EiffelStudio, a return to the environment's browsing and debugging facilities at the point of failure). If present, the label of the violated sub clause will be displayed, to help identify the problem. 
+An assertion violation, if detected at run time under one of these options other than the first, will cause an exception ( [[8 Design by Contract (tm), Assertions and Exceptions#exception_handling|"Exception handling"]] ). Unless the software has an explicit "retry" plan as explained in the discussion of exceptions, the violation will cause produce an exception trace and cause termination (or, in EiffelStudio, a return to the environment's browsing and debugging facilities at the point of failure). If present, the label of the violated sub clause will be displayed, to help identify the problem. 
 
 The default is <code>require</code>. This is particularly interesting in connection with the Eiffel method's insistence on reuse: with libraries such as EiffelBase, richly equipped with preconditions expressing terms of use, an error in the '''client software''' will often lead, for example through an incorrect argument, to violating one of these preconditions. A somewhat paradoxical consequence is that even an application developer who does not apply the method too well (out of carelessness, haste, indifference or ignorance) will still benefit from the presence of contracts in someone else's library code. 
 
-During development and testing, assertion monitoring should be turned on at the highest possible level. Combined with static typing and the immediate feedback of compilation techniques such as the Melting Ice Technology, this permits the development process mentioned in the section [[3 The Software Process in Eiffel|"Quality and functionality", page 10]] , where errors are exterminated at birth. No one who has not practiced the method in a real project can imagine how many mistakes are found in this way; surprisingly often, a violation will turn out to affect an assertion that was just included for goodness' sake, the developer being convinced that it could never "possibly" fail to be satisfied. 
+During development and testing, assertion monitoring should be turned on at the highest possible level. Combined with static typing and the immediate feedback of compilation techniques such as the Melting Ice Technology, this permits the development process mentioned in the section [[3 The Software Process in Eiffel#Quality_and_functionality|"Quality and functionality"]] , where errors are exterminated at birth. No one who has not practiced the method in a real project can imagine how many mistakes are found in this way; surprisingly often, a violation will turn out to affect an assertion that was just included for goodness' sake, the developer being convinced that it could never "possibly" fail to be satisfied. 
 
 By providing a precise reference (the description of what the software is supposed to do) against which to assess the reality (what the software actually does), Design by Contract&#153; profoundly transforms the activities of debugging, testing and quality assurance. 
 
@@ -169,31 +176,31 @@ When releasing the final version of a system, it is usually appropriate to turn 
 Another application of assertions governs documentation. Environment mechanisms, such as clicking the <code>Form Contract</code> icon in Eiffelstudio, will produce, from a class text, an abstracted version which only includes the information relevant for client authors. Here is the contract form of class <code>ACCOUNT</code> in the latest version given: 
 <code>
 indexing
-	description: "Simple bank accounts"
+    description: "Simple bank accounts"
 
 class interface
-	ACCOUNT
+    ACCOUNT
 
 feature -- Access
 
-	balance: INTEGER
- 		-- Current balance
+    balance: INTEGER
+            -- Current balance
 	
-	deposit_count: INTEGER
-		-- Number of deposits made since opening
+    deposit_count: INTEGER
+            -- Number of deposits made since opening
 
 feature -- Element change
 
-	deposit (sum: INTEGER)
-			-- Add `sum' to account.
-		require
-			non_negative: sum >= 0
-		ensure
-			one_more_deposit: deposit_count = old deposit_count + 1
-			updated: balance = old balance + sum
+    deposit (sum: INTEGER)
+            -- Add `sum' to account.
+        require
+            non_negative: sum >= 0
+        ensure
+            one_more_deposit: deposit_count = old deposit_count + 1
+            updated: balance = old balance + sum
 
 invariant
-	consistent_balance: balance = all_deposits.total
+    consistent_balance: balance = all_deposits.total
 
 end -- class interface ACCOUNT
 </code>
@@ -202,25 +209,25 @@ The words <code>interface class</code> are used instead of just <code>class</cod
 
 Compared to the full text, the Contract Form of a class (also called its "short form") retains all its interface properties, relevant to client authors: <br/>
 *  Names and signatures (argument and result type information) for exported features. 
-*  Header comments of these features, which carry informal descriptions of their purpose. (Hence the importance, mentioned in section [[4 Hello World|4]] , of always including such comments and writing them carefully.) 
+*  Header comments of these features, which carry informal descriptions of their purpose. (Hence the importance, mentioned in section [[4 Hello World|"Hello World"]], of always including such comments and writing them carefully.) 
 *  Preconditions and postconditions of these features (at least the subclauses involving only exported features). 
 *  Class invariant (same observation). 
 
 
-The following elements, however, are not in the Contract Form: any information about non-exported features; all the routine bodies ( <code>do</code> clauses, or the <code>external</code> and <code>once</code> variants seen in [[5 The Static Picture: System Organization|"External software", page 16]]  above and [[10 Other Mechanisms|"Once routines and shared objects", page 82]]  below); assertion subclauses involving non-exported features; and some keywords not useful in the documentation, such as <code>is</code> for a routine. 
+The following elements, however, are not in the Contract Form: any information about non-exported features; all the routine bodies (<code>do</code> clauses, or the <code>external</code> and <code>once</code> variants seen in [[5 The Static Picture: System Organization#External_software|"External software"]]  above and [[10 Other Mechanisms#Once_routines_and_shared_objects|"Once routines and shared objects"]]  below); assertion subclauses involving non-exported features; and some keywords not useful in the documentation. 
 
-In accordance with the Uniform Access principle (page [[6 The Dynamic Structure: Execution Model|19]] ), the Contract Form does not distinguish between attributes and argument-less queries. In the above example, <code>balance</code> could be one or the other, as it makes no difference to clients, except possibly for performance. 
+In accordance with the Uniform Access principle (described in [[6 The Dynamic Structure: Execution Model|"Objects, fields, values, and references"]] ), the Contract Form does not distinguish between attributes and argument-less queries. In the above example, <code>balance</code> could be one or the other, as it makes no difference to clients, except possibly for performance. 
 
 The Contract Form is the fundamental tool for using supplier classes in the Eiffel method. It enables client authors to reuse software elements without having to read their source code. This is a crucial requirement in large-scale industrial developments. 
 
 The Contract Form satisfies two key requirements of good software documentation: <br/>
 *  It is truly abstract, free from the implementation details of what it describes and concentrating instead on its functionality. 
-*  Rather than being developed separately -- an unrealistic requirement, hard to impose on developers initially and becoming impossible in practice if we expect the documentation to remain up to date as the software evolves -- the documentation is extracted from the software itself. It is not a separate product but a different view of the same product. This prolongs the '''Single Product''' principle that lies at the basis of Eiffel's seamless development model (section [[3 The Software Process in Eiffel|3]] ). 
+*  Rather than being developed separately -- an unrealistic requirement, hard to impose on developers initially and becoming impossible in practice if we expect the documentation to remain up to date as the software evolves -- the documentation is extracted from the software itself. It is not a separate product but a different view of the same product. This prolongs the '''Single Product''' principle that lies at the basis of Eiffel's seamless development model (shown in [[3 The Software Process in Eiffel|"The Software Process in Eiffel"]] ). 
 
 
 The Contract Form is only one of the relevant views. EiffelStudio, for example, generates graphical representations of system structures, to show classes and their relations -- client, inheritance -- according to the conventions of BON (the Business Object Notation). In accordance with the principles of seamlessness and reversibility, EiffelStudio lets you both work on the text, producing the graphics on the fly, or work on the graphics, updating the text on the fly; you can alternate as you wish between these two modes. The resulting process is quite different from more traditional approaches based on separate tools: an analysis and CASE workbench, often based on UML, to deal with an initial "bubble-and-arrow" description; and a separate programming environment, to deal with implementation aspects only. In Eiffel the environment provides consistent, seamless support from beginning to end. 
 
-The Contract Form -- or its variant the Flat-Contract Form, which takes account of inheritance ( [[9 Inheritance|"Flat and Flat-Contract Forms", page 72]] ) are the standard form of library documentation, used extensively, for example, in the book <span> [http://www.eiffel.com/doc/page.html Reusable Software]  </span> (see bibliography). Assertions play a central role in such documentation by expressing the terms of the contract. As demonstrated a contrario by the widely publicized $500-million crash of the Ariane-5 rocket launcher in June of 1996, due to the incorrect reuse of a software module from the Ariane-4 project, '''reuse without a contract documentation''' is the path to disaster. Non-reuse would, in fact, be preferable. 
+The Contract Form -- or its variant the Flat-Contract Form, which takes account of inheritance ( [[9 Inheritance#Flat_and_Flat-Contract_Forms|"Flat and Flat-Contract Forms"]] ) are the standard form of library documentation, used extensively, for example, in the book <span> [http://www.eiffel.com/doc/page.html Reusable Software]  </span> (see bibliography). Assertions play a central role in such documentation by expressing the terms of the contract. As demonstrated a contrario by the widely publicized $500-million crash of the Ariane-5 rocket launcher in June of 1996, due to the incorrect reuse of a software module from the Ariane-4 project, '''reuse without a contract documentation''' is the path to disaster. Non-reuse would, in fact, be preferable. 
 
 ==Exception handling==
 
@@ -232,27 +239,28 @@ Another application of Design by Contract&#153; governs the handling of unexpect
 *  As a result the routine may fail too -- causing an exception in its own caller. 
 
 
+
 Note the precise definitions of the two key concepts, failure and exception. Although failure is the more basic one -- since it is defined for atomic, non-routine operations -- the definitions are mutually recursive, since an exception may cause a failure of the recipient routine, and a routine's failure causes an exception in its own caller. 
 
 Why state that an exception "may" cause a failure? It is indeed possible to "rescue" a routine from failure in the case of an exception, by equipping it with a clause labeled <code>rescue</code>, as in: 
 <code>
-read_next_character (f: FILE) is
-		-- Make next character available in last_character.
-		-- If impossible, set failed to True.
-	require
-		readable: file.readable
-	local
-		impossible: BOOLEAN
-	do
-		if impossible then
-			failed := True
-		else
-			last_character := low_level_read_function (f)
-		end
-	rescue
-		impossible := True
-		retry
-	end
+    read_next_character (f: FILE)
+            -- Make next character available in last_character.
+            -- If impossible, set failed to True.
+        require
+            readable: file.readable
+        local
+            impossible: BOOLEAN
+        do
+            if impossible then
+                failed := True
+            else
+                last_character := low_level_read_function (f)
+            end
+        rescue
+            impossible := True
+            retry
+        end
 </code>
 
 This example includes the only two constructs needed for exception handling: <code>rescue</code> and <code>retry</code>. A <code>retry</code> instruction is only permitted in a rescue clause; its effect is to start again the execution of the routine, without repeating the initialization of local entities (such as <code>impossible</code> in the example, which was initialized to <code>False</code> on first entry). Features <code>failed</code> and <code>last_character</code> are assumed to be attributes of the enclosing class. 
@@ -261,42 +269,42 @@ This example is typical of the use of exceptions: as a last resort, for situatio
 
 A variant would be
 <code>
-local
-	attempts: INTEGER
-do
-	if attempts < Max_attempts then
-		last_character := low_level_read_function (f)
-	else
-		failed := True
-	end
-rescue
-	attempts := attempts + 1
-	retry
-end
+        local
+            attempts: INTEGER
+        do
+            if attempts < Max_attempts then
+                last_character := low_level_read_function (f)
+            else
+                failed := True
+            end
+        rescue
+	    attempts := attempts + 1
+            retry
+        end
 </code>
 
 which would try again up to <code>Max_attempts</code> times before giving up. 
 
 The above routine, in either variant, never fails: it always fulfills its contract, which states that it should either read a character or set <code>failed</code> to record its inability to do so. In contrast, consider the new variant 
 <code>
-local
-	attempts: INTEGER
-do
-	last_character := low_level_read_function (f)
-rescue
-	attempts := attempts + 1
-	if attempts < Max_attempts then
-		retry
-	end
-end
+        local
+            attempts: INTEGER
+        do
+            last_character := low_level_read_function (f)
+        rescue
+            attempts := attempts + 1
+            if attempts < Max_attempts then
+                retry
+            end
+        end
 </code>
 
 with no more role for <code>failed</code>. In this case, after <code>Max_attempts</code> unsuccessful attempts, the routine will execute its <code>rescue</code> clause to the end, with no <code>retry</code> (the <code>if</code> having no <code>else</code> clause). This is how a routine '''fails'''. It will, as noted, pass on the exception to its caller. 
 
 Such a rescue clause should, before terminating, restore the invariant of the class so that the caller and possible subsequent <code>retry</code>attempts from higher up find the objects in a consistent state. As a result, the rule for an absent <code>rescue</code> clause -- the case for the vast majority of routines in most systems -- is that it is equivalent to 
 <code>
-rescue
-	default_rescue
+        rescue
+            default_rescue
 </code>
 
 where procedure <code>default_rescue</code> comes from <code>ANY</code>, where it is defined to do nothing; in a system built for robustness, classes subject to non-explicitly-rescued exceptions should redefine <code>default_rescue</code> (perhaps using a creation procedure, which is bound by the same formal requirement) so that it will always restore the invariant. 
@@ -311,13 +319,13 @@ Concretely, exceptions may result from the following events: <br/>
 *  Operating system signal:arithmetic overfolow; no memory available for a requested creation or clone -- even after garbage collection has rummaged everything to find some space. (But no C/C++-like "wrong pointer address", which cannot occur thanks to the statically typed nature of Eiffel.)
 
 
-It is sometimes useful, when handling exceptions in <code>rescue</code> clauses, to ascertain the exact nature of the exception that got the execution there. For this it is suffices to inherit from the Kernel Library class <code>EXCEPTIONS</code>, which provides queries such as <code>exception</code>, giving the code for the last exception, and symbolic names ( [[10 Other Mechanisms|"Constant and unique attributes", page 83]] ) for all such codes, such as <code>No_more_memory</code>. You can then process different exceptions differently by testing <code>exception</code> against various possibilities. The method strongly suggests, however, that exception handling code should remain simple; a complicated algorithm in a <code>rescue</code> clause is usually a sign that the mechanism is being misused. Class <code>EXCEPTIONS</code> also provides various facilities for fine-tuning the exception facilities, such as a procedure <code>raise</code> that will explicitly trigger a "developer exception" with a code than can then be detected and processed. Exception handling helps produce Eiffel software that is not just correct but robust, by planning for cases that should not normally arise, but might out of Murphy's law, and ensuring they do not affect the software's basic safety and simplicity. 
+It is sometimes useful, when handling exceptions in <code>rescue</code> clauses, to ascertain the exact nature of the exception that got the execution there. For this it is suffices to inherit from the Kernel Library class <code>EXCEPTIONS</code>, which provides queries such as <code>exception</code>, giving the code for the last exception, and symbolic names ( [[10 Other Mechanisms#Constant_and_unique_attributes|"Constant and unique attributes"]] ) for all such codes, such as <code>No_more_memory</code>. You can then process different exceptions differently by testing <code>exception</code> against various possibilities. The method strongly suggests, however, that exception handling code should remain simple; a complicated algorithm in a <code>rescue</code> clause is usually a sign that the mechanism is being misused. Class <code>EXCEPTIONS</code> also provides various facilities for fine-tuning the exception facilities, such as a procedure <code>raise</code> that will explicitly trigger a "developer exception" with a code than can then be detected and processed. Exception handling helps produce Eiffel software that is not just correct but robust, by planning for cases that should not normally arise, but might out of Murphy's law, and ensuring they do not affect the software's basic safety and simplicity. 
 
 ==Other applications of Design by Contract&#153;==
 
 The Design by Contract&#153; ideas pervade the Eiffel method. In addition to the applications just mentioned, they have two particularly important consequences: <br/>
-*  They make it possible to use Eiffel for analysis and design. At a high level of abstraction, it is necessary to be precise too. With the exception of BON, object-oriented analysis and design methods tend to favor abstraction over precision. Thanks to assertions, it is possible to express precise properties of a system ("At what speed should the alarm start sounding?") without making any commitment to implementation. The discussion of deferred classes ( [[9 Inheritance|"Applications of deferred classes", page 60]] ) will show how to write a purely descriptive, non-software model in Eiffel, using contracts to describe the essential properties of a system without any computer or software aspect. 
-*  Assertions also serve to control the power of inheritance-related mechanisms -- redeclaration, polymorphism, dynamic binding -- and channel them to correct uses by assigning the proper semantic limits. See [[9 Inheritance|"Inheritance and contracts", page 66]] . 
+*  They make it possible to use Eiffel for analysis and design. At a high level of abstraction, it is necessary to be precise too. With the exception of BON, object-oriented analysis and design methods tend to favor abstraction over precision. Thanks to assertions, it is possible to express precise properties of a system ("At what speed should the alarm start sounding?") without making any commitment to implementation. The discussion of deferred classes ( [[9 Inheritance#Applications_of_deferred_classes|"Applications of deferred classes"]] ) will show how to write a purely descriptive, non-software model in Eiffel, using contracts to describe the essential properties of a system without any computer or software aspect. 
+*  Assertions also serve to control the power of inheritance-related mechanisms -- redeclaration, polymorphism, dynamic binding -- and channel them to correct uses by assigning the proper semantic limits. See [[9 Inheritance#Inheritance_and_contracts|"Inheritance and contracts"]] . 
 
 
 
