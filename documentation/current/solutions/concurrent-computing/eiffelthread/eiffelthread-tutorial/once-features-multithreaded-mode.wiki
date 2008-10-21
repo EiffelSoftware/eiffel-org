@@ -1,5 +1,6 @@
 [[Property:title|Once features in multithreaded mode]]
 [[Property:weight|4]]
+[[Property:uuid|5578da29-7603-b501-1a7d-305d20fd6485]]
 ==Manipulating Once features in multithreaded mode==
 
 Eiffel introduced the powerful mechanism of once routines. A once routine has a body that will be executed only once, at the first call. Subsequent calls will have no further effect and, in the case of a function, will return the same result as the first. This provides a simple way of sharing objects in an object-oriented context. 
@@ -21,27 +22,27 @@ Moreover, an Eiffel programmer should be able to have an alternative between a o
 Here is what you will do to implement a once per process feature:
 <code>
 class
-		TEST_ONCE_PER_PROCESS
+	TEST_ONCE_PER_PROCESS
 
-	feature
+feature -- Access
 
-		object_per_thread: OBJECT is
-				-- Once per thread.
-			once
-				create Result.make
-			end
+	object_per_thread: OBJECT is
+			-- Once per thread.
+		once
+			create Result.make
+		end
 
-		object_per_process: OBJECT is
-				-- New 'object' (once per process)
-				-- that could be shared between threads
-				-- without reinitializing it.
-			indexing
-				once_status: global
-			once
-				create Result.make
-			end
+	object_per_process: OBJECT is
+			-- New 'object' (once per process)
+			-- that could be shared between threads
+			-- without reinitializing it.
+		indexing
+			once_status: global
+		once
+			create Result.make
+		end
 
-	end -- class TEST_ONCE_PER_PROCESS
+end -- class TEST_ONCE_PER_PROCESS
 </code>
 You can do the same with once procedures. 
 

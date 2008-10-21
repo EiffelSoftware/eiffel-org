@@ -6,7 +6,7 @@ Eiffel software texts are free-format: distribution into lines is not semantical
 
 Successive declarations or instructions may be separated by semicolons. Eiffel's syntax has been so designed, however, that (except in rare cases) '''the semicolon is optional'''. Omitting semicolons for elements appearing on separate lines lightens text and is the recommended practice since semicolons, as used by most programming languages, just obscure the text by distracting attention from the actual contents. Do use semicolons if you occasionally include successive elements on a single line. 
 
-56 names -- all unabbreviated single English words, except for <code> elseif </code> which is made of two words -- are reserved, meaning that you cannot use them to declare new entities. Here is the list: 
+56 names -- all unabbreviated single English words, except for <code>elseif</code> which is made of two words -- are reserved, meaning that you cannot use them to declare new entities. Here is the list: 
 {| border="1"
 |- 
 | <code>agent</code>
@@ -76,25 +76,25 @@ Successive declarations or instructions may be separated by semicolons. Eiffel's
 
 Since this tutorial has covered all the essential mechanisms, you may ignore the keywords not encountered; they are reserved for future use. 
 
-Most of the reserved words are keywords, serving only as syntactic markers, and written in boldface in typeset texts such as the present one: <code> class </code>, <code> feature </code>, <code> inherit </code>. The others, such as <code> Current </code>, directly carry a semantic denotation; they start with an upper-case letter and are typeset in boldface. 
+Most of the reserved words are keywords, serving only as syntactic markers, and written in boldface in typeset texts such as the present one: <code>class</code>, <code>feature</code>, <code>inherit</code>. The others, such as <code>Current</code>, directly carry a semantic denotation; they start with an upper-case letter and are typeset in boldface. 
 
-These conventions about letter case are only style rules. Eiffel is case-insensitive, since it is foolish to assume that two identifiers denote two different things just on the basis of a letter written in lower or upper case. The obvious exception is manifest character constants (appearing in single quotes, such as <code> 'A' </code>) and manifest character strings (appearing in double quotes, such as <code> "UPPER and lower" </code>). 
+These conventions about letter case are only style rules. Eiffel is case-insensitive, since it is foolish to assume that two identifiers denote two different things just on the basis of a letter written in lower or upper case. The obvious exception is manifest character constants (appearing in single quotes, such as <code>'A'</code>) and manifest character strings (appearing in double quotes, such as <code>"UPPER and lower"</code>). 
 
 The style rules, however, are precise, and any serious Eiffel project will enforce them; the tools of EiffelStudio also observe them in the texts they output (although they will not mess up with your source text unless you ask them to reformat it). Here are the conventions, illustrated by the examples of this tutorial:
-* Class names in upper case, as <code> ACCOUNT </code>. 
-* Non-constant feature names and keywords in lower case, as <code> balance </code> and <code> class </code>. 
-* Constant features and predefined entities and expressions with an initial upper case, as <code> Avogadro </code> and <code> Result </code>. 
+* Class names in upper case, as <code>ACCOUNT</code>. 
+* Non-constant feature names and keywords in lower case, as <code>balance</code> and <code>class</code>. 
+* Constant features and predefined entities and expressions with an initial upper case, as <code>Avogadro</code> and <code>Result</code>. 
 
-In typeset documents including Eiffel texts, the standard for font styles is also precise. You should use <code> bold face </code> for keywords and <code> italics </code> for all other Eiffel elements. Comments, however, are typeset in <code> roman </code>. This lets a software element, such as an identifier, stand out clearly in what is otherwise a comment text expressed in English or another human language, as in the earlier example 
+In typeset documents including Eiffel texts, the standard for font styles is also precise. You should use <code>bold face</code> for keywords and <code>italics</code> for all other Eiffel elements. Comments, however, are typeset in <code>roman</code>. This lets a software element, such as an identifier, stand out clearly in what is otherwise a comment text expressed in English or another human language, as in the earlier example 
 <code>
--- Add `sum' to account.
+            -- Add `sum' to account.
 </code>
 
-which makes clear that <code> sum </code> is a software element, not the English word. 
+which makes clear that <code>sum</code> is a software element, not the English word. 
 
-There is also an Eiffel style to the choice of identifiers. For features, stay away from abbreviations and use full words. In multi-word identifiers, separate the constituents by underscores, as in <code> LINKED_LIST </code> and <code> set_owner </code>. The competing style of no separation but mid-identifier upper-case, as in <code> linkedList </code> or <code> setOwner </code>, is less readable and not in line with standard Eiffel practices. 
+There is also an Eiffel style to the choice of identifiers. For features, stay away from abbreviations and use full words. In multi-word identifiers, separate the constituents by underscores, as in <code>LINKED_LIST</code> and <code>set_owner</code>. The competing style of no separation but mid-identifier upper-case, as in <code>linkedList</code> or <code>setOwner</code>, is less readable and not in line with standard Eiffel practices. 
 
-Features of reusable classes should use consistent names. A set of standard names -- <code> put </code> for the basic command to add or replace an element, <code> count </code> for the query that returns the number of element in a structure, <code> item </code> to access an element -- is part of the style rules, and used systematically in EiffelBase. Use them in your classes too. 
+Features of reusable classes should use consistent names. A set of standard names -- <code>put</code> for the basic command to add or replace an element, <code>count</code> for the query that returns the number of element in a structure, <code>item</code> to access an element -- is part of the style rules, and used systematically in EiffelBase. Use them in your classes too. 
 
 For local entities and formal arguments of routines, it is all right to use abbreviated names, since these identifiers only have a local scope, and choosing a loud name would give them too much pretense, leading to potential conflicts with features. 
 

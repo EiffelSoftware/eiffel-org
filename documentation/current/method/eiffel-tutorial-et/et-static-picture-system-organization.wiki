@@ -59,11 +59,11 @@ Above classes, you will find the concept of cluster. A cluster is a group of rel
 
 The subsequent sections will show how to write Eiffel classes with their features. In an Eiffel system, however, not everything has to be written in Eiffel: some features may be '''external''' , coming from languages such as C, C++, Java, C# Fortran and others. For example a feature declaration may appear (in lieu of the forms seen later) as 
 <code>
-file_status (filedesc: INTEGER): INTEGER
-        -- Status indicator for filedesc
-     external
-         "C" alias  "_fstat"
-     end
+    file_status (filedesc: INTEGER): INTEGER
+            -- Status indicator for filedesc
+         external
+             "C" alias  "_fstat"
+         end
 </code>
 
 to indicate that it is actually an encapsulation of a C function whose original name is <code>fstat _</code>. The <code>alias</code> clause is optional, but here it is needed because the C name, starting with an underscore, is not valid as an Eiffel identifier. 

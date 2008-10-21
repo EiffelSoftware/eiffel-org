@@ -12,18 +12,18 @@ Eiffel addresses this need through an original mechanism that also takes care of
 
 In the case of procedures, this provides a convenient initialization mechanism. A delicate problem in the absence of a <code>once</code> mechanism is how to provide the users of a library with a set of routines which they can call in any order, but which all need, to function properly, the guarantee that some context had been properly set up. Asking the library clients to precede the first call with a call to an initialization procedure <code>setup</code> is not only user-unfriendly but silly: in a well-engineered system we will want to check proper set-up in every of the routines, and report an error if necessary; but then if we were able to detect improper set-up we might as well shut up and set up ourselves (by calling <code>setup</code>). This is not easy, however, since the object on which we call <code>setup</code> must itself be properly initialized, so we are only pushing the problem further. Making <code>setup</code> a <code>once</code> procedure solves it: we can simply include a call 
 <code>
-setup
+            setup
 </code>
 
 at the beginning of each affected routine; the first one to come in will perform the needed initializations; subsequent calls will have, as desired, no effect.
 
 Once functions will give us shared objects. A common scheme is
 <code>
-console: WINDOW is
-		-- Shared console window
-	once
-		create Result.make (...)
-	end
+    console: WINDOW
+            -- Shared console window
+        once
+            create Result.make (...)
+        end
 </code>
 
 Whatever client first calls this function will create the appropriate window and return a reference to it. Subsequent calls, from anywhere in the system, will return that same reference. The simplest way to make this function available to a set of classes is to include it in a class <code>SHARED_STRUCTURES</code> which the classes needing a set of related shared objects will simply inherit. 
@@ -38,16 +38,16 @@ The attributes studied earlier were variable: each represents a field present in
 
 It is also possible to declare constant attributes, as in
 <code>
-Solar_system_planet_count: INTEGER is 9
+        Solar_system_planet_count: INTEGER = 9
 </code>
 
 These will have the same value for every instance and hence do not need to occupy any space in objects at execution time. (In other approaches similar needs would be addressed by symbolic constants, as in Pascal or Ada, or macros, as in C.)
 
-What comes after the <code>is</code> is a manifest constant: a self-denoting value of the appropriate type. Manifest constants are available for integers, reals (also used for doubles), booleans ( <code>True</code> and <code>False</code>), characters (in single quotes, as <code>'A'</code>, with special characters expressed using a percent sign as in <code>'%N'</code> for new line, <code>'%B'</code> for backspace and <code>'%U'</code> for null). 
+What comes after the <code>=</code> is a manifest constant: a self-denoting value of the appropriate type. Manifest constants are available for integers, reals (also used for doubles), booleans ( <code>True</code> and <code>False</code>), characters (in single quotes, as <code>'A'</code>, with special characters expressed using a percent sign as in <code>'%N'</code> for new line, <code>'%B'</code> for backspace and <code>'%U'</code> for null). 
 
 For integer constants, it is also possible to avoid specifying the values. A declaration of the form
 <code>
-a, b, c, ... n : INTEGER is unique
+        a, b, c, ... n : INTEGER = unique
 </code>
 
 introduces <code>a</code>, <code>b</code>, <code>c</code>, ... <code>n</code> as constant integer attributes, whose value are assigned by the Eiffel compiler rather than explicitly by the programmer. The values are different for all <code>unique</code> attributes in a system; they are all positive, and, in a single declaration such as the above, guaranteed to be consecutive (so that you may use an invariant property of the form <code>code > a and code < n</code> to express that <code>code</code> should be one of the values). This mechanism replaces the "enumerated types" found in many languages, without suffering from the same problems. (Enumerated types have an ill-defined place in the type system; and it is not clear what operations are permitted.) 
@@ -56,12 +56,12 @@ You may use Unique values in conjunction with the <code>inspect</code> multi-bra
 
 Manifest constants are also available for strings, using double quotes as in
 <code>
-User_friendly_error_message: STRING is "Go get a life !"
+        User_friendly_error_message: STRING is "Go get a life !"
 </code>
 
 with special characters again using the <code>%</code> codes. It is also possible to declare manifest arrays using double angle brackets: 
 <code>
-<<1, 2, 3, 5, 7, 11, 13, 17, 19>>
+            <<1, 2, 3, 5, 7, 11, 13, 17, 19>>
 </code>
 
 which is an expression of type <code>ARRAY [INTEGER]</code>. Manifest arrays and strings are not atomic, but denote instances of the Kernel Library classes <code>STRING</code> and <code>ARRAY</code>, as can be produced by once functions. 
@@ -70,23 +70,33 @@ which is an expression of type <code>ARRAY [INTEGER]</code>. Manifest arrays and
 
 Eiffel has a remarkably small set of instructions. The basic computational instructions have been seen: creation, assignment, assignment attempt, procedure call, retry. They are complemented by control structures: conditional, multi-branch, loop, as well as debug and check. 
 
-A conditional instruction has the form <code>if</code> ... <code>then</code> ... <code>elseif</code> ... <code>then</code> ... <code>else</code> ... <code>end</code>. The <code>elseif</code> ... <code>then</code> ... part (of which there may be more than one) and the <code>else</code> ... part are optional. After <code>if</code> and <code>elseif</code> comes a boolean expression; after <code>then</code>, <code>elseif</code> and <code>else</code> come zero or more instructions. 
+A conditional instruction has the form 
+<code>
+            if ... then
+                ... 
+            elseif ... then 
+                ... 
+            else 
+                ... 
+            end
+</code> 
+The <code>elseif</code> ... <code>then</code> ... part (of which there may be more than one) and the <code>else</code> ... part are optional. After <code>if</code> and <code>elseif</code> comes a boolean expression; after <code>then</code>, <code>elseif</code> and <code>else</code> come zero or more instructions. 
 
 A multi-branch instruction has the form
 <code>
-inspect
-	''exp''
-when ''v1'' then
-	''inst1''
-when ''v2'' then
-	''inst2''
-...
-else
-	''inst0''
-end
+            inspect
+                ''exp''
+            when ''v1'' then
+                ''inst1''
+            when ''v2'' then
+                ''inst2''
+            ...
+            else
+                ''inst0''
+            end
 </code>
 
-where the <code>else</code> ''inst0'' part is optional, <code>exp</code> is a character or integer expression, ''v1'', ''v1'', ... are constant values of the same type as <code>exp</code>, all different, and ''inst0'', ''inst1'', ''inst2'', ... are sequences of zero or more instructions. In the integer case, it is often convenient to use <code>unique</code> values ( [[10 Other Mechanisms|"Constant and unique attributes", page 83]] ) for the ''vi'' 
+where the <code>else ''inst0''</code> part is optional, <code>exp</code> is a character or integer expression, ''v1'', ''v1'', ... are constant values of the same type as <code>exp</code>, all different, and ''inst0'', ''inst1'', ''inst2'', ... are sequences of zero or more instructions. In the integer case, it is often convenient to use <code>unique</code> values ( [[10 Other Mechanisms|"Constant and unique attributes", page 83]] ) for the ''vi''.
 
 The effect of such a multi-branch instruction, if the value of <code>exp</code> is one of the ''vi'', is to execute the corresponding ''insti''. If none of the ''vi'' matches, the instruction executes ''inst0'', unless there is no <code>else</code> part, in which case it triggers an exception. 
 
@@ -94,17 +104,17 @@ The effect of such a multi-branch instruction, if the value of <code>exp</code> 
 
 The loop construct has the form
 <code>
-from
-	''initialization''
-until
-	''exit''
-invariant
-	''inv''
-variant
-	''var''
-loop
-	''body''
-end
+            from
+                ''initialization''
+            until
+                ''exit''
+            invariant
+                ''inv''
+            variant
+                ''var''
+            loop
+                ''body''
+            end
 </code>
 
 where the <code>invariant</code> ''inv'' and <code>variant</code> ''var'' parts are optional, the others required. ''initialization'' and ''body'' are sequences of zero or more instructions; ''exit'' and ''inv'' are boolean expressions (more precisely, ''inv'' is an assertion); ''var'' is an integer expression.
@@ -113,34 +123,41 @@ The effect is to execute ''initialization'', then, zero or more times until ''ex
 
 The assertion ''inv'', if present, expresses a '''loop invariant''' (not to be confused with class invariants). For the loop to be correct, ''initialization'' must ensure ''inv'', and then every iteration of ''body'' executed when ''exit'' is false must preserve the invariant; so the effect of the loop is to yield a state in which both ''inv'' and ''exit'' are true. The loop must terminate after a finite number of iterations, of course; this can be guaranteed by using a '''loop variant''' ''var''. It must be an integer expression whose value is non-negative after execution of ''initialization'', and decreased by at least one, while remain non-negative, by any execution of ''body'' when ''exit'' is false; since a non-negative integer cannot be decreased forever, this ensures termination. The assertion monitoring mode, if turned on at the highest level, will check these properties of the invariant and variant after initialization and after each loop iteration, triggering an exception if the invariant does not hold or the variant is negative or does not decrease. 
 
-An occasionally useful instruction is <code>debug</code> <code>(</code>''Debug_key'', ... <code>)</code> ''instructions'' <code>end</code> where ''instructions'' is a sequence of zero or more instructions and the part in parentheses is optional, containing if present one or more strings, called debug keys. The EiffelStudio compiler lets you specify the corresponding <code>debug</code> compilation option: <code>yes</code>, <code>no</code>, or an explicit debug key. The ''instructions''will be executed if and only if the corresponding option is on. The obvious use is for instructions that should be part of the system but executed only in some circumstances, for example to provide extra debugging information. 
+An occasionally useful instruction is <code>debug</code> <code>(</code>''Debug_key'', ... <code>)</code> ''instructions'' <code>end</code> where ''instructions'' is a sequence of zero or more instructions and the part in parentheses is optional, containing if present one or more strings, called debug keys. The EiffelStudio compiler lets you specify the corresponding <code>debug</code> compilation option: <code>yes</code>, <code>no</code>, or an explicit debug key. The ''instructions'' will be executed if and only if the corresponding option is on. The obvious use is for instructions that should be part of the system but executed only in some circumstances, for example to provide extra debugging information. 
 
-The final instruction is connected with Design by Contract&#153;. The instruction <code>check</code> ''Assertion'' <code>end</code>, where ''Assertion'' is a sequence of zero or more assertions, will have no effect unless assertion monitoring is turned on at the <code>Check</code> level or higher. If so it will evaluate all the assertions listed, having no further effect if they are all satisfied; if any one of them does not hold, the instruction will trigger an exception. 
+The final instruction is connected with Design by Contract&#153;. The instruction 
+<code>
+            check
+                Assertion
+            end
+</code>, where Assertion is a sequence of zero or more assertions, will have no effect unless assertion monitoring is turned on at the <code>Check</code> level or higher. If so it will evaluate all the assertions listed, having no further effect if they are all satisfied; if any one of them does not hold, the instruction will trigger an exception. 
 
 This instruction serves to state properties that are expected to be satisfied at some stages of the computation -- other than the specific stages, such as routine entry and exit, already covered by the other assertion mechanisms such as preconditions, postconditions and invariants. A recommended use of <code>check</code> involves calling a routine with a precondition, where the call, for good reason, does not explicitly test for the precondition. Consider a routine of the form 
 <code>
-r (ref: SOME_REFERENCE_TYPE) is
-	require
-		not_void: ref /= Void
-	do
-		ref.some_feature
-		...
-	end
+    r (ref: SOME_REFERENCE_TYPE)
+        require
+            not_void: ref /= Void
+        do
+            ref.some_feature
+            ...
+        end
 </code>
 
 Because of the call to <code>some_feature</code>, the routine will only work if its precondition is satisfied on entry. To guarantee this precondition, the caller may protect it by the corresponding test, as in 
 <code>
-if x /= Void then a.r (x) end
+            if x /= Void then 
+                a.r (x) 
+            end
 </code>
 
 but this is not the only possible scheme; for example if an <code>create x</code> appears shortly before the call we know <code>x</code> is not void and do not need the protection. It is a good idea in such cases to use a <code>check</code> instruction to document this property, if only to make sure that a reader of the code will realize that the omission of an explicit test (justified or not) was not a mistake. This is particularly appropriate if the justification for not testing the precondition is less obvious. For example <code>x</code> could have been obtained, somewhere else in the algorithm, as <code>clone (y)</code> for some <code>y</code> that you know is not void. You should document this knowledge by writing the call as 
 <code>
-check
-	x_not_void: x /= Void end
-		-- Because x was obtained as a clone of y,
-		-- and y is not void because [etc.]
-end
-a.r (x)
+            check
+                x_not_void: x /= Void end
+                    -- Because x was obtained as a clone of y,
+                    -- and y is not void because [etc.]
+            end
+            a.r (x)
 </code>
 
 {{recommended|An extra indentation of the <code>check</code> part to separate it from the algorithm proper; and inclusion of a comment listing the rationale behind the developer's decision not to check explicitly for the precondition. }}
@@ -155,14 +172,14 @@ This raises the issue of backward compatibility: how to move forward with a bett
 
 The notion of obsolete class and feature helps address this issue. By declaring a feature as <code>obsolete</code>, using the syntax 
 <code>
-enter (i: INTEGER; x: G) is
-	obsolete
-		"Use ` put (x, i)' instead "
-	require
-		...
-	do
-		put (x, i)
-	end
+    enter (i: INTEGER; x: G)
+        obsolete
+            "Use ` put (x, i)' instead "
+        require
+            ...
+        do
+            put (x, i)
+        end
 </code>
 
 you state that you are now advising against using it, and suggest a replacement through the message that follows the keyword <code>obsolete</code>, a mere string. The obsolete feature is still there, however; using it will cause no other harm than a warning message when someone compiles a system that includes a call to it. Indeed, you don't want to hold a gun to your client authors' forehead (''"Upgrade now or die !"''); but you do want to let them know that there is a new version and that they should upgrade at their leisure. 
@@ -182,38 +199,38 @@ The design flexibility afforded by the <code>obsolete</code> keyword is critical
 
 The basic forms of creation instruction, and the one most commonly used, are the two illustrated earlier ( [[6 The Dynamic Structure: Execution Model|"Creating and initializing objects", page 20]] ): 
 <code>
-create x.make (2000)
-create x
+            create x.make (2000)
+            create x
 </code>
 
 the first one if the corresponding class has a <code>create</code> clause, the second one if not. In either form you may include a type name in braces, as in 
 <code>
-create {SAVINGS_ACCOUNT} x.make (2000)
+            create {SAVINGS_ACCOUNT} x.make (2000)
 </code>
 
 which is valid only if the type listed, here <code>SAVINGS_ACCOUNT</code>, conforms to the type of <code>x</code>, assumed here to be <code>ACCOUNT</code>. This avoids introducing a local entity, as in 
 <code>
-local
-	xs: SAVINGS_ACCOUNT
-do
-	create xs.make (2000)
-	x := xs
-	...
+        local
+            xs: SAVINGS_ACCOUNT
+        do
+            create xs.make (2000)
+            x := xs
+            ...
 </code>
 
 and has exactly the same effect. Another variant is the '''creation expression''', which always lists the type, but returns a value instead of being an instruction. It is useful in the following context: 
 <code>
-some_routine (create {ACCOUNT}.make (2000))
+            some_routine (create {ACCOUNT}.make (2000))
 </code>
 
 which you may again view as an abbreviation for a more verbose form that would need a local entity, using a creation instruction:
 <code>
-local
- 	x: ACCOUNT
-do
-	create x.make (2000)
-	some_routine (x)
-	...
+        local
+             x: ACCOUNT
+        do
+            create x.make (2000)
+            some_routine (x)
+            ...
 </code>
 
 Unlike creation instructions, creation expressions must always list the type explicitly, <code>{ACCOUNT}</code> in the example. They are useful in the case shown: creating an object that only serves as an argument to be passed to a routine. If you need to retain access to the object through an entity, the instruction <code>create x</code> ... is the appropriate construct. 
@@ -222,7 +239,7 @@ The creation mechanism gets an extra degree of flexibility through the notion of
 
 One final twist is the mechanism for creating instances of formal generic parameters. For <code>x</code> of type <code>G</code> in a class <code>C [G]</code>, it wouldn't be safe to allow <code>create x</code>, since <code>G</code> stands for many possible types, all of which may have their own creation procedures. To allow such creation instructions, we rely on constrained genericity. You may declare a class as 
 <code>
-[G -> T create cp end]
+                [G -> T create cp end]
 </code>
 
 to make <code>G</code> constrained by <code>T</code>, as we learned before, and specify that any actual generic parameter must have <code>cp</code> among its creation procedures. Then it's permitted to use <code>create x.cp</code>, with arguments if required by <code>cp</code>, since it is guaranteed to be safe. The mechanism is very general since you may use <code>ANY</code> for <code>T</code> and <code>default_create</code> for <code>cp</code>. The only requirement on <code>cp</code> is that it must be a procedure of <code>T</code>, not necessarily a creation procedure; this permits using the mechanism even if <code>T</code> is deferred, a common occurrence. It's only descendants of <code>T</code> that must make <code>cp</code> a creation procedure, by listing it in the <code>create</code> clause, if they want to serve as actual generic parameters for <code>C</code>. 
@@ -231,7 +248,7 @@ to make <code>G</code> constrained by <code>T</code>, as we learned before, and 
 
 The study of genericity described arrays. Another common kind of container objects bears some resemblance to arrays: sequences, or "tuples", of elements of specified types. The difference is that all elements of an array were of the same type, or a conforming one, whereas for tuples you will specify the types we want for each relevant element. A typical tuple type is of the form
 <code>
-TUPLE [X, Y, Z]
+                TUPLE [X, Y, Z]
 </code>
 
 denoting a tuple of least three elements, such that the type of the first conforms to <code>X</code>, the second to <code>Y</code>, and the third to <code>Z</code>. 
@@ -242,7 +259,7 @@ You may list any number of types in brackets, including none at all: <code>TUPLE
 
 To write the tuples themselves -- the sequences of elements, instances of a tuple type -- you will also use square brackets; for example
 <code>
-[x1, y1, z1]
+                [x1, y1, z1]
 </code>
 
 with <code>x1</code> of type <code>X</code> and so on is a tuple of type <code>TUPLE [X, Y, Z]</code>. 
@@ -253,8 +270,7 @@ Features available on tuple types include <code>count: INTEGER</code>, yielding 
 
 Tuples are appropriate when these are the only operations you need, that is to say, you are using sequences with no further structure or properties. Tuples give you "anonymous classes" with predefined features <code>count</code>, <code>item</code> and <code>put</code>. A typical example is a general-purpose output procedure that takes an arbitrary sequence of values, of arbitrary types, and prints them. It may simply take an argument of type <code>TUPLE</code>, so that clients can call it under the form 
 <code>
-
-write ([ ''your_integer'' , ''your_real'', ''your_account'']) 
+            write ([your_integer, your_real, your_account]) 
 </code>
 
 As soon as you need a type with more specific features, you should define a class. 

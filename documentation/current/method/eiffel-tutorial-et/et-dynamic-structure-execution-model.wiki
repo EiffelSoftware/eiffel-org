@@ -106,7 +106,7 @@ It's easy to deduce, from a feature's syntactic appearance, the category to whic
 
 Classes, as noted, are a static notion. Objects appear at run time; they are created explicitly. Here is the basic instruction to create an object of type <code>ACCOUNT</code> and attach it to <code>x</code>: 
 <code>
-	create x
+            create x
 </code>
 
 assuming that <code>x</code> has been declared of type <code>ACCOUNT</code>. Such an instruction must be in a routine of some class -- the only place where instructions can appear -- and its effect at run time will be threefold: create a new object of type <code>ACCOUNT</code>; initialize its fields to default values; and attach the value of <code>x</code> to it. Here the object will have two fields corresponding to the two attributes of the generating class: an integer for <code>balance</code>, which will be initialized to 0, and a reference for <code>all_deposits</code>, which will be initialized to a void reference: 
@@ -197,7 +197,7 @@ A <code>create</code> clause may list zero or more (here just one) procedures of
 
 In this case the original form of creation instruction, <code>create x</code> , is not valid any more for creating an instance of <code>ACCOUNT1</code>; you must use the form 
 <code>
-	create x.make (2000)</code>
+            create x.make (2000)</code>
 
 known as a creation call. Such a creation call will have the same effect as the original form -- creation, initialization, attachment to -- <code>x</code> followed by the effect of calling the selected creation procedure, which here will call <code>deposit</code> with the given argument. 
 
@@ -216,28 +216,28 @@ The example assumed <code>x</code> declared of type <code>ACCOUNT</code> (or <co
 
 The third case, local entities, arises when a routine needs some auxiliary values for its computation. Here is an example of the syntax:
 <code>
-deposit (sum: INTEGER)
-        -- Add sum to account.
-    local
-        new: AMOUNT
-    do
-        create new.make (sum)
-        all_deposits.extend (new)
-        balance := balance + sum
-    end
+    deposit (sum: INTEGER)
+            -- Add sum to account.
+        local
+            new: AMOUNT
+        do
+            create new.make (sum)
+            all_deposits.extend (new)
+            balance := balance + sum
+        end
 </code>
 
 This example is a variant of <code> deposit </code> for which we assume that the elements of a <code>DEPOSIT_LIST</code> such as <code>all_deposits</code> are no longer just integers, but objects, instances of a new class, <code>AMOUNT</code>. Such an object will contain an integer value, but possibly other information as well. So for the purpose of procedure <code>deposit</code> we create an instance of <code>AMOUNT</code> and insert it, using procedure <code>extend</code>, into the list <code>all_deposits</code>. The object is identified through the local entity <code>new</code>, which is only needed within each execution of the routine (as opposed to an attribute, which yields an object field that will remain in existence for as long as the object). 
 
 The last case of entity, <code>Result</code>, serves to denote, within the body of a function, the final result to be returned by that function. This was illustrated by the function <code>deposit_count</code>, which read 
 <code>
-deposit_count: INTEGER
-        -- Number of deposits made since opening (provisional version)
-    do
-        if all_deposits /= Void then
-            Result := all_deposits.count
+    deposit_count: INTEGER
+            -- Number of deposits made since opening (provisional version)
+        do
+            if all_deposits /= Void then
+                Result := all_deposits.count
+            end
         end
-    end
 </code>
 
 The value returned by any call will be the value of the expression <code>all_deposits.count</code> (to be explained in detail shortly) for that call, unless <code>all_deposits</code> is a <code>Void</code> reference ( <code>/=</code> means "not equal"). 
@@ -248,29 +248,29 @@ The default initialization rules seen earlier for attributes (see the table abov
 
 Apart from object creation, the basic computational mechanism, in the object-oriented style of computation represented by Eiffel, is feature call. In its basic form, it appears as
 <code lang="text">
-	target.feature (argument1, ...)
+            target.feature (argument1, ...)
 </code>
 
 where <code>target</code> is an entity or more generally an expression, <code lang="text">feature</code> is a feature name, and there may be zero or more <code>argument</code> expressions. In the absence of any <code>argument</code> the part in parentheses should be removed. 
 
 We have already seen such calls. If the <code lang="text">feature</code> denotes a procedure, the call is an instruction, as in 
 <code>
-	all_deposits.extend (new)
+            all_deposits.extend (new)
 </code>
 
 If <code lang="text">feature</code> denotes a query (function or attribute), the call is an expression, as in the right-hand side of 
 <code>
-	Result := all_deposits.count
+            Result := all_deposits.count
 </code>
 
 Following the principle of Uniform Access (mentioned earlier in the section ''Objects, fields, values, and references''), this form is the same for calls to attributes and to functions without arguments. In this example, feature <code>count</code> from class <code>DEPOSIT_LIST</code> may indeed be implemented in either of these two ways: we can keep a <code>count </code> field in each list, updating it for each insertion and removal; or we can compute <code>count</code>, whenever requested, by traversing the list and counting the number of items. 
 
 In the case of a routine with arguments -- procedure or function -- the routine will be declared, in its class, as
 <code>
-some_feature (formal_1: TYPE_1; ...)
-    do
-        ...
-    end
+    some_feature (formal_1: TYPE_1; ...)
+        do
+            ...
+        end
 </code>
 
 meaning that, at the time of each call, the value of each formal will be set to the corresponding actual (<code>formal_1</code> to <code>argument_1</code> and so on). 
@@ -283,18 +283,19 @@ Basic types such as <code>INTEGER</code> are, as noted, full-status citizens of 
 
 With the dot notation seen so far, this would imply that simple arithmetic operations would have to be written with a syntax such as 
 <code>
-	i.plus (j)
+            i.plus (j)
 </code>
 instead of the usual 
 <code>
-	i + j
+            i + j
+
 </code>
 This would be awkward. Infix and prefix features solve the problem, reconciling the object-oriented view of computation with common notational practices of mathematics. The addition function is declared in class <code>INTEGER</code> as 
 <code>
-infix "+" (other: INTEGER): INTEGER
-    do
-        ...
-    end
+    infix "+" (other: INTEGER): INTEGER
+        do
+            ...
+        end
 </code>
 
 Such a feature has all the properties and prerogatives of a normal "identifier" feature, except for the form of the calls, which is infix, as in <code>i + j</code> , rather than using dot notation. An infix feature must be a function, and take exactly one argument. Similarly, a function can be declared as <code>prefix "-" </code>, with no argument, permitting calls of the form <code>-3</code> rather than <code>(3).negated</code> . 
@@ -303,19 +304,19 @@ Predefined library classes covering basic types such as <code>INTEGER</code>, <c
 
 Infix and prefix features are available to any class, not just the basic types' predefined classes. For example a graphics class could use the name <code>infix "|-|"</code> for a function computing the distance between two points, to be used in expressions such as 
 <code>
-	point1 |-|  point2
+                point1 |-|  point2
 </code> 
 
 ==Type declaration==
 
 Every entity appearing in an Eiffel text is declared as being of a certain type, using the syntax already encountered in the above examples:
 <code>
-	entity_name: TYPE_NAME
+    entity_name: TYPE_NAME
 </code>
 
 This applies to attributes, formal arguments of routines and local entities. You will also declare the result type for a function, as in the earlier example
 <code>
-	deposit_count: INTEGER ...
+    deposit_count: INTEGER ...
 </code>
 
 Specifying such a function result type also declares, implicitly, the type for <code>Result</code> as used in the function's body. 
@@ -337,7 +338,7 @@ class CLASS_NAME ...
 
 it defines a reference type. The entities declared of that type will denote references. So in the declaration
 <code>
-	x: ACCOUNT
+    x: ACCOUNT
 </code>
 
 the possible run-time values for <code> x </code> are references, which will be either void or attached to instances of class <code>ACCOUNT</code> . 
@@ -366,7 +367,7 @@ In this case the value of an entity declared as <code>n: INTEGER</code> is not a
 
 It is also possible, for some non-expanded class C, to declare an entity as
 <code>
-	x: expanded C
+    x: expanded C
 </code>
 
 so that the values for <code>x</code> will be objects of type <code>C</code>, rather than references to such objects. This is our first example of a type -- <code>expanded C</code> -- that is not directly a class, although it is based on a class, <code>C</code>. The base type of such a type is <code>C</code>. 
@@ -400,7 +401,7 @@ To assign, copy and compare values, you can rely on a number of mechanisms. Two 
 
 Assignment uses the symbol <code> := </code>. The assignment instruction 
 <code>
-	x := y
+            x := y
 </code>
 
 updates the value of <code>x</code> to be the same as that of <code>y</code>. This means that: 
@@ -419,18 +420,18 @@ For entities of expanded types, the values are objects; the object attached to <
 
 To copy an object, use 
 <code>
-	x.copy (y)
+            x.copy (y)
 </code>
 which assumes that both <code>x</code> and <code>y</code> are non-void, and copies the contents of <code>y</code>'s attached object onto those of <code>x</code>'s. For expanded entities the effect is the same as that the of the assignment <code>x := y</code>. 
 
 An operation performing similar duty to <code>copy</code> is <code>twin</code> . The assignment
 <code>
-	x := y.twin
+            x := y.twin
 </code>
 produces a newly created object (provided that <code>y</code> is non-void), initialized with a copy of the object attached to <code>y</code> and attaches the result to <code>x</code> . This means we may view <code>twin</code> as a function that performs the following two steps:
 <code>
-	create Result
-	Result.copy (Current)
+            create Result
+            Result.copy (Current)
 </code>
 The new object is created, then its content is updated to match the content of <code>y</code> to which the <code>twin</code> call is targeted. 
 
@@ -439,38 +440,38 @@ So, assuming both entities of reference types and <code>y</code> not void, the a
 
 To determine whether two values are equal, use the expression:
 <code>
-	x = y 
+            x = y 
 </code> 
 For references, this comparison will yield true if the values are either both void or both attached to the same object; this is the case in the last figure in the state after the assignment, but not before. The symbol for not equal is <code> /= </code>, as in: 
 <code>
-	x /= y
+            x /= y
 </code> 
 
 As with assignment, there is also a form that works on objects rather than references: 
 <code>
-	x.is_equal (y)
+            x.is_equal (y)
 </code>
 will return true when <code>x</code> and <code>y</code> are both non-void and attached to field-by-field identical objects. This can be true even when <code>x = y</code> is not, for example, in the figure, ''before'' the assignment, if the two objects shown are field-by-field equal.
 
 The expression <code>x.is_equal (y)</code> can be written alternatively in a notation similar in form to <code>x = y</code> . The expression:
 <code>
-	x ~ y
+            x ~ y
 </code>
 will be true only in cases in which <code>x.is_equal (y)</code> is true.
 
 A more general variant of <code>is_equal</code> is used under the form:
 <code>
-	equal (x, y)
+            equal (x, y)
 </code>
 This is always defined, even if <code>x</code> is void, returning true whenever <code>is_equal</code> would but also if <code>x</code> and <code>y</code> are both void. (In contrast, <code>x.is_equal (y)</code> is not defined for void <code>x</code> and would, if evaluated, yield an exception as explained in [[8 Design by Contract (tm), Assertions and Exceptions#Exception_handling|"Exception handling"]]  below.) 
 
 <code>Void</code> denotes a void reference. So you can make <code>x</code> void through the assignment 
 <code>
-	x := Void
+            x := Void
 </code>
 and test whether it is void through:
 <code>
-	if  x = Void then ...</code>
+            if  x = Void then ...</code>
 
 Note that the assignment, <code>:=</code> , and the equality operators, <code>=</code>, <code>~</code>, <code>/~</code>,  and <code>/=</code> , are language constructions, whereas <code>copy</code>, <code>twin</code>, <code>is_equal</code>, and <code>equal</code> are '''library features''' coming from class <code>ANY</code> . 
 
@@ -488,7 +489,7 @@ It is useful, in some cases, to duplicate not just one object but an entire obje
 
 A related mechanism provides a powerful '''persistence''' facility. A call of the form 
 <code>
-	x.store (Some_file_or_network_connection)
+            x.store (Some_file_or_network_connection)
 </code>
 
 will store a copy of the entire object structure starting at <code> x </code>, under a suitable representation. Like <code>deep_twin</code>, procedure <code>store</code> will follow all references to the end and maintain the properties of the structure. The function <code>retrieved</code> can then be used -- in the same system, or another -- to recreate the structure from the stored version. 
@@ -543,7 +544,7 @@ This form indicates that the features appearing in that clause are only '''avail
 
 With this specification a class text including the declaration <code>acc: ACCOUNT</code> and a call of the form 
 <code>
-	acc.all_deposits
+            acc.all_deposits
 </code>
 
 violates the Feature Call rule and will be rejected by the EiffelStudio compiler. 
@@ -567,27 +568,27 @@ The preceding elements make it possible to understand the overall scheme of an E
 
 At any time during the execution of a system, one object is the '''current object''' of the execution, and one of the routines of the system, the '''current routine''', is being executed, with the current object as its target. (We will see below how the current object and current routine are determined.) The text of a class, in particular its routines, make constant implicit references to the current object. For example in the instruction 
 <code>
-	balance := balance + sum
+            balance := balance + sum
 </code>
 
 appearing in the body of procedure <code>deposit</code> of class <code>ACCOUNT</code>, the name of the attribute <code>balance</code>, in both occurrences, denotes the <code>balance</code> field of the current object, assumed to be an instance of <code>ACCOUNT</code>. In the same way, the procedure body that we used for the creation procedure <code>make</code> in the <code>ACCOUNT1</code> variant 
 <code>
-make (sum: INTEGER)
-            -- Initialize account with sum .
-        do
-            deposit (sum)
-        end
+    make (sum: INTEGER)
+                -- Initialize account with sum .
+            do
+                deposit (sum)
+            end
 </code>
 
 contains a call to the procedure <code>deposit</code>. Contrary to earlier calls written in dot notation as <code>target.feature (...)</code>, the call to <code>deposit</code> has no explicit target; this means its target is the current object, an instance of <code>ACCOUNT1</code>. Such a call is said to be '''unqualified'''; those using dot notations are '''qualified''' calls. 
 
 Although most uses of the current object are implicit, a class may need to name it explicitly. The predefined expression <code>Current</code> is available for that purpose. A typical use, in a routine <code>merge (other: ACCOUNT )</code> of class <code>ACCOUNT</code>, would be a test of the form 
 <code>
-	if other = Current then
-	    report_error ("Error: trying to merge an account with itself!")
-	else
-	    ... Normal processing (merging two different account) ...
-	end
+            if other = Current then
+	        report_error ("Error: trying to merge an account with itself!")
+            else
+	        ... Normal processing (merging two different account) ...
+            end
 </code>
 
 With these notions it is not hard to define precisely the overall scenario of a system execution by defining which object and routine will, at each instant, be the current object and the current routine:
@@ -610,11 +611,11 @@ Restricting assignment targets to entities precludes assignments of the form <co
 
 To obtain the intended effect of such an assignment you may use a procedure call of the form <code>obj.set_attribute (some_value)</code> , where the base class of <code>obj</code>'s type has defined the procedure 
 <code>
-set_attribute (v: VALUE_TYPE)
-            -- Set value of attribute to v.
-        do
-            attribute := v
-        end
+    set_attribute (v: VALUE_TYPE)
+                -- Set value of attribute to v.
+            do
+                attribute := v
+            end
 </code>
 
 This rule is essential to enforcing the method. Permitting direct assignments to an object's fields -- as in C++ and Java -- would violate all the tenets of information hiding by letting clients circumvent the interface carefully crafted by the author of a supplier class. It is the responsibility of each class author to define the exact privileges that the class gives to each of its clients, in particular field modification rights. Building a class is like building a machine: you design the internals, to give yourself the appropriate mechanisms; and you design the control panel, letting users (clients) access the desired subset of these mechanisms, safely and conveniently. 
