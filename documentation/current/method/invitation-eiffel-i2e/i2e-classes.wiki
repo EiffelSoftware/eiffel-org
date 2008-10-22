@@ -8,24 +8,24 @@ Such objects are called the '''direct instances''' of the class. Classes and obj
 
 {{info|"Object-Oriented" is a misnomer; "Class-Oriented Analysis, Design and Programming" would be a more accurate description of the method. }}
 
-To see what a class looks like, let us look at a simple example, <code> ACCOUNT </code>, which describes bank accounts. But before exploring the class itself it is useful to study how it maybe used by other classes, called it's '''clients'''. 
+To see what a class looks like, let us look at a simple example, <code>ACCOUNT</code>, which describes bank accounts. But before exploring the class itself it is useful to study how it maybe used by other classes, called it's '''clients'''. 
 
-A class <code> X </code> may become a client of <code> ACCOUNT </code> by declaring one or more '''entities''' of type <code> ACCOUNT </code>. Such a declaration is of the form: 
+A class <code>X</code> may become a client of <code>ACCOUNT</code> by declaring one or more '''entities''' of type <code>ACCOUNT</code>. Such a declaration is of the form: 
 <code>acc: ACCOUNT</code>
 
-The term "entity" generalizes the more common notion of "variable". An entity declared of a reference type, such as <code>acc</code>, may at any time during execution become " '''attached to''' " an object; the type rules imply that this object must be a direct instance of <code> ACCOUNT </code> -- or, as seen below, of a "descendant" of that class. 
+The term "entity" generalizes the more common notion of "variable". An entity declared of a reference type, such as <code>acc</code>, may at any time during execution become " '''attached to''' " an object; the type rules imply that this object must be a direct instance of <code>ACCOUNT</code> -- or, as seen below, of a "descendant" of that class. 
 
 [[Image:invitation-2]]  
 
-An entity is said to be void if it is not attached to any object. By default, entities are void at initialization. To obtain objects at run-time, a routine <code> r </code> appearing in the client class <code> X </code> may use a '''creation instruction''' of the form 
+An entity is said to be void if it is not attached to any object. By default, entities are void at initialization. To obtain objects at run-time, a routine <code>r</code> appearing in the client class <code>X</code> may use a '''creation instruction''' of the form 
 
 <code>
 	create acc</code>
 
 
-which creates a new direct instance of <code>  ACCOUNT </code>, attaches <code> acc </code> to that instance, and initializes all its fields to default values. A variant of this notation, studied below, makes it possible to override the default initializations. 
+which creates a new direct instance of <code> ACCOUNT</code>, attaches <code>acc</code> to that instance, and initializes all its fields to default values. A variant of this notation, studied below, makes it possible to override the default initializations. 
 
-Once the client has attached <code> acc </code> to an object, it may call on this object the features defined in class <code> ACCOUNT </code>. Here is an extract with some feature calls using <code> acc </code> as their target: 
+Once the client has attached <code>acc</code> to an object, it may call on this object the features defined in class <code>ACCOUNT</code>. Here is an extract with some feature calls using <code>acc</code> as their target: 
 <code>
 	acc.open ("Jill")
 	acc.deposit (5000)
@@ -34,17 +34,17 @@ Once the client has attached <code> acc </code> to an object, it may call on thi
 		print (acc.balance)
 	end</code>
 
-These feature calls use dot notation, of the form <code> target_name.feature_name </code>, possibly followed by a list of arguments in parentheses. Features are of two kinds: 
-*  '''Routines''', such as <code> open </code>, <code> deposit </code>, <code> may_withdraw </code>, <code> withdraw </code>, represent computations applicable to instances of the class. 
+These feature calls use dot notation, of the form <code>target_name.feature_name</code>, possibly followed by a list of arguments in parentheses. Features are of two kinds: 
+*  '''Routines''', such as <code>open</code>, <code>deposit</code>, <code>may_withdraw</code>, <code>withdraw</code>, represent computations applicable to instances of the class. 
 *  '''Attributes''' represent data items associated with these instances. 
 
-Routines are further divided into '''procedures''' (commands, which do not return a value) and '''functions''' (queries, returning a value). Here <code> may_withdraw </code> is a function returning a boolean; the other three-routines called are procedures. 
+Routines are further divided into '''procedures''' (commands, which do not return a value) and '''functions''' (queries, returning a value). Here <code>may_withdraw</code> is a function returning a boolean; the other three-routines called are procedures. 
 
 {{info|A note on syntax: you may separate instructions by semicolons, and indeed you should when, as on the next-to-last line of the example, two or more instructions appear on a line. But the language's syntax has been designed so that the semicolon is almost always optional, regardless of the layout. Indeed the practice is to omit it between instructions or declarations on separate lines, as this results in lighter, clearer software texts. }}
 
-In class <code> ACCOUNT </code>, is feature <code> balance </code> an attribute, or is it a function with no argument? The above extract of the client class <code> X </code> doesn't say, and this ambiguity is intentional. A client of <code> ACCOUNT </code> must not need to know how class <code> ACCOUNT </code> delivers an account's balance when requested: by looking up a field present in each account object, or by calling a function that computes the balance from other fields. Choosing between these techniques is the business of class <code> ACCOUNT </code>, not anybody else's. Because such implementation choices are often changed over the lifetime of a project, it is essential to protect clients against their effects. This is known as the '''Uniform Access Principle''', stating that the choice between representing a property through memory (an attribute) or through an algorithm (function) shall not affect how clients use it. 
+In class <code>ACCOUNT</code>, is feature <code>balance</code> an attribute, or is it a function with no argument? The above extract of the client class <code>X</code> doesn't say, and this ambiguity is intentional. A client of <code>ACCOUNT</code> must not need to know how class <code>ACCOUNT</code> delivers an account's balance when requested: by looking up a field present in each account object, or by calling a function that computes the balance from other fields. Choosing between these techniques is the business of class <code>ACCOUNT</code>, not anybody else's. Because such implementation choices are often changed over the lifetime of a project, it is essential to protect clients against their effects. This is known as the '''Uniform Access Principle''', stating that the choice between representing a property through memory (an attribute) or through an algorithm (function) shall not affect how clients use it. 
 
-So much for how client classes will typically use <code> ACCOUNT.  </code> Below is a first sketch of how class <code> ACCOUNT </code> itself might look. Line segments beginning with <code> -- </code> are comments. The class includes two <code> feature </code> clauses, introducing its features. The first begins with just the keyword <code> feature </code>, without further qualification; this means that the features declared in this clause are available (or "exported") to all clients of the class. The second clause is introduced by <code> feature </code> { <code> NONE </code>} to indicate that the feature that follows, called <code> add </code>, is available to no client. What appears between the braces is a list of client classes to which the corresponding features are available; <code> NONE </code> is a special class of the Kernel Library, which has no instances, so that <code> add </code> is in effect a secret feature, available only locally to the other routines of class <code> ACCOUNT </code>. So in a client class such as <code> X </code>, the call <code> acc.add ( -3000 ) </code> would be invalid. 
+So much for how client classes will typically use <code>ACCOUNT. </code> Below is a first sketch of how class <code>ACCOUNT</code> itself might look. Line segments beginning with <code>--</code> are comments. The class includes two <code>feature</code> clauses, introducing its features. The first begins with just the keyword <code>feature</code>, without further qualification; this means that the features declared in this clause are available (or "exported") to all clients of the class. The second clause is introduced by <code>feature</code> { <code>NONE</code>} to indicate that the feature that follows, called <code>add</code>, is available to no client. What appears between the braces is a list of client classes to which the corresponding features are available; <code>NONE</code> is a special class of the Kernel Library, which has no instances, so that <code>add</code> is in effect a secret feature, available only locally to the other routines of class <code>ACCOUNT</code>. So in a client class such as <code>X</code>, the call <code>acc.add ( -3000 )</code> would be invalid. 
 <code>
 class ACCOUNT
 
@@ -89,19 +89,19 @@ feature {NONE}
 end -- ACCOUNT
 </code>
 
-Let us examine the features in sequence. The <code> do </code> <code> ... </code> <code> end </code> distinguishes routines from attributes. So here the class has implemented <code> balance </code> as an attribute, although, as noted, a function would also have been acceptable. Feature <code> owner </code> is also an attribute. 
+Let us examine the features in sequence. The <code>do</code> <code>...</code> <code>end</code> distinguishes routines from attributes. So here the class has implemented <code>balance</code> as an attribute, although, as noted, a function would also have been acceptable. Feature <code>owner</code> is also an attribute. 
 
-The language definition guarantees automatic initialization, so that the initial balance of an account object will be zero after a creation instruction. Each type has a default initial value: zero for <code> INTEGER </code> and <code> REAL </code>, false for <code> BOOLEAN </code>, null character for <code> CHARACTER </code>, and a void reference for reference types. The class designer may also provide clients with different initialization options, as will be seen below in a revised version of this example. 
+The language definition guarantees automatic initialization, so that the initial balance of an account object will be zero after a creation instruction. Each type has a default initial value: zero for <code>INTEGER</code> and <code>REAL</code>, false for <code>BOOLEAN</code>, null character for <code>CHARACTER</code>, and a void reference for reference types. The class designer may also provide clients with different initialization options, as will be seen below in a revised version of this example. 
 
-The other public features, <code> withdraw deposit, open, </code> and <code> may_withdraw </code> are straight-forward routines. The special entity <code> Result </code>, used in <code> may_withdraw </code>, denotes the function result; it is initialized on function entry to the default value of the function's result type. You may only use <code> Result </code> in functions. 
+The other public features, <code>withdraw deposit, open,</code> and <code>may_withdraw</code> are straight-forward routines. The special entity <code>Result</code>, used in <code>may_withdraw</code>, denotes the function result; it is initialized on function entry to the default value of the function's result type. You may only use <code>Result</code> in functions. 
 
-The secret procedure <code> add </code> serves for the implementation of the public procedures <code> deposit </code> and <code> withdraw </code>; the designer of <code> ACCOUNT </code> judged it too general to be exported by itself. The clause "<code> = 1000 </code>" introduces <code> minimum_balance </code> as a constant attribute, which will not occupy any space in instances of the class; in contrast, every instance has a field for every non-constant attribute such as <code> balance </code>. 
+The secret procedure <code>add</code> serves for the implementation of the public procedures <code>deposit</code> and <code>withdraw</code>; the designer of <code>ACCOUNT</code> judged it too general to be exported by itself. The clause "<code>= 1000</code>" introduces <code>minimum_balance</code> as a constant attribute, which will not occupy any space in instances of the class; in contrast, every instance has a field for every non-constant attribute such as <code>balance</code>. 
 
-In Eiffel's object-oriented programming style any operation is relative to a certain object. A client invoking the operation specifies this object by writing the corresponding entity on the left of the dot, as <code> acc </code> in <code> acc.open ("Jill") </code>. Within the class, however, the "current" instance to which operations apply usually remains implicit, so that unqualified feature names, such as <code> owner </code> in procedure <code> open </code> or <code> add </code> in <code>  deposit </code>, mean "the <code> owner </code> attribute or <code> add </code> routine relative to the current instance". 
+In Eiffel's object-oriented programming style any operation is relative to a certain object. A client invoking the operation specifies this object by writing the corresponding entity on the left of the dot, as <code>acc</code> in <code>acc.open ("Jill")</code>. Within the class, however, the "current" instance to which operations apply usually remains implicit, so that unqualified feature names, such as <code>owner</code> in procedure <code>open</code> or <code>add</code> in <code> deposit</code>, mean "the <code>owner</code> attribute or <code>add</code> routine relative to the current instance". 
 
-If you need to denote the current object explicitly, you may use the special entity <code> Current </code>. For example the unqualified occurrences of <code> add </code> appearing in the class text above are equivalent to <code> Current </code>. <code> add </code>. 
+If you need to denote the current object explicitly, you may use the special entity <code>Current</code>. For example the unqualified occurrences of <code>add</code> appearing in the class text above are equivalent to <code>Current</code>. <code>add</code>. 
 
-In some cases, infix or prefix notation will be more convenient than dot notation. For example, if a class <code> VECTOR </code> offers an addition routine, most people will feel more comfortable with calls of the form <code> v + w </code> than with the dot-notation call <code> v.plus (w)</code>. To make this possible it suffices to give the routine a name of the form <code> infix </code> "+" rather than <code> plus </code>; internally, however, the operation is still a normal routine call. Prefix operators are similarly available. 
+In some cases, infix or prefix notation will be more convenient than dot notation. For example, if a class <code>VECTOR</code> offers an addition routine, most people will feel more comfortable with calls of the form <code>v + w</code> than with the dot-notation call <code>v.plus (w)</code>. To make this possible it suffices to give the routine a name of the form <code>infix</code> "+" rather than <code>plus</code>; internally, however, the operation is still a normal routine call. Prefix operators are similarly available. 
 
 The above simple example has shown the basic structuring mechanism of the language: the class. A class describes objects accessible to clients through an official interface comprising some of the class features. Features are implemented as attributes or routines; the implementation of exported features may rely on other, secret ones. 
 
