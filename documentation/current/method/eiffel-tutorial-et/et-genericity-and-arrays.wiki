@@ -27,7 +27,7 @@ Within the class text, feature declarations can freely use <code>G</code> even t
         ...
 </code>
 
-The operations available on an entity such as <code>first</code> and <code>val</code>, whose type is a formal generic parameter, are the operations available on all types: use as source <code>y</code> of an assignment <code>x := y</code>, use as target <code>x</code> of such an assignment (although not for <code>val</code>, which as a formal routine argument is not writable), use in equality comparisons <code>x = y</code> or <code>x /= y</code>, and application of universal features from <code>ANY</code> such as <code>clone</code>, <code>equal</code> and <code>copy</code>. 
+The operations available on an entity such as <code>first</code> and <code>val</code>, whose type is a formal generic parameter, are the operations available on all types: use as source <code>y</code> of an assignment <code>x := y</code>, use as target <code>x</code> of such an assignment (although not for <code>val</code>, which as a formal routine argument is not writable), use in equality comparisons <code>x = y</code> or <code>x /= y</code>, and application of universal features from <code>ANY</code> such as <code>twin</code>, <code>is_equal</code> and <code>copy</code>. 
 
 To use a generic class such as list, a client will provide a type name as '''actual generic parameter'''. So instead of relying on a special purpose class <code>DEPOSIT_LIST</code>, the class <code>ACCOUNT</code> could include the declaration 
 <code>all_deposits: LIST [DEPOSIT]</code>

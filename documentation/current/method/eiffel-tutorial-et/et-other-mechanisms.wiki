@@ -38,7 +38,7 @@ The attributes studied earlier were variable: each represents a field present in
 
 It is also possible to declare constant attributes, as in
 <code>
-        Solar_system_planet_count: INTEGER = 9
+    Solar_system_planet_count: INTEGER = 9
 </code>
 
 These will have the same value for every instance and hence do not need to occupy any space in objects at execution time. (In other approaches similar needs would be addressed by symbolic constants, as in Pascal or Ada, or macros, as in C.)
@@ -47,12 +47,12 @@ What comes after the <code>=</code> is a manifest constant: a self-denoting valu
 
 Manifest constants are also available for strings, using double quotes as in
 <code>
-        User_friendly_error_message: STRING is "Go get a life !"
+    User_friendly_error_message: STRING = "Go get a life !"
 </code>
 
 with special characters again using the <code>%</code> codes. It is also possible to declare manifest arrays using double angle brackets: 
 <code>
-            <<1, 2, 3, 5, 7, 11, 13, 17, 19>>
+                <<1, 2, 3, 5, 7, 11, 13, 17, 19>>
 </code>
 
 which is an expression of type <code>ARRAY [INTEGER]</code>. Manifest arrays and strings are not atomic, but denote instances of the Kernel Library classes <code>STRING</code> and <code>ARRAY</code>, as can be produced by once functions. 
@@ -87,7 +87,7 @@ A multi-branch instruction has the form
             end
 </code>
 
-where the <code>else ''inst0''</code> part is optional, <code>exp</code> is a character or integer expression, ''v1'', ''v1'', ... are constant values of the same type as <code>exp</code>, all different, and ''inst0'', ''inst1'', ''inst2'', ... are sequences of zero or more instructions. In the integer case, it is often convenient to use <code>unique</code> values ( [[10 Other Mechanisms|"Constant and unique attributes", page 83]] ) for the ''vi''.
+where the <code>else ''inst0''</code> part is optional, <code>exp</code> is a character or integer expression, ''v1'', ''v1'', ... are constant values of the same type as <code>exp</code>, all different, and ''inst0'', ''inst1'', ''inst2'', ... are sequences of zero or more instructions. 
 
 The effect of such a multi-branch instruction, if the value of <code>exp</code> is one of the ''vi'', is to execute the corresponding ''insti''. If none of the ''vi'' matches, the instruction executes ''inst0'', unless there is no <code>else</code> part, in which case it triggers an exception. 
 
@@ -188,7 +188,7 @@ The design flexibility afforded by the <code>obsolete</code> keyword is critical
 
 ==Creation variants==
 
-The basic forms of creation instruction, and the one most commonly used, are the two illustrated earlier ( [[6 The Dynamic Structure: Execution Model|"Creating and initializing objects", page 20]] ): 
+The basic forms of creation instruction, and the one most commonly used, are the two illustrated earlier ( [[6 The Dynamic Structure: Execution Model#Creating_and_initializing_objects|"Creating and initializing objects"]] ): 
 <code>
             create x.make (2000)
             create x
