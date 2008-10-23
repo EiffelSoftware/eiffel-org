@@ -5,16 +5,18 @@
 Building software components (classes) as implementations of abstract data types yields systems with a solid architecture but does not in itself ensure reusability and extendibility. Two key techniques address the problem: generosity (unconstrained or constrained) and inheritance. Let us look first at the unconstrained form. 
 
 To make a class generic is to give it '''formal generic parameters''' representing as unknown types, as in these examples from EiffelBase, an open-source library covering basic data structures and algorithms: 
-<code>ARRAY [G]
-LIST [G]
-LINKED_LIST [G]</code>
+<code>
+               ARRAY [G]
+               LIST [G]
+               LINKED_LIST [G]</code>
 
-These classes describe data structures -- arrays, lists without commitment to a specific representation, lists in linked representation -- containing objects of a certain type. The formal generic parameter <code> G </code> denotes this type. 
+These classes describe data structures -- arrays, lists without commitment to a specific representation, lists in linked representation -- containing objects of a certain type. The formal generic parameter <code>G</code> denotes this type. 
 
-A class such as these doesn't quite yet describe a type, but a type template, since <code> G </code> itself denotes an unknown type. To derive a directly usable list or array type, you must provide a type corresponding to <code> G </code>, called an '''actual generic parameter'''; this may be either an expanded type, including basic types such as <code> INTEGER </code>, or a reference type. Here are some possible generic derivations: 
-<code>il: LIST [INTEGER]
-aa: ARRAY [ACCOUNT]
-aal: LIST [ARRAY [ACCOUNT]]</code>
+A class such as these doesn't quite yet describe a type, but a type template, since <code> G </code> itself denotes an unknown type. To derive a directly usable list or array type, you must provide a type corresponding to <code>G</code>, called an '''actual generic parameter'''; this may be either an expanded type, including basic types such as <code>INTEGER</code>, or a reference type. Here are some possible generic derivations: 
+<code>
+     il: LIST [INTEGER]
+     aa: ARRAY [ACCOUNT]
+     aal: LIST [ARRAY [ACCOUNT]]</code>
 
 As the last example indicates, an actual generic parameter may itself be generically derived. 
 

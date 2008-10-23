@@ -8,38 +8,38 @@ Exceptions -- contract violations -- may arise from several causes. One is an as
 
 Unless a routine has made specific provision to handle exceptions, it will '''fail''' if an exception arises during its execution. This in turn provides one more source of exceptions: a routine that fails triggers an exception in its caller. 
 
-A routine may, however, handle an exception through a <code> rescue </code> clause. This optional clause attempts to "patch things up" by bringing the current object to a stable state (one satisfying the class invariant). Then it can terminate in either of two ways:<br/>
-* The <code> rescue </code> clause may execute a <code> retry </code> instruction, which causes the routine to restart its execution from the beginning, attempting again to fulfill its contract, usually through another strategy. This assumes that the instructions of the <code> rescue </code> clause, before the <code> retry </code>, have attempted to correct the cause of the exception. 
-* If the <code> rescue </code> clause does not end with <code> retry </code>, then the routine fails: it returns to its caller, immediately triggering an exception. (The caller's <code> rescue </code> clause will be executed according to the same rules.) 
+A routine may, however, handle an exception through a <code>rescue</code> clause. This optional clause attempts to "patch things up" by bringing the current object to a stable state (one satisfying the class invariant). Then it can terminate in either of two ways:<br/>
+* The <code>rescue</code> clause may execute a <code>retry</code> instruction, which causes the routine to restart its execution from the beginning, attempting again to fulfill its contract, usually through another strategy. This assumes that the instructions of the <code>rescue</code> clause, before the <code>retry</code>, have attempted to correct the cause of the exception. 
+* If the <code>rescue</code> clause does not end with <code>retry</code>, then the routine fails: it returns to its caller, immediately triggering an exception. (The caller's <code>rescue</code> clause will be executed according to the same rules.) 
 
 
 The principle is that '''a routine must either succeed or fail''': it either fulfills its contract, or not; in the latter case it must notify its caller by triggering an exception. 
 
-Usually, only a few routines of a system will explicitly include a <code> rescue  </code>clause. A routine that doesn't have an explicit <code> rescue </code> is considered to have an implicit one, which calls a routine <code> default_rescue </code> that by default does nothing, so that an exception will cause the routine to fail immediately, propagating the exception to the caller. 
+Usually, only a few routines of a system will explicitly include a <code>rescue </code>clause. A routine that doesn't have an explicit <code>rescue</code> is considered to have an implicit one, which calls a routine <code>default_rescue</code> that by default does nothing, so that an exception will cause the routine to fail immediately, propagating the exception to the caller. 
 
-An example using the exception mechanism is a routine <code> attempt_transmission </code> that tries to transmit a message over a phone line. The actual transmission is performed by an external, low-level routine <code> transmit </code>; once started, however, <code> transmit </code> may abruptly fail, triggering an exception, if the line is disconnected. Routine <code> attempt_transmission </code> tries the transmission at most 50 times; before returning to its caller, it sets a boolean attribute <code> successful </code> to <code> True </code> <code>  or  </code> <code> False </code> depending on the outcome. Here is the text of the routine: 
+An example using the exception mechanism is a routine <code>attempt_transmission</code> that tries to transmit a message over a phone line. The actual transmission is performed by an external, low-level routine <code>transmit</code>; once started, however, <code>transmit</code> may abruptly fail, triggering an exception, if the line is disconnected. Routine <code>attempt_transmission</code> tries the transmission at most 50 times; before returning to its caller, it sets a boolean attribute <code>successful</code> to <code>True</code> or <code>False</code> depending on the outcome. Here is the text of the routine: 
 <code>
 attempt_transmission (message: STRING) 
-		-- Try to transmit message, at most 50 times.
-		-- Set successful accordingly.
-	local 
-		failures: INTEGER 
-	do 
-		if failures < 50 then
-			transmit (message)
-			successful := True
-		else 
-			successful := False
-		end 
-	rescue 
-		failures := failures + 1
-		retry 
-	end 
+            -- Try to transmit message, at most 50 times.
+            -- Set successful accordingly.
+    local 
+        failures: INTEGER 
+    do 
+        if failures < 50 then
+            transmit (message)
+            successful := True
+        else 
+            successful := False
+        end 
+    rescue 
+        failures := failures + 1
+        retry 
+    end 
 </code>
 
-Initialization rules ensure that <code> failures </code>, a local entity, is set to zero on entry. 
+Initialization rules ensure that <code>failures</code>, a local entity, is set to zero on entry. 
 
-This example illustrates the simplicity of the mechanism: the <code> rescue </code> clause never attempts to achieve the routine's original intent; this is the sole responsibility of the body (the <code> do </code> clause). The only role of the <code> rescue </code> clause is to clean up the objects involved, and then either to fail or to retry. 
+This example illustrates the simplicity of the mechanism: the <code>rescue</code> clause never attempts to achieve the routine's original intent; this is the sole responsibility of the body (the <code>do</code> clause). The only role of the <code>rescue</code> clause is to clean up the objects involved, and then either to fail or to retry. 
 
 This disciplined exception mechanism is essential for software developers, who need protection against unexpected events, but cannot be expected to sacrifice safety and simplicity to pay for this protection. 
 

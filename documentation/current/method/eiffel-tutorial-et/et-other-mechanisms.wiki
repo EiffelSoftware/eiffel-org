@@ -32,7 +32,7 @@ For the classes using it, <code>console</code>, although a function, looks very 
 
 The "Hello World" system at the beginning of this discussion (section [[4 Hello World|4]] ) used an output instruction of the form <code>io</code>. <code>put_string ( Some string )</code>. This is another example of the general scheme illustrated by <code>console</code>. Feature <code>io</code>, declared in <code>ANY</code> and hence usable by all classes, is a once function that returns an object of type <code>STANDARD_FILES</code> (another Kernel Library class) providing access to basic input and output features, one of which is procedure <code>put_string</code>. Because basic input and output must all work on the same files, <code>io</code> should clearly be a <code>once</code> function, shared by all classes that need these mechanisms. 
 
-==Constant and unique attributes==
+==Constant attributes==
 
 The attributes studied earlier were variable: each represents a field present in each instance of the class and changeable by its routines. 
 
@@ -44,15 +44,6 @@ It is also possible to declare constant attributes, as in
 These will have the same value for every instance and hence do not need to occupy any space in objects at execution time. (In other approaches similar needs would be addressed by symbolic constants, as in Pascal or Ada, or macros, as in C.)
 
 What comes after the <code>=</code> is a manifest constant: a self-denoting value of the appropriate type. Manifest constants are available for integers, reals (also used for doubles), booleans ( <code>True</code> and <code>False</code>), characters (in single quotes, as <code>'A'</code>, with special characters expressed using a percent sign as in <code>'%N'</code> for new line, <code>'%B'</code> for backspace and <code>'%U'</code> for null). 
-
-For integer constants, it is also possible to avoid specifying the values. A declaration of the form
-<code>
-        a, b, c, ... n : INTEGER = unique
-</code>
-
-introduces <code>a</code>, <code>b</code>, <code>c</code>, ... <code>n</code> as constant integer attributes, whose value are assigned by the Eiffel compiler rather than explicitly by the programmer. The values are different for all <code>unique</code> attributes in a system; they are all positive, and, in a single declaration such as the above, guaranteed to be consecutive (so that you may use an invariant property of the form <code>code > a and code < n</code> to express that <code>code</code> should be one of the values). This mechanism replaces the "enumerated types" found in many languages, without suffering from the same problems. (Enumerated types have an ill-defined place in the type system; and it is not clear what operations are permitted.) 
-
-You may use Unique values in conjunction with the <code>inspect</code> multi-branch instruction studied in the next section. They are only appropriate for codes that can take on a fixed number of well-defined values -- not as a way to program operations with many variants, a need better addressed by the object-oriented technique studied earlier and relying on inheritance, polymorphism, redeclaration and dynamic binding. 
 
 Manifest constants are also available for strings, using double quotes as in
 <code>
