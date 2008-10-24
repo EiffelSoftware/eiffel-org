@@ -8,7 +8,7 @@ The first technique yields '''polymorphic data structures'''. Assume that in the
 <code>
     pl: LIST [POLYGON]</code>
 
-the type rules imply that in a call <code>pl.put ( "p" )</code>the permitted types for the argument <code>p</code> include not just <code>POLYGON</code>, but also <code>RECTANGLE</code> (an heir of <code>POLYGON</code>) or any other type conforming to <code>POLYGON</code> through inheritance. 
+the type rules imply that in a call <code>pl.put (p)</code> the permitted types for the argument <code>p</code> include not just <code>POLYGON</code>, but also <code>RECTANGLE</code> (an heir of <code>POLYGON</code>) or any other type conforming to <code>POLYGON</code> through inheritance. 
 
 The basic conformance requirement used here is the inheritance-based type compatibility rule: <code>V</code> conforms to <code>T</code> if <code>V</code> is a descendant of <code>T</code>. 
 
@@ -28,7 +28,7 @@ As you have perhaps guessed, unconstrained genericity, as in <code>LIST [G]</cod
 <code>
                 LIST [G -> ANY]</code>
 
-Something else you may have guessed: if <code>ANY</code>, introduced in this session, is the top of the inheritance structure -- providing all classes with universal features such as <code>equal</code> to compare arbitrary objects and <code>clone</code> to duplicate objects -- then <code>NONE</code>, seen earlier in the notation <code>feature {NONE}</code>, is its bottom. <code>NONE</code> indeed conceptually inherits from all other classes. <code>NONE</code> is, among other things, the type of <code>ensure</code>, the void reference. 
+Something else you may have guessed: if <code>ANY</code>, introduced in this session, is the top of the inheritance structure -- providing all classes with universal features such as <code>equal</code> to compare arbitrary objects and <code>twin</code> to duplicate objects -- then <code>NONE</code>, seen earlier in the notation <code>feature {NONE}</code>, is its bottom. <code>NONE</code> indeed conceptually inherits from all other classes. <code>NONE</code> is, among other things, the perceived type of the <code>Void</code> keyword which represents a void reference. 
 
 
 

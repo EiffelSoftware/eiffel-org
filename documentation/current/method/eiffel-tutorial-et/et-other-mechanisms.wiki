@@ -121,7 +121,7 @@ The final instruction is connected with Design by Contract&#153;. The instructio
             check
                 Assertion
             end
-</code>, where Assertion is a sequence of zero or more assertions, will have no effect unless assertion monitoring is turned on at the <code>Check</code> level or higher. If so it will evaluate all the assertions listed, having no further effect if they are all satisfied; if any one of them does not hold, the instruction will trigger an exception. 
+</code>where Assertion is a sequence of zero or more assertions, will have no effect unless assertion monitoring is turned on at the <code>Check</code> level or higher. If so it will evaluate all the assertions listed, having no further effect if they are all satisfied; if any one of them does not hold, the instruction will trigger an exception. 
 
 This instruction serves to state properties that are expected to be satisfied at some stages of the computation -- other than the specific stages, such as routine entry and exit, already covered by the other assertion mechanisms such as preconditions, postconditions and invariants. A recommended use of <code>check</code> involves calling a routine with a precondition, where the call, for good reason, does not explicitly test for the precondition. Consider a routine of the form 
 <code>
