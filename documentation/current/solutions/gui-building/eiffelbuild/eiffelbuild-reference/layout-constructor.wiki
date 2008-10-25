@@ -7,7 +7,7 @@ The layout constructor provides a view of the [[EiffelBuild Notation|objects]]  
 [[Image:layout-constructor]]  
 
 
-Each item in the tree represents one object. The screenshot above represents the following [[EiffelVision Introduction|EiffelVision2]]  interface definition - An EV_TITLED_WINDOW containing one child, of type EV_VERTICAL_BOX. Within the vertical box there is an EV_HORIZONTAL_BOX and an EV_LIST. The list is empty, but the horizontal box contains three different objects of type EV_BUTTON. 
+Each item in the tree represents one object. The screenshot above represents the following [[EiffelVision Introduction|EiffelVision 2]]  interface definition - An EV_TITLED_WINDOW containing one child, of type EV_VERTICAL_BOX. Within the vertical box there is an EV_HORIZONTAL_BOX and an EV_LIST. The list is empty, but the horizontal box contains three different objects of type EV_BUTTON. 
 
 {{note|The widget displayed as the root of the Layout Constructor is the currently selected object in the [[Widget selector|Widget Selector]] . To edit the contents of a different widget, select the widget you wish to manipulate from the [[Widget selector|widget selector]] .}}
 

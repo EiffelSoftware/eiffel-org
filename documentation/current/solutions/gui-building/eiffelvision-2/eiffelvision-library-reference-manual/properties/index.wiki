@@ -1,38 +1,38 @@
 [[Property:title|Properties]]
 [[Property:weight|5]]
 [[Property:uuid|0d46c1eb-bce4-2d67-0272-da4aa5950c65]]
-This cluster contains all the common properties available for Vision2 [[Widgets|widgets]]  and [[Items|items]] . Every Vision2 widget has the same set of properties inherited from EV_WIDGET, but many widgets also inherit additional properties, further refining the behavior of the widget. 
+This cluster contains all the common properties available for EiffelVision 2 [[Widgets|widgets]]  and [[Items|items]] . Every EiffelVision 2 widget has the same set of properties inherited from EV_WIDGET, but many widgets also inherit additional properties, further refining the behavior of the widget. 
 
 EV_WIDGET inherits the following properties: 
 *  [[ref:libraries/vision2/reference/ev_pick_and_dropable_chart|EV_PICK_AND_DROPABLE]]  
 ** For an overview of the Pick and Drop mechanism, click [[EiffelVision Pick and Drop|here]] . 
 
 *  [[ref:libraries/vision2/reference/ev_sensitive_chart|EV_SENSITIVE]]  
-**  If a Vision2 component inherits [[ref:libraries/vision2/reference/ev_sensitive_chart|EV_SENSITIVE]] , it can be made to ignore events. <br/>
+**  If an EiffelVision 2 component inherits [[ref:libraries/vision2/reference/ev_sensitive_chart|EV_SENSITIVE]] , it can be made to ignore events. <br/>
 Use <eiffel>disable_sensitive</eiffel> to disable event handling, and <eiffel>enable_sensitive</eiffel> to restore event handling. 
 
 *  [[ref:libraries/vision2/reference/ev_colorizable_chart|EV_COLORIZABLE]]  
-**  If a Vision2 component inherits [[ref:libraries/vision2/reference/ev_colorizable_chart|EV_COLORIZABLE]]  it has facilities for modifying its foreground and background colors. <br/>
+**  If a EiffelVision 2 component inherits [[ref:libraries/vision2/reference/ev_colorizable_chart|EV_COLORIZABLE]]  it has facilities for modifying its foreground and background colors. <br/>
 Use <eiffel>set_foreground_color</eiffel> to set the <eiffel>foreground_color</eiffel> and <eiffel>set_background_color</eiffel> to set the <eiffel>background_color</eiffel>. <br/>
 Use <eiffel>set_default_colors</eiffel> to restore the colors to their defaults. 
 
 *  [[ref:libraries/vision2/reference/ev_help_contextable_chart|EV_HELP_CONTEXTABLE]]  
-**  If a Vision2 component inherits [[ref:libraries/vision2/reference/ev_help_contextable_chart|EV_HELP_CONTEXTABLE]] , facilities are provided for associating help to the component when F1 or Shift F1 is pressed.
+**  If a EiffelVision 2 component inherits [[ref:libraries/vision2/reference/ev_help_contextable_chart|EV_HELP_CONTEXTABLE]] , facilities are provided for associating help to the component when F1 or Shift F1 is pressed.
 
 *  [[ref:libraries/vision2/reference/ev_positioned_chart|EV_POSITIONED]]  
-**  If a Vision2 component inherits [[ref:libraries/vision2/reference/ev_positioned_chart|EV_POSITIONED]]  it is possible to query its current position, size and minimum size. <br/>
+**  If a EiffelVision 2 component inherits [[ref:libraries/vision2/reference/ev_positioned_chart|EV_POSITIONED]]  it is possible to query its current position, size and minimum size. <br/>
 Use <eiffel>x_position</eiffel> and <eiffel>y_position</eiffel> to find its position relative to its parent. <br/>
 Use <eiffel>width</eiffel> and <eiffel>height</eiffel> to find its size. <br/>
 Use <eiffel>minimum_width</eiffel> and <eiffel>minimum_height</eiffel> to find its size. 
 
 *  [[ref:libraries/vision2/reference/ev_containable_chart|EV_CONTAINABLE]]  
-**  If a Vision2 component inherits [[ref:libraries/vision2/reference/ev_containable_chart|EV_CONTAINABLE]]  it is able question its parent. Use parent to query the current parent.
+**  If a EiffelVision 2 component inherits [[ref:libraries/vision2/reference/ev_containable_chart|EV_CONTAINABLE]]  it is able question its parent. Use parent to query the current parent.
 
 
 
-{{note|[[ref:libraries/vision2/reference/ev_containable_chart|EV_CONTAINABLE]]  has no features for setting the parent. In Vision2, a child has no features for setting its parent, while a parent such as ev_container contains routines for adding children (one example is <eiffel>extend</eiffel>). }}
+{{note|[[ref:libraries/vision2/reference/ev_containable_chart|EV_CONTAINABLE]]  has no features for setting the parent. In EiffelVision 2, a child has no features for setting its parent, while a parent such as ev_container contains routines for adding children (one example is <eiffel>extend</eiffel>). }}
 
-The following properties are also used within Vision2: 
+The following properties are also used within EiffelVision 2: 
 * [[ref:libraries/vision2/reference/ev_deselectable_chart|EV_DESELECTABLE]] 
 * [[ref:libraries/vision2/reference/ev_drawable_chart|EV_DRAWABLE]] 
 * [[ref:libraries/vision2/reference/ev_fontable_chart|EV_FONTABLE]] 

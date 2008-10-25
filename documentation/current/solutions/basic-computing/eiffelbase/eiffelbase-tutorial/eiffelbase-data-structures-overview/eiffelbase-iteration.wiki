@@ -53,13 +53,16 @@ The classes of the Iteration library address this need. Using them offers two be
 
 
 
+
+
+
 To get a first grasp of how one can work with the Iteration library, let us look at a typical iteration class and a typical iteration client.
 
 ==An example iterator routine==
 
 Here, given with its full implementation, is a typical Iteration library routine: the procedure until_do from [[ref:libraries/base/reference/linear_iterator_chart]] , the class defining iteration mechanisms on linear (sequential) structures. 
 <code>
-until_do is
+until_do
 			-- Apply action to every item of target,
 			-- up to but excluding first one satisfying test.
 			-- (Apply to full list if no item satisfies test.)
@@ -86,7 +89,7 @@ This procedure will traverse the linear structure identified by target and apply
 The class similarly offers <eiffel>do_all</eiffel>, <eiffel>do_while</eiffel>, <eiffel>do_for</eiffel>, <eiffel>do_if</eiffel> and other procedures representing the common control structures. It also includes functions such as <eiffel>exists</eiffel> and <eiffel>forall</eiffel>, corresponding to the usual quantifiers. <br/>
 These iteration schemes depend on the procedure <eiffel>action</eiffel>, defining the action to be applied to successive elements, and on the function <eiffel>test</eiffel>, defining the boolean query to be applied to these elements. These features are declared in class [[ref:/libraries/base/reference/iterator_chart|ITERATOR]]  (the highest-level deferred class of the Iteration library); here is <eiffel>test</eiffel>: 
 <code>
-test: BOOLEAN is
+test: BOOLEAN
 		-- Test to be applied to item at current position in
 		-- target (default: value of item_test on item)
 	require
@@ -128,7 +131,7 @@ inherit
 
 feature
 
-	resize_paragraphs (t: TEXT) is
+	resize_paragraphs (t: TEXT)
 			-- Resize all the paragraphs of t up to but excluding
 			-- the first one that has been modified.
 		do
@@ -138,13 +141,13 @@ feature
 
 feature {NONE}
 
-	item_test (p PARAGRAPH): BOOLEAN is
+	item_test (p PARAGRAPH): BOOLEAN
 			-- Has p been modified?
 		do
 			Result := p.modified
 		end
 
-	item_action (p: PARAGRAPH) is
+	item_action (p: PARAGRAPH)
 			-- Resize p.
 		do
 			p.resize
@@ -153,7 +156,7 @@ feature {NONE}
 end</code>
 
 Thanks to the iteration mechanism, the procedure <eiffel>resize_paragraphs</eiffel> simply needs two procedure calls: 
-* To set its argument <code> t </code> as the iteration target, it uses procedure <eiffel>set</eiffel>. (This procedure is from class [[ref:/libraries/base/reference/iterator_chart|ITERATOR]]  which passes it on to all iterator classes.) 
+* To set its argument <code>t</code> as the iteration target, it uses procedure <eiffel>set</eiffel>. (This procedure is from class [[ref:/libraries/base/reference/iterator_chart|ITERATOR]]  which passes it on to all iterator classes.) 
 * Then it simply calls <eiffel>until_do</eiffel> as defined above.
 
 Procedure <eiffel>item_action</eiffel> is redefined to describe the operation to be performed on each successive element. Function <eiffel>item_test</eiffel> is redefined to describe the exit test. <br/>
@@ -195,17 +198,17 @@ Each one of the iterator classes is paired with a traversal class (or two in one
 |}
 
 
-Each iterator class relies on the corresponding traversal class to provide the features for traversing the corresponding data structures, such as <eiffel>start</eiffel>, <eiffel>forth</eiffel> and <eiffel>exhausted</eiffel> for linear structures. <br/>
+Each iterator class relies on the corresponding traversal class to provide the features for traversing the corresponding data structures, such as <eiffel>start</eiffel>, <eiffel>forth</eiffel>, and <eiffel>exhausted</eiffel> for linear structures. <br/>
 Of course the data structure class used in connection with a given iterator class does not need to be the iterator's exact correspondent as given by the above table; it may be any one of its descendants. For example you may use [[ref:/libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]]  to iterate over data structures described not just by [[ref:/libraries/base/reference/linear_chart|LINEAR]]  but also by such descendants as [[ref:/libraries/base/reference/list_chart|LIST]] , [[ref:/libraries/base/reference/linked_list_chart|LINKED_LIST]] , [[ref:/libraries/base/reference/arrayed_list_chart|ARRAYED_LIST]] , or even [[ref:/libraries/base/reference/two_way_list_chart|TWO_WAY_LIST]]  if you do not need the backward iteration features (for which you will have to use [[ref:/libraries/base/reference/two_way_chain_iterator_chart|TWO_WAY_CHAIN_ITERATOR]]  ). 
 
 ==General iteration facilities==
 
 Class [[ref:/libraries/base/reference/iterator_chart|ITERATOR]]  defines the features that apply to all forms of iterator. <br/>
 An iterator will always apply to a certain target structure. The target is introduced in [[ref:/libraries/base/reference/iterator_chart|ITERATOR]]  by the feature target: [[ref:/libraries/base/reference/traversable_chart|TRAVERSABLE]]  [G] <br/>
-Both the iterator classes and the traversal classes are generic, with a formal generic parameter G. The actual generic parameters will be matched through the choice of iteration target: for a generic derivation of the form <eiffel>SOME_ITERATOR</eiffel> [ <eiffel>ACTUAL_TYPE</eiffel>] the target can only be of type <eiffel>SOME_TRAVERSABLE</eiffel> [ <eiffel>ACTUAL_TYPE</eiffel>] for the same <eiffel>ACTUAL_TYPE</eiffel>, where <eiffel>SOME_TRAVERSABLE</eiffel> is the traversal class matching <eiffel>SOME_ITERATOR</eiffel> according to the preceding table ([[ref:/libraries/base/reference/linear_chart|LINEAR]]  for [[ref:/libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] and so on), or one of its proper descendants. <br/>
+Both the iterator classes and the traversal classes are generic, with a formal generic parameter G. The actual generic parameters will be matched through the choice of iteration target: for a generic derivation of the form <eiffel>SOME_ITERATOR</eiffel> [<eiffel>ACTUAL_TYPE</eiffel>] the target can only be of type <eiffel>SOME_TRAVERSABLE</eiffel> [<eiffel>ACTUAL_TYPE</eiffel>] for the same <eiffel>ACTUAL_TYPE</eiffel>, where <eiffel>SOME_TRAVERSABLE</eiffel> is the traversal class matching <eiffel>SOME_ITERATOR</eiffel> according to the preceding table ([[ref:/libraries/base/reference/linear_chart|LINEAR]]  for [[ref:/libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] and so on), or one of its proper descendants. <br/>
 Each of the proper descendants of [[ref:/libraries/base/reference/iterator_chart|ITERATOR]]  redefines the type of target to the matching proper descendant of [[ref:/libraries/base/reference/traversable_chart|TRAVERSABLE]] , to cover more specific variants of the iteration target, For example in [[ref:/libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] the feature is redefined to be of type [[ref:/libraries/base/reference/linear_chart|LINEAR]] . [[ref:/libraries/base/reference/iterator_chart|ITERATOR]]  also introduces the procedure for selecting a target: 
 <code>
-	set (s: like target) is
+	set (s: like target)
 			-- Make s the new target of iterations.
 		require
 			s /= Void
@@ -218,7 +221,7 @@ Each of the proper descendants of [[ref:/libraries/base/reference/iterator_chart
 
 Next [[ref:/libraries/base/reference/iterator_chart|ITERATOR]]  introduces the routines describing the elementary action and test that will be applied to items of the iteration targets:
 <code>
-	action is
+	action
 			-- Action to be applied to item at current position in
 			-- target.
 			-- (default: item_action on item at current position.)
@@ -236,7 +239,7 @@ Next [[ref:/libraries/base/reference/iterator_chart|ITERATOR]]  introduces the r
 			invariant_satisfied: invariant_value
 		end
 
-	test: BOOLEAN is
+	test: BOOLEAN
 			-- Test to be applied to item at current position in
 			-- target (default: value of item_test on item)
 		require
@@ -269,11 +272,12 @@ All these features, and most of the other iteration features introduced in prope
 [[ref:/libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] , an effective class, refines the iteration mechanisms for cases in which the target is a linear structure, such as a list in any implementation or a circular chain. <br/>
 The class effects all the deferred features inherited from [[ref:/libraries/base/reference/iterator_chart|ITERATOR]] , taking advantage of the linear traversal mechanisms present in the corresponding traversal class, [[ref:/libraries/base/reference/linear_chart|LINEAR]] . Here for example is the effecting of <eiffel>do_if</eiffel>: 
 <code>
-	do_if is
+	do_if
 			-- Apply action to every item of target satisfying
 			-- test.
 		do
 			from
+
 				target.start
 			invariant
 				invariant_value
@@ -289,7 +293,7 @@ The class effects all the deferred features inherited from [[ref:/libraries/base
 
 This routine text relies on features <eiffel>start</eiffel>, <eiffel>forth</eiffel> and <eiffel>exhausted</eiffel> which, together with <eiffel>off</eiffel>, have for convenience been carried over to [[ref:/libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]]  from their counterparts in [[ref:/libraries/base/reference/linear_chart|LINEAR]] , with feature declarations such as
 <code>
-	off: BOOLEAN is
+	off: BOOLEAN
 			-- Is position of target off?
 		require
 			traversable_exists: target /= Void
@@ -363,13 +367,13 @@ feature -- Status report
 
 feature -- Cursor movement
 
-	finish is
+	finish
 			-- Move cursor of target to last position.
 		do
 			target.finish
 		end
 
-	back is
+	back
 			-- Move cursor of target backward one position.
 		do
 			target.back
@@ -383,11 +387,11 @@ This class provides a good example of the economy of expression that the full in
 
 Tree iterations, provided by class [[ref:/libraries/base/reference/cursor_tree_iterator_chart|CURSOR_TREE_ITERATOR]] , work on trees of the cursor tree form; only with this form of tree are traversal operations possible. Three forms of iteration are provided: preorder, postorder and breadth-first. They correspond to the three traversal policies described in the discussion of trees. Here too it would seem that a rather lengthy class is needed, but repeated inheritance works wonders. <br/>
 [[ref:/libraries/base/reference/cursor_tree_iterator_chart|CURSOR_TREE_ITERATOR]]  simply inherits three times from [[ref:/libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] , renaming the features appropriately in each case: 
-*  <eiffel>pre_do_all</eiffel>, <eiffel>pre_until</eiffel> and so on. 
-*  <eiffel>post_do_all</eiffel>, <eiffel>post_until</eiffel> and so on. 
-*  <eiffel>breadth_do_all</eiffel>, <eiffel>breadth_until</eiffel> and so on. 
+*  <eiffel>pre_do_all</eiffel>, <eiffel>pre_until</eiffel>, and so on. 
+*  <eiffel>post_do_all</eiffel>, <eiffel>post_until</eiffel>, and so on. 
+*  <eiffel>breadth_do_all</eiffel>, <eiffel>breadth_until</eiffel>, and so on. 
 
-All it needs to do then is to redefine the type of target to be [[ref:/libraries/base/reference/cursor_tree_chart|CURSOR_TREE]]  <code> [ </code> <eiffel>G</eiffel> <code> ] </code>, and to redefine six features: the three renamed start ( <eiffel>pre_start</eiffel> etc.) and the three forth ( <eiffel>pre_ forth</eiffel> and so on). These seven redefinitions give us a full-fledged battery of tree iteration mechanisms. 
+All it needs to do then is to redefine the type of target to be [[ref:/libraries/base/reference/cursor_tree_chart|CURSOR_TREE [G]]] , and to redefine six features: the three renamed start (<eiffel>pre_start</eiffel>, etc.) and the three forth ( <eiffel>pre_ forth</eiffel>, and so on). These seven redefinitions give us a full-fledged battery of tree iteration mechanisms. 
 
 =Building and Using Iterators=
 
@@ -396,7 +400,7 @@ An application class may use one of the iteration classes in either of two ways:
 
 ==The single descendant technique==
 
-Assume an application class <eiffel>PROCESSOR</eiffel> that is a proper descendant of one of the effective iteration classes studied in this chapter. Then a routine of <eiffel>PROCESSOR</eiffel>, say <eiffel>iterate</eiffel>, may iterate a certain action over a data structure, subject to a certain test. First, class <eiffel>PROCESSOR</eiffel> must specify the action by redefining item_action and item_test (or, in the most general case, action and test). Then routine iterate must specify the target data structure through a call of the form set <code> ( </code> <code> t ) where t represents the selected target data structure. The type of t must correspond tothe iteration class selected as ancestor of </code> <eiffel>PROCESSOR</eiffel>: for [[ref:/libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] it must be a descendant of [[ref:/libraries/base/reference/linear_chart|LINEAR]]  (such as [[ref:/libraries/base/reference/linked_list_chart|LINKED_LIST]] , [[ref:/libraries/base/reference/arrayed_list_chart|ARRAYED_LIST]] , LINKED_CIRCULAR or any other list or circular chain classes); for [[ref:/libraries/base/reference/two_way_chain_iterator_chart|TWO_WAY_CHAIN_ITERATOR]]  it must be a descendant of [[ref:/libraries/base/reference/linear_chart|BILINEAR]]  such as [[ref:/libraries/base/reference/two_way_list_chart|TWO_WAY_LIST]]  or [[ref:/libraries/base/reference/two_way_circular_chart|TWO_WAY_CIRCULAR]] ; for [[ref:/libraries/base/reference/cursor_tree_iterator_chart|CURSOR_TREE_ITERATOR]] it must be a descendant of [[ref:/libraries/base/reference/cursor_tree_chart|CURSOR_TREE]] . In all cases the actual generic parameters of the iterator class and ofthe data structure class must be compatible. Then the iteration proper is obtained simply by calling the appropriate procedure, without any qualification or arguments, for example: do_ if <br/>
+Assume an application class <eiffel>PROCESSOR</eiffel> that is a proper descendant of one of the effective iteration classes studied in this chapter. Then a routine of <eiffel>PROCESSOR</eiffel>, say <eiffel>iterate</eiffel>, may iterate a certain action over a data structure, subject to a certain test. First, class <eiffel>PROCESSOR</eiffel> must specify the action by redefining item_action and item_test (or, in the most general case, action and test). Then routine iterate must specify the target data structure through a call of the form <code>set (t)</code> where t represents the selected target data structure. The type of t must correspond to the iteration class selected as ancestor of <eiffel>PROCESSOR</eiffel>: for [[ref:/libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] it must be a descendant of [[ref:/libraries/base/reference/linear_chart|LINEAR]]  (such as [[ref:/libraries/base/reference/linked_list_chart|LINKED_LIST]] , [[ref:/libraries/base/reference/arrayed_list_chart|ARRAYED_LIST]] , LINKED_CIRCULAR or any other list or circular chain classes); for [[ref:/libraries/base/reference/two_way_chain_iterator_chart|TWO_WAY_CHAIN_ITERATOR]]  it must be a descendant of [[ref:/libraries/base/reference/linear_chart|BILINEAR]]  such as [[ref:/libraries/base/reference/two_way_list_chart|TWO_WAY_LIST]]  or [[ref:/libraries/base/reference/two_way_circular_chart|TWO_WAY_CIRCULAR]] ; for [[ref:/libraries/base/reference/cursor_tree_iterator_chart|CURSOR_TREE_ITERATOR]] it must be a descendant of [[ref:/libraries/base/reference/cursor_tree_chart|CURSOR_TREE]] . In all cases the actual generic parameters of the iterator class and ofthe data structure class must be compatible. Then the iteration proper is obtained simply by calling the appropriate procedure, without any qualification or arguments, for example: do_ if <br/>
 It is hard to imagine a simpler scheme: no loops, no initialization, no arguments. Feature item_action may need to rely on some variable values. Because it does not take any argument, such values will have to be treated as attributes, with the corresponding <eiffel>set_...</eiffel> procedures to set and change their values. This also applies to the two schemes set next. <br/>
 The single descendant technique has one drawback: it provides the iterating class, <eiffel>PROCESSOR</eiffel>, with only one set of iteration particulars. This limitation does not affect the number of targets: you may use as many targets as you wish, as long as they are of compatible types, by calling a routine such as iterate several times, or calling several such routines, each call being preceded by a call to set to define a new target. The limitation also does not affect the iterating scheme: one iteration could use do_if, the next do_all and so on. But it does require the action and test to be the same in all cases. <br/>
 The next two techniques will remove this limitation. 
@@ -431,38 +435,38 @@ inherit
 
 feature
 
-	action1 is
+	action1
 			-- Action for the first scheme
 		do
 			...
 		end
 
-	test1: BOOLEAN is
+	test1: BOOLEAN
 			-- Test for the first scheme
 		do
 			...
 		end
 
-	action2 is
+	action2
 			-- Action for the second scheme
 		do
 			...
 		end
 
-	test2: BOOLEAN is
+	test2: BOOLEAN
 			-- Test for the second scheme
 		do
 			...
 		end
 
-	iterate1 is
+	iterate1
 			-- Execute iteration of first kind.
 		do
 			set (...)
 			do_if1
 		end
 
-	iterate2 is
+	iterate2
 			-- Execute iteration of second kind.
 		do
 			set (...)
@@ -495,7 +499,7 @@ end
 In the feature clause we want to provide the appropriate effectings for the deferred features of class <eiffel>FIGURE</eiffel>: <eiffel>display</eiffel>, <eiffel>hide</eiffel>, <eiffel>translate</eiffel> and all other basic figure operations. <br/>
 We can use loops for that purpose, for example 
 <code>
-	display is
+	display
 			-- Recursively display all components of the complex
 			-- figure
 		do
@@ -548,7 +552,7 @@ create
 
 feature
 
-	item_action (f: FIGURE) is
+	item_action (f: FIGURE)
 			-- Action to be applied to each figure: display
 			-- it.
 		do
@@ -559,7 +563,7 @@ end
 
 Similarly, you may define <eiffel>FIGURE_HIDER</eiffel>, <eiffel>FIGURE_MOVER</eiffel> and others. Then the features of <eiffel>COMPLEX_FIGURE</eiffel> are written almost trivially, without any explicit loops; for example: 
 <code>
-	display is
+	display
 			-- Recursively display all components of the complex
 			-- figure
 		local

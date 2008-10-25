@@ -21,7 +21,7 @@ The origin is 0 hour 0 minute and 0 second. Notion of time is relative to a day 
 
 ====Comparison====
 
-Instances of [[ref:libraries/time/reference/time_chart|TIME ]] may be compared. Functions <, + > and >= are available. Function is_equal must be use to test equality. = will compare references. 
+Instances of [[ref:libraries/time/reference/time_chart|TIME ]] may be compared. Functions <, +, >, and >= are available. Function is_equal or ~ can be used to test object equality, while = will compare references. 
 
 ====Measurement====
 
@@ -46,7 +46,7 @@ The origin is 01/01/1600.
 
 ====Comparison====
 
-Instances of <eiffel>DATE</eiffel> may be compared. Functions <, + > and >= are available. Function is_equal must be use to test equality, = will compare references. 
+Instances of <eiffel>DATE</eiffel> may be compared. Functions <, +, >, and >= are available. Function is_equal or ~ can be used to test object equality, while  = will compare references. 
 
 ====Measurement====
 
@@ -59,9 +59,9 @@ Much information may be gotten from functions written in this part. Most of them
 ====Operations====
 
 <eiffel>DATE</eiffel> operations looks like <eiffel>TIME</eiffel> operations: 
-* Setting directly year, month and day with set_year, set_month and set_day. Arguments must satisfy the rules of creation. These rules are more complicated than those of <eiffel>TIME</eiffel>. For example it is not allowed to set day to 31 if the current month is April, whereas it is allowed if the month is January. It is the same rules as for make. The same thing for years: It is not allowed to set year to a non-leap year if the current date is February 29th of a leap year. However, two features are available to set month and year even if day is too large: set_month_cut_days and set_year_cut_days will cut day down to the largest value allowed. 
-* Adding years, months and days with features year_add, month_add and day_add. There is no requirement to add a year or a month. However, these features have to return a correct result, i.e. day is checked before each addition-. Adding one month to August 31st will yield September 30th. 31 is cut to 30 since there are only 30 days in September. Features add and + take an instance of DATE_DURATION in argument and add it to the current date. It is written so that years and months are added first, the days last.(see DATE_DURATION below)
-* Moving to the next or the previous year, month or day with features year_forth, year_back, month_forth, month_back, day_forth and day_back. It is the same but faster to use these features rather than those upper (year_back <-> year_add (-1)).
+* Setting directly year, month and day with set_year, set_month, and set_day. Arguments must satisfy the rules of creation. These rules are more complicated than those of <eiffel>TIME</eiffel>. For example it is not allowed to set day to 31 if the current month is April, whereas it is allowed if the month is January. It is the same rules as for make. The same thing for years: It is not allowed to set year to a non-leap year if the current date is February 29th of a leap year. However, two features are available to set month and year even if day is too large: set_month_cut_days and set_year_cut_days will cut day down to the largest value allowed. 
+* Adding years, months and days with features year_add, month_add, and day_add. There is no requirement to add a year or a month. However, these features have to return a correct result, i.e. day is checked before each addition-. Adding one month to August 31st will yield September 30th. 31 is cut to 30 since there are only 30 days in September. Features add and + take an instance of DATE_DURATION in argument and add it to the current date. It is written so that years and months are added first, the days last.(see DATE_DURATION below)
+* Moving to the next or the previous year, month or day with features year_forth, year_back, month_forth, month_back, day_forth, and day_back. It is the same but faster to use these features rather than those upper (year_back <-> year_add (-1)).
 * Features relative_duration and definite_duration return the duration between the current date and the argument. The first one returns a result which is canonical (See definitions below), while the second one returns a definite result but may be not canonical.
 
 For example, date1 is April 20th and date2 is May 28th. Both features will yield instances of DURATION; however, relative_duration will yield 1 month and 8 days whereas definite_duration will yield 38 days.
@@ -86,7 +86,7 @@ To make it easier calls to features of <eiffel>TIME</eiffel> and <eiffel>DATE</e
 
 ====Comparison====
 
-Instances of <eiffel>DATE_TIME</eiffel> are totally ordered (the class inherit from <eiffel>ABSOLUTE</eiffel>). Functions <, + > and >= are available. Function is_equal must be used to test equality, = will compare references. 
+Instances of <eiffel>DATE_TIME</eiffel> are totally ordered (the class inherit from <eiffel>ABSOLUTE</eiffel>). Functions <, +, >, and >= are available. Function is_equal or ~ is used to test object equality.  = will compare references. 
 
 ====Measurement====
 

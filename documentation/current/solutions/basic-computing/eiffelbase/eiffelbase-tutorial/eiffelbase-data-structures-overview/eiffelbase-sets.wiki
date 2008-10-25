@@ -15,18 +15,18 @@ The most general class describing sets is [[ref:libraries/base/reference/set_cha
 
 The deferred class [[ref:libraries/base/reference/comparable_set_chart|COMPARABLE_SET]] , declared as 
 <code>
-	deferred class
-		COMPARABLE_SET [G -> COMPARABLE]
+deferred class
+    COMPARABLE_SET [G -> COMPARABLE]
 
-	inherit
-		SUBSET  [G]
-		COMPARABLE_STRUCT  [G]
-	...
+        inherit
+            SUBSET  [G]
+            COMPARABLE_STRUCT  [G]
+        ...
 </code>
 
 describes sets whose items may be compared by a total order relation. The class has the features [[ref:libraries/base/reference/comparable_set_chart|min]]  and [[ref:libraries/base/reference/comparable_set_chart|max]] . <br/>
 Two implementations of [[ref:libraries/base/reference/comparable_set_chart|COMPARABLE_SET]]  are provided. One, [[ref:libraries/base/reference/two_way_sorted_set_chart|TWO_WAY_SORTED_SET]] , uses sorted two-way lists. The other, [[ref:libraries/base/reference/binary_search_tree_set_chart|BINARY_SEARCH_TREE_SET]] , uses binary search trees. <br/>
-If the items are partially rather than totally ordered, you may use the class [[ref:libraries/base/reference/part_sorted_set_chart|PART_SORTED_SET]]  [G -> [[ref:libraries/base/reference/part_comparable_chart|PART_COMPARABLE]] ], which uses a two-way sorted list implementation. 
+If the items are partially rather than totally ordered, you may use the class PART_SORTED_SET  [G -> PART_COMPARABLE]], which uses a two-way sorted list implementation. 
 
 
 

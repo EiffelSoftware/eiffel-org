@@ -1,7 +1,7 @@
 [[Property:title|Revisions and Bug Fixes]]
 [[Property:weight|10]]
 [[Property:uuid|eb11a237-0c75-0427-452a-303d4f276b97]]
-This document contains details of modifications and bug fixes to the Vision2 library listed by the release version of EiffelStudio. All bug fixes and modifications are relative to the previously released version.
+This document contains details of modifications and bug fixes to the EiffelVision 2 library listed by the release version of EiffelStudio. All bug fixes and modifications are relative to the previously released version.
 
 ==EiffelStudio 6.2==
 
@@ -54,7 +54,7 @@ This document contains details of modifications and bug fixes to the Vision2 lib
 *  '''EV_PICK_AND_DROPABLE''' - Added context menu capabilities with 'set_configurable_target_menu_mode', 'set_configurable_target_menu_handler' and 'show_configurable_target_menu' that can be used to override the existing Pick and Drop mechanism. 
 *  '''EV_ACTION_SEQUENCE''' - Now event_data is defined with named tuples for easier reading of the action sequence parameters. 
 *  '''EV_APPLICATION_ACTION_SEQUENCES''' 
-** Added 'file_drop_actions' for OS based file drag and drop from exterior applications to a Vision2 application.
+** Added 'file_drop_actions' for OS based file drag and drop from exterior applications to a EiffelVision 2 application.
 ** Made 'idle_actions' obsolete as it is not thread-safe
 ** Now a full garbage collection occurs if the application has been idle for 30 seconds
 
@@ -101,7 +101,7 @@ This document contains details of modifications and bug fixes to the Vision2 lib
 * '''STRING_GENERAL''' - All string operations now take STRING_GENERAL instead of STRING, this allows for mixing and matching of 8 and 32-bit string objects and allows for 32bit Unicode values, the return value is always STRING_32
 *  '''EV_APPLICATION''' 
 ** Added action sequences for querying global user events such as pointer clicks and motion
-** Vision2 is now thread-aware with the addition of thread-safe 'add_idle_action' and 'do_once_on_idle' that allow threads to add agents to update the main GUI thread in a safe manner
+** EiffelVision 2 is now thread-aware with the addition of thread-safe 'add_idle_action' and 'do_once_on_idle' that allow threads to add agents to update the main GUI thread in a safe manner
 
 *  '''EV_POINTER_STYLE''' - Added new pointer style class for setting the style of the mouse pointer, EV_CURSOR will be made obsolete, in the future animated cursors and transparency will be available 
 *  '''EV_PIXEL_BUFFER''' - New class for loading/querying and setting RGBA values from disk 
@@ -130,7 +130,7 @@ This document contains details of modifications and bug fixes to the Vision2 lib
 *  '''EV_GRID_ROW''' - Added `insert_subrows' for the quick addition of multiple subrows at once. 
 *  '''EV_WINDOW''' - Added `is_border_enabled', `enable_border' and `disable_border'. This lets you turn on/off the border as required. 
 *  '''EV_HEADER_ITEM''' - Added `user_can_resize' which enables you to prevent a user from resizing the item. Also added `minimum_width' and `maximum_width' which permit you to restrict the resizing of the item within a particular range. 
-*  '''EV_MESSAGE_DIALOG''' - All message dialogs now use their associated message icon as the icon pixmap displayed in the title bar, instead of the standard EiffelVision2 icon. 
+*  '''EV_MESSAGE_DIALOG''' - All message dialogs now use their associated message icon as the icon pixmap displayed in the title bar, instead of the standard EiffelVision 2 icon. 
 *  '''EV_DYNAMIC_TREE_ITEM''' - The `subtree_function' is now only executed when you expand the item. In the previous version, querying the contents of the item caused the subtree function to be executed, filling the children. 
 *  '''EV_COMBO_BOX''' - Added `is_list_shown', `list_hidden_actions' and renamed `drop_down_actions' to `list_shown_actions'. 
 * '''EV_APPLICATION''' - Added `pointer_motion_actions', `pointer_button_press_actions', `pointer_button_release_actions', `pointer_double_press_actions', `mouse_wheel_actions', `key_press_actions', `key_press_string_actions' and `key_release_actions'. Each of these action sequences pass the applicable widget as part of the event data.
@@ -291,7 +291,7 @@ This document contains details of modifications and bug fixes to the Vision2 lib
 *** Fixed crash when removing nodes from parent nodes not present in a tree widget
 
 **  '''EV_RICH_TEXT''' 
-***  Now `paste' uses the Vision2 clipboard directly and so all clipboard assertions are fulfilled
+***  Now `paste' uses the EiffelVision 2 clipboard directly and so all clipboard assertions are fulfilled
 *** Fixed `buffered_format' to not wipe out the text buffer of the widget and therefore stop other EV_TEXT features from functioning correctly
 *** Now `buffered_append' doesn't wipe out the screen contents of the rich text control
 
@@ -302,7 +302,7 @@ This document contains details of modifications and bug fixes to the Vision2 lib
 **  '''EV_PIXMAP''' - Improved pixmap 'stretch' for smaller images 
 **  '''EV_WIDGET''' 
 *** Optimized motion event handling so that current motion events only get requested when the previous one has been processed
-*** Fixed theme managed handling in all widgets so that fonts when changed outside of the application by the theme manager get reflected in the Vision2 application
+*** Fixed theme managed handling in all widgets so that fonts when changed outside of the application by the theme manager get reflected in the EiffelVision 2 application
 
 **  '''EV_DIALOG''' 
 *** Fixed bug where modal and modeless dialogs were not centered to parent
@@ -412,7 +412,7 @@ This document contains details of modifications and bug fixes to the Vision2 lib
 *  '''EV_FIGURE_EQUILATERAL''' - First point generated is now based upon 'point_b' 
 
 '''Breaking changes''' 
-*  '''EV_TREE_NODE_CONTAINER''' - This class is no longer used in EiffelVision2, and if you were relying on it, you should use EV_TREE_NODE_LIST instead. The type of `parent' for tree nodes has been changed from EV_TREE_NODE_CONTAINER to EV_TREE_NODE_LIST, so if you retrieve the `parent' and then attempt to iterate, you may have declared an instance of EV_TREE_NODE_CONTAINER. In this situation, you should simply change the definition to EV_TREE_NODE_LIST instead. 
+*  '''EV_TREE_NODE_CONTAINER''' - This class is no longer used in EiffelVision 2, and if you were relying on it, you should use EV_TREE_NODE_LIST instead. The type of `parent' for tree nodes has been changed from EV_TREE_NODE_CONTAINER to EV_TREE_NODE_LIST, so if you retrieve the `parent' and then attempt to iterate, you may have declared an instance of EV_TREE_NODE_CONTAINER. In this situation, you should simply change the definition to EV_TREE_NODE_LIST instead. 
 
 '''Bug fixes''' 
 *  '''Platform independent''' 
@@ -599,7 +599,7 @@ The following list details some of the breaking changes, and how to fix them:
 **  redefined `prunable' to `True' and implemented `prune'.
 **  Added the following features - `set_item_span', `set_item_position', `set_item_span_and_position', `area_clear_excluding_widget', `item_row_span', `item_column_span', `item_row_position' and `item_column_position'.
 
-*  '''EV_WIDGET''' - Changed type of `focus_in_actions' and `focus_out_actions' from EV_FOCUS_ACTION_SEQUENCE to EV_NOTIFY_ACTION_SEQUENCE. `is_parent_recursive' is no longer available. It has been moved to EV_CONTAINER. This was necessary to fix a catcall encountered using vision2 under .NET. The problem manifested with widgets that held items. 
+*  '''EV_WIDGET''' - Changed type of `focus_in_actions' and `focus_out_actions' from EV_FOCUS_ACTION_SEQUENCE to EV_NOTIFY_ACTION_SEQUENCE. `is_parent_recursive' is no longer available. It has been moved to EV_CONTAINER. This was necessary to fix a catcall encountered using EiffelVision 2 under .NET. The problem manifested with widgets that held items. 
 *  '''EV_FIGURE''' - `proximity_in_actions' and `proximity_out_actions' are now obsolete. 
 *  '''EV_FONTABLE''' - `set_font' now sets a copy of the font internally. 
 *  '''EV_TREE''' - `ensure_item_visible' and `has_recursively' now take an EV_TREE_NODE as arguments, instead of an EV_TREE_ITEM. 
@@ -753,7 +753,7 @@ The following list details some of the breaking changes, and how to fix them:
 **  '''EV_BUTTON''' - The result of `text_alignment' after default_create was incorrect. 
 
 *  '''Gtk''' 
-**  Gtk version of Studio released (including Vision2), so no fixes from 5.0
+**  Gtk version of Studio released (including EiffelVision 2), so no fixes from 5.0
 
 
 

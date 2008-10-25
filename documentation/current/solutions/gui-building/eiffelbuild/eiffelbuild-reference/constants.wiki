@@ -56,11 +56,11 @@ As objects are reliant on the constant you are removing, you must confirm that y
 
 A String constant represents an Eiffel STRING, and may be any valid STRING. For example, in the generated constants file, for a String constant named `modify_button_text', the following code is generated:
 <code>
-	modify_button_text: STRING is
-			-- `Result' is STRING constant named modify_button_text.
-		once
-			Result := "Modify"
-		end
+    modify_button_text: STRING
+            -- `Result' is STRING constant named modify_button_text.
+        once
+            Result := "Modify"
+        end
 </code>
 
 
@@ -68,21 +68,21 @@ A String constant represents an Eiffel STRING, and may be any valid STRING. For 
 
 A Integer constant represents an Eiffel INTEGER, and may be any valid INTEGER value. For example, in the generated constants file, for an Integer constant named `medium_padding', the following code is generated:
 <code>
-	medium_padding: INTEGER is
-				-- `Result' is INTEGER constant named medium_padding.
-		once
-			Result := 8
-		end</code>
+    medium_padding: INTEGER
+            -- `Result' is INTEGER constant named medium_padding.
+        once
+            Result := 8
+        end</code>
 
 ==Directory constant==
 
 A Directory constant is an Eiffel representation of a directory, as a STRING value. For example, in the generated constants file, for a Directory constant named `pixmap_location', the following code is generated:
 <code>
-	pixmap_location: STRING is
-			-- `Result' is DIRECTORY constant named pixmap_location.
-		once
-			Result := "C:\pixmaps"
-		end</code>
+    pixmap_location: STRING
+            -- `Result' is DIRECTORY constant named pixmap_location.
+        once
+            Result := "C:\pixmaps"
+        end</code>
 
 
 ==Pixmap constant==
@@ -90,30 +90,30 @@ A Directory constant is an Eiffel representation of a directory, as a STRING val
 A pixmap constant is a representation of a pixmap image, and two types are available:
 *  '''Absolute''' - The generated code contains a constant of type EV_PIXMAP, built from a single, absolute path, based on the location of the original pixmap on disk as follows: 
 <code>
-	main_pixmap: EV_PIXMAP is
-			-- `Result' is PIXMAP constant named main_pixmap.
-		local
-			a_file_name: FILE_NAME
-		once
-			create Result
-			create a_file_name.make_from_string ("C:\pixmaps\main_pixmap.png")
-				-- Now set `Result' based on `a_file_name'.
-			set_with_named_file(Result, a_file_name)
- 		end</code>
+    main_pixmap: EV_PIXMAP
+            -- `Result' is PIXMAP constant named main_pixmap.
+        local
+            a_file_name: FILE_NAME
+        once
+            create Result
+            create a_file_name.make_from_string ("C:\pixmaps\main_pixmap.png")
+                -- Now set `Result' based on `a_file_name'.
+            set_with_named_file(Result, a_file_name)
+         end</code>
 
 *  '''Relative''' - The generated code contains a constant of type EV_PIXMAP, built from a file name and a directory constant. This type of pixmap constant is the most frequently used, as it is more flexible. By redefining the value of the directory constant on which it is based, your systems may easily account for the installation location of the pixmap. A relative Pixmap constant is generated as follows: 
 <code>
-	main_pixmap: EV_PIXMAP is
-			-- `Result' is PIXMAP constant named main_pixmap.
-		local
-			a_file_name: FILE_NAME
-		once
-			create Result
-			create a_file_name.make_from_string (pixmap_location)
-			a_file_name.set_file_name("main_pixmap.png")
-				-- Now set `Result' based on `a_file_name'.
-			set_with_named_file(Result, a_file_name)
-		 end</code>
+    main_pixmap: EV_PIXMAP
+            -- `Result' is PIXMAP constant named main_pixmap.
+        local
+            a_file_name: FILE_NAME
+        once
+            create Result
+            create a_file_name.make_from_string (pixmap_location)
+            a_file_name.set_file_name("main_pixmap.png")
+                -- Now set `Result' based on `a_file_name'.
+            set_with_named_file(Result, a_file_name)
+        end</code>
 
 Where `pixmap_location' is the name of the Directory constant to which the pixmap is relative.
 
@@ -121,25 +121,27 @@ Where `pixmap_location' is the name of the Directory constant to which the pixma
 ==Font constant==
 
 A Font constant represents an EV_FONT. For example, in the generated constants file, for a font constant named `times_new_roman', the following code is generated:
-<code>times_new_roman: EV_FONT is
-			-- `Result' is EV_FONT constant named `times_new_roman'.
-		once
-			create Result
-			Result.set_family (feature {EV_FONT_CONSTANTS}.Family_roman)
-			Result.set_weight (feature {EV_FONT_CONSTANTS}.Weight_regular)
-			Result.set_shape (feature {EV_FONT_CONSTANTS}.Shape_regular)
-			Result.set_height_in_points (12)
-			Result.preferred_families.extend ("Times New Roman")
-		end</code>
+<code>
+    times_new_roman: EV_FONT
+            -- `Result' is EV_FONT constant named `times_new_roman'.
+        once
+            create Result
+            Result.set_family (feature {EV_FONT_CONSTANTS}.Family_roman)
+            Result.set_weight (feature {EV_FONT_CONSTANTS}.Weight_regular)
+            Result.set_shape (feature {EV_FONT_CONSTANTS}.Shape_regular)
+            Result.set_height_in_points (12)
+            Result.preferred_families.extend ("Times New Roman")
+        end</code>
 
 ==Color constant==
 
 A Color constant represents an EV_COLOR. For example, in the generated constants file, for a color constant named `red', the following code is generated:
-<code>red: EV_COLOR is
-			-- `Result' is EV_COLOR constant named `red'.
-		once
-			Result := create {EV_COLOR}.make_with_8_bit_rgb (255, 0, 0)
-		end</code>
+<code>
+    red: EV_COLOR
+            -- `Result' is EV_COLOR constant named `red'.
+        once
+            Result := create {EV_COLOR}.make_with_8_bit_rgb (255, 0, 0)
+        end</code>
 
 ===Pixmap constant dialog===
 

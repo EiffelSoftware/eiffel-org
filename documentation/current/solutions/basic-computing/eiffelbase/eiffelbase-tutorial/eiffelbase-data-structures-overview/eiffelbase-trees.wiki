@@ -7,7 +7,11 @@ Trees, in particular binary trees and their variants, also provide convenient im
 ==Basic Terminology==
 
 A tree consists of a set of nodes. Each node may have zero or more children, other nodes of which it is the parent. Each node has at most one parent, although it may have an arbitrary number of children.
- [[Image:tree|tree]]  
+
+
+[[Image:tree|tree]]  
+
+
 A node with no parent, such as the node marked ''A'' on the figure, is called a root; a node with no children, such as ''E'', ''F'', ''G'', ''H'' and ''I'', is called a leaf. The length of a path from the root to a leaf (that is to say, the number of nodes on the path minus one) is the height of the tree; the average length of all such paths is the average height. On the figure the height is 2 and the average height is 11/6 since of the six paths five have length 2 and one has length 1. 
 
 The children of a common node are called siblings. For example ''G'', ''H'' and ''I'' are siblings on the figure. The siblings of a node are usually considered to be ordered; the order corresponds to the direction from left to right on conventional figures such as this one. 
@@ -60,10 +64,12 @@ Binary trees are a special case of fixed trees in which nodes always have two ch
 
 ===Basic binary trees===
 
-Class [[ref:libraries/base/reference/binary_tree_chart|BINARY_TREE]]  describes binary trees. <br/>
-<br/>
- [[Image:binary-tree|binary_tree]]  <br/>
-<br/>
+Class [[ref:libraries/base/reference/binary_tree_chart|BINARY_TREE]]  describes binary trees. 
+
+
+[[Image:binary-tree|binary_tree]] 
+
+
 The children are represented by features [[ref:libraries/base/reference/binary_tree_chart|left_child]] and [[ref:libraries/base/reference/binary_tree_chart|right_child]] . Queries [[ref:libraries/base/reference/binary_tree_chart|has_left]]  and [[ref:libraries/base/reference/binary_tree_chart|has_right]]  indicate whether any of these is non-void; arity is redefined to yield the number of non-void children (0, 1 or 2). 
 
 ===Binary representations of trees===
@@ -106,7 +112,11 @@ The cursor attached to a cursor tree is not just a conceptual notion but an actu
 
 A useful notion associated with trees and particularly applicable to cursor trees is that of traversal. <br/>
 A traversal is a certain policy for ordering all the nodes in a tree - usually to apply an operation to all these nodes in the resulting order. [[ref:libraries/base/reference/cursor_tree_chart|CURSOR_TREE]]  and its descendants support three forms of traversal: preorder, postorder and breadth-first. They correspond to the most commonly used traversal policies on trees, illustrated on the figure (where the children of each node are assumed to be ordered from left to right): 
- [[Image:tree|tree]]  
+
+
+[[Image:tree|tree]]  
+
+
 * Preorder is the traversal that visits the root first, then (recursively) traverses each subtree in order. On the figure we will visit node ''A'' first then, recursively, the subtrees rooted at ''B'' (which implies visiting ''E'' and ''F''), ''C'' and ''D''. The resulting order is: ''A B E F C D G H I''. 
 * Postorder first traverses (recursively) the subtrees, then visits the root. On the example this gives: '' E F B C G H I D A''. 
 * Breadth-first visits the nodes level by level, starting with the root: first the root, then all its children, then all their children and so on. Here the resulting order is: ''A B C D E F G H I''. 

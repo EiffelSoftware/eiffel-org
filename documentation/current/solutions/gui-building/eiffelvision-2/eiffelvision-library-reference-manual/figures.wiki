@@ -1,7 +1,7 @@
 [[Property:title|Figures]]
 [[Property:weight|7]]
 [[Property:uuid|c12fee6e-5e99-ae59-8ac5-f57abb4c1878]]
-The EiffelVision figure cluster can be considered a high-level way of drawing on an [[ref:libraries/vision2/reference/ev_drawable_chart|EV_DRAWABLE]]  descendant. Here are some advantages:
+The EiffelVision 2 figure cluster can be considered a high-level way of drawing on an [[ref:libraries/vision2/reference/ev_drawable_chart|EV_DRAWABLE]]  descendant. Here are some advantages:
 * The model is separated from the representation by using projectors that take a world of figures and project it to any device, not just a drawing area.
 * Instead of drawing with static API's like draw_line, real figure objects are used that can move, change color or morph.
 * For projection devices that allow this, events may be caught and fired through the appropriate figure object.
@@ -80,6 +80,7 @@ As top-level group of a world of figures you must use [[ref:libraries/vision2/re
 | 1
 | a string positioned by its top-left point displayed in the specified font
 |}
+
 
 A closed figure is a figure that has some area enclosed when drawn that can optionally be filled with a color. Closed figures inherit [[ref:libraries/vision2/reference/ev_closed_figure_chart|EV_CLOSED_FIGURE]]  which gives them the property fill_color. Open figures inherit [[ref:libraries/vision2/reference/ev_atomic_figure_chart|EV_ATOMIC_FIGURE]]  directly just as [[ref:libraries/vision2/reference/ev_closed_figure_chart|EV_CLOSED_FIGURE]] . 
 ===Points===

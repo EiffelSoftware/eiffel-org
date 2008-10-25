@@ -260,7 +260,7 @@ The way to avoid this is to use the non-strict booleans " <code> and then </code
 			name_not_empty: a_nm /= Void and then not a_nm.is_empty
 			offset_valid: a_offset >= -12 and a_offset <= 12
 		do
-			name := clone (a_nm)
+			name := a_nm.twin
 			utcoffset := a_offset
 		ensure
 			name_initialized: name.is_equal (a_nm)

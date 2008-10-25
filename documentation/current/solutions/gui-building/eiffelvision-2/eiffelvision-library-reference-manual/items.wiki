@@ -1,7 +1,7 @@
 [[Property:title|Items]]
 [[Property:weight|3]]
 [[Property:uuid|3143511c-28bd-cc5c-c710-700796778982]]
-All Vision2 items inherit [[ref:libraries/vision2/reference/ev_item_chart|EV_ITEM]] .
+All EiffelVision 2 items inherit [[ref:libraries/vision2/reference/ev_item_chart|EV_ITEM]] .
 
 ==What is an item?==
 
@@ -24,8 +24,6 @@ Below is a structure showing the Vision2 components and the items that they acce
 **** [[ref:libraries/vision2/reference/ev_menu_separator_chart|EV_MENU_SEPARATOR]] 
 **** [[ref:libraries/vision2/reference/ev_radio_menu_item_chart|EV_RADIO_MENU_ITEM]] 
 **** [[ref:libraries/vision2/reference/ev_check_menu_item_chart|EV_CHECK_MENU_ITEM]] 
-
-
 
 * [[ref:libraries/vision2/reference/ev_multi_column_list_chart|EV_MULTI_COLUMN_LIST]]  accepts items of type: 
 ** [[ref:libraries/vision2/reference/ev_multi_column_list_row_chart|EV_MULTI_COLUMN_LIST_ROW]] 
