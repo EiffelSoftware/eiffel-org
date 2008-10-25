@@ -7,7 +7,7 @@ This page contains descriptions of terms found within the EiffelBuild documentat
 
 An EiffelBuild object is a representation of a Vision2 component and its properties. When developing with EiffelBuild, you manipulate objects to build the desired interface.
 
-Each object type has a different set of properties that may be manipulated, and these correspond directly to the properties available within the [[EiffelVision Introduction|EiffelVision2]]  type. There is property which is specific to an EiffelBuild object, '''Name''' which is used for your identification purposes and as the attribute name in the generated code. 
+Each object type has a different set of properties that may be manipulated, and these correspond directly to the properties available within the [[EiffelVision Introduction|EiffelVision 2]]  type. There is property which is specific to an EiffelBuild object, '''Name''' which is used for your identification purposes and as the attribute name in the generated code. 
 
 For more information on manipulating objects within EiffelBuild, see:
 * How to [[Create an object|create an object]]  
@@ -28,7 +28,7 @@ It is not possible to modify a component once created, except to [[Component sel
 <span id="pick_and_drop"></span> 
 ==Pick and Drop==
 
-The pick and drop mechanism is one of Eiffel Software 's exclusive technologies and is provided by [[EiffelVision Introduction|EiffelVision2]] . In EiffelBuild, it allows you to easily send data from a component of the interface to another. 
+The pick and drop mechanism is one of Eiffel Software 's exclusive technologies and is provided by [[EiffelVision Introduction|EiffelVision 2]] . In EiffelBuild, it allows you to easily send data from a component of the interface to another. 
 
 You can '''Pick''' a reference to a '''development object''', such as an object or component with a single click of the '''right''' mouse button. Then as you start moving the mouse around - not pressing any of its buttons - a pebble tracks the cursor position, and a line continuously connects the pebble to the object's original position. 
 

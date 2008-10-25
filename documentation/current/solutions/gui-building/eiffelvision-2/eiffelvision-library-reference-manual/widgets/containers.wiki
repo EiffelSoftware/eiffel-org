@@ -23,22 +23,22 @@ For example, [[ref:libraries/vision2/reference/ev_container_chart|EV_CONTAINER]]
 The main role of a container is to position its children in a certain way. An [[ref:libraries/vision2/reference/ev_horizontal_box_chart| EV_HORIZONTAL_BOX]]  for example positions its children side by side along the horizontal axis. To achieve vertical stacking you would use an [[ref:libraries/vision2/reference/ev_vertical_box_chart| EV_VERTICAL_BOX]] . 
 A code example of adding widgets to a container is as follows:
 <code>
-	add_to_container is
-			-- Add 3 buttons to a hbox and then show in window.
-		local 
-			a_window: EV_TITLED_WINDOW
-			a_hbox: EV_HORIZONTAL_BOX
-			a_button: EV_BUTTON
-		do
-			create a_window 
-			create a_hbox 
-			create a_button.make_with_text ("Button1")
-			a_hbox.extend (a_button)
-			a_hbox.extend (create {EV_BUTTON}.make_with_text ("Button2"))
-			a_hbox.extend (create {EV_BUTTON}.make_with_text ("Button3"))
-			a_window.extend (a_hbox)
-			a_window.show
-		end
+    add_to_container is
+            -- Add 3 buttons to a hbox and then show in window.
+        local 
+            a_window: EV_TITLED_WINDOW
+            a_hbox: EV_HORIZONTAL_BOX
+            a_button: EV_BUTTON
+        do
+            create a_window 
+            create a_hbox 
+            create a_button.make_with_text ("Button1")
+            a_hbox.extend (a_button)
+            a_hbox.extend (create {EV_BUTTON}.make_with_text ("Button2"))
+            a_hbox.extend (create {EV_BUTTON}.make_with_text ("Button3"))
+            a_window.extend (a_hbox)
+            a_window.show
+        end
 </code>
 
 The mapping of a EiffelVision 2 container interface is very close to that of containers in [[EiffelBase]], such as a linked list. 

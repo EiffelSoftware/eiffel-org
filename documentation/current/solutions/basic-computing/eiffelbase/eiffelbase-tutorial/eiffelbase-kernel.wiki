@@ -58,10 +58,6 @@ end
 
 
 
-
-
-
-
 The features of [[ref:/libraries/base/reference/any_chart|ANY]]  are usable in both qualified and unqualified form. For example, the argumentless function out, which produces a printable representation of any object, may be called under either of the forms
 <code>
             x := out
@@ -298,9 +294,9 @@ The argument indicates the number of characters for the initial allocation. This
 The object attached at run-time to an entity such declared of type [[ref:/libraries/base/reference/string_8_chart|STRING]]  is not the actual sequence of characters but a string descriptor, which contains a reference to the actual string contents.
 
 As a result, four assignment or assignment-like operations are possible:
-*  '''A1''' <code>s1  :=  s</code> 
+*  '''A1''' <code>s1 := s</code> 
 *  '''A2''' <code>s2.share (s)</code> 
-*  '''A3''' <code>s3  :=  s.twin</code> 
+*  '''A3''' <code>s3 := s.twin</code> 
 *  '''A4''' <code>s4.copy (s)</code> 
 
 As illustrated below, ''' A1''' is a reference assignment: <code>s1</code> will be attached to the same descriptor as s. ''' A2''' keeps the descriptors distinct, but make them refer to the same sequence of characters. In ''' A3''', <code>s3</code> will be attached to a new string, completely distinct from the string attached to <code>s1</code> although made of identical characters. ''' A4''' has almost the same effect as '''A3''', but is only applicable if <code>s4</code> was not void, and will override the existing descriptor rather than creating a new one. 
@@ -384,41 +380,41 @@ Sometime you will be in a position where the schema of a class will have changed
 The storable mechanism allows you to retrieve the old version of the object only if it was saved using the <eiffel>independent_store</eiffel> facility. Each time you retrieve an object of a certain base class whose schema has changed, the feature <eiffel>correct_mismatch</eiffel> will be called. This feature is defined in [[ref:/libraries/base/reference/any_chart|ANY]] and by default will raise an exception. To handle the mismatch, you need to redefine <eiffel>correct_mismatch</eiffel> in the base class whose schema has been changed. For example in EiffelBase, [[ref:/libraries/base/reference/hash_table_chart|HASH_TABLE]] has changed between version 5.1 and version 5.2 to use <eiffel> SPECIAL</eiffel> rather than [[ref:/libraries/base/reference/array_chart|ARRAY]] for its internal data storage. To retrieve a 5.1 version of [[ref:/libraries/base/reference/hash_table_chart|HASH_TABLE]], you need to define <eiffel>correct_mismatch</eiffel> as following: 
 <code>
 correct_mismatch is
-		-- Attempt to correct object mismatch during retrieve using `mismatch_information'.
-	local
-		array_content: ARRAY [G]
-		array_keys: ARRAY [H]
-		array_marks: ARRAY [BOOLEAN]
-	do
-		-- In version 5.1 and earlier, `content', `keys' and `deleted_marks'
-		-- where of base class [[ref:/libraries/base/reference/array_chart|ARRAY]] . In 5.2 we changed it to be a SPECIAL for
-		-- efficiency reasons. In order to retrieve an old [[ref:/libraries/base/reference/hash_table_chart|HASH_TABLE]]  we
-		-- need to convert those [[ref:/libraries/base/reference/array_chart|ARRAY]]  instances into SPECIAL instances.
+            -- Attempt to correct object mismatch during retrieve using `mismatch_information'.
+    local
+        array_content: ARRAY [G]
+        array_keys: ARRAY [H]
+        array_marks: ARRAY [BOOLEAN]
+    do
+            -- In version 5.1 and earlier, `content', `keys' and `deleted_marks'
+            -- were of base class ARRAY. In 5.2 we changed it to be a SPECIAL for
+            -- efficiency reasons. In order to retrieve an old HASH_TABLE we
+            -- need to convert those ARRAY instances into SPECIAL instances.
 
-			-- Convert `content' from [[ref:/libraries/base/reference/array_chart|ARRAY]]  to SPECIAL
-		array_content ?= mismatch_information.item ("content")
-		if array_content /= Void then
-			content := array_content.area
-		end
+                -- Convert `content' from ARRAY to SPECIAL
+            array_content ?= mismatch_information.item ("content")
+            if array_content /= Void then
+                content := array_content.area
+            end
 
-			-- Convert `keys' from [[ref:/libraries/base/reference/array_chart|ARRAY]]  to SPECIAL
-		array_keys ?= mismatch_information.item ("keys")
-		if array_keys /= Void then
-			keys := array_keys.area
-		end
+                -- Convert `keys' from ARRAY to SPECIAL
+            array_keys ?= mismatch_information.item ("keys")
+            if array_keys /= Void then
+                keys := array_keys.area
+            end
 
-			-- Convert `deleted_marks' from [[ref:/libraries/base/reference/array_chart|ARRAY]]  to SPECIAL
-		array_marks ?= mismatch_information.item ("deleted_marks")
-		if array_marks /= Void then
-			deleted_marks := array_marks.area
-		end
+                -- Convert `deleted_marks' from ARRAY to SPECIAL
+            array_marks ?= mismatch_information.item ("deleted_marks")
+            if array_marks /= Void then
+                deleted_marks := array_marks.area
+            end
 
-		if content = Void or keys = Void or deleted_marks = Void then
-			-- Could not retrieve old version of [[ref:/libraries/base/reference/hash_table_chart|HASH_TABLE]] . We throw an exception.
-			Precursor {TABLE}
-		end
-	end
-		</code>
+            if content = Void or keys = Void or deleted_marks = Void then
+                -- Could not retrieve old version of HASH_TABLE. We throw an exception.
+                Precursor {TABLE}
+            end
+    end
+</code>
 
 Note the use of <eiffel>mismatch_information</eiffel>, this is a once feature of [[ref:/libraries/base/reference/any_chart|ANY]] of type <eiffel>MISMATCH_INFORMATION</eiffel> which behaves like a [[ref:/libraries/base/reference/hash_table_chart|HASH_TABLE]]. The keys of the table are the names of the attributes on which a mismatch occurred and the values are the corresponding object fields as they were originally stored. In this particular case of [[ref:/libraries/base/reference/hash_table_chart|HASH_TABLE]] we know that the previous version was an [[ref:/libraries/base/reference/array_chart|ARRAY]], so we do an assignment attempt and if it succeeds we assign its <eiffel>area</eiffel> to the corresponding attribute of [[ref:/libraries/base/reference/hash_table_chart|HASH_TABLE]]. 
 
@@ -449,7 +445,7 @@ As you will see from the header comments in the flat-short form of class [[ref:/
 
 The features of class [[ref:/libraries/base/reference/exceptions_chart|EXCEPTIONS]]  enable you to determine whether a certain exception is a signal - an operating system event such as may result from a child process that disappears, a window that is resized, a user that hits the Break key and many others. But they do not give you more details because the exact set of possible signals is highly platform-dependent. <br/>
 Class [[ref:/libraries/base/reference/unix_signals_chart|UNIX_SIGNALS]]  complements EXCEP_CONST by providing codes for the signals of Unix and similar systems, such as Sigkill for the 'kill' signal and Sigbus for bus error. <br/>
-Query <eiffel>is_defined </eiffel> <code>(</code> <code>some_signal</code> <code>)</code>, where <code>some_signal</code> is an integer code, will determine whether some_signal is supported on the platform. <br/>
+Query <eiffel>is_defined </eiffel> <code>(some_signal)</code>, where <code>some_signal</code> is an integer code, will determine whether some_signal is supported on the platform. <br/>
 A class whose routines need to perform specific processing depending on the nature of signals received should inherit from [[ref:/libraries/base/reference/unix_signals_chart|UNIX_SIGNALS]] , or a similar class for another platform. <br/>
 Because signal codes are platform-dependent, the features of [[ref:/libraries/base/reference/unix_signals_chart|UNIX_SIGNALS]]  are implemented as once functions - computed on the first call - rather than constants, although this makes no difference to clients. 
 
@@ -469,7 +465,7 @@ Writing, assembling and compiling a system yields an executable command. The sys
 <code>your_system arg1 arg2 arg3</code>
 
 although one may conceive of other ways of entering the command arguments, such as tabular or graphical form-filling. In any case the software must be able to access the values passed as command arguments. <br/>
-A language mechanism is available for that purpose: the Root Class rule indicates that the creation procedure of the root class may have a single argument (in the Eiffel sense of argument to a routine) of type [[ref:/libraries/base/reference/array_chart|ARRAY]] [ [[ref:/libraries/base/reference/string_8_chart|STRING]]  <code>]</code>. The corresponding array of strings will be initialized at the beginning of the system's execution with the values entered as arguments to that execution of the command. <br/>
+A language mechanism is available for that purpose: the Root Class rule indicates that the creation procedure of the root class may have a single argument (in the Eiffel sense of argument to a routine) of type <code>ARRAY[STRING]</code>. The corresponding array of strings will be initialized at the beginning of the system's execution with the values entered as arguments to that execution of the command. <br/>
 Although this facility suffices in many cases, it is not always convenient if you suddenly need to access the command arguments in a class that is far-away from the root. An alternative mechanism, class ARGUMENTS, is available. Once again, this is a class from which you should inherit if you need its facilities. It has just two exported features: 
 * <eiffel>argument_count</eiffel>, a non-negative integer, is the number of command arguments. 
 * <eiffel>argument</eiffel> <code>(</code>i<code>)</code>, a string, is the i-th command argument. Here <code>i</code> must be between 0 and <eiffel>argument_count</eiffel>; the convention is that for <code>i </code> <code>= 0</code> the result is the name of the command itself. 

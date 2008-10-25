@@ -14,8 +14,7 @@ The list and chain classes are characterized, for their traversal properties, as
 [[ref:/libraries/base/reference/linear_chart|LINEAR]]  describes sequential structures that may be traversed one way. It introduces in particular the following features, illustrated on the figure below:
 * <eiffel>after</eiffel>, a boolean-valued query which determines whether you have moved past the last position (a more precise specification is given below).
 * <eiffel>off</eiffel>, a boolean-valued query which is false if and only if there is no item at the current position; for [[ref:/libraries/base/reference/linear_chart|LINEAR]]  this is the same as: 
-<code>
-            is_empty and not after</code>
+<code>is_empty and not after</code>
 
 * <eiffel>item</eiffel>, a query which returns the item at the current position - provided of course there is one, as expressed by the precondition: 
 <code>
@@ -207,12 +206,10 @@ first. The symmetric property applies to <eiffel>back</eiffel>. The cyclic natur
 <code>not after</code>
 
 Similarly, the precondition for back is
-<code>
-            not before</code>
+<code>not before</code>
 
 For lists, after becomes true when the cursor moves past the last item. For circular chains, however, after and before are never true except for an empty structure; this is expressed by the invariant clauses of class [[ref:/libraries/base/reference/circular_chart|CIRCULAR]] :
-<code>
-            not before</code>
+<code>not before</code>
 
 For a non-empty circular chain, then, you can circle forever around the items, using forth or back.
 
@@ -223,45 +220,46 @@ A circular chain also needs a notion of first item, if only to enable a client t
 For circular chains, however, there is no reason why the first item should always remain the same. One of the benefits that clients may expect from the use of a circular <br/>
 structure is the ability to choose any item as the logical first. Class [[ref:/libraries/base/reference/circular_chart|CIRCULAR]]  offers for that purpose the procedure <eiffel>set_start</eiffel> which designates the current cursor position as the first in the circular chain. Subsequent calls to <eiffel>start</eiffel> will move the cursor to this position; calls to <eiffel>finish</eiffel> will move the cursor to the cyclically preceding position. With most implementations, there will then be two notions of first position: the logical first, which clients may freely choose through calls to <eiffel>set_start</eiffel>; and the <eiffel>physical first</eiffel>, which results from the implementation. In a representation using an array with indices from 1 to <eiffel>capacity</eiffel>, for example, the physical first is position 1, and the logical first may be any index in the permitted range. In a linked representation, there will be a cell first element corresponding to the physical first, but the logical first is any cell in the chain. <br/>
 In such cases the circular chain classes have features called <eiffel>standard_first</eiffel>, <eiffel>standard_last</eiffel>, <eiffel>standard_start</eiffel> and so on, which are not exported (so that you will not see them in the flat-short forms) but serve to implement visible features such as <eiffel>first</eiffel>, <eiffel>last</eiffel> and <eiffel>forth</eiffel>. For example a possible implementation of <eiffel>forth</eiffel> for circular chains is 
-<code>
-    forth
-            -- Move cursor to next item, cyclically.
-        do
-            standard_forth
-            if standard_after then
-                standard_start
-            end
-            if isfirst then
-                exhausted := True
-            end
-        end</code>
+<code>forth is
+		-- Move cursor to next item, cyclically.
+	do
+		standard_forth
+		if standard_after then
+			standard_start
+		end
+		if isfirst then
+      			exhausted := True
+	   	end
+	end</code>
 
 ==Traversing a list or circular chain==
 
 The properties of <eiffel>forth</eiffel> for circular chains imply that a traversal loop written as
-<code>
-            from
-                lin.start
-            until
-                lin.off
-            loop
-                ...
-                lin.forth
-            end</code>
+<code>from
+	lin.start
+until
+	lin.off
+loop
+   	...
+ 	lin.forth
+end</code>
 
 would not work if <code>lin</code> is a non-empty circular structure: <eiffel>off</eiffel> would never become true, so that the loop would forever cycle over the structure's items. The same would apply to a loop using finish and back instead of <eiffel>start</eiffel> and <eiffel>forth</eiffel>. This behavior is the natural result of the semantics defined for <eiffel>off</eiffel> , <eiffel>forth</eiffel> and <eiffel>back</eiffel> for circular structures. But it prevents us from using these features to perform a single traversal which will visit every item once. <br/>
 Using <eiffel>exhausted</eiffel> in lieu of off solves this problem. In class [[ref:/libraries/base/reference/circular_chart|CIRCULAR]] , <eiffel>exhausted</eiffel> is an attribute which is set to false by <eiffel>start</eiffel> and <eiffel>finish</eiffel>, and is set to true by <eiffel>forth</eiffel> when advancing from the last item to the first and by <eiffel>back</eiffel> when backing up from the first item to the last. So you should write the loop as 
-<code>
-            from
-                lin.start
-                some_optional_initializing_operation (lin)
-            until
-                lin.exhausted
-            loop
-                ...
-                lin.some_action (lin.item)
-                lin.forth
-            end</code>
+<code>from
+	lin.start
+
+
+
+
+   	some_optional_initializing_operation (lin)
+until
+   	lin.exhausted
+loop
+   	...
+   	lin.some_action (lin.item)
+   	lin.forth
+end</code>
 
 This form is applicable to all linear structures, circular or not, since <eiffel>exhausted</eiffel> is introduced in class [[ref:/libraries/base/reference/linear_chart|LINEAR]]  as a function which returns the same value as <eiffel>off</eiffel> .Its redefinition into an attribute, modified by <eiffel>start</eiffel>,<eiffel> finish</eiffel>, <eiffel>forth</eiffel> and <eiffel>back</eiffel>, does not occur until class [[ref:/libraries/base/reference/circular_chart|CIRCULAR]] . <br/>
 Because <eiffel>exhausted</eiffel> is more general than <eiffel>off</eiffel> , the iteration scheme just given (and its equivalent going backwards) is preferable to the earlier one using <eiffel>off </eiffel>, especially if there is any chance that the iteration might one day be applied to a lin structure that is circular. Classes of the Iteration library, in particular [[ref:/libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] , rely on this scheme for iterating over linear structures. 
@@ -315,7 +313,7 @@ A similar implementation is used for two-way-linked structures such as two-way l
 
 The classes describing list cells are descendants of a deferred class called [[ref:/libraries/base/reference/cell_chart|CELL]] , whose features are:
 * <eiffel>item</eiffel>, the contents of the cell.
-* <eiffel>put </eiffel> <code>(v : like</code> <eiffel>item</eiffel><code>)</code>, which replaces the contents of the cell by a new value. 
+* <eiffel>put </eiffel> <code>( v :</code> <code>like </code> <eiffel>item</eiffel> <code>)</code>, which replaces the contents of the cell by a new value. 
 
 Class [[ref:/libraries/base/reference/linkable_chart|LINKABLE]]  is an effective descendant of [[ref:/libraries/base/reference/cell_chart|CELL]] , used for one-way linked structures. It introduces features <eiffel>right</eiffel>, a reference to another cell to which the current <br/>
 cell will be linked. Two-way linked structures use [[ref:/libraries/base/reference/bi_linkable_chart|BI_LINKABLE]] , an heir of [[ref:/libraries/base/reference/linkable_chart|LINKABLE]]  which to the above features adds <eiffel>left</eiffel>, a reference to the preceding cell in the structure. 
@@ -323,12 +321,11 @@ cell will be linked. Two-way linked structures use [[ref:/libraries/base/referen
 {{caution|Do not confuse the <eiffel>item</eiffel> feature of [[ref:/libraries/base/reference/cell_chart|CELL]]  and its descendants, such as [[ref:/libraries/base/reference/linkable_chart|LINKABLE]] , with the <eiffel>item</eiffel> feature of the classes describing linear structures, such as [[ref:/libraries/base/reference/linked_list_chart|LINKED_LIST]] . For a linked list, <eiffel>item</eiffel> returns the item at cursor position. }}
 
 It may be implemented as
-<code>
-    item: G
-            -- Current item
-        do
-            Result := active.item
-        end</code>
+<code>item: G is
+		-- Current item
+	do
+		Result := active.item
+	end</code>
 
 using the <eiffel>item</eiffel> feature of [[ref:/libraries/base/reference/linkable_chart|LINKABLE]] , applied to <eiffel>active</eiffel>.
 
@@ -363,13 +360,12 @@ divided into a number of blocks. Each block is an array, but the successive arra
 =Sorted Linear Structures=
 
 The class [[ref:/libraries/base/reference/comparable_struct_chart|COMPARABLE_STRUCT]] , an heir of [[ref:/libraries/base/reference/bilinear_chart|BILINEAR]] , is declared as
-<code>
-deferred class
-    COMPARABLE_STRUCT [G -> COMPARABLE]
-        inherit
-            BILINEAR
-feature
-        ...</code>
+<code>deferred class
+	COMPARABLE_STRUCT [G -> COMPARABLE]
+		inherit
+			BILINEAR
+		feature
+   		...</code>
 
 As indicated by the constrained generic parameter it describes bilinear structures whose items may be compared by a total order relation.
 
@@ -378,9 +374,8 @@ As indicated by the constrained generic parameter it describes bilinear structur
 COMPARABLE_STRUCT introduces the features <eiffel>min</eiffel> and <eiffel>max</eiffel>, giving access to the minimum and maximum elements of a structure; these are always present for a finite <br/>
 structure with a total order relation. [[ref:/libraries/base/reference/sorted_struct_chart|SORTED_STRUCT]] , an heir of [[ref:/libraries/base/reference/comparable_struct_chart|COMPARABLE_STRUCT]] , describes structures that can be sorted; it introduces the query sorted and the command sort. <br/>
 The deferred class [[ref:/libraries/base/reference/part_sorted_list_chart|PART_SORTED_LIST]]  describes lists whose items are kept ordered in a way that is compatible with a partial order relation defined on them. The class is declared as 
-<code>
-deferred class
-    PART_SORTED_LIST [G -> COMPARABLE]...</code>
+<code>deferred class
+	PART_SORTED_LIST [G -> COMPARABLE]...</code>
 
 An implementation based on two-way linked lists is available through the effective heir [[ref:/libraries/base/reference/sorted_two_way_list_chart|SORTED_TWO_WAY_LIST]] . <br/>
 The deferred class [[ref:/libraries/base/reference/sorted_list_chart|SORTED_LIST]] , which inherits from [[ref:/libraries/base/reference/part_sorted_list_chart|PART_SORTED_LIST]] , assumes that the order relation on G is a total order. As a result, the class is able to introduce features <eiffel>min</eiffel>, <eiffel>max</eiffel> and <eiffel>median</eiffel>. Here too a two-way linked list implementation is available, through the effective class [[ref:/libraries/base/reference/sorted_two_way_list_chart|SORTED_TWO_WAY_LIST]] . 

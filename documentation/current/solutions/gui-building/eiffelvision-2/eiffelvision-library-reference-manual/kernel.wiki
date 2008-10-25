@@ -1,77 +1,77 @@
 [[Property:title|Kernel]]
 [[Property:weight|1]]
 [[Property:uuid|d830dc77-cd77-1f52-0e39-e0ec1cffa028]]
-The kernel cluster contains classes that provide functionality that are common to most Windowed application. These classes are considered the core, or kernel of any EiffelVision2 application. The most important of these classes is [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]] . This is used to initialize the graphical toolkit and event loop of your EiffelVision2 application. Kernel also includes classes such as [[ref:libraries/vision2/reference/ev_timeout_chart| EV_TIMEOUT]]  that calls procedures (via agents) at a set interval, and [[ref:libraries/vision2/reference/ev_color_chart| EV_COLOR]]  which is used for coloring widgets and items. To start programming with EiffelVision2, you first have to correctly initialize [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]] . 
+The kernel cluster contains classes that provide functionality that are common to most Windowed application. These classes are considered the core, or kernel of any EiffelVision 2 application. The most important of these classes is [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]] . This is used to initialize the graphical toolkit and event loop of your EiffelVision 2 application. Kernel also includes classes such as [[ref:libraries/vision2/reference/ev_timeout_chart| EV_TIMEOUT]]  that calls procedures (via agents) at a set interval, and [[ref:libraries/vision2/reference/ev_color_chart| EV_COLOR]]  which is used for coloring widgets and items. To start programming with EiffelVision 2, you first have to correctly initialize [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]] . 
 
-==Launching your application with EV_APPLICATION - The heart of all Vision2 systems==
+==Launching your application with EV_APPLICATION - The heart of all EiffelVision 2 systems==
 
-[[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]]  is the basis for every EiffelVision2 application and is considered the most important class in the library. It is responsible for initializing the underlying toolkit that is driving the windowing system on the platform that you decide to compile your system on. It also also where the main event loop that drives your application is executed. 
+[[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]]  is the basis for every EiffelVision 2 application and is considered the most important class in the library. It is responsible for initializing the underlying toolkit that is driving the windowing system on the platform that you decide to compile your system on. It also also where the main event loop that drives your application is executed. 
 
-{{note|It is ''' not''' possible to create a Vision2 component unless an application exists (query [[ref:/libraries/vision2/reference/ev_environment_chart|EV_ENVIRONMENT]] ). }}
-You may inherit [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]]  or use it as a client in order to create your EiffelVision2 application. A simple method of using EV_APPLICATION is as follows: 
+{{note|It is ''' not''' possible to create a EiffelVision 2 component unless an application exists (query [[ref:/libraries/vision2/reference/ev_environment_chart|EV_ENVIRONMENT]] ). }}
+You may inherit [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]]  or use it as a client in order to create your EiffelVision 2 application. A simple method of using EV_APPLICATION is as follows: 
 # Create an instance of EV_APPLICATION.
 # Create one or more windows for your application.
 # Launch the application.
 
-An example of an EiffelVision2 application using inheritance from [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]]  is shown below.
+An example of an EiffelVision 2 application using inheritance from [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]]  is shown below.
 <code>
-	class
-		HELLOWORLD_APP
+class
+    HELLOWORLD_APP
 
-	inherit
-		EV_APPLICATION
+inherit
+    EV_APPLICATION
 
-	create
-		make
+    create
+        make
 
-	feature
+feature
 
-		make is
-				-- Create the application.
-			local
-				helloworld_window: EV_TITLED_WINDOW
-			do
-				default_create
-				create helloworld_window
-				helloworld_window.set_title ("Helloworld!")
-				helloworld_window.close_request_actions.extend (agent destroy) 
-				helloworld_window.show
-				launch
-			end
+    make
+            -- Create the application.
+        local
+            helloworld_window: EV_TITLED_WINDOW
+        do
+            default_create
+            create helloworld_window
+            helloworld_window.set_title ("Helloworld!")
+            helloworld_window.close_request_actions.extend (agent destroy) 
+            helloworld_window.show
+            launch
+        end
 
-	end
+end
 </code>
 
-This is the same EiffelVision2 application but instead using [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]] in a client/supplier relationship. 
+This is the same EiffelVision 2 application but instead using [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]] in a client/supplier relationship. 
 <code>
-	class
-		HELLOWORLD_APP
+class
+    HELLOWORLD_APP
 
-	create
-		make
+create
+        make
 
-	feature
+feature
 
-		make is
-				-- Create the EiffelVision2 application with a helloworld window.
-			local
-				app: EV_APPLICATION
-				helloworld_window: EV_TITLED_WINDOW
-			do
-				create app
-				create helloworld_window
-				helloworld_window.set_title ("Helloworld!")
-				helloworld_window.close_request_actions.extend (agent app.destroy)
-				helloworld_window.show
-				app.launch
-			end
+    make
+            -- Create the EiffelVision 2 application with a helloworld window.
+        local
+            app: EV_APPLICATION
+            helloworld_window: EV_TITLED_WINDOW
+        do
+            create app
+            create helloworld_window
+            helloworld_window.set_title ("Helloworld!")
+            helloworld_window.close_request_actions.extend (agent app.destroy)
+            helloworld_window.show
+            app.launch
+        end
 
-	end
+end
 </code>
 
 ==What does Launch actually do?==
-In EiffelVision2, to launch an application means to pass control to the underlying graphical toolkit. Simply creating an application does not launch it. An explicit call to launch is required for the event processing to begin. 
-{{note|An EiffelVision2 system is event based. This means that you do not have control of the execution within an EiffelVision2 system, but must respond appropriately to [[Events|events]]  as they occur. Therefore, if you call launch on an [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]] , the processing for the application will continue indefinitely unless you have provided a way to exit the application. It is essential to initialize your components correctly, so your application can be exited (call <eiffel>destroy</eiffel> on the application). }}
+In EiffelVision 2, to launch an application means to pass control to the underlying graphical toolkit. Simply creating an application does not launch it. An explicit call to launch is required for the event processing to begin. 
+{{note|An EiffelVision 2 system is event based. This means that you do not have control of the execution within an EiffelVision 2 system, but must respond appropriately to [[Events|events]]  as they occur. Therefore, if you call launch on an [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]] , the processing for the application will continue indefinitely unless you have provided a way to exit the application. It is essential to initialize your components correctly, so your application can be exited (call <eiffel>destroy</eiffel> on the application). }}
 
 ==Building your application skeleton==
 
@@ -80,5 +80,5 @@ Now that you have a basic application skeleton set up you can now go about
 *  [[Containers|Adding containers to your window(s), then place your created widgets in those containers.]]  
 *  [[Events|Add code to respond to user actions with agents and action sequences.]]  
 
-Once you have learnt the basics of GUI programming within EiffelVision2, you are well on the way to creating powerful multi-platform applications. The Application Programming Interface (API) of EiffelVision2 has been designed in a way to ensure that the library is as intuitive, consistent and stylistic as possible. Heavy reuse of components from EiffelBase has been one of the main reasons that made this possible.
+Once you have learnt the basics of GUI programming within EiffelVision 2, you are well on the way to creating powerful multi-platform applications. The Application Programming Interface (API) of EiffelVision 2 has been designed in a way to ensure that the library is as intuitive, consistent and stylistic as possible. Heavy reuse of components from EiffelBase has been one of the main reasons that made this possible.
 

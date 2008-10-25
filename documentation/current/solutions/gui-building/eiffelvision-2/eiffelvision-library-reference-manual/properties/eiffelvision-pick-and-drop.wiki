@@ -1,11 +1,11 @@
 [[Property:title|EiffelVision Pick and Drop]]
 [[Property:weight|0]]
 [[Property:uuid|309203de-6536-fe26-4f73-cb1f4a450e6f]]
-Pick and drop is a mechanism which allows data to be transported from a '''source''' object to a '''target'''. Any Vision2 object inheriting [[ref:libraries/vision2/reference/ev_pick_and_dropable_chart|EV_PICK_AND_DROPABLE]]  can be used to transport or receive data. 
+Pick and drop is a mechanism which allows data to be transported from a '''source''' object to a '''target'''. Any EiffelVision 2 object inheriting [[ref:libraries/vision2/reference/ev_pick_and_dropable_chart|EV_PICK_AND_DROPABLE]] can be used to transport or receive data. 
 
 ==A simple pick and drop example==
 
-Two necessary components for a pick and drop transport are a '''source''' and a '''target''', both of which must conform to [[ref:libraries/vision2/reference/ev_pick_and_dropable_chart|EV_PICK_AND_DROPABLE]] . The data that is to be transported is known as a '''pebble'''. 
+Two necessary components for a pick and drop transport are a '''source''' and a '''target''', both of which must conform to [[ref:libraries/vision2/reference/ev_pick_and_dropable_chart|EV_PICK_AND_DROPABLE]]. The data that is to be transported is known as a '''pebble'''. 
 
 The following steps need to be undertaken to set up a simple pick and drop: 
 * Set the '''source''' by calling set_pebble. 
@@ -13,11 +13,11 @@ The following steps need to be undertaken to set up a simple pick and drop:
 
 A simple example of this is demonstrated here: 
 <code>
-	button1.set_pebble ("A PND transport has occured%N")
-	button2.drop_actions.extend (agent print (?))
+            button1.set_pebble ("A PND transport has occured%N")
+            button2.drop_actions.extend (agent print (?))
 </code>
 
-As print takes an argument of type [[ref:/libraries/base/reference/string_8_chart|STRING_8]] , button2 becomes a valid target for the pebble contained in button1. Right clicking the mouse pointer over the '''source''' will start the transport, and right clicking with the mouse pointer over a valid '''target''' will end the transport. The transport can be canceled anytime with a simple left click, just as you would do in EiffelStudio. 
+As print takes an argument of type [[ref:/libraries/base/reference/string_8_chart|STRING_8]], button2 becomes a valid target for the pebble contained in button1. Right clicking the mouse pointer over the '''source''' will start the transport, and right clicking with the mouse pointer over a valid '''target''' will end the transport. The transport can be canceled anytime with a simple left click, just as you would do in EiffelStudio. 
 
 {{note|When a transport completes, the '''pebble''' that was transported is passed as an argument to all features in the '''targets''' drop_actions whose argument type matches the '''pebble'''. }}
 
@@ -25,14 +25,14 @@ As print takes an argument of type [[ref:/libraries/base/reference/string_8_char
 
 There are three different modes of transport available for pick and drop. They are listed below with details of their use: 
 * Pick and Drop mode. <br/>
-This is the default mode for pick and drop, but can be set with <eiffel>set_pick_and_drop_mode</eiffel>. Right clicking on a '''source''' starts the transport and right clicking on a valid '''target''' completes the transport. During execution, a band is drawn from the screen position where the pick started to the current mouse position. Pressing the left mouse button or the escape key during execution will end the transport. 
+:This is the default mode for pick and drop, but can be set with <eiffel>set_pick_and_drop_mode</eiffel>. Right clicking on a '''source''' starts the transport and right clicking on a valid '''target''' completes the transport. During execution, a band is drawn from the screen position where the pick started to the current mouse position. Pressing the left mouse button or the escape key during execution will end the transport. 
 * Drag and drop mode <br/>
-This mode can be set with <eiffel>set_drag_and_drop_mode</eiffel>. Left clicking on a '''source''' starts the transport and releasing the left mouse button over a valid '''target''' completes the transport. During execution, a band is drawn from the screen position where the pick started to the current mouse position. Releasing the left mouse button or pressing the escape key during execution will end the transport. 
+:This mode can be set with <eiffel>set_drag_and_drop_mode</eiffel>. Left clicking on a '''source''' starts the transport and releasing the left mouse button over a valid '''target''' completes the transport. During execution, a band is drawn from the screen position where the pick started to the current mouse position. Releasing the left mouse button or pressing the escape key during execution will end the transport. 
 * Target menu mode <br/>
-This mode can be set with <eiffel>set_target_menu_mode</eiffel>. Right clicking on a '''source''' brings up a menu of all the valid drop '''targets''' in the system. Selecting one of these targets completes the transport. 
+:This mode can be set with <eiffel>set_target_menu_mode</eiffel>. Right clicking on a '''source''' brings up a menu of all the valid drop '''targets''' in the system. Selecting one of these targets completes the transport. 
 
 
 ==Accept and deny cursors==
 
-When <eiffel>mode_is_pick_and_drop</eiffel> or <eiffel> mode_is_drag_and_drop</eiffel> then the shape of the mouse cursor changes to reflect whether the current GUI component below the mouse accepts the pebble or not. Calling <eiffel>set_accept_cursor</eiffel> allows you to customize this cursor used to represent a valid '''target''' while calling <eiffel>set_deny_cursor</eiffel> allows you to customize the cursor used for non valid '''targets'''. 
+When <eiffel>mode_is_pick_and_drop</eiffel> or <eiffel>mode_is_drag_and_drop</eiffel> then the shape of the mouse cursor changes to reflect whether the current GUI component below the mouse accepts the pebble or not. Calling <eiffel>set_accept_cursor</eiffel> allows you to customize this cursor used to represent a valid '''target''' while calling <eiffel>set_deny_cursor</eiffel> allows you to customize the cursor used for non valid '''targets'''. 
 

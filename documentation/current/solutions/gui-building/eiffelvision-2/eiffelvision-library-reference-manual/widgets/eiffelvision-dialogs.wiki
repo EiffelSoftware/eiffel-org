@@ -1,11 +1,11 @@
 [[Property:title|EiffelVision Dialogs]]
 [[Property:weight|2]]
 [[Property:uuid|85cfcfd3-a46e-4e2e-330a-61c2d1579b0f]]
-This cluster contains all the dialogs provided by Vision2. 
+This cluster contains all the dialogs provided by EiffelVision 2. 
 
 ==Standard dialogs==
 
-A standard dialog provides a way of interacting with the underlying platform (such as Windows or Linux) to perform basic tasks such as opening a file or printing a document. Vision2 provides six dialogs that allow the user to perform everyday tasks that are 
+A standard dialog provides a way of interacting with the underlying platform (such as Windows or Linux) to perform basic tasks such as opening a file or printing a document. EiffelVision 2 provides six dialogs that allow the user to perform everyday tasks that are 
 *  [[ref:libraries/vision2/reference/ev_color_dialog_chart|EV_COLOR_DIALOG]]  -- This allows the user of your app to select an RGB color (useful for graphical apps such as a Paint Program). 
 *  [[ref:libraries/vision2/reference/ev_directory_dialog_chart|EV_DIRECTORY_DIALOG]]  -- This allows the user of your app to select a directory. 
 *  [[ref:libraries/vision2/reference/ev_file_open_dialog_chart|EV_FILE_OPEN_DIALOG]]  -- This allows the user of your app to select a file to be opened. 

@@ -1,27 +1,27 @@
 [[Property:title|EiffelVision Introduction]]
 [[Property:weight|0]]
 [[Property:uuid|f964651a-e36d-4e9e-00ea-37803a26373a]]
-The EiffelVision 2 library offers an object-oriented framework for graphical user interface (GUI) development. Using EiffelVision 2, developers can access all necessary GUI components, called [[Widgets|widgets]]  (buttons, windows, list views) as well as truly graphical elements such as points, lines, arcs, polygons and the like -- to develop a modern, functional and good-looking graphical interactive application. 
+The EiffelVision library offers an object-oriented framework for graphical user interface (GUI) development. Using EiffelVision, developers can access all necessary GUI components, called [[Widgets|widgets]]  (buttons, windows, list views) as well as truly graphical elements such as points, lines, arcs, polygons and the like -- to develop a modern, functional and good-looking graphical interactive application. 
 
-EiffelVision 2 has played a major role at Eiffel Software and provided numerous Eiffel projects with a powerful, portable graphics development platform. EiffelStudio is totally reliant on EiffelVision 2 for its graphical elements and overall interaction with the user. 
+EiffelVision has played a major role at Eiffel Software and provided numerous Eiffel projects with a powerful, portable graphics development platform. EiffelStudio is totally reliant on EiffelVision for its graphical elements and overall interaction with the user. 
 
 
 ==Scope==
 
-The EiffelVision 2 library addresses all the major needs of developers of systems supporting modern graphical interfaces. EiffelVision 2 runs on Microsoft Windows and all major variations of Unix (including Linux). All versions are fully source-compatible; with only a recompile, applications will run on every supported platform with the native look-and-feel. 
+The EiffelVision library addresses all the major needs of developers of systems supporting modern graphical interfaces. EiffelVision runs on Microsoft Windows and all major variations of Unix (including Linux). All versions are fully source-compatible; with only a recompile, applications will run on every supported platform with the native look-and-feel. 
 
-EiffelVision 2 provides an effective way of building advanced graphical applications using user interface standards and toolkits (such as Microsoft Windows and GTK) without having to learn the details of the toolkits. Instead, you can use EiffelVision 2 to work entirely in terms of high level abstractions representing windows, buttons, labels, graphical figures, menus, buttons etc., and apply clearly understandable operations to the corresponding objects. 
+EiffelVision provides an effective way of building advanced graphical applications using user interface standards and toolkits (such as Microsoft Windows and GTK) without having to learn the details of the toolkits. Instead, you can use EiffelVision to work entirely in terms of high level abstractions representing windows, buttons, labels, graphical figures, menus, buttons etc., and apply clearly understandable operations to the corresponding objects. 
 
 ==Architecture==
 
-EiffelVision 2 relies on a two-tiered architecture illustrated by the following figure. 
+EiffelVision relies on a two-tiered architecture illustrated by the following figure. 
 
 
 [[Image:vision2--figure1]]  
 
 
 The two tiers play complementary roles: 
-* At the top level, EiffelVision 2 provides fully portable graphics.
+* At the top level, EiffelVision provides fully portable graphics.
 * At the lower level, platform-specific libraries cover the graphical mechanisms of graphics platforms such as Windows and GTK.
 
 The lower tier serves for the implementation of the upper tier, but can also be used independently. For example [[WEL]]  has had a resounding success with Windows developers who need an advanced mechanism for building Windows-specific graphical applications, taking advantage of every facility of the Windows API (Application Programming Interface) and of the Eiffel approach, but do not need portability on the client side. The GEL library is a '''wrapper''' library, automatically generated from the entire GTK API by a tool named '''The Gote Converter'''. 
@@ -35,11 +35,11 @@ As stated before, the library has undergone some drastic changes since the previ
 
 ==Design==
 
-EiffelVision 2 provides programmers with high-level classes, that provide all mechanism and data structures needed to build advanced user interfaces for deployment on almost all platforms without having to worry about detailed requirements of toolkits.
+EiffelVision provides programmers with high-level classes, that provide all mechanism and data structures needed to build advanced user interfaces for deployment on almost all platforms without having to worry about detailed requirements of toolkits.
 
 The abstract design has been derived from an analysis of user interfaces. Therefore we have classes with names like MENU, WINDOW, BUTTON, LINE or POLYGON. The features of these classes are simple, clearly defined properties or commands, like the feature `minimize' (a command) on WINDOW or `text' (a property of type STRING) on BUTTON.
 
-{{note| All class names in EiffelVision 2 are pre-pended with EV_ to avoid name clashes with existing classes. BUTTON hence becomes <eiffel>EV_BUTTON</eiffel>, etc. }}
+{{note| All class names in EiffelVision are pre-pended with EV_ to avoid name clashes with existing classes. BUTTON hence becomes <eiffel>EV_BUTTON</eiffel>, etc. }}
 
 ==Properties==
 
@@ -48,7 +48,7 @@ When talking about a property of a class, like `text', in fact we are talking ab
     text: STRING
 
     set_text (a_text: STRING) 
-                 ...
+                     ...
         do
             ...
         end
@@ -74,7 +74,7 @@ Boolean properties have a different convention. Instead of one set-routine, it h
 
 ==Implementation==
 
-For flexibility, EiffelVision 2 is built using the bridge pattern. This means that every platform-dependent component of the library consist of two classes, plus an implementation class for each platform (currently two). One is the <eiffel>interface</eiffel>. All the features of interfaces do nothing except delegate the call to the implementation object which is coupled to it. This object has the static type of the implementation-interface with the name of the interface class, with <eiffel>_I</eiffel> appended to it. From this implementation-interface, implementation classes inherit to implement platform-specific features. 
+For flexibility, EiffelVision is built using the bridge pattern. This means that every platform-dependent component of the library consist of two classes, plus an implementation class for each platform (currently two). One is the <eiffel>interface</eiffel>. All the features of interfaces do nothing except delegate the call to the implementation object which is coupled to it. This object has the static type of the implementation-interface with the name of the interface class, with <eiffel>_I</eiffel> appended to it. From this implementation-interface, implementation classes inherit to implement platform-specific features. 
 
 
 
