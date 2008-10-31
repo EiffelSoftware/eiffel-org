@@ -58,13 +58,13 @@ You can obtain information about instances from status reporting functions. Most
 
 ====Operations====
 
-<eiffel>DATE</eiffel> operations looks like <eiffel>TIME</eiffel> operations: 
-* Setting directly <eiffel>year</eiffel>, <eiffel>month</eiffel>, and <eiffel>day</eiffel> with <eiffel>set_year</eiffel>, <eiffel>set_month</eiffel>, and <eiffel>set_day</eiffel>. Arguments must satisfy the rules of creation. These rules are more complicated than those of <eiffel>TIME</eiffel>. For example it is not allowed to set day to 31 if the current month is April, whereas it is allowed if the month is January. It is the same rules as for make. The same thing for years: It is not allowed to set year to a non-leap year if the current date is February 29th of a leap year. However, two features are available to set month and year even if day is too large: <eiffel>set_month_cut_days</eiffel> and <eiffel>set_year_cut_days</eiffel> will cut day down to the largest value allowed. 
-* Adding years, months and days with features <eiffel>year_add</eiffel>, <eiffel>month_add</eiffel>, and <eiffel>day_add</eiffel>. There is no requirement to add a year or a month. However, these features have to return a correct result, i.e. day is checked before each addition-. Adding one month to August 31st will yield September 30th. 31 is cut to 30 since there are only 30 days in September. Features <eiffel>add</eiffel> and <eiffel>+</eiffel> take an instance of DATE_DURATION in argument and add it to the current date. It is written so that years and months are added first, the days last.(see DATE_DURATION below)
-* Moving to the next or the previous year, month or day with features <eiffel>year_forth</eiffel>, <eiffel>year_back</eiffel>, <eiffel>month_forth</eiffel>, <eiffel>month_back</eiffel>, <eiffel>day_forth</eiffel>, and <eiffel>day_back</eiffel>. It is the same but faster to use these features rather than those upper (e.g., <eiffel>year_back</eiffel> performs better than <eiffel>year_add (-1)</eiffel> ).
-* Features <eiffel>relative_duration</eiffel> and <eiffel>definite_duration</eiffel> return the duration between the current date and the argument. The first one returns a result which is canonical (See definitions below), while the second one returns a definite result but may be not canonical.
+<eiffel>DATE</eiffel> operations look much like those of <eiffel>TIME</eiffel>: 
+* Set <eiffel>year</eiffel>, <eiffel>month</eiffel>, and <eiffel>day</eiffel> with <eiffel>set_year</eiffel>, <eiffel>set_month</eiffel>, and <eiffel>set_day</eiffel>. Arguments must satisfy the rules of creation. These rules are more complicated than those of <eiffel>TIME</eiffel>. For example you cannot set day to 31 if the current month is April, whereas you can if the month is January. These restrictions also apply to <eiffel>make</eiffel>. Similarly for years: you cannot set <eiffel>year</eiffel> to a non-leap year if the current date is February 29th. However, two features are available to set month and year even if day is too large: <eiffel>set_month_cut_days</eiffel> and <eiffel>set_year_cut_days</eiffel> will cut <eiffel>day</eiffel> down to the largest value allowed. 
+* Add years, months and days with features <eiffel>year_add</eiffel>, <eiffel>month_add</eiffel>, and <eiffel>day_add</eiffel>. There is no restriction on adding a year or a month. However, these features have to return a correct result, i.e., the day is checked before each addition. Adding one month to August 31st will yield September 30th. 31 is cut to 30 since there are only 30 days in September. Features <eiffel>add</eiffel> and <eiffel>+</eiffel> take an instance of DATE_DURATION as an argument and add it to the instance of <eiffel>date</eiffel>. It is written so that years and months are added first, the days last.(see DATE_DURATION below)
+* Move to the next or the previous year, month or day with features <eiffel>year_forth</eiffel>, <eiffel>year_back</eiffel>, <eiffel>month_forth</eiffel>, <eiffel>month_back</eiffel>, <eiffel>day_forth</eiffel>, and <eiffel>day_back</eiffel>. It faster to use these features than the addition commands (e.g., <eiffel>year_back</eiffel> performs better than <eiffel>year_add (-1)</eiffel> ).
+* Features <eiffel>relative_duration</eiffel> and <eiffel>definite_duration</eiffel> return the duration between the current date and the argument. <eiffel>relative_duration</eiffel> returns a result which is canonical (See definitions below), while <eiffel>definite_duration</eiffel> returns a definite result which may be not canonical.
 
-For example, date1 is April 20th and date2 is May 28th. Both features will yield instances of DURATION; however, relative_duration will yield 1 month and 8 days whereas definite_duration will yield 38 days.
+For example, suppose date1 is April 20th and date2 is May 28th. Both features will yield instances of DURATION; however, <eiffel>relative_duration</eiffel> will yield 1 month and 8 days whereas definite_duration will yield 38 days.
 
 ==DATE_TIME==
 
@@ -73,12 +73,10 @@ The aim is to gather the time with the date. <eiffel>DATE_TIME</eiffel> is clien
 ====Creation====
 
 There are several ways to create an instance:
-* by choosing value for all the attributes of the date and the time (<eiffel>make</eiffel>).
-* by getting the time from the system (<eiffel>make_now</eiffel>).
-* by gathering an instance of <eiffel>DATE</eiffel> with an instance of <eiffel>TIME</eiffel> (<eiffel>make_by_date_time</eiffel>).This feature copies only the references of its arguments, so that if the time (or the date) is changed, the instance previously initialized will be also changed. If this effect has to be avoided, using <eiffel>twin</eiffel>s of the arguments is required. 
-* by encapsulating an instance of <eiffel>DATE</eiffel> (<eiffel>make_by_date</eiffel>). The attribute time is set to the origin, i.e. 0:0:0. 
-
-The attribute date is set with the same reference as the argument (See comment of the previous section).
+* Choose values for each of the attributes of the date and the time (<eiffel>make</eiffel>).
+* Get the current date and time from the system (<eiffel>make_now</eiffel>).
+* Associate an instance of <eiffel>DATE</eiffel> with an instance of <eiffel>TIME</eiffel> (<eiffel>make_by_date_time</eiffel>). {{caution|This feature copies only the references of its arguments, so that if the time (or the date) is changed, the instance previously initialized will be also changed. If this effect has to be avoided, using <eiffel>twin</eiffel>'s of the arguments is required.}} 
+* Encapsulate an instance of <eiffel>DATE</eiffel> (<eiffel>make_by_date</eiffel>). The attribute time is set to the origin, i.e. 0:0:0. The attribute <eiffel>date</eiffel> is set with the same reference as the argument (See caution just mentioned above).
 
 ====Access====
 
@@ -106,15 +104,15 @@ Addition of hours, minutes and seconds are available directly in the class.It ca
 
 Feature <eiffel>add</eiffel> (or <eiffel>+</eiffel>) takes an instance of <eiffel>DATE_TIME_DURATION</eiffel> as an argument. Internally, <eiffel>add</eiffel> first adds the the date duration, and then the time duration. 
 
-{{note|Adding the time duration first would have yield undesirable results in rare cases such as in this example: the current date/time is August 30th 23:59:59. The duration being added is one month and one second. Applying feature <eiffel>add</eiffel> makes the current date/time October 1st 0:0:0, because the date duration is added first. Adding the time duration first would yield September 30th 0:0:0 ! The same effect would occur with leap years.}}
+{{info|Adding the time duration first would yield undesirable results in rare cases such as in this example: the current date/time is August 30th 23:59:59. The duration being added is one month and one second. Applying feature <eiffel>add</eiffel> makes the current date/time October 1st 0:0:0, because the date duration is added first. Adding the time duration first would yield September 30th 0:0:0 ! The same effect would occur with leap years.}}
 
 Feature <eiffel>relative_duration</eiffel> and <eiffel>definite_duration</eiffel> return the duration between the current date (with time) and the argument. <eiffel>relative_duration</eiffel> returns a result which is canonical (see definitions below), while <eiffel>definite_duration</eiffel> returns a result which is definite but may be not canonical. 
 
-==DATE and DATE_TIME==
+==Obtaining a DATE from a DATE_TIME and vice versa==
 
-Another way to process would have been to make <eiffel>DATE_TIME</eiffel> inherit from <eiffel>DATE</eiffel>, as long as <eiffel>DATE_TIME</eiffel> is a <eiffel>DATE</eiffel>, with more precision. The choice was to have a client relation between them. Otherwise <eiffel>DATE</eiffel> should have known the existence of <eiffel>DATE_TIME</eiffel>, and many assignment attempts would have been useful in features such as <eiffel>infix +</eiffel>. So <eiffel>DATE_TIME</eiffel> is client of <eiffel>DATE</eiffel>. 
+Because <eiffel>DATE_TIME</eiffel> is a client to class <eiffel>DATE</eiffel>, it is easy enough to ask for the <eiffel>DATE</eiffel> from an instance of <eiffel>DATE_TIME</eiffel> by applying the query <eiffel>date</eiffel>. 
 
-However, it could be useful to mix instances of <eiffel>DATE</eiffel> of <eiffel>DATE_TIME</eiffel>. As <eiffel>DATE_TIME</eiffel> is client of <eiffel>DATE</eiffel> with its attribute <eiffel>date</eiffel>, it is easy to get only the date from instances of <eiffel>DATE_TIME</eiffel>. On the other way features are available to convert objects from <eiffel>DATE</eiffel> to <eiffel>DATE_TIME</eiffel>. In class <eiffel>DATE</eiffel>, feature <eiffel>to_date_time</eiffel> builds an instance of <eiffel>DATE_TIME</eiffel> with the origin of time (0,0,0). In the class DATE_TIME, the creation procedure <eiffel>make_by_date</eiffel> has the same effect. (The same feature exists for duration, replacing origin by zero). 
+You can ask for a new instance of <eiffel>DATE_TIME</eiffel> from a <eiffel>DATE</eiffel> using the query <eiffel>to_date_time</eiffel>. The new instance will have the same date as the target, and have its time set to the origin (0:0:0). A <eiffel>DATE_TIME</eiffel> instance can be initialized with a specific <eiffel>DATE</eiffel> by using <eiffel>DATE_TIME</eiffel>'s creation procedure <eiffel>make_by_date</eiffel>.
 
 
 
