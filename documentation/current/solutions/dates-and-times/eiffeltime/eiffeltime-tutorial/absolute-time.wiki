@@ -13,19 +13,19 @@ The default way to compare absolute objects is to compare their respective durat
 
 ====Creation====
 
-There are three ways to create an instance of the class <eiffel>TIME</eiffel>: by choosing the time (make), by getting the time from the system (<eiffel>make_now</eiffel>), or by choosing the number of seconds elapsed from the origin (<eiffel>make_by_seconds</eiffel>). The arguments of <eiffel>make</eiffel> and <eiffel>make_by_seconds</eiffel> have to respect the range of a day (see preconditions). 
+There are three ways to create an instance of the class <eiffel>TIME</eiffel>: by choosing the time (<eiffel>make</eiffel>), by getting the time from the system (<eiffel>make_now</eiffel>), or by choosing the number of seconds elapsed from the origin (<eiffel>make_by_seconds</eiffel>). The arguments of <eiffel>make</eiffel> and <eiffel>make_by_seconds</eiffel> have to respect the range of a day (see preconditions). 
 
 ====Origin and cyclic representation====
 
-The origin is 0 hour 0 minute and 0 second. Notion of time is relative to a day in a cyclic representation: days begin at 0:0:0 and end at 23:59:59. If a second is added to 23:59:59 then the result will be 0:0:0. Subtracting a minute to 0:0:0 will yield 23:59:0.
+The origin is 0 hour 0 minute and 0 second. Notion of time is relative to a day in a cyclic representation: days begin at 0:0:0 and end at 23:59:59. If a second is added to 23:59:59 then the result will be 0:0:0. Subtracting a minute from 0:0:0 will yield 23:59:0.
 
 ====Comparison====
 
-Instances of [[ref:libraries/time/reference/time_chart|TIME ]] may be compared. Functions <, +, >, and >= are available. Function <eiffel>is_equal</eiffel> (or <eiffel>~</eiffel>) can be used to test object equality, while <eiffel>=</eiffel> will compare references. 
+Instances of [[ref:libraries/time/reference/time_chart|TIME ]] may be compared. Functions <eiffel><</eiffel>, <eiffel>+</eiffel>, <eiffel>></eiffel>, and <eiffel>>=</eiffel> are available. Function <eiffel>is_equal</eiffel> (or <eiffel>~</eiffel>) can be used to test object equality, whereas <eiffel>=</eiffel> will compare references. 
 
 ====Measurement====
 
-The duration linked to an instance of [[ref:libraries/time/reference/time_chart|TIME]]  (attribute <eiffel>duration</eiffel>) is an instance of [[ref:libraries/time/reference/time_duration_chart|TIME_DURATION]] . It is the duration from the origin until the current time. The function seconds returns the number of seconds since the origin. This function may be useful to get the number of seconds between two events.The feature - creates an interval between two instances of <eiffel>TIME</eiffel>. The duration of this interval is given by the function duration. However, this duration is not canonical (See [[Duration|Duration]]  for precisions). In <eiffel>TIME</eiffel>, the feature <eiffel>relative_duration</eiffel> returns the same duration, but more efficiently and also it is canonical. 
+The duration linked to an instance of [[ref:libraries/time/reference/time_chart|TIME]]  (query <eiffel>duration</eiffel>) results in an instance of [[ref:libraries/time/reference/time_duration_chart|TIME_DURATION]] . It is the duration from the origin until the current time. The query <eiffel>seconds</eiffel> returns the number of seconds since the origin. This query may be useful to get the number of seconds between two events.The feature <eiffel>-</eiffel> creates an interval between two instances of <eiffel>TIME</eiffel>. The duration of this interval is given by the function <eiffel>duration</eiffel>. However, this duration is non-canonical (See [[Duration|Duration]]  for precisions). In <eiffel>TIME</eiffel>, the feature <eiffel>relative_duration</eiffel> returns the same duration, but more efficiently and also it is canonical. 
 
 ====Operations====
 * Set directly <eiffel>hour</eiffel>, <eiffel>minute</eiffel>, and <eiffel>second</eiffel> with <eiffel>set_hour</eiffel>, <eiffel>set_minute</eiffel>, and <eiffel>set_second</eiffel>. Arguments must satisfy the rules of creation.

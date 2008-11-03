@@ -123,7 +123,7 @@ The rules are the same than those for <eiffel>DATE_DURATION</eiffel>. Features <
 It is possible to change reference of time and date with the features <eiffel>set_time</eiffel> and <eiffel>set_date</eiffel>. To change only one element (for example <eiffel>hour</eiffel>), features from <eiffel>TIME_DURATION</eiffel> or <eiffel>DATE_DURATION</eiffel> have to be used. 
 
 ====Operation====
-*  <eiffel>DATE_TIME_DURATION</eiffel> inherits from <eiffel>GROUP_ELEMENT</eiffel>. infix and prefix <eiffel>+</eiffel>, infix and prefix <eiffel>-</eiffel> are available to compose instances to each other. 
+*  <eiffel>DATE_TIME_DURATION</eiffel> inherits from <eiffel>GROUP_ELEMENT</eiffel>. <eiffel>infix</eiffel> and <eiffel>prefix</eiffel> <eiffel>+</eiffel>, <eiffel>infix</eiffel> and <eiffel>prefix</eiffel> <eiffel>-</eiffel> are available to compose instances to each other. 
 * Only <eiffel>day_add</eiffel> is present. To add only one element, features from <eiffel>TIME_DURATION</eiffel> or <eiffel>DATE_DURATION</eiffel> have to be used. 
 
 ====Conversion====
