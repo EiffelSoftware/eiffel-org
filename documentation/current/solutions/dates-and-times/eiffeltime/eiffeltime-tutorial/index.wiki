@@ -1,7 +1,7 @@
 [[Property:title|EiffelTime Tutorial]]
 [[Property:weight|0]]
 [[Property:uuid|2c1bfedd-d515-cd6b-bd22-b06326fc98d8]]
-The library EiffelTime is designed to provide software components for the effective modeling and manipulation of ''dates and times''. EiffelTime is built on three notions of time.
+The library EiffelTime is designed to provide software components for the effective modeling and manipulation of ''dates and times''. EiffelTime is built on three notions of time:
 
 * ''Absolutes'' are used to denote specific times. For example, an absolute time would be used to denote a particular event, like the starting time for a meeting, say 3:45 p.m.
 
@@ -9,9 +9,14 @@ The library EiffelTime is designed to provide software components for the effect
 
 * ''Durations'' are used to represent the length of an interval. So, a duration can express the fact that the meeting lasts for 2 hours and 15 minutes.
 
+
 As you read this documentation you will notice other concepts that are used in various classes. Here are some examples:
 * There is a concept of ''origin'' which allows absolute instances to have an anchor in time. The origin for an absolute time is 00:00:00, the earliest time of day. The origin for dates is January 1, 1600. The notion of origin is also used with certain date durations.
 * Durations can be in ''canonical'' or ''non-canonical'' form. Canonical form means that the values for components of the duration fall into the expected range for each component. So, for example a time duration with a value for minutes that is larger than 59 would be in non-canonical form.
 * Date durations can be ''relative'' or ''definite''. Definite date durations consist only of a number of days. Relative date durations can have values for a number of years and months. As you will see, comparison and arithmetic are affected by whether date durations are relative or definite.
 You will read more about these and other EiffelTime concepts in the detailed pages that follow.
+
+
+One more thing you should know about EiffelTime is that the cluster contains subclusters which allow the library to support either classic or .NET targets, and provide default formatting of dates and times in either English, French, or German style formats. This means that if you just add the ''time'' cluster to your project as a cluster with the default recursive directory searching, you will get configuration errors stating that multiple classes were found with the same name. So in EiffelStudio settings, you need to specify the subclusters that best fit your application's needs.
+ 
 
