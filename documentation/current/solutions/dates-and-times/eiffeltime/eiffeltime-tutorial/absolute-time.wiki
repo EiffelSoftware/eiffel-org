@@ -104,12 +104,11 @@ It is possible to change reference of <eiffel>time</eiffel> and <eiffel>date</ei
 
 ====Operations====
 
-Addition of hours, minutes and seconds are available directly in the class.It can be important to use the versions from <eiffel>DATE_TIME</eiffel>, because adding time to a <eiffel>DATE_TIME</eiffel> may have a consequence on the date. 
+Add hours, minutes, and seconds with features <eiffel>hour_add</eiffel>, <eiffel>minute_add</eiffel>, and <eiffel>second_add</eiffel>.
 
+{{caution|Using the addition features from <eiffel>TIME</eiffel> on the <eiffel>time</eiffel> attribute is also possible but the date will not be modified in the case <eiffel>time</eiffel> makes a cycle. So, for example use:<eiffel> my_date_time.hour_add (more_hours)</eiffel> instead of: <eiffel>my_date_time.time.hour_add (more_hours)</eiffel>  }}
 
-{{caution|Using the addition features from <eiffel>TIME</eiffel> on the <eiffel>time</eiffel> attribute is also possible but the date will not be modified in the case <eiffel>time</eiffel> makes a cycle. }}
-
-<eiffel>day_add</eiffel> is also available directly since it is frequently used within the class. 
+<eiffel>day_add</eiffel> is available on instances of <eiffel>DATE_TIME</eiffel> to add days. 
 
 Feature <eiffel>add</eiffel> (or <eiffel>+</eiffel>) takes an instance of <eiffel>DATE_TIME_DURATION</eiffel> as an argument. Internally, <eiffel>add</eiffel> first adds the the date duration, and then the time duration. 
 

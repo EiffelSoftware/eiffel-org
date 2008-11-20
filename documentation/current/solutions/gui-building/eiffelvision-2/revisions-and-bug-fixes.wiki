@@ -3,6 +3,36 @@
 [[Property:uuid|eb11a237-0c75-0427-452a-303d4f276b97]]
 This document contains details of modifications and bug fixes to the EiffelVision 2 library listed by the release version of EiffelStudio. All bug fixes and modifications are relative to the previously released version.
 
+
+==EiffelStudio 6.3==
+
+'''Interface modifications''' 
+
+*  '''EV_APPLICATION'''
+**Added 'add_idle_action_kamikaze' as a synonym for 'do_once_on_idle' as this matches better with 'add_idle_action'
+
+'''Bug Fixes'''
+
+*'''Platform Independent'''
+**  '''EV_GRID'''
+***Optimized rendering of items during addition/removal of large number of rows/items.
+***Fixed item selection handling to correctly handle the Alt key
+***Fixed certain graphical glitches and a crash when inserting new subrows in to existing structures
+***Optimized 'remove_rows' to not redraw the grid 'during' each call, now scrollbars are updated on idle
+
+*'''Windows'''
+** '''EV_ACCELERATOR'''
+***Reimplemented accelerator handling so that they work with dialog windows.
+
+*'''Solaris/Linux'''
+** '''EV_PIXEL_BUFFER'''
+***Now correctly resetting item data after creation, before pixel buffer memory was random
+***Fixed 'draw_pixel_buffer' to correctly composite the data instead of blindly copying it over.
+**'''EV_DRAWABLE'''
+*** Optimized clipping to prevent overdraw when blitting pixmaps offscreen.
+
+
+
 ==EiffelStudio 6.2==
 
 '''Interface modifications''' 
