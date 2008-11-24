@@ -3,17 +3,21 @@
 [[Property:uuid|64672bd0-b696-0c39-1e30-5ac64aae4a99]]
 The classes <eiffel>TIME_DURATION</eiffel>, <eiffel>DATE_DURATION</eiffel>, and <eiffel>DATE_TIME_DURATION</eiffel> model time durations.
 
-The classes dealing with duration inherit <eiffel>DURATION</eiffel>, which inherits <eiffel>GROUP_ELEMENT</eiffel> and <eiffel>PART_COMPARABLE</eiffel>. An instance of <eiffel>TIME_DURATION</eiffel>, <eiffel>DATE_DURATION</eiffel>, or <eiffel>DATE_TIME_DURATION</eiffel> is an element of a group, i.e. there is a zero and addition operations (<eiffel>infix +</eiffel>, <eiffel>infix -</eiffel>, <eiffel>prefix +</eiffel>, and <eiffel>prefix -</eiffel>). Duration is used as an amount of time, without link to an origin. It may be added to the respective absolute notion (<eiffel>TIME + TIME_DURATION</eiffel> is possible, but not <eiffel>TIME + DATE_TIME_DURATION</eiffel> nor <eiffel>DATE_TIME + TIME_DURATION</eiffel> ... see classes <eiffel>TIME</eiffel>, <eiffel>DATE</eiffel>, and <eiffel>DATE_TIME</eiffel>). 
+The classes dealing with duration inherit from <eiffel>DURATION</eiffel>, which in turn inherits from <eiffel>GROUP_ELEMENT</eiffel> and <eiffel>PART_COMPARABLE</eiffel>. From this lineage comes the query <eiffel>zero</eiffel>, the addition features <eiffel>infix +</eiffel> and <eiffel>infix -</eiffel> and the unary features <eiffel>prefix +</eiffel>, and <eiffel>prefix -</eiffel>. 
+
+Duration is used as an amount of time, without link to an origin. It may be added to the respective absolute notion So, <eiffel>TIME + TIME_DURATION</eiffel> is possible, but not <eiffel>TIME + DATE_TIME_DURATION</eiffel> nor <eiffel>DATE_TIME + TIME_DURATION</eiffel> ... see classes <eiffel>TIME</eiffel>, <eiffel>DATE</eiffel>, and <eiffel>DATE_TIME</eiffel> in [[Absolute time]]. 
 
 Attributes of durations are allowed to take values which do not fall in the expected range, even negative values (e.g., <eiffel>hour = -1</eiffel>, <eiffel>minute = 75</eiffel>, <eiffel>day = 40</eiffel>...). However, queries are available in each class to test for canonical format and to provide equivalent instances in canonical format. 
 
-An instance is canonical if the values of its attributes fall into the acceptable ranges. In such a case, the value of query <eiffel>canonical</eiffel> is <eiffel>True</eiffel>. For example, an instance of <eiffel>TIME_DURATION</eiffel> such as 12:-10:60 is not canonical. The query <eiffel>to_canonical</eiffel> will return a new instance with equivalent value, but with its components in canonical form, in the case of our example: 11:51:0. These features are also present in <eiffel>DATE_DURATION</eiffel> and <eiffel>DATE_TIME_DURATION</eiffel>. The order is partially implemented. <eiffel>TIME_DURATION</eiffel> has a complete order whereas <eiffel>DATE_DURATION</eiffel> and <eiffel>DATE_TIME_DURATION</eiffel> are more specific. 
+An instance is ''canonical'' if the values for all of its relevant attributes fall into the specific ranges defined for each type of duration, documented in sections below (for example, for a canonical instance of <eiffel>TIME_DURATION</eiffel>, the value of <eiffel>second</eiffel> will be in 0..59). In such a case, the value of query <eiffel>canonical</eiffel> is <eiffel>True</eiffel>. For example, an instance of <eiffel>TIME_DURATION</eiffel> such as 12:-10:60 is not canonical. The query <eiffel>to_canonical</eiffel> will return a new instance with equivalent value, but with its components in canonical form, in the case of our example: 11:51:0. These features are also present in <eiffel>DATE_DURATION</eiffel> and <eiffel>DATE_TIME_DURATION</eiffel>. 
+
+Ordering is partial for <eiffel>DATE_DURATION</eiffel> and <eiffel>DATE_TIME_DURATION</eiffel> for reasons explained below, and total for <eiffel>TIME_DURATION</eiffel>. 
 
 ==TIME_DURATION==
 
 ====Creation====
 
-Instances can be created either by specifying a value for each of the attributes hour, minute and second (<eiffel>make</eiffel>), or by specifying only a number of seconds (<eiffel>make_by_seconds</eiffel>). Any integer value is accepted. So, for example, it is possible to create a duration with 1 hour and -60 minutes.
+Instances can be created either by specifying a value for each of the attributes <eiffel>hour</eiffel>, <eiffel>minute</eiffel>, and <eiffel>second</eiffel> (<eiffel>make</eiffel>), or by specifying only a number of seconds (<eiffel>make_by_seconds</eiffel>). Any integer value is accepted. So, for example, it is possible to create a duration with 1 hour and -60 minutes.
 
 ====Access====
 
@@ -23,7 +27,7 @@ The total number of seconds in the current duration can be obtained by applying 
 
 ====Comparison====
 
-Instances of <eiffel>TIME_DURATION</eiffel> may be compared easily. The order is the order of the respective total number of seconds. So, 1:-40:0 is less than 0:0:1800, for example. Functions <, >, <=, and >= are available. The <eiffel>BOOLEAN</eiffel> query <eiffel>is_equal</eiffel> (or <eiffel>~</eiffel>) tests object equality, <eiffel>=</eiffel> will compare references. 
+Instances of <eiffel>TIME_DURATION</eiffel> may be compared. The order is the order of the respective total number of seconds. So, 1:-40:0 is less than 0:0:1800, for example. Functions <eiffel><</eiffel>, <eiffel>></eiffel>, <eiffel><=</eiffel>, and <eiffel>>=</eiffel> are available. The <eiffel>BOOLEAN</eiffel> query <eiffel>is_equal</eiffel> (or the object equality operator <eiffel>~</eiffel>) tests object equality, <eiffel>=</eiffel> will compare references. 
 
 ====Element change====
 
@@ -31,33 +35,46 @@ Set <eiffel>hour</eiffel>, <eiffel>minute</eiffel>, and <eiffel>second</eiffel> 
 
 ====Operations====
 * Add hours, minutes and seconds with features <eiffel>hour_add</eiffel>, <eiffel>minute_add</eiffel> and <eiffel>second_add</eiffel>.
-*  <eiffel>TIME_DURATION</eiffel> inherits from <eiffel>GROUP_ELEMENT</eiffel>. <eiffel>infix</eiffel> and <eiffel>prefix</eiffel> <eiffel>+</eiffel>, <eiffel>infix</eiffel> and <eiffel>prefix</eiffel> <eiffel>-</eiffel> are available to compose instances of each other. 
+* <eiffel>infix</eiffel> <eiffel>+</eiffel> and <eiffel>infix</eiffel> <eiffel>-</eiffel> are available for producing sums and differences of durations.
+* <eiffel>prefix</eiffel> <eiffel>-</eiffel> is available for producing the inverse of a duration.
 
 ====Conversion====
 
-Two features ensure a link with the notion of ''day''. The first, <eiffel>to_days</eiffel> returns the number of days equivalent to the current duration. For example, a duration such as 23:60:0 is equivalent to one day. For negative duration, the result is never 0. -1 hour is equivalent to -1 day (i.e. the result of <eiffel>to_days</eiffel> is -1). The other feature associated with the idea of ''day'' is <eiffel>time_modulo_day</eiffel>. This query returns an instance of <eiffel>TIME_DURATION</eiffel>. The result represents the difference between the current duration and the number of days yielded by <eiffel>to_days</eiffel>. It implies that the result is always positive and less than one day. 
+Two features provide a conceptual link with the notion of ''day'':
+* The first, <eiffel>to_days</eiffel> returns the number of days equivalent to the current duration. For example, a duration such as 23:60:0 is equivalent to one day. For negative duration, the result is never 0. -1 hour is equivalent to -1 day (i.e. the result of <eiffel>to_days</eiffel> is -1). 
+* The second is <eiffel>time_modulo_day</eiffel>. This query returns an instance of <eiffel>TIME_DURATION</eiffel>. The result represents the difference between the current duration and the number of days yielded by <eiffel>to_days</eiffel>. It implies that the result is always positive and less than one day. 
 
-For example, the current duration is 25:70:600. <eiffel>to_days</eiffel> will return 1 (one day) and <eiffel>time_modulo_day</eiffel> will return 2:20:0:. If the current duration is negative: -23:-80:300, <eiffel>to_days</eiffel> will return -2 (minus two days) and <eiffel>time_modulo_day</eiffel> will return 23:45:0.
+{{sample|Suppose the value of an instance of <eiffel>TIME_DURATION</eiffel> is 25:70:600. Then applying <eiffel>to_days</eiffel> will return 1 (one day) and applying <eiffel>time_modulo_day</eiffel> will return 2:20:0. Now suppose that the value of the <eiffel>TIME_DURATION</eiffel> is negative, say -23:-80:300. In this case, applying <eiffel>to_days</eiffel> will return -2 (minus two days) and <eiffel>time_modulo_day</eiffel> will return 23:45:0.}}
 
-Durations may be canonical or not canonical. This can be tested using the <eiffel>BOOLEAN</eiffel> query <eiffel>canonical</eiffel>. Canonical form depends upon whether the features <eiffel>hour</eiffel>, <eiffel>minute</eiffel>, and <eiffel>second</eiffel> have values that fall in a particular range. An instance of <eiffel>TIME_DURATION</eiffel> is canonical if: 
-* in the case of a positive duration (> zero), all of the three features have to be positive or 0, <eiffel>minute</eiffel> and <eiffel>second</eiffel> less than 60.
-* in the case of a negative duration (< zero), all of the three features have to be negative or 0, <eiffel>minute</eiffel> and <eiffel>second</eiffel> strictly greater than -60. The query <eiffel>canonical</eiffel> tests whether a duration is canonical. The query <eiffel>to_canonical</eiffel> yields a new, canonical <eiffel>TIME_DURATION</eiffel> equivalent to the query's target.
+
+Durations may be in canonical or non-canonical form. This can be tested using the <eiffel>BOOLEAN</eiffel> query <eiffel>canonical</eiffel>. Canonical form depends upon whether the features <eiffel>hour</eiffel>, <eiffel>minute</eiffel>, and <eiffel>second</eiffel> have values that fall into a particular range. An instance of <eiffel>TIME_DURATION</eiffel> is canonical if: 
+:* in the case of a positive duration (> zero), all of the three features have to be positive or 0, <eiffel>minute</eiffel> and <eiffel>second</eiffel> less than 60.
+:* in the case of a negative duration (< zero), all of the three features have to be negative or 0, <eiffel>minute</eiffel> and <eiffel>second</eiffel> strictly greater than -60. 
+
+Two queries help you work with canonical form:
+* The value of the query <eiffel>canonical</eiffel> is <eiffel>True</eiffel> if duration is in canonical form. 
+* The query <eiffel>to_canonical</eiffel> yields a new, canonical <eiffel>TIME_DURATION</eiffel> equivalent to the duration to which it is applied.
+
 
 ==DATE_DURATION==
 
-<eiffel>DATE_DURATION</eiffel> is similar to <eiffel>TIME_DURATION</eiffel>, but models durations in dates rather than times. Dealing with the Gregorian calendar is not so easy because of its irregularities. A date duration of one month may be equal to 28, 29, 30, 31 days, depending on the current date! Sometimes though, it could be useful to deal with a precise date duration, just a number of days, independent of the current date. This issue leads to a unique point of design in the <eiffel>DATE_DURATION</eiffel> class: a separation is made between two kinds of instances: ''definite'' date durations and the ''relative'' date durations. The <eiffel>BOOLEAN</eiffel> query <eiffel>definite</eiffel> is <eiffel>True</eiffel> for definite date durations and false for relative date durations. 
+<eiffel>DATE_DURATION</eiffel> is similar to <eiffel>TIME_DURATION</eiffel>, but models durations in dates rather than times. Dealing with the Gregorian calendar is complicated by its irregularities. For example, a date duration of one month may be equal to 28, 29, 30, 31 days, depending on a date of reference. Sometimes though, it is useful to deal with a precise date duration, just a number of days, independent of any particular date. This issue leads to a unique point of design in the <eiffel>DATE_DURATION</eiffel> class: a separation is made between two kinds of instances: ''definite'' date durations and the ''relative'' date durations. The <eiffel>BOOLEAN</eiffel> query <eiffel>definite</eiffel> is <eiffel>True</eiffel> for definite date durations and false for relative date durations. 
 
 An instance is ''definite'' if and only if its attributes <eiffel>month</eiffel> and <eiffel>year</eiffel> are 0. Then only the number of days is used. 
 
-''Relative'' (non-definite) durations allow their attributes <eiffel>year</eiffel>, <eiffel>month</eiffel>, and <eiffel>day</eiffel> to have meaningful values, but disallow comparisons with other durations, for reasons that will be explained below. 
+''Relative'' (non-definite) durations allow their attributes <eiffel>year</eiffel>, <eiffel>month</eiffel>, and <eiffel>day</eiffel> to have meaningful values, but disallow comparisons with other durations, for reasons which will be explained below. 
 
-The distinction between definite and relative date duration makes a difference when a duration is added to a date. In the case of a definite <eiffel>DATE_DURATION</eiffel>, there is no ambiguity: a given number of days is added to the date. In the case of a relative <eiffel>DATE_DURATION</eiffel>, the result is relative to the duration's <eiffel>origin_date</eiffel>. For example, a one month duration may be equal to 28 days if the date is in February or 31 days if the date is in August. A duration becomes definite when its attributes <eiffel>year</eiffel> and <eiffel>month</eiffel> become 0. However it is possible to deal with instances of <eiffel>DATE_DURATION</eiffel> without taking care of this distinction. 
+The distinction between definite and relative date duration makes a difference when a duration is added to a date. In the case of a definite <eiffel>DATE_DURATION</eiffel>, there is no ambiguity: a given number of days is added to the date. In the case of a relative <eiffel>DATE_DURATION</eiffel>, the result is relative to the duration's <eiffel>origin_date</eiffel>. For example, a one month duration may be equal to 28 days if the date is in February or 31 days if the date is in August.  
 
-===Relative DATE_DURATION===
+===About ''relative'' DATE_DURATIONs===
 
-Relative duration cannot be compared with any other durations (including zero). The reason is simple. It is not possible to say if 30 days are less than 1 month: it depends on the date: it is true in August (in a 31 days month) and it is false in February.
+Relative durations cannot be compared with any other durations (including zero). This is because of the complexities of the Gregorian calendar. If we consider how many days there are in a duration of one month, we cannot point to a specific integer value that will be correct in all cases ... it depends upon which month we are considering ... and in some cases whether it is a leap year.
 
-If feature <eiffel>></eiffel> (or <eiffel><</eiffel>) is called with at least one non-definite member (the current instance or the argument), the result will be always False. We may only know if two durations have equal value with the feature <eiffel>is_equal</eiffel> (or <eiffel>~</eiffel>). It compares field by field the two durations. When adding a relative date_duration to a date, the years and the months are added first, then the date may be cut (June 31 -> June 30) and finally the days are added. For example, if one month is added to the date August 31st, the result is September 30th.
+If a comparison (<eiffel>></eiffel> or <eiffel><</eiffel>) is applied in a state in which either the current instance or the argument or both are relative durations, the result will be always <eiffel>False</eiffel>. 
+
+We are able to determine if two durations have equal value by applying the feature <eiffel>is_equal</eiffel> (or the object equality operator <eiffel>~</eiffel>). 
+
+When adding a relative <eiffel>DATE_DURATION</eiffel> to a <eiffel>DATE</eiffel>, the years and the months are added first, then the date may be cut (for example, June 31 cut to June 30) and finally the days are added. For example, if one month is added to the date August 31st, the result is September 30th.
 
 Nevertheless, there is a way to compare relative durations: a relative date_duration may be canonical. It means that the duration has its attributes <eiffel>month</eiffel> and <eiffel>day</eiffel> in a fixed range. <eiffel>month</eiffel> must be between 1 and 12, and <eiffel>day</eiffel> larger than 1 and less than a value between 27 and 30. This value is fixed simply: (in the case of a positive duration) when setting day to 0 and adding one more month, the addition of the start date and this new duration must yield a date strictly after the final date (yielded by adding date and tested duration). For example is 0/0/30 (i.e. 0 year, 0 month and 30 days) canonical?
 * If the origin date is 01/15 (15th of January), the final date is 02/14. We cannot convert 30 days into 1 month in this case. The duration is canonical.
@@ -65,7 +82,7 @@ Nevertheless, there is a way to compare relative durations: a relative date_dura
 
 A way to compare two relative durations is to make them canonical from the same date, and then to compare the fields. It is the same as adding the durations to the same date, and to compare the final dates to each other.
 
-===Definite DATE_DURATION===
+===About ''definite'' DATE_DURATIONs===
 
 Definite durations are characterized by the attribute <eiffel>day</eiffel>. Whenever a duration has its attributes <eiffel>year</eiffel> and <eiffel>month</eiffel> equal to 0, this duration is then definite. On the other hand, if one of these two attributes is not 0, the duration is relative.
 
@@ -81,7 +98,7 @@ Two creation features are available: <eiffel>make</eiffel> takes three arguments
 
 ====Comparison====
 
-Features <, >, <=, and >= are available. If both instances are definite, numbers of days are compared. If one of them is non-definite, the result is False.
+Features <eiffel><</eiffel>, <eiffel>></eiffel>, <eiffel><=</eiffel>, and <eiffel>>=</eiffel> are available. If both instances are definite, numbers of days are compared. If one of them is non-definite, the result is False.
 
 ====Element change====
 
@@ -116,7 +133,7 @@ There are still several ways to create an instance:
 
 ====Comparison====
 
-The rules are the same than those for <eiffel>DATE_DURATION</eiffel>. Features <, >,<=, and >= are available. If both instances are definite, numbers of days are compared. If one of them is non-definite, the result is False. 
+The rules are the same than those for <eiffel>DATE_DURATION</eiffel>. Features <eiffel><</eiffel>, <eiffel>></eiffel>,<eiffel><=</eiffel>, and <eiffel>>=</eiffel> are available. If both instances are definite, numbers of days are compared. If one of them is non-definite, the result is False. 
 
 ====Element change====
 
