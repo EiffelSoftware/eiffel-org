@@ -1,7 +1,7 @@
 [[Property:title|Interval]]
 [[Property:weight|2]]
 [[Property:uuid|d33d0216-fa71-60dc-f3b0-61ff42d621e6]]
-Class <eiffel>INTERVAL [G -> ABSOLUTE]</eiffel> deals with intervals between two instances of the same class (an actual generic parameter substituting for <eiffel>G</eiffel>) which conforms to<eiffel> ABSOLUTE</eiffel> ( <eiffel>DATE</eiffel>, <eiffel>TIME</eiffel>, <eiffel>DATE_TIME</eiffel>). 
+Class <eiffel>INTERVAL [G -> ABSOLUTE]</eiffel> deals with intervals between two instances of the same class (an actual generic parameter substituting for <eiffel>G</eiffel>) which conforms to<eiffel> ABSOLUTE</eiffel> (specifically: <eiffel>DATE</eiffel>, <eiffel>TIME</eiffel>, <eiffel>DATE_TIME</eiffel>). 
 ====Creation====
 
 The creation procedure 
@@ -17,7 +17,7 @@ The measurement of an interval is done by applying the query <eiffel>duration</e
 
 * <eiffel>infix <</eiffel> and <eiffel>infix ></eiffel> compare two intervals on a "strict" basis. This means that <eiffel>int_1 < int_2</eiffel> is <eiffel>True</eiffel> if <eiffel>int_1</eiffel> starts and ends strictly before <eiffel>int_2</eiffel>. In other words, <eiffel>int_1</eiffel> must have a start bound less than that of <eiffel>int_2</eiffel> and an end bound less than that of <eiffel>int_2</eiffel>.
 * <eiffel>infix <=</eiffel> and <eiffel>infix >=</eiffel> compare two intervals on a non-strict basis. So, <eiffel>int_1 <= int_2</eiffel> is <eiffel>True</eiffel> if <eiffel>int_1</eiffel> has a start bound less than or equal to that of <eiffel>int_2</eiffel> and an end bound less than or equal to that of <eiffel>int_2</eiffel>.
-* <eiffel>is_equal</eiffel> performs object comparison.
+* <eiffel>is_equal</eiffel> (or <eiffel>~</eiffel>)performs object comparison.
 * <eiffel>intersects</eiffel> is true if one (target) <eiffel>INTERVAL</eiffel> shares some of the same bounded area with a second (argument) <eiffel>INTERVAL</eiffel>.
 * <eiffel>overlaps</eiffel> is similar to <eiffel>intersects</eiffel> with the exception that the argument <eiffel>INTERVAL</eiffel> has to be after the target <eiffel>INTERVAL</eiffel>. <eiffel>is_overlapped</eiffel> is the opposite of <eiffel>overlaps</eiffel>.
 * <eiffel>meets</eiffel> and <eiffel>is_met</eiffel> are used to test whether two intervals have a common bound.

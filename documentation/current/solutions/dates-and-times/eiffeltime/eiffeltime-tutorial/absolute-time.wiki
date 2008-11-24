@@ -7,7 +7,7 @@ The classes dealing with date and those dealing with time have many similarities
 
 ==TIME==
 
-[[ref:libraries/time/reference/time_chart|TIME]]  deals with hour, minute, and second. It is possible to use more precision for time. However, this section deals with precision only to the second. See [[More precision]] for additional information on higher precision. 
+[[ref:libraries/time/reference/time_chart|TIME]]  models times of day, supporting queries: <eiffel>hour</eiffel>, <eiffel>minute</eiffel>, and <eiffel>second</eiffel>. It is possible to use more precision for time. However, this section deals with precision only to the second. See [[More precision]] for additional information on higher precision. 
 
 ====Creation====
 
@@ -27,7 +27,7 @@ The query <eiffel>duration</eiffel> applied to an instance of [[ref:libraries/ti
 
 The query <eiffel>seconds</eiffel> returns the total number of seconds since the origin. This query may be useful to get the number of seconds between two events.
 
-The feature <eiffel>-</eiffel> returns an [[Interval]] between two instances of <eiffel>TIME</eiffel>. The duration of this interval is given by the function <eiffel>duration</eiffel>. However, this duration is non-canonical (See [[Duration|Duration]]). In <eiffel>TIME</eiffel>, the feature <eiffel>relative_duration</eiffel> returns the same duration, but more efficiently and in canonical form. 
+The feature <eiffel>-</eiffel> returns an [[Interval]] between two instances of <eiffel>TIME</eiffel>. The duration of this interval is given by the function <eiffel>duration</eiffel>. However, this duration is non-canonical (See [[Duration|Duration]] for a definition of canonical form). In <eiffel>TIME</eiffel>, the feature <eiffel>relative_duration</eiffel> returns the same duration, but more efficiently and in canonical form. 
 
 ====Operations====
 * Set values for <eiffel>hour</eiffel>, <eiffel>minute</eiffel>, and <eiffel>second</eiffel> with <eiffel>set_hour</eiffel>, <eiffel>set_minute</eiffel>, and <eiffel>set_second</eiffel>. Arguments must satisfy the rules of creation.
@@ -36,11 +36,11 @@ The feature <eiffel>-</eiffel> returns an [[Interval]] between two instances of 
 
 ==DATE==
 
-<eiffel>DATE</eiffel> deals with year, month and day. Working with dates is more complicated than working with times of day because of the irregularities in elements of dates. Months, for example, have varying numbers of days. The number of days in a year varies between non-leap years and leap years. The only limit to magnitude for dates comes from INTEGER representation. If, as in most cases, INTEGER size is 32 bits, the range for a date is -2^31 to 2^31 days, or about 5.8 million years from the origin. So, unless you're trying to determine if the "big bang" occurred on a Tuesday, this will probably be adequate.
+<eiffel>DATE</eiffel> models dates, and supports queries <eiffel>year</eiffel>, <eiffel>month</eiffel> and <eiffel>day</eiffel>. Working with dates is more complicated than working with times of day because of the irregularities in elements of dates. Months, for example, have varying numbers of days. The number of days in a year varies between non-leap years and leap years. The only limit to magnitude for dates comes from INTEGER representation. If, as in most cases, INTEGER size is 32 bits, the range for a date is -2^31 to 2^31 days, or about 5.8 million years from the origin. So, unless you're trying to determine if the "big bang" occurred on a Tuesday, this should probably be adequate.
 
 ====Creation====
 
-There are three ways to create an instance of the class <eiffel>DATE</eiffel>: by choosing the date (<eiffel>make</eiffel>, <eiffel>make_month_day_year</eiffel>, <eiffel>make_day_month_year</eiffel>), by getting the date from the system (<eiffel>make_now</eiffel>), or by choosing the number of days elapsed from the origin (<eiffel>make_by_days</eiffel>). The arguments of each creation procedure have to respect the common range (See the respective creation procedures' preconditions in class [[ref:libraries/time/reference/date_chart|DATE]]). 
+There are three ways to create an instance of the class <eiffel>DATE</eiffel>: by choosing the date (<eiffel>make</eiffel>, <eiffel>make_month_day_year</eiffel>, <eiffel>make_day_month_year</eiffel>), by getting the date from the system (<eiffel>make_now</eiffel>), or by choosing the number of days elapsed from the origin (<eiffel>make_by_days</eiffel>). The arguments of each creation procedure, when considered together, must represent a valid date. For example, a month of February and day of 29 will be invalid if the value for the year is not a leap year. 
 
 ====Origin====
 
@@ -48,7 +48,7 @@ The origin for instances of <eiffel>DATE</eiffel> is January 1, 1600.
 
 ====Comparison====
 
-Instances of <eiffel>DATE</eiffel> may be compared. Functions <eiffel><</eiffel>, <eiffel><=</eiffel>, <eiffel>></eiffel>, and <eiffel>>=</eiffel> are available for ordering instance by value. Function <eiffel>is_equal</eiffel> (or <eiffel>~</eiffel>) can be used to test object equality, while <eiffel>=</eiffel> will compare references. 
+Instances of <eiffel>DATE</eiffel> may be compared. Functions <eiffel><</eiffel>, <eiffel><=</eiffel>, <eiffel>></eiffel>, and <eiffel>>=</eiffel> are available for ordering instances by value. Function <eiffel>is_equal</eiffel> (or <eiffel>~</eiffel>) can be used to test object equality, while <eiffel>=</eiffel> will compare references. 
 
 ====Measurement====
 

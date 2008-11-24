@@ -1,6 +1,16 @@
 [[Property:title|DATE / TIME to STRING Conversion]]
 [[Property:weight|3]]
 [[Property:uuid|88972ba4-694b-8558-b0c8-87b1fc40afc4]]
+The classes <eiffel>TIME</eiffel>, <eiffel>DATE</eiffel>, and <eiffel>DATE_TIME</eiffel> provide a query <eiffel>formatted_out</eiffel> which can be used to retrieve a string containing the date or time in a format specified by a string or format conversion codes that the caller provides as an argument. So for example, if a <eiffel>DATE</eiffel> instance referenced by <eiffel>my_date</eiffel> has a value of February 3, 2008, then applying the query:
+<eiffel>
+            my_date.formatted_out ("[0]dd mmm yyyy")
+</eiffel>
+will return the string:
+<code lang=text>
+03 FEB 2008
+</code>
+
+
 The following table lists format conversion codes. 
 {| 
 |- 

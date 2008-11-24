@@ -1,45 +1,41 @@
 [[Property:title|More precision]]
 [[Property:weight|4]]
 [[Property:uuid|fadf5bc2-bb72-f681-b9c4-bab7f0633209]]
-<eiffel>TIME</eiffel> and <eiffel>TIME_DURATION</eiffel> are designed to deal with high precision in time. The only limit is the one from number representation. 
+The classes <eiffel>TIME</eiffel> and <eiffel>TIME_DURATION</eiffel> are designed to deal with time in high precision, limited only by platform numerical representation. 
 
-The classes <eiffel>TIME</eiffel> and <eiffel>TIME_DURATION</eiffel> have an attribute <eiffel>fine_second</eiffel> (inherited from <eiffel>TIME_VALUE</eiffel>) which allows high precision. This attribute represents the number of seconds with fractions (it is an instance of <eiffel>DOUBLE</eiffel>). From this attribute are calculated second and fractional_second (which are functions): second is the truncated-to-integer part and fractional_second is the difference between the two previous one, so that the sum of second and fractional_second is always equal to fine_second (see invariant in <eiffel>TIME_VALUE</eiffel>). 
+The classes <eiffel>TIME</eiffel> and <eiffel>TIME_DURATION</eiffel> have an attribute <eiffel>fine_second</eiffel> of type <eiffel>DOUBLE</eiffel> which allows high precision. This attribute represents the number of seconds with fractions. From <eiffel>fine_second</eiffel> are calculated the values for <eiffel>second</eiffel> and <eiffel>fractional_second</eiffel>. <eiffel>second</eiffel> is the truncated-to-integer part of <eiffel>fine_second</eiffel> and <eiffel>fractional_second</eiffel> is the fractional part of <eiffel>fine_second</eiffel>. 
 
-As a result of this, when <eiffel>fine_second</eiffel> is positive (3.55 for example), <eiffel>second</eiffel> and <eiffel>fractional_second</eiffel> are also positive (3 and 0.55). When <eiffel>fine_second</eiffel> is negative (- 3.55 for example), <eiffel>second</eiffel> and <eiffel>fractional_second</eiffel> are also negative (- 3 and - 0.55).
+When <eiffel>fine_second</eiffel> is positive, 3.55 for example, <eiffel>second</eiffel> and <eiffel>fractional_second</eiffel> are both positive (3 and 0.55, respectively). When <eiffel>fine_second</eiffel> is negative (- 3.55 for example), then <eiffel>second</eiffel> and <eiffel>fractional_second</eiffel> are both negative (- 3 and - 0.55).
 
 Manipulation on second and fractional_second are in fact always made through fine_second. Users who do not want to deal with precision do not need to care about this.
 
 Features dealing with <eiffel>fine_second</eiffel> and <eiffel>fractional_second</eiffel> are described here.
 
 ====Creation (common to  <eiffel>TIME, </eiffel> <eiffel>TIME_DURATION</eiffel>)====
-* <eiffel>make_fine</eiffel> looks like make but it takes a <eiffel>DOUBLE</eiffel> for its third argument (instead of an <eiffel>INTEGER</eiffel>). fine_second is then set to this value.
-* <eiffel>make_by_fine_seconds</eiffel> looks like <eiffel>make_by_seconds</eiffel> but it takes a <eiffel>DOUBLE</eiffel> for argument (instead of an <eiffel>INTEGER</eiffel>). Comparison (common) There are no new features. The same ones are available since they are written to deal with precision. It is possible to compare two instances, one with precision and the other one without.
+* <eiffel>make_fine</eiffel> is similar to <eiffel>make</eiffel> except that it takes a <eiffel>DOUBLE</eiffel> for its third argument (instead of an <eiffel>INTEGER</eiffel>, as is the case with <eiffel>make</eiffel>). <eiffel>fine_second</eiffel> is then set to this value.
+* <eiffel>make_by_fine_seconds</eiffel> is similar to <eiffel>make_by_seconds</eiffel> except that it takes a <eiffel>DOUBLE</eiffel> for an argument (instead of an <eiffel>INTEGER</eiffel>, as is the case with<eiffel>make_by_seconds</eiffel>). 
 
 ====Measurement and access====
 
 In <eiffel>TIME</eiffel>: 
 
-- <eiffel>fine_seconds</eiffel> looks like seconds but it contains fractions.
+* <eiffel>fine_seconds</eiffel> looks like seconds but it contains fractions.
 
 In <eiffel>TIME_DURATION</eiffel>: 
 
-- <eiffel>fine_seconds_count</eiffel> looks like <eiffel>seconds_count</eiffel> but it contains fractions.
+* <eiffel>fine_seconds_count</eiffel> looks like <eiffel>seconds_count</eiffel> but it contains fractions.
 
 ====Element change====
-* <eiffel>set_fine_second</eiffel> allows to set directly <eiffel>fine_second</eiffel> to a <eiffel>DOUBLE</eiffel>. In <eiffel>TIME</eiffel>, a precondition requires that the argument stands in the allowed range. 
-* <eiffel>set_fractionals</eiffel> allows to set directly <eiffel>fractional_second</eiffel> to a <eiffel>DOUBLE</eiffel>. In <eiffel>TIME </eiffel>a precondition requires that the argument is positive and smaller than one. In <eiffel>TIME_DURATION</eiffel> the precondition is particular: it is not allowed to have an argument with a different sign than second. Otherwise, as long as <eiffel>fractional_second</eiffel> and <eiffel>second</eiffel> are linked to <eiffel>fine_second</eiffel>, such a setting would mean that second is also changed and <eiffel>fractional_second</eiffel> set to a different value. For example if <eiffel>fine_second</eiffel> = 4.5 (then second = 4 and fractional_second = 0.5) and - 0.8 is the argument of <eiffel>set_fractionals</eiffel>. 
+* Set <eiffel>fine_second</eiffel> directly with <eiffel>set_fine_second</eiffel>. 
+* Set <eiffel>fractional_second</eiffel> directly with <eiffel>set_fractionals</eiffel>. 
 
-The result of that would be<eiffel> fine_second</eiffel> = 3.2 (then <eiffel>second</eiffel> = 3 and <eiffel>fractional_second</eiffel> = 0.2). It is better to prohibit that.
 
-Comment: feature <eiffel>set_second</eiffel> (from both <eiffel>TIME</eiffel> and <eiffel>TIME_DURATION</eiffel>) will cut down <eiffel>fractional_second</eiffel> to zero. 
+{{note|Use of the feature <eiffel>set_second</eiffel> (in either <eiffel>TIME</eiffel> and <eiffel>TIME_DURATION</eiffel>) will result in <eiffel>fractional_second</eiffel> having a value of zero. }}
 
 ====Operations====
 
-- <eiffel>fine_second_add</eiffel> looks like <eiffel>second_add</eiffel> but takes a <eiffel>DOUBLE</eiffel> for argument.
+* <eiffel>fine_second_add</eiffel> looks like <eiffel>second_add</eiffel> except that it takes a <eiffel>DOUBLE</eiffel> as an argument.
 
-In <eiffel>TIME_DURATION</eiffel>: 
-
-- <eiffel>canonical</eiffel> and <eiffel>to_canonical</eiffel> deals already with precision. There is nothing different.
 
 
 

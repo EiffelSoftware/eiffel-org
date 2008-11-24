@@ -1,7 +1,7 @@
 [[Property:title|Duration]]
 [[Property:weight|1]]
 [[Property:uuid|64672bd0-b696-0c39-1e30-5ac64aae4a99]]
-<eiffel>TIME_DURATION</eiffel>, <eiffel>DATE_DURATION</eiffel>, and <eiffel>DATE_TIME_DURATION</eiffel> 
+The classes <eiffel>TIME_DURATION</eiffel>, <eiffel>DATE_DURATION</eiffel>, and <eiffel>DATE_TIME_DURATION</eiffel> model time durations.
 
 The classes dealing with duration inherit <eiffel>DURATION</eiffel>, which inherits <eiffel>GROUP_ELEMENT</eiffel> and <eiffel>PART_COMPARABLE</eiffel>. An instance of <eiffel>TIME_DURATION</eiffel>, <eiffel>DATE_DURATION</eiffel>, or <eiffel>DATE_TIME_DURATION</eiffel> is an element of a group, i.e. there is a zero and addition operations (<eiffel>infix +</eiffel>, <eiffel>infix -</eiffel>, <eiffel>prefix +</eiffel>, and <eiffel>prefix -</eiffel>). Duration is used as an amount of time, without link to an origin. It may be added to the respective absolute notion (<eiffel>TIME + TIME_DURATION</eiffel> is possible, but not <eiffel>TIME + DATE_TIME_DURATION</eiffel> nor <eiffel>DATE_TIME + TIME_DURATION</eiffel> ... see classes <eiffel>TIME</eiffel>, <eiffel>DATE</eiffel>, and <eiffel>DATE_TIME</eiffel>). 
 
@@ -87,7 +87,7 @@ Features <, >, <=, and >= are available. If both instances are definite, numbers
 
 Features <eiffel>set_day</eiffel>, <eiffel>set_month</eiffel>, and <eiffel>set_year</eiffel> are available to set one of these three attributes <eiffel>day</eiffel>, <eiffel>month</eiffel>, <eiffel>year</eiffel>.
 
-====Operation====
+====Operations====
 * Add years, months and days with features <eiffel>year_add</eiffel>, <eiffel>month_add</eiffel>, and <eiffel>day_add</eiffel>.
 *  <eiffel>DATE_DURATION</eiffel> inherits from <eiffel>GROUP_ELEMENT</eiffel>. <eiffel>infix</eiffel> and <eiffel>prefix</eiffel> <eiffel>+</eiffel>, <eiffel>infix</eiffel> and <eiffel>prefix</eiffel> <eiffel>-</eiffel> are available to compose instances of each other. 
 
@@ -122,7 +122,7 @@ The rules are the same than those for <eiffel>DATE_DURATION</eiffel>. Features <
 
 It is possible to change reference of time and date with the features <eiffel>set_time</eiffel> and <eiffel>set_date</eiffel>. To change only one element (for example <eiffel>hour</eiffel>), features from <eiffel>TIME_DURATION</eiffel> or <eiffel>DATE_DURATION</eiffel> have to be used. 
 
-====Operation====
+====Operations====
 *  <eiffel>DATE_TIME_DURATION</eiffel> inherits from <eiffel>GROUP_ELEMENT</eiffel>. <eiffel>infix</eiffel> and <eiffel>prefix</eiffel> <eiffel>+</eiffel>, <eiffel>infix</eiffel> and <eiffel>prefix</eiffel> <eiffel>-</eiffel> are available to compose instances to each other. 
 * Only <eiffel>day_add</eiffel> is present. To add only one element, features from <eiffel>TIME_DURATION</eiffel> or <eiffel>DATE_DURATION</eiffel> have to be used. 
 
