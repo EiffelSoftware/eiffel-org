@@ -117,7 +117,7 @@ Features <eiffel>set_day</eiffel>, <eiffel>set_month</eiffel>, and <eiffel>set_y
 
 <eiffel>DATE_TIME_DURATION</eiffel> is client of <eiffel>DATE_DURATION</eiffel> and <eiffel>TIME_DURATION</eiffel>. Most of the common features described in <eiffel>DATE_DURATION</eiffel> are present in the class. The class deals with its attributes date and time in the same way as <eiffel>DATE_TIME</eiffel>. 
 
-There are, as in <eiffel>DATE_DURATION</eiffel>, definite and non-definite durations. It is the date part which gives the definite non-definite status. Features canonical and to_canonical are present in <eiffel>DATE_TIME_DURATION</eiffel>. They have to deal with the attributes time. 
+There are, as in <eiffel>DATE_DURATION</eiffel>, definite and non-definite durations. It is the date part which gives the definite non-definite status. Features <eiffel>canonical</eiffel> and <eiffel>to_canonical</eiffel> are present in <eiffel>DATE_TIME_DURATION</eiffel>. They have to deal with the attributes time. 
 
 ====Creation====
 
@@ -133,7 +133,7 @@ There are still several ways to create an instance:
 
 ====Comparison====
 
-The rules are the same than those for <eiffel>DATE_DURATION</eiffel>. Features <eiffel><</eiffel>, <eiffel>></eiffel>,<eiffel><=</eiffel>, and <eiffel>>=</eiffel> are available. If both instances are definite, numbers of days are compared. If one of them is non-definite, the result is False. 
+The rules are the same than those for <eiffel>DATE_DURATION</eiffel>. Features <eiffel><</eiffel>, <eiffel>></eiffel>, <eiffel><=</eiffel>, and <eiffel>>=</eiffel> are available. If both instances are definite, numbers of days are compared. If one of them is non-definite, the result is False. 
 
 ====Element change====
 

@@ -22,25 +22,25 @@ Moreover, an Eiffel programmer should be able to have an alternative between a o
 Here is what you will do to implement a once per process feature:
 <code>
 class
-	TEST_ONCE_PER_PROCESS
+    TEST_ONCE_PER_PROCESS
 
 feature -- Access
 
-	object_per_thread: OBJECT is
-			-- Once per thread.
-		once
-			create Result.make
-		end
+    object_per_thread: OBJECT
+            -- Once per thread.
+        once
+            create Result.make
+        end
 
-	object_per_process: OBJECT is
-			-- New 'object' (once per process)
-			-- that could be shared between threads
-			-- without reinitializing it.
-		indexing
-			once_status: global
-		once
-			create Result.make
-		end
+    object_per_process: OBJECT
+            -- New 'object' (once per process)
+            -- that could be shared between threads
+            -- without reinitializing it.
+        indexing
+            once_status: global
+        once
+            create Result.make
+        end
 
 end -- class TEST_ONCE_PER_PROCESS
 </code>

@@ -30,7 +30,7 @@ extern size_t one_param_return(FILE *f);</code>
 
 Here is the corresponding Eiffel code:
 <code>
-	c_no_param is
+	c_no_param
 			-- Encapsulation of a C routine with no parameter.
 		external
 			"C | %"my_header.h%""
@@ -38,7 +38,7 @@ Here is the corresponding Eiffel code:
 			"no_param"
 		end
 		
-	c_one_param (i: INTEGER) is
+	c_one_param (i: INTEGER)
 			-- Encapsulation of a C routine with one parameter.
 		external
 			"C (int) | %"my_header.h%""
@@ -46,7 +46,7 @@ Here is the corresponding Eiffel code:
 			"one_param"
 		end
 		
-	c_no_param_return: INTEGER is
+	c_no_param_return: INTEGER
 			-- Encapsulation of a C routine with no parameter
 			-- returning an INTEGER
 		external
@@ -55,7 +55,7 @@ Here is the corresponding Eiffel code:
 			"no_param_return"
 		end
 		
-	c_one_param_return (p: POINTER): INTEGER is
+	c_one_param_return (p: POINTER): INTEGER
 			-- Encapsulation of a C routine with one parameter
 			-- returning an INTEGER
 		external
@@ -82,7 +82,7 @@ Then, the corresponding Eiffel code will look like:
 
 
 <code>
-	menu_id: INTEGER is
+	menu_id: INTEGER
 			-- `ID_MENU' C encapsulation.
 		external
 			"C [macro %"my_header.h%"] : EIF_INTEGER"
@@ -90,7 +90,7 @@ Then, the corresponding Eiffel code will look like:
 			"ID_MENU"
 		end
 			
-	menu_id_character: CHARACTER is
+	menu_id_character: CHARACTER
 			-- `ID_MENU_CHARACTER' C encapsulation.
 		external
 			"C [macro %"my_header.h%"] : EIF_CHARACTER"
@@ -98,7 +98,7 @@ Then, the corresponding Eiffel code will look like:
 			"ID_MENU_CHARACTER"
 		end
 		
-	i_th (p: POINTER; i: INTEGER): INTEGER is
+	i_th (p: POINTER; i: INTEGER): INTEGER
 			-- Access the `i'-th element of `p', array of C EIF_INTEGER.
 		external
 			"C [macro %"my_header.h%"] (EIF_INTEGER *, EIF_INTEGER): EIF_INTEGER"
@@ -125,7 +125,7 @@ typdef struct point {
 
 Then, the corresponding Eiffel code will look like:
 <code>
-	x (p: POINTER): INTEGER is
+	x (p: POINTER): INTEGER
 			-- Access field x of struct pointed by `p'.
 		external
 			"C [struct %"my_header.h%"] (Point): EIF_INTEGER"
@@ -133,7 +133,7 @@ Then, the corresponding Eiffel code will look like:
 			"x"
 		end
 		
-	y (p: POINTER): INTEGER is
+	y (p: POINTER): INTEGER
 			-- Access field y of struct pointed by `p'.
 		external
 			"C [struct %"my_header.h%"] (Point): EIF_INTEGER"
@@ -141,7 +141,7 @@ Then, the corresponding Eiffel code will look like:
 			"y"
 		end
 
-	set_x (p: POINTER; v: INTEGER) is
+	set_x (p: POINTER; v: INTEGER)
 			-- Set field x of struct pointed by `p'.
 		external
 			"C [struct %"my_header.h%"] (Point, int)"
@@ -149,7 +149,7 @@ Then, the corresponding Eiffel code will look like:
 			"x"
 		end
 
-	set_y (p: POINTER: v: INTEGER) is
+	set_y (p: POINTER: v: INTEGER)
 			-- Set field y of struct pointed by `p' with `v'.
 		external
 			"C [struct %"my_header.h%"] (Point, int)"
@@ -171,13 +171,13 @@ Therefore if you want to call an external routine defined in a DLL supposed to b
 
 
 <code>
-	my_cdecl_routine (a: INTEGER): POINTER is
+	my_cdecl_routine (a: INTEGER): POINTER
 			-- Encapsulation of a dll function with the `_cdecl' call mechanism.
 		external
 			"C [dll32 %"my_dll.dll%"] (int): EIF_POINTER"
 		end
 		
-	my_stdcall_routine (a: INTEGER): POINTER is
+	my_stdcall_routine (a: INTEGER): POINTER
 			-- Encapsulation of a dll function with the `_stdcall' call mechanism.
 		external
 			"C [dllwin32 %"my_dll.dll%"] (int): EIF_POINTER"
@@ -207,7 +207,7 @@ In WEL, the encapsulation is written as:
 
 
 <code>
-	cwin_send_message (hwnd: POINTER; msg, wparam, param: INTEGER) is
+	cwin_send_message (hwnd: POINTER; msg, wparam, param: INTEGER)
 			-- SDK SendMessage (without the result)
 		external
 			"C [macro %"wel.h%"] (HWND, UINT, WPARAM, LPARAM)"

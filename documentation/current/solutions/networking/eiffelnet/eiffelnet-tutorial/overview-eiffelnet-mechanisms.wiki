@@ -22,20 +22,20 @@ In network-style client-server communication, the mechanism will be dissymmetric
 A software system will exchange objects with another by sending them to a socket. Although if you stay at the predefined level you will not need to manipulate sockets explicitly, it is useful to understand this concept and know about the corresponding EiffelNet classes.
 
 You may think of a socket as a communication port; by attaching sockets together you enable communication between the corresponding systems, for example a client and a server:
- [[Image:fig-2]]  
+[[Image:fig-2]]  
 EiffelNet has been designed so that sockets look very much like files. You send objects to a socket in the same way that you write objects onto a file, and receive objects from a socket in the same way that you read objects from a file. This fundamental commonality is reflected in the inheritance hierarchy of the corresponding classes:
- [[Image:fig-3]]  
-Note that the hierarchy as shown is not complete; in particular the full structure uses classes STREAM (of which the <code> STREAM_ </code> classes are heirs) and <code> DATAGRAM </code> for multiple inheritance ''. ''Only the classes below the dotted line are part of EiffelNet; the others are part of EiffelBase, the fundamental data structure and algorithm library of ISE Eiffel [2]. 
+[[Image:fig-3]]  
+Note that the hierarchy as shown is not complete; in particular the full structure uses classes STREAM (of which the <code> STREAM_ </code> classes are heirs) and <code> DATAGRAM </code> for multiple inheritance ''. ''Only the classes below the dotted line are part of EiffelNet; the others are part of EiffelBase, the fundamental data structure and algorithm library of ISE Eiffel [ [[Bibliography|2]] ]. 
 
 The most important property of this inheritance hierarchy is that it shows how sockets fit within the overall structure. Thanks to the common ancestor <code>IO_MEDIUM</code>, socket classes have most of their features in common with files.
 
 In normal usage, the only socket classes that you will need are four classes appearing at the bottom of the above figure. They correspond to two separate distinctions: single-machine versus multi-machine, and reliable versus unreliable.
 
 On the first distinction: 
-* If the communicating systems run on the same machine, you may use one of the <code> UNIX_ </code> classes. 
-* For systems that run on different machines, you must use one of the <code> NETWORK_ </code> classes. This will also work if the systems are on the same machine, but less efficiently since communication may go through the network. 
+* If the communicating systems run on the same machine, you may use one of the <code>UNIX_ </code> classes. 
+* For systems that run on different machines, you must use one of the <code>NETWORK_  </code> classes. This will also work if the systems are on the same machine, but less efficiently since communication may go through the network. 
 
-The use of the word <code> UNIX_ </code> does not mean that the machine must be running the Unix operating system; rather, it denotes a certain style of client-server communication, the Unix style. (This is comparable to the use of the name <code> UNIX_FILE </code> in EiffelBase, for a class describing files that behave in the Unix style even though they may be implemented on non-Unix machines.) 
+The use of the word <code>UNIX_ </code> does not mean that the machine must be running the Unix operating system; rather, it denotes a certain style of client-server communication, the Unix style. (This is comparable to the use of the name <code>UNIX_FILE</code> in EiffelBase, for a class describing files that behave in the Unix style even though they may be implemented on non-Unix machines.) 
 
 The second distinction reflects two modes of socket communication: stream communication and datagram communication. Both of these modes support two-way communication between systems, but with different properties: 
 * A stream socket, as provided by the <code>STREAM_</code> classes, provides sequenced communication without any loss or duplication of data. Stream communication is normally synchronous: the sending system waits until it has established a connection to the receiving system and transmitted the data.
@@ -43,11 +43,12 @@ The second distinction reflects two modes of socket communication: stream commun
 
 ===Sending and receiving simple values===
 
-<code>IO_MEDIUM</code> has all the basic input and output facilities applying to objects of basic types, as also offered in FILE(see the specification of<code> FILE</code> in reference [2]). So you can use sockets to send and receive characters, integers, real numbers in simple or double precision and strings. For example, if the type of
-
-`my_socket' is one of the socket classes shown on the preceding figures, any of the above calls will be valid:
+<code>IO_MEDIUM</code> has all the basic input and output facilities applying to objects of basic types, as also offered in FILE(see the specification of<code> FILE</code> in reference [ [[Bibliography|2]] ]). So you can use sockets to send and receive characters, integers, real numbers in simple or double precision and strings. For example, if the type of
+`my_socket' is one of the socket classes shown on the preceding figures, any of the following calls will be valid:
 <code>
-	my_socket.putstring ("Some text") my_socket.readint; my_last_integer := my_socketllastint
+            my_socket.putstring ("Some text") 
+            my_socket.readint 
+            my_last_integer := my_socket.lastint
 </code>
 
 Since sockets are bidirectional, these instructions may all appear as part of the same class provided you make sure to guarantee proper synchronization between senders and receivers. You may also prefer to specialize certain sockets for sending and others for receiving.
@@ -58,7 +59,7 @@ In many cases, what you will want to send and receive is not just simple values 
 
 The basic mechanism enabling a system to send objects through EiffelNet is also the basic mechanism for storing objects into a file: class <code>STORABLE</code> from EiffelBase.
 
-As documented in [2], <code>STORABLE</code> provides features to store and retrieve complete object structures. There are three storage procedures, called under the respective forms
+As documented in [ [[Bibliography|2]] ], <code>STORABLE</code> provides features to store and retrieve complete object structures. There are three storage procedures, called under the respective forms
 <code>
 	struct1.basic_store (iom1)
 	struct1.general_store (iom1)
@@ -67,7 +68,7 @@ As documented in [2], <code>STORABLE</code> provides features to store and retri
 
 Assuming that the type of ''iom1 ''is <code>IO_MEDIUM</code> or a conforming type such as [[ref:libraries/base/reference/file_chart|FILE]]  or one of the <code>_SOCKET</code> classes, and that the type of ''struct1'' conforms to <code>STORABLE</code> ''.''Note that reference [2] in its original version does not include ''independent_store'', and requires ''iom'' to be of type FILE rather than the more general <code>IO_MEDIUM</code>. The current version of EiffelBase, however, supports the more general properties described here. 
 
-All three storage procedures have the effect of sending to ''iom1 ''(whether a file, a socket or some other IO-medium) a copy of the entire object structure starting at ''struc1''. Together with the retrieval routines seen below, they apply the principle of reference completeness stated in [1] and [2]: 
+All three storage procedures have the effect of sending to ''iom1 ''(whether a file, a socket or some other IO-medium) a copy of the entire object structure starting at ''struc1''. Together with the retrieval routines seen below, they apply the principle of reference completeness stated in [ [[Bibliography|1]] ] and [ [[Bibliography|2]] ]: 
 {| border="1" 
 |- 
 | Whenever a routine of class <code>STORABLE</code> stores an object into an external file, it stores with it the dependents of that object.
@@ -84,7 +85,8 @@ The three storage procedures differ in their degree of generality:
 The penalty for using more general representations is that the data representation (as stored into the file or sent to the socket) will have to include more information. So ''basic_store ''uses the most compact representation, and ''independent_store'' the most verbose. 
 
 The scheme for accessing an object structure produced by one of these three procedures is the following, used in a descendant of class <code>STORABLE</code>:
-<code>	struct2 ?= retrieved (iom2)</code>
+<code>
+            struct2 ?= retrieved (iom2)</code>
 
 Here ''iom2'' must be of a type conforming to <code>IO_MEDIUM</code>. The assignment attempt ?= checks that the root object of the structure produced by the corresponding call to one of the ''_store'' procedures is of a type that conforms to the type of ''struct2''; if not, the assignment will assign to ''struct2'' a void reference. 
 
@@ -99,7 +101,7 @@ Their main use is for a system that relies on datagram communication. As noted a
 ===Associating commands with events===
 
 EiffelNet supports a highly asynchronous (and hence efficient) mode of operation by offering mechanisms through which you can specify that a certain action must be executed whenever a certain medium becomes available for reading, writing or handling of special cases (out of bounds). This facility is provided by a set of related classes: 
-* The actions are represented by class <code>POLL_COMMAND</code>, an heir of the EiffelBase class <code> COMMAND </code> with, in particular, the procedure ''execute''. 
+* The actions are represented by class <code>POLL_COMMAND</code>, an heir of the EiffelBase class <code>COMMAND</code> with, in particular, the procedure ''execute''. 
 * Using <code>MEDIUM_POLLER</code>, you can specify that a certain command (an instance of <code>POLL_COMMAND</code>) must be executed whenever a certain medium becomes available for the appropriate operation (read, write, handling of out-of-bounds cases).
 * Using <code>POLL_MASK</code>, you can set a mask to select the sockets or files on which your instance of <code>MEDIUM_POLLER</code> is working.
 

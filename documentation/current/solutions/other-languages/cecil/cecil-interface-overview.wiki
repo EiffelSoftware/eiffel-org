@@ -19,12 +19,12 @@ Generally, you should use these types when implementing external C functions bou
 {{sample|Calling C external `foo' from Eiffel, which takes a pointer and an eiffel object of type OBJECT as arguments and returns an INTEGER. }}
 <div> 
 <code>
-	c_foo (ptr: POINTER; obj: OBJECT): INTEGER is
-		external
-			"C | %"your_file.h%""
-		alias
-			"foo"
-		end
+    c_foo (ptr: POINTER; obj: OBJECT): INTEGER
+        external
+            "C | %"your_file.h%""
+        alias
+            "foo"
+        end
 </code>
 
 
@@ -46,12 +46,12 @@ int foo (void *arg1, char c, FILE *file)
 </code>
 </div><div>To match the signature, you must declare it in Eiffel as: 
 <code>
-	c_foo (arg1: POINTER; c: CHARACTER; file: POINTER): INTEGER is
-		external
-			"C (void *, char, FILE *) : int | %""your_file.h%""
-		alias
-			"foo"
-		end
+    c_foo (arg1: POINTER; c: CHARACTER; file: POINTER): INTEGER
+        external
+            "C (void *, char, FILE *) : int | %""your_file.h%""
+        alias
+            "foo"
+        end
 </code>
 </div>
 Not doing this would generally produce warnings during the C compilation, and it could crash with some C compilers. 
@@ -91,12 +91,12 @@ Use ''eif_access'' to pass an Eiffel object to an Eiffel routine or to return th
 '''For example, in the following external:'''
 
 <code>
-	c_foo (ptr: POINTER; obj: OBJECT): INTEGER is
-		external
-			"C | %""your_file.h%""
-		alias
-			"foo"
-		end
+    c_foo (ptr: POINTER; obj: OBJECT): INTEGER
+        external
+            "C | %""your_file.h%""
+        alias
+            "foo"
+        end
 </code>
 
 
@@ -191,18 +191,18 @@ Called within a C external, the function ''eif_adopt'' creates a user protection
 In Eiffel:
 <div> 
 <code>
-	c_foo (ptr: POINTER; obj: OBJECT): INTEGER is
-		external
-			"C | %"your_file.h%""
-		alias
-			"foo"
-		end
-	c_display_and_release_obj is
-		external
-			"C | %"your_file.h%""
-		alias
-			"display_and_release_obj"
-		end
+    c_foo (ptr: POINTER; obj: OBJECT): INTEGER
+        external
+            "C | %"your_file.h%""
+        alias
+            "foo"
+        end
+    c_display_and_release_obj
+        external
+            "C | %"your_file.h%""
+        alias
+            "display_and_release_obj"
+        end
 </code>
 
 </div>
@@ -403,10 +403,10 @@ See also <eiffel>eif_access</eiffel>.
 
 In Eiffel:
 <code>
-	foo : STRING is
-		external
-			"C | %"a file.h%""
-		end
+    foo : STRING
+        external
+            "C | %"a file.h%""
+        end
 </code>
 
 In C:

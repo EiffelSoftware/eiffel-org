@@ -108,19 +108,19 @@ For example, a C++ function
 
 should have the Eiffel counterpart
 <code>
-	cpp_add (obj: POINTER; new_int: INTEGER) is
-		-- Encapsulation of member function add.
-	external
-		"C++ [IntArray %"intarray.h%"] (IntArray *, int)"
-	end
+    cpp_add (obj: POINTER; new_int: INTEGER)
+            -- Encapsulation of member function add.
+        external
+            "C++ [IntArray %"intarray.h%"] (IntArray *, int)"
+        end
 </code>
 This scheme, however, is often inconvenient because it forces the Eiffel side to work on objects in a non-object-oriented way. (The object-oriented way treats the current object, within a class, as implicit.) A better approach, used by Legacy++, is to make a feature such as cpp_add secret, and to export a feature whose signature corresponds to that of the original C++ function, with no extra object argument; that feature will use a secret attribute object_ptr to access the object. In the example this will give the feature 
 <code>
-	add (new_int: INTEGER) is
-		-- Encapsulation of member function add.
-	do
-		cpp_add (object_ptr, new_int)
-	end
+    add (new_int: INTEGER)
+            -- Encapsulation of member function add.
+        do
+            cpp_add (object_ptr, new_int)
+        end
 </code>
 
 where ''object_ptr'' is a secret attribute of type <eiffel>POINTER</eiffel>, initialized by the creation procedures of the class. To the Eiffel developer, <eiffel>add</eiffel> looks like a normal object-oriented feature, which takes only the expected argument. Further examples appear below. This technique only works of course when the C++ object is implicit in the context of the Eiffel class. 
@@ -198,101 +198,101 @@ class IntArray {
 Here is the result of applying Legacy++ to that class, which will serve as an illustration of both the C++ interface mechanisms and Legacy++:
 <code>
 indexing
-	description: "Eiffel encapsulation of C++ class IntArray";
-	date: "$Date: 2006-10-12 03:18:50 +0200 (Thu, 12 Oct 2006) $";
-	revision: "$Revision: 64319 $"
+    description: "Eiffel encapsulation of C++ class IntArray";
+    date: "$Date: 2006-10-12 03:18:50 +0200 (Thu, 12 Oct 2006) $";
+    revision: "$Revision: 64319 $"
 
 class
-	INTARRAY
+    INTARRAY
 
 inherit
-	MEMORY
-		redefine
-			dispose
-		end
+    MEMORY
+        redefine
+            dispose
+        end
 
 create
-	make
+    make
 
 feature -- Initialization
 
-	make (size: INTEGER) is
-			-- Create Eiffel and C++ objects.
-		do
-			object_ptr := cpp_new (size)
-		end
+    make (size: INTEGER)
+            -- Create Eiffel and C++ objects.
+        do
+            object_ptr := cpp_new (size)
+        end
 
 feature-- Removal
 
-	dispose is
-			-- Delete C++ object.
-		do
-			cpp_delete (object_ptr)
-		end
+    dispose
+            -- Delete C++ object.
+        do
+            cpp_delete (object_ptr)
+        end
 
 feature
 
-	output is
-			-- Call C++ counterpart.
-		do
-			cpp_output (object_ptr)
-		end
+    output
+            -- Call C++ counterpart.
+        do
+            cpp_output (object_ptr)
+        end
 
-	add (new_int: INTEGER) is
-			-- Call C++ counterpart.
-		do
-			cpp_add (object_ptr, new_int)
-		end
+    add (new_int: INTEGER)
+            -- Call C++ counterpart.
+        do
+            cpp_add (object_ptr, new_int)
+        end
 
 feature {INTARRAY}
 
-	underscore_integers: POINTER is
-			-- Value of corresponding C++ data member.
-		do
-			Result := underscore_integers (object_ptr)
-		end
+    underscore_integers: POINTER
+            -- Value of corresponding C++ data member.
+        do
+            Result := underscore_integers (object_ptr)
+        end
 
 feature {NONE} -- Externals
 
-	cpp_new (size: INTEGER): POINTER is
-			-- Call single constructor of C++ class.
-		external
-			"C++ [new IntArray %"INTARRAY.H%"] (EIF_INTEGER)"
-		end
+    cpp_new (size: INTEGER): POINTER
+            -- Call single constructor of C++ class.
+        external
+            "C++ [new IntArray %"INTARRAY.H%"] (EIF_INTEGER)"
+        end
 
-	cpp_delete (cpp_obj: POINTER) is
-			-- Call C++ destructor on C++ object.
-		external
-			"C++ [delete IntArray %"INTARRAY.H%"] ()"
-		end
+    cpp_delete (cpp_obj: POINTER)
+            -- Call C++ destructor on C++ object.
+        external
+            "C++ [delete IntArray %"INTARRAY.H%"] ()"
+        end
 
-	cpp_output (cpp_obj: POINTER) is
-			-- Call C++ member function.
-		external
-			"C++ [IntArray %"INTARRAY.H%"] ()"
-		alias
-			"output"
-		end
+    cpp_output (cpp_obj: POINTER)
+            -- Call C++ member function.
+        external
+            "C++ [IntArray %"INTARRAY.H%"] ()"
+        alias
+            "output"
+        end
 
-	cpp_add (cpp_obj: POINTER; new_int: INTEGER) is
-			-- Call C++ member function.
-		external
-			"C++ [IntArray %"INTARRAY.H%"] (EIF_INTEGER)"
-		alias
-			"add"
-		end
+    cpp_add (cpp_obj: POINTER; new_int: INTEGER)
+            -- Call C++ member function.
+        external
+            "C++ [IntArray %"INTARRAY.H%"] (EIF_INTEGER)"
+        alias
+            "add"
+        end
 
-	cpp_underscore_integers (cpp_obj: POINTER): POINTER is
-			-- Value of C++ data member
-		external
-			"C++ [data_member IntArray %"INTARRAY.H%"]: EIF_POINTER"
-		alias
-			"_integers"
-		end
+    cpp_underscore_integers (cpp_obj: POINTER): POINTER
+            -- Value of C++ data member
+        external
+            "C++ [data_member IntArray %"INTARRAY.H%"]: EIF_POINTER"
+        alias
+            "_integers"
+        end
 
 feature {NONE} -- Implementation
 
-	object_ptr: POINTER
+    object_ptr: POINTER
 
 end -- class INTARRAY
 </code>
