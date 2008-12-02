@@ -28,7 +28,7 @@
 | Keyboard and mouse or compatible pointing device.
 |- 
 | '''ISE_PLATFORM'''
-| '''freebsd-x86''' for x86 based CPU.
+| '''freebsd-x86''' for x86 based CPU and '''freebsd-x86-64''' for x64 based CPU.
 |}
 
 
@@ -40,10 +40,10 @@ The command should succeed and the version number of GTK+ should appear. If it i
 
 ==Installing EiffelStudio from the Web==
 
-After downloading the installation package, you should manually extract its contents to your hard drive. For example, you can extract it into /usr/local using the following commands (assuming that you have permission to /usr/local and that the installation package was saved in /tmp/EiffelXX.tgz, where XX corresponds to the EiffelStudio version number):
+After downloading the installation package, you should manually extract its contents to your hard drive. For example, you can extract it into /usr/local using the following commands (assuming that you have permission to /usr/local and that the installation package was saved in /tmp/EiffelXX.tar.bz2, where XX corresponds to the EiffelStudio version number):
 <code>
 cd /usr/local
-tar xvfz /tmp/EiffelXX.tgz</code>
+tar xvfj /tmp/EiffelXX.tar.bz2</code>
 
 This will install EiffelStudio files into /usr/local/EiffelXX. Once this is done, jump to the [[EiffelStudio for FreeBSD|Setting up EiffelStudio]]  section in order to complete the installation of EiffelStudio.
 

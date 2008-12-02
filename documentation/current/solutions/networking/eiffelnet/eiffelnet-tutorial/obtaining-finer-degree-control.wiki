@@ -66,7 +66,7 @@ Here is the server class based on these principles. The actual processing has be
 	
 		soc1, soc2: UNIX_STREAM_SOCKET
 	
-		make is 
+		make
 				-- Accept communication with client and exchange messages
 			local 
 				count: INTEGER
@@ -86,7 +86,7 @@ Here is the server class based on these principles. The actual processing has be
 				soc1.cleanup
 			end
 	
-	process is 
+	process
 			-- Receive a message, extend it, and send it back
 		local 
 			our_new_list: OUR_MESSAGE
@@ -128,7 +128,7 @@ Here now is the client class:
 	
 		soc1: UNIX_STREAM_SOCKET
 	
-		make is 
+		make
 				-- Establish communication with server, and exchange messages
 			do 
 				create soc1.make_client ("/tmp/here") 
@@ -139,7 +139,7 @@ Here now is the client class:
 				soc1.cleanup
 			end
 	
-		process is 
+		process
 				-- Build a message to server, receive answer, build
 				-- modified message from that answer, and print it.
 			local 
@@ -192,14 +192,14 @@ The rest of the classes is as before.
 	
 		soc1, soc2: NETWORK_STREAM_SOCKET
 	
-		make is 
+		make
 				-- Accept communication with client and exchange messages.
 			do 
 				create soc1.make_server_by_port (2000) 
 				... The rest as before...
 			end      
 	
-		process is 
+		process
 			... As before ...
 		end
 	
@@ -219,13 +219,13 @@ The rest of the classes is as before.
 	
 		soc1: NETWORK_STREAM_SOCKET
 	
-		make is 
+		make
 			do 
 				create soc1.make_client_by_port (2000, "serverhost") 
 				... The rest as before ...
 			end
 	
-		process is 
+		process
 				... As before ...
 			end
 	
