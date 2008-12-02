@@ -1,4 +1,4 @@
-[[Property:title|EiffelStudio 6.2 for HP OpenVMS]]
+[[Property:title|EiffelStudio for HP OpenVMS]]
 [[Property:link_title|HP OpenVMS]]
 [[Property:weight|2]]
 [[Property:uuid|cccbd8cf-3bd6-8acb-e62d-7fb1ce0ef4c2]]
@@ -34,7 +34,7 @@
 
 ==Checking your environment==
 
-EiffelStudio 6.2 requires GTK+ 1.2.10 or above to function properly. You can check that you have this installed correctly by typing the following command:
+EiffelStudio requires GTK+ 1.2.10 or above to function properly. You can check that you have this installed correctly by typing the following command:
 <code>gtk-config --version</code>
 The command should succeed and the version number of GTK+ should appear. If it is not 1.2.10 or above then you cannot continue the installation of EiffelStudio. You first need to install GTK+ 1.2.10.
 
@@ -42,12 +42,12 @@ The command should succeed and the version number of GTK+ should appear. If it i
 
 ===From the Web===
 
-After downloading the '''eif62vms.zip''' installation package, unzip the distribution into temp:[dir] where where temp:[dir] is the location of a temporary directory:
-<code>unzip eif62vms.zip temp:[dir]</code>
+After downloading the '''eifXXvms.zip''' installation package (where XX stands for the EiffelStudio version number), unzip the distribution into temp:[dir] where where temp:[dir] is the location of a temporary directory:
+<code>unzip eifXXvms.zip temp:[dir]</code>
 
 And use the following commands to install the files into eiffel_installation_path where eiffel_installation_path is a device:[directory] on an ODS-5 volume:
-<code>set file/attrib=(org:seq,rfm:fix,lrl:9216) temp:[dir]eif62vms.save
-backup temp:[dir]eif62vms.save/save eiffel_installation_path</code>
+<code>set file/attrib=(org:seq,rfm:fix,lrl:9216) temp:[dir]eifXXvms.save
+backup temp:[dir]eifXXvms.save/save eiffel_installation_path</code>
 
 ===From a CD===
 
@@ -55,12 +55,12 @@ You must mount the installation CD-ROM volume with the following qualifier:
 <code>mount cd_dev:/media_format=cdrom/undefined_fat=fixed:cr:9216</code>
 
 where cd_dev: is the CD-ROM device. And use the following commands to install the files into eiffel_installation_path where eiffel_installation_path is a device:[directory] on an ODS-5 volume:
-<code>backup cd_dev:[000000]eif62vms.save/save eiffel_installation_path</code>
+<code>backup cd_dev:[000000]eifXXvms.save/save eiffel_installation_path</code>
 
 ===Completing the installation===
 
 You must define a system-wide rooted logical name to reference the installation directory, for instance:
-<code>define/system EIFFEL62 eiffel_installation_path:[directory.] /trans=conceal</code>
+<code>define/system EIFFELXX eiffel_installation_path:[directory.] /trans=conceal</code>
 
 To use EiffelStudio for OpenVMS, run the setup procedure to define the environment: 
 <code>@eiffel_installation_path:[000000]setup</code>
