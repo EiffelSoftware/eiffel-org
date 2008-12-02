@@ -1,4 +1,4 @@
-[[Property:title|EiffelStudio 6.2 for Mac OS X]]
+[[Property:title|EiffelStudio for Mac OS X]]
 [[Property:link_title|Mac OS X]]
 [[Property:weight|0]]
 [[Property:uuid|7cf4e0e5-0858-58bb-351e-52becea59ede]]
@@ -34,7 +34,7 @@
 
 ==Prerequisites==
 
-Before installing EiffelStudio 6.2, it is necessary to install X11 for Mac OS X and the X11 SDK. They are available with the OS X CD. For more details check the Apple web site at: 
+Before installing EiffelStudio, it is necessary to install X11 for Mac OS X and the X11 SDK. They are available with the OS X CD. For more details check the Apple web site at: 
 * [http://www.apple.com/macosx/features/x11/ http://www.apple.com/macosx/features/x11/] 
 
 You also need to install the latest Apple Developer Tools (XCode) available as part of Mac OS X (Tiger or above)
@@ -42,15 +42,15 @@ You also need to install the latest Apple Developer Tools (XCode) available as p
 
 ==Installing the Free Edition==
 
-After downloading the '''Eiffel62.dmg''' installation package, double click on it to mount the disk image. Then double click on the '''Eiffel62.pkg''' file to launch the installation procedure. Follow the steps indicated in the dialogs to complete the installation.
+After downloading the '''EiffelXX.dmg''' installation package (where XX corresponds to the version number of EiffelStudio), double click on it to mount the disk image. Then double click on the '''EiffelXX.pkg''' file to launch the installation procedure. Follow the steps indicated in the dialogs to complete the installation.
 
 ==Installing the Enterprise Edition==
 
-Insert the CD into your CD-ROM drive. Open the CD-ROM contents and double click on the '''Eiffel62.pkg''' file to launch the installation procedure. Follow the steps indicated in the dialogs to complete the installation.
+Insert the CD into your CD-ROM drive. Open the CD-ROM contents and double click on the '''EiffelXX.pkg''' file to launch the installation procedure. Follow the steps indicated in the dialogs to complete the installation.
 
 <center> [[Image:56--mac-setup|Setup dialog]] </center>
 
-Run EiffelStudio, located at /Developers/Applications/Eiffel62/EiffelStudio. Enter the information located inside the box that contains your copy of the EiffelStudio Enterprise Edition. Once the information is correct, the '''Register''' button will be enabled. Click '''Register''' to actually register EiffelStudio.
+Run EiffelStudio, located at /Developers/Applications/EiffelXX/EiffelStudio. Enter the information located inside the box that contains your copy of the EiffelStudio Enterprise Edition. Once the information is correct, the '''Register''' button will be enabled. Click '''Register''' to actually register EiffelStudio.
 
 You now need to launch EiffelStudio to register your copy. Follow the instructions located in the '''Starting EiffelStudio''' section below. The first time you launch EiffelStudio, you will be asked for an activation key through the following dialog:
 
@@ -66,11 +66,11 @@ You may receive the following dialog when launching EiffelStudio:
 
 <center> [[Image:56--mac-registration-error|Registration incomplete]] </center>
 
-This probably means that the '''register''' program was not launched or did not succeed in storing data to the following file '''/Developer/Applications/Eiffel62/EiffelStudio.app/Contents/Resources/Eiffel62/install/limand/.ec_license'''. To solve this, rerun the '''register''' program with a user account that has permissions to write at '''/Developer/Applications/Eiffel62/EiffelStudio.app/Contents/Resources/Eiffel62/install/limand''' and enter your '''Username''' and '''CD Key'''.
+This probably means that the '''register''' program was not launched or did not succeed in storing data to the following file '''/Developer/Applications/EiffelXX/EiffelStudio.app/Contents/Resources/EiffelXX/install/limand/.ec_license'''. To solve this, rerun the '''register''' program with a user account that has permissions to write at '''/Developer/Applications/EiffelXX/EiffelStudio.app/Contents/Resources/EiffelXX/install/limand''' and enter your '''Username''' and '''CD Key'''.
 
 ==Starting EiffelStudio==
 
-Now everything should be properly installed and you should be able to run the compiler. You can now launch EiffelStudio from the Finder under '''/Developer/Applications/Eiffel62/'''. If you are a new user to EiffelStudio, we recommend that you follow [[EiffelStudio: A Guided Tour|the guided tour]] .
+Now everything should be properly installed and you should be able to run the compiler. You can now launch EiffelStudio from the Finder under '''/Developer/Applications/EiffelXX/'''. If you are a new user to EiffelStudio, we recommend that you follow [[EiffelStudio: A Guided Tour|the guided tour]] .
 
 
 
