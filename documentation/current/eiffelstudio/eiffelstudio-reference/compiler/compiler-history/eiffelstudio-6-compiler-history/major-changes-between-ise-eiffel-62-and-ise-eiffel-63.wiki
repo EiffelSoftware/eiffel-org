@@ -7,8 +7,10 @@
 {{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
 
 ==Improvements==
-
+* Improved speed of compiler by about 10% overall.
+* Reduced memory usage at runtime of Eiffel applications.
 ==Changes==
+* Changed the way files are opened on Windows by ensuring that they cannot be inherited by child processes. This was necessary since one would need to wait for the child process to exit to remove files owned by the parent process.
 
 ==Bug fixes==
 
@@ -17,6 +19,7 @@
 ===Compiler issues===
 
 ===Runtime/code generation issues===
+* When registering externally created threads, make sure that the runtime does not exit them when no more Eiffel code needs to be run as it must be done by the code that created it. Also made sure that the runtime per thread data are reset to 0 to ensure that we can register/unregister the external thread as many times as needed. 
 
 ===Store/Retrieve issues===
 

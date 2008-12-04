@@ -21,7 +21,7 @@
 ===Changes===
 
 ===Bug fixes===
-* Code completion works even if the <eiffel>is</eiffel> is missing.
+* Code completion works even if the obsolete <eiffel>is</eiffel> keyword is missing.
 * Fixed an installation issue of the  enterprise/evaluation release of EiffelStudio on Windows  Vista.
 * Properly refreshes the Feature tool after a save or a compilation.
 * Fixed browsing of .NET  classes in EiffelStudio
@@ -54,8 +54,6 @@
 
 ===EiffelVision2===
 * [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
-
-===EiffelVision2===
 
 [[EiffelStudio release notes|Click here to check out what was new in other versions]]  
 
