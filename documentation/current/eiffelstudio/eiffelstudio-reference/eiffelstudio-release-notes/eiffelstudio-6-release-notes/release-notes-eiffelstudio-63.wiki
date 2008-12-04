@@ -6,6 +6,7 @@
 
 ===What's new===
 * Innovative testing tools let you automatically test your  software, extract test cases from failed execution as well as manually creating your own test cases.
+* Added brace matching in the editor.
 * Added ability to automatically license your Eiffel classes each time you  save a class.
 * Added the '''argument_parser''' library which provides an easy way to manipulate command line arguments.
 * Added a new version of the EiffelNet library with IPv6 support.  Because it has some breaking changes, the library is called '''net_ipv6''' and  can  be, in most cases, be used in place of   the original EiffelNet library.
@@ -13,11 +14,17 @@
 ===Improvements===
 * Improved the library choice dialog which  can also be customized to include your own locations.
 * Added support for <eiffel>note</eiffel> keyword and the updated <eiffel>variant</eiffel> keyword location in a loop through the environment.
+* You can remove errors from the Warning and Error list tool which is practical when fixing many errors at once.
+* Improved the problem report submission dialog.
+* Better messaging about the installed C/C++ compiler on Windows.
 
 ===Changes===
 
 ===Bug fixes===
 * Code completion works even if the <eiffel>is</eiffel> is missing.
+* Fixed an installation issue of the  enterprise/evaluation release of EiffelStudio on Windows  Vista.
+* Properly refreshes the Feature tool after a save or a compilation.
+* Fixed browsing of .NET  classes in EiffelStudio
 
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 6.2 and ISE Eiffel 6.3|here]]  for the compiler release notes.
@@ -31,6 +38,14 @@
 ==Libraries==
 
 ===EiffelBase===
+* EiffelBase has been rewritten to be Void safe. To use the  void safe version, one has to use the '''base-safe.ecf'''  configuration file of EiffelBase. Not all libraries are void safe, so the void safe version can only be used for code that does not depend on other libraries.
+* Added <eiffel>sleep</eiffel> to <eiffel>EXECUTION_ENVIRONMENT</eiffel> and made <eiffel>sleep</eiffel> from <eiffel>THREAD_CONTROL</eiffel> obsolete.
+* Added <eiffel>read_xxx_thread_aware</eiffel> in <eiffel>IO_MEDIUM</eiffel> so that reading a file is not blocking in a multithreaded context.
+* Added the notion of read-only and immutable strings (respectively <eiffel>READABLE_STRING_8/32</eiffel> and <eiffel>IMMUTABLE_STRING_8/32</eiffel>). Because <eiffel>READABLE_STRING_8</eiffel> is deferred, some code using expression of the  form '''STRING + SYSTEM_STRING''' in .NET mode will not compile anymore. Instead one has to do '''STRING + create {STRING}.make_from_cil (SYSTEM_STRING)'''.
+* Added <eiffel>{READABLE_STRING_GENERAL}.same_string</eiffel> to compare any kind of strings together. 
+* Added ability to stop and start the Eiffel tracing mechanism from code using the new <eiffel>TRACING_SETTING</eiffel> class.
+* Changed the default assigner for <eiffel>{TABLE}.item</eiffel> from <eiffel>put</eiffel> to <eiffel>force</eiffel> a new feature of <eiffel>TABLE</eiffel>. This allows the bracket operator on <eiffel>HASH_TABLE</eiffel> to work properly, that is to say <eiffel>hash_table [i] := j</eiffel> will indeed insert 'j' at key 'i' even if key 'i' is already present. Before it was silently doing nothing since it was using <eiffel>put</eiffel>.
+* Fixed eweasel test#list012 which showed an invariant violation after twining a <eiffel>SORTED_TWO_WAY_LIST</eiffel> and then modifying the copy by adding an element. This introduces a breaking change in all descendants of <eiffel>SORTED_TWO_WAY_LIST</eiffel>.
 
 ===EiffelNet===
 * EiffelNet can select on 256 ports at the same time

@@ -55,12 +55,12 @@ To use DB_RESULT, process in 2 steps:
 				execute, found
 			end
 	...
-	execute is
+	execute
 		do
 			i := i + 1
 		end
 	...
-	found: BOOLEAN is
+	found: BOOLEAN
 		do
 			Result := i >= Max_result
 		end

@@ -38,7 +38,7 @@ You can then access or modify [[ref:libraries/store/reference/db_table_flatshort
 <code>
 	tablerow: DB_TABLE
 	...
-	display_attribute (code: INTEGER) is
+	display_attribute (code: INTEGER)
 			-- Display attribute with `code'.
 		do
 			io.putstring (tablerow.table_description.attribute (code).out)
@@ -74,7 +74,7 @@ Basic database metadata is also available: the <eiffel>DB_SPECIFIC_TABLES_ACCESS
 <code>
 	tables: DB_SPECIFIC_TABLES_ACCESS
 	...
-	new_object (code: INTEGER): DB_TABLE is
+	new_object (code: INTEGER): DB_TABLE
 			-- New object of table with `code'.
 		do
 			Result := tables.obj (code)

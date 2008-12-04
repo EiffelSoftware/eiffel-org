@@ -16,7 +16,7 @@ Template queries are parsed to replace each variable by its bound value. To crea
 Variables syntax is simple: the ':' special character followed by the variable name.
 <code>
 	selection: DB_SELECTION
-	Bind_var: STRING is "firstname"
+	Bind_var: STRING = "firstname"
 	...
 	create selection.make
 	selection.set_query ("Select * from CONTACTS where Firstname = ':" + Bind_var + "'")

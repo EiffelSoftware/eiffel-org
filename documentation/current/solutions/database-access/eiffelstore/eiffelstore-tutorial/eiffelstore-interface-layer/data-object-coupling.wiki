@@ -34,7 +34,7 @@ Using the table information, [[ref:/libraries/store/reference/db_repository_flat
 	...
 	feature -- Settings
 
-	set_id (an_id: INTEGER) is
+	set_id (an_id: INTEGER) 
 			-- Set an_id to id.
 		do
 			id := an_id

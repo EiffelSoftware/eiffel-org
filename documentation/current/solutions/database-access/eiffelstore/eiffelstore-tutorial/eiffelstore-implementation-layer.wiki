@@ -35,7 +35,7 @@ Every interface class inherits from the <eiffel>HANDLE_USE</eiffel> class and ca
 
 The creation procedure for a <eiffel>DB_CHANGE</eiffel> object is for instance:
 <code>
-	make is
+	make
 			-- Create an interface object to change active base.
 		do
 			implementation := handle.database.db_change
@@ -68,7 +68,7 @@ The corresponding code looks like:
 	session_status: DB_STATUS
 			-- A session management object reference.
 	...
-	set_base is
+	set_base
 		...
 		update_handle
 		if session_status = Void then
