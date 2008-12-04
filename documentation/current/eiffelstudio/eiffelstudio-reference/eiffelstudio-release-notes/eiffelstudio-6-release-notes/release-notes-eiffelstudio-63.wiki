@@ -38,7 +38,7 @@
 ==Libraries==
 
 ===EiffelBase===
-* EiffelBase has been rewritten to be Void safe. To use the  void safe version, one has to use the '''base-safe.ecf'''  configuration file of EiffelBase. Not all libraries are void safe, so the void safe version can only be used for code that does not depend on other libraries.
+* EiffelBase has been rewritten to be Void safe. To use the  void safe version, one has to use the '''base-safe.ecf'''  configuration file of EiffelBase. Not all libraries are void safe, so the void safe version can only be used for code that does not depend on other libraries. EiffelStudio 6.4 should provide void safe version of all libraries provided in EiffelStudio.
 * Added <eiffel>sleep</eiffel> to <eiffel>EXECUTION_ENVIRONMENT</eiffel> and made <eiffel>sleep</eiffel> from <eiffel>THREAD_CONTROL</eiffel> obsolete.
 * Added <eiffel>read_xxx_thread_aware</eiffel> in <eiffel>IO_MEDIUM</eiffel> so that reading a file is not blocking in a multithreaded context.
 * Added the notion of read-only and immutable strings (respectively <eiffel>READABLE_STRING_8/32</eiffel> and <eiffel>IMMUTABLE_STRING_8/32</eiffel>). Because <eiffel>READABLE_STRING_8</eiffel> is deferred, some code using expression of the  form '''STRING + SYSTEM_STRING''' in .NET mode will not compile anymore. Instead one has to do '''STRING + create {STRING}.make_from_cil (SYSTEM_STRING)'''.
@@ -49,8 +49,8 @@
 
 ===EiffelNet===
 * EiffelNet can select on 256 ports at the same time
-
-===EiffelTime===
+* Fixed on Unix improper handling of EWOULDBLOCK and EINPROGRESS error on Unix which would raise an exception instead of silently ignoring the error as it is done on Windows.
+* New library for IPv6 support.
 
 ===EiffelVision2===
 * [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
