@@ -5,12 +5,19 @@
 ==Graphical environment==
 
 ===What's new===
+* Innovative testing tools let you automatically test your  software, extract test cases from failed execution as well as manually creating your own test cases.
+* Added ability to automatically license your Eiffel classes each time you  save a class.
+* Added the '''argument_parser''' library which provides an easy way to manipulate command line arguments.
+* Added a new version of the EiffelNet library with IPv6 support.  Because it has some breaking changes, the library is called '''net_ipv6''' and  can  be, in most cases, be used in place of   the original EiffelNet library.
 
 ===Improvements===
+* Improved the library choice dialog which  can also be customized to include your own locations.
+* Added support for <eiffel>note</eiffel> keyword and the updated <eiffel>variant</eiffel> keyword location in a loop through the environment.
 
 ===Changes===
 
 ===Bug fixes===
+* Code completion works even if the <eiffel>is</eiffel> is missing.
 
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 6.2 and ISE Eiffel 6.3|here]]  for the compiler release notes.
@@ -26,6 +33,7 @@
 ===EiffelBase===
 
 ===EiffelNet===
+* EiffelNet can select on 256 ports at the same time
 
 ===EiffelTime===
 
