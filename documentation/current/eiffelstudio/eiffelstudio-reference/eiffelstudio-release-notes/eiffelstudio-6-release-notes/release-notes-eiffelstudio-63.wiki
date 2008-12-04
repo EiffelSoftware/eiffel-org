@@ -17,6 +17,7 @@
 * You can remove errors from the Warning and Error list tool which is practical when fixing many errors at once.
 * Improved the problem report submission dialog.
 * Better messaging about the installed C/C++ compiler on Windows.
+* Improved cursor rendering colors, so that in all background colors.
 
 ===Changes===
 
@@ -24,7 +25,7 @@
 * Code completion works even if the obsolete <eiffel>is</eiffel> keyword is missing.
 * Fixed an installation issue of the  enterprise/evaluation release of EiffelStudio on Windows  Vista.
 * Properly refreshes the Feature tool after a save or a compilation.
-* Fixed browsing of .NET  classes in EiffelStudio
+* Fixed browsing of .NET  classes in EiffelStudio.
 
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 6.2 and ISE Eiffel 6.3|here]]  for the compiler release notes.
@@ -51,6 +52,9 @@
 * EiffelNet can select on 256 ports at the same time
 * Fixed on Unix improper handling of EWOULDBLOCK and EINPROGRESS error on Unix which would raise an exception instead of silently ignoring the error as it is done on Windows.
 * New library for IPv6 support.
+
+===EiffelProcess===
+*Fixed an issue with the library when redirecting inputs/outputs of the child process. Sometime we would be missing some characters and cause a memory corruption at the same time.
 
 ===EiffelVision2===
 * [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
