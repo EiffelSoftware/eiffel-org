@@ -16,8 +16,8 @@ Let us see in 4 steps how EiffelStore implements this handle system:
 The <eiffel>HANDLE_USE </eiffel>class provides access to the unique <eiffel>HANDLE</eiffel> instance. This object stores all the information about the active database, mainly:
 * Database login information:
 <code>
-	login: LOGIN [DATABASE]
-		-- Session login
+    login: LOGIN [DATABASE]
+            -- Session login
 </code>
 
 * Database status information:

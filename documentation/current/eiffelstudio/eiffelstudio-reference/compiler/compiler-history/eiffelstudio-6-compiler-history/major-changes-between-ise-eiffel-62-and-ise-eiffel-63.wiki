@@ -17,16 +17,18 @@
 * Changed the way files are opened on Windows by ensuring that they cannot be inherited by child processes. This was necessary since one would need to wait for the child process to exit to remove files owned by the parent process.
 * Compiler now accepts the new syntax for variant in a loop (i.e. before the <eiffel>end</eiffel> keyword). 
 * Fixed missing detection of VREG and VRFT errors for labels of a named tuples which is used as an actual generic parameter of a type (fixes eweasel test#tuple012 and test#tuple013),  thus some of your code might be broken since the compiler failed to check this before.
+* Fixed eweasel test#valid222 where compiler properly detects VDRS-4 errors when you redefine a repeatedly inherited routine in at least one but not all branches, but fail to provide a local definition.
+* Now a formal generic parameter only conforms to a formal generic parameter, that is to say assignment to a formal generic parameter where the source is of type NONE (i.e <eiffel>Void</eiffel>) will now be rejected by the compiler.
 
 ==Bug fixes==
 
 ===Language issues===
+* Fixed compiler issues with handling of attached types.
 
 ===Compiler issues===
 * Renamed `eif_com.h' from the compiler delivery into `eif_com_exception.h' as it conflicts with `eif_com.h' from the EiffelCOM library.
 * Fixed eweasel test#final061 and test#final063 where some kind of code could cause a crash of the compiler during degree -3 with inlining enabled.
 * Fixed eweasel test#final063 which caused a C compiler error when your code uses an inline agent in an assertion and the routine in which it is defined is deferred. 
-* Fixed eweasel test#valid222 where compiler properly detects VDRS-4 errors when you redefine a repeatedly inherited routine in at least one but not all branches, but fail to provide a local definition.
 * Fixed Makefile code generation issue on machine with many cores which could cause a C compilation error because some dependencies are missing in the Makefile targets.
 * Fixed bug#13881 where if you have a VKCN error when using a routine whose return type is a like argument then it would crash instead of reporting the VKCN error. Improved VKCN error reporting by providing the instruction or expression which causes the problem.
 * Fixed eweasel test#rdtp001 and test#term158 where if TUPLE is not written using upper case characters, then the compiler will crash when trying to analyze the type. 
