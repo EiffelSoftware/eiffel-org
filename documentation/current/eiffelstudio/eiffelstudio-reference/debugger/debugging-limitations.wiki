@@ -1,22 +1,5 @@
 [[Property:title|Debugging limitations]]
 [[Property:weight|-2]]
 [[Property:uuid|4377d765-8664-ee0c-5d5b-e42fd7d172c3]]
-General limitations:
-* Watch expression: Agents are not supported (for instance "agent my_function" is not supported").
-* The debugger is still not very helpful when the execution is stopped inside an invariant.
-
-Limitations or known bugs for the Classic debugger:
-* Evaluating <code>Precursor</code> will produce the current feature's <code>Result</code> (not the precursor)
-* If you use any of the previous non supported expressions in a breakpoint condition, since the evaluation is failing the condition will always return True. In such case the debugger will stop.
-
-Limitations or known bugs for the .Net debugger:
-* It happens the debugger does not show the correct executed line, especially when dealing with disabled assertions or disabled debug clauses.
-* The same trouble occurs when stepping through an unordered inspect code.
-
-Various known issues for classic system :
-* If a precondition is violated inside a rescue, the debugger reports the assertion violation will the exception's tag.
-* If you use the "Disable Assertion Handling" functionality when the execution is stopped in a rescue, the effect might be cancelled as soon as the execution exits the rescue's associated feature.
-
-
-
+*  EiffelStudio 6.3: [[Debugging limitations - 6.3]]
 
