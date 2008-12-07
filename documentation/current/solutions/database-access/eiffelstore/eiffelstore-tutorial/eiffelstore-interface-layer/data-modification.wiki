@@ -8,19 +8,23 @@ Use the [[ref:/libraries/store/reference/db_change_flatshort|DB_CHANGE]]  class 
 [[ref:/libraries/store/reference/db_change_flatshort|DB_CHANGE]]  allows you to modify the database data using the SQL language:
 * Prepare your SQL query and use modify:
 <code>
-	modification: DB_CHANGE
-		-- Modification tool.
-	...
-	create modification.make
-	modification.modify ("Update CONTACTS set Firstname =   ' John'")
+    modification: DB_CHANGE
+            -- Modification tool.
+
+                ...
+
+            create modification.make
+            modification.modify ("Update CONTACTS set Firstname =   ' John'")
 </code>
 
 * Commit your changes with your session control:
 <code>
-	session_control: DB_CONTROL
-		-- Session control.
-	...
-	session_control.commit
+    session_control: DB_CONTROL
+            -- Session control.
+
+                ...
+
+            session_control.commit
 </code>
 
 {{tip|It is always better to check the database status for errors before committing changes. }}

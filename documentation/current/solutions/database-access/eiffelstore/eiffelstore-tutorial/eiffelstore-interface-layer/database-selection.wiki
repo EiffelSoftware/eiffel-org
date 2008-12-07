@@ -8,11 +8,14 @@ Use the [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  
 [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  enables your application to get database content using SQL 'select' queries:
 * You can carry out 'select' queries in an intuitive way using directly the SQL language:
 <code>
-	selection: DB_SELECTION
-	...
-	create selection.make
-	selection.set_query ("select * from CONTACTS where firstname = 'John'")
-	selection.execute
+    selection: DB_SELECTION
+            -- Selection tool
+
+                ...
+
+            create selection.make
+            selection.set_query ("select * from CONTACTS where firstname = 'John'")
+            selection.execute
 </code>
 
 {{tip|Always check the database status for errors after your 'select' query. }}

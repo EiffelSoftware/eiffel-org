@@ -19,6 +19,7 @@
 * Fixed missing detection of VREG and VRFT errors for labels of a named tuples which is used as an actual generic parameter of a type (fixes eweasel test#tuple012 and test#tuple013),  thus some of your code might be broken since the compiler failed to check this before.
 * Fixed eweasel test#valid222 where compiler properly detects VDRS-4 errors when you redefine a repeatedly inherited routine in at least one but not all branches, but fail to provide a local definition.
 * Now a formal generic parameter only conforms to a formal generic parameter, that is to say assignment to a formal generic parameter where the source is of type NONE (i.e <eiffel>Void</eiffel>) will now be rejected by the compiler.
+* Dropped support for older Microsoft C/C++ compilers on Windows platforms. We only support VS 2005 or greater.
 
 ==Bug fixes==
 
