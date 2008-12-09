@@ -2,13 +2,13 @@
 [[Property:weight|1]]
 [[Property:uuid|1255beef-e115-b8ae-87f6-08e267fe3d8f]]
 For performance reason, the recording mechanism has a few parameters. For now there is no way to change them easily with the graphical debugger, however you can change those parameters by editing (and recompiling) <code>{RT_DBG_EXECUTION_PARAMETERS}.make</code>. 
-* integer parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.'''maximum_record_count'''</code> (default: 1_000_000): <br/>
+* integer parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.maximum_record_count</code> (default: 1_000_000): <br/>
 the recording keeps only the last '''maximum_record_count''' object's records.
-* boolean parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.'''flatten_when_closing'''</code> (default: True): <br/>
+* boolean parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.flatten_when_closing</code> (default: True): <br/>
 when leaving a feature, the recorder can flatten the associated record. This will save memory space, and optimize underlying mechanism. By default it is enabled (and recommanded).
-* boolean parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.'''keep_calls_records'''</code>(default: True): <br/>
+* boolean parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.keep_calls_records</code>(default: True): <br/>
 when flattening call records' values, keep the sub-call records (i.e: the execution calls history)?
-* boolean parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.'''recording_values'''</code>(default: True): <br/>
+* boolean parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.recording_values</code>(default: True): <br/>
 during execution, record attribute and locals assignment?(if you just want to review the calls history, you can discard value recording to speed up the recording.)
 
 {{warning|Since there is no way to restore local values when the execution left the related call stack frame, the recording discards the recorded local values.}}
@@ -28,9 +28,7 @@ When you start debugging, at some point you decide to start recording, click on 
 
 The execution is now recorded, whenever the application is stopped, you can decide to [[Replay (recorded) execution|replay]]  the previously recorded execution. [[Replay (recorded) execution|Read how to replay execution]] .
 
-{{warning|For now, EiffelStudio supports only "Replay back" and "Replay forth" (finner replay might be added for 6.2).}}
-
-{{warning|EiffelStudio 6.1 provides this feature only on classic system, this is not yet supported on dotnet (planned for 6.2).}}
+{{warning|EiffelStudio provides this feature only on classic system, this is not yet supported on dotnet.}}
 
 
 
