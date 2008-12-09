@@ -139,7 +139,7 @@ As explained below, keywords are regular expressions which are treated separatel
 
 Once <eiffel>build</eiffel> has given you an analyzer, you may use it to analyze input texts through calls to the procedure
 <code>
-	analyze (input_file_name: STRING)</code>
+            analyze (input_file_name: STRING)</code>
 
 This will read in and process successive input tokens. Procedure analyze will apply to each of these tokens the action of procedure do_a_token. As defined in SCANNING, this procedure prints out information on the token: its string value, its type, whether it is a keyword and if so its code. You may redefine it in any descendant class so as to perform specific actions on each token.
 
@@ -157,25 +157,25 @@ Procedure analyze takes care of the most common needs of lexical analysis. But i
 
 This discussion will indeed assume that you have an entity attached to an instance of [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]] . The name of that entity is assumed to be analyzer, although it does not need to be the attribute from [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] . You can apply to that analyzer the various exported features features of class [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]] , explained below. All the calls described below should use analyzer as their target, as in
 <code>
-	analyzer.set_file ("my_file_name")
+            analyzer.set_file ("my_file_name")
 </code>
 
 ===Creating, retrieving and storing an analyzer===
 
 To create a new analyzer, use
 <code>
-	create analyzer.make_new
+            create analyzer.make_new
 </code>
 
 You may also retrieve an analyzer from a previous session. [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]]  is a descendant from [[ref:/libraries/base/reference/storable_chart|STORABLE]] , so you can use feature retrieved for that purpose. In a descendant of [[ref:/libraries/base/reference/storable_chart|STORABLE]] , simply write
 <code>
-	analyzer ?= retrieved
+            analyzer ?= retrieved
 </code>
 
 If you do not want to make the class a descendant of [[ref:/libraries/base/reference/storable_chart|STORABLE]] , use the creation procedure make of [[ref:libraries/lex/reference/lexical_chart|LEXICAL]] , not to be confused with make_new above:
 <code>
-	create analyzer.make
-	analyzer ?= analyzer.retrieved
+            create analyzer.make
+            analyzer ?= analyzer.retrieved
 </code>
 
 ===Choosing a document===
@@ -201,20 +201,20 @@ If it fails to recognize a regular expression, get_token sets token_type to No_t
 
 Here is the most common way of using the preceding facilities:
 <code>
-	from
-	      set_file ("text_directory/text_to_be_parsed")
-	            -- Or: set_string ("string to parse")
-	      begin_analysis
-	until
-	      end_of_text
-	loop
-	      analyzer.get_token
-	      if analyzer.token_type = No_token then
-	            go_on
-	      end
-	      do_a_token (lexical.last_token)
-	end
-	end_analysis
+            from
+                set_file ("text_directory/text_to_be_parsed")
+                    -- Or: set_string ("string to parse")
+                begin_analysis
+            until
+                end_of_text
+            loop
+                analyzer.get_token
+                if analyzer.token_type = No_token then
+                    go_on
+                end
+                do_a_token (lexical.last_token)
+            end
+            end_analysis
 </code>
 
 This scheme is used by procedure analyze of class [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] , so that in standard cases you may simply inherit from that class and redefine procedures begin_analysis, do_a_token and end_analysis. If you are not inheriting from [[ref:libraries/lex/reference/scanning_chart|SCANNING]] , these names simply denote procedures that you must provide.
@@ -227,7 +227,7 @@ Let us now study the format of regular expressions. This format is used in parti
 
 Each regular expression denotes a set of tokens. For example, the first regular expression seen above, <br/>
 <code>
-	'0'..'9'
+            '0'..'9'
 </code>
 <br/>
 denotes a set of ten tokens, each consisting of a single digit. 
@@ -292,7 +292,7 @@ A concatenation, writtenexp <code>1</code> exp <code>2</code> ... exp <code>n</c
 An optional component, written ''[exp]'' where ''exp'' is a regular expression, describes the set of tokens that includes the empty token and all specimens of ''exp''. Optional components usually appear in concatenations. 
 
 Concatenations may be inconvenient when the concatenated elements are simply characters, as in '''A' ' ' 'T' 'e' 'x' 't'''. In this case you may use a '''string''' in double quotes, as in <br/>
-<code>	"A Text"</code>
+<code>    "A Text"</code>
 
 
 More generally, a string is written"a <code>1</code> a <code>2</code> ... a <code>n</code>"for ''n >= 0'', where thea <code>i</code> are characters, and is an abbreviation for the concatenation 'a <code>1</code>' 'a <code>2</code>' ... 'a <code>n</code>' 
@@ -410,24 +410,24 @@ You may change this default behavior through a set of procedures introduced in c
 
 To make subsequent regular expressions case-sensitive, call the procedure
 <code>
-	distinguish_case
+            distinguish_case
 </code>
 
 To revert to the default mode where case is not significant, call the procedure
 <code>
-	ignore_case
+            ignore_case
 </code>
 
 Each of these procedures remains in effect until the other one is called, so that you only need one call to define the desired behavior.
 
 For keywords, the policy is less tolerant. A single rule is applied to the entire grammar: keywords are either all case-sensitive or all case-insensitive. To make all keywords case-sensitive, call
 <code>
-	keywords_distinguish_case
+            keywords_distinguish_case
 </code>
 
 The inverse call, corresponding to the default rule, is
 <code>
-	keywords_ignore_case
+            keywords_ignore_case
 </code>
 
 Either of these calls must be executed before you define any keywords; if you are using [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] , this means before calling procedure build. Once set, the keyword case-sensitivity policy cannot be changed.
@@ -444,22 +444,24 @@ Class [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] , as studied abov
 
 The following extract from a typical descendant of [[ref:/libraries/lex/reference/metalex_chart|METALEX]]  illustrates the process of building a lexical analyzer in this way:
 <code>
-	Upper_identifier, Lower_identifier, Decimal_constant, Octal_constant, Word: INTEGER is unique
-	...
-	distinguish_case
-	keywords_distinguish_case
-	put_expression("+('0'..'7'"), Octal_constant, "Octal")
-	put_expression ("'a'..'z' *('a'..'z'|'0'..'9'|'_')", Lower_identifier, "Lower")
-	put_expression ("'A'..'Z' *('A'..'Z'|'0'..'9'|'_' )", Upper_identifier, "Upper")
+    Upper_identifier, Lower_identifier, Decimal_constant, Octal_constant, Word: INTEGER is unique
+
+                ...
+
+            distinguish_case
+            keywords_distinguish_case
+            put_expression("+('0'..'7'"), Octal_constant, "Octal")
+            put_expression ("'a'..'z' *('a'..'z'|'0'..'9'|'_')", Lower_identifier, "Lower")
+            put_expression ("'A'..'Z' *('A'..'Z'|'0'..'9'|'_' )", Upper_identifier, "Upper")
 
 
-	dollar_w (Word)
-	...
-	put_keyword ("begin", Lower_identifier)
-	put_keyword ("end", Lower_identifier)
-	put_keyword ("THROUGH", Upper_identifier)
-	...
-	make_analyzer
+            dollar_w (Word)
+                ...
+            put_keyword ("begin", Lower_identifier)
+            put_keyword ("end", Lower_identifier)
+            put_keyword ("THROUGH", Upper_identifier)
+                ...
+            make_analyzer
 </code>
 
 This example follows the general scheme of building a lexical analyzer with the features of [[ref:/libraries/lex/reference/metalex_chart|METALEX]] , in a class that will normally be a descendant of [[ref:libraries/lex/reference/metalex_chart|METALEX]] :
@@ -470,7 +472,7 @@ This example follows the general scheme of building a lexical analyzer with the 
 
 To perform steps 2 to 4 in a single shot and generate a lexical analyzer from a lexical grammar file, as with [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] , you may use the procedure
 <code>
-	read_grammar (grammar_file_name: STRING)
+            read_grammar (grammar_file_name: STRING)
 </code>
 
 In this case all the expressions and keywords are taken from the file of name <code>grammar_file_name</code> rather than passed explicitly as arguments to the procedures of the class. You do not need to call make_analyzer, since read_grammar includes such a call. 
@@ -484,14 +486,14 @@ Procedure put_expression records a regular expression. The first argument is the
 
 Procedure dollar_w corresponds to the '''$W''' syntax for regular expressions. Here an equivalent call would have been 
 <code>
-	put_nameless_expression ( "$W" ,Word ) 
+            put_nameless_expression ( "$W" ,Word ) 
 </code>
 
 Procedure <eiffel>declare_keyword</eiffel> records a keyword. The first argument is a string containing the keyword; the second argument is the regular expression of which the keyword must be a specimen. The example shows that here - in contrast with the rule enforced by [[ref:/libraries/lex/reference/scanning_chart|SCANNING]]  - not all keywords need be specimens of the same regular expression. 
 
 The calls seen so far record a number of regular expressions and keywords, but do not give us a lexical analyzer yet. To obtain a usable lexical analyzer, you must call
 <code>
-	make_analyzer
+            make_analyzer
 </code>
 
 After that call, you may not record any new regular expression or keyword. The analyzer is usable through attribute analyzer. 
@@ -512,11 +514,11 @@ To have access to the most general set of lexical analysis mechanisms, you may u
 
 For the complete list of available procedures, refer to the flat-short form of the class; there is one procedure for every category of regular expression studied earlier in this chapter. Two typical examples of calls are:
 <code>
-	interval ('a', 'z')
-	      -- Create an interval tool
+            interval ('a', 'z')
+                -- Create an interval tool
 
-	union (Letter, Underlined)
-	      -- Create a union tool 
+            union (Letter, Underlined)
+                -- Create a union tool 
 </code>
 
 Every such procedure call also assigns an integer index to the tool it creates; this number is available through the attribute <eiffel>last_created_tool</eiffel>. You will need to record it into an integer entity, for example <eiffel>Identifier</eiffel> or <eiffel>Letter</eiffel>. 
@@ -524,18 +526,18 @@ Every such procedure call also assigns an integer index to the tool it creates; 
 
 The following extract from a typical descendant of [[ref:/libraries/lex/reference/lex_builder_chart|LEX_BUILDER]]  illustrates how to create a tool representing the identifiers of an Eiffel-like language.
 <code>
-	Identifier, Letter, Digit, Underlined, Suffix, Suffix_list: INTEGER
+    Identifier, Letter, Digit, Underlined, Suffix, Suffix_list: INTEGER
 
-	build_identifier is
-		do
-			interval ('a',  'z'); Letter := last_created_tool
-			interval ('0',  '9'); Digit := last_created_tool
-			interval ('_', '_'); Underlined := last_created_tool
-			union (Digit, Underlined);
-			Suffix := last_created_tooliteration (Suffix);
-			Suffix_list := last_created_toolappend (Letter, Suffix_list);
-			Identifier := last_created_tool
-		end
+    build_identifier
+        do
+            interval ('a',  'z'); Letter := last_created_tool
+            interval ('0',  '9'); Digit := last_created_tool
+            interval ('_', '_'); Underlined := last_created_tool
+            union (Digit, Underlined);
+            Suffix := last_created_tooliteration (Suffix);
+            Suffix_list := last_created_toolappend (Letter, Suffix_list);
+            Identifier := last_created_tool
+        end
 </code>
 
 Each token type is characterized by a number in the tool_list. Each tool has a name, recorded in <eiffel>tool_names</eiffel>, which gives a readable form of the corresponding regular expression. You can use it to check that you are building the right tool. 
@@ -545,11 +547,11 @@ In the preceding example, only some of the tools, such as <eiffel>Identifier</ei
 
 When you create a tool, it is by default invisible to clients. To make it visible, use procedure <eiffel>select_tool</eiffel>. Clients will need a number identifying it; to set this number, use procedure<eiffel> associate</eiffel>. For example the above extract may be followed by:
 <code>
-	select_tool (Identifier)
-	associate (Identifier, 34)
-	put_keyword ("class", Identifier)
-	put_keyword ("end", Identifier)
-	put_keyword ("feature", Identifier)
+            select_tool (Identifier)
+            associate (Identifier, 34)
+            put_keyword ("class", Identifier)
+            put_keyword ("end", Identifier)
+            put_keyword ("feature", Identifier)
 </code>
 
 If the analysis encounters a token that belongs to two or more different selected regular expressions, the one entered last takes over. Others are recorded in the array<eiffel> other_possible_tokens</eiffel>.
