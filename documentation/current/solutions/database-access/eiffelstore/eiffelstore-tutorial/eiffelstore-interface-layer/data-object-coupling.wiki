@@ -10,13 +10,15 @@ A smart way to work with relational databases is to have Eiffel objects directly
 
 A [[ref:/libraries/store/reference/db_repository_flatshort|DB_REPOSITORY]]  object stores available information about a table. To access this information, you mainly have to give the table name and load the table description:
 <code>
-	repository: DB_REPOSITORY
-	...
-	create repository.make ("CONTACTS")
-	repository.load
-	if repository.exists then
-		...
-	end
+    repository: DB_REPOSITORY
+
+                ...
+
+            create repository.make ("CONTACTS")
+            repository.load
+            if repository.exists then
+                ...
+            end
 </code>
 
 
@@ -26,20 +28,20 @@ A [[ref:/libraries/store/reference/db_repository_flatshort|DB_REPOSITORY]]  obje
 Using the table information, [[ref:/libraries/store/reference/db_repository_flatshort|DB_REPOSITORY]]  then helps generating Eiffel classes mapping relational tables: 
 * You can directly use {[[ref:/libraries/store/reference/db_repository_flatshort|DB_REPOSITORY]] }.generate_class. Generated class may look like:
 <code>
-	class CONTACTS
+class CONTACTS
 
-	feature -- Access
+feature -- Access
 
-	id: INTEGER
+    id: INTEGER
 	...
-	feature -- Settings
+feature -- Settings
 
-	set_id (an_id: INTEGER) 
-			-- Set an_id to id.
-		do
-			id := an_id
-		end
-	...
+    set_id (an_id: INTEGER) 
+            -- Set an_id to id.
+        do
+            id := an_id
+        end
+            ...
 </code>
 
 
@@ -53,33 +55,37 @@ Using the table information, [[ref:/libraries/store/reference/db_repository_flat
 * a class mapping the relational table. 
 This is straight-forward since you only have to give [[ref:/libraries/store/reference/db_store_flatshort|DB_STORE]]  the object filled with the table values. Suppose you want to add a contact into your database: 
 <code>
-	storage: DB_STORE
-	contacts_rep: DB_REPOSITORY
-	a_contact: CONTACTS
-	...
-	create storage.make
-		-- contacts_rep is loaded and exists.
-	storage.set_repository (contacts_rep)
-		-- a_contact carries values to insert into the database.
-	storage.put (a_contact)
+    storage: DB_STORE
+    contacts_rep: DB_REPOSITORY
+    a_contact: CONTACTS
+
+                ...
+
+            create storage.make
+                -- contacts_rep is loaded and exists.
+            storage.set_repository (contacts_rep)
+                -- a_contact carries values to insert into the database.
+            storage.put (a_contact)
 </code>
 
 ==Accessing database content with Eiffel objects==
 
 [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  lets you map data retrieved from the database into Eiffel objects: Result column names must match object attributes names so you can use for instance classes created by [[ref:/libraries/store/reference/db_repository_flatshort|DB_REPOSITORY]] . Class <eiffel>DB_ACTION</eiffel> redefines ACTION and can be used to retrieve Eiffel objects directly into an ARRAYED_LIST:
 <code>
-	selection: DB_SELECTION
-	list_filling: DB_ACTION [CONTACTS]
-	contact: CONTACTS
-	...
-	selection.object_convert (contact)
-	create list_filling.make (selection, contact)
-	selection.set_action (list_filling)
-	...
-	selection.load_result
-	if selection.is_ok then
-		Result := list_filling.list
-	end
+    selection: DB_SELECTION
+    list_filling: DB_ACTION [CONTACTS]
+    contact: CONTACTS
+
+                ...
+
+            selection.object_convert (contact)
+            create list_filling.make (selection, contact)
+            selection.set_action (list_filling)
+                ...
+            selection.load_result
+            if selection.is_ok then
+                Result := list_filling.list
+            end
 </code>
 
 
