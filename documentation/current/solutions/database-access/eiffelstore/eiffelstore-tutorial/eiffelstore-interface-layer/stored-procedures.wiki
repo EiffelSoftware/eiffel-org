@@ -12,13 +12,15 @@ EiffelStore lets you use stored procedures with [[ref:/libraries/store/reference
 To execute a stored procedure:
 * Create a [[ref:/libraries/store/reference/db_proc_flatshort|DB_PROC]]  object and load the stored procedure you want to use:
 <code>
-	procedure: DB_PROC
-	...
-	create procedure.make ("UPDATE")
-	procedure.load
-	if procedure.exists then
-		...
-	end
+    procedure: DB_PROC
+
+                ...
+
+            create procedure.make ("UPDATE")
+            procedure.load
+            if procedure.exists then
+                ...
+            end
 </code>
 
 * Execute the procedure through a [[ref:/libraries/store/reference/db_selection_chart|DB_SELECTION]]  (if a result is expected) or a [[ref:/libraries/store/reference/db_change_chart|DB_CHANGE ]] object (otherwise). 
@@ -33,11 +35,13 @@ You can execute your request mostly like a basic one:
 
 ** Execute the query through the DB_PROC object.
 <code>
-	procedure: DB_PROC
-	expr: DB_CHANGE
-	...
-	procedure.execute (expr)
-	expr.clear_all
+    procedure: DB_PROC
+    expr: DB_CHANGE
+
+                ...
+
+            procedure.execute (expr)
+            expr.clear_all
 </code>
 
 ** Check for errors and load result if any. 
@@ -50,19 +54,20 @@ DB_PROC also enables you to create or drop stored procedures:
 * Use drop to delete one. 
 The following example shows how to overwrite a procedure in the database: 
 <code>
-	procedure: DB_PROC
+    procedure: DB_PROC
 
-	...
-	create procedure.make ("NEW_PROCEDURE")
-	procedure.load
-	if procedure.exists then
-		procedure.drop
-	end
-	procedure.load
-	if not procedure.exists then
-		procedure.set_arguments (<<"one_arg">>, <<"">>)
-		procedure.store ("update contacts set firstname = one_arg where contactid = 1")
-	end
+                ...
+
+            create procedure.make ("NEW_PROCEDURE")
+            procedure.load
+            if procedure.exists then
+                procedure.drop
+            end
+            procedure.load
+            if not procedure.exists then
+                procedure.set_arguments (<<"one_arg">>, <<"">>)
+                procedure.store ("update contacts set firstname = one_arg where contactid = 1")
+            end
 </code>
 
 

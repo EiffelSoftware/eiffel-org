@@ -22,8 +22,8 @@ The <eiffel>HANDLE_USE </eiffel>class provides access to the unique <eiffel>HAND
 
 * Database status information:
 <code>
-	status: DB_STATUS
-		-- Status of active database
+    status: DB_STATUS
+            -- Status of active database
 </code>
 
 
@@ -35,13 +35,13 @@ Every interface class inherits from the <eiffel>HANDLE_USE</eiffel> class and ca
 
 The creation procedure for a <eiffel>DB_CHANGE</eiffel> object is for instance:
 <code>
-	make
-			-- Create an interface object to change active base.
-		do
-			implementation := handle.database.db_change
-			create ht.make (name_table_size)
-			implementation.set_ht (ht)
-		end
+    make
+            -- Create an interface object to change active base.
+        do
+            implementation := handle.database.db_change
+            create ht.make (name_table_size)
+            implementation.set_ht (ht)
+        end
 </code>
 
 ==Access to the DBMS call interface==
@@ -65,16 +65,18 @@ Let us give some details about the set_base feature:
 
 The corresponding code looks like:
 <code>
-	session_status: DB_STATUS
-			-- A session management object reference.
-	...
-	set_base
-		...
-		update_handle
-		if session_status = Void then
-			create session_status.make
-		end
-		handle.set_status (session_status)
+    session_status: DB_STATUS
+            -- A session management object reference.
+
+                ...
+
+            set_base
+                ...
+            update_handle
+            if session_status = Void then
+                create session_status.make
+            end
+            handle.set_status (session_status)
 		...
 </code>
 

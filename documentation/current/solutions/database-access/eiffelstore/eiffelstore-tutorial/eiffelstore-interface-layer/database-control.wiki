@@ -23,13 +23,15 @@ Once you have handled your error, for instance by displaying the error_message o
 
 The following example sum up these capabilities:
 <code>
-	session_control: DB_CONTROL
-	...
-	session_control.connect
-	if session_control.is_connected then
-		-- Perform your transactions here.
-		session_control.disconnect
-	end
+    session_control: DB_CONTROL
+
+                ...
+
+            session_control.connect
+            if session_control.is_connected then
+                    -- Perform your transactions here.
+                session_control.disconnect
+            end
 </code>
 
 ==Committing changes in the database==
@@ -40,19 +42,21 @@ With many database systems, modifications you make to the database are usually n
 
 The following example illustrates the use of these commands:
 <code>
-	session_control: DB_CONTROL
-	...
-	from
-	until
-		transaction_completed or else not session_control.is_ok
-	loop
-		-- Perform your transaction here.
-	end
-	if session_control.is_ok then
-		session_control.commit
-	else
-		session_control.rollback
-	end
+    session_control: DB_CONTROL
+
+                ...
+
+    from
+    until
+            transaction_completed or else not session_control.is_ok
+    loop
+            -- Perform your transaction here.
+    end
+    if session_control.is_ok then
+            session_control.commit
+    else
+            session_control.rollback
+    end
 </code>
 
 The loop performs a multi-step transaction. If transaction is not carried out entirely, the database could stay in an invalid state: this code ensures that database remains in a valid state.

@@ -15,11 +15,13 @@ Template queries are parsed to replace each variable by its bound value. To crea
 
 Variables syntax is simple: the ':' special character followed by the variable name.
 <code>
-	selection: DB_SELECTION
-	Bind_var: STRING = "firstname"
-	...
-	create selection.make
-	selection.set_query ("Select * from CONTACTS where Firstname = ':" + Bind_var + "'")
+    selection: DB_SELECTION
+    Bind_var: STRING = "firstname"
+
+                ...
+
+            create selection.make
+            selection.set_query ("Select * from CONTACTS where Firstname = ':" + Bind_var + "'")
 </code>
 
 {{note|The code example shows how to bind variables to a [[ref:/libraries/store/reference/db_selection_chart|DB_SELECTION]]  object but the mechanism is exactly the same for [[ref:/libraries/store/reference/db_change_chart|DB_CHANGE]]  objects. }}
@@ -28,16 +30,18 @@ Variables syntax is simple: the ':' special character followed by the variable n
 
 Once you have created your query, you can map variable names to values and execute the query:
 <code>
-	selection: DB_SELECTION
-	Bind_var: STRING is "firstname"
-	...
-	loop
-		io.read_line
-		selection.set_map_name (io.laststring, Bind_var)
-		selection.execute_query
-		...
-		selection.unset_map_name (Bind_var)
-	end
+    selection: DB_SELECTION
+    Bind_var: STRING is "firstname"
+
+                ...
+
+            loop
+                io.read_line
+                selection.set_map_name (io.laststring, Bind_var)
+                selection.execute_query
+                    ...
+                selection.unset_map_name (Bind_var)
+            end
 </code>
 
 {{seealso|<br/>
