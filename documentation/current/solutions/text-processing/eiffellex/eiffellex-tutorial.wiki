@@ -227,6 +227,7 @@ The Lex library supports a powerful set of construction mechanisms for describin
 Let us now study the format of regular expressions. This format is used in particular for the lexical grammar files needed by class [[ref:/libraries/lex/reference/scanning_chart|SCANNING]]  and (as seen below) by procedure <eiffel>read_grammar</eiffel> of class [[ref:/libraries/lex/reference/metalex_chart|METALEX]] . The ''eiffel_regular'' grammar file in the examples directory provides an extensive example. 
 
 Each regular expression denotes a set of tokens. For example, the first regular expression seen above, <br/>
+
 <code>
             '0'..'9'
 </code>
@@ -299,7 +300,7 @@ Concatenations may be inconvenient when the concatenated elements are simply cha
 
 More generally, a string is written "a <code>1</code> a <code>2</code> ... a <code>n</code>" for ''n >= 0'', where the "a <code>i</code>" are characters, and is an abbreviation for the concatenation 'a <code>1</code>' 'a <code>2</code>' ... 'a <code>n</code>', representing a set containing a single token. In a string, the double quote character " is written \" and the backslash character \ is written \\. No other special characters are permitted; if you need special characters, use explicit concatenation. As a special case, "" represents the set containing a single empty token. 
 
-A union, writtenexp <code>1</code> | exp <code>2</code> | ... | exp <code>n</code>, describes the set of tokens which are specimens of exp <code>1</code>, or of exp <code>2</code>, etc. For example, the union ''('a'..'z') | ('A'..'Z')'' describes the set of single-letter tokens (lower-case or upper-case). 
+A union, written exp <code>1</code> | exp <code>2</code> | ... | exp <code>n</code>, describes the set of tokens which are specimens of exp <code>1</code>, or of exp <code>2</code>, etc. For example, the union ''('a'..'z') | ('A'..'Z')'' describes the set of single-letter tokens (lower-case or upper-case). 
 
 ===Predefined expressions===
 
