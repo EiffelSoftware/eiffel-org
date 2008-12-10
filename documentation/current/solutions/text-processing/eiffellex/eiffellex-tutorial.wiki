@@ -96,14 +96,15 @@ Class [[ref:/libraries/lex/reference/scanning_chart|SCANNING]]  may be used as a
 ===The build procedure===
 
 To obtain a lexical analyzer in a descendant of class [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] , use the procedure
-<code>	build (store_file_name, grammar_file_name: STRING)</code>
+<code>
+    build (store_file_name, grammar_file_name: STRING)</code>
 
-If no file of name <code> store_file_name </code> exists, then build reads the lexical grammar from the file of name <code> grammar_file_name </code>, builds the corresponding lexical analyzer, and stores it into <code> store_file_name </code>. 
+If no file of name <code>store_file_name</code> exists, then <eiffel>build</eiffel> reads the lexical grammar from the file of name <code>grammar_file_name</code>, builds the corresponding lexical analyzer, and stores it into <code>store_file_name</code>. 
 
-If there already exists a file of name <code> grammar_file_name </code>, build uses it to recreate an analyzer without using the <code> grammar_file_name </code>. 
+If there already exists a file of name <code>grammar_file_name</code>, <eiffel>build</eiffel> uses it to recreate an analyzer without using the <code> grammar_file_name </code>. 
 ===Lexical grammar files===
 
-A lexical grammar file (to be used as second argument to build, corresponding to <code> grammar_file_name </code>) should conform to a simple structure, of which the file ''eiffel_regular'' in the examples directory provides a good illustration. 
+A lexical grammar file (to be used as second argument to <eiffel>build</eiffel>, corresponding to <code>grammar_file_name</code>) should conform to a simple structure, of which the file ''eiffel_regular'' in the examples directory provides a good illustration. 
 
 Here is the general form:
 <code>
@@ -141,7 +142,7 @@ Once <eiffel>build</eiffel> has given you an analyzer, you may use it to analyze
 <code>
             analyze (input_file_name: STRING)</code>
 
-This will read in and process successive input tokens. Procedure analyze will apply to each of these tokens the action of procedure do_a_token. As defined in SCANNING, this procedure prints out information on the token: its string value, its type, whether it is a keyword and if so its code. You may redefine it in any descendant class so as to perform specific actions on each token.
+This will read in and process successive input tokens. Procedure <eiffel>analyze</eiffel> will apply to each of these tokens the action of procedure <eiffel>do_a_token</eiffel>. As defined in SCANNING, this procedure prints out information on the token: its string value, its type, whether it is a keyword and if so its code. You may redefine it in any descendant class so as to perform specific actions on each token.
 
 The initial action <eiffel>begin_analysis</eiffel>, which by default prints a header, and the terminal action <eiffel>end_analysis</eiffel>, which by default does nothing, may also be redefined.
 
@@ -153,9 +154,9 @@ Let us look more precisely at how we can use a lexical analyzer to analyze an in
 
 ===Class LEXICAL===
 
-Procedure analyze takes care of the most common needs of lexical analysis. But if you need more advanced lexical analysis facilities you will need an instance of class [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]]  (a direct instance of [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]]  itself or of one of its proper descendants). If you are using class [[ref:/libraries/lex/reference/scanning_chart|SCANNING]]  as described above, you will have access to such an instance through the attribute analyzer.
+Procedure <eiffel>analyze</eiffel> takes care of the most common needs of lexical analysis. But if you need more advanced lexical analysis facilities you will need an instance of class [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]]  (a direct instance of [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]]  itself or of one of its proper descendants). If you are using class [[ref:/libraries/lex/reference/scanning_chart|SCANNING]]  as described above, you will have access to such an instance through the attribute <eiffel>analyzer</eiffel>.
 
-This discussion will indeed assume that you have an entity attached to an instance of [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]] . The name of that entity is assumed to be analyzer, although it does not need to be the attribute from [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] . You can apply to that analyzer the various exported features features of class [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]] , explained below. All the calls described below should use analyzer as their target, as in
+This discussion will indeed assume that you have an entity attached to an instance of [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]] . The name of that entity is assumed to be <eiffel>analyzer</eiffel>, although it does not need to be the attribute from [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] . You can apply to that <eiffel>analyzer</eiffel> the various exported features features of class [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]] , explained below. All the calls described below should use <eiffel>analyzer</eiffel> as their target, as in
 <code>
             analyzer.set_file ("my_file_name")
 </code>
@@ -172,7 +173,7 @@ You may also retrieve an analyzer from a previous session. [[ref:/libraries/lex/
             analyzer ?= retrieved
 </code>
 
-If you do not want to make the class a descendant of [[ref:/libraries/base/reference/storable_chart|STORABLE]] , use the creation procedure make of [[ref:libraries/lex/reference/lexical_chart|LEXICAL]] , not to be confused with make_new above:
+If you do not want to make the class a descendant of [[ref:/libraries/base/reference/storable_chart|STORABLE]] , use the creation procedure <eiffel>make</eiffel> of [[ref:libraries/lex/reference/lexical_chart|LEXICAL]] , not to be confused with <eiffel>make_new</eiffel> above:
 <code>
             create analyzer.make
             analyzer ?= analyzer.retrieved
@@ -182,20 +183,20 @@ If you do not want to make the class a descendant of [[ref:/libraries/base/refer
 
 To analyze a text, call <eiffel>set_file </eiffel>or <eiffel>set_string </eiffel>to specify the document to be parsed. With the first call, the analysis will be applied to a file; with the second, to a string.
 
-{{note|if you use procedure analyze of [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] , you do not need any such call, since analyze calls set_file on the file name passed as argument. }}
+{{note|if you use procedure <eiffel>analyze</eiffel> of [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] , you do not need any such call, since <eiffel>analyze</eiffel> calls <eiffel>set_file</eiffel> on the file name passed as argument. }}
 
 ===Obtaining the tokens===
 
-The basic procedure for analyzing successive tokens in the text is get_token, which reads in one token and sets up various attributes of the analyzer to record properties of that token:
+The basic procedure for analyzing successive tokens in the text is <eiffel>get_token</eiffel>, which reads in one token and sets up various attributes of the analyzer to record properties of that token:
 * <eiffel>last_token</eiffel>, a function of type [[ref:/libraries/lex/reference/token_chart|TOKEN]] , which provides all necessary information on the last token read.
 * <eiffel>token_line_number</eiffel> and<eiffel> token_column_number</eiffel>, to know where the token is in the text. These queries return results of type <eiffel>INTEGER</eiffel>.
-* <eiffel>token_type</eiffel>, giving the regular expression type, identified by its integer number (which is the value No_token if no correct token was recognized).
-* <eiffel>other_possible_tokens</eiffel>, an array giving all the other possible token types of the last token. (If token_type is No_token the array is empty.)
-* <eiffel>end_of_text</eiffel>, a boolean attribute used to record whether the end of text has been reached. If so, subsequent calls to get_token will have no effect.
+* <eiffel>token_type</eiffel>, giving the regular expression type, identified by its integer number (which is the value <eiffel>No_token</eiffel> if no correct token was recognized).
+* <eiffel>other_possible_tokens</eiffel>, an array giving all the other possible token types of the last token. (If <eiffel>token_type</eiffel> is <eiffel>No_token</eiffel> the array is empty.)
+* <eiffel>end_of_text</eiffel>, a boolean attribute used to record whether the end of text has been reached. If so, subsequent calls to <eiffel>get_token</eiffel> will have no effect.
 
-Procedure <eiffel>get_token</eiffel> recognizes the longest possible token. So if <, = and <= are all regular expressions in the grammar, the analyzer recognizes <= as one token, rather than < followed by =. You can use other_possible_tokens to know what shorter tokens were recognized but not retained.
+Procedure <eiffel>get_token</eiffel> recognizes the longest possible token. So if <, = and <= are all regular expressions in the grammar, the analyzer recognizes <= as one token, rather than < followed by =. You can use <eiffel>other_possible_tokens</eiffel> to know what shorter tokens were recognized but not retained.
 
-If it fails to recognize a regular expression, get_token sets token_type to No_token and advances the input cursor by one character.
+If it fails to recognize a regular expression, <eiffel>get_token</eiffel> sets <eiffel>token_type</eiffel> to <eiffel>No_token</eiffel> and advances the input cursor by one character.
 
 ===The basic scheme===
 
@@ -217,7 +218,7 @@ Here is the most common way of using the preceding facilities:
             end_analysis
 </code>
 
-This scheme is used by procedure analyze of class [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] , so that in standard cases you may simply inherit from that class and redefine procedures begin_analysis, do_a_token and end_analysis. If you are not inheriting from [[ref:libraries/lex/reference/scanning_chart|SCANNING]] , these names simply denote procedures that you must provide.
+This scheme is used by procedure <eiffel>analyze</eiffel> of class [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] , so that in standard cases you may simply inherit from that class and redefine procedures <eiffel>begin_analysis</eiffel>, <eiffel>do_a_token</eiffel>, and <eiffel>end_analysis</eiffel>. If you are not inheriting from [[ref:libraries/lex/reference/scanning_chart|SCANNING]] , these names simply denote procedures that you must provide.
 
 ==REGULAR EXPRESSIONS==
 
@@ -234,7 +235,7 @@ denotes a set of ten tokens, each consisting of a single digit.
 
 ===Basic expressions===
 
-A character expression, written '''character''' where ''character'' is a single character, describes a set of tokens with just one element: the one-character token character. For example, '''0''' describes the set containing the single-digit single token ''0''. 
+A character expression, written '' 'character' '' where ''character'' is a single character, describes a set of tokens with just one element: the one-character token character. For example, '' '0' '' describes the set containing the single-digit single token ''0''. 
 
 Cases in which character is not a printable character use the following conventions: 
 {| border="1" 
@@ -270,13 +271,13 @@ Cases in which character is not a printable character use the following conventi
 
 ===Intervals===
 
-An interval, written ''lower..upper'' where ''lower'' and ''upper'' are character expressions, describes a set of one-character tokens: all the characters whose ASCII code is between the codes for the characters in ''lower'' and ''upper''. For example, '''0'..'9''' contains all tokens made of a single decimal digit. 
+An interval, written ''lower..upper'' where ''lower'' and ''upper'' are character expressions, describes a set of one-character tokens: all the characters whose ASCII code is between the codes for the characters in ''lower'' and ''upper''. For example, '' '0'..'9' '' contains all tokens made of a single decimal digit. 
 
 ===Basic operator expressions===
 
-A parenthesized expression, written ( ''exp'') where ''exp'' is a regular expression, describes the same set of tokens as ''exp''. This serves to remove ambiguities in complex regular expressions. For example, the parenthesized expression ( '''0'..'9''') also describes all single-decimal-digit tokens. 
+A parenthesized expression, written (''exp'') where ''exp'' is a regular expression, describes the same set of tokens as ''exp''. This serves to remove ambiguities in complex regular expressions. For example, the parenthesized expression ('' '0'..'9' '') also describes all single-decimal-digit tokens. 
 
-A difference, written ''interval - char'', where ''interval'' is an interval expression and ''char'' is a character expression, describes the set of tokens which are in ''exp'' but not in ''char''. For example, the difference '''0'..'9' - '4''' describes all single-decimal-digit tokens except those made of the digit 4. 
+A difference, written ''interval - char'', where ''interval'' is an interval expression and ''char'' is a character expression, describes the set of tokens which are in ''exp'' but not in ''char''. For example, the difference '' '0'..'9' - '4' '' describes all single-decimal-digit tokens except those made of the digit 4. 
 
 {{caution|A difference may only apply to an interval and a single character. }}
 
@@ -287,18 +288,18 @@ An unbounded iteration, written ''*exp'' or ''+exp'' where ''exp'' is a regular 
 A fixed iteration, written ''n exp'' where ''n'' is a natural integer constant and ''exp'' is a regular expression, describes the set of tokens made of sequences of exactly ''n'' specimens of ''exp''. For example, ''3 ('A'..'Z')'' describes the set of all three-letter upper-case tokens. 
 ===Other operator expressions===
 
-A concatenation, writtenexp <code>1</code> exp <code>2</code> ... exp <code>n</code>, describes the set of tokens made of a specimen of exp <code>1</code> followed by a specimen of exp <code>2</code> etc. For example, the concatenation '''1'..'9' * ('0'..'9')'' describes the set of tokens made of one or more decimal digits, not beginning with a zero - in other words, integer constants in the usual notation. 
+A concatenation, written exp <code>1</code> exp <code>2</code> ... exp <code>n</code>, describes the set of tokens made of a specimen of exp <code>1</code> followed by a specimen of exp <code>2</code> etc. For example, the concatenation '' '1'..'9' * ('0'..'9')'' describes the set of tokens made of one or more decimal digits, not beginning with a zero - in other words, integer constants in the usual notation. 
 
 An optional component, written ''[exp]'' where ''exp'' is a regular expression, describes the set of tokens that includes the empty token and all specimens of ''exp''. Optional components usually appear in concatenations. 
 
-Concatenations may be inconvenient when the concatenated elements are simply characters, as in '''A' ' ' 'T' 'e' 'x' 't'''. In this case you may use a '''string''' in double quotes, as in <br/>
-<code>    "A Text"</code>
+Concatenations may be inconvenient when the concatenated elements are simply characters, as in '' 'A' ' ' 'T' 'e' 'x' 't' ''. In this case you may use a '''string''' in double quotes, as in <br/>
+<code>
+    "A Text"</code>
 
 
-More generally, a string is written"a <code>1</code> a <code>2</code> ... a <code>n</code>"for ''n >= 0'', where thea <code>i</code> are characters, and is an abbreviation for the concatenation 'a <code>1</code>' 'a <code>2</code>' ... 'a <code>n</code>' 
-, representing a set containing a single token. In a string, the double quote character " is written \" and the backslash character \ is written \\. No other special characters are permitted; if you need special characters, use explicit concatenation. As a special case, "" represents the set containing a single empty token. 
+More generally, a string is written "a <code>1</code> a <code>2</code> ... a <code>n</code>" for ''n >= 0'', where the "a <code>i</code>" are characters, and is an abbreviation for the concatenation 'a <code>1</code>' 'a <code>2</code>' ... 'a <code>n</code>', representing a set containing a single token. In a string, the double quote character " is written \" and the backslash character \ is written \\. No other special characters are permitted; if you need special characters, use explicit concatenation. As a special case, "" represents the set containing a single empty token. 
 
-A union, writtenexp <code>1</code> | exp <code>2</code> | ... | exp <code>n</code>, describes the set of tokens which are specimens ofexp <code>1</code>, or ofexp <code>2</code> etc. For example, the union ''('a'..'z') | ('A'..'Z')'' describes the set of single-letter tokens (lower-case or upper-case). 
+A union, writtenexp <code>1</code> | exp <code>2</code> | ... | exp <code>n</code>, describes the set of tokens which are specimens of exp <code>1</code>, or of exp <code>2</code>, etc. For example, the union ''('a'..'z') | ('A'..'Z')'' describes the set of single-letter tokens (lower-case or upper-case). 
 
 ===Predefined expressions===
 
@@ -402,7 +403,7 @@ BOOLEAN
 
 ===Case sensitivity===
 
-By default, letter case is not significant for regular expressions and keywords. So if ''yes'' matches a token type defined by a regular expression, or is a keyword, the input values ''Yes'', ''yEs'' and ''yES'' will all yield the same token or keyword. This also means that '''a'..'z''' and '''a'..'z' | 'A'..'Z''' describe the same set of tokens. 
+By default, letter case is not significant for regular expressions and keywords. So if ''yes'' matches a token type defined by a regular expression, or is a keyword, the input values ''Yes'', ''yEs'' and ''yES'' will all yield the same token or keyword. This also means that '' 'a'..'z' '' and '' 'a'..'z' | 'A'..'Z' '' describe the same set of tokens. 
 
 The regular expression syntax introduced above offers a special notation to specify that a particular expression is case-sensitive: ''~exp'', where ''exp'' is a regular expression. For example, ''~('A'..'Z')'' only covers single-upper-case-letter tokens. But for all other kinds of expression letter case is not taken into account. 
 
