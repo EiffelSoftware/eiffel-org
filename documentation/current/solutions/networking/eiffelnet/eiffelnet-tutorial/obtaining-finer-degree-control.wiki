@@ -107,7 +107,7 @@ feature
                 our_new_list.forth
             end 
             our_new_list.extend ("%N I'm back.%N") 
-            our_new_list.general_store (soc2) 
+            our_new_list.independent_store (soc2) 
             soc2.close
         end
 	
@@ -151,7 +151,7 @@ feature
             create our_list.make
             our_list.extend("This"); our_list.extend (" is") 
             our_list.extend (" our"); our_list.extend (" test") 
-            our_list.general_store (soc1) 
+            our_list.independent_store (soc1) 
             our_new_list ?= soc1.retrieved
             from 
                 our_new_list.start
