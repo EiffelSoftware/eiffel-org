@@ -72,7 +72,7 @@ A lexical analyzer built through any of the techniques described in the rest of 
 * <eiffel>string_value</eiffel>: a string giving the token's contents.
 * <eiffel>type</eiffel>: an integer giving the code of the token's type. The possible token types and associated integer codes are specified during the process of building the lexical analyzer in one of the ways described below.
 * <eiffel>is_keyword</eiffel>: a boolean indicating whether the token is a keyword.
-* <eiffel>keyword_code</eiffel>: an integer, meaningful only if is_keyword is true, and identifying the keyword by the code that was given to it during the process of building the analyzer.
+* <eiffel>keyword_code</eiffel>: an integer, meaningful only if <eiffel>is_keyword</eiffel> is <eiffel>True</eiffel>, and identifying the keyword by the code that was given to it during the process of building the analyzer.
 * <eiffel>line_number</eiffel>, <eiffel>column_number</eiffel>: two integers indicating where the token appeared in the input text.
 
 ==BUILDING AND USING LEXICAL ANALYZERS==
@@ -101,7 +101,7 @@ To obtain a lexical analyzer in a descendant of class [[ref:/libraries/lex/refer
 
 If no file of name <code>store_file_name</code> exists, then <eiffel>build</eiffel> reads the lexical grammar from the file of name <code>grammar_file_name</code>, builds the corresponding lexical analyzer, and stores it into <code>store_file_name</code>. 
 
-If there already exists a file of name <code>grammar_file_name</code>, <eiffel>build</eiffel> uses it to recreate an analyzer without using the <code> grammar_file_name </code>. 
+If there already exists a file of name <code>grammar_file_name</code>, <eiffel>build</eiffel> uses it to recreate an analyzer without using the <code>grammar_file_name </code>. 
 ===Lexical grammar files===
 
 A lexical grammar file (to be used as second argument to <eiffel>build</eiffel>, corresponding to <code>grammar_file_name</code>) should conform to a simple structure, of which the file ''eiffel_regular'' in the examples directory provides a good illustration. 
@@ -181,7 +181,7 @@ If you do not want to make the class a descendant of [[ref:/libraries/base/refer
 
 ===Choosing a document===
 
-To analyze a text, call <eiffel>set_file </eiffel>or <eiffel>set_string </eiffel>to specify the document to be parsed. With the first call, the analysis will be applied to a file; with the second, to a string.
+To analyze a text, call <eiffel>set_file</eiffel> or <eiffel>set_string</eiffel> to specify the document to be parsed. With the first call, the analysis will be applied to a file; with the second, to a string.
 
 {{note|if you use procedure <eiffel>analyze</eiffel> of [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] , you do not need any such call, since <eiffel>analyze</eiffel> calls <eiffel>set_file</eiffel> on the file name passed as argument. }}
 
@@ -227,6 +227,7 @@ The Lex library supports a powerful set of construction mechanisms for describin
 Let us now study the format of regular expressions. This format is used in particular for the lexical grammar files needed by class [[ref:/libraries/lex/reference/scanning_chart|SCANNING]]  and (as seen below) by procedure <eiffel>read_grammar</eiffel> of class [[ref:/libraries/lex/reference/metalex_chart|METALEX]] . The ''eiffel_regular'' grammar file in the examples directory provides an extensive example. 
 
 Each regular expression denotes a set of tokens. For example, the first regular expression seen above, <br/>
+
 
 <code>
             '0'..'9'
@@ -477,16 +478,16 @@ To perform steps 2 to 4 in a single shot and generate a lexical analyzer from a 
             read_grammar (grammar_file_name: STRING)
 </code>
 
-In this case all the expressions and keywords are taken from the file of name <code>grammar_file_name</code> rather than passed explicitly as arguments to the procedures of the class. You do not need to call make_analyzer, since read_grammar includes such a call. 
+In this case all the expressions and keywords are taken from the file of name <code>grammar_file_name</code> rather than passed explicitly as arguments to the procedures of the class. You do not need to call <eiffel>make_analyzer</eiffel>, since <eiffel>read_grammar</eiffel> includes such a call. 
 
-The rest of this discussion assumes that the four steps are executed individually as shown above, rather than as a whole using read_grammar. 
+The rest of this discussion assumes that the four steps are executed individually as shown above, rather than as a whole using <eiffel>read_grammar</eiffel>. 
 ===Recording token types and regular expressions===
 
 As shown by the example, each token type, defined by a regular expression, must be assigned an integer code. Here the developer has chosen to use Unique constant values so as not to worry about selecting values for these codes manually, but you may select any values that are convenient or mnemonic. The values have no effect other than enabling you to keep track of the various lexical categories. Rather than using literal values directly, it is preferable to rely on symbolic constants, Unique or not, which will be more mnemonic.
 
-Procedure put_expression records a regular expression. The first argument is the expression itself, given as a string built according to the rules seen earlier in this chapter. The second argument is the integer code for the expression. The third argument is a string which gives a name identifying the expression. This is useful mostly for debugging purposes; there is also a procedure put_nameless_expression which does not have this argument and is otherwise identical to put_expression.
+Procedure <eiffel>put_expression</eiffel> records a regular expression. The first argument is the expression itself, given as a string built according to the rules seen earlier in this chapter. The second argument is the integer code for the expression. The third argument is a string which gives a name identifying the expression. This is useful mostly for debugging purposes; there is also a procedure <eiffel>put_nameless_expression</eiffel> which does not have this argument and is otherwise identical to <eiffel>put_expression</eiffel>.
 
-Procedure dollar_w corresponds to the '''$W''' syntax for regular expressions. Here an equivalent call would have been 
+Procedure <eiffel>dollar_w</eiffel> corresponds to the '''$W''' syntax for regular expressions. Here an equivalent call would have been 
 <code>
             put_nameless_expression ( "$W" ,Word ) 
 </code>
@@ -498,10 +499,10 @@ The calls seen so far record a number of regular expressions and keywords, but d
             make_analyzer
 </code>
 
-After that call, you may not record any new regular expression or keyword. The analyzer is usable through attribute analyzer. 
-{{note|for readers knowledgeable in the theory of lexical analysis: one of the most important effects of the call to make_analyzer is to transform the non-deterministic finite automaton resulting from calls such as the ones above into a deterministic finite automaton. }}
+After that call, you may not record any new regular expression or keyword. The analyzer is usable through attribute <eiffel>analyzer</eiffel>. 
+{{note|for readers knowledgeable in the theory of lexical analysis: one of the most important effects of the call to <eiffel>make_analyzer</eiffel> is to transform the non-deterministic finite automaton resulting from calls such as the ones above into a deterministic finite automaton. }}
 
-Remember that if you use procedure read_grammar, you need not worry about make_analyzer, as the former procedure calls the latter. 
+Remember that if you use procedure <eiffel>read_grammar</eiffel>, you need not worry about <eiffel>make_analyzer</eiffel>, as the former procedure calls the latter. 
 Another important feature of class [[ref:/libraries/lex/reference/metalex_chart|METALEX]]  is procedure <eiffel>store_analyzer</eiffel>, which stores the analyzer into a file whose name is passed as argument, for use by later lexical analysis sessions. To retrieve the analyzer, simply use procedure <eiffel>retrieve_analyzer</eiffel>, again with a file name as argument.
 
 ==BUILDING A LEXICAL ANALYZER WITH LEX_BUILDER==
@@ -532,12 +533,17 @@ The following extract from a typical descendant of [[ref:/libraries/lex/referenc
 
     build_identifier
         do
-            interval ('a',  'z'); Letter := last_created_tool
-            interval ('0',  '9'); Digit := last_created_tool
-            interval ('_', '_'); Underlined := last_created_tool
-            union (Digit, Underlined);
-            Suffix := last_created_tooliteration (Suffix);
-            Suffix_list := last_created_toolappend (Letter, Suffix_list);
+            interval ('a',  'z')
+            Letter := last_created_tool
+            interval ('0',  '9')
+            Digit := last_created_tool
+            interval ('_', '_')
+            Underlined := last_created_tool
+            union (Digit, Underlined)
+            Suffix := last_created_tool
+            iteration (Suffix)
+            Suffix_list := last_created_tool
+            append (Letter, Suffix_list)
             Identifier := last_created_tool
         end
 </code>
@@ -547,7 +553,7 @@ Each token type is characterized by a number in the tool_list. Each tool has a n
 
 In the preceding example, only some of the tools, such as <eiffel>Identifier</eiffel>, are of interest to the clients. Others, such as <eiffel>Suffix</eiffel> and <eiffel>Suffix_list</eiffel>, only play an auxiliary role. 
 
-When you create a tool, it is by default invisible to clients. To make it visible, use procedure <eiffel>select_tool</eiffel>. Clients will need a number identifying it; to set this number, use procedure<eiffel> associate</eiffel>. For example the above extract may be followed by:
+When you create a tool, it is by default invisible to clients. To make it visible, use procedure <eiffel>select_tool</eiffel>. Clients will need a number identifying it; to set this number, use procedure <eiffel>associate</eiffel>. For example the above extract may be followed by:
 <code>
             select_tool (Identifier)
             associate (Identifier, 34)
@@ -556,7 +562,7 @@ When you create a tool, it is by default invisible to clients. To make it visibl
             put_keyword ("feature", Identifier)
 </code>
 
-If the analysis encounters a token that belongs to two or more different selected regular expressions, the one entered last takes over. Others are recorded in the array<eiffel> other_possible_tokens</eiffel>.
+If the analysis encounters a token that belongs to two or more different selected regular expressions, the one entered last takes over. Others are recorded in the array <eiffel>other_possible_tokens</eiffel>.
 
 If you do not explicitly give an integer value to a regular expression, its default value is its rank in <eiffel>tool_list</eiffel>.
 

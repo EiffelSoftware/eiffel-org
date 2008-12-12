@@ -9,7 +9,7 @@ Many systems need to parse documents. The best-known examples are compilers, int
 
 This chapter describes the Parse library, which you can use to process documents of many different types. It provides a simple and flexible parsing scheme, resulting from the full application of object-oriented principles.
 
-Because it concentrates on the higher-level structure, the Parse library requires auxiliary mechanisms for identifying a document's lexical components: words, numbers and other such elementary units. To address this need it is recommended, although not required, to complement Parse with the Lex library studied in the previous chapter.
+Because it concentrates on the higher-level structure, the EiffelParse library requires auxiliary mechanisms for identifying a document's lexical components: words, numbers and other such elementary units. To address this need it is recommended, although not required, to complement EiffelParse with the EiffelLex library studied in the previous chapter.
 
 Figure 1 shows the inheritance structure of the classes discussed in this chapter.
 
@@ -17,37 +17,37 @@ Figure 1 shows the inheritance structure of the classes discussed in this chapte
 
 Figure 1: Parse class structure
 
-==WHY USE THE PARSE LIBRARY==
+==WHY USE THE EIFFELPARSE LIBRARY==
 
-Let us fist look at the circumstances under which you may want - or not want - to use the Parse library.
+Let us fist look at the circumstances under which you may want - or not want - to use the EiffelParse library.
 
-===The Parse library vs. parser generators===
+===The EiffelParse library vs. parser generators===
 
 Parsing is a heavily researched area of computing science and many tools are available to generate parsers. In particular, the popular Yacc tool, originally developed for Unix, is widely used to produce parsers.
 
 In some cases Yacc or similar tools are perfectly adequate. It is also sometimes desirable to write a special-purpose parser for a language, not relying on any parser generator. Several circumstances may, however, make the Parse library attractive:
 * The need to interface the parsing tasks with the rest of an object-oriented system (such as a compiler or more generally a "document processor" as defined below) in the simplest and most convenient way.
 * The desire to apply object-oriented principles as fully as possible to all aspects of a system, including parsing, so as to gain the method's many benefits, in particular reliability, reusability and extendibility.
-* The need to tackle languages whose structure is not easily reconciled with the demands of common parser generator, which usually require the grammar to be LALR (1). (The Parse library uses a more tolerant LL scheme, whose only significant constraint is absence of left-recursivity; the library provides mechanisms to detect this condition, which is easy to correct.)
+* The need to tackle languages whose structure is not easily reconciled with the demands of common parser generator, which usually require the grammar to be LALR (1). (The EiffelParse library uses a more tolerant LL scheme, whose only significant constraint is absence of left-recursivity; the library provides mechanisms to detect this condition, which is easy to correct.)
 * The need to define several possible semantic treatments on the same syntactic structure.
 
-The last reason may be the most significant practical argument in favor of using Parse. Particularly relevant is the frequent case of a software development environment in which a variety of tools all work on the same basic syntactic structure. For example an environment supporting a programming language such as Pascal or Eiffel may include a compiler, an interpreter, a pretty-printer, software documentation tools (such as Eiffel's short and flat-short facilities), browsing tools and several other mechanisms that all need to perform semantic actions on software texts that have the same syntactic structure. With common parser generators such as Yacc, the descriptions of syntactic structure and semantic processing are inextricably mixed, so that you normally need one new specification for each tool. This makes design, evolution and reuse of specifications difficult and error-prone.
+The last reason may be the most significant practical argument in favor of using EiffelParse. Particularly relevant is the frequent case of a software development environment in which a variety of tools all work on the same basic syntactic structure. For example an environment supporting a programming language such as Pascal or Eiffel may include a compiler, an interpreter, a pretty-printer, software documentation tools (such as Eiffel's short and flat-short facilities), browsing tools and several other mechanisms that all need to perform semantic actions on software texts that have the same syntactic structure. With common parser generators such as Yacc, the descriptions of syntactic structure and semantic processing are inextricably mixed, so that you normally need one new specification for each tool. This makes design, evolution and reuse of specifications difficult and error-prone.
 
-In contrast, the Parse library promotes a specification style whereby syntax and semantics are kept separate, and uses inheritance to allow many different semantic descriptions to rely on the same syntactic stem. This will make Parse particularly appropriate in such cases.
+In contrast, the EiffelParse library promotes a specification style whereby syntax and semantics are kept separate, and uses inheritance to allow many different semantic descriptions to rely on the same syntactic stem. This will make EiffelParse particularly appropriate in such cases.
 
 ===A word of caution===
 
-At the time of publication the Parse library has not reached the same degree of maturity as the other libraries presented in this book. It should thus be used with some care. You will find at the end of this chapter a few comments about the work needed to bring the library to its full realization.
+At the time of publication the EiffelParse library has not reached the same degree of maturity as the other libraries presented in this book. It should thus be used with some care. You will find at the end of this chapter a few comments about the work needed to bring the library to its full realization.
 
-==AIMS AND SCOPE OF THE PARSE LIBRARY==
+==AIMS AND SCOPE OF THE EIFFELPARSE LIBRARY==
 
-To understand the Parse library it is necessary to appreciate the role of parsing and its place in the more general task of processing documents of various kinds.
+To understand the EiffelParse library it is necessary to appreciate the role of parsing and its place in the more general task of processing documents of various kinds.
 
 ===Basic terminology===
 
 First, some elementary conventions. The word '''document''' will denote the texts to be parsed. The software systems which perform parsing as part of their processing will be called '''document processors'''. 
 
-Typical document processors are compilers, interpreters, program checkers, specification analyzers and documentation tools. For example the [BENCH] environment contains a number of document processors, used for compiling, documentation and browsing; the language to which they apply is either Eiffel itself or the Lace control language.
+Typical document processors are compilers, interpreters, program checkers, specification analyzers and documentation tools. For example the EiffelStudio environment contains a number of document processors, used for compiling, documentation and browsing.
 
 ===Parsing, grammars and semantics===
 
@@ -59,13 +59,13 @@ Parsing takes care of one of the basic tasks of a document processor: reconstruc
 
 Once parsing has reconstructed the structure of a document, the document processor will perform various operations on the basis of that structure. For example a compiler will generate target code corresponding to the original text; a command language interpreter will execute the operations requested in the commands; and a documentation tool such as the short and flat-short commands for Eiffel will produce some information on the parsed document. Such operations are called '''semantic actions'''. One of the principal requirements on a good parsing mechanism is that it should make it easy to graft semantics onto syntax, by adding semantic actions of many possible kinds to the grammar. 
 
-The Parse library provides predefined classes which handle the parsing aspect automatically and provide the hooks for adding semantic actions in a straightforward way. This enables developers to write full document processors - handling both syntax and semantics - simply and efficiently.
+The EiffelParse library provides predefined classes which handle the parsing aspect automatically and provide the hooks for adding semantic actions in a straightforward way. This enables developers to write full document processors - handling both syntax and semantics - simply and efficiently.
 
 As noted at the beginning of this chapter, it is possible to build a single syntactic base and use it for several processors (such as a compiler and a documentation tool) with semantically different goals, such as compilation and documentation. In the Parse library the semantic hooks take the form of deferred routines, or of routines with default implementations which you may redefine in descendants.
 
 ==LIBRARY CLASSES==
 
-The Parse library contains a small number of classes which cover common document processing applications. The classes, whose inheritance structure was shown at the beginning of this chapter, are:
+The EiffelParse library contains a small number of classes which cover common document processing applications. The classes, whose inheritance structure was shown at the beginning of this chapter, are:
 * [[ref:/libraries/parse/reference/construct_chart|CONSTRUCT]] , describing the general notion of syntactical construct.
 * [[ref:/libraries/parse/reference/aggregate_chart|AGGREGATE]] , describing constructs of the "aggregate" form.
 * [[ref:/libraries/parse/reference/choice_chart|CHOICE]] , describing constructs of the "choice" form.
@@ -76,8 +76,8 @@ The Parse library contains a small number of classes which cover common document
 * [[ref:/libraries/parse/reference/input_chart|INPUT]] , describing how to handle the input document.
 
 ==EXAMPLES==
-The EiffelStudio delivery includes (in the examples/library/parse subdirectory) a simple example using the Parse Library classes. The example is a processor for "documents" which describe computations involving polynomials with variables. The corresponding processor is a system which obtains polynomial specifications and variable values from a user, and computes the corresponding polynomials. 
-This example illustrates the most important mechanisms of the Parsing Library and provides a guide for using the facilities described in this chapter. The components of its grammar appear as illustrations in the next sections.
+The EiffelStudio delivery includes (in the examples/library/parse subdirectory) a simple example using the EiffelParse Library classes. The example is a processor for "documents" which describe computations involving polynomials with variables. The corresponding processor is a system which obtains polynomial specifications and variable values from a user, and computes the corresponding polynomials. 
+This example illustrates the most important mechanisms of the EiffelParse Library and provides a guide for using the facilities described in this chapter. The components of its grammar appear as illustrations in the next sections.
 
 ==CONSTRUCTS AND PRODUCTIONS==
 
@@ -85,7 +85,7 @@ A set of documents possessing common properties, such as the set of all valid Ei
 
 In addition to its lexical aspects, the description of a language includes both syntactic and semantic properties. The grammar - the syntactic specification - describes the structure of the language (for example how an Eiffel class is organized into a number of clauses); the semantic specification defines the meaning of documents written in the language (for example the run-time properties of instances of the class, and the effect of feature calls).
 
-To discuss the Parse library, it is simpler to consider "language' as a purely syntactic notion; in other words, a language is simply the set of documents conforming to a certain syntactic grammar (taken here to include the supporting lexical grammar). Any semantic aspect will be considered to belong to the province of a specific document processor for the language, although the technique used for specifying the grammar will make it easy to add the specification of the semantics, or several alternative semantic specifications if desired.
+To discuss the EiffelParse library, it is simpler to consider "language' as a purely syntactic notion; in other words, a language is simply the set of documents conforming to a certain syntactic grammar (taken here to include the supporting lexical grammar). Any semantic aspect will be considered to belong to the province of a specific document processor for the language, although the technique used for specifying the grammar will make it easy to add the specification of the semantics, or several alternative semantic specifications if desired.
 
 This section explains how you may define the syntactic base - the grammar.
 
@@ -100,7 +100,7 @@ Although some notations for syntax descriptions such as BNF allow more than one 
 * A terminal construct has no defining production. This means that it must be defined outside of the syntactical grammar. Terminals indeed come from the '''lexical grammar'''. Every terminal construct corresponds to a token type (regular expression or keyword) of the lexical grammar, for which the parsing duty will be delegated to lexical mechanisms, assumed in the rest of this chapter to be provided by the Lex library although others may be substituted if appropriate. 
 
 
-All specimens of terminal constructs are instances of class [[ref:/libraries/parse/reference/terminal_chart|TERMINAL]] . A special case is that of keyword constructs, which have a single specimen corresponding to a keyword of the language. For example, <code> if </code> is a keyword of Eiffel. Keywords are described by class [[ref:/libraries/parse/reference/keyword_chart|KEYWORD]] , an heir of [[ref:/libraries/parse/reference/terminal_chart|TERMINAL]] . 
+All specimens of terminal constructs are instances of class [[ref:/libraries/parse/reference/terminal_chart|TERMINAL]] . A special case is that of keyword constructs, which have a single specimen corresponding to a keyword of the language. For example, <code>if</code> is a keyword of Eiffel. Keywords are described by class [[ref:/libraries/parse/reference/keyword_chart|KEYWORD]] , an heir of [[ref:/libraries/parse/reference/terminal_chart|TERMINAL]] . 
 
 The rest of this section concentrates on the parsing-specific part: non-terminal constructs and productions. Terminals will be studied in the discussion of how to interface parsing with lexical analysis.
 
@@ -154,7 +154,7 @@ This grammar assumes a terminal Identifier, which must be defined as a token typ
 
 ==PARSING CONCEPTS==
 
-The Parse library supports a parsing mechanism based on the concepts of object-oriented software construction.
+The EiffelParse library supports a parsing mechanism based on the concepts of object-oriented software construction.
 
 ===Class CONSTRUCT===
 
@@ -162,13 +162,13 @@ The deferred class [[ref:/libraries/parse/reference/construct_chart|CONSTRUCT]] 
 
 Deferred though it may be, [[ref:/libraries/parse/reference/construct_chart|CONSTRUCT]]  defines some useful general patterns; for example, its procedure process appears as: <br/>
 <code>
-	parse
-	if parsed then
-	     semantics
-	end
+            parse
+            if parsed then
+                semantics
+            end
 </code>
 <br/>
-where procedures parse and semantics are expressed in terms of some more specific procedures, which are deferred. This defines a general scheme while leaving the details to descendants of the class. 
+where procedures <eiffel>parse</eiffel> and <eiffel>semantics</eiffel> are expressed in terms of some more specific procedures, which are deferred. This defines a general scheme while leaving the details to descendants of the class. 
 
 Such descendants, given in the library, are classes [[ref:/libraries/parse/reference/aggregate_chart|AGGREGATE]] , [[ref:/libraries/parse/reference/choice_chart|CHOICE]] , [[ref:/libraries/parse/reference/repetition_chart|REPETITION]]  and [[ref:/libraries/parse/reference/terminal_chart|TERMINAL]] . They describe the corresponding types of construct, with features providing the operations for parsing their specimens and applying the associated semantic actions.
 
@@ -194,28 +194,28 @@ As noted in the discussion of trees, class [[ref:/libraries/base/reference/two_w
 
 A construct class describes the syntax of a given construct through a function called production, which is a direct representation of the corresponding production. This function is declared in CONSTRUCT as
 <code>
-	production: LINKED_LIST [CONSTRUCT] is
-			-- Right-hand side of the production for the construct
-		deferred
-		end
+    production: LINKED_LIST [CONSTRUCT]
+            -- Right-hand side of the production for the construct
+        deferred
+        end
 </code>
 
-Function production remains deferred in classes [[ref:/libraries/parse/reference/aggregate_chart|AGGREGATE]] , [[ref:/libraries/parse/reference/choice_chart|CHOICE]]  and [[ref:/libraries/parse/reference/repetition_chart|REPETITION]] . Every effective construct class that you write must provide an effecting of that function. It is important for the efficiency of the parsing process that every effective version of production be a Once function. Several examples of such effectings are given below.
+Function production remains deferred in classes [[ref:/libraries/parse/reference/aggregate_chart|AGGREGATE]] , [[ref:/libraries/parse/reference/choice_chart|CHOICE]]  and [[ref:/libraries/parse/reference/repetition_chart|REPETITION]] . Every effective construct class that you write must provide an effecting of that function. It is important for the efficiency of the parsing process that every effective version of production be a <eiffel>once</eiffel> function. Several examples of such effectings are given below.
 
-Classes [[ref:/libraries/parse/reference/aggregate_chart|AGGREGATE]] , [[ref:/libraries/parse/reference/choice_chart|CHOICE]] , [[ref:/libraries/parse/reference/repetition_chart|REPETITION]]  and [[ref:/libraries/parse/reference/terminal_chart|TERMINAL]]  also have a deferred function construct_name of type STRING, useful for tracing and debugging. This function should be effected in every construct class to return the string name of the construct, such as "INSTRUCTION" or "CLASS" for construct classes in a grammar of Eiffel. For efficiency reasons, the construct_name function should also be a Once function. The form of such a function will always be the same, as illustrated by the following example which may appear in the construct class <eiffel>INSTRUCTION</eiffel> in a processor for Eiffel: 
+Classes [[ref:/libraries/parse/reference/aggregate_chart|AGGREGATE]] , [[ref:/libraries/parse/reference/choice_chart|CHOICE]] , [[ref:/libraries/parse/reference/repetition_chart|REPETITION]]  and [[ref:/libraries/parse/reference/terminal_chart|TERMINAL]]  also have a deferred function <eiffel>construct_name</eiffel> of type STRING, useful for tracing and debugging. This function should be effected in every construct class to return the string name of the construct, such as "INSTRUCTION" or "CLASS" for construct classes in a grammar of Eiffel. For efficiency reasons, the <eiffel>construct_name</eiffel> function should also be a <eiffel>once</eiffel> function. The form of such a function will always be the same, as illustrated by the following example which may appear in the construct class <eiffel>INSTRUCTION</eiffel> in a processor for Eiffel: 
 <code>
-	construct_name: STRING is
-			-- Symbolic name of the construct
-		once
-			Result := "INSTRUCTION"
-		end
+    construct_name: STRING
+            -- Symbolic name of the construct
+        once
+            Result := "INSTRUCTION"
+        end
 </code>
 
 The examples of the next few sections, which explain how to write construct classes, are borrowed from the small "Polynomial" language mentioned above, which may be found in the examples directory in the ISE Eiffel delivery. 
 
 ==PREPARING GRAMMARS==
 
-Having studied the Parse library principles, let us see how to write grammar productions for various kinds of construct. The main task is to write the production function for each construct class.
+Having studied the EiffelParse library principles, let us see how to write grammar productions for various kinds of construct. The main task is to write the production function for each construct class.
 
 The production function for a descendant of [[ref:/libraries/parse/reference/aggregate_chart|AGGREGATE]]  will describe how to build a specimen of the corresponding function from a sequence of specimens of each of the constituent constructs. Writing this function from the corresponding production is straightforward.
 
@@ -228,100 +228,100 @@ where Variables and Sum are other constructs, and the colon ":" is a terminal. T
 
 Here is the corresponding production function as it appears in class LINE:
 <code>
-	production: LINKED_LIST [CONSTRUCT] is
-		local
-			var: VARIABLES
-			sum: SUM
-		once
-			create Result.make
-			Result.forth
-			create var.make
-			put (var)
-			keyword (":")
-			create sum.make
-			put (sum)
-		end
+    production: LINKED_LIST [CONSTRUCT]
+        local
+            var: VARIABLES
+            sum: SUM
+        once
+            create Result.make
+            Result.forth
+            create var.make
+            put (var)
+            keyword (":")
+            create sum.make
+            put (sum)
+        end
 </code>
 
-As shown by this example, the production function for an aggregate construct class should declare a local entity (here <code> var </code> and <code> sum </code>) for each non-keyword component of the right-hand side, the type of each entity being the corresponding construct class (here VARIABLES and SUM). 
+As shown by this example, the production function for an aggregate construct class should declare a local entity (here <code>var</code> and <code>sum</code>) for each non-keyword component of the right-hand side, the type of each entity being the corresponding construct class (here VARIABLES and SUM). 
 
 The body of the function should begin with
 <code>
-	create Result.make
-	Result.forth
+            create Result.make
+            Result.forth
 </code>
-to create the object containing the result. Then for each non-keyword component, represented by the local entity <code> component </code> (this applies to <code> var </code> and <code> sum </code> in the example), there should be a sequence of two instructions, of the form 
+to create the object containing the result. Then for each non-keyword component, represented by the local entity <code>component</code> (this applies to <code>var</code> and <code>sum</code> in the example), there should be a sequence of two instructions, of the form 
 <code>
-	create component.make
-	put (component)
+            create component.make
+            put (component)
 </code>
 
 For any keyword of associated string ''symbol'', such as the colon ":" in the example, there should be a call to 
 <code>
-	keyword (symbol)
+            keyword (symbol)
 </code>
 
-The order of the various calls to put (for non-keywords) and keyword (for keywords) must be the order of the components in the production. Also, every <code>create</code> <code>component</code> <code>. </code>make instruction must occur before the corresponding call to put <code> ( </code> <code>symbol</code> <code> ) </code>. 
+The order of the various calls to <eiffel>put</eiffel> (for non-keywords) and <eiffel>keyword</eiffel> (for keywords) must be the order of the components in the production. Also, every <eiffel>create component.make</eiffel> instruction must occur before the corresponding call to <eiffel>put (symbol)</eiffel>. 
 
 All components in the above example are required. In the general case an aggregate production may have optional components. To signal that a component component of the right-hand side is optional, include a call of the form
 <code>
-	component.set_optional
+            component.set_optional
 </code>
 
-This call may appear anywhere after the corresponding <code> create </code> <code> component </code> instruction. The recommended place is just after the call to put, as in 
+This call may appear anywhere after the corresponding <eiffel>create component</eiffel> instruction. The recommended place is just after the call to <eiffel>put</eiffel>, as in 
 <code>
-	create component
-	put (symbol)
-	component.set_optional
+            create component
+            put (symbol)
+            component.set_optional
 </code>
 
 ===Choices===
 
-The production function for a descendant of <eiffel>CHOICE</eiffel> will describe how to build a specimen of the corresponding function as a specimen of one of the alternative constructs.
+The <eiffel>production</eiffel> function for a descendant of <eiffel>CHOICE</eiffel> will describe how to build a specimen of the corresponding function as a specimen of one of the alternative constructs.
 
-As an example, consider the production function of class <eiffel>TERM</eiffel> for the Polynomial example language. The corresponding production is
+As an example, consider the <eiffel>production</eiffel> function of class <eiffel>TERM</eiffel> for the Polynomial example language. The corresponding production is
 <code>
 Term [=] Simple_var Poly_integer Nested
 </code>
 <br/>
-where Simple_var, Poly_integer and Nested are other constructs. This means that every specimen of Term consists of one specimen of any one of these three constructs. Here is the corresponding production function as it appears in class <eiffel>TERM</eiffel>:
+where Simple_var, Poly_integer and Nested are other constructs. This means that every specimen of Term consists of one specimen of any one of these three constructs. Here is the corresponding <eiffel>production</eiffel> function as it appears in class <eiffel>TERM</eiffel>:
 <code>
-	production: LINKED_LIST [CONSTRUCT] is
-    		 local
-			id: SIMPLE_VAR
-			val: POLY_INTEGER
-			nest: NESTED
-		once
-			create Result.make
-			Result.forth
-			createid.make
-			put (id)
-			create val.make
-			put (val)
-			create nest.make
-			put (nest)
-		end
+    production: LINKED_LIST [CONSTRUCT]
+        local
+            id: SIMPLE_VAR
+            val: POLY_INTEGER
+            nest: NESTED
+        once
+            create Result.make
+            Result.forth
+            createid.make
+            put (id)
+            create val.make
+            put (val)
+            create nest.make
+            put (nest)
+        end
 </code>
 
-As shown by this example, the production function for a choice construct class must declare a local entity - here <code>id</code>, <code>val</code> and <code>nest</code> - for each alternative component of the right-hand side. The type of each entity is the corresponding construct class - here <eiffel>SIMPLE_VAR</eiffel>, <eiffel>POLY_INTEGER</eiffel> and <eiffel>NESTED</eiffel>. 
+As shown by this example, the <eiffel>production</eiffel> function for a choice construct class must declare a local entity - here <code>id</code>, <code>val</code> and <code>nest</code> - for each alternative component of the right-hand side. The type of each entity is the corresponding construct class - here <eiffel>SIMPLE_VAR</eiffel>, <eiffel>POLY_INTEGER</eiffel> and <eiffel>NESTED</eiffel>. 
 
 The body of the function must begin by
 <code>
-	create Result.make
-	Result.forth
+            create Result.make
+            Result.forth
 </code>
 
 Then for each alternative component represented by a local entity component (in the example this applies to <code>id</code>, <code>val</code> and <code>nest</code>) there should be two instructions of the form 
 <code>
-	create component.make
-	put (component)
+            create component.make
+            put (component)
 </code>
 
-{{caution|The order of the various calls to put is irrelevant in principle. When a document is parsed, however, the choices will be tried in the order given; so if you know that certain choices occur more frequently than others it is preferable to list them first to speed up the parsing process. }}
+{{caution|The order of the various calls to <eiffel>put</eiffel> is irrelevant in principle. When a document is parsed, however, the choices will be tried in the order given; so if you know that certain choices occur more frequently than others it is preferable to list them first to speed up the parsing process. }}
 
 ===Repetitions===
 
-The production function for a descendant of [[ref:/libraries/parse/reference/repetition_chart|REPETITION]]  will describe how to build a specimen of the corresponding function as a sequence or zero or more (or, depending on the grammar, one or more) specimens of the base construct. The class must also effect a feature separator of type <eiffel>STRING</eiffel>, usually as a constant attribute. (This feature is introduced as deferred in class [[ref:/libraries/parse/reference/repetition_chart|REPETITION]] .)
+The <eiffel>production</eiffel> function for a descendant of [[ref:/libraries/parse/reference/repetition_chart|REPETITION]]  will describe how to build a specimen of the corresponding function as a sequence or zero or more (or, depending on the grammar, one or more) specimens of the base construct. The class must also effect a feature <eiffel>separator</eiffel> of type <eiffel>STRING</eiffel>, usually as a constant attribute. (This feature is introduced as deferred in class [[ref:/libraries/parse/reference/repetition_chart|REPETITION]] .)
 
 As an example, consider the construct Variables in the Polynomial example language. The right-hand side of the corresponding production is <br/>
 <code>
@@ -330,24 +330,27 @@ Variables [=] {Identifier ";" ...}
 <br/>
 where Identifier is another construct, and the semicolon ";" is a terminal. This means that every specimen of Variables consists of zero or more specimens of Identifier, separated from each other (if more than one) by semicolons. 
 
-Here are the corresponding production function and separator attribute as they appear in class <eiffel>VARIABLES</eiffel>:
+Here are the corresponding <eiffel>production</eiffel> function and <eiffel>separator</eiffel> attribute as they appear in class <eiffel>VARIABLES</eiffel>:
 <code>
-	production: LINKED_LIST [IDENTIFIER] is
-		local
-			base: VAR
-		once
-			create Result.make
-			Result.forth
-			create base.make
-			put (base)
-		end
+    production: LINKED_LIST [IDENTIFIER]
+        local
+            base: VAR
+        once
+            create Result.make
+            Result.forth
+            create base.make
+            put (base)
+        end
+
+    separator: STRING = ";"
+
 </code>
 
-As shown by this example, function production is built along the same ideas as for aggregates and choices, except that here only one component, <code> base </code>, is required; its type must be the class corresponding to the construct serving as the base of the repetition, VAR in the example. 
+As shown by this example, function <eiffel>production</eiffel> is built along the same ideas as for aggregates and choices, except that here only one component, <code>base</code>, is required; its type must be the class corresponding to the construct serving as the base of the repetition, VAR in the example. 
 
 ==INTERFACE TO LEXICAL ANALYSIS==
 
-One more type of construct class remains to be discussed: terminal construct classes. Since terminal constructs serve to elevate lexical tokens (regular expressions and keywords) to the dignity of syntactical construct, we must first take a look at how the Parse library classes collaborate with their counterparts in the Lex library.
+One more type of construct class remains to be discussed: terminal construct classes. Since terminal constructs serve to elevate lexical tokens (regular expressions and keywords) to the dignity of syntactical construct, we must first take a look at how the EiffelParse library classes collaborate with their counterparts in the EiffelLex library.
 
 ===The notion of lexical interface class===
 
@@ -355,85 +358,85 @@ To parse a document, you need to get tokens from a lexical analyzer. This is ach
 
 The best technique is usually to write a class covering the lexical needs of the language at hand, from which all construct classes that have some lexical business will inherit. Such a class is called a lexical interface class.
 
-Lexical interface classes usually follow a common pattern. To take advantage of this uniformity, the Parse library includes a deferred class L_INTERFACE which describes that pattern. Specific lexical interface classes may be written as descendants of L_INTERFACE.
+Lexical interface classes usually follow a common pattern. To take advantage of this uniformity, the EiffelParse library includes a deferred class L_INTERFACE which describes that pattern. Specific lexical interface classes may be written as descendants of L_INTERFACE.
 
-L_INTERFACE is a simple deferred class, with a deferred procedure obtain_analyzer. It is an heir of METALEX. 
+L_INTERFACE is a simple deferred class, with a deferred procedure <eiffel>obtain_analyzer</eiffel>. It is an heir of METALEX. 
 ===Obtaining a lexical analyzer===
 
-An effective descendant of [[ref:/libraries/parse/reference/l_interface_chart|L_INTERFACE]]  must define procedure obtain_analyzer so that it records into the lexical analyzer the regular expressions and keywords of the language at hand. In writing obtain_analyzer you may use any one of three different techniques, each of which may be the most convenient depending on the precise context, to obtain the required lexical analyzer: 
-* You may build the lexical analyzer by defining its regular expressions one by one, using the procedures described in the presentation of METALEX, in particular put_expression and put_keyword.
-* You may use use procedure retrieve_analyzer from METALEX to retrieve an analyzer which a previous session saved into a file.
-* Finally, you may write a lexical grammar file (or reuse an existing one) and process it on the spot by using procedure read_grammar from METALEX.
+An effective descendant of [[ref:/libraries/parse/reference/l_interface_chart|L_INTERFACE]]  must define procedure <eiffel>obtain_analyzer</eiffel> so that it records into the lexical analyzer the regular expressions and keywords of the language at hand. In writing <eiffel>obtain_analyzer</eiffel> you may use any one of three different techniques, each of which may be the most convenient depending on the precise context, to obtain the required lexical analyzer: 
+* You may build the lexical analyzer by defining its regular expressions one by one, using the procedures described in the presentation of METALEX, in particular <eiffel>put_expression</eiffel> and <eiffel>put_keyword</eiffel>.
+* You may use use procedure <eiffel>retrieve_analyzer</eiffel> from METALEX to retrieve an analyzer which a previous session saved into a file.
+* Finally, you may write a lexical grammar file (or reuse an existing one) and process it on the spot by using procedure <eiffel>read_grammar</eiffel> from METALEX.
 
 
 ===A lexical interface class===
 
 An example of a lexical interface class is POLY_LEX for the Polynomial example language. Here is the complete text of that class:
 <code>
-	indexing
-	     description: "Lexical interface class for the Polynomial language"
+indexing
+    description: "Lexical interface class for the Polynomial language"
 
-	class
-	     POLY_LEX
+class
+    POLY_LEX
 
-	inherit
-	     L_INTERFACE
+inherit
+    L_INTERFACE
 
-	     CONSTANTS
-	           undefine
-	                 consistent,
-	                 copy,
-	                 is_equal,
-	                 setup
-	           end
+    CONSTANTS
+        undefine
+            consistent,
+            copy,
+            is_equal,
+            setup
+        end
 
-	feature {NONE}
+feature {NONE}
 
-	     obtain_analyzer is
-	                 -- Create lexical analyzer for the Polynomial language
-	           do
-	                 ignore_case
-	                 keywords_ignore_case
-	                 build_expressions
-	                 build_keywords
-	                 set_separator_type (blanks)
-	           end
+    obtain_analyzer
+            -- Create lexical analyzer for the Polynomial language
+        do
+            ignore_case
+            keywords_ignore_case
+            build_expressions
+            build_keywords
+            set_separator_type (blanks)
+        end
 
-	     build_expressions is
-	                 -- Define regular expressions
-	                 -- for the Polynomial language
-	           do
-	                 put_expression (special_expression, special, "Special")
-	                 put_expression ("*('a'..'z')", simple_identifier, "Simple_identifier")
-	                 put_expression ("+('0'..'9')", integer_constant, "Integer_constant")
-	                 put_expression ("+('\t'|'\n'|' ')", blanks, "Blanks")
-	           end
+    build_expressions
+            -- Define regular expressions
+            -- for the Polynomial language
+        do
+            put_expression (special_expression, special, "Special")
+            put_expression ("*('a'..'z')", simple_identifier, "Simple_identifier")
+            put_expression ("+('0'..'9')", integer_constant, "Integer_constant")
+            put_expression ("+('\t'|'\n'|' ')", blanks, "Blanks")
+        end
 
-	     special_expression: STRING is
-	                 -- Regular expression describing Special
-	           once
-	                 create Result.make (80)
-	                 Result.append ("('\050'..'\057')|")
-	                 Result.append ("('\072'..'\076')|")
-	                 Result.append ("'['|']'|'|'|'{'|'}'|%"->%"|%":=%"")
-	           end
+    special_expression: STRING
+            -- Regular expression describing Special
+        once
+            create Result.make (80)
+            Result.append ("('\050'..'\057')|")
+            Result.append ("('\072'..'\076')|")
+            Result.append ("'['|']'|'|'|'{'|'}'|%"->%"|%":=%"")
+        end
 
-	     build_keywords is
-	                 -- Define keywords (special symbols)
-	                 -- for the Polynomial language
-	           do
-	                 put_keyword ("+", special)
-	                 put_keyword ("-", special)
-	                 put_keyword (";", special)
-	                 put_keyword (":", special)
-	                 put_keyword ("(", special)
-	                 put_keyword (")", special)
-	                 put_keyword ("*", special)
-	           end
-	end
+    build_keywords
+            -- Define keywords (special symbols)
+            -- for the Polynomial language
+        do
+            put_keyword ("+", special)
+            put_keyword ("-", special)
+            put_keyword (";", special)
+            put_keyword (":", special)
+            put_keyword ("(", special)
+            put_keyword (")", special)
+            put_keyword ("*", special)
+        end
+end
 </code>
 
-This class illustrates the straightforward scheme for writing lexical interface classes. It introduces constants such as Special to represent the regular expressions supported, and effects procedure obtain_analyzer. The role of this procedure is to define lexical conventions (here through calls to ignore_case and keywords_ignore_case), to record the regular expressions (through calls to put_expression, packaged in a procedure build_expressions for clarity), and records the keywords (through calls to put_keyword, packaged in build_keywords).
+This class illustrates the straightforward scheme for writing lexical interface classes. It introduces constants such as Special to represent the regular expressions supported, and effects procedure <eiffel>obtain_analyzer</eiffel>. The role of this procedure is to define lexical conventions (here through calls to <eiffel>ignore_case</eiffel> and <eiffel>keywords_ignore_case</eiffel>), to record the regular expressions (through calls to <eiffel>put_expression</eiffel>, packaged in a procedure <eiffel>build_expressions</eiffel> for clarity), and records the keywords (through calls to <eiffel>put_keyword</eiffel>, packaged in <eiffel>build_keywords</eiffel>).
 
 All the classes of a document processor that need to interact with the lexical analysis should inherit from a lexical interface class such as <eiffel>POLY_LEX</eiffel>. This is true in particular of the root class of a processor, as discussed below.
 
@@ -441,43 +444,43 @@ All the classes of a document processor that need to interact with the lexical a
 
 Terminal construct classes are examples of classes that need to interact with the lexical analysis, and should thus inherit from the lexical interface class.
 
-Class <eiffel>TERMINAL</eiffel> includes a deferred function token_type of type <eiffel>INTEGER</eiffel>. Every effective descendant of <eiffel>TERMINAL</eiffel> should effect this feature as a constant attribute, whose value is the code for the associated regular expression, obtained from the lexical interface class. As every other construct class, such a descendant should also effect construct_name as a Once function. For example, in the Polynomial language, class <eiffel>INT_CONSTANT</eiffel> has the following text:
+Class <eiffel>TERMINAL</eiffel> includes a deferred function <eiffel>token_type</eiffel> of type <eiffel>INTEGER</eiffel>. Every effective descendant of <eiffel>TERMINAL</eiffel> should effect this feature as a constant attribute, whose value is the code for the associated regular expression, obtained from the lexical interface class. As every other construct class, such a descendant should also effect <eiffel>construct_name</eiffel> as a <eiffel>once</eiffel> function. For example, in the Polynomial language, class <eiffel>INT_CONSTANT</eiffel> has the following text:
 <code>
-	class
-	     INT_CONSTANT
+class
+    INT_CONSTANT
 
-	inherit
-	     TERMINAL
+inherit
+    TERMINAL
 
-	     CONSTANTS
+    CONSTANTS
 
-	feature
+feature
 
-	     token_type: INTEGER is
-	           do
-	                 Result := integer_constant
-	           end
+    token_type: INTEGER
+        do
+            Result := integer_constant
+        end
 
-	feature {NONE}
+feature {NONE}
 
-	     construct_name: STRING is
-	           once
-	                 Result := "INT_CONSTANT"
-	           end
-	end
+    construct_name: STRING
+        once
+            Result := "INT_CONSTANT"
+        end
+end
 </code>
 
 ==SPECIFYING THE SEMANTICS==
 
-As mentioned at the beginning of this chapter, parsing is usually done not for itself but as a way to perform some semantic processing. The Parsing Library classes define the general framework for grafting such semantics onto a syntactical stem.
+As mentioned at the beginning of this chapter, parsing is usually done not for itself but as a way to perform some semantic processing. The EiffelParse Library classes define the general framework for grafting such semantics onto a syntactical stem.
 
 ===Semantic procedures===
 
-The principal procedures for defining semantic actions are pre_action and post_action. These are features of class CONSTRUCT. Procedure pre_action describes the actions to be performed before a construct has been recognized; post_action, the actions to be performed after a construct has been recognized.
+The principal procedures for defining semantic actions are <eiffel>pre_action</eiffel> and <eiffel>post_action</eiffel>. These are features of class CONSTRUCT. Procedure <eiffel>pre_action</eiffel> describes the actions to be performed before a construct has been recognized; <eiffel>post_action</eiffel>, the actions to be performed after a construct has been recognized.
 
-As defined in<eiffel> CONSTRUCT</eiffel>, both and post_action do nothing by default. Any construct class which is a descendant of <eiffel>CONSTRUCT</eiffel> may redefine one or both so that they will perform the semantic actions that the document processor must apply to specimens of the corresponding construct. These procedures are called automatically during processing, before and after the corresponding structures have been parsed.
+As defined in <eiffel>CONSTRUCT</eiffel>, both <eiffel>pre_action</eiffel> and post_action do nothing by default. Any construct class which is a descendant of <eiffel>CONSTRUCT</eiffel> may redefine one or both so that they will perform the semantic actions that the document processor must apply to specimens of the corresponding construct. These procedures are called automatically during processing, before and after the corresponding structures have been parsed.
 
-For <eiffel>TERMINAL</eiffel>, only one semantic action makes sense. To avoid any confusion, post_action is renamed action in that class and pre_action is renamed unused_pre_action to indicate that it is irrelevant.
+For <eiffel>TERMINAL</eiffel>, only one semantic action makes sense. To avoid any confusion, <eiffel>post_action</eiffel> is renamed <eiffel>action</eiffel> in that class and <eiffel>pre_action</eiffel> is renamed <eiffel>unused_pre_action</eiffel> to indicate that it is irrelevant.
 
 Often, the semantic procedures need to compute various elements of information. These may be recorded using appropriate attributes of the corresponding construct classes.
 
@@ -485,39 +488,40 @@ Often, the semantic procedures need to compute various elements of information. 
 
 ===Polynomial semantics===
 
-As an example let us examine the semantics of the Product construct for the polynomial language. It is a repetition construct, with Term as the base construct; in other words a specimen of Product is a sequence of one or more terms, representing the product term<code>1</code> * term<code>2</code> ... * term<code>n</code>. Here is the post_action procedure in the corresponding class <eiffel>PRODUCT</eiffel>: 
+As an example let us examine the semantics of the Product construct for the polynomial language. It is a repetition construct, with Term as the base construct; in other words a specimen of Product is a sequence of one or more terms, representing the product term<code>1</code> * term<code>2</code> ... * term<code>n</code>. Here is the <eiffel>post_action</eiffel> procedure in the corresponding class <eiffel>PRODUCT</eiffel>:
+ 
 <code>
-	post_action is
-	     local
+    post_action
+        local
 	           int_value: INTEGER
-	     do
-	           if not no_components then
-	                 from
-	                       child_start
-	                       if not child_after then
-	                             int_value := 1
-	                       end
-	                 until
-	                       child_after
-	                 loop
-	                       child.post_action
-	                       int_value := int_value * info.child_value
-	                       child_forth
-	                 end
-	                 info.set_child_value (int_value)
-	           end
-	     end
+        do
+            if not no_components then
+                from
+                    child_start
+                    if not child_after then
+                        int_value := 1
+                    end
+                until
+                    child_after
+                loop
+                    child.post_action
+                    nt_value := int_value * info.child_value
+                    child_forth
+                end
+                info.set_child_value (int_value)
+            end
+        end
 </code>
 
-Here each relevant construct class has an attribute info used to record the semantic information associated with polynomials and their components, such as child_value, an <eiffel>INTEGER</eiffel>. The post_action takes care of computing the product of all child_values for the children. First, of course, post_action must recursively be applied to each child, to compute its own child_value.
+Here each relevant construct class has an attribute <eiffel>info</eiffel> used to record the semantic information associated with polynomials and their components, such as <eiffel>child_value</eiffel>, an <eiffel>INTEGER</eiffel>. The <eiffel>post_action</eiffel> takes care of computing the product of all <eiffel>child_value</eiffel>s for the children. First, of course, <eiffel>post_action</eiffel> must recursively be applied to each child, to compute its own <eiffel>child_value</eiffel>.
 
-{{note|Recall that an instance of <eiffel>CONSTRUCT</eiffel> is also a node of the abstract syntax tree, so that all the <eiffel>TWO_WAY_TREE</eiffel> features such as child_value, child_start, child_after and many others are automatically available to access the syntactical structure. }}
+{{note|Recall that an instance of <eiffel>CONSTRUCT</eiffel> is also a node of the abstract syntax tree, so that all the <eiffel>TWO_WAY_TREE</eiffel> features such as <eiffel>child_value</eiffel>, <eiffel>child_start</eiffel>, <eiffel>child_after</eiffel> and many others are automatically available to access the syntactical structure. }}
 
 ===Keeping syntax and semantics separate===
 
 For simple examples such as the Polynomial language, it is convenient to use a single class to describe both the syntax of a construct (through the production function and associated features) and its semantics (action routines and associated features).
 
-For more ambitious languages and processors, however, it is often preferable to keep the two aspects separate. Such separation of syntax and semantics, and in particular the sharing of the same syntax for different processors with different semantic actions, is hard or impossible to obtain with traditional document processing tools such as Yacc on Unix. Here is how to achieve it with the Parse library: 
+For more ambitious languages and processors, however, it is often preferable to keep the two aspects separate. Such separation of syntax and semantics, and in particular the sharing of the same syntax for different processors with different semantic actions, is hard or impossible to obtain with traditional document processing tools such as Yacc on Unix. Here is how to achieve it with the EiffelParse library: 
 * First write purely '''syntactic classes''', that is to say construct classes which only effect the syntactical part (in particular function production). As a consequence, these classes usually remain deferred. The recommended convention for such syntactic classes is to use names beginning with <eiffel>S_</eiffel>, for example <eiffel>S_INSTRUCTION</eiffel> or <eiffel>S_LOOP</eiffel>. 
 * Then for each construct for which a processor defines a certain semantics, define another class, called a '''semantic class''', which inherits from the corresponding syntactic class. The recommended convention for semantic classes is to give them names which directly reflect the corresponding construct name, as in <eiffel>INSTRUCTION</eiffel> or <eiffel>LOOP</eiffel>. 
 
@@ -526,7 +530,7 @@ To build a semantic class in in step 2 it is often convenient to use multiple in
 
 One of the advantages of this scheme is that it makes it easy to associate two or more types of processing with a single construct, by keeping the same syntactic class (such as <eiffel>IS_INSTRUCTION</eiffel>) but choosing a different pure-semantics class each time. 
 
-As noted earlier in this chapter, this is particularly useful in an environment where different processors need to perform differents actions on specimens of the same construct. In an Eiffel environment, for example, processors that manipulate classes and other Eiffel construct specimens may include a compiler, an interpreter, a flattener (producing the flat form), a class abstracter (producing the short or flat-short form), and various browsing tools such as those of ISE Eiffel.
+As noted earlier in this chapter, this is particularly useful in an environment where different processors need to perform differents actions on specimens of the same construct. In an Eiffel environment, for example, processors that manipulate classes and other Eiffel construct specimens may include a compiler, an interpreter, a flattener (producing the flat form), a class abstracter (producing the short or flat-short form), and various browsing tools such as those provided by Eiffel Software.
 
 For obvious reasons of convenience and ease of maintenance, it is desirable to let these processors share the same syntactic descriptions. The method just described, relying on multiple inheritance, achieves this goal.
 
@@ -578,18 +582,18 @@ Here is an example. The production function for <eiffel>NESTED</eiffel> in the P
 <code>(s)</code>
 where ''s'' is a specimen of <eiffel>SUM</eiffel>, is written as 
 <code>
-	production: LINKED_LIST [CONSTRUCT] is
-	     local
-	           expression: SUM
-	     once
-	           create Result.make
-	           Result.forth
-	           keyword ("(")
-	           commit
-	           create expression.make
-	           put (expression)
-	           keyword (")")
-	     end
+    production: LINKED_LIST [CONSTRUCT]
+        local
+            expression: SUM
+        once
+            create Result.make
+            Result.forth
+            keyword ("(")
+            commit
+            create expression.make
+            put (expression)
+            keyword (")")
+        end
 
 </code>
 
@@ -614,7 +618,7 @@ We are ready now to put together the various elements required to build a docume
 
 The documents to be processed will be specimens of a certain construct. This construct is called the '''top construct''' for that particular processing. 
 
-{{caution|Be sure to note that with the Parse library there is no room for a concept of top construct of a '''grammar''': the top construct is only defined with respect to a particular processor for that grammar. <br/>
+{{caution|Be sure to note that with the EiffelParse library there is no room for a concept of top construct of a '''grammar''': the top construct is only defined with respect to a particular processor for that grammar. <br/>
 Attempting to define the top of a grammar would be contrary to the object-oriented approach, which de-emphasizes any notion of top component of a system. <br/>
 Different processors for the same grammar may use different top constructs. }}
 
@@ -637,22 +641,22 @@ As any root class of a system, the root of a document processor must have a crea
 
 To achieve the effect of steps [[#step_e1|1]]  and [[#step_e2|2]] , a simple call instruction suffices: just call the procedure build, inherited from <eiffel>L_INTERFACE</eiffel> using as argument document, a feature of type INPUT, obtained from <eiffel>METALEX</eiffel> (the lexical analyzer generator class) through <eiffel>L_INTERFACE</eiffel>. The call, then, is just: 
 <code>
-	build (document)
+            build (document)
 </code>
 
 Although you may use this line as a recipe with no need for further justification, it is interesting to see what build does. Feature document describes the input document to be processed; it is introduced as a Once function in class <eiffel>CONSTRUCT</eiffel> to ensure that all instances of <eiffel>CONSTRUCT</eiffel> share a single document - in other words, that all processing actions apply to the same document. The text of build is:
 <code>
-	build (doc: INPUT) is
-	           -- Create lexical analyzer and set doc
-	           -- to be the input document.
-	     require
-	           document_exists: doc /= void
-	     do
-	           metalex_make
-	           obtain_analyzer
-	           make_analyzer
-	           doc.set_lexical (analyzer)
-	     end
+    build (doc: INPUT)
+            -- Create lexical analyzer and set doc
+            -- to be the input document.
+        require
+            document_exists: doc /= void
+        do
+            metalex_make
+            obtain_analyzer
+            make_analyzer
+            doc.set_lexical (analyzer)
+        end
 </code>
 
 The call to obtain_analyzer defines the regular grammar for the language at hand. Recall that obtain_analyzer is deferred in <eiffel>L_INTERFACE</eiffel>; its definition for the <eiffel>POLY_LEX</eiffel> example was given above. The call to make_analyzer freezes the regular grammar and produces a usable lexical analyzer, available through the attribute analyzer obtained from <eiffel>METALEX</eiffel>. Finally, the call to set_lexical, a procedure of class <eiffel>INPUT</eiffel>, ensures that all lexical analysis operations will use analyzer as the lexical analyzer.
@@ -661,17 +665,17 @@ The call to obtain_analyzer defines the regular grammar for the language at hand
 
 The call build <code> ( </code>document takes care of steps [[#step_e1|1]]  and [[#step_e2|2]]  of the root's creation procedure. Step [[#step_e3|3]]  selects the file containing the input document; this is achieved through the call <br/>
 <code>
-	document.set_input_file (some_file_name)
+            document.set_input_file (some_file_name)
 </code>
 <br/>
 where set_input_file, from class <eiffel>INPUT</eiffel>, has a self-explanatory effect. 
 
 Finally, step [[#step_e4|4]]  (processing the document) is simply a call to procedure process, obtained from [[ref:/libraries/parse/reference/construct_chart|CONSTRUCT]] . Recall that this procedure simply executes <br/>
 <code>
-	parse
-	if parsed then
-		semantics
-	end
+            parse
+            if parsed then
+                semantics
+            end
 </code>
 <br/>
 
@@ -679,28 +683,28 @@ Finally, step [[#step_e4|4]]  (processing the document) is simply a call to proc
 
 The polynomial example provides a simple example of a full document processor, which you may use as a guide for your own processors. The root class of that example is <eiffel>PROCESS</eiffel>. Its creation procedure, make, follows the above scheme precisely; here is its general form:
 <code>
-	root_line: LINE
+    root_line: LINE
 
-	make is
-	     local
-	           text_name: STRING
-	     do
-	           create root_line.make
-	           build (root_line.document)
+    make
+        local
+            text_name: STRING
+        do
+            create root_line.make
+            build (root_line.document)
 
-	           ... Instructions prompting the user for the name of the
-	           file to be parsed, and assigning it to text_name ...
+                ... Instructions prompting the user for the name of the
+                    file to be parsed, and assigning it to text_name ...
 
-	           root_line.document.set_input_file (text_name)
-	           root_line.process
-	     end
+            root_line.document.set_input_file (text_name)
+            root_line.process
+        end
 </code>
 
-Although it covers a small language, this example may serve as a blueprint for most applications of the Parse library.
+Although it covers a small language, this example may serve as a blueprint for most applications of the EiffelParse library.
 
 ==FUTURE WORK==
 
-It was mentioned at the beginning of this chapter that further work is desirable to make the Parse library reach its full bloom. Here is a glimpse of future improvements.
+It was mentioned at the beginning of this chapter that further work is desirable to make the EiffelParse library reach its full bloom. Here is a glimpse of future improvements.
 
 ===Expressions===
 
@@ -713,7 +717,7 @@ Many languages include an expression construct having the properties of traditio
 * Some infix operators may be applied to more than two arguments; in this case it must be clear whether they are right-associative (in other words, ''a ^ b ^ c'' means ''a ^ (b ^ c)'', the conventional interpretation if ^ denotes the power operator) or left-associative. 
 
 
-It is of course possible to apply the Parse library in its current state to support expressions, as illustrated by this extract from the Polynomial grammar given in full above:
+It is of course possible to apply the EiffelParse library in its current state to support expressions, as illustrated by this extract from the Polynomial grammar given in full above:
 <code>
 Variables	[=] {Identifier ";" ...}
 Sum		[=] {Diff "+" ...}
@@ -736,33 +740,39 @@ Line [=] Variables ":" Sum
 <br/>
 will yield the class
 <code>
-	class LINE inherit
-	     AGGREGATE
-	feature
-	     production: LINKED_LIST [CONSTRUCT] is
-	           local
-	                 var: VARIABLES
-	                 sum: SUM
-	           once
-	                 create Result.make
-	                 Result.forth
-	                 create var.make
-	                 put (var)
-	                 keyword (":")
-	                 create sum.make
-	                 put (sum)
-	           end
-	     ...
-	end
+class
+    LINE 
+
+inherit
+    AGGREGATE
+
+feature
+    production: LINKED_LIST [CONSTRUCT]
+        local
+            var: VARIABLES
+            sum: SUM
+        once
+            create Result.make
+            Result.forth
+            create var.make
+            put (var)
+            keyword (":")
+            create sum.make
+            put (sum)
+        end
+
+        ...
+
+end
 </code>
 
 This transformation of the textual description of the grammar into its equivalent Eiffel form is simple and unambiguous; but it is somewhat annoying to have to perform it manually.
 
-A tool complementing the Parse library and known as YOOC ("Yes! an Object-Oriented Compiler", a name meant as an homage to the venerable Yacc) has been planned for future releases of Parse. Yooc, a translator, will take a grammar specification as input and transform it into a set of parsing classes, all descendants of CONSTRUCT and built according to the rules defined above. The input format for syntax specification, similar to the conventions used throughout this chapter, is a variant of LDL (Language Description Language), a component of the ArchiText structural document processing system.
+A tool complementing the EiffelParse library and known as YOOC ("Yes! an Object-Oriented Compiler", a name meant as an homage to the venerable Yacc) has been planned for future releases of EiffelParse. Yooc, a translator, will take a grammar specification as input and transform it into a set of parsing classes, all descendants of CONSTRUCT and built according to the rules defined above. The input format for syntax specification, similar to the conventions used throughout this chapter, is a variant of LDL (Language Description Language), a component of the ArchiText structural document processing system.
 
 ===Further reading===
 
-The following article describes some advanced uses of the Parse library as well as a Yooc-like translator called PG: Per Grape and Kim Walden: Automating the Development of Syntax Tree Generators for an Evolving Language, in Proceedings of TOOLS 8 (Technology of Object-Oriented Languages and Systems), Prentice Hall, 1992, pages 185-195.
+The following article describes some advanced uses of the EiffelParse library as well as a Yooc-like translator called PG: Per Grape and Kim Walden: Automating the Development of Syntax Tree Generators for an Evolving Language, in Proceedings of TOOLS 8 (Technology of Object-Oriented Languages and Systems), Prentice Hall, 1992, pages 185-195.
 
 
 
