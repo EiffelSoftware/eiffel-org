@@ -5,7 +5,7 @@
 
 When analyzing a text by computer, it is usually necessary to split it into individual components or '''tokens'''. In human languages, the tokens are the words; in programming languages, tokens are the basic constituents of software texts, such as identifiers, constants and special symbols. 
 
-The process of recognizing the successive tokens of a text is called lexical analysis. This chapter describes the Lex library, a set of classes which make it possible to build and apply lexical analyzers to many different languages.
+The process of recognizing the successive tokens of a text is called lexical analysis. This chapter describes the EiffelLex library, a set of classes which make it possible to build and apply lexical analyzers to many different languages.
 
 Besides recognizing the tokens, it is usually necessary to recognize the deeper syntactic structure of the text. This process is called '''parsing''' or '''syntax analysis''' and is studied in the next chapter. 
 
@@ -16,9 +16,9 @@ Figure 1 shows the inheritance structure of the classes discussed in this chapte
 
 Figure 1: Lexical classes
 
-==AIMS AND SCOPE OF THE LEX LIBRARY==
+==AIMS AND SCOPE OF THE EIFFELLEX LIBRARY==
 
-To use the Lex library it is necessary to understand the basic concepts and terminology of lexical analysis.
+To use the EiffelLex library it is necessary to understand the basic concepts and terminology of lexical analysis.
 
 ===Basic terminology===
 
@@ -30,11 +30,11 @@ To define a lexical grammar is to specify a number of token types by describing 
 
 A lexical analyzer is an object equipped with operations that enable it to read a text according to a known lexical grammar and to identify the text's successive tokens.
 
-The classes of the Lex library make it possible to define lexical grammars for many different applications, and to produce lexical analyzers for these grammars.
+The classes of the EiffelLex library make it possible to define lexical grammars for many different applications, and to produce lexical analyzers for these grammars.
 
 ===Overview of the classes===
 
-For the user of the Lex libraries, the classes of most direct interest are [[ref:/libraries/lex/reference/token_chart|TOKEN]] , [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]] , [[ref:/libraries/lex/reference/metalex_chart|METALEX]]  and [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] .
+For the user of the EiffelLex library, the classes of most direct interest are [[ref:/libraries/lex/reference/token_chart|TOKEN]] , [[ref:/libraries/lex/reference/lexical_chart|LEXICAL]] , [[ref:/libraries/lex/reference/metalex_chart|METALEX]]  and [[ref:/libraries/lex/reference/scanning_chart|SCANNING]] .
 
 An instance of [[ref:/libraries/lex/reference/token_chart|TOKEN]]  describes a token read from an input file being analyzed, with such properties as the token type, the corresponding string and the position in the text (line, column) where it was found.
 
@@ -51,7 +51,7 @@ These classes internally rely on others, some of which may be useful for more ad
 
 ===Library example===
 
-The EiffelStudio delivery includes (in the examples/library/lex subdirectory) a simple example using the Lexical Library classes. The example applies Lex library facilities to the analysis of a language which is none other than Eiffel itself.
+The EiffelStudio delivery includes (in the examples/library/lex subdirectory) a simple example using the EiffelLex library classes. The example applies EiffelLex library facilities to the analysis of a language which is none other than Eiffel itself.
 
 The root class of that example, <eiffel>EIFFEL_SCAN</eiffel>, is only a few lines long; it relies on the general mechanism provided by [[ref:/libraries/lex/reference/scanning_chart|SCANNING]]  (see below). The actual lexical grammar is given by a lexical grammar file (a concept explained below): the file of name eiffel_regular in the same directory.
 
@@ -222,7 +222,7 @@ This scheme is used by procedure <eiffel>analyze</eiffel> of class [[ref:/librar
 
 ==REGULAR EXPRESSIONS==
 
-The Lex library supports a powerful set of construction mechanisms for describing the various types of tokens present in common languages such as programming languages, specification languages or just text formats. These mechanisms are called '''regular expressions'''; any regular expression describes a set of possible tokens, called the '''specimens''' of the regular expression. 
+The EiffelLex library supports a powerful set of construction mechanisms for describing the various types of tokens present in common languages such as programming languages, specification languages or just text formats. These mechanisms are called '''regular expressions'''; any regular expression describes a set of possible tokens, called the '''specimens''' of the regular expression. 
 
 Let us now study the format of regular expressions. This format is used in particular for the lexical grammar files needed by class [[ref:/libraries/lex/reference/scanning_chart|SCANNING]]  and (as seen below) by procedure <eiffel>read_grammar</eiffel> of class [[ref:/libraries/lex/reference/metalex_chart|METALEX]] . The ''eiffel_regular'' grammar file in the examples directory provides an extensive example. 
 

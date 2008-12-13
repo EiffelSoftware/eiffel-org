@@ -74,33 +74,33 @@ As you can see creating preferences is very easy. Also you will notice that colo
 
 When you create a preference using a factory class you will provide a manager, a name for the preference, and a value. For example, in <eiffel>BASIC_PREFERENCE_FACTORY</eiffel> you create an integer preference by calling <eiffel>new_integer_resource_value</eiffel>:
 <code>
-	new_integer_resource_value (a_manager: PREFERENCE_MANAGER; a_name: STRING; a_fallback_value: INTEGER): INTEGER_PREFERENCE is
-			-- Add a new integer resource with name `a_name'.  If preference cannot be found in
-			-- underlying datastore or in a default values then `a_fallback_value' is used for the value.
-		require
-			name_valid: a_name /= Void 
-			name_not_empty: not a_name.is_empty
-			not_has_resource: not a_manager.known_resource (a_name)
-		ensure
-			has_result: Result /= Void
-			resource_name_set: Result.name.is_equal (a_name)
-			resource_added: a_manager.preferences.has_resource (a_name)
-		end	
+    new_integer_resource_value (a_manager: PREFERENCE_MANAGER; a_name: STRING; a_fallback_value: INTEGER): INTEGER_PREFERENCE
+            -- Add a new integer resource with name `a_name'.  If preference cannot be found in
+            -- underlying datastore or in a default values then `a_fallback_value' is used for the value.
+        require
+            name_valid: a_name /= Void 
+            name_not_empty: not a_name.is_empty
+            not_has_resource: not a_manager.known_resource (a_name)
+        ensure
+            has_result: Result /= Void
+            resource_name_set: Result.name.is_equal (a_name)
+            resource_added: a_manager.preferences.has_resource (a_name)
+        end	
 </code>
 An appropriate example in code of this could be:
 <code>
 
-window_width_preference: INTEGER_PREFERENCE
-		-- Preference holding value for width of application main window
+    window_width_preference: INTEGER_PREFERENCE
+            -- Preference holding value for width of application main window
 
-initialize_my_preferences is
-		-- Initialize the application preferences	
-	local
-		factory: BASIC_PREFERENCE_FACTORY
-	do
-		create factory
-		window_width_preference := factory.new_integer_resource_value (my_manager, "window_width", 480)
-	end</code>
+    initialize_my_preferences
+            -- Initialize the application preferences	
+        local
+            factory: BASIC_PREFERENCE_FACTORY
+        do
+            create factory
+            window_width_preference := factory.new_integer_resource_value (my_manager, "window_width", 480)
+        end</code>
 This will create a new preference, which you can then use in your application to get, set and save the corresponding value when necessary. The issue to be aware of here though involves the value that the preference will contain when it is created. You see in the code above we pass the integer value 480. '''This does not mean, however, the initial value of the preference will be 480'''. This may sound odd, so let me explain...
 The value of a preference when initialized is determined by a number of factors. The first of these is the underlying data store value. If a preference value was changed in a previous session, by the user or by the application directly, and was saved to the underlying data store, then this value will be given priority. This makes sense, since if a user changes their preferences they don't want to have to do it every time they use your program. So, if they want the default window width to be larger, say 600, then this will be the value of the preference named "window_width" when initialized next time. Following this, if there is no previously saved value then the library will look for a default value to use. If a default file was given when the preferences were created (see above), and this default specifies a default value of 240 for the integer preference called "window_width", then this will be used. Finally, if no preference value was previously stored ''and'' no value is provided as a default value then the supplied value in the code is used - our 480 value from the example above. Although this process may seem confusing it is infact very simple and intuitive way to initialze the preferences. The process chart below illustrates more clearly the various permutations.
 
@@ -110,11 +110,13 @@ The value of a preference when initialized is determined by a number of factors.
 Now you have preferences created you may use them from your application. Using the example preference above, window_width_preference, you can query the value of the preferences by simply querying the preference directly:
 <code>window_width := window_width_preference.value</code>
 Or for a value which should always be associated to the preference:
-<code>window_width: INTEGER is
-		-- Width of window
-	do
-		Result := window_width_preference.value
-	end</code>
+<code>
+    window_width: INTEGER
+            -- Width of window
+        do
+            Result := window_width_preference.value
+        end
+</code>
 If you need to react when a preference value is changed you can hook up an agent to the <eiffel>change_actions</eiffel> of the preference:
 <code>window_width_preference.change_actions.extend (agent my_agent_routine)</code>
 To manually set the value of the preference call <eiffel>set_value</eiffel> or <eiffel>set_value_from_string</eiffel>, and to set a value for the default value call <eiffel>set_default_value</eiffel>. To reset a preference value back to it's original default value use <eiffel>reset</eiffel>.

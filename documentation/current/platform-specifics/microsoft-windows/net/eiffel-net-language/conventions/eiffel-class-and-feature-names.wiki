@@ -59,7 +59,7 @@ In summary, Eiffel class names and type names from .NET assemblies made availabl
 
 ===Eiffel Names for .NET Types===
 
-How Eiffel compliant names are derived from .NET type names is fairly simple in most cases. The "simple" class name, that is, the word following the rightmost dot in the full class name, is converted to an Eiffel compliant name by making it upper case and separating in embedded words by underscore. In the example above, <code> System.Collection.ArrayList </code> becomes <code> ARRAY_LIST </code>. 
+How Eiffel compliant names are derived from .NET type names is fairly simple in most cases. The "simple" class name, that is, the word following the rightmost dot in the full class name, is converted to an Eiffel compliant name by making it upper case and separating in embedded words by underscore. In the example above, <code>System.Collection.ArrayList</code> becomes <code>ARRAY_LIST</code>. 
 
 The other cases in the example are not quite so simple. If the basic derivation produces a name which conflicts with a classname in the Eiffel Base Library, then it will be disambiguated. The simple derivation of <eiffel>System.String</eiffel> would be <eiffel>STRING</eiffel>, but this would conflict with Eiffel's <eiffel>STRING</eiffel> class, so <eiffel>System.String</eiffel> becomes available to Eiffel for .NET programmers as <eiffel>SYSTEM_STRING</eiffel>. 
 
@@ -69,7 +69,7 @@ You'll see a little more about namespaces, assemblies, and Eiffel clusters in [[
 
 ===Similar Types from Both Libraries===
 
-You may have noticed a similarity in the names and descriptions from the Eiffel Base Library and those from the .NET "mscorlib" library. This is not by accident. The Eiffel class <code> STRING </code> is a different class from the .NET type <code> System.String </code>, which Eiffel programmers see represented as Eiffel class <code> SYSTEM_STRING </code>. There is more on this subject in [[Similar Types Occurring in Both Libraries|Similar Types Occurring in Both Libraries]] . 
+You may have noticed a similarity in the names and descriptions from the Eiffel Base Library and those from the .NET "mscorlib" library. This is not by accident. The Eiffel class <code>STRING</code> is a different class from the .NET type <code>System.String</code>, which Eiffel programmers see represented as Eiffel class <code>SYSTEM_STRING</code>. There is more on this subject in [[Similar Types Occurring in Both Libraries|Similar Types Occurring in Both Libraries]] . 
 
 ==Eiffel Feature Names==
 
@@ -125,7 +125,7 @@ Member of type System.Text.StringBuilder
 
 The Eiffel language does not allow overloading routine names. That means that you cannot code multiple routines with the same name in a single class. That in itself is not a problem. But it also means that to work in the .NET environment, where overloading is allowed some compromise has to be made. So, what happens is this: if you are programming in Eiffel for .NET and you are using types from a .NET assembly, those types will be presented to you as if they are Eiffel classes. We have already seen that the type and feature names will be shown in the Eiffel naming convention. With overloaded feature names, the presentation will use name augmentation to disambiguate the overloaded versions. What you see is a distinct feature name for each overloaded version. The basic feature name is augmented by adding the types of its respective arguments, separated by underscore. 
 
-Let's look again at the two <code> Append </code> functions from <code> System.Text.StringBuilder </code>. 
+Let's look again at the two <code>Append</code> functions from <code>System.Text.StringBuilder</code>. 
 <code>
 .NET function signature: Append(System.String)
 
@@ -153,17 +153,17 @@ Properties in .NET provide:
 * the opportunity to '''strengthen encapsulation,''' because values cannot be receive assignment without executing the property's "set" code 
 *  '''uniform access ''' queries because properties are queries, but unlike previous C-style OO languages in which properties did not exist, if a property is used in programming a client class, the programmer does not need to know whether the data provided by the property was done so from memory or through computation. This leaves the producer of the class with the property the latitude to change the implementation without breaking existing clients. 
 
-In Eiffel, the same goals are fulfilled, but a little differently. Simple attributes are well-encapsulated, because the Eiffel language does not allow direct assignment to them from outside the control of their class. So any assignment of the form <code> x </code>. <code> f </code> := <code> y </code> is not valid in Eiffel. To allow client to set values of the attribute <code> f </code>, the producer of the class of which <code> x </code> is an instance would have built a command (a " <code> set_ </code>" procedure) to do so. Then the code in a client to set <code> f </code> would look like this: <code> x </code>. <code> set_f </code> ( <code> y </code>). 
+In Eiffel, the same goals are fulfilled, but a little differently. Simple attributes are well-encapsulated, because the Eiffel language does not allow direct assignment to them from outside the control of their class. So any assignment of the form <code>x</code>. <code>f</code> := <code>y</code> is not valid in Eiffel. To allow client to set values of the attribute <code>f</code>, the producer of the class of which <code>x</code> is an instance would have built a command (a " <code>set_</code>" procedure) to do so. Then the code in a client to set <code>f</code> would look like this: <code>x</code>. <code>set_f</code> ( <code>y</code>). 
 
-Uniform access is achieved in Eiffel through the way in which clientssee features which are queries. The code " <code> print </code> ( <code> x </code>. <code> count </code>)" applies the query <code> count </code> to the object attached to <code> x </code> and prints the result. You cannot tell by looking at this code whether <code> count </code> is an attribute or a function, that is, whether the <code> count </code> is returned from memory or through computation. In fact, it could be either, but that is a matter for its producer to deal with. As reuse consumers the implementation of <code> count </code>is not important to us ...but the fact that the producer can change the implementation without causing our code to need modification is very important to us. 
+Uniform access is achieved in Eiffel through the way in which clientssee features which are queries. The code " <code>print</code> ( <code>x</code>. <code>count</code>)" applies the query <code>count</code> to the object attached to <code>x</code> and prints the result. You cannot tell by looking at this code whether <code>count</code> is an attribute or a function, that is, whether the <code>count</code> is returned from memory or through computation. In fact, it could be either, but that is a matter for its producer to deal with. As reuse consumers the implementation of <code>count</code>is not important to us ...but the fact that the producer can change the implementation without causing our code to need modification is very important to us. 
 
 Because Eiffel does not support properties directly, the propertiesof typeswhich Eiffel for .NET programmers usefrom .NET assemblies have to be mapped to Eiffel features. 
 
-In order to ask for the property's current value (technically, receiving the result of the property's <code> get </code> routine), a query feature is generated for the property. The query will be namedthe Eiffel name of the property. 
+In order to ask for the property's current value (technically, receiving the result of the property's <code>get</code> routine), a query feature is generated for the property. The query will be namedthe Eiffel name of the property. 
 
-As noted above, setting the value of a property cannot be done in Eiffel as it is done in C# and VB.NET because Eiffel disallows assignments of the form <code> x </code>. <code> f </code> := <code> y </code>. So, for each writable property, an Eiffel command feature is available to set the value of the property. The name for this command will be <code> set_ </code> followed by the Eiffel name for the property. 
+As noted above, setting the value of a property cannot be done in Eiffel as it is done in C# and VB.NET because Eiffel disallows assignments of the form <code>x</code>. <code>f</code> := <code>y</code>. So, for each writable property, an Eiffel command feature is available to set the value of the property. The name for this command will be <code>set_</code> followed by the Eiffel name for the property. 
 
-As a result, the code for using a .NET property looks very much like the code to use an Eiffel attribute. In the following code fragment, an instance of the type <code> System.Windows.Forms.Form </code> which is available in Eiffel for .NET as <code> WINFORMS_FORM </code> is used by an Eiffel client. <code> System.Windows.Forms.Form </code> has a property <code> Text </code> which is of type <code> System.String </code>. Here the <code> Text </code> property is being set using the <code> set_text </code> feature, and then being recalled by using the query <code> text </code>. 
+As a result, the code for using a .NET property looks very much like the code to use an Eiffel attribute. In the following code fragment, an instance of the type <code>System.Windows.Forms.Form</code> which is available in Eiffel for .NET as <code>WINFORMS_FORM</code> is used by an Eiffel client. <code>System.Windows.Forms.Form</code> has a property <code>Text</code> which is of type <code>System.String</code>. Here the <code>Text</code> property is being set using the <code>set_text</code> feature, and then being recalled by using the query <code>text</code>. 
 <code>
 	local
 		my_window: WINFORMS_FORM
@@ -199,9 +199,9 @@ In order to use .NET types that include static members, a special syntax has bee
 	
 </code>
 
-The type <code> System.Windows.Forms.Application </code> is used here. It is available to Eiffel under the name <code> WINFORMS_APPLICATION </code>. The static member being used is <code> Run </code>, in particular the overloaded version of <code> Run </code> which takes an argument of type <code> System.Windows.Forms.Form </code>. That version is available in Eiffel under the name <code> run_form </code>. 
+The type <code>System.Windows.Forms.Application</code> is used here. It is available to Eiffel under the name <code>WINFORMS_APPLICATION</code>. The static member being used is <code>Run</code>, in particular the overloaded version of <code>Run</code> which takes an argument of type <code>System.Windows.Forms.Form</code>. That version is available in Eiffel under the name <code>run_form</code>. 
 
-The important thing to see here is that when you need to apply a static member, you introduce the call with the keyword <code> feature </code>. Then enclose the type name in braces and apply the feature as if it were targeted to an object. This isfairly close to the way that the call would be made in C#, where the feature name would be applied to the type name, versus a target object: 
+The important thing to see here is that when you need to apply a static member, you introduce the call with the keyword <code>feature</code>. Then enclose the type name in braces and apply the feature as if it were targeted to an object. This isfairly close to the way that the call would be made in C#, where the feature name would be applied to the type name, versus a target object: 
 <code>
 {
 	Form my_window;
