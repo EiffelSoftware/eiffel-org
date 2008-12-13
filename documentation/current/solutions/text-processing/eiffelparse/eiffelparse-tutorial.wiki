@@ -7,7 +7,7 @@ Parsing is the task of analyzing the structure of documents such as programs, sp
 
 Many systems need to parse documents. The best-known examples are compilers, interpreters and other software development tools; but as soon as a system provides its users with a command language, or processes input data with a non-trivial structure, it will need parsing facilities.
 
-This chapter describes the Parse library, which you can use to process documents of many different types. It provides a simple and flexible parsing scheme, resulting from the full application of object-oriented principles.
+This chapter describes the EiffelParse library, which you can use to process documents of many different types. It provides a simple and flexible parsing scheme, resulting from the full application of object-oriented principles.
 
 Because it concentrates on the higher-level structure, the EiffelParse library requires auxiliary mechanisms for identifying a document's lexical components: words, numbers and other such elementary units. To address this need it is recommended, although not required, to complement EiffelParse with the EiffelLex library studied in the previous chapter.
 
@@ -61,7 +61,7 @@ Once parsing has reconstructed the structure of a document, the document process
 
 The EiffelParse library provides predefined classes which handle the parsing aspect automatically and provide the hooks for adding semantic actions in a straightforward way. This enables developers to write full document processors - handling both syntax and semantics - simply and efficiently.
 
-As noted at the beginning of this chapter, it is possible to build a single syntactic base and use it for several processors (such as a compiler and a documentation tool) with semantically different goals, such as compilation and documentation. In the Parse library the semantic hooks take the form of deferred routines, or of routines with default implementations which you may redefine in descendants.
+As noted at the beginning of this chapter, it is possible to build a single syntactic base and use it for several processors (such as a compiler and a documentation tool) with semantically different goals, such as compilation and documentation. In the EiffelParse library the semantic hooks take the form of deferred routines, or of routines with default implementations which you may redefine in descendants.
 
 ==LIBRARY CLASSES==
 
@@ -95,7 +95,7 @@ A grammar consists of a number of '''constructs''', each representing the struct
 
 Each construct will be defined by a '''production''', which gives the structure of the construct's specimens. For example, a production for Class in an Eiffel grammar should express that a class (a specimen of the Class construct) is made of an optional Indexing part, a Class_header, an optional Formal_generics part and so on. The production for Indexing will indicate that any specimen of this construct - any Indexing part - consists of the keyword '''indexing''' followed by zero or more specimens of Index_clause. 
 
-Although some notations for syntax descriptions such as BNF allow more than one production per construct, the Parse library relies on the convention that every construct is defined by '''at most one''' production. Depending on whether there is indeed such a production, the construct is either '''non-terminal''' or '''terminal''': 
+Although some notations for syntax descriptions such as BNF allow more than one production per construct, the EiffelParse library relies on the convention that every construct is defined by '''at most one''' production. Depending on whether there is indeed such a production, the construct is either '''non-terminal''' or '''terminal''': 
 * A non-terminal construct (so called because it is defined in terms of others) is specified by a production, which may be of one of three types: aggregate, choice and repetition. The construct will accordingly be called an aggregate, choice or repetition construct.
 * A terminal construct has no defining production. This means that it must be defined outside of the syntactical grammar. Terminals indeed come from the '''lexical grammar'''. Every terminal construct corresponds to a token type (regular expression or keyword) of the lexical grammar, for which the parsing duty will be delegated to lexical mechanisms, assumed in the rest of this chapter to be provided by the Lex library although others may be substituted if appropriate. 
 
@@ -488,12 +488,12 @@ Often, the semantic procedures need to compute various elements of information. 
 
 ===Polynomial semantics===
 
-As an example let us examine the semantics of the Product construct for the polynomial language. It is a repetition construct, with Term as the base construct; in other words a specimen of Product is a sequence of one or more terms, representing the product term<code>1</code> * term<code>2</code> ... * term<code>n</code>. Here is the <eiffel>post_action</eiffel> procedure in the corresponding class <eiffel>PRODUCT</eiffel>:
+As an example let us examine the semantics of the Product construct for the polynomial language. It is a repetition construct, with Term as the base construct; in other words a specimen of Product is a sequence of one or more terms, representing the product term<sub>1</sub> * term<sub>2</sub> ... * term<sub>n</sub>. Here is the <eiffel>post_action</eiffel> procedure in the corresponding class <eiffel>PRODUCT</eiffel>:
  
 <code>
     post_action
         local
-	           int_value: INTEGER
+            int_value: INTEGER
         do
             if not no_components then
                 from
@@ -538,11 +538,11 @@ For obvious reasons of convenience and ease of maintenance, it is desirable to l
 
 Classes AGGREGATE, CHOICE, TERMINAL and REPETITION are written in such a way that you do not need to take care of the parsing process. They make it possible to parse any language built according to the rules given - with one limitation, left recursion, discussed below. You can then concentrate on writing the interesting part - semantic processing.
 
-To derive the maximum benefit from the Parse library, however, it is useful to gain a little more insight into the way parsing works. Let us raise the veil just enough to see any remaining property that is relevant to the building of parsers and document processors.
+To derive the maximum benefit from the EiffelParse library, however, it is useful to gain a little more insight into the way parsing works. Let us raise the veil just enough to see any remaining property that is relevant to the building of parsers and document processors.
 
 ===The parsing technique===
 
-The Parse library relies on a general approach known as '''recursive descent''', meaning that various choices will be tried in sequence and recursively to recognize a certain specimen. 
+The EiffelParse library relies on a general approach known as '''recursive descent''', meaning that various choices will be tried in sequence and recursively to recognize a certain specimen. 
 
 If a choice is attempted and fails (because it encounters input that does not conform to what is expected), the algorithm will try remaining choices, after having moved the input cursor back to where it was before the choice that failed. This process is called '''backtracking'''. It is handled by the parsing algorithms in an entirely automatic fashion, without programmer intervention. 
 
@@ -612,7 +612,7 @@ The use of commit assumes global knowledge about the grammar and its future exte
 
 ==BUILDING A DOCUMENT PROCESSOR==
 
-We are ready now to put together the various elements required to build a document processor based on the Parse library.
+We are ready now to put together the various elements required to build a document processor based on the EiffelParse library.
 
 ===The overall picture===
 
@@ -729,7 +729,7 @@ The problem then is not expressiveness but efficiency. For such expressions the 
 
 The solution is straightforward: write a new heir <eiffel>EXPRESSION</eiffel> to class <eiffel>CONSTRUCT</eiffel>. The preceding discussion of expressions and their properties suggests what kinds of feature this class will offer: define a certain terminal as operator, define a terminal as operand type, set the precedence of an operator, set an operator as left-associative or right-associative and so on. Writing this class based on this discussion is indeed a relatively straightforward task, which can be used as a programming exercise. 
 
-Beyond the addition of an <eiffel>EXPRESSION</eiffel> class, some changes in the data structures used by Parse may also help improve the efficiency of the parsing process. 
+Beyond the addition of an <eiffel>EXPRESSION</eiffel> class, some changes in the data structures used by EiffelParse may also help improve the efficiency of the parsing process. 
 
 ===Yooc===
 

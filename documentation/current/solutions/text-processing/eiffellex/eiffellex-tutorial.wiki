@@ -290,7 +290,7 @@ An unbounded iteration, written ''*exp'' or ''+exp'' where ''exp'' is a regular 
 A fixed iteration, written ''n exp'' where ''n'' is a natural integer constant and ''exp'' is a regular expression, describes the set of tokens made of sequences of exactly ''n'' specimens of ''exp''. For example, ''3 ('A'..'Z')'' describes the set of all three-letter upper-case tokens. 
 ===Other operator expressions===
 
-A concatenation, written exp <code>1</code> exp <code>2</code> ... exp <code>n</code>, describes the set of tokens made of a specimen of exp <code>1</code> followed by a specimen of exp <code>2</code> etc. For example, the concatenation '' '1'..'9' * ('0'..'9')'' describes the set of tokens made of one or more decimal digits, not beginning with a zero - in other words, integer constants in the usual notation. 
+A concatenation, written exp<sub>1</sub> exp<sub>2</sub> ... exp<sub>n</sub>, describes the set of tokens made of a specimen of exp<sub>1</sub> followed by a specimen of exp<sub>2</sub> etc. For example, the concatenation '' '1'..'9' * ('0'..'9')'' describes the set of tokens made of one or more decimal digits, not beginning with a zero - in other words, integer constants in the usual notation. 
 
 An optional component, written ''[exp]'' where ''exp'' is a regular expression, describes the set of tokens that includes the empty token and all specimens of ''exp''. Optional components usually appear in concatenations. 
 
@@ -299,9 +299,9 @@ Concatenations may be inconvenient when the concatenated elements are simply cha
     "A Text"</code>
 
 
-More generally, a string is written "a <code>1</code> a <code>2</code> ... a <code>n</code>" for ''n >= 0'', where the "a <code>i</code>" are characters, and is an abbreviation for the concatenation 'a <code>1</code>' 'a <code>2</code>' ... 'a <code>n</code>', representing a set containing a single token. In a string, the double quote character " is written \" and the backslash character \ is written \\. No other special characters are permitted; if you need special characters, use explicit concatenation. As a special case, "" represents the set containing a single empty token. 
+More generally, a string is written "a<sub>1</sub> a<sub>2</sub> ... a<sub>n</sub>" for ''n >= 0'', where the "a<sub>i</sub>" are characters, and is an abbreviation for the concatenation 'a<sub>1</sub>' 'a<sub>2</sub>' ... 'a<sub>n</sub>', representing a set containing a single token. In a string, the double quote character " is written \" and the backslash character \ is written \\. No other special characters are permitted; if you need special characters, use explicit concatenation. As a special case, "" represents the set containing a single empty token. 
 
-A union, written exp <code>1</code> | exp <code>2</code> | ... | exp <code>n</code>, describes the set of tokens which are specimens of exp <code>1</code>, or of exp <code>2</code>, etc. For example, the union ''('a'..'z') | ('A'..'Z')'' describes the set of single-letter tokens (lower-case or upper-case). 
+A union, written exp<sub>1</sub> | exp<sub>2</sub> | ... | exp<sub>n</sub>, describes the set of tokens which are specimens of exp<sub>1</sub>, or of exp<sub>2</sub>, etc. For example, the union ''('a'..'z') | ('A'..'Z')'' describes the set of single-letter tokens (lower-case or upper-case). 
 
 ===Predefined expressions===
 
@@ -339,7 +339,7 @@ The following non-elementary forms are abbreviations for commonly needed regular
 | Possibly signed integer constants
 |}
 
-A delimited string, written ''->string'', where ''string'' is of the form,"a <code>1</code> a <code>2</code> ... a <code>n</code>", represents the set of tokens made of any number of printable characters and terminated by ''string''. 
+A delimited string, written ''->string'', where ''string'' is of the form,"a<sub>1</sub> a<sub>2</sub> ... a<sub>n</sub>", represents the set of tokens made of any number of printable characters and terminated by ''string''. 
 One more form of regular expression, case-sensitive expressions, using the ~ symbol, will be introduced below. 
 
 ===Combining expression-building mechanisms===
