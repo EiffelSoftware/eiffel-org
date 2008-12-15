@@ -7,13 +7,13 @@ This section deals with what happens when objects, that is runtime instances of 
 
 Eiffel creation procedures are features of a class which can be used to initialize instances. Classes can have more than one creation procedure available. However, each creation procedure must ensure that the class invariant holds when the procedure completes execution. In other words, the creation procedure is there to initialize a newly created instance, and the class invariant guarantees that a newly initialized instance is actually valid. 
 
-There is nothing special about creation procedures themselves, they are just ordinary procedures (although by convention their names usually begin with the word " <code> make </code>"). What makes them creation procedures is the fact that their names are listed as creation procedures in the class text. 
+There is nothing special about creation procedures themselves, they are just ordinary procedures (although by convention their names usually begin with the word "<code>make</code>"). What makes them creation procedures is the fact that their names are listed as creation procedures in the class text. 
 
 In Eiffel, a creation procedure can be applied to an instance at any time (not just at object creation). This is done sometimes to reinitialize existing instances. 
 
 ==Constructors in .NET==
 
-Like creation procedures in Eiffel, .NET constructors are used to initialize new instances of types. Constructors manifest themselves differently depending upon which .NET language you use. In C#, constructors always appear as a method having the same name as the class on which they are implemented. In Visual Basic .NET, they always appear as a Sub with the name <code> New </code>. Once compiled into an assembly, the metadata labels constructors as <code> . ctor </code>. 
+Like creation procedures in Eiffel, .NET constructors are used to initialize new instances of types. Constructors manifest themselves differently depending upon which .NET language you use. In C#, constructors always appear as a method having the same name as the class on which they are implemented. In Visual Basic .NET, they always appear as a Sub with the name <code>New</code>. Once compiled into an assembly, the metadata labels constructors as <code>. ctor</code>. 
 
 Constructors can have multiple versions by overloading. That is, each version would have a different set of argument types. 
 
@@ -21,17 +21,17 @@ Constructors can only be applied when a new instance is created.
 
 ===Constructors as Eiffel Creation Procedures===
 
-When types from .NET assemblies are made available to Eiffel systems, the constructors are presented as creation procedures. Just as constructors show up in the C# and VB.NET environments with names appropriate to those languages, so it is with Eiffel for .NET. Always, constructors will have feature names which begin with the word " <code> make </code>", the convention for creation procedure naming in Eiffel. 
+When types from .NET assemblies are made available to Eiffel systems, the constructors are presented as creation procedures. Just as constructors show up in the C# and VB.NET environments with names appropriate to those languages, so it is with Eiffel for .NET. Always, constructors will have feature names which begin with the word "<code>make</code>", the convention for creation procedure naming in Eiffel. 
 
-If there is only one version of the constructor, that version will be mapped to a single feature named <code> make </code>. However, if there are overloaded versions of the constructor, then these versions given names starting with " <code> make_from_ </code>" and then followed with the argument names from the assembly metadata separated with the conjunction " <code> _and_ </code>". Let's look at an example. 
+If there is only one version of the constructor, that version will be mapped to a single feature named <code>make</code>. However, if there are overloaded versions of the constructor, then these versions given names starting with "<code>make_from_</code>" and then followed with the argument names from the assembly metadata separated with the conjunction "<code>_and_</code>". Let's look at an example. 
 
-The .NET type <code> System.Drawing.Size </code> has an overloaded constructor with two versions. In the <code> System.Drawing </code> assembly metadata, these two constructor versions look like this: 
+The .NET type <code>System.Drawing.Size</code>has an overloaded constructor with two versions. In the <code>System.Drawing</code> assembly metadata, these two constructor versions look like this: 
 <code>
 void .ctor(int32 width, int32 height)
 void .ctor(System.Drawing.Point pt)
 </code>
 
-So the argument names for the first version are <code> width </code> and <code> height </code>. For the second version there is only one argument named <code> pt </code>. The constructor versions as presented to Eiffel programmers as creation procedures look like this: 
+So the argument names for the first version are <code>width</code> and <code>height</code>. For the second version there is only one argument named <code>pt</code>. The constructor versions as presented to Eiffel programmers as creation procedures look like this: 
 <code>
 make_from_width_and_height (width: INTEGER; height: INTEGER)
 make_from_pt (pt: DRAWING_POINT)
@@ -41,7 +41,7 @@ Presenting the names in this format handles the conflicts of overloading and pro
 
 ===Eiffel Creation Procedures as Constructors?===
 
-Eiffel creation procedures do not map to constructors when Eiffel classes are compiled into assemblies. Rather, they are actually manifested as functions on a factory class in the namespace <code> Create </code> in the assembly. These functions return an initialized instance. In the section Type Organization there is more information about the organization of the types in assemblies built with Eiffel for .NET, along with an example of using types from such an assembly. 
+Eiffel creation procedures do not map to constructors when Eiffel classes are compiled into assemblies. Rather, they are actually manifested as functions on a factory class in the namespace <code lang=text>Create</code> in the assembly. These functions return an initialized instance. In the section Type Organization there is more information about the organization of the types in assemblies built with Eiffel for .NET, along with an example of using types from such an assembly. 
 
 
 
