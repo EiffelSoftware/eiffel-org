@@ -17,15 +17,15 @@ If we can have a runtime object that represents an operation, then we can place 
 
 This is a very desirable model for event driven processing, like graphical user interfaces. The operations that are executed when a user take some action like clicking on a button, could be represented by agents. When the user interface element is initialized, agents that represent the action routines are stored within the interface element. Then at the time that an event, say a button click, occurs, the agents for that event are retrieved and their associated operations are executed.
 
-Another area in which agents are commonly used is in traversing data structures. Many of the data structure classes in the Base Library include routines which take agents as there arguments. For example, the feature <code> do_all </code> takes an agent which represents some procedure and will apply the procedure to every item in the structure. 
+Another area in which agents are commonly used is in traversing data structures. Many of the data structure classes in the Base Library include routines which take agents as there arguments. For example, the feature <code>do_all</code> takes an agent which represents some procedure and will apply the procedure to every item in the structure. 
 
 ==Classes to Model Operations==
 
 We know that there are two types of routines in Eiffel, functions and procedures.
 
-Not surprisingly, the implementation of agents relies on three classes in the Base Library. Class <code> ROUTINE </code>, and its heirs <code> FUNCTION </code> and <code> PROCEDURE </code>. 
+Not surprisingly, the implementation of agents relies on three classes in the Base Library. Class <code>ROUTINE</code>, and its heirs <code>FUNCTION</code> and <code>PROCEDURE</code>. 
 
-When you use an agent from a client routine, you will be building an instance of either <code> FUNCTION </code> or <code> ROUTINE </code>. This happens implicitly as you will see. 
+When you use an agent from a client routine, you will be building an instance of either <code>FUNCTION</code> or <code>ROUTINE</code>. This happens implicitly as you will see. 
 
 ==Using Agents==
 
@@ -34,18 +34,18 @@ Below is an instruction which passes an agent as an argument to a procedure.
 	button.select_actions.extend (agent gauge.step_forward)
 </code>
 
-In this example, the producer wants to add the action of stepping the gauge forward in the event that a button is clicked. The keyword " <code> agent </code>" is used to indicate that at runtime an object of type <code> PROCEDURE </code> should be created which represents applying the feature <code> step_forward </code> to the object attached to <code> gauge </code>. It is the object of type <code> PROCEDURE </code> that is passed as the argument. 
+In this example, the producer wants to add the action of stepping the gauge forward in the event that a button is clicked. The keyword " <code>agent</code>" is used to indicate that at runtime an object of type <code>PROCEDURE</code> should be created which represents applying the feature <code>step_forward</code> to the object attached to <code>gauge</code>. It is the object of type <code>PROCEDURE</code> that is passed as the argument. 
 
-It is important to understand that <code> step_forward </code> does not get applied at the point that the instruction above is executed. Rather the procedure object that represents <code> step_forward </code> is given to the button to hold in reserve. Then at the point that the button click event takes place, the button will go through its list of <code> select_actions </code> executing their associated routines. Only then does <code> step_forward </code>get applied to <code> gauge </code>. 
+It is important to understand that <code>step_forward</code> does not get applied at the point that the instruction above is executed. Rather the procedure object that represents <code>step_forward</code> is given to the button to hold in reserve. Then at the point that the button click event takes place, the button will go through its list of <code>select_actions</code> executing their associated routines. Only then does <code>step_forward</code>get applied to <code>gauge</code>. 
 
 ===Agents with Arguments===
 
-In this example, the routine " <code> step_forward </code>" on which the agent is based takes no arguments. If you drilled down into the workings of this example you would find that class that implements the feature <code> extend </code> is class <code> EV_NOTIFY_ACTION_SEQUENCE </code>. You would also see that the signature for the feature <code> extend </code> is as essentially as follows. 
+In this example, the routine " <code>step_forward</code>" on which the agent is based takes no arguments. If you drilled down into the workings of this example you would find that class that implements the feature <code>extend</code> is class <code>EV_NOTIFY_ACTION_SEQUENCE</code>. You would also see that the signature for the feature <code>extend</code> is as essentially as follows. 
 <code>
 	extend (v: PROCEDURE [ANY, TUPLE])
 </code>
 
-We don't have to know too much about the workings of agents to see that " <code> extend </code>" takes an argument <code> v </code> which is of type <code> PROCEDURE </code>. It turns out that the actual generic parameter <code> TUPLE </code> represents the set of "open" arguments. In this case, extend is expecting an agent which has no open arguments. 
+We don't have to know too much about the workings of agents to see that " <code>extend</code>" takes an argument <code>v</code> which is of type <code>PROCEDURE</code>. It turns out that the actual generic parameter <code>TUPLE</code> represents the set of "open" arguments. In this case, extend is expecting an agent which has no open arguments. 
 
 ===Open and Closed Arguments===
 
@@ -56,7 +56,7 @@ Suppose a class has a feature declared as shown below.
 	my_procedure: PROCEDURE [ANY, TUPLE]
 </code>
 
-Then what can be assigned to <code> my_procedure </code>?. An agent, of course. Say the class has procedures as follows. 
+Then what can be assigned to <code>my_procedure</code>?. An agent, of course. Say the class has procedures as follows. 
 <code>
 	no_argument_procedure is
 			-- A procedure with no arguments
@@ -76,14 +76,14 @@ Then the following assignment is valid.
 	my_procedure := agent no_argument_procedure
 </code>
 
-What this means is that the agent created and associated with the procedure <code> no_argument_procedure </code> must conform to the type <code> PROCEDURE </code> [ <code> ANY </code>, <code> TUPLE </code>]. The feature <code> my_procedure </code> (which is of type <code> PROCEDURE </code>) can be attached at runtime to an agent representing a procedure with no open arguments, which indeed is what <code> no_argument_procedure </code> is. 
+What this means is that the agent created and associated with the procedure <code>no_argument_procedure</code> must conform to the type <code>PROCEDURE</code> [ <code>ANY</code>, <code>TUPLE</code>]. The feature <code>my_procedure</code> (which is of type <code>PROCEDURE</code>) can be attached at runtime to an agent representing a procedure with no open arguments, which indeed is what <code>no_argument_procedure</code> is. 
 
-Now let's turn our attention to the other procedure <code> two_argument_procedure </code>. You might think that because it takes two arguments, that you would not be able to build an agent from it which could be assigned to the attribute <code> my_procedure </code>. But you can do it by closing the two arguments at the time that the agent is created, as in the following. 
+Now let's turn our attention to the other procedure <code>two_argument_procedure</code>. You might think that because it takes two arguments, that you would not be able to build an agent from it which could be assigned to the attribute <code>my_procedure</code>. But you can do it by closing the two arguments at the time that the agent is created, as in the following. 
 <code>
 	my_procedure := agent two_argument_procedure (1, 2)	-- Is Valid
 </code>
 
-What happens here is that values are fixed for those arguments at the time that the agent, an object of type <code> PROCEDURE </code> [ <code> ANY </code>, <code> TUPLE </code>] is created. 
+What happens here is that values are fixed for those arguments at the time that the agent, an object of type <code>PROCEDURE</code> [ <code>ANY</code>, <code>TUPLE</code>] is created. 
 
 So this is the wonderful thing about agents. A routine which will be represented as an agent does not have to be an exact fit for the expected signature. By closing some arguments at agent creation, you have effectively produced a new and conforming routine.
 
@@ -96,21 +96,21 @@ To leave an argument open, you hold its place with a question mark. If you inten
 	my_procedure := agent two_argument_procedure		-- Both arguments left open
 </code>
 
-If an argument is open, then it means that a value is not provided for that argument at the time that the agent is created. The implication is that the value must be provided at some time prior to the time that the agent's associated routine gets executed. A precondition to executing a routine associated with an agent is that the agent has a valid set of arguments (called operands within the <code> ROUTINE </code> classes) for the call. If you were to leave one or both of the arguments to <code> two_argument_procedure </code> open as in the examples above, the assignment would still work due to the rules governing <code> TUPLE </code> conformance. But, at runtime unless the other arguments had been provided, the " <code> valid operands </code>" precondition would be violated. 
+If an argument is open, then it means that a value is not provided for that argument at the time that the agent is created. The implication is that the value must be provided at some time prior to the time that the agent's associated routine gets executed. A precondition to executing a routine associated with an agent is that the agent has a valid set of arguments (called operands within the <code>ROUTINE</code> classes) for the call. If you were to leave one or both of the arguments to <code>two_argument_procedure</code> open as in the examples above, the assignment would still work due to the rules governing <code>TUPLE</code> conformance. But, at runtime unless the other arguments had been provided, the " <code>valid operands</code>" precondition would be violated. 
 
 Let's see an example in which we leave a target open. Suppose we have a class that has a feature coded as below
 <code>
 	my_strings: LINKED_LIST [STRING]
 </code>
 
-and some code to put some strings in <code> my_strings </code>: 
+and some code to put some strings in <code>my_strings</code>: 
 <code>
 	create my_things.make
 	my_strings.extend ("Hello")
 	my_strings.extend ("World!")
 </code>
 
-Our class also has a feature called <code> print_on_new_line </code> which we created to print a string preceded by a new line character. 
+Our class also has a feature called <code>print_on_new_line</code> which we created to print a string preceded by a new line character. 
 <code>
 	print_on_new_line (s: STRING) is
 			-- Print `s' preceded by a new line
@@ -119,7 +119,7 @@ Our class also has a feature called <code> print_on_new_line </code> which we cr
 		end
 </code>
 
-Now suppose we want to print the values of all the strings in <code> my_strings </code> each on a separate line by invoking <code> print_on_new_line </code>. Traditionally, we would do it by traversing the <code> LINKED_LIST </code> and printing each item. Like this: 
+Now suppose we want to print the values of all the strings in <code>my_strings</code> each on a separate line by invoking <code>print_on_new_line</code>. Traditionally, we would do it by traversing the <code>LINKED_LIST</code> and printing each item. Like this: 
 <code>
 	from
 		my_list.start
@@ -131,30 +131,30 @@ Now suppose we want to print the values of all the strings in <code> my_strings 
 	end
 </code>
 
-The availability of agents gives us new options. <code> LINKED_LIST </code> has a feature <code> do_all </code> which comes to it from its ancestor <code> LINEAR </code>. The <code> do_all </code> feature's signature looks like this: 
+The availability of agents gives us new options. <code>LINKED_LIST</code> has a feature <code>do_all</code> which comes to it from its ancestor <code>LINEAR</code>. The <code>do_all</code> feature's signature looks like this: 
 <code>
 	do_all (action: PROCEDURE [ANY, TUPLE [G]])
 </code>
 
-As an argument <code> do_all </code> takes an agent based on a procedure with one open argument which is the same type as the list items (in this class, <code> G </code> is the formal generic parameter representing the type of the items being stored). Then it traverses the list executing the routine associated with that agent and roviding the current list item to satisfy the open argument. 
+As an argument <code>do_all</code> takes an agent based on a procedure with one open argument which is the same type as the list items (in this class, <code>G</code> is the formal generic parameter representing the type of the items being stored). Then it traverses the list executing the routine associated with that agent and roviding the current list item to satisfy the open argument. 
 
 Instead of coding the loop shown above, we can code this instruction:
 <code>
 	my_list.do_all (agent print_on_new_line (?))
 </code>
 
-we leave the argument to <code> print </code> open, and <code> do_all </code> will provide it as a reference to the current list item as it traverses the list. 
+we leave the argument to <code>print</code> open, and <code>do_all</code> will provide it as a reference to the current list item as it traverses the list. 
 
 ===Targets for Agents' Routines===
 
-In Eiffel every routine must be applied against a target object. In our model for computation, <code> x </code>. <code> f </code> ( <code> a </code>, ...), <code> x </code> is the target of the application of feature <code> f </code>. In the case of an agent, the agent must account for objects for each of the arguments and an object for the target of the routine. 
+In Eiffel every routine must be applied against a target object. In our model for computation, <code>x</code>. <code>f</code> ( <code>a</code>, ...), <code>x</code> is the target of the application of feature <code>f</code>. In the case of an agent, the agent must account for objects for each of the arguments and an object for the target of the routine. 
 
 Let's identify the targets in the examples shown. First:
 <code>
 	button.select_actions.extend (agent gauge.step_forward)
 </code>
 
-Here the target is the object attached to the entity "gauge" which is (although you cannot determine it from this line taken out of context) an object of type <code> EV_GAUGE </code>. 
+Here the target is the object attached to the entity "gauge" which is (although you cannot determine it from this line taken out of context) an object of type <code>EV_GAUGE</code>. 
 
 How about this:
 <code>
@@ -177,20 +177,20 @@ Suppose in our list of strings example, we wanted to print the strings, then con
 	my_list.do_all (agent print_on_new_line (?))
 </code>
 
-In between printing the list two times, we provide <code> do_all </code> with an agent that representing the <code> STRING </code> class's feature <code> to_lower </code> which will convert each string in the list to lower case. Notice that <code> to_lower </code> does not take an argument of type <code> STRING </code> as <code> print_on_new_line </code> did. Rather it gets applied to an instance of <code> STRING </code>, so it is targeted to a string. So we leave its target open and <code> do_all </code> provides the current list item as the target. 
+In between printing the list two times, we provide <code>do_all</code> with an agent that representing the <code>STRING</code> class's feature <code>to_lower</code> which will convert each string in the list to lower case. Notice that <code>to_lower</code> does not take an argument of type <code>STRING</code> as <code>print_on_new_line</code> did. Rather it gets applied to an instance of <code>STRING</code>, so it is targeted to a string. So we leave its target open and <code>do_all</code> provides the current list item as the target. 
 
 Agents for Functions
 
-So far all the agents that we have coded have created instances of <code> PROCEDURE </code>. But functions are routines and can be represented as agents as well. The difference is that functions have a return value. 
+So far all the agents that we have coded have created instances of <code>PROCEDURE</code>. But functions are routines and can be represented as agents as well. The difference is that functions have a return value. 
 
 Let's extend the string example by using an agent that represents a function. Suppose we wanted to print only those strings which contain a particular character, say the exclamation point. 
 
-Here again we'll use a feature of the <code> LINKED_LIST </code> class. There is a feature called <code> do_if </code> which takes two agents as arguments. One is an action procedure like the argument that <code> do_all </code> takes, and the other is a function which returns a boolean and used as a test. As each list item is current, the test is applied first. If the result is true, then the action is applied with the current item. 
+Here again we'll use a feature of the <code>LINKED_LIST</code> class. There is a feature called <code>do_if</code> which takes two agents as arguments. One is an action procedure like the argument that <code>do_all</code> takes, and the other is a function which returns a boolean and used as a test. As each list item is current, the test is applied first. If the result is true, then the action is applied with the current item. 
 <code>
 	my_list.do_if (agent print_on_new_line(?), agent {STRING}.has('!'))
 </code>
 
-The agent for the action is the same as we used earlier. We've added an agent for the test. It represents applying the <code> has </code> feature of the <code> STRING </code> class. Here the target is left open, because we want each of the strings in the list to be the target of <code> has </code>. 
+The agent for the action is the same as we used earlier. We've added an agent for the test. It represents applying the <code>has</code> feature of the <code>STRING</code> class. Here the target is left open, because we want each of the strings in the list to be the target of <code>has</code>. 
 
 
 

@@ -22,9 +22,7 @@ feature   -- Access
 
     item: ANY
             -- The thing currently pointed to by cursor
-
             ...
-
 feature   -- Element change
 
     put (new_item: ANY)
