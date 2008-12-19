@@ -28,7 +28,17 @@ When the display is finished, the application wait for you to pressed the return
 
 ==Under the Hood==
 
-This application shows how to use the thread <eiffel>THREAD_POOL</eiffel>. An asynchronous thread is launched ( <code> feature </code> { <eiffel>THREAD_POOL</eiffel>}. <eiffel>queue_user_work_item_wait_callback_object</eiffel>( <code> create </code> { <eiffel>WAIT_CALLBACK</eiffel>}. <eiffel>make</eiffel> ( <code> Current </code>, $ <eiffel>my_async_operation</eiffel>), <code> l_async_operation_done </code>)) and is associated to the local variable <code> l_async_operation_done. </code>Both threads perform simultaneously some operations. The main thread wait for the asynchronous thread to complete his own operations ( <code> l_async_operation_done </code>. <eiffel>wait_one</eiffel>) to close the application. 
+This application shows how to use the thread <eiffel>THREAD_POOL</eiffel>. 
+An asynchronous thread is launched: 
+<code>
+            feature {THREAD_POOL}.queue_user_work_item_wait_callback_object 
+                (create {WAIT_CALLBACK}.make (Current, $my_async_operation, l_async_operation_done))
+</code>
+and is associated to the local variable <code>l_async_operation_done</code>. Both threads perform simultaneously some operations. The main thread wait for the asynchronous thread to complete his own operations
+<code>
+            l_async_operation_done.wait_one
+</code> to close the application. 
+
 
 This sample contains the following class: 
 *  <eiffel>THREAD_POOL</eiffel> 

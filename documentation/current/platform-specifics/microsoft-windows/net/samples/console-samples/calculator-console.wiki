@@ -37,11 +37,11 @@ Allowable operations are:
 Enter a number, followed by :
 </code>
 
-Enter the first number to be put onto the stack, for example <code> 3 </code>. 
+Enter the first number to be put onto the stack, for example <code>3</code>. 
 
-'''Note:''' Failing to enter a number at this stage will cause the sample to stop. This sample was designed to showcase the use of EiffelBase data structures and is not protected against unexpected entries. 
+{{note|Failing to enter a number at this stage will cause the sample to stop. This sample was designed to showcase the use of EiffelBase data structures in the Microsoft .NET environment and is not protected against unexpected entries. }}
 
-You may then add another number on the stack by entering the character <code> a </code>: 
+You may then add another number on the stack by entering the character "<code>a</code>": 
 <code>
 *********************************
 Calculator in reverse Polish form
@@ -63,7 +63,7 @@ Next operation? a
 Enter a number, followed by :
 </code>
 
-Enter a second number, for example <code> 2 </code>. You can then apply any operation to the two operands such as minus: 
+Enter a second number, for example <code>2</code>. You can then apply any operation to the two operands such as minus: 
 <code>
 ...
 Next operation? a
@@ -78,9 +78,9 @@ Accumulator = 1
 Next operation?
 </code>
 
-You may use the operation <code> 0 </code> to clear the stack at any time. You may use <code> q </code> to quit the program. 
+You may use the operation<code> 0</code> to clear the stack at any time. You may use <code>q</code> to quit the program. 
 
-{{tip|You can use the command <code> ? </code> to display the list of available operations. }}
+{{tip|You can use the command <code>?</code> to display the list of available operations. }}
 
 ==Under the Hood==
 

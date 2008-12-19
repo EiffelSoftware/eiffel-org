@@ -32,7 +32,11 @@ When the display is finished, the application wait for you to pressed the return
 
 ==Under the Hood==
 
-This application shows how to use the thread <eiffel>TIMER</eiffel>. The timer is launched ( <code> create </code> <code> my_timer </code>. <eiffel>make_with_callback</eiffel> ( <code> create </code> { <eiffel>TIMER_CALLBACK</eiffel>}. <eiffel>make</eiffel> (Current, $ <eiffel>check_status</eiffel>), Void, 0, 2000)) and call the feature <eiffel>check_status</eiffel> that displays the message <code> "Checking Status." </code> every two seconds. 
+This application shows how to use the thread <eiffel>TIMER</eiffel>. The timer is launched:
+<code>
+            create my_timer </code>.make_with_callback (create {TIMER_CALLBACK}.make (Current, $check_status), Void, 0, 2000)
+</code>
+and call the feature <eiffel>check_status</eiffel> that displays the message <code> "Checking Status." </code> every two seconds. 
 
 This sample contains the following class: 
 *  <eiffel>TIMER</eiffel> 
