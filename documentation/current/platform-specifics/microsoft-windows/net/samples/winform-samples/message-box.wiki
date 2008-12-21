@@ -24,7 +24,7 @@ To compile the example:
 
 After launching the application, you will see a window displayed with a similar appearance to the one above. 
 
-Click on the <span><eiffel>BUTTON</eiffel></span> "Click Me!" and a message box will appear with the text that you have entered in the <span><eiffel>TEXT_FIELD</eiffel></span>. 
+Click on the <span><eiffel>BUTTON</eiffel></span> "Click Me!" and a message box will appear with the text that you have entered in the <span><eiffel>TEXT_BOX</eiffel></span>. 
 
 
 
@@ -32,16 +32,27 @@ Click on the <span><eiffel>BUTTON</eiffel></span> "Click Me!" and a message box 
 
 The application shows how to use the very useful <span><eiffel>MESSAGE_BOX</eiffel></span> control. 
 
-An event ( <span><eiffel>EVENT_HANDLER</eiffel>)</span> is associated to a control (here to the <span><eiffel>BUTTON</eiffel></span>). So the line ' 
-<code>my_button.add_click (create {EVENT_HANDLER}.make (Current, $on_my_button_clicked ))</code>
+An event ( <span><eiffel>EVENT_HANDLER</eiffel>)</span> is associated to a control (here to the <span><eiffel>BUTTON</eiffel></span>). So the line
+<code>
+            my_button.add_click (create {EVENT_HANDLER}.make (Current, $on_my_button_clicked ))</code>
 associates a click to <span>my_button</span> to the feature <span><eiffel>on_my_button_clicked</eiffel></span>. So every time the <span>BUTTON</span> <span><eiffel>my_button</eiffel></span> is clicked, the feature <span>on_my_button_clicked</span> is executed. 
 
-The feature <span><eiffel>my_button_clicked</eiffel></span> displays a <span><eiffel>MESSAGE_BOX</eiffel></span> ( <span>feature</span> { <span>WINFORMS_MESSAGE_BOX</span>}. <span><eiffel>show</eiffel></span> ( ''msg'')) with the text contained in <span><eiffel>TEXT_FIELD</eiffel></span> ( ''msg'' := <span><eiffel>my_text_field</eiffel></span>. <span><eiffel>text</eiffel></span>). 
+
+The feature <span><eiffel>my_button_clicked</eiffel></span> displays a <span><eiffel>MESSAGE_BOX</eiffel></span> 
+<code>
+            {WINFORMS_MESSAGE_BOX}.show (msg) 
+</code>
+with the text contained in <eiffel>TEXT_BOX</eiffel> 
+<code>
+            msg := "Text is : '"
+            msg.append (my_text_box.text)
+            msg.append ("'")
+</code>
 
 This sample contains the following classes:
 *  <span><eiffel>FORM</eiffel></span> 
 *  <span><eiffel>BUTTON</eiffel></span> 
-*  <span><eiffel>TEXT_FIELD</eiffel></span> 
+*  <span><eiffel>TEXT_BOX</eiffel></span> 
 *  <span><eiffel>EVENT_HANDLER</eiffel></span> 
 
 ==Notes==

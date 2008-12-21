@@ -25,12 +25,12 @@ After launching the application, you will see a window displayed with a similar 
 
 The application shows how to display a Windows Form under the windows environment. The application inherits the <span><eiffel>FORM</eiffel></span> class, and just set the title with <span><code>"Hello world"</code></span> with the inherited feature <span><eiffel>set_title</eiffel></span>. 
 <code>
-	set_title (("Hello world").to_cil)
+            set_title (("Hello world").to_cil)
 </code>
 
 The application is launched in a <eiffel>PROCESS</eiffel> with this command line:
 <code>
-	feature {WINFORMS_APPLICATION}.run_form (Current).
+            feature {WINFORMS_APPLICATION}.run_form (Current).
 </code>
 
 This sample contains the following classes:

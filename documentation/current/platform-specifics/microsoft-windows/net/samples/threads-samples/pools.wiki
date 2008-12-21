@@ -31,8 +31,7 @@ When the display is finished, the application wait for you to pressed the return
 This application shows how to use the thread <eiffel>THREAD_POOL</eiffel>. 
 An asynchronous thread is launched: 
 <code>
-            feature {THREAD_POOL}.queue_user_work_item_wait_callback_object 
-                (create {WAIT_CALLBACK}.make (Current, $my_async_operation, l_async_operation_done))
+            {THREAD_POOL}.queue_user_work_item (create {WAIT_CALLBACK}.make (Current, $async_operation, l_async_operation_done))
 </code>
 and is associated to the local variable <code>l_async_operation_done</code>. Both threads perform simultaneously some operations. The main thread wait for the asynchronous thread to complete his own operations
 <code>
