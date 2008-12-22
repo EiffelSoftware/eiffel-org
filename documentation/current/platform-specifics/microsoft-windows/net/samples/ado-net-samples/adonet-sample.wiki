@@ -51,15 +51,30 @@ When the display is finished, the application wait for you to pressed the return
 
 This application shows how to interact with a database. First the connection to the database is opened:
 <code>
-            create my_sql_connection.make_from_connection_string (my_database)
+            create connection.make ("server=(local)\NetSDK;Trusted_Connection=yes;database=northwind")
 </code>
 Then a request to the database is made: 
 <code>
-            create my_sql_command.make_from_cmd_text_and_connection (my_command, my_sql_connection)
+            create command.make ("select * from customers", connection)
+            connection.open
+            reader := command.execute_reader
 </code> 
-Finally, the result of the request is displayed. 
+Finally, the result of the request is displayed:
+<code>
+            from
+                ok := reader.read
+            until
+                not ok
+            loop
+                io.put_string (reader.item ("CustomerID").to_string)
+                io.put_string ("%T%T")
+                io.put_string (reader.item ("CompanyName").to_string)
+                io.new_line
+                ok := reader.read
+            end
+</code>
 
-This sample contains the following class: 
+This sample uses the following ADO.NET classes: 
 *  <eiffel>SQL_DATA_READER</eiffel> 
 *  <eiffel>SQL_CONNECTION</eiffel> 
 *  <eiffel>SQL_COMMAND</eiffel> 
