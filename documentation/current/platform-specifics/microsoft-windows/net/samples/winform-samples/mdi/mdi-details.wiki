@@ -6,11 +6,13 @@ Multiple Document Interface (MDI) applications have a single, primary window (th
 ==Creating an MDI Application==
 
 You can create an MDI application by following these steps:
-# Create a '''Form''' ( '''MainForm''') that represents the MDI parent window and set its '''IsMdiContainer''' property to '''True'''. The following code demonstrates how to set this property. 
-<code>set_is_mdi_container (True)</code>
+# Create a '''Form''' ('''MainForm''') that represents the MDI parent window and set its '''IsMdiContainer''' property to '''True'''. The following code demonstrates how to set this property. 
+<code>
+            set_is_mdi_container (True)</code>
 
 # Create child forms and set the '''MdiParent''' property of each form to reference the parent form. The following code demonstrates setting the MDI parent for an instance of a child form. <br/>
-<code>doc.set_mdi_parent (Current)</code>
+<code>
+            doc.set_mdi_parent (Current)</code>
 
 
 If you have different types of data to display, you can have multiple types of child forms. To display a child form, create an instance of the child form and call its '''Show''' method. 
@@ -20,13 +22,17 @@ If you have different types of data to display, you can have multiple types of c
 ==Standard MDI Menus==
 
 Typically, an MDI application has a '''Windows''' menu that allows the user to arrange the open child windows through tiling or cascading. The '''Windows''' menu also allows you to navigate to any of the open child windows. To create a '''Windows''' menu, add the menu items for tiling and cascading to a '''Windows''' menu in your parent form and set the '''MdiList''' property to '''True''' for the top-level '''Windows''' menu. The following code demonstrates how to create a '''Windows''' menu in an MDIapplication. 
-<code>mi_window: WINFORMS_MENU_ITEM</code>
 <code>
-mi_window := main_menu.get_menu_items.add (("&Window").to_cil)
-dummy := mi_window.get_menu_items.add_string_event_handler (("&Cascade").to_cil, create {EVENT_HANDLER}.make (Current, $window_cascade_clicked))
-dummy := mi_window.get_menu_items.add_string_event_handler (("Tile &Horizontal").to_cil, create {EVENT_HANDLER}.make (Current, $window_tile_h_clicked))
-dummy := mi_window.get_menu_items.add_string_event_handler (("Tile &Vertical").to_cil, create {EVENT_HANDLER}.make (Current, $window_tile_v_clicked))
-mi_window.set_mdi_list (True) -- Adds the MDI Window List to the bottom of the menu
+    mi_window: WINFORMS_MENU_ITEM
+
+                ...
+
+            mi_window := main_menu.get_menu_items.add ("&Window")
+            dummy := mi_window.get_menu_items.add_string_event_handler ("&Cascade", create {EVENT_HANDLER}.make (Current, $window_cascade_clicked))
+            dummy := mi_window.get_menu_items.add_string_event_handler ("Tile &Horizontal", create {EVENT_HANDLER}.make (Current, $window_tile_h_clicked))
+            dummy := mi_window.get_menu_items.add_string_event_handler ("Tile &Vertical", create {EVENT_HANDLER}.make (Current, $window_tile_v_clicked))
+            mi_window.set_mdi_list (True) -- Adds the MDI Window List to the bottom of the menu
+                ...
 </code>
 
 
@@ -37,14 +43,18 @@ mi_window.set_mdi_list (True) -- Adds the MDI Window List to the bottom of the m
 
 If you want your parent form to be notified when a child window is activated by the user, you can register an event-handling method for the '''MdiChildActivate''' event. You can determine which child window is active by using the '''ActiveMdiChild''' property of the '''Form''' class. For example, the following code updates a '''StatusBar''' control on the parent form with the name of the child window. 
 <code>
-...
-add_mdi_child_activate (create {EVENT_HANDLER}.make (Current, $mdi_child_activated))
-...
-mdi_child_activated (sender: SYSTEM_OBJECT; e: EVENT_ARGS) is
-	do
-		status_bar.set_text (active_mdi_child.get_text)
-	end
-...
+                ...
+
+            add_mdi_child_activate (create {EVENT_HANDLER}.make (Current, $mdi_child_activated))
+
+                ...
+
+    mdi_child_activated (sender: SYSTEM_OBJECT; e: EVENT_ARGS)
+        do
+            status_bar.set_text (active_mdi_child.get_text)
+        end
+
+                ...
 </code>
 
 

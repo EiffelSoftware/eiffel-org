@@ -2,7 +2,8 @@
 [[Property:weight|0]]
 [[Property:uuid|b952d232-1ef9-04a8-bac4-117185aa316d]]
 This sample shows you how to set up your first [[ref:/libraries/wel/reference/wel_application_chart|WEL_APPLICATION]]  consisting of a single [[ref:/libraries/wel/reference/wel_frame_window_chart|WEL_FRAME_WINDOW]] . This is one of the simplest WEL applications you can write, and the output is shown below: 
- [[Image:step1|step1]]  <br/>
+
+[[Image:step1|step1]]
 <br/>
 
 ==Compiling==

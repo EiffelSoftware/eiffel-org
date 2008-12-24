@@ -29,7 +29,7 @@ After launching the application, you will see a window displayed with a similar 
 
 This sample show how to draw some text in a window, using different brushes, different fonts, different style and different colors. 
 
-This sample contains the following class:
+This sample uses the following class:
 *  <eiffel>FORM</eiffel> 
 
 ==Notes==

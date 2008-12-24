@@ -29,7 +29,7 @@ After launching the application, you will see a window displayed with a similar 
 
 The application shows how to use a <span><eiffel>TREE_VIEW</eiffel></span> and what are all its different configurations. 
 
-This sample contains the following classes:
+This sample uses the following classes:
 *  <span><eiffel>TREE_VIEW</eiffel></span> 
 *  <span><eiffel>GROUP_BOX</eiffel></span> 
 *  <span><eiffel>CHECK_BOX</eiffel></span> 

@@ -2,7 +2,8 @@
 [[Property:weight|7]]
 [[Property:uuid|38c3a22d-2c15-cb68-a685-99a25d191885]]
 This sample builds on tutorial [[Tutorial Step 7|step 7]] , and also demonstrates the use of a [[ref:libraries/wel/reference/wel_open_file_dialog_chart|WEL_OPEN_FILE_DIALOG]]  and a [[ref:libraries/wel/reference/wel_save_file_dialog_chart|WEL_SAVE_FILE_DIALOG]] . The output is shown below: 
- [[Image:step8|step8]]  <br/>
+
+[[Image:step8|step8]]  <br/>
 <br/>
 
 ==Compiling==

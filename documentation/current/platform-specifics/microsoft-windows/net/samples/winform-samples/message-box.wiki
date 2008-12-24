@@ -49,7 +49,7 @@ with the text contained in <eiffel>TEXT_BOX</eiffel>
             msg.append ("'")
 </code>
 
-This sample contains the following classes:
+This sample uses the following classes:
 *  <span><eiffel>FORM</eiffel></span> 
 *  <span><eiffel>BUTTON</eiffel></span> 
 *  <span><eiffel>TEXT_BOX</eiffel></span> 

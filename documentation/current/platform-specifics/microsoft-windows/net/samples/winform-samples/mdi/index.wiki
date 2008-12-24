@@ -35,7 +35,7 @@ You can choose the organization (cascade, title horizontal or title vertical) of
 
 This application demonstrates how to create a multiple document interface. More information regarding the use of a MDI, is available [[MDI Details|here]] . 
 
-This sample contains the following class:
+This sample uses the following class:
 *  <span><eiffel>FORM</eiffel></span> 
 
 ==Notes==

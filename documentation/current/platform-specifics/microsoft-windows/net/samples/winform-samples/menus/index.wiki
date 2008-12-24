@@ -14,7 +14,9 @@
 
 After launching the application, you will see a window displayed with a similar appearance to the one above. The main window contains a main menu with two entries (File and Format). 
 
-The main window also has a blue <span>LABEL</span> that contains a context menu, that is the clone of "Format" in the main menu. Right click on the <span>LABEL</span> and a context menu will appear  [[Image:menu-contextuel|context menu]] . 
+The main window also has a blue <span>LABEL</span> that contains a context menu, that is the clone of "Format" in the main menu. Right click on the <span>LABEL</span> and a context menu will appear
+
+[[Image:menu-contextuel|context menu]] . 
 
 
 
@@ -22,7 +24,7 @@ The main window also has a blue <span>LABEL</span> that contains a context menu,
 
 This application shows how to create a main menu and how to associate a context menu to a control (here to a <span>LABEL)</span>. More information regarding the use of menus, is available [[Menu Details|here]] . 
 
-This sample contains the following class:
+This sample uses the following classes:
 *  <span>FORM</span> 
 *  <span>CONTEXT_MENU</span> 
 *  <span>MAIN_MENU</span> 

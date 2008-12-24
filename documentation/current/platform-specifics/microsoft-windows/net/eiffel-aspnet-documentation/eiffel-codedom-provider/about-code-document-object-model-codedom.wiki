@@ -4,7 +4,6 @@
 CodeDom stands for the '''Code Document Object Model'''. CodeDom allows for representing source code in an abstract data structure. Such a representation is called a '''CodeDom tree''' as the underlying data structure uses a tree paradigm. This abstract representation can then be generated into different programming languages. Each language vendor provides its implementation of the CodeDom interfaces, this implementation is called a '''CodeDom Provider'''. Programmers can then build tools that can work with many different languages without having to know about each one, instead they just delegate code generation to each CodeDom Provider. 
 The CodeDom interfaces also expose types and methods that allow for parsing source code and creating the corresponding CodeDom. The current implementation of the Eiffel CodeDom Provider does not support parsing. Code generation is a much more popular useage of the CodeDom and the current version focuses on this aspect of the technology. 
 
-{{seealso|[[Installation|Installation]]  }}
 
 
 

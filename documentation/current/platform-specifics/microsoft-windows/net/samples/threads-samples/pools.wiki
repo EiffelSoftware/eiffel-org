@@ -31,15 +31,15 @@ When the display is finished, the application wait for you to pressed the return
 This application shows how to use the thread <eiffel>THREAD_POOL</eiffel>. 
 An asynchronous thread is launched: 
 <code>
-            {THREAD_POOL}.queue_user_work_item (create {WAIT_CALLBACK}.make (Current, $async_operation, l_async_operation_done))
+            return := {THREAD_POOL}.queue_user_work_item (create {WAIT_CALLBACK}.make (Current, $async_operation, l_async_operation_done))
 </code>
 and is associated to the local variable <code>l_async_operation_done</code>. Both threads perform simultaneously some operations. The main thread wait for the asynchronous thread to complete his own operations
 <code>
-            l_async_operation_done.wait_one
+            return := l_async_operation_done.wait_one
 </code> to close the application. 
 
 
-This sample contains the following class: 
+This sample uses the following .NET types: 
 *  <eiffel>THREAD_POOL</eiffel> 
 *  <eiffel>WAIT_CALLBACK</eiffel> 
 *  <eiffel>AUTO_RESET_EVENT</eiffel> 

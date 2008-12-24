@@ -27,7 +27,7 @@ The application shows how to configure a <span><eiffel>PROGRESS_BAR</eiffel></sp
 
 The feature <span>on_load</span> is redefined and launch a thread (<eiffel>THREAD_START</eiffel>) that simulates the progression of a process. 
 
-This sample contains the following classes:
+This sample uses the following classes:
 *  <span><eiffel>PROGRESS_BAR</eiffel></span> 
 *  <span><eiffel>GROUP_BOX</eiffel></span> 
 *  <span><eiffel>TRACK_BAR</eiffel></span> 

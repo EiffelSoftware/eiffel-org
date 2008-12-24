@@ -2,7 +2,8 @@
 [[Property:weight|5]]
 [[Property:uuid|90d557e1-c4a6-e6ff-ff19-95a44c99f0ae]]
 This sample builds on tutorial [[Tutorial Step 5|step 5]]  by preventing the loss of the drawing when Windows re-draws the client area of the [[ref:libraries/wel/reference/wel_frame_window_chart|WEL_FRAME_WINDOW]] . The output is shown below: 
- [[Image:step6|step6]]  <br/>
+
+[[Image:step6|step6]]  <br/>
 <br/>
 
 ==Compiling==

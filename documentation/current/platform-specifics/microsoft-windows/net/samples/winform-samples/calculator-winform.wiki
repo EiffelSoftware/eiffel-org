@@ -31,9 +31,9 @@ The application uses two local external assemblies, math.dll and parserutils.dll
 
 parserutils parses the command line entered, and checks if it is of the form operand1 operator operand2. math.dll calculates the actual result of the command line. 
 
-For the parserutils.dll, we have been obliged to introduce the prefix "parser_" to avoid conflicts between name classes. 
+For the parserutils.dll, we have been obliged to introduce the prefix "PARSER_" to class names in this assembly in order to avoid conflicts between class names from this and other sources. 
 
-This sample contains the following classes:
+This sample uses the following classes:
 *  <span><eiffel>FORM</eiffel></span> 
 *  <span><eiffel>BUTTON</eiffel></span> 
 *  <span><eiffel>TEXT_FIELD</eiffel></span> 

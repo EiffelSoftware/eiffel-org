@@ -2,7 +2,8 @@
 [[Property:weight|2]]
 [[Property:uuid|7d79155a-fe75-e252-49d7-b03243ac96fd]]
 This sample demonstrates the use of a [[ref:libraries/wel/reference/wel_client_dc_chart|WEL_CLIENT_DC]]  to display output in the <code>MAIN_WINDOW</code>. The output is shown below: 
- [[Image:step3|step3]]  <br/>
+
+[[Image:step3|step3]]  <br/>
 <br/>
 
 ==Compiling==
