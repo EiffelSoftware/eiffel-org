@@ -4,8 +4,7 @@
 [[Property:uuid|68b37685-64e9-f564-9258-29e709a55f44]]
 '''Guide to Eiffel Information'''
 
-There is a wealth of information on Eiffel available from many sources. Let this be your guide. 
-These pages are the official documentation pages for the products and technologies of Eiffel Software.
+These pages are the central repository of information about Eiffel and the products and technologies of Eiffel Software.
 
 The documentation is organized into virtual books. Each book covers an important aspect of the world of Eiffel.
 
@@ -16,8 +15,6 @@ The documentation is organized into virtual books. Each book covers an important
 * [[Solutions]] -- Eiffel Solutions, Technologies, and Class Libraries
 * [[Platform specifics]] -- Specific support for particular platforms, e.g., Microsoft Windows 
 * [[Community]] -- Community Contributions
-
-There are also important sources of information on Eiffel external to these documentation pages.
 <!--break-->
 Sources of information on Eiffel include:
 
@@ -56,16 +53,15 @@ EiffelStudio community:
 
 EiffelStudio documentation is available in a convenient Wiki format. This makes it possible to improve the documentation continuously and make sure it is always up to date.
 
-Community input is welcome. If you are interested in improving and developing EiffelStudio documentation, you can become:
+Community input is welcome. If you are interested in improving and developing EiffelStudio documentation, you can become a ''contributor'' or ''editor'':
 
-* A contributor: authorized to edit existing pages to any book, and to add pages to the "Community contributions" book.
-**"Community contributions" book pages can be added to other books by an editor.
+* Contributors can edit existing pages in any book. They can also add pages to "Community contributions" book.
 
-* An editor: authorized to modify and add pages in any book.
+* Editors can modify and add pages in any book (including adding a "community contribution" book pages to an existing book).
 
-To become a contributor, you should be proficient in Eiffel technology and have good written English skills. To become an editor, you should already be a contributor and have contributed significant improvements or additions to the documentation.
+To become a contributor, you should be proficient in Eiffel technology and have good written English skills. To become an editor, you should already have made significant improvements or additions as a contributor.
 
-If you are interested in becoming a contributor, please send an email to info@eiffel.com with a short description of your Eiffel experience and any other relevant background.
+If you are interested in becoming a contributor, please send an email to info@eiffel.com with a short description of your Eiffel experience and any other relevant background. We look forward to your contributions!
 
 
 
@@ -92,7 +88,7 @@ Learn quickly about Eiffel and the things that help make it special, like Design
 
 ===Learning Maps on Eiffel.com===
 
-Also, get an in-depth view of topics by navigating our [http://eiffel.com/developers/learning_maps/ Eiffel Learning Maps]. Learning maps represent knowledge as a network of interrelated concepts. Attached to the concepts you may find links to additional resources. These resources can be just about anything. You'll find plain text files, web pages, screen shots, and even Eiffel Learnlets. Learnlets are small units of learning in web presentation form that are designed to take no more than 30 minutes to view ... just right for your lunch break.
+AGet an in-depth view of topics by navigating the [http://eiffel.com/developers/learning_maps/ Eiffel Learning Maps]. Learning maps represent knowledge as a network of interrelated concepts. Attached to the concepts you may find links to additional resources. These resources can be just about anything. You'll find plain text files, web pages, screen shots, and even Eiffel Learnlets. Learnlets are small units of learning in web presentation form that are designed to take no more than 30 minutes to view ... just right for your lunch break.
 
 
 ----
