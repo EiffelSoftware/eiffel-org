@@ -23,41 +23,38 @@ Sources of information on Eiffel include:
 
 ===[[Guide]] -- Guide to Eiffel Information===
 
-:References to the most helpful sources of Eiffel information. You are reading it now.
+You are reading this book now.
 
 ===[[Why Eiffel?]] -- Why Eiffel? ===
 
-:A summary of the arguments for using Eiffel.
+A summary of the arguments for using Eiffel.
 
 ===[[Method|Method and Language]] -- The Eiffel Method and Language===
 
-:Materials promoting the understanding of the Eiffel software development method and Eiffel the language.
+Materials promoting the understanding of the Eiffel software development method and Eiffel the language.
 
 ===[[EiffelStudio]] -- The EiffelStudio Interactive Development Environment===
 
-:Information about installing and using EiffelStudio
+Information about installing and using EiffelStudio
 
 ===[[Solutions]] -- Eiffel Solutions, Technologies, and Class Libraries===
 
-:There are technologies available with Eiffel that provide solutions to many ordinary development needs ... and to some extraordinary needs, too. This book addresses these requirements and the Eiffel technologies that satisfy them.
+Technologies available with Eiffel provide solutions to many ordinary development needs ... and some extraordinary needs too. This book addresses these requirements and the Eiffel technologies that satisfy them.
 
 ===[[Platform specifics]] -- Support for particular operating systems===
 
-:Although the majority of Eiffel is completely platform independent, Eiffel does provide solutions for some development needs that are strictly related to specific operating systems. Those technologies are described in this book.
+Although most  Eiffel technology is completely platform-independent, Eiffel also provides important platform-specific solutions, described in this book.
 
-===[[Community]] -- Community Contributions===
-
-EiffelStudio community:
-:'''You can become a contributor!'''
+===[[Community]] -- You can contribute to the documentation!===
 
 
 EiffelStudio documentation is available in a convenient Wiki format. This makes it possible to improve the documentation continuously and make sure it is always up to date.
 
-Community input is welcome. If you are interested in improving and developing EiffelStudio documentation, you can become a ''contributor'' or ''editor'':
+'''Community input''' is welcome. If you are interested in improving and developing EiffelStudio documentation, you can become a ''contributor'' or ''editor'':
 
-* Contributors can edit existing pages in any book. They can also add pages to "Community contributions" book.
+* Contributors can edit existing pages in any book and add pages to Community Contributions books.
 
-* Editors can modify and add pages in any book (including adding a "community contribution" book pages to an existing book).
+* Editors can modify and add pages in any book (including adding Community Contribution pages to an existing book).
 
 To become a contributor, you should be proficient in Eiffel technology and have good written English skills. To become an editor, you should already have made significant improvements or additions as a contributor.
 
@@ -79,7 +76,7 @@ Eiffel Software's website [http://eiffel.com Eiffel.com] contains an enormous am
 
 ----
 
-===Web Presentation on Eiffel.com===
+===Web Presentations on Eiffel.com===
 
 Learn quickly about Eiffel and the things that help make it special, like Design by Contract and EiffelStudio. Learn how Eiffel fits in with and compares to other popular technologies. All this and more is available on the [http://eiffel.com/developers/presentations/ presentations page] on Eiffel.com. 
 
