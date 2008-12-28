@@ -23,12 +23,12 @@ After you launch the sample, You should see a window displayed as illustrated ab
 
 MAIN_WINDOW inherits WEL_FRAME_WINDOW. In this example, we have redefined on_paint as shown below:
 <code>
-on_paint (paint_dc: WEL_PAINT_DC; invalid_rect: WEL_RECT) is      
-		--Draw a centered text 
-	is
-	      paint_dc.draw_centered_text("Hello, World!", client_rect)   
-	end 
-	</code>
+    on_paint (paint_dc: WEL_PAINT_DC; invalid_rect: WEL_RECT)
+            --Draw a centered text 
+        do
+            paint_dc.draw_centered_text("Hello, World!", client_rect)   
+        end 
+</code>
 
 {{note|If you look at MAIN_WINDOW, you will see that it contains many features. However, nearly all of these are features are inherited from WEL_FRAME_WINDOW. }}
 
