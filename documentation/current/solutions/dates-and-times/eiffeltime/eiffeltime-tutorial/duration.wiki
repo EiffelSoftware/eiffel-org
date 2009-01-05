@@ -1,7 +1,7 @@
 [[Property:title|Duration]]
 [[Property:weight|1]]
 [[Property:uuid|64672bd0-b696-0c39-1e30-5ac64aae4a99]]
-The classes <eiffel>[[eiffel:?system=time.78D80981-EF3C-42EC-8919-EF7D7BB61701&target=time&cluster=time&class=TIME_DURATION TIME_DURATION]]</eiffel>, <eiffel>DATE_DURATION</eiffel>, and <eiffel>DATE_TIME_DURATION</eiffel> model time durations.
+The classes <eiffel>TIME_DURATION</eiffel>, <eiffel>DATE_DURATION</eiffel>, and <eiffel>DATE_TIME_DURATION</eiffel> model time durations.
 
 The classes dealing with duration inherit from <eiffel>DURATION</eiffel>, which in turn inherits from <eiffel>GROUP_ELEMENT</eiffel> and <eiffel>PART_COMPARABLE</eiffel>. From this lineage comes the query <eiffel>zero</eiffel>, the addition features <eiffel>infix +</eiffel> and <eiffel>infix -</eiffel> and the unary features <eiffel>prefix +</eiffel>, and <eiffel>prefix -</eiffel>. 
 
