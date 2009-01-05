@@ -13,7 +13,7 @@ For each interface listed in a type library, the EiffelCOM wizard generates a de
 
 Different languages handle type coercion in different ways. C uses type cast; C++ introduces several type casting mechanisms; Eiffel uses assignment attempt, etc. Every COM interface exposes the <eiffel>QueryInterface</eiffel> function which allows clients to query the COM component for a pointer to another interface. Querying a component for an interface pointer is similar to using an assignment attempt in Eiffel. The Eiffel implementation of the assignment attempt relies on the runtime data. Since changing the Eiffel runtime and the implementation of the assignment attempt was not an option, EiffelCOM introduces a library class [[ref:libraries/com/reference/ecom_queriable_chart|ECOM_QUERIABLE]]  , which has the creation routine 
 <code>
-			make_from_other (other: ECOM_INTERFACE)</code>
+    make_from_other (other: ECOM_INTERFACE)</code>
 
 which queries a COM component internally. Every interface proxy class inherits from [[ref:libraries/com/reference/ecom_queriable_chart|ECOM_QUERIABLE]] . The one difference between this mechanism versus using assignment attempt is that upon failure an exception will be raised. An assignment attempt that fails simply returns <code>Void</code>. 
 

@@ -24,7 +24,7 @@ end
 
 In practice, however, the Eiffel style rules suggest a better documented version:
 <code>
-indexing    
+note    
     description: "Root for trivial system printing a message" 
     author: "Elizabeth W. Brown"
 
@@ -50,7 +50,7 @@ The two versions perform identically; the following comments will cover the more
 
 Note the absence of semicolons and other syntactic clatter or clutter. You may in fact use semicolons to separate instructions and declarations. But the language's syntax is designed to make the semicolon optional (regardless of text layout) and it's best for readability to omit it, except in the special case of successive elements on a single line. 
 
-The <code>indexing</code> clause does not affect execution semantics; you may use it to associate documentation with the class, so that browsers and other indexing and retrieval tools can help users in search of reusable components satisfying certain properties. Here we see two indexing entries, labeled <code>description</code> and <code>author</code>. 
+The <code>note</code> clause does not affect execution semantics; you may use it to associate documentation with the class, so that browsers and other indexing and retrieval tools can help users in search of reusable components satisfying certain properties. Here we see two notes, labeled <code>description</code> and <code>author</code>. 
 
 The name of the class is <code>HELLO</code>. Any class may contain "features"; <code>HELLO </code>has just one, called <code>make</code>. The <code>create</code> clause indicates that <code>make</code> is a "creation procedure", that is to say an operation to be executed at class instantiation time. The class could have any number of creation procedures. 
 

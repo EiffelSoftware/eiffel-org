@@ -28,7 +28,7 @@ inherit
             active_medium
         end
 
-creation
+create
     make
 
 feature
@@ -73,7 +73,7 @@ inherit
 
     BASIC_ROUTINES
 
-creation
+create
     make
 
 feature
@@ -114,7 +114,7 @@ class
 
     POLLING_SERVER
 
-creation
+create
     make
 
 feature
@@ -150,7 +150,7 @@ The client follows the same scheme, reversing the order of read and write operat
 class
     POLLING_CLIENT
 
-creation
+create
     make
 
 feature
