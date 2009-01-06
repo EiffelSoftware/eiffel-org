@@ -3,15 +3,15 @@
 [[Property:uuid|78e0273d-525e-a338-dfe4-d5fc27cd06d3]]
 Eiffel provides ways to add debug code to features to help during their debugging. You may think of it as the well-known C construct: <code></code> 
 
-<code>#ifdef MY_DEBUG_FLAG/* Debug code is here */ #endif</code>
+<code lang=c>#ifdef MY_DEBUG_FLAG/* Debug code is here */ #endif</code>
 
 
 The corresponding construct in Eiffel is provided by the debug keyword. It is possible to wrap code inside a debug clause like this:
 <code></code> 
 <code>
-	debug("MY_DEBUG_FLAG")
-		-- Debug code is here.
-	end</code>
+            debug("MY_DEBUG_FLAG")
+                -- Debug code is here.
+            end</code>
 
 
 It is then possible to enable or disable debug clauses globally.

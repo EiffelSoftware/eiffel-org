@@ -27,29 +27,29 @@ It is also possible to dynamically start and stop the profiler in a program. To 
 In the root feature:
 
 <code>
-	local
-		ps: PROFILING_SETTING
-			-- Other local variables if necessary.
-	do
-		create ps.make
-		ps.stop_profiling
-			-- Real program execution.
-		ps.start_profiling
-	end</code>
+        local
+            ps: PROFILING_SETTING
+                -- Other local variables if necessary.
+        do
+            create ps.make
+            ps.stop_profiling
+                -- Real program execution.
+            ps.start_profiling
+        end</code>
 
 
 And in the feature(s) that needs to be profiled:
 <code></code> 
 <code>
-	local
-		ps: PROFILING_SETTING
-			-- Other local variables if necessary.
-	do
-		create ps.make
-		ps.start_profiling
-			-- What needs to be profiled.
-		ps.stop_profiling
-	end</code>
+        local
+            ps: PROFILING_SETTING
+                -- Other local variables if necessary.
+        do
+            create ps.make
+            ps.start_profiling
+                -- What needs to be profiled.
+            ps.stop_profiling
+        end</code>
 
 
 {{note|Even if the profiler should only work in certain sections of code, the '''Profiling''' check box of the [[General Target Options|Projects Settings]]  dialog must be checked or the '''profile''' option must be set on certain clusters. }}

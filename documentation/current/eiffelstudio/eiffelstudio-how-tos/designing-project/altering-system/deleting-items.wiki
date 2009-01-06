@@ -13,17 +13,5 @@
 [[Removing items from a view|Removing items from the view only]] }}
 
 
-* Pick-and-drop the item you want to remove in the '''Delete''' hole.  [[Image:16x16--general-delete-icon]]  For links, the associated Eiffel code will be removed from the class text. Clusters and classes will be deleted from disk! 
-
-{{warning|An action that deletes one or more files or directories cannot be undone! }}
-
-
-{{tip|Turn on '''Automatic backups'''. EiffelStudio will make a copy of each class file every time a compilation is done. }}
-
-
-{{seealso|<br/>
-[[Removing items from a view|Removing items from the view only]] }}
-
-
 
 

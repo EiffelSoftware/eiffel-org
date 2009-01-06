@@ -11,9 +11,11 @@ The first page of the Documentation Wizard lets you choose between the available
 
 {{tip|The nicest output is produced by the '''html-stylesheet''' format. }}
 
+
 Now the wizard asks you to select the clusters you want to produce documentation for:
 
 [[Image:doc-wizard-cluster-selection]]  
+
 
 In the next page you can specify indexing items on which HTML metatags will be based:
 
@@ -21,9 +23,11 @@ In the next page you can specify indexing items on which HTML metatags will be b
 
 {{note|This page is only available for HTML documentation. }}
 
+
 You can then pick the formats you need among those available. For example, you might need a file containing the '''Cluster hierarchy''' of your system or, for each class, a file containing the '''Contracts''' of that class. At this point you can also decide to generate BON diagrams for the clusters selected in the previous page. 
 
 [[Image:doc-wizard-format-selection]]  
+
 
 If you have checked '''Cluster diagrams''' in the previous page, you will now be able to choose a view for each diagram that is going to be generated. You have the choice between an automatically arranged view and all of the [[Views|views ]] you may have manually arranged with the [[Diagram tool|Diagram Tool]] . 
 
@@ -31,9 +35,11 @@ If you have checked '''Cluster diagrams''' in the previous page, you will now be
 
 {{note|Cluster diagrams are only available for HTML documentation. }}
 
+
 Here comes the last page; you can choose the directory where the documentation is going to be generated:
 
 [[Image:doc-wizard-path-selection]]  
+
 
 {{seealso|<br/>
 [[Generating XMI documentation|Generating XMI documentation]]  }}

@@ -46,7 +46,7 @@ Please execute user actions, such as clicking, only when asked to do so.
 
 This Tour assumes very little about what you know and what you don't.
 
-It does assume that you can do simple manipulations on your platform of choice, such as: on Windows, finding and drag-and-dropping folders and files in the Windows Explorer; on Unix, changing to a certain directory ( <code> cd </code> ) and listing the files of a directory ( <code> ls </code> ).
+It does assume that you can do simple manipulations on your platform of choice, such as: on Windows, finding and drag-and-dropping folders and files in the Windows Explorer; on Unix, changing to a certain directory ( <code>cd</code> ) and listing the files of a directory ( <code>ls</code> ).
 
 The more you already know about object technology and object-oriented environments, the better. But remember, if you have used other environments before, keep a fresh outlook; EiffelStudio <span>is</span> different, and it may take a while before you fully understand why it does some things in a certain way.
 
@@ -58,7 +58,7 @@ Once an EiffelStudio session has been started, you can largely forget about the 
 
 Windows users should particularly note the following two conventions of terminology:
 * Operating systems store files into hierarchically nested structures called <span>folders</span> or <span>directories</span>. Although "folder" is the more common term for Windows, we will mostly speak of "directories". It's exactly the same thing. 
-* A file has a full <span>path name</span>, used to describe how to reach it from the root of its file system, as in <code> c:\d1\d2\f </code>. This example uses the Windows notation, which separates successive components of a path name by a backward slash character <code> \ </code>. On Unix and Linux, the separator is a forward slash <code> / </code>, as in <code> /d1/d2/f </code> ; this is also the convention on the Internet for denoting addresses (URLs). Most file names in this manual appear in this Unix/Internet style. On Windows you will normally have to use the backslash convention, although EiffelStudio also accepts forward slashes. In any case you must be consistent: don't mix backward and forward slashes in the same path name. Also note that some names, such as those of object files to be linked with your system, will be passed to outside tools -- C compilers, loaders -- that may not accept the forward slash. 
+* A file has a full <span>path name</span>, used to describe how to reach it from the root of its file system, as in <code>c:\d1\d2\f</code> . This example uses the Windows notation, which separates successive components of a path name by a backward slash character <code>\</code> . On Unix and Linux, the separator is a forward slash <code>/</code> , as in <code>/d1/d2/f</code> ; this is also the convention on the Internet for denoting addresses (URLs). Most file names in this manual appear in this Unix/Internet style. On Windows you will normally have to use the backslash convention, although EiffelStudio also accepts forward slashes. In any case you must be consistent: don't mix backward and forward slashes in the same path name. Also note that some names, such as those of object files to be linked with your system, will be passed to outside tools -- C compilers, loaders -- that may not accept the forward slash. 
 
 OpenVMS users may similarly use either the Unix convention or the specific OpenVMS path naming convention.
 
@@ -68,7 +68,7 @@ If you are a one-platform person, just ignore, for the next few pages, all refer
 
 To run the example you must have installed EiffelStudio and set up the environment. Check in particular the following:
 * On Windows, you must have run the installation procedure; it will have put EiffelStudio in the Programs section of the start menu, subsection "EiffelStudio version", where version is the version number, e.g. 6.0.
-* The environment variable <code> ISE_EIFFEL </code> must be set to the installation directory, and the environment variable <code> ISE_PLATFORM </code> to the platform. On Windows this is taken care of automatically by the installation procedure, but on Unix/Linux and OpenVMS you must update your path and environment manually. Throughout this discussion the notations <code> $ISE_EIFFEL </code> and <code> $ISE_PLATFORM </code> will refer to the values of these variables -- the installation directory, and the platform. (The Windows notation would be <code> %ISE_EIFFEL% </code> and <code> %ISE_PLATFORM% </code>.) 
+* The environment variable <code> ISE_EIFFEL </code> must be set to the installation directory, and the environment variable <code>ISE_PLATFORM</code> to the platform. On Windows this is taken care of automatically by the installation procedure, but on Unix/Linux and OpenVMS you must update your path and environment manually. Throughout this discussion the notations <code>$ISE_EIFFEL</code> and <code>$ISE_PLATFORM</code> will refer to the values of these variables -- the installation directory, and the platform. (The Windows notation would be <code>%ISE_EIFFEL%</code> and <code>%ISE_PLATFORM%</code>.) 
 * On Unix/Linux and OpenVMS, your "path" must include the place where EiffelStudio executables reside. (On Windows the installation procedure takes care of this.)
 * Also, the discussion assumes that as part of the installation you have included the EiffelBase library, in precompiled form. EiffelBase is automatically included if you have installed another precompiled library, such as WEL, the Windows Eiffel Library. The installation procedure takes care of precompiling EiffelBase.
 
@@ -77,5 +77,5 @@ To run the example you must have installed EiffelStudio and set up the environme
 Please take a moment to locate the example files on your installation. They all appear in the following directory, part of the Eiffel delivery:
 <code>$ISE_EIFFEL/examples/studio/tour</code>
 
-(Windows users: remember that instead of the slash <code> / </code> your platform uses a backslash <code> \ </code>. OpenVMS users: this is to be replaced by the OpenVMS path naming conventions.) 
+(Windows users: remember that instead of the slash <code>/</code> your platform uses a backslash <code>\</code> . OpenVMS users: this is to be replaced by the OpenVMS path naming conventions.) 
 
