@@ -18,7 +18,7 @@ Right now you first have to add the project, so click on <code>Add Project</code
 	$ISE_EIFFEL\examples\studio\tour\simple.ecf
 </code>
 
-remember that <code>$ISE_EIFFEL</code> stands for the location of the Eiffel installation, such as <code>C:\Eiffel63</code> ; ECF files are normally marked by the <code>.ecf</code> file extension). 
+remember that <code>$ISE_EIFFEL</code> stands for the location of the Eiffel installation, such as <code lang=text>C:\EiffelStudio 6.3</code> ; ECF files are normally marked by the <code>.ecf</code> file extension). 
 
 Use the File Explorer to go to the directory <code>$ISE_EIFFEL/examples/studio/tour/</code> and select the appropriate file. You will then be back on the startup dialog. 
 
@@ -29,7 +29,7 @@ Click <code>Open</code> to confirm. This starts compilation of your project.
 
 During Eiffel compilation, a progress bar displays the successive compilation steps, or "degrees". The bulk of our little project is the EiffelBase library, which the EiffelStudio installation procedure has precompiled; so just now there's only a few extra classes to compile, and the process is almost instantaneous on a state-of-the-art computer. Even if you had to compile the EiffelBase classes, EiffelStudio compilation is so fast that you would hardly have the time to read the "degree" messages; you can see them later in compilations of bigger classes and systems.
 
-{{note| ''On an IBM Thinkpad, Pentium III 850 MHz, 256 MB, running Windows 2000 Professional, Eiffel compilation takes about 9 seconds for the entire Guided Tour system including non-precompiled EiffelBase. '' }}
+{{note|On an IBM Thinkpad, Pentium III 850 MHz, 256 MB, running Windows 2000 Professional, Eiffel compilation takes about 9 seconds for the entire Guided Tour system including non-precompiled EiffelBase.  }}
 
 After Eiffel compilation completes you will see the message
 <code>

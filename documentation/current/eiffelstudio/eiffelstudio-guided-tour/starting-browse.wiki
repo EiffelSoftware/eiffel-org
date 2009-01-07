@@ -18,11 +18,11 @@ Let's see how this works. First, take a look at the EiffelStudio window:
 
 <div>  [[Image:index-8]]   </div>
 
-{{note| ''If some parts are too small, just resize the window to arrive at something like what's on the figure. When it first comes up, EiffelStudio initially uses a fairly small window, because it's designed to run on a 800x600 display, although of course a bigger display is recommended. But as soon as you have resized it, EiffelStudio will come up, in the next session, with the size you've set.'' }}
+{{note|If some parts are too small, just resize the window to arrive at something like what's on the figure. When it first comes up, EiffelStudio initially uses a fairly small window, because it's designed to run on a 800x600 display, although of course a bigger display is recommended. But as soon as you have resized it, EiffelStudio will come up, in the next session, with the size you've set.}}
 
-You can see five panes, marked on the figure: <code>Features</code>, <code>Class</code>, <code>Properties</code>, <code>Clusters</code>, <code>Context</code>. There will be others, such as <code>Search</code>, and you can remove any of them, except <code>Class</code>, at any time to make room for the others. 
+You can see five panes, marked on the figure: <code>Features</code>, <code lang=text>Class</code>, <code>Properties</code>, <code>Clusters</code>, <code>Context</code>. There will be others, such as <code>Search</code>, and you can remove any of them, except <code lang=text>Class</code>, at any time to make room for the others. 
 
-So far we have talked about " <span>the</span> EiffelStudio window", but in fact that's not correct. What you see is <span>one</span> " '''Development Window'''", of which you can have as many as you wish. Some people prefer to use a single development tool, avoiding screen clutter; others don't think twice about having lots of windows, taking the "desktop metaphor" to its full conclusion (some non-computer desktops are quite cluttered). There are many ways to start a new Development Window; for example if you look at the entries in the <code>File</code> menu at the top left -- don't select any of these entries yet, just look -- you'll see, among others, <code>New window</code>, which would create a new Development Window. 
+So far we have talked about "the EiffelStudio window", but in fact that's not correct. What you see is one "'''Development Window'''", of which you can have as many as you wish. Some people prefer to use a single development tool, avoiding screen clutter; others don't think twice about having lots of windows, taking the "desktop metaphor" to its full conclusion (some non-computer desktops are quite cluttered). There are many ways to start a new Development Window; for example if you look at the entries in the <code>File</code> menu at the top left -- don't select any of these entries yet, just look -- you'll see, among others, <code>New window</code>, which would create a new Development Window. 
 
 Whether you have one Development Window or many, each may have as its '''target''' an element of the system: system, cluster, class (the most common case), feature, run-time object. This simply means that the tool displays information about that element. 
 
@@ -40,7 +40,7 @@ The Development Window is now targeted to class <code>ARRAY</code>. Each of the 
 * Features Tree, top-left: a tree view of all the features of the class, grouped by the feature categories ( <code>Initialization</code>, <code>Access</code>, <span>...</span> ) as they appear in the class. 
 * Editing Tool, top-right: the source text of the class, editable. For the moment the pane is too small to display much of interest -- it only shows the very first few lines -- but we'll enlarge it when we need to modify class texts. (Not <code>ARRAY</code>, though, as it's not the kind of class you want to change during your first session with EiffelStudio, so just wait a bit.) 
 * Cluster Tree, bottom-left: a tree view of the clusters of the system.
-* Context Tool, bottom right: a bag full of neat tricks. At the moment it just shows some general information about the system (where it resides, the name of its root class <code>TESTROOT</code> ), but more generally it's there to give you all kinds of interesting views of the system, through the various tabs at the bottom: <code>Output</code>, <code>Diagram</code>, <code>Class</code>, <code>Feature</code>, <code>Metric</code>, <code>External Output</code>, <code>C Output</code>, <code>Errors</code>, <code>Warnings</code>. 
+* Context Tool, bottom right: a bag full of neat tricks. At the moment it just shows some general information about the system (where it resides, the name of its root class <code>TESTROOT</code> ), but more generally it's there to give you all kinds of interesting views of the system, through the various tabs at the bottom: <code>Output</code>, <code>Diagram</code>, <code lang=text>Class</code>, <code lang=text>Feature</code>, <code>Metric</code>, <code lang=text>External Output</code>, <code>C Output</code>, <code>Errors</code>, <code>Warnings</code>. 
 
 ==A peek at diagram==
 
@@ -52,7 +52,7 @@ This displays a class diagram in the Context Tool:
 
 [[Image:index-12]]
 
-{{note| ''If nothing appears in the Context Tool when you click the Diagram Tab, that's because the Context Tool and the Class View are not linked. Linking the two tools together will ensure that whenever a change is made in one tool the other will update to reflect that change. To link the tools select the menu entry '' <code>View</code> <code>--></code> <code>Link context tool</code> ''; this will display the diagram as shown. We'll see the explanation for this behavior in '' [[10 RETARGETING THROUGH PICK-AND-DROP| ''Isolating the context, pg 68'' ]]  }}
+{{note|If nothing appears in the Context Tool when you click the Diagram Tab, that's because the Context Tool and the Class View are not linked. Linking the two tools together will ensure that whenever a change is made in one tool the other will update to reflect that change. To link the tools select the menu entry <code>View -> Link context tool</code> ; this will display the diagram as shown. We'll see the explanation for this behavior in [[10 RETARGETING THROUGH PICK-AND-DROP|Isolating the context, pg 68]]  }}
 
 The diagram is cropped to the available area; to get the whole picture, resize the window from the bottom-right corner. You can now see the inheritance structure:
 
@@ -78,7 +78,7 @@ The most extensive of these EiffelBase libraries is <code>structures</code>, whi
 
 [[Image:index-17]]
 
-{{note| ''If you initially don't see as many details as shown on this figure, you may get them by resizing the window, moving the vertical pane boundary, and possibly scrolling.'' }}
+{{note|If you initially don't see as many details as shown on this figure, you may get them by resizing the window, moving the vertical pane boundary, and possibly scrolling.}}
 
 The EiffelBase Data Structure library and its subclusters are described in the book <span> [http://www.eiffel.com/doc/ Reusable Software]  </span>. Let's go to one of the most frequently used subclusters, <code>list</code>, containing implementations of list structures. Click the <code>+</code> next to <code>list</code>. This time, since list is a terminal cluster, it's not subclusters you'll see, but '''classes''', identified by small ellipses: 
 
@@ -110,7 +110,7 @@ As a fourth way to retarget -- there are more, and after this one we'll stop cou
 
 [[Image:index-21]]
 
-If you click this arrow -- the little black triangle -- you will see a menu of all your recent targets. Doing this now will only show the two classes visited so far, <code>STRING</code> and <code>LIST</code>, but later on there will be more entries. By default EiffelStudio remembers 10 classes; this is one of the settings you can change later if you wish, through the menu <code>Tools</code> <code>--></code> <code>Preferences</code>. (There's no point in doing this now.) 
+If you click this arrow -- the little black triangle -- you will see a menu of all your recent targets. Doing this now will only show the two classes visited so far, <code>STRING</code> and <code>LIST</code>, but later on there will be more entries. By default EiffelStudio remembers 10 classes; this is one of the settings you can change later if you wish, through the menu <code lang=text>Tools-->Preferences</code>. (There's no point in doing this now.) 
 
 ==Adding to Favorites==
 
@@ -136,5 +136,5 @@ Here, for example, the editor lists <code>CHAIN</code>, as a parent of <code>LIS
 
 The place where we found the class <code>CHAIN</code> in the original tool (the one targeted to <code>LIST</code> ) was the bubble representing the class in the Diagram View. But that's just one possibility. A general principle of EiffelStudio is '''semantic consistency''' : when you want to work with a development object -- a class, a feature, a cluster -- you can grab it wherever it appears in the interface, and in whatever format it is displayed: you might have spotted it be in the Diagram View, in the text of a class in the Editing Tool, in the Cluster or Feature Tree, or in any of the class documentation formats that we will soon see; and the form under which you found it may be text -- the name of the class in a text document -- or some graphical representation, such as a class bubble in a diagram. These variants don't matter: if the class or other development object catches your fancy, you can do whatever operations make sense for it, such as Control-right-click to start a new development object targeted to it, or any of the other operations we'll see next. 
 
-While you are at it, try a couple of other ways to create a new Development Window. Go to <code>File</code> <code>--></code> <code>New window</code> ; this creates a new tool, untargeted. The title bar says " <code>Empty development tool #1</code> ". You can get the same effect by clicking the Create New Window icon, leftmost on the top row of buttons, just below " <code>File</code>". The corresponding keyboard accelerator is CTRL- <code>N</code>. 
+While you are at it, try a couple of other ways to create a new Development Window. Go to <code lang=text>File-->New window</code> ; this creates a new tool, untargeted. The title bar says "<code lang=text>Empty development tool #1</code>". You can get the same effect by clicking the Create New Window icon, leftmost on the top row of buttons, just below " <code>File</code>". The corresponding keyboard accelerator is CTRL-<code>N</code>. 
 
