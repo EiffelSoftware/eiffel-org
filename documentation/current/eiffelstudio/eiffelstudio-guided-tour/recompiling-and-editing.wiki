@@ -6,27 +6,27 @@ So far we have relied on existing class texts. Fascinating as it may be to explo
 
 ==Recompiling==
 
-When we started, we compiled the example system. Let's recompile it, just to see. We'll see compilation entries in the <code> Project </code> menu, but the easiest for the moment is to use the compilation button in the Project toolbar, the lower toolbar in the Development Window. Click this button. You haven't changed anything in the project since it was compiled (you were not supposed to!), so EiffelStudio will very quickly detect this and finish compilation. On our test platform this takes less than a second. Now of course we should see what happens if you do change something. 
+When we started, we compiled the example system. Let's recompile it, just to see. We'll see compilation entries in the <code>Project</code> menu, but the easiest for the moment is to use the compilation button in the Project toolbar, the lower toolbar in the Development Window. Click this button. You haven't changed anything in the project since it was compiled (you were not supposed to!), so EiffelStudio will very quickly detect this and finish compilation. On our test platform this takes less than a second. Now of course we should see what happens if you do change something. 
 <div> 
 ==Editing==
 
-We don't want to touch EiffelBase classes (and in fact can't, since it is used in precompiled form), so let's focus on classes of our small root cluster. In the Cluster tree on the left, expand cluster <code> root_cluster </code> and click class <code> PARENT </code> to retarget the Development Window to it. 
+We don't want to touch EiffelBase classes (and in fact can't, since it is used in precompiled form), so let's focus on classes of our small root cluster. In the Cluster tree on the left, expand cluster <code>root_cluster</code> and click class <code>PARENT</code> to retarget the Development Window to it. 
 
 Make sure that the Editing Tool is big enough to display the text of the class:
 
 [[Image:index-66]] 
 
-The Editing Tool hosts a text editor which you can use to change the class text. Here the routine <code> display </code> starts by outputting a simple message; let's precede it by another line of display to check that we affected the outcome. We'll want to add the following two lines just after the <code> do </code>, before the first two instructions of the routine: 
+The Editing Tool hosts a text editor which you can use to change the class text. Here the routine <code>display</code> starts by outputting a simple message; let's precede it by another line of display to check that we affected the outcome. We'll want to add the following two lines just after the <code>do</code>, before the first two instructions of the routine: 
 <code>
 	io.put_string ("This is some more added text") 
 	io.new_line
 </code>
 
-They are very similar to the current first two lines of the routine, so you can just use copy-paste: select the first two lines with the mouse, copy them using CTRL- <code> C </code> (or <code> Copy </code> from the <code> Edit </code> menu), then paste them just after the <code> do </code> using CTRL- <code> V </code> (or <code> Paste </code> from the <code> Edit </code> menu). Add or remove tabs to align with the rest of the routine, and change the string to <code> THIS IS SOME MORE ADDED TEXT </code> so that the result will look like what's shown on the next figure. This is all there is to change; the second line remains untouched. Please check the result and be careful not to introduce any mistakes; in the next section we'll study how EiffelStudio will report syntax and other errors, but right now we want to see what happens when everything is right! 
+They are very similar to the current first two lines of the routine, so you can just use copy-paste: select the first two lines with the mouse, copy them using CTRL- <code>C</code> (or <code>Copy</code> from the <code>Edit</code> menu), then paste them just after the <code>do</code> using CTRL- <code>V</code> (or <code>Paste</code> from the <code>Edit</code> menu). Add or remove tabs to align with the rest of the routine, and change the string to <code>THIS IS SOME MORE ADDED TEXT</code> so that the result will look like what's shown on the next figure. This is all there is to change; the second line remains untouched. Please check the result and be careful not to introduce any mistakes; in the next section we'll study how EiffelStudio will report syntax and other errors, but right now we want to see what happens when everything is right! 
 
 [[Image:index-67]] 
 
-Now save your changes; you may indifferently use CTRL- <code> S </code>, the <code> Save </code> entry from the <code> Edit </code> menu, or the Save button highlighted on the figure. (If you forget to save, the next compilation will tell you so, and ask you if from now on you want all non-saved class edits to be saved automatically.) 
+Now save your changes; you may indifferently use CTRL- <code>S</code>, the <code>Save</code> entry from the <code>Edit</code> menu, or the Save button highlighted on the figure. (If you forget to save, the next compilation will tell you so, and ask you if from now on you want all non-saved class edits to be saved automatically.) 
 </div><div> 
 ==Recompiling and executing after a change==
 
@@ -38,7 +38,7 @@ Execute the system again now, using one of the execution buttons, with or withou
 
 In studying the Context Tool we discovered a number of views of a class text. For convenience, you can also display a number of these views in the Editing Tool, although only the basic Text view is editable. A row of buttons next to the Class and Feature fields lets you choose between them. 
 
-You can try some of these view now, although there is nothing exciting to show about class <code> PARENT </code>. Make sure to come back to the <code> Text </code> view -- through the leftmost of these buttons -- so that we can continue exploring the editing facilities. 
+You can try some of these view now, although there is nothing exciting to show about class <code>PARENT</code>. Make sure to come back to the <code>Text</code> view -- through the leftmost of these buttons -- so that we can continue exploring the editing facilities. 
 </div><div> 
 ==Basic editing facilities==
 
@@ -46,27 +46,27 @@ The editing facilities in the Editing Tool are provided by the EiffelStudio Edit
 
 The online documentation provides many more details about editing functions. Here are the essentials.
 
-First, the key property of any interactive system: '''Undo'''. You can cancel the latest editing command, or any earlier one performed during the current session, by choosing <code> Undo </code> from the <code> Edit </code> menu, or typing CTRL- <code> Z </code>. To cancel more than one command, apply Undo repetitively; there is no limit to the number of undoable commands within a session. (When you exit EiffelStudio, however, the editing history is lost.) To redo an undone command, use <code> Redo </code> from the <code> Edit </code> menu or CTRL- <code> Y </code>. 
+First, the key property of any interactive system: '''Undo'''. You can cancel the latest editing command, or any earlier one performed during the current session, by choosing <code>Undo</code> from the <code>Edit</code> menu, or typing CTRL- <code>Z</code>. To cancel more than one command, apply Undo repetitively; there is no limit to the number of undoable commands within a session. (When you exit EiffelStudio, however, the editing history is lost.) To redo an undone command, use <code>Redo</code> from the <code>Edit</code> menu or CTRL- <code>Y</code>. 
 
-{{note|Since right now we don't need to do any actual editing to continue this Guided Tour, we suggest that you don't change the text of class <code> PARENT </code> but simply look up the menu entries described next, without actually selecting them. If you do make a change, voluntary or not, you should at the end of this editor discussion perform enough Undo commands to get the text of class <code> PARENT </code> back to its original state. }}
+{{note|Since right now we don't need to do any actual editing to continue this Guided Tour, we suggest that you don't change the text of class <code>PARENT</code> but simply look up the menu entries described next, without actually selecting them. If you do make a change, voluntary or not, you should at the end of this editor discussion perform enough Undo commands to get the text of class <code>PARENT</code> back to its original state. }}
 
-To '''copy''', '''cut''' and '''paste''' use the corresponding entries in the <code> Edit </code> menu or the familiar keyboard shortcuts CTRL- <code> C </code>, CTRL- <code> X </code> and CTRL- <code> V </code>. 
+To '''copy''', '''cut''' and '''paste''' use the corresponding entries in the <code>Edit</code> menu or the familiar keyboard shortcuts CTRL- <code>C</code>, CTRL- <code>X</code> and CTRL- <code>V</code>. 
 
-When you edit text, it will be automatically '''indented''' according to standard Eiffel style rules. If you prefer to remain in charge of your own indenting, you can disable this facility through <code> Tools </code> <code> --> </code> <code> Preferences </code> <code> --> </code> <code> Editor </code>. 
+When you edit text, it will be automatically '''indented''' according to standard Eiffel style rules. If you prefer to remain in charge of your own indenting, you can disable this facility through <code>Tools</code> <code>--></code> <code>Preferences</code> <code>--></code> <code>Editor</code>. 
 
-To indent a sequence of lines, select the lines, then use <code> Edit </code> <code> --> </code> <code> Advanced </code> <code> --> </code> <code> Indent selection </code>. You can also use the Tab key, but only if the selection consists of one or more entire lines; otherwise typing Tab will simply replace the selected text with a Tab character. Shift-Tab will similarly decrease indentation by one step. 
+To indent a sequence of lines, select the lines, then use <code>Edit</code> <code>--></code> <code>Advanced</code> <code>--></code> <code>Indent selection</code>. You can also use the Tab key, but only if the selection consists of one or more entire lines; otherwise typing Tab will simply replace the selected text with a Tab character. Shift-Tab will similarly decrease indentation by one step. 
 
-To '''comment out''' a sequence of lines, select them and use <code> Edit </code> <code> --> </code> <code> Advanced </code> <code> --> </code> <code> Comment </code> or CTRL- <code> K </code>. Conversely, CTRL-Shift- <code> K </code> will uncomment. Also in the <code> Edit </code> <code> --> </code> <code> Advanced </code> menu are "set to upper case", with the keyboard shortcut CTRL- <code> U </code>, and to lower case, CTRL-Shift- <code> U </code>. 
+To '''comment out''' a sequence of lines, select them and use <code>Edit</code> <code>--></code> <code>Advanced</code> <code>--></code> <code>Comment</code> or CTRL- <code>K</code>. Conversely, CTRL-Shift- <code>K</code> will uncomment. Also in the <code>Edit</code> <code>--></code> <code>Advanced</code> menu are "set to upper case", with the keyboard shortcut CTRL- <code>U</code>, and to lower case, CTRL-Shift- <code>U</code>. 
 
-Other useful facilities of the <code> Edit </code> <code> --> </code> <code> Advanced </code> menu are: 
-*  <code> Embed in "if" </code>, or CTRL- <code> I </code>, which will create a conditional instruction and include the selected instructions in it. 
-*  <code> Embed in "debug" </code>, CTRL- <code> D </code>, which will include the selected instructions in a <code> debug </code> <span>...</span> <code> end </code> instruction, so that their execution becomes conditional on a Debug compilation option. 
+Other useful facilities of the <code>Edit</code> <code>--></code> <code>Advanced</code> menu are: 
+*  <code>Embed in "if"</code>, or CTRL- <code>I</code>, which will create a conditional instruction and include the selected instructions in it. 
+*  <code>Embed in "debug"</code>, CTRL- <code>D</code>, which will include the selected instructions in a <code>debug</code> <span>...</span> <code>end</code> instruction, so that their execution becomes conditional on a Debug compilation option. 
 <div> 
 ==Search and replace==
 
 The editor lets you search for text and replace occurrences, individually or globally. We assume you have seen a text search facility before, so we'll just emphasize some of the less obvious features.
 
-To start a search, make sure the Search Tool is active by clicking the Search button in the top toolbar (this one we'll let you find) or using the <code> Edit </code> <code> --> </code> <code> Find </code> menu entry. 
+To start a search, make sure the Search Tool is active by clicking the Search button in the top toolbar (this one we'll let you find) or using the <code>Edit</code> <code>--></code> <code>Find</code> menu entry. 
 
 {{note|that although we are studying Search as part of the Editor, this function also applies to any textual form displayed in the Context Tool; make sure to start a Search from the tool that you want to search.'' }}
 
@@ -76,29 +76,29 @@ The Search Tool presents a number of self-explanatory options:
 
 [[Image:index-69]] 
 
-You can enter a term to replace your search term in the <code> Replace with </code> box. 
+You can enter a term to replace your search term in the <code>Replace with</code> box. 
 
 Having filled the two fields, you can elect to replace the last found occurrence, or all occurrences at once.
 
-The <code> Search for </code> field has an associated drop-down list, so that you can reuse a recently entered search string without retyping it. 
+The <code>Search for</code> field has an associated drop-down list, so that you can reuse a recently entered search string without retyping it. 
 </div><div> 
 ==Let the editor do the typing==
 
-Particularly interesting are the editor's '''automatic completion''' facilities. Well, particularly interesting for <span>most</span> people: maybe you like your editor to do the grunt work for you, or maybe you don't. In the latter case -- if you prefer to be in control of all the details -- don't worry: through <code> Tools </code> <code> --> </code> <code> Preferences </code> <code> --> </code> <code> Editor </code> you can easily disable any facility that you don't like. The behavior described here is the default. 
+Particularly interesting are the editor's '''automatic completion''' facilities. Well, particularly interesting for <span>most</span> people: maybe you like your editor to do the grunt work for you, or maybe you don't. In the latter case -- if you prefer to be in control of all the details -- don't worry: through <code>Tools</code> <code>--></code> <code>Preferences</code> <code>--></code> <code>Editor</code> you can easily disable any facility that you don't like. The behavior described here is the default. 
 
 The EiffelStudio Editor knows about Eiffel syntax and will recognize syntactic elements as you type them. It will color them according to standard conventions: basic elements in black, keywords in blue, comments in dark red. You can change these conventions through Preferences.
 
-If you start typing a control structure through its opening keyword, such as <code> if </code>, or <code> from </code> for a loop, the editor will automatically display the structure of the whole construct. Here for example is the result if you type the <code> from </code> followed by Return/Enter at the beginning of our example routine: 
+If you start typing a control structure through its opening keyword, such as <code>if</code>, or <code>from</code> for a loop, the editor will automatically display the structure of the whole construct. Here for example is the result if you type the <code>from</code> followed by Return/Enter at the beginning of our example routine: 
 
 [[Image:index-71]]
 
-This has produced the structure of an Eiffel loop: <code> from </code> <span>...</span> <code> until </code> <span>...</span> <code> loop </code> <span>...</span> <code> end </code>. You can then fill in the blanks with the appropriate expression and instructions. The generated lines start with the appropriate number of Tab characters to support the standard Eiffel indenting conventions. If you want a more compact style, follow the <code> from </code> with a space rather than Return. Typing <code> if </code> followed by Return or a space will similarly produce the outline of a conditional instruction. 
+This has produced the structure of an Eiffel loop: <code>from</code> <span>...</span> <code>until</code> <span>...</span> <code>loop</code> <span>...</span> <code>end</code>. You can then fill in the blanks with the appropriate expression and instructions. The generated lines start with the appropriate number of Tab characters to support the standard Eiffel indenting conventions. If you want a more compact style, follow the <code>from</code> with a space rather than Return. Typing <code>if</code> followed by Return or a space will similarly produce the outline of a conditional instruction. 
 
-To start a routine, type the routine name followed by the keyword <code> is </code> and a Return. The editor generates the basic structure of a routine text: 
+To start a routine, type the routine name followed by the keyword <code>is</code> and a Return. The editor generates the basic structure of a routine text: 
 
 [[Image:index-72]]
 
-This prompts you to enter the header comment (no self-respecting Eiffel developer even <span>thinks</span> of writing a feature without a header comment). At the end of the header comment, type Return if the header comment continues, otherwise type a down arrow to continue with the indentation for the beginning of the routine, with one of the keywords <code> require </code>, <code> local </code>, <code> do </code>, <code> external </code>, <code> once </code>. Once you type <code> do </code>, followed by a Return or space, the completion mechanism will insert the appropriate <code> end </code>, but other than that it doesn't try to produce an entire routine structure because there are too many syntactical choices (precondition or not, postcondition or not, locals or not etc.). 
+This prompts you to enter the header comment (no self-respecting Eiffel developer even <span>thinks</span> of writing a feature without a header comment). At the end of the header comment, type Return if the header comment continues, otherwise type a down arrow to continue with the indentation for the beginning of the routine, with one of the keywords <code>require</code>, <code>local</code>, <code>do</code>, <code>external</code>, <code>once</code>. Once you type <code>do</code>, followed by a Return or space, the completion mechanism will insert the appropriate <code>end</code>, but other than that it doesn't try to produce an entire routine structure because there are too many syntactical choices (precondition or not, postcondition or not, locals or not etc.). 
 
 Also interesting is '''feature completion''', using the '''CTRL-SPACE''' key. It works at two levels: 
 * You can type the beginning of the name of a feature of the current class, then CTRL-SPACE to get possible completions.
@@ -106,7 +106,7 @@ Also interesting is '''feature completion''', using the '''CTRL-SPACE''' key. It
 
 In both cases, if more than one completion is possible, you will get a menu of the possibilities. You can scroll through it with the up and down arrow keys, or the mouse, and select one through Enter or double-click. You can also or give up through the Escape key.
 
-Here for example is the menu you will see in the body of our example routine if you type <code> io </code> <span>. </span> followed by CTRL-SPACE, where <code> io </code> is the feature, coming from class <code> ANY </code>, that provides access to standard input and output facilities: 
+Here for example is the menu you will see in the body of our example routine if you type <code>io</code> <span>. </span> followed by CTRL-SPACE, where <code>io</code> is the feature, coming from class <code>ANY</code>, that provides access to standard input and output facilities: 
 
 [[Image:index-73]]
 
@@ -118,21 +118,21 @@ The following properties enhance the convenience of the completion mechanisms:
 The combination of these facilities means that you can often obtain what you want simply by typing CTRL-SPACE repeatedly.
 
 Also note the following properties of automatic feature completion:
-* The mechanism will only work for queries that were present at the time of the last successful compilation. So if you add an attribute, say <code> attr </code>, to the current class, and do not recompile, typing <code> a </code> -CTRL-SPACE will not display <code> attr </code>. To make sure that it's included in completion proposals, save and recompile. (Remember, incremental compilation is fast in EiffelStudio, so there is nothing wrong in compiling early and often.) The same rule holds for features of <span>other</span> classes, those that will appear in proposed completions after a period. 
+* The mechanism will only work for queries that were present at the time of the last successful compilation. So if you add an attribute, say <code>attr</code>, to the current class, and do not recompile, typing <code>a</code> -CTRL-SPACE will not display <code>attr</code>. To make sure that it's included in completion proposals, save and recompile. (Remember, incremental compilation is fast in EiffelStudio, so there is nothing wrong in compiling early and often.) The same rule holds for features of <span>other</span> classes, those that will appear in proposed completions after a period. 
 * Automatic completion is applicable to features, not local entities or formal arguments.
-* The features proposed for automatic completion include all features of the class: those declared in the class itself, or <span>immediate</span> features, and those <span>inherited</span> from proper ancestors, direct or indirect, with one exception: by default the list will not include features from the universal class <code> ANY </code>, which serves as ancestor to all classes and provides many features for comparison, copying, input-output, reflection etc. Including <code> ANY's </code> features would clutter all menus with too many features. So for example typing <code> i </code> followed by CTRL-SPACE will not suggest <code> io </code> among the possible completions. You can change this policy through Preferences. The policy does not apply to remote feature completion for an entity <code> x </code> declared of type <code> ANY </code> : typing CTRL-SPACE after <code> x </code> <span>. </span> will produce the list of <code> ANY </code> 's features. 
+* The features proposed for automatic completion include all features of the class: those declared in the class itself, or <span>immediate</span> features, and those <span>inherited</span> from proper ancestors, direct or indirect, with one exception: by default the list will not include features from the universal class <code>ANY</code>, which serves as ancestor to all classes and provides many features for comparison, copying, input-output, reflection etc. Including <code>ANY's</code> features would clutter all menus with too many features. So for example typing <code>i</code> followed by CTRL-SPACE will not suggest <code>io</code> among the possible completions. You can change this policy through Preferences. The policy does not apply to remote feature completion for an entity <code>x</code> declared of type <code>ANY</code> : typing CTRL-SPACE after <code>x</code> <span>. </span> will produce the list of <code>ANY</code> 's features. 
 
 ==Using your own editor==
 
 You may have a favorite editor and prefer to use it, at least in some cases. The EiffelStudio incremental compilation mechanism, to be studied shortly, recognizes that files have been modified outside of EiffelStudio (by checking their time stamps) and will without any fuss take their modified versions into account. 
 
-You can also call an outside editor on a class from within EiffelStudio. Just use <code> File </code> <code> --> </code> <code> External editor </code> or the corresponding button in the top toolbar. 
+You can also call an outside editor on a class from within EiffelStudio. Just use <code>File</code> <code>--></code> <code>External editor</code> or the corresponding button in the top toolbar. 
 
-This will call the editor of your choice. The default is Notepad on Windows and Vi on Unix and Linux. You can easily change this to any editor by entering the desired editor command in <code> Tools </code> <code> --> </code> <code> Preferences </code> <code> --> </code> <code> Global Preferences </code>. In this command text you can use the two special notations <code> $target </code> and <code> $line </code> ; when EiffelStudio calls the selected command, it will replace any occurrence of <code> $target </code> by the name of the file where the current class resides, and <code> $line </code> by the line number at which the Editing Tool is currently scrolled. If you include one or both of these markers at the appropriate argument positions for the command, this will enable you -- assuming the editor supports the appropriate options -- to make sure it starts at exactly the right place. For example the default editor command under Unix is 
+This will call the editor of your choice. The default is Notepad on Windows and Vi on Unix and Linux. You can easily change this to any editor by entering the desired editor command in <code>Tools</code> <code>--></code> <code>Preferences</code> <code>--></code> <code>Global Preferences</code>. In this command text you can use the two special notations <code>$target</code> and <code>$line</code> ; when EiffelStudio calls the selected command, it will replace any occurrence of <code>$target</code> by the name of the file where the current class resides, and <code>$line</code> by the line number at which the Editing Tool is currently scrolled. If you include one or both of these markers at the appropriate argument positions for the command, this will enable you -- assuming the editor supports the appropriate options -- to make sure it starts at exactly the right place. For example the default editor command under Unix is 
 <code>
 vi +$line $target</code>
 
-meaning: start the Vi editor on the <code> $target </code> file, initially positioned at line <code> $line </code> (the <code> + </code> <code> line_number </code> command-line option of Vi directs it to start at line <code> line_number </code> ). 
+meaning: start the Vi editor on the <code>$target</code> file, initially positioned at line <code>$line</code> (the <code>+</code> <code>line_number</code> command-line option of Vi directs it to start at line <code>line_number</code> ). 
 
 If you start an external editor on a class, then exit the editor after possibly making changes, EiffelStudio will immediately update the class text in the Editing Tool. More generally, note that EiffelStudio will detect changes made separately on the same class, and warn you of possible conflicts. 
 

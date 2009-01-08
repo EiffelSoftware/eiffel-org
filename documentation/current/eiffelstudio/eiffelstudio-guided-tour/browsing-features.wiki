@@ -6,11 +6,11 @@ Let us get back to EiffelStudio. We won't need a browser any more for this Tour,
 
 Before studying the documentation generation we saw how to display properties of <span>classes</span>. It's also interesting to explore the properties of <span>features</span>. Let's look at this now, through the Feature View. 
 
-Your Development Window should still be targeted to class <code> LIST </code>, from the last view, <code> Routines </code>, that you displayed on it. If you've lost it, just retarget a Development Window to this class. 
+Your Development Window should still be targeted to class <code>LIST</code>, from the last view, <code>Routines</code>, that you displayed on it. If you've lost it, just retarget a Development Window to this class. 
 
-If the Features Tool is not visible, bring it back by clicking the <code> Features </code> button on the top toolbar, used earlier to remove it. 
+If the Features Tool is not visible, bring it back by clicking the <code>Features</code> button on the top toolbar, used earlier to remove it. 
 
-(Another way is through the menu entry <code> View </code> <code> --> </code> <code> Tools </code> <code> --> </code> <code> Features </code> ). 
+(Another way is through the menu entry <code lang=text>View --> Tools --> Features</code> ). 
 
 ==Targeting to a feature==
 
@@ -18,11 +18,11 @@ The list of features, organized by feature clauses, appears on the left:
 
 [[Image:index-51]]
 
-The class only has a few immediate features because most of its interesting features are inherited. Make sure the Editing Tool is tall enough (as on the above figure) and click the feature <code> forth </code>, the last one, in the Feature Tree on the left. This makes the feature the Editing Tool's current target, and scrolls the text to its declaration: 
+The class only has a few immediate features because most of its interesting features are inherited. Make sure the Editing Tool is tall enough (as on the above figure) and click the feature <code>forth</code>, the last one, in the Feature Tree on the left. This makes the feature the Editing Tool's current target, and scrolls the text to its declaration: 
 
 [[Image:index-52]]
 
-Note how both of the top target fields are now filled: the first one shows the target class, <code> LIST </code>, and the second one shows the target feature, <code> forth </code>. 
+Note how both of the top target fields are now filled: the first one shows the target class, <code>LIST</code>, and the second one shows the target feature, <code>forth</code>. 
 
 ==Basic feature information==
 
@@ -30,45 +30,45 @@ Now let's look at the feature views. Click the Feature Tab at the bottom of the 
 
 This brings up basic information on the selected feature in the Context Tool.
 
-The bottom Context Tool shows one of the Feature views, by default <code> Flat </code>. The flat view of a feature, similar in concept to the flat view of a class, gives the full text of a feature, taking into account any inherited precondition or postcondition clauses. Here the feature as declared in the class appears in the top Editing Tool, with no precondition and an <code> ensure then </code> postcondition clause. But it's a redefinition of an inherited feature; the flat view in the bottom Context Tool shows the full precondition, inherited from the ancestor <code> LINEAR </code>, as well as the postcondition from <code> LIST </code>. 
+The bottom Context Tool shows one of the Feature views, by default <code>Flat</code>. The flat view of a feature, similar in concept to the flat view of a class, gives the full text of a feature, taking into account any inherited precondition or postcondition clauses. Here the feature as declared in the class appears in the top Editing Tool, with no precondition and an <code>ensure then</code> postcondition clause. But it's a redefinition of an inherited feature; the flat view in the bottom Context Tool shows the full precondition, inherited from the ancestor <code>LINEAR</code>, as well as the postcondition from <code>LIST</code>. 
 
-<code> Flat </code> is just one of the available Feature Views, shown by the buttons on the Feature View toolbar 
+<code>Flat</code> is just one of the available Feature Views, shown by the buttons on the Feature View toolbar 
 
-<code> Text </code> gives the feature text, fully clickable. 
+<code>Text</code> gives the feature text, fully clickable. 
 <div> 
 ==Who calls this feature?==
 
-Next to <code> Flat </code> is <code> Callers </code>. Try it now by clicking the corresponding button (the following figure and the next only show the Context Tool, where the views appear): 
+Next to <code>Flat</code> is <code>Callers</code>. Try it now by clicking the corresponding button (the following figure and the next only show the Context Tool, where the views appear): 
 
 [[Image:index-55]]
 
-This view shows all the places in the system that call the routine, or one of its redefinitions. Such information can be invaluable for debugging in particular. The successive paragraphs correspond to the various versions of <code> forth </code> in class <code> LIST </code>, its ancestors and its descendants. Reading from the top we see that: 
-* The version from <code> LIST </code> is called in <code> LIST </code> itself by the function <code> is_equal </code>. 
-* The version from <code> LIST's </code> descendant <code> ARRAYED_CIRCULAR </code> is not called directly in this system, although it '''could''' be called through dynamic binding (on an entity declared of type <code> LIST </code> but dynamically attached to an instance of <code> ARRAYED_CIRCULAR </code>). 
-* About 60% down, <code> forth </code> from <code> ARRAYED_LIST </code>, a version in another descendant of <code> LIST </code>, is called by two routines of <code> ARRAYED_CIRCULAR </code>, one routine of <code> ARRAYED_LIST </code>, and two routines of <code> MULTI_ARRAY_LIST </code>. 
-* Also note, in the following entry, that after renaming <code> forth </code> is called <code> back </code> in the descendant <code> ARRAYED_STACK </code>. 
+This view shows all the places in the system that call the routine, or one of its redefinitions. Such information can be invaluable for debugging in particular. The successive paragraphs correspond to the various versions of <code>forth</code> in class <code>LIST</code>, its ancestors and its descendants. Reading from the top we see that: 
+* The version from <code>LIST</code> is called in <code>LIST</code> itself by the function <code>is_equal</code>. 
+* The version from <code>LIST's</code> descendant <code>ARRAYED_CIRCULAR</code> is not called directly in this system, although it '''could''' be called through dynamic binding (on an entity declared of type <code>LIST</code> but dynamically attached to an instance of <code>ARRAYED_CIRCULAR</code>). 
+* About 60% down, <code>forth</code> from <code>ARRAYED_LIST</code>, a version in another descendant of <code>LIST</code>, is called by two routines of <code>ARRAYED_CIRCULAR</code>, one routine of <code>ARRAYED_LIST</code>, and two routines of <code>MULTI_ARRAY_LIST</code>. 
+* Also note, in the following entry, that after renaming <code>forth</code> is called <code>back</code> in the descendant <code>ARRAYED_STACK</code>. 
 
 The following five view buttons are similar except that they let you precise what kind of callers you are looking for, or what is being called by the currently selected feature. 
 
 ==What happens to my feature through the inheritance hierarchy?==
 
-After the caller/callee views, the next view button is <code> Implementers. </code> 
+After the caller/callee views, the next view button is <code>Implementers</code>. 
 
-This is a very useful view, showing all the ancestors and descendants of <code> LIST </code> that provide a separate version of <code> forth </code>, including the original introduction of this feature in <code> LINEAR </code> and subsequent redeclarations (redefinitions or effectings). The mention <code> (from version) </code> signals the version applicable to the current class, here <code> LIST </code>. 
+This is a very useful view, showing all the ancestors and descendants of <code>LIST</code> that provide a separate version of <code>forth</code>, including the original introduction of this feature in <code>LINEAR</code> and subsequent redeclarations (redefinitions or effectings). The mention <code lang=text>(version from)</code> signals the version applicable to the current class, here <code>LIST</code>. 
 
-Since all class and feature names on these views are hyperlinks, you can display any of the listed versions in a new Development Window by control-right-clicking it (we will see shortly how to display it in the <span>same</span> tool). Right-click on the feature name <code> forth </code> on the line that reads <code> MULTI_ARRAY_LIST forth </code>. This brings up a context menu and chose `Show->Text'. The tool is now targeted to the routine <code> forth </code> from <code> MULTI_ARRAY_LIST </code>, so that you can see the implementation of the routine in that class. 
+Since all class and feature names on these views are hyperlinks, you can display any of the listed versions in a new Development Window by control-right-clicking it (we will see shortly how to display it in the <span>same</span> tool). Right-click on the feature name <code>forth</code> on the line that reads <code>MULTI_ARRAY_LIST forth</code>. This brings up a context menu and chose <code lang=text>Show --> Text</code>. The tool is now targeted to the routine <code>forth</code> from <code>MULTI_ARRAY_LIST</code>, so that you can see the implementation of the routine in that class. 
 
-We still have two unexplored views, <code> Ancestor versions </code> and <code> Descendant versions </code>. Click the first of these to obtain the ancestor versions of <code> forth </code> from <code> MULTI_ARRAY_LIST </code>. 
+We still have two unexplored views, <code>Ancestor versions</code> and <code>Descendant versions</code>. Click the first of these to obtain the ancestor versions of <code>forth</code> from <code>MULTI_ARRAY_LIST</code>. 
 
-The format is self-explanatory: for each ancestor of <code> MULTI_ARRAY_LIST </code> that has a version of <code> MULTI_ARRAY_LIST </code> 's <code> forth </code> feature, it indicates the name of that feature -- which could be something else than <code> forth </code> as a result of renaming, although here this happens only in descendants, not ancestors -- and the version of the feature applicable to the given class. 
+The format is self-explanatory: for each ancestor of <code>MULTI_ARRAY_LIST</code> that has a version of <code>MULTI_ARRAY_LIST</code> 's <code>forth</code> feature, it indicates the name of that feature -- which could be something else than <code>forth</code> as a result of renaming, although here this happens only in descendants, not ancestors -- and the version of the feature applicable to the given class. 
 
-In the case of feature merging (combining several features inherited from different parents, in conformance with the rules of the language) there could be more than one history branch, in this case each branch is labeled <code> Branch #X. </code> 
+In the case of feature merging (combining several features inherited from different parents, in conformance with the rules of the language) there could be more than one history branch, in this case each branch is labeled <code>Branch #X.</code> 
 
-The next button, <code> Descendant versions </code>, similarly tells you all that happens to a feature in the descendants of the current class. 
+The next button, <code>Descendant versions</code>, similarly tells you all that happens to a feature in the descendants of the current class. 
 </div><div> 
 ==Who has the same name?==
 
-The last button, <code> Homonyms </code>, displays all the features of the system which, related or not to the current feature by redeclaration, have the same name. You can then explore any such feature to see if the relationship is more than casual. 
+The last button, <code>Homonyms</code>, displays all the features of the system which, related or not to the current feature by redeclaration, have the same name. You can then explore any such feature to see if the relationship is more than casual. 
 
 In any system or library that takes advantage of inheritance and its associated mechanisms -- renaming, redefinition, effecting, undefinition, multiple and repeated inheritance, polymorphism, dynamic binding -- the feature browsing facilities that we have just explored are invaluable to track what happens to features. What makes them even more precious is their connection with the rest of the browsing and documentation capabilities, especially the pick-and-drop which we will now study.
 </div>
