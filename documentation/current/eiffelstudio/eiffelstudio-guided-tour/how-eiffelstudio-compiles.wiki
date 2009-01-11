@@ -16,11 +16,11 @@ There is never any need, when compiling Eiffel systems, to supply "Make files", 
 </div><div> 
 ==Compilation modes==
 
-EiffelStudio offers several forms of compilation, which you can see in the entries of the <code> Compile </code> menu (don't trigger any of them right now) as well as keyboard shortcuts and, in some cases, buttons: 
+EiffelStudio offers several forms of compilation, which you can see in the entries of the <code>Compile</code> menu (don't trigger any of them right now) as well as keyboard shortcuts and, in some cases, buttons: 
 *  '''Melt''': quick incremental recompilation, doesn't optimize code for changed parts. 
 *  '''Freeze''': incremental recompilation, not as fast as Melt, but generates more efficient code for changed parts. 
 *  '''Finalize''': recompile entire system, generating highly optimized code. 
-*  '''Precompile''' (available both in the <code> Project </code> menu and through <code> Tools </code> <code> --> </code> <code> Precompilation wizard </code>), to process an entire library, on which many systems can then rely without having to compile it. 
+*  '''Precompile''' (available both in the <code>Project</code> menu and through <code lang=text>Tools --> Precompilation wizard</code>), to process an entire library, on which many systems can then rely without having to compile it. 
 
 You'll quickly learn to use each of these modes to suit your needs.
 </div><div> 
@@ -36,7 +36,9 @@ EiffelStudio's '''Melting Ice Technology''' reconciles the following goals:
 The idea of the melting ice is based on the observation that, for the practicing software developer, the crucial day-to-day compilation problem is not how to process an entire system but how best to process a '''changed system''', of which an earlier state had previously been processed. 
 
 The change may be big or small; the system may be big or small. ("Small system" here means up to a few tens of thousands of lines.) This gives four possible cases, of which only one is really critical:
-{| 
+
+
+{| border="1"
 |- 
 | 
 | '''Small System'''
@@ -51,16 +53,16 @@ The change may be big or small; the system may be big or small. ("Small system" 
 | 
 |}
 
+
 If the system is small, as in both of the left column entries, speed of recompilation with a good compiler will be acceptable.
 
 In the bottom-right box, the developers have spent days or weeks changing many classes in a large system, so they will not resent having to wait a little to see the results of the recompilation, as long as the time remains reasonable. In EiffelStudio this corresponds, as we'll see shortly, to <span>finalization</span>, which is in fact fairly fast anyway, but not as fast as the incremental modes. 
 
 In the day-to-day, minute-by-minute practice of building and modifying software, the case that recurs by far the most often -- and can cause most frustration -- is the one marked xxx: you change only a small share of a big system. Then the result should come quickly enough. More precisely:
 
-{{note|'''Melting Ice Principle '''<br/>
-The time to re-process a system after a change should be a function of the logical size of the change, not of the size of the system. }}
+{{definition|Melting Ice Principle|The time to re-process a system after a change should be a function of the logical size of the change, not of the size of the system. }}
 
-''The "logical size" of a change may be different from its physical size because a small physical change in a class may have consequences in many others. Imagine for example that you add a feature to class '' <code> ANY </code>'', although this is an extreme case and won't normally happen. Since every class is a descendant of '' <code> ANY </code>'', the logical change may affect the entire system.'' 
+''The "logical size" of a change may be different from its physical size because a small physical change in a class may have consequences in many others. Imagine for example that you add a feature to class '' <code>ANY</code>'', although this is an extreme case and won't normally happen. Since every class is a descendant of '' <code>ANY</code>'', the logical change may affect the entire system.'' 
 
 ''In practice, however, most small physical changes will also be small logical changes and will only cause minimal recompilation. In particular, EiffelStudio will detect that a change does not affect the interface of a class -- for example if it's only a change to non-exported features -- avoiding the need to re-process its clients.''
 
@@ -77,7 +79,9 @@ The roles of the four compilation modes follow from this analysis:
 ==Properties of the compilation modes==
 
 The following table summarizes the differences between the four compilation modes:
-{| 
+
+
+{| border="1"
 |- 
 | 
 | '''Regenerate C Code?'''
@@ -99,17 +103,22 @@ The following table summarizes the differences between the four compilation mode
 | No
 | No
 |- 
+
+
 | '''Precompile'''
+
+
 | Yes
 | No
 | Yes
 |}
 
+
 During the production and modification of your software, you will usually alternate between melting and freezing, since both of these modes are incremental. Most of the time, you will simply '''melt''', since melting satisfies the Melting Ice Principle: the time to get back to a working system is very short -- proportional to the size of the changes. Note in particular that the unit of melting is the smallest possible one: each feature of a class -- attribute or routine -- may be melted separately. 
 
 The main difference between melting and '''freezing''' is that freezing implies re-generating C code for the changed elements, and hence relinking the system as well. In contrast, when you melt changes, you do not change any C code: it remains frozen. 
 
-As a consequence, melting can only process changes to Eiffel code. If you add new external code (in C, C++ or other languages whose modules will require linking), you must freeze. This is also true if you add new Eiffel agents. If you ask for a Melt in such cases, the operation will trigger a freeze anyway. More generally, the <code> Compile </code> button, which you have used a number of times to recompile the system in this Tour, triggers a Melt by default, and a Freeze when it has to. 
+As a consequence, melting can only process changes to Eiffel code. If you add new external code (in C, C++ or other languages whose modules will require linking), you must freeze. This is also true if you add new Eiffel agents. If you ask for a Melt in such cases, the operation will trigger a freeze anyway. More generally, the <code>Compile</code> button, which you have used a number of times to recompile the system in this Tour, triggers a Melt by default, and a Freeze when it has to. 
 
 EiffelStudio knows how to hide the differences and present you with a uniform view of the frozen parts (the C code) and the melted parts. Here indeed is the full view of the picture that was previously given in part:
 <div>  [[Image:index-141]]  </div>
@@ -150,17 +159,20 @@ Melting is the bread and butter of the Eiffel developer. As you build your softw
 
 Only two operations, noted above, <span>require</span> freezing: the addition of external (non-Eiffel) routines, such as C functions or C++ classes, and the addition of agents. The reason is easy to understand: the EiffelStudio compiler knows how to melt Eiffel software, but not software written in C or other languages; agents similarly require special code generation. 
 
-''For the first compilation of a system that does not use precompiled EiffelBase, a Freeze is needed since class '' <code> ANY </code>'', from which all other classes inherit, uses some external routines. In this case the environment automatically starts a freeze even if you just click Melt. This does not apply if you have access to precompiled EiffelBase.'' 
+''For the first compilation of a system that does not use precompiled EiffelBase, a Freeze is needed since class '' <code>ANY</code>'', from which all other classes inherit, uses some external routines. In this case the environment automatically starts a freeze even if you just click Melt. This does not apply if you have access to precompiled EiffelBase.'' 
 
 Except for the addition of external routines or agents, freezing is never strictly necessary. It is indeed possible to use melting throughout a development, never requesting a freeze after the first compilation. But as the melted-to-frozen ratio grows, you may detect a certain degradation in the performance of the system (determined by how big a share of your system is melted, not how many times you melt it). After a while, then, you may want to refreeze. Like melting, freezing is incremental: only those parts of a system that have been logically changed will be recompiled; as with melting, the determination of what needs to be recompiled is entirely performed by the environment, without any manual intervention on the developer's part.
 
-The principal difference is that freezing takes longer than melting. Because of this you are requested to confirm the first time you freeze. Freeze the example system by choosing the menu entry <code> Project </code> <code> --> </code> <code> Freeze </code>. You get the following dialog: 
+The principal difference is that freezing takes longer than melting. Because of this you are requested to confirm the first time you freeze. Freeze the example system by choosing the menu entry
+<code lang=text>
+Project --> Freeze</code>
+You get the following dialog: 
 
 [[Image:index-142]]
 
-Note the <code> No </code> option: by default, freezing will start a C compilation, but you can stop after C generation if you wish. This is useful for example if you want to generate a C package for cross-development, C-compiling the result on a different platform. 
+Note the <code>No</code> option: by default, freezing will start a C compilation, but you can stop after C generation if you wish. This is useful for example if you want to generate a C package for cross-development, C-compiling the result on a different platform. 
 
-Click <code> Yes </code> to confirm freeze and C-compilation. Once the Eiffel compilation is complete, a message in the Development Window ( <code> C compilation launched in background </code>) tells you when that C-compilation has started. C-compilation does not block EiffelStudio: at this point you can continue working with the environment. Any messages from C compiler will appear: 
+Click <code>Yes</code> to confirm freeze and C-compilation. Once the Eiffel compilation is complete, a message in the Development Window ( <code>C compilation launched in background</code>) tells you when that C-compilation has started. C-compilation does not block EiffelStudio: at this point you can continue working with the environment. Any messages from C compiler will appear: 
 * On Windows, in a new console that comes up for the occasion (minimize it if you don't want to see the messages).
 * On Unix/Linux and OpenVMS, in the window from which you launched EiffelStudio.
 
@@ -182,6 +194,9 @@ As long as you continue changing, melting and freezing your system, the workbenc
 
 Note that cross-development does not <span>require</span> finalization, since you can cross-compile a frozen version. In practice, however, the finalized version is usually the preferred form for porting a C package because of the performance advantage. 
 
-Finalize the example system now by selecting the menu entry <code> Project </code> <code> --> </code> <code> Finalize </code>. Here too you will be asked to confirm, although the dialog enables you to suppress that confirmation for later attempts, and you may skip C compilation. You will note that finalization is longer than freezing, but still remains quite reasonable thanks to the extensive optimization of the Eiffel compilation process and the structure of the generated C code. 
+Finalize the example system now by selecting the menu entry 
+<code lang=text>
+Project --> Finalize</code>
+Here too you will be asked to confirm, although the dialog enables you to suppress that confirmation for later attempts, and you may skip C compilation. You will note that finalization is longer than freezing, but still remains quite reasonable thanks to the extensive optimization of the Eiffel compilation process and the structure of the generated C code. 
 </div>
 
