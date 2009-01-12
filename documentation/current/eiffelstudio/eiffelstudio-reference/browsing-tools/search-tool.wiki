@@ -18,26 +18,21 @@ The bottom part contains two buttons: "Search" and "Replace". Click on the first
 ==Options==
 
 The options are located in the middle of the search panel. There are five buttons, each of them corresponding to an option:
-*  
-Match case: If this option is selected, the search will be case-sensitive, which means that if you search for "example", the tool will highlight "example" but not "EXAMPLE" or "Example", as there are no capital letters in the searched pattern.
+
+*  Match case: If this option is selected, the search will be case-sensitive, which means that if you search for "example", the tool will highlight "example" but not "EXAMPLE" or "Example", as there are no capital letters in the searched pattern.
 
 * Whole word: If this option is selected, the tool will look for isolated words. A word is isolated if it is surrounded by spaces or if it is at the beginning or the end of a line.
-*  
-Use wildcards: If this option is not selected, the tool will look for the exact sequence of letters you entered in the "Search for" field. If it is selected, you will be able to use '*' and '?'wildcards. '?' in the searched pattern is equivalent to any character. For instance, "sample" and "simple" will be highlighted if you look for "s?mple". <br/>
-'*' is equivalent to any sequence of characters, including no characters at all. It means that if you search for "exam*ple", every piece of text beginning with "exam" and finishing with "ple" will be highlighted. Use it in combination with "Whole word" to search for words beginning with "exam" and finishing with "ple". 
+*  Use wildcards: If this option is not selected, the tool will look for the exact sequence of letters you entered in the "Search for" field. If it is selected, you will be able to use '*' and '?' wildcards. '?' in the searched pattern is equivalent to any character. For instance, "sample" and "simple" will be highlighted if you look for "s?mple". '*' is equivalent to any sequence of characters, including no characters at all. It means that if you search for "exam*ple", every piece of text beginning with "exam" and finishing with "ple" will be highlighted. Use it in combination with "Whole word" to search for words beginning with "exam" and finishing with "ple". 
 
-*  
-Replace all: If it is selected when you press the "Replace" button, every occurrence of the searched pattern will be replaced with the content of the "Replace with" field. It is possible to activate this option only if the "Replace with" field is displayed.
+*  Replace all: If it is selected when you press the "Replace" button, every occurrence of the searched pattern will be replaced with the content of the "Replace with" field. It is possible to activate this option only if the "Replace with" field is displayed.
 
-*  
-Search backwards: If this option is selected, the tool will highlight the previous occurrence of the searched pattern instead of the next occurrence when you press the "Search" button.
+*  Search backwards: If this option is selected, the tool will highlight the previous occurrence of the searched pattern instead of the next occurrence when you press the "Search" button.
 
 
-'''Note''': If the search tool hits one end of the text, it will automatically continue from the other end. <br/>
+{{note|If the search tool hits one end of the text, it will automatically continue from the other end. }}
 
 
-{{seealso|<br/>
-There are keyboard shortcuts and menu entries to launch searches without using the search tool directly. They are described the [[Search functionality|editor section]]  of this help. }}
+{{seealso|The [[Search functionality]] part of the EiffelStudio Editor section to learn keyboard shortcuts and menu entries to launch searches without using the search tool directly.  }}
 
 
 

@@ -2,14 +2,12 @@
 [[Property:weight|3]]
 [[Property:uuid|f1bd2fd2-c115-d4e8-cb3b-2118f25037bb]]
 EiffelStudio editor provides common clipboard functionality, i.e. Cut, Copy and Paste commands.
-*  
-To copy text to the clipboard, [[Selection|select]]  it in the editor first. Then, you may either press the key combination "Ctrl+C" (or "Shift+Ins"), click on the copy icon  [[Image:16x16--general-copy-icon]] or choose '''Copy''' in the '''Edit''' menu. 
 
-*  
-To cut text, i.e. copy it to the clipboard and delete it, [[Selection|select]]  it and then either press "Ctrl+X" (or "Shift+Del"), click on the cut icon  [[Image:general-cut-icon]] or choose '''Cut''' in the '''Edit''' menu. 
+*  To copy text to the clipboard, [[Selection|select]]  it in the editor first. Then, you may either press the key combination "Ctrl+C" (or "Shift+Ins"), click on the copy icon  [[Image:16x16--general-copy-icon]] or choose '''Copy''' in the '''Edit''' menu. 
 
-*  
-To paste text from the clipboard, either press "Ctrl+V" (or"Ctrl+Ins"), click on the paste icon  [[Image:general-paste-icon]] or choose '''Paste''' in the '''Edit''' menu. 
+*  To cut text, i.e. copy it to the clipboard and delete it, [[Selection|select]]  it and then either press "Ctrl+X" (or "Shift+Del"), click on the cut icon  [[Image:general-cut-icon]] or choose '''Cut''' in the '''Edit''' menu. 
+
+*  To paste text from the clipboard, either press "Ctrl+V" (or"Ctrl+Ins"), click on the paste icon  [[Image:general-paste-icon]] or choose '''Paste''' in the '''Edit''' menu. 
 
 
 

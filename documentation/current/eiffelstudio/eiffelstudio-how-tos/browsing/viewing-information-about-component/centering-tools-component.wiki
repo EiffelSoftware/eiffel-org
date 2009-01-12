@@ -1,7 +1,7 @@
 [[Property:title|Centering tools on a component]]
 [[Property:weight|0]]
 [[Property:uuid|513b0d4a-78b6-30c3-fdde-b00c3072d8d3]]
-There are three kind of tools directly available in a default development tool : [[Browsing tools|browsing tools]]  on the left, the [[EiffelStudio Editor Introduction|editor]]  on the upper right and context tools on the lower right. No browsing tool, except the feature tool, displays information about a particular component. On the contrary, the editor and context tools display information about a given cluster, class or feature : they are centered on this component. There are several ways to center the editor on an element: 
+There are three kind of tools directly available in a default development tool : [[Browsing tools]]  on the left, the [[EiffelStudio Editor]]  on the upper right and context tools on the lower right. No browsing tool, except the feature tool, displays information about a particular component. On the contrary, the editor and context tools display information about a given cluster, class or feature : they are centered on this component. There are several ways to center the editor on an element: 
 * use the [[Main address bar|address bar]]  on the top of the editor. It allows you to set which class (and even which feature in the class) you want the editor to display. You may use wildcards ("?" or "*") as you type the names of these components. 
 * use [[Pick-and-drop mechanism|pick and drop]]. Pick a cluster, class or feature stone anywhere in EiffelStudio and drop it in the editor. It will center it on the component automatically. 
 * find it in the [[Cluster tool|cluster]], [[Feature tool|feature]], or [[Favorites tool|favorites]]  tool and click it. 

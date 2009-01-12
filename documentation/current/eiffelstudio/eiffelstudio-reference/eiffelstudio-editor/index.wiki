@@ -2,16 +2,11 @@
 [[Property:link_title|Editor]]
 [[Property:weight|-12]]
 [[Property:uuid|2594094b-af66-8cea-1d7f-629157c4aafa]]
-*  [[EiffelStudio Editor Introduction|Introduction]]  
-*  [[Cursor moves|Cursor moves]]  
-*  [[Selection|Selection]]  
-*  [[Clipboard functionality|Clipboard functionality]]  
-*  [[History functionality|History functionality]]  
-*  [[Search functionality|Search functionality]]  
-*  [[Automatic completion|Automatic completion]]  
-*  [[Operations on text blocks|Operations on text blocks]]  
-*  [[Edit menu commands|Commands in the edit menu]]  
-*  [[Editor customization|Customization]]  
+EiffelStudio includes an editor which allows you to read and modify the text of Eiffel classes.
+
+The EiffelStudio editor offers usual [[Clipboard functionality]], [[History functionality]], and [[Search functionality]]. More advanced, class text specific functionalities such as [[Automatic completion]] and [[Operations on text blocks]] are also available. 
+
+
 
 
 
