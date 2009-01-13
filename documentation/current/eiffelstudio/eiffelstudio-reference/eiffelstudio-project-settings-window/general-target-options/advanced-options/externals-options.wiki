@@ -10,10 +10,10 @@ If you use a library, externals of this library are automatically included. E.g.
 * Object: additional C/C++ object files
 * Library: like object files, but will be added last, needed for some very strict C compilers
 * Makefile: additional makefiles, if possible use tasks instead
-*  
+
 Resource: .NET resources
-** The .resx resource file format is a XML based format to include objects (such as images and other binary formats) and strings.
-** The .txt resource file format can only contains strings.
+* The .resx resource file format is a XML based format to include objects (such as images and other binary formats) and strings.
+* The .txt resource file format can only contains strings.
 
 Externals have three properties: 
 * Location: location of the external, will be copied verbatim into the makefile

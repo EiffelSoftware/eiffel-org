@@ -2,7 +2,8 @@
 [[Property:weight|4]]
 [[Property:uuid|be1dc034-2bca-3d3a-5dfc-8597b2cc7051]]
 [[Image:advanced-options|Advanced dialog]]  
-* Address Expression: lets you pass ` '''$(s.to_c)'''' to a feature instead of declaring `a' of type '''ANY''', and then assigning ` '''s.to_c'''' to `a' and passing ` '''$a''''. Turn this option on only if you have advanced knowledge of the garbage collector insides, since using this syntax illegally can lead to bugs very hard to trace. 
+* Address Expression: lets you pass `<code>$(s.to_c)</code>' to a feature instead of declaring `<code>a</code>' of type <code>ANY</code>, and then assigning `<code>s.to_c</code>' to `<code>a</code>' and passing `<code>$a</code>'. 
+{{Caution|Turn this option on only if you have advanced knowledge of the garbage collector internals, because using this syntax in some situations could lead to bugs that are very hard to trace. }} 
 *  Automatic Backup: generate a backup of the class and configuration files during recompilation? 
 * Check VAPE: Enforce <code> VAPE </code> validity constraint: lets you disable type checking for <code> VAPE </code> errors in preconditions, which correspond to insufficiently exported features used in preconditions (ETL 2nd edition page 122). 
 * Console Application: has no effect on Unix systems. It lets Windows users choose between creating a console application or a GUI application (in which case a console will be created if needed, instead of using the console the program was launched from).
@@ -154,6 +155,7 @@ This table shows how the class name generation is affected by the naming options
 |- 
 | yes
 | yes
+
 | no
 | MyNameSpace
 | MyNameSpace.Cursor

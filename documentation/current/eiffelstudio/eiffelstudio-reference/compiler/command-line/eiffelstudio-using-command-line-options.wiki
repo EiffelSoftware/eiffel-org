@@ -3,13 +3,15 @@
 [[Property:weight|1]]
 [[Property:uuid|a6b6a676-8660-ce2d-6f37-03de7f23a78e]]
 You may start ec through a command of the following form: 
-<code>'''ec''' ''option'' ... [''class_name''][''feature_name'']</code>
-
+:'''ec''' ''option'' ... [''class_name''][''feature_name'']
 
 ''class_name'', if present, must be the name of a class of the system to which '''ec''' is applied. This system is identified by its configuration file; by default this is the file called Ace.ecf in the working directory, but you can select any other one through the -config ''file_name'' option. Similarly, the default project directory is the working directory, but you can select another through the -project_path ''directory_name'' option. 
 
 ''feature_name'', if present, must be the final name of a feature of the class called ''class_name''. <br/>
-The table below lists the available options, the arguments they require, and their effect: 
+
+The table below lists the available ''options'', the arguments they require, and their effect: 
+
+
 {| 
 |- 
 | '''OPTION'''
