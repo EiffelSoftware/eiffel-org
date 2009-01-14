@@ -7,10 +7,11 @@ Display all breakpoints in a grid:<br/>
 
 [[Image:breakpoints-list]] 
 
-Note: the * shows that the breakpoint has a [[Breakpoint menu|condition]] .<br/>
-Note: you can edit the selected breakpoint by double clicking on it, or pressing [enter] which show the menu.<br/>
-Note: you can disable/enable the selected breakpoint(s) by pressing [space].<br/>
-Note: you can sort by clicking the column, especially the first column which provide tree, flat or sorted view. 
+{{note|<br/>
+The * shows that the breakpoint has a [[Breakpoint menu|condition]] .<br/>
+You can edit the selected breakpoint by double clicking on it, or pressing [enter] which show the menu.<br/>
+You can disable/enable the selected breakpoint(s) by pressing [space].<br/>
+You can sort by clicking the column, especially the first column which provide tree, flat or sorted view. }}
 
 Display all breakpoints in a list:<br/>
 

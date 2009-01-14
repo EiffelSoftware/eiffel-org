@@ -1,7 +1,7 @@
 [[Property:title|Debugger]]
 [[Property:weight|-8]]
 [[Property:uuid|31c4857e-f19e-e9e3-b7db-d6c30515277f]]
-A debugger is a tool that allows you to [[Execution commands|run]]  an application and view its state at any moment. This includes having information concerning the current [[Callstack tool: Introduction|call stack]]  and the [[Objects tool: Introduction|state of objects]]  of the system, i.e. the values of their attributes. This kind of information can be used to spot objects that have invalid states, to see the consequences of the execution of a feature over an object state, and so on. 
+A debugger is a tool that allows you to [[Execution commands|run]]  an application and view its state at any moment. This includes having information concerning the current [[Call stack tool|call stack]]  and the [[Objects tool: Introduction|state of objects]]  of the system, i.e. the values of their attributes. This kind of information can be used to spot objects that have invalid states, to see the consequences of the execution of a feature over an object state, and so on. 
 
 The features of the EiffelStudio debugger include:
 * Stopping the application in frozen features as well as in melted features

@@ -3,6 +3,7 @@
 [[Property:uuid|ff70f68f-31db-c5d1-4d68-7b0fc70b1dd7]]
 [[Image:call-stack-tool]]  
 
+
 The call stack tool gives information about the current call stack of a debugged application.
 
 It is mainly composed of a list representing the call stack elements, where the entry feature of the program is at the bottom and the top of the call stack is at the top. <br/>
@@ -14,10 +15,14 @@ It is mainly composed of a list representing the call stack elements, where the 
 On top of this list, a line gives the state of the debugged application, and another one describes the exception that caused the application to stop, if any. For more information concerning exceptions, see the [[Supported exceptions|supported exceptions]] . 
 The button  [[Image:debug-exception-dialog-icon]]  is used to open the Exception dialog which show the exception details. For instance a call on Void target in a dotnet system would popup : 
 
-<center> [[Image:exception-dialog]]  </center>
+
+[[Image:exception-dialog]]
+
 
 When more than one thread is available to the debugger, you can switch from one to the other, for that you have to click on the thread's id "0x000..." and select from the popup list of available threads. Or (recommended) you can use the [[Threads tool|threads tool]]  (clicking on '''Show threads panel''' will show the threads tool). 
-<center> [[Image:call-stack-tool-with-threads]]  </center>
+
+
+[[Image:call-stack-tool-with-threads]]
 
 
 In the toolbar, the button  [[Image:general-save-icon]]  gives the possibility to [[Save call stack|save the call stack]]  to a text file, and the button  [[Image:general-copy-icon]]  copy to the clipboard. The  [[Image:debugger-callstack-depth-icon]]  button makes it possible to choose which call stack depth should be displayed in the list (the default is to display the 100 top stack elements, but it is configurable with the same button). 
