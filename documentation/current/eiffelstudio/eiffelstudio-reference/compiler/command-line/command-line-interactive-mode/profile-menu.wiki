@@ -5,7 +5,7 @@ An execution of an instrumented system will generate a file that contains profil
 The profile menu will enable you to produce the Execution profile and to extract information from it.
 
 The menu (obtained by selecting (P) Profile in the main menu) looks like this:
-<code>
+<code lang=text>
         (S) Switches     : show the output switches
                                 #Call-E Name-E  Total-D
                                 Self-D  Desc-D  %Time-D.
@@ -25,7 +25,7 @@ The menu (obtained by selecting (P) Profile in the main menu) looks like this:
 
 ==Switches submenu==
 The (S) Switches submenu enables you to set global options. It leads you to the following set of choices: 
-<code>
+<code lang=text>
         (N) Calls        : disable output of number of calls to a feature                       [enabled].
         (F) Feature name  : disable output of feature names                                      [enabled].
         (T) Total        : enable output of time spent in both the function and its descendants [disabled].
@@ -43,7 +43,7 @@ Each one of these commands switches on or off the corresponding column output. T
 
 ==Query submenu==
 The (U) Query submenu enables you to define a set of queries. The result will be a Total Query; by default it is the boolean and all the queries you have entered individually, but you may deactivate some of these and choose other boolean operators. 
-<code>
+<code lang=text>
 	(A) Add : add a sub query.
 	(I) Inactivate : inactivate sub query.
 	(R) Reactivate : reactivate sub query.
@@ -56,15 +56,22 @@ The (U) Query submenu enables you to define a set of queries. The result will be
 	(Q) Quit : terminate session.
 	(Y) Yank : yank (save) output of last command to a file.</code>
 
-To get useful information, you should add the appropriate queries through (A) Add. Each individual query has the following form: attribute operator value, where attribute is one of:
+To get useful information, you should add the appropriate queries through (A) Add. Each individual query has the following form: ''attribute operator value'', where ''attribute'' is one of:
 * feature name
 * calls
 * total
 * self
 * descendants
 * percentage
-operator is one of: <, >, <=, >=, =, /=, in 
-and value is one of:
+''operator'' is one of: 
+* <
+* >
+* <=
+* >=
+* =
+* /=
+* in <br/>
+and ''value'' is one of:
 * An integer (for calls)
 * A string (for feature name). The string may contain wild card characters: ?, standing for arbitrary characters, and *,standing for arbitrary substrings.
 * A real value (for other attributes)
@@ -78,7 +85,7 @@ To inactivate a query, use (I) Inactivate. You will be prompted for a query inde
 To reactivate a query, use (R) Reactivate. Again you will have to provide a query index.
 
 The Total Query resulting from a succession of (A) Add commands, possibly with some (I) Inactivate and (R) Reactivate commands, is a boolean query resulting by default from adding all the currently active queries. For example after the following set of commands(note that commands output help lines, which have been skipped here):
-<code>
+<code lang=text>
 Command => a
 --> Subquery: featurename = put*
 
@@ -102,7 +109,7 @@ Command =&gt; a
 --> Subquery: calls > 5</code>
 <br/>
 The (S) Show command will show the following result: 
-<code>
+<code lang=text>
 Command => s
 All subqueries:
 [1] featurename = put* is active
@@ -114,7 +121,7 @@ featurename = put* and
 calls > 5</code>
 
 To change the boolean operator to 'or' rather than 'and', use the (C) Operator command. It will prompt you for the index of the operator and the new value:
-<code>
+<code lang=text>
 Command => c
 --> Operator index followed by operator ('and' or 'or'): 1 or
 	
@@ -132,9 +139,11 @@ calls > 5</code>
 The (I) Input command serves to load Execution Profiles. It is initially set to *.pfi meaning that it will load all files with extension pfi. By calling the command repeatedly with new arguments, you are able to load more Execution Profiles. If you use the command without any argument, and the set of input files contained just one file, then the queries will use the last generated output. This avoids explicitly loading a file. 
 ==Language command==
 The (L) Language command enables you to specify the languages to which profiling should be applied. You can specify Eiffel only, C only, or both. If you specify only one language, the query results will not contain any information about routines written in the other language. 
-The default is Eiffel only. To switch to both Eiffel and C, use Command => L eiffel and c
+The default is Eiffel only. To switch to both Eiffel and C, use 
+<code lang=text>
+Command => L eiffel and c</code>
 
-To return to just Eiffel, simply type L.
+To return to just Eiffel, simply type <code>L</code> .
 
 ==Run Command==
 To run the current total query, use (R) Run. 
@@ -145,7 +154,9 @@ When running the Generate command with no arguments, you will be prompted for th
 * Compilation mode: workbench or finalized (default: workbench).
 * Name of profiler tool (default: eiffel).
 
-You can also type in the arguments directly without waiting to be prompted, as in command => g profinfo finalize eiffel <br/>
+You can also type in the arguments directly without waiting to be prompted, as in 
+<code lang=text>
+Command => g profinfo finalize eiffel </code>
 
 
 {{seealso|<br/>

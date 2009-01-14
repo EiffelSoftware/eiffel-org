@@ -2,7 +2,7 @@
 [[Property:weight|2]]
 [[Property:uuid|441d6cbb-2c48-5d44-8cb1-0884ade26b98]]
 The Class command (c or C) in the main menu will only work if the system has been successfully compiled, and will give you information based on the result of the last successful compilation. It produces the following menu:
-<code>
+<code lang=text>
 	(A) Ancestors    : show the ancestors of a class.
 	(B) Attributes   : show the attributes of a class.
 	(C) Clients      : show the clients of a class.
@@ -26,7 +26,8 @@ The Class command (c or C) in the main menu will only work if the system has bee
 </code>
 
 Each command will prompt you for the name of a class and a filter to use; you can also include the class name and the filter name after the command, separated by a space, as in: 
-<code>Command => a linked_list ascii</code>
+<code>
+Command => a linked_list ascii</code>
 to obtain the ancestors of the <eiffel>LINKED_LIST</eiffel> class:
 <code>
                          -- Automatic generation produced by ISE Eiffel --

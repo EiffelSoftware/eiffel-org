@@ -17,7 +17,7 @@
 * Multithreaded: generates a multithreaded application. This option cannot be changed during the development of your project and has to be set correctly at the first compilation of your system. (C code generation mode only)
 * Old Verbatim Strings: Use the old format for verbatim strings
 * Platform: override platform value used for checking conditions, useful for cross compilation
-* Shared Library Definition: lets you specify a `file_name.def' as the file where the Eiffel compiler will look when it tries to generate the exported functions of the shared library you are developing (C code generation mode only). To have more information concerning definition files, see the [[Dynamic library generation: Introduction|Dynamic library builder reference]] . 
+* Shared Library Definition: lets you specify a `file_name.def' as the file where the Eiffel compiler will look when it tries to generate the exported functions of the shared library you are developing (C code generation mode only). To have more information concerning definition files, see the [[Dynamic library generation]] . 
 * Library Root: Absolute path to use as base for relative paths. If this is not defined, the path to the configuration file will be used.
 
 ==.NET Options==
@@ -27,6 +27,7 @@
 * .NET Naming Convention: See [[Advanced Options|Class and feature naming]]  
 * IL Verifiable: in the .NET world, verifiability is important. This is the only way to ensure that an application is not going to crash or to crash your system by accessing not authorized memory locations. Due to some semantic differences between Eiffel and.NET, our code generation is not always verifiable for performance reasons. If you want your code to be verifiable, you need to select this option. The compiler will then generate a code that will be slightly slower.
 * CLS Compliant: mark generated assemblies as CLS compliant
+
 * Metadata Cache Path: Location where information about external assemblies is stored.
 * Classes per Module: Number of classes generated per .NET module during incremental compilation. Increasing this value will slow down the incremental recompilation, but speed up the time to load the assembly while debugging in workbench mode.
 * .NET Runtime Version: .NET version to use
@@ -160,6 +161,7 @@ This table shows how the class name generation is affected by the naming options
 | MyNameSpace
 | MyNameSpace.Cursor
 |- 
+
 | no
 | no
 | yes

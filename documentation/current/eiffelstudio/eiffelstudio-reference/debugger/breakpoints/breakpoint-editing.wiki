@@ -1,39 +1,39 @@
 [[Property:title|Breakpoint editing]]
 [[Property:weight|1]]
 [[Property:uuid|1ac830ab-7600-8e52-2351-c515bcc31d41]]
-In all flat views ( [[Feature formatters: Flat view|feature flat view]]  and [[Class formatters: Flat view|class flat view]] ), a margin is displayed on the left of the editor. [[Breakpoints: Introduction|Breakpoints]]  are there symbolized as circles, of a different appearance depending on their state: enabled (  [[Image:bp-enabled-icon]]  ), disabled (  [[Image:bp-disabled-icon]]  ) or not set (  [[Image:bp-slot-icon]]  ). A small question mark in the circle (  [[Image:bp-enabled-conditional-icon]] ,  [[Image:bp-disabled-conditional-icon]]  )indicates [[Breakpoint menu|conditional breakpoints]] . 
+In all flat views ( [[Feature formatters: Flat view|feature flat view]]  and [[Class formatters: Flat view|class flat view]] ), a margin is displayed on the left of the editor. [[Breakpoints|Breakpoints]]  are symbolized there as circles, with different looks depending on their state: enabled (  [[Image:bp-enabled-icon]]  ), disabled (  [[Image:bp-disabled-icon]]  ) or not set (  [[Image:bp-slot-icon]]  ). A small question mark in the circle (  [[Image:bp-enabled-conditional-icon]] ,  [[Image:bp-disabled-conditional-icon]]  ) indicates [[Breakpoint menu|conditional breakpoints]] . 
 
 Right-clicking on any breakpoint pops up a context menu:
 
-<center> [[Image:breakpoint-context-menu]]  </center>
+[[Image:breakpoint-context-menu]]
 
-The first line provides the breakpoint slot index of the selected breakpoint(i.e: the one used in call stack or exception trace output). <br/>
-Clicking one of the three first entries of the context menu changes the state of the breakpoint that was right-clicked. The last entry ( '''Run to breakpoint''') launches the debugged application so that it will stop as soon as the selected breakpoint is encountered, as if the breakpoint had been enabled. <br/>
+The first line provides the breakpoint slot index of the selected breakpoint (i.e: the one used in call stack or exception trace output). <br/>
+Clicking one of the three first entries of the context menu changes the state of the breakpoint that was right-clicked. The last entry ('''Run to This Point''') launches the debugged application so that it will stop as soon as the selected breakpoint is encountered, as if the breakpoint had been enabled. <br/>
 
 
-"Edit This Breakpoint" allows the user to edit the parameters of the breakpoint (condition, hit count, when hits actions...) thanks to the breakpoint dialog. This dialog provides on hte first tab "Context": access to the associated tags, condition, and hit count control. And on the second tab, it allows to associate "When hits..." action(s) to the breakpoint. 
-<center>
+"Edit This Breakpoint" allows you to edit the parameters of the breakpoint (condition, hit count, when hits actions...) through the breakpoint dialog. On the first tab, '''Context''', the breakpoint dialog provides access to the associated tags, condition, and hit count control. And on the second tab, it allows you to associate '''When hits...''' action(s) with the breakpoint. 
+
 {| 
 |- 
 | 
-Context's tab
- [[Image:breakpoint-dialog-context|Context's tab]]  
+'''Context''' tab
+ [[Image:breakpoint-dialog-context|Context tab]]  
 | 
-When hits action 's tab
- [[Image:breakpoint-dialog-when-hits-action|When hits... 's tab]]  
+'''When hits ...''' action tab
+ [[Image:breakpoint-dialog-when-hits-action|When hits... tab]]  
 |}
-</center>
 
-* The tags allow to identified a collection of breakpoints, either from the [[Breakpoint information command|breakpoints tool]] , or even in the parameters of "When hits .." actions. <br/>
-Note that any existing breakpoint can be referenced by an implicit tag with ''"'''bp:'''cluster.{CLASS}.feature@index"'' (cluster is not mandatory).<br/>
 
-{{sample|For instance "'''bp:'''elks.{LINKED_LIST}.extend@2"}}
+Tags allow you to identify a collection of breakpoints, either from the [[Breakpoint information command|breakpoints tool]] , or in the parameters of "When hits .." actions. <br/>
+Any existing breakpoint can be referenced by an implicit tag with the form: ''"'''bp:'''cluster.{CLASS}.feature@index"'' (cluster is not mandatory).<br/>
 
-* the "Condition" allows the user to set a condition for stopping. 
-* the "Hit count" allows the user to set a condition on hitcount for stopping. 
-* And the "When Hits..." allows to associate specific actions to the breakpoint: 
+{{sample|A sample breakpoint tag: "'''bp:'''elks.{LINKED_LIST}.extend@2"}}
+
+* the "Condition" allows you to set a condition for stopping. 
+* the "Hit count" allows you to set a condition on hitcount for stopping. 
+* And the "When Hits..." allows you to associate specific actions with the breakpoint: 
 ** Print message: display the expanded message to the output (there are predefined variables, and you can also evaluate expressions).
-** Disable/Restore Assertion Checking: this might be useful to desactivate assertion checking on a specific part of the execution.
+** Disable/Restore Assertion Checking: this might be useful to deactivate assertion checking on a specific part of the execution.
 ** Record Execution: start or stop the execution recording (cf: [[Execution record and replay|Execution recording and replay]] )
 ** Enable/Disable Breakpoints: either use tags or implicit tags (ex: ''"bp:elks.{LINKED_LIST}.extend@2"''), to reference a set of existing breakpoints. This can be pretty useful to enable a breakpoint only if the execution takes a specific execution path.
 ** Reset Hits count
@@ -41,17 +41,17 @@ Note that any existing breakpoint can be referenced by an implicit tag with ''"'
 
 
 
-"Edit Condition" allows the user to set a condition for stopping, it opens the same dialog as "EditThis Breakpoint", but focus on the "condition" field. 
+"Edit Condition" allows you to set a condition for stopping, it opens the same dialog as "Edit This Breakpoint", but focus on the "condition" field. 
 
-<center> [[Image:breakpoint-dialog-condition]]  </center>
+[[Image:breakpoint-dialog-condition]] 
 
-"Hit count" allows the user to set a condition on hitcount for stopping 
+"Hit count" allows you to set a condition on hitcount for stopping 
 
-<center> [[Image:breakpoint-dialog-hit-count]]  </center>
+[[Image:breakpoint-dialog-hit-count]]
 
-"When hits ..." allows the user to do an action when we actually stopped on this breakpoint. This can be for instance `print message'. 
+"When hits ..." allows you to perform an action, print a message for example, when execution stops on this breakpoint. 
 
-<center> [[Image:breakpoint-dialog-when-hits]]  </center>
+[[Image:breakpoint-dialog-when-hits]]
 
 {{seealso| [[Breakpoint commands|Breakpoint commands]], [[Breakpoint information command|Breakpoint information command]] }}
 

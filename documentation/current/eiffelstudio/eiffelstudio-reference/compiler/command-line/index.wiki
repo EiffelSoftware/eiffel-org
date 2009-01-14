@@ -4,7 +4,7 @@
 ==Using the command line compiler==
 
 It is possible to compile from outside of the graphical environment, by using the command '''ec'''. The form of compilation's results are the same in both cases. You may therefore alternate between the two techniques. '''ec''' will enable you to [[EiffelStudio: Command line options|melt or freeze]]  a project and therefore to use [[Batch compilation|batch compilation]] . It will also enable you to produce [[EiffelStudio: Command line options|information about a class]]  such as its Flat and Flat Contract views. <br/>
-The [[Interactive command line: Introduction|-loop option]]  makes it possible to start '''ec''' just once and then repeatedly request any of the available operations. 
+The [[EiffelStudio: Command line options|-loop option]]  makes it possible to start '''ec''' just once and then repeatedly request any of the available operations. 
 
 
 

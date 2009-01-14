@@ -7,7 +7,7 @@ If an application was stopped, it attempts to enter the feature located on the e
 
 It is accessible through the '''project''' toolbar (  [[Image:debug-step-into-icon]]  ) or through the '''debug''' menu. 
 
-{{seealso| [[Eiffel Debugger Execution: Introduction|Execution commands]], [[Generating executables|Compiling in Workbench mode]]  }}
+{{seealso| [[Execution commands]], [[Generating executables|Compiling in Workbench mode]]  }}
 
 
 

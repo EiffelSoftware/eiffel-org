@@ -5,7 +5,7 @@ This command kills the debugged application, if any. This stops the debugging se
 
 It is accessible through the '''project''' toolbar (  [[Image:debug-stop-icon]]  ) or through the '''debug''' menu. 
 
-{{seealso| [[Eiffel Debugger Execution: Introduction|Execution commands]]  }}
+{{seealso| [[Execution commands]]  }}
 
 
 

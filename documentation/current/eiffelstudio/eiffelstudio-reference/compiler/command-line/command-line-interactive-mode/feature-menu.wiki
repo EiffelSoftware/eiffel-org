@@ -2,7 +2,7 @@
 [[Property:weight|3]]
 [[Property:uuid|a662251b-777d-5e28-0e52-ba4932195528]]
 The Feature Menu enables you to find properties of a feature:
-<code>
+<code lang=text>
 	(A) Ancestors    : show the ancestor versions of a feature.
 	(C) Callers      : show the callers of a feature.
 	(D) Descendants  : show the descendant versions of a feature.
@@ -18,7 +18,7 @@ The Feature Menu enables you to find properties of a feature:
 </code>
 
 Each command will prompt you for the name of a class, the name of a feature in that class and a filter name; you can specify these names (or just the class name) after the command.
-{| 
+{| border="1"
 |- 
 | <center>'''Command'''</center>
 | <center>'''Description'''</center>
@@ -26,7 +26,7 @@ Each command will prompt you for the name of a class, the name of a feature in t
 | <code>Ancestors</code>
 | All the versions of a feature that appeared in ancestors.
 |- 
-| <!Unavailable:vertical_alignment!><code>Callers</code>
+| <code>Callers</code>
 |  The list of classes which contains calls to the feature. Modifiers: 
 * <code>All senders</code> - include all callers rather than only those in the specified class
 * <code>Only assigners</code> - restrict callers to those that use given feature only as a target of an assignment instruction
@@ -34,7 +34,7 @@ Each command will prompt you for the name of a class, the name of a feature in t
 
 |- 
 | <code>Descendants</code>
-| All the versionsof a feature that appeared in descendants.
+| All the versions of a feature that appeared in descendants.
 |- 
 | <code>Implementers</code>
 | The list of classes where the feature is redeclared.

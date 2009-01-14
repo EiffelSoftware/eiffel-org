@@ -5,7 +5,7 @@ The syntax is pretty simple when you understand what you need to export a featur
 
 ===Syntax===
 
-{| 
+{| border="1"
 |- 
 |  '''Export_feature''' 
 | Class_name [Creation_part] ":" Feature [Optional_part]
@@ -29,10 +29,11 @@ The syntax is pretty simple when you understand what you need to export a featur
 
 ===Example===
 
-<code>ROOT_CLASS (make): foo @ 4 Alias my_foo call_type __stdcall</code>
+<code lang=text>
+ROOT_CLASS (make): foo @ 4 Alias my_foo call_type __stdcall</code>
 
 
-===Constraint===
+===Constraints===
 <div> 
 * on the class: <div>The class cannot be deferred or generic.</div>
 * on the feature: <div>It could be any feature except an attribute, an external feature or a deferred feature.</div>
@@ -47,7 +48,7 @@ For each feature the required fields are the '''class''', the '''creation proced
 
 ===A definition file===
 
-<code>
+<code lang=text>
 -- EXPORTED FEATURE(s) OF THE SHARED LIBRARY
 -- SYSTEM : demo
 

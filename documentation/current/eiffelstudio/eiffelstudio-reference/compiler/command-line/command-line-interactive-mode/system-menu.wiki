@@ -2,7 +2,7 @@
 [[Property:weight|4]]
 [[Property:uuid|c1450c9b-a5d3-3709-1176-9c5c49def362]]
 The System Menu gives general information about the system:
-<code>
+<code lang=text>
 	(A) Config       : show the config file.
 	(L) Classes      : show the classes in alphabetic order.
 	(S) Cluster hierarchy: display the cluster hierarchy of the system.

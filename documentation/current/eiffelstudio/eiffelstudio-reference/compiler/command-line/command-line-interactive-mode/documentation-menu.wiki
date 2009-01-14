@@ -2,7 +2,7 @@
 [[Property:weight|7]]
 [[Property:uuid|4ed93bc4-07eb-57ed-b339-4890b5f58fcc]]
 The Documentation Menu enables you to generate documentation about the classes of your system: 
-<code>
+<code lang=text>
 	(I) Documentation (Flat/Short): Generate flat/short form of all classes in system.
 	(S) Documentation (Short): Generate short form of all classes in system.
 	(F) Documentation (Flat): Generate flat form of all classes in system.
