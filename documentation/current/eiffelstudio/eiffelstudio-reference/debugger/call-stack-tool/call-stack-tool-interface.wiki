@@ -4,28 +4,29 @@
 [[Image:call-stack-tool]]  
 
 
-The call stack tool gives information about the current call stack of a debugged application.
+The call stack tool provides information, at a particular point during system execution, about the call stack of a system being executed under control of the debugger.
 
-It is mainly composed of a list representing the call stack elements, where the entry feature of the program is at the bottom and the top of the call stack is at the top. <br/>
-- The current call stack element, to which the [[Information relative to a stack element|other debug tools]]  refer, is represented by a green arrow  [[Image:callstack-active-arrow-icon]] . <br/>
-- Clicking on a call stack element represented by an empty arrow  [[Image:callstack-empty-arrow-icon]] , or picking it and dropping it onto either the call stack list or the locals view defines it as being the current call stack element. <br/>
-- The call stack elements with no pixmap are called external call stack elements, they represent a call stack out of Eiffel, for instance a true dotnet call stack. <br/>
-- For each feature in the call stack, its name, its dynamic class and its static class are displayed. An asterisk next to the name of a feature means the feature is melted, as opposed to frozen. The dynamic class is the type of the object upon which the feature is called, whereas the static class is the class in which the feature was written. 
+The call stack is composed of a list representing the call stack elements, in which the root procedure of the system is at the bottom of the list and the currently executing routine is at the top. <br/>
+* The currently selected call stack element, to which the [[Information relative to a stack element|other debugger tools]] refer, is indicated by a green arrow  [[Image:callstack-active-arrow-icon]] . <br/>
+* Clicking on a call stack element represented by an empty arrow  [[Image:callstack-empty-arrow-icon]] , or picking the element and dropping it onto either the call stack list or the locals view defines it as being the currently selected call stack element. <br/>
+* The call stack elements with no icon are called external call stack elements, they represent a call stack out of Eiffel, for example, a true .NET call stack. <br/>
+* For each feature in the call stack, the name, dynamic class, and static class are displayed. The dynamic class is the type of the object upon which the feature is called, whereas the static class is the class in which the feature was written. 
+* An asterisk next to the name of a feature means the feature is melted, as opposed to frozen. 
 
-On top of this list, a line gives the state of the debugged application, and another one describes the exception that caused the application to stop, if any. For more information concerning exceptions, see the [[Supported exceptions|supported exceptions]] . 
-The button  [[Image:debug-exception-dialog-icon]]  is used to open the Exception dialog which show the exception details. For instance a call on Void target in a dotnet system would popup : 
+At the top of the list, one line of text gives the state of the debugged application, in this case "Status = Breakpoint reached". A second line describes the exception that caused the application to stop, if any. In the case shown above, execution stopped at a breakpoint, so no exception is shown on the second line. For more information concerning exceptions, see the [[Supported exceptions|supported exceptions]]. 
+The button  [[Image:debug-exception-dialog-icon]]  is used to open the Exception dialog which show the exception details. For instance a call on Void target in a .NET system would popup : 
 
 
 [[Image:exception-dialog]]
 
 
-When more than one thread is available to the debugger, you can switch from one to the other, for that you have to click on the thread's id "0x000..." and select from the popup list of available threads. Or (recommended) you can use the [[Threads tool|threads tool]]  (clicking on '''Show threads panel''' will show the threads tool). 
+When more than one thread is available to the debugger, you can switch from one thread to another. To do that, click on the thread's id "0x000..." and select from the pop-up list of available threads. Or (recommended) you can use the [[Threads tool|threads tool]] (clicking on '''Show threads panel''' will show the threads tool). 
 
 
 [[Image:call-stack-tool-with-threads]]
 
 
-In the toolbar, the button  [[Image:general-save-icon]]  gives the possibility to [[Save call stack|save the call stack]]  to a text file, and the button  [[Image:general-copy-icon]]  copy to the clipboard. The  [[Image:debugger-callstack-depth-icon]]  button makes it possible to choose which call stack depth should be displayed in the list (the default is to display the 100 top stack elements, but it is configurable with the same button). 
+In the toolbar, the button  [[Image:general-save-icon]] gives you the capability to [[Save call stack|save the call stack]] to a text file. The button  [[Image:general-copy-icon]] can be used to copy the call stack to the clipboard. The  [[Image:debugger-callstack-depth-icon]]  button makes it possible to choose a desired depth for the call stack in the list (the default is to display the 100 top stack elements). 
 
 
 
