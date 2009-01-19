@@ -7,9 +7,9 @@ The replay functionality is graphically available on the Call stack tool, or tho
 
 Now, whenever the application is stopped in the debugger, you can replay the recorded execution by clicking on the "Replay" button:
 
-<center> [[Image:exec-replay-01]]  </center>
+[[Image:exec-replay-01]] 
 
-Now we are in "execution replay" mode, as you can notice the "Replay" button is enabled, and there is a new commands bar with replay "Back", "Forth", "Previous", "Next", and "Go to". And on the right the number indicates the call stack depth, the breakable index, and the nested breakable index . <br/>
+Now we are in "execution replay" mode, as you can see by the fact that the "Replay" button is enabled. Also, another command bar is visible with replay "Back", "Forth", "Previous", "Next", and "Go to". On the right, the number indicates the call stack depth, the breakable index, and the nested breakable index . <br/>
 * '''Back''': means replay back to caller, i.e: down in the call stack.
 * '''Forth''': means replay to callee, i.e: up in the call stack.
 * '''Previous''': means replay to previous instruction (previous call in the same stack; i.e: similar to step previous) if possible.
@@ -19,21 +19,21 @@ In the first column, you will find a tree structure, which show on the root leve
 The '''bold entries''' show the active call stacks (i,e: the current call stack when we stopped the debugger).<br/>
 The '''red arrow''' shows the replayed call stack level, and the call stack levels which can be replayed have a light blue background. <br/>
 
-<center> [[Image:exec-replay-02]]  </center>
+[[Image:exec-replay-02]]
 
 If you expand a node, you will be able to browse the whole recorded execution history from this stack (if you expand the bottom node, the whole recorded execution history will be available).<br/>
 You can still select other call stack level as you do in normal debugging mode to inspect them, in this case the red arrow stick to the replayed call, and the green arrow show you the selected call stack level. 
 
-<center> [[Image:exec-replay-02-1]]  </center>
+[[Image:exec-replay-02-1]]
 
 Here we clicked on "Back" 3 times, you can now also replay "Forth" 3 times. When you execute a "Replay" operation, the debugger restores the related recorded values, and the various debugger tools are updated with tools values (including the watch tools)
 
-<center> [[Image:exec-replay-03]]  </center>
+[[Image:exec-replay-03]]
 
 And then if you replay "previous" twice, you rewind the execution in the same call stack frame, you will notice the "blue" dot to show the replayed execution cursor.
 
 
-<center> [[Image:exec-replay-04]]  </center>
+[[Image:exec-replay-04]]
 
 {{note|When replaying, you will notice the debugging tools are synchronized and refresh. <br/>
 This means the objects tool, the watch tools, and the feature tool will display the replayed context (values, and replayed execution cursor). <br/>

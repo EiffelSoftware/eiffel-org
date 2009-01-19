@@ -2,33 +2,34 @@
 [[Property:weight|1]]
 [[Property:uuid|1255beef-e115-b8ae-87f6-08e267fe3d8f]]
 For performance reason, the recording mechanism has a few parameters. For now there is no way to change them easily with the graphical debugger, however you can change those parameters by editing (and recompiling) <code>{RT_DBG_EXECUTION_PARAMETERS}.make</code>. 
-* integer parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.maximum_record_count</code> (default: 1_000_000): <br/>
-the recording keeps only the last '''maximum_record_count''' object's records.
-* boolean parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.flatten_when_closing</code> (default: True): <br/>
-when leaving a feature, the recorder can flatten the associated record. This will save memory space, and optimize underlying mechanism. By default it is enabled (and recommanded).
-* boolean parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.keep_calls_records</code>(default: True): <br/>
-when flattening call records' values, keep the sub-call records (i.e: the execution calls history)?
-* boolean parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.recording_values</code>(default: True): <br/>
-during execution, record attribute and locals assignment?(if you just want to review the calls history, you can discard value recording to speed up the recording.)
+* integer parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.maximum_record_count</code> (default: 1_000_000): the recording keeps only the last '''maximum_record_count''' object's records.
+* boolean parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.flatten_when_closing</code> (default: True): when leaving a feature, the recorder can flatten the associated record. This will save memory space, and optimize underlying mechanism. By default it is enabled (and recommended).
+* boolean parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.keep_calls_records</code>(default: True): when flattening call records' values, keep the sub-call records (i.e: the execution calls history)
+* boolean parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.recording_values</code>(default: True): during execution, record attribute and locals assignment (if you just want to review the calls history, you can discard value recording to speed up the recording.)
 
 {{warning|Since there is no way to restore local values when the execution left the related call stack frame, the recording discards the recorded local values.}}
 
 
-The recording functionality is graphically available on the Call stack tool, or though the "Execution" menu (former "Debug" menu). 
+The recording functionality is graphically available on the Call stack tool, or though the "Execution" menu (formerly the "Debug" menu). 
 
-When you start debugging, at some point you decide to start recording, click on the "record" button:
+After you start debugging, if at some point you decide to start recording, click on the "record" button:
 
-<center> [[Image:exec-replay-00]]  </center>
+[[Image:exec-replay-00]]
+
 
 {{note|If you want to record from the beginning, just enable the recording before starting the debug session (the recording button is a toggle button)}}
 
-{{tip|You can also use the "When hits.." actions of [[Breakpoint editing|breakpoints]]  to start and stop the execution recording. This can be useful to record only the part you are interested in.}}
 
-<center> [[Image:exec-replay-00-1]]  </center>
+{{tip|You can also use the "When hits.." actions of [[Breakpoint editing|breakpoints]]  to start and stop the execution recording. This can be useful to record only the part of an execution that you are interested in.}}
 
-The execution is now recorded, whenever the application is stopped, you can decide to [[Replay (recorded) execution|replay]]  the previously recorded execution. [[Replay (recorded) execution|Read how to replay execution]] .
 
-{{warning|EiffelStudio provides this feature only on classic system, this is not yet supported on dotnet.}}
+[[Image:exec-replay-00-1]]
+
+
+The execution is now recorded. Whenever the application is stopped, you can decide to [[Replay (recorded) execution|replay]] the previously recorded execution. See: [[Replay (recorded) execution]] to learn how to replay an execution.
+
+
+{{note|EiffelStudio provides record and replay only in classic mode. So, it is not yet supported for .NET systems.}}
 
 
 
