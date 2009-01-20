@@ -5,16 +5,18 @@
 
 The object tool is a debugging tool that displays extended dynamic information concerning one or several objects while debugging an application. This information includes the value of all their attributes, as well as the values of the once functions that have already been called.
 
-By default it is composed of one grid, which gives information about the [[Call stack tool|current stack element]] . Namely, it provides the Current object value, the arguments' value of corresponding feature, the value of the local variables, as well as the value of the Result (if this feature is a function). 
+By default it is composed of one grid, which gives information about the [[Call stack tool|current stack element]]. Namely, it provides the Current object value, the arguments' values of the current stack element's feature call, the values of the local variables, as well as the value of the Result (if this feature is a function). 
 
 When an exception occurs (for instance, an assertion violation), the objects tool will also display the exception information: 
-<center> [[Image:objects-tool-exception]]  </center>
+
+
+[[Image:objects-tool-exception]]
 
 
 '''Specific case for .NET system :''' when the system is stopped, the first item of the local view displays the module name for the feature where we are stopped. 
 
-All objects can be expanded to see the value of their attributes. They are also pickable, so that it is possible to drop them onto the '''objects tool''' , an [[Expression evaluation|expression evaluator tool]]  (alias Watch tools), or an editor. <br/>
-It is also possible to use the [[Set slice size command|set slice size command]]  with [[ref:/libraries/base/reference/special_chart]]  objects or [[ref:/libraries/base/reference/native_array_chart]]  (dotnet) objects. 
+All objects can be expanded to see the value of their attributes. They are also pickable, so that it is possible to drop them onto the '''objects tool''', an [[Expression evaluation|expression evaluator tool]]  (alias Watch tools), or an editor. <br/>
+It is also possible to use the [[Set slice size command|set slice size command]]  with [[ref:/libraries/base/reference/special_chart|SPECIAL]]  objects or [[ref:/libraries/base/reference/native_array_chart|NATIVE_ARRAY]]  (.NET) objects. 
 
 
 
@@ -28,7 +30,9 @@ It is also possible to use the [[Set slice size command|set slice size command]]
 '''Tips:'''<br/>
 The tool's layout can be customized to have 2 side-by-side "left" and "right" grids holding the various information. This can be done using the button ( [[Image:toolbar-dropdown-icon]] ) from the tool bar which open the objects tool menu and then select "Edit Layout". 
 
-<center> [[Image:object-tool-layout-editor]]  </center>
+
+[[Image:object-tool-layout-editor]]
+
 
 {{note| By default, the object tool displays the full generating type for object, but this can be changed for speed concern in the [[Debugging preferences|preferences]] . The same way, through the [[Debugging preferences|preferences]] , the user can enable or disable the evaluation of the [[Debug output|Debug Output]]  feature .}}
 

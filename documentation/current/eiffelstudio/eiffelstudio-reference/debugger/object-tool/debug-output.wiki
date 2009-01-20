@@ -1,7 +1,7 @@
 [[Property:title|Debug output]]
 [[Property:weight|2]]
 [[Property:uuid|41544c3b-e1f1-53a5-ff63-e63224c32fa3]]
-In both grids of the [[Objects tool: Introduction|object tool]] , objects are displayed. For virtually all objects, it is possible to display a user-definable string value next to the object address. 
+In both grids of the [[Object tool|object tool]], objects are displayed. For virtually all objects, it is possible to display a user-definable string value next to the object address. 
 
 To do so, inherit from the class <eiffel>DEBUG_OUTPUT</eiffel> in the classes that should let their objects display a string value, and implement the `debug_output' feature. At run-time, the debugger will automatically query the result of this feature on all objects that define it and display it in the object tool and the [[Expression evaluation|evaluation tool]] . 
 

@@ -2,7 +2,7 @@
 [[Property:weight|3]]
 [[Property:uuid|ce2469a3-cf00-554e-47bd-5e8b2fdbc783]]
 Located in the object tool toolbar, this command  [[Image:debugger-set-sizes-icon]]  changes the display size of special objects (i.e. objects whose class is [[ref:/libraries/base/reference/special_chart]] ).Since special objects may contain thousands of attributes, only the first fifty are displayed by default. If left-clicked, a dialog is popped up that sets the exploration indices of special objects that will be loaded in the future. <br/>
-This popup also shows the "Maximum displayed string size" in the grid ([[Objects tool: Introduction|objects tool]] , or the [[Expression evaluation|watch tools]] ). 
+This popup also shows the "Maximum displayed string size" in the grid ([[Object tool|object tool]], or the [[Expression evaluation|watch tools]] ). 
 
 This dialog changes the settings for future special objects:
 
