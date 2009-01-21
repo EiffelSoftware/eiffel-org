@@ -1,10 +1,10 @@
 [[Property:title|Attribute symbols]]
 [[Property:weight|1]]
 [[Property:uuid|6dfbde5d-3423-4f10-6569-30af2ba00dd1]]
-In both trees of the [[Object tool|object tool]] , objects are displayed. Two categories are made for each objects: its attributes (grouped under the `attributes' folder  [[Image:feature-attribute-icon]]  ) and its once routines (grouped under the `once routines' folder  [[Image:feature-once-icon]]  ). 
+In both trees of the [[Object tool|object tool]], objects are displayed. The values displayed for each object fall into two categories: the object's attributes (grouped under the '''attributes''' folder  [[Image:feature-attribute-icon]]  ) and its once routines (grouped under the '''once routines''' folder  [[Image:feature-once-icon]]  ). 
 
-All follow the following symbol scheme to describe the kind of each item:
-*   [[Image:debugger-object-immediate-icon]]  An attribute of a basic type, such as <eiffel>[/libraries/base/reference/kernel/integer_chart.xml| INTEGER  ]</eiffel>, <eiffel>[/libraries/base/reference/kernel/classic/double_chart.xml| DOUBLE  ]</eiffel>,... 
+The following symbol scheme is used to categorize each item:
+*   [[Image:debugger-object-immediate-icon]]  An attribute of a basic type, such as [[ref:/libraries/base/reference/kernel/integer_chart.xml|INTEGER]] or [[ref:/libraries/base/reference/kernel/classic/double_chart.xml|DOUBLE]] 
 *   [[Image:debugger-object-eiffel-icon]]  An attribute that is a reference to an object 
 *   [[Image:debugger-object-void-icon]]  A Void reference 
 *   [[Image:debugger-object-expanded-icon]]  An object that is expanded 

@@ -2,7 +2,10 @@
 [[Property:weight|1]]
 [[Property:uuid|1255beef-e115-b8ae-87f6-08e267fe3d8f]]
 For performance reason, the recording mechanism has a few parameters. For now there is no way to change them easily with the graphical debugger, however you can change those parameters by editing (and recompiling) <code>{RT_DBG_EXECUTION_PARAMETERS}.make</code>. 
-* integer parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.maximum_record_count</code> (default: 1_000_000): the recording keeps only the last '''maximum_record_count''' object's records.
+* <code>{RT_DBG_EXECUTION_PARAMETERS}.maximum_record_count</code>
+** Type: <code>INTEGER</code>
+** Default value: 1_000_000
+** Effect: The recording keeps only the last <code>maximum_record_count</code> object's records.
 * boolean parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.flatten_when_closing</code> (default: True): when leaving a feature, the recorder can flatten the associated record. This will save memory space, and optimize underlying mechanism. By default it is enabled (and recommended).
 * boolean parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.keep_calls_records</code>(default: True): when flattening call records' values, keep the sub-call records (i.e: the execution calls history)
 * boolean parameter: <code>{RT_DBG_EXECUTION_PARAMETERS}.recording_values</code>(default: True): during execution, record attribute and locals assignment (if you just want to review the calls history, you can discard value recording to speed up the recording.)
