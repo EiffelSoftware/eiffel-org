@@ -3,21 +3,21 @@
 [[Property:uuid|6b736424-1729-0b6f-6ddd-8240f9f8ffd6]]
 [[Image:object-tool]]  
 
-The object tool is a debugging tool that displays extended dynamic information concerning one or several objects while debugging an application. This information includes the value of all their attributes, as well as the values of the once functions that have already been called.
+The object tool is a debugging tool that displays extended dynamic information about runtime objects while debugging an application. This information includes the values of attributes, as well as the values of <code>once</code> functions that have already been called.
 
-By default it is composed of one grid, which gives information about the [[Call stack tool|current stack element]]. Namely, it provides the Current object value, the arguments' values of the current stack element's feature call, the values of the local variables, as well as the value of the Result (if this feature is a function). 
+By default the Object tool display is composed of one grid, which gives information about the [[Call stack tool|current stack element]]. Specifically, it provides the Current object value, the arguments' values of the current stack element's feature call, the values of the local variables, as well as the value of the <code>Result</code> (if this feature is a function). 
 
-When an exception occurs (for instance, an assertion violation), the objects tool will also display the exception information: 
+When an exception occurs (for instance, an assertion violation), the object tool will also display the exception information: 
 
 
 [[Image:objects-tool-exception]]
 
 
-{{note|Specific case for .NET system: When the system is stopped, the first item of the local view displays the module name for the feature at which execution stopped. }} 
+{{note|A specific case for .NET systems: When the system is stopped, the first item of the local view displays the module name for the feature at which execution stopped. }} 
 
-All objects can be expanded to see the value of their attributes. They are also pickable, so that it is possible to drop them onto the '''objects tool''', an [[Expression evaluation|expression evaluator tool]]  (alias Watch tools), or an editor.
+All objects can be expanded to see the values of their attributes. They are also pickable, so that it is possible to drop them onto the Object tool, an [[Expression evaluation|expression evaluator tool]] (also know as Watch tool), or an editor.
 
-It is also possible to use the [[Set slice size command|set slice size command]]  with [[ref:/libraries/base/reference/special_chart|SPECIAL]]  objects or [[ref:/libraries/base/reference/native_array_chart|NATIVE_ARRAY]]  (.NET) objects. 
+It is also possible to use the [[Set slice size command|set slice size command]] with [[ref:/libraries/base/reference/special_chart|SPECIAL]] objects or [[ref:/libraries/base/reference/native_array_chart|NATIVE_ARRAY]] (.NET) objects. 
 
 
 
@@ -35,11 +35,11 @@ It is also possible to use the [[Set slice size command|set slice size command]]
 [[Image:object-tool-layout-editor]]
 
 
-{{note| By default, the object tool displays the full generating type for object, but this can be changed for speed concern in the [[Debugging preferences|preferences]] . The same way, through the [[Debugging preferences|preferences]] , the user can enable or disable the evaluation of the [[Debug output|Debug Output]]  feature .}}
+{{note| By default, the object tool displays the full generating type for object, but this can be changed for speed concern in the [[Debugging preferences|preferences]] . The same way, through the [[Debugging preferences|preferences]] , the user can enable or disable the evaluation of the [[Debug output|Debug Output]]  feature. }}
 
-{{note|When a row has a pink background, this indicates the value is different from previous step }}
+{{note|When a row displays a pink background, this indicates the value has changed as a result of the previous step. }}
 
-{{tip|The [[Expression evaluation|expression evaluator tools]] (alias "watch" tools) provides many of the same features as the object tool along with even more functionality. }}
+{{tip|The [[Expression evaluation|expression evaluator tools]] (also known as Watch tools) provide many of the same features as the object tool along with even more functionality. }}
 
 
 

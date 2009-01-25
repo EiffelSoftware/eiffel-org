@@ -11,7 +11,7 @@ This dialog changes the settings for future special objects:
 [[Image:set-slice-size-dlg]]  
 
 
-You can affect the display of a single special object only by [[Pick-and-drop mechanism|dropping]] the object onto this ( [[Image:debugger-set-sizes-icon]] ) command. A dialog box appears, and the special object that is dropped is shrunk or extended in the tree according to the new exploration indices you set in the dialog box. The dropped object may be any special object, top-level or not. 
+You can affect the display of a single special object only by [[Pick-and-drop mechanism|dropping]] the object onto this ( [[Image:debugger-set-sizes-icon]] ) command. A dialog box appears, and the special object that is dropped is shrunk or expanded in the tree according to the new exploration indices you set in the dialog box. The dropped object may be any special object, top-level or not. 
 
 This dialog changes the settings for a single special object (the dropped object) : 
 

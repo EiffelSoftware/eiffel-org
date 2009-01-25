@@ -3,7 +3,7 @@
 [[Property:uuid|95a78497-434d-759f-fdce-f9025c891495]]
 Adding new expressions to the [[Evaluation tool or Watch tool|list of expressions]]  that should be dynamically evaluated is performed via a dialog. 
 
-<center>
+
 {| 
 |- 
 |   [[Image:new-expression-definition-dlg]]  <br/>
@@ -11,18 +11,17 @@ context: Current feature
 |   [[Image:new-expression-as-object-definition-dlg]]  <br/>
 context: As object 
 |}
-</center>
+
 
 The first part in the dialog makes it possible to select the context of the expression. 
-*  The default context is the context of the [[Information relative to a stack element|currently selected call stack element]] . This context gives access to the locals, the arguments, the result and the enclosing object features. <br/>
+*  The default context is the context of the [[Information relative to a stack element|currently selected call stack element]]. This context gives access to the locals, the arguments, the result and the enclosing object features. 
+*  The object context, that requires a valid object address, gives access to the features of the selected object. If you select "As object", the result of the expression is the referenced object itself; and you can supply a name for the object (see the second screenshot). 
+*  The last context, the class-related context, gives access to the <code>once</code> and constant features of that class. It requires a valid class name. 
 
-*  The object context, that requires a valid object address, gives access to the features of the selected object. But if the "As object" is selected, the result of the expression, is the pointed object it self; and you can name the object (see the second screenshot). 
-*  The last context, the class-related context, gives access to the once and constants features of that class. It requires a valid class name. 
 
+The second part prompts for the expression itself. This field supports arguments, dot calls and operators (to a certain extent), but does not support creation expressions, agents or non-object calls. Genericity is partially supported. 
 
-The second part prompts for the expression itself. This field supports arguments, dot calls and operators (to a certain extent), but does not support creation expressions, agents or static calls (as in "feature {<eiffel>MY_CLASS</eiffel>}.<eiffel>my_feature</eiffel>"). Genericity is partially supported. Despite these limitations, we believe the expression evaluation tool should provide you with a lot of useful functionality.
-
-And the "Keep Assertion Checking" checkbox is used to enable assertion checking during expression evaluation if wanted (by default assertions won't be checked).
+The "Keep Assertion Checking" checkbox is used to enable assertion checking during expression evaluation if desired (by default assertions won't be checked).
 
 
 

@@ -1,42 +1,43 @@
 [[Property:title|Evaluation tool or Watch tool]]
 [[Property:weight|1]]
 [[Property:uuid|e70d5827-a00d-47ee-9e7a-b7b4bfb34ccf]]
-The expression evaluation tool's main part is the list of expressions that should be evaluated.
+The Evaluation (or Watch) tool displays a list of expressions and their values (provided that those values can be obtained).
 
 [[Image:expression-evaluation-tool]]  
 
-Its first column gives the expression's text, the context's column gives the context in which the [[New expression dialog|expression]]  is evaluated. The value's column gives the result of the expression, and the type's column the result's type of the expression.. 
+In the display, the ''Expression'' column gives the expression's text. The ''Context'' column gives the context in which the [[New expression dialog|expression]] is evaluated. The ''Value'' column gives the result of the expression, and the ''Type'' column the type of the expression's value. 
 
-In the screenshot, you can see various expressions, the 4th one, is a dropped object, and the debugger displayed it as itself, this is shown by the context's value "As object", and also by the italic style. The user can name the dropped object by editing the "expression" cell. This is useful to remember the origin of the value. 
+In the image above, you can see various expressions. Look at the one on the fourth line. This is an object that has been dropped on to the Evaluation tool, and the tool displayed it as itself, as shown by "As object" in the ''Context'' column, and by the italic style. The user can name the dropped object by editing the value in the ''Expression'' column for the expression. This can be useful to help you remember the origin of the value. 
 
-The 5th expression has an error, the icon is different, and the 'value' shows there is an error, double click on it for more details 
+The expression in the fifth row has an error, the icon is different, and the ''Value'' shows there is an error, double click on it for more details.
 
-{{tip|If the expression returns a non-Void (and non basic type) object, then the corresponding row in the list is pickable, and can be dropped for example in the Watch tool to evaluate expression on it, or even to keep the object over the steppings. }}
 
-{{tip|holding the mouse pointer over the expression's cell will popup a tooltip with details on the pointed expression }}
+{{tip|If the expression returns a non-Void (and non-basic type) object, then the corresponding row in the list is pickable. The object can be dropped, for example, on the Evaluation tool to inspect it or to keep the object visible while stepping through system execution. }}
+
+
+{{tip|holding the mouse pointer over the expression's cell will pop up a tooltip with details on the pointed expression }}
+
 
 On top of the list, four buttons can be found.
 * the button  [[Image:toolbar-dropdown-icon]]  is used to create/close watch tools via a menu popup
 *   [[Image:debugger-auto-values]]  Enable or disable auto expressions. 
-*   [[Image:new-expression-icon]]  pops up the [[New expression dialog|expression definition dialog]] , and can be used to define new expressions. If you have selected text in the editor, this text will be used to create the expression. 
-*   [[Image:general-edit-icon]]  edits a currently selected expression (it is not possible to change the context of an expression, only the expression itself). <br/>
-The associated key shortcut is F2. 
+*   [[Image:new-expression-icon]]  pops up the [[New expression dialog|expression definition dialog]], and can be used to define new expressions. If you have selected text in the editor, this text will be used to create the expression. 
+*   [[Image:general-edit-icon]]  edits a currently selected expression (it is not possible to change the context of an expression, only the expression itself). The associated key shortcut is F2. 
 *   [[Image:general-toogle-icon]]  disable/enable the evaluation of the selected expressions from the list. <br/>
 
 *   [[Image:debugger-set-sizes-icon]]  set the slice limits of dropped <eiffel>SPECIAL</eiffel> or <eiffel>NATIVE_ARRAY</eiffel> objects. <br/>
 
 *   [[Image:debugger-show-hex-value-icon]]  Toggle format display of numeric between decimal and hexadecimal format. <br/>
 
-*   [[Image:debugger-expand-info-icon]]  This command can give an [[Object Viewer (also known as Expanded display)|expanded display]]  of the string relative to an object, by dropping the object onto the button (or pressing Ctrl+E on the selected value). Use it if an object has a very long string representation or a string representation that contains carriage returns, for example. <br/>
+*   [[Image:debugger-expand-info-icon]]  This command can give an [[Object Viewer (also known as Expanded display)|expanded display]] of the string relative to an object, by dropping the object onto the button (or pressing <code>CTRL</code>+<code>E</code> on the selected value). Use it if an object has a very long string representation or a string representation that contains carriage returns, for example. <br/>
 
-*   [[Image:execution-object-storage-icon]]  This button is used to remotely store or load a "stored" object (check [[Debuggee's Object Storage|remote object storage]] ). <br/>
+*   [[Image:execution-object-storage-icon]]  This button is used to remotely store or load a "stored" object (check [[Debuggee's Object Storage|remote object storage]]). <br/>
 
-*   [[Image:general-delete-icon]]  removes the selected expressions from the list. <br/>
-The associated key shortcut is Del. 
-* And the last two buttons are used to move up and down the expressions. You can also move the expressions up and down using [CONTROL] + [-] or [CONTROL] + [+]. 
+*   [[Image:general-delete-icon]]  removes the selected expressions from the list. The associated key shortcut is Del. 
+* And the last two buttons are used to move up and down the expressions. You can also move the expressions up and down using <code>CTRL</code>+<code>-</code> or <code>CTRL</code>+<code>+</code> respectively (that is, the Control key with the ''minus'' key or the Control key with the ''plus'' key). 
 
 {{tip|Dropping an object onto this list lets you define quickly an expression whose context is the dropped object. This avoids having to type object addresses manually. <br/>
-If you press the [Control] key during the dropping, you will add the dropped object as itself. }}
+If you hold the <code>CTRL</code> key while dropping, you will add the dropped object as itself. }}
 
 
 
