@@ -14,8 +14,8 @@ context: As object
 
 
 The first part in the dialog makes it possible to select the context of the expression. 
-*  The default context is the context of the [[Information relative to a stack element|currently selected call stack element]]. This context gives access to the locals, the arguments, the result and the enclosing object features. 
-*  The object context, that requires a valid object address, gives access to the features of the selected object. If you select "As object", the result of the expression is the referenced object itself; and you can supply a name for the object (see the second screenshot). 
+*  The default context is the context of the [[Information relative to a stack element|currently selected call stack element]], as shown in the left image above. This context gives access to the locals, the arguments, the result and the enclosing object features. 
+*  The object context, that requires a valid object address, gives access to the features of the selected object. If you select "As object", the result of the expression is the referenced object itself; and you can supply a name for the object, as depicted in the right image above. 
 *  The last context, the class-related context, gives access to the <code>once</code> and constant features of that class. It requires a valid class name. 
 
 

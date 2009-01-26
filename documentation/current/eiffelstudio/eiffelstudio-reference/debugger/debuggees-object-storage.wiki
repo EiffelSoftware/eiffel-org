@@ -3,18 +3,22 @@
 [[Property:uuid|b26fb1b0-85ef-26b5-9b9d-6e3b8ad977c2]]
 This command can be accessed through the context menu, and from the objects tool, and watches tools thanks to the tool bar's button [ [[Image:execution-object-storage-icon]] ]. 
 
-By Pick-and-Dropping a debuggee object onto the button [ [[Image:execution-object-storage-icon]] ], you raise the "save" dialog. Then you need to choose the target filename where we'll store the debuggee object. 
-
-<center> [[Image:debuggee-object-storage-save]]  </center>
-
-By clicking on a watch tool's button [ [[Image:execution-object-storage-icon]] ], you raise the "load" dialog. Then you need to select the filename which contain the debuggee object's storage. If the loading is successful, the retrieved object will be added in the related watch tool. <br/>
+By Pick-and-Dropping a debuggee object onto the button [ [[Image:execution-object-storage-icon]] ], you raise the "save" dialog. Then you need to choose the name for the file into which EiffelStudio will store the debuggee object. 
 
 
-<center> [[Image:debuggee-object-storage-load]]  </center>
+[[Image:debuggee-object-storage-save]] 
 
-{{tip|By Pick-and-Dropping an object onto the button, you can load the retrieved values into the dropped object (make sure it has same type).}}
 
-{{warning|For now this command is pretty basic, and provided as it is. The underlying implementation is using <code>{FILE}.independent_store and {FILE}.retrieved</code> for save and load operation, to load the value into an existing object, it is using <code>{ANY}.standard_copy (..)</code>. For details, you can have a look at the RT_EXTENSION_GENERAL code }}
+By clicking on Evaluation tool's button [ [[Image:execution-object-storage-icon]] ], you raise the "load" dialog. Then you need to select the name of the file which contains the debuggee object's storage. If the loading is successful, the retrieved object will be added in the related Evaluation tool. <br/>
+
+
+[[Image:debuggee-object-storage-load]] 
+
+
+{{tip|By Pick-and-Dropping an object onto the button, you can load the retrieved values into the dropped object (provided that both have the same type).}}
+
+
+{{caution|For now this command implements only basic functionality, and is provided as-is. The underlying implementation uses <code>{FILE}.independent_store</code> and <code>{FILE}.retrieved</code> for save and load operations. To load the value into an existing object, it uses <code>{ANY}.standard_copy (..)</code>. For details, you can have a look at the code in class <code>RT_EXTENSION_GENERAL</code>. }}
 
 
 

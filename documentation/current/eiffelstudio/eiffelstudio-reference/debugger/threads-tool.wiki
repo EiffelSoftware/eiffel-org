@@ -1,10 +1,18 @@
 [[Property:title|Threads tool]]
 [[Property:weight|-8]]
 [[Property:uuid|457b71dc-4609-dac1-8458-cd9b64fd5945]]
-This tool displays the list of current Eiffel '''threads'''. <br/>
-To show this tool, go to menu : '''Debug > Tools > Threads''' .
- [[Image:threads-tool|Threads tool]]  
-By double clicking on a row, you change the current thread for the debuggee (application). If you double click on "Note" cell, you can edit a note, this can be useful to identify a thread during the debugging session.<br/>
+This tool displays the list of current Eiffel threads. <br/>
+To show this tool, use the menu path: 
+<code lang=text>
+Debug --> Tools --> Threads </code>
+
+
+[[Image:threads-tool|Threads tool]]  
+
+
+By double clicking on a row, you change the current thread for the debuggee (application). If you double click on "Note" cell, you can edit a note, this can be useful to identify a thread during the debugging session.
+
+
 The highlighted line shows the current thread. 
 
 

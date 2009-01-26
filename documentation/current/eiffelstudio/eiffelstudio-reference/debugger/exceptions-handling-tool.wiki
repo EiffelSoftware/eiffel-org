@@ -11,7 +11,7 @@ If the "filter exceptions" is enabled, for each exception you can leave the exce
 
 In the following picture, we stop on every exception except the "External Exception".
 
-<center> [[Image:exceptions-handling-tool|Exception handling tool]] </center>
+[[Image:exceptions-handling-tool|Exception handling tool]] 
 
 {{tip|Using the "Pattern" field, you can add you own filter using regular expression.}}
 
