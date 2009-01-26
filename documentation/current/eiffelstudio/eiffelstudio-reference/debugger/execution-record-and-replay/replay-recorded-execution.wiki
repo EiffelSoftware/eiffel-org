@@ -4,7 +4,7 @@
 The replay functionality is available from a button on the Call stack tool, or though EiffelStudio's "Execution" menu.
 
 
-{{note|First, you must be sure execution recording is activated ([[Record execution|read how to record execution]] ).}}
+{{note|First, you must be sure execution recording is activated ([[Record execution|read how to record execution]]).}}
 
 
 Now, whenever the application is stopped in the debugger, you can replay the recorded execution by clicking on the "Replay" button:

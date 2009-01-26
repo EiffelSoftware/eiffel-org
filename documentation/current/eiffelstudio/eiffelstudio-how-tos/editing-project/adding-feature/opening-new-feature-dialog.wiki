@@ -4,7 +4,7 @@
 To make the [[New feature dialog overview|new feature window]]  appear, you can: 
 * Click  [[Image:16x16--new-feature-icon]]  in the [[Main toolbars|standard toolbar]] . 
 * Select '''New feature''' in the '''Tools''' menu. 
-* Use the [[Diagram tool: Introduction|diagram tool]] : First, select '''create new client-supplier links''' by clicking on  [[Image:new-supplier-link-icon]] .Then, pick the class to which you want to add the new feature. Lastly, drop the pebble on the class that corresponds to the type returned by the new feature.<br/>
+* Use the [[Diagram tool]]: First, select '''create new client-supplier links''' by clicking on  [[Image:new-supplier-link-icon]] .Then, pick the class to which you want to add the new feature. Lastly, drop the pebble on the class that corresponds to the type returned by the new feature.<br/>
 This last method does not allow you to create procedures. 
 The first thing to do when the dialog is displayed is to choose the kind of feature you want to create. The rest of the process depends on what you selected : [[Adding a procedure|procedure]] , [[Adding a function|function]]  or [[Adding an attribute|attribute]] . 
 

@@ -23,12 +23,17 @@ For performance reason, the recording mechanism has a few parameters. For now th
 {{warning|Since there is no way to restore local values when the execution left the related call stack frame, the recording discards the recorded local values.}}
 
 
-The recording functionality is graphically available on the Call stack tool, or though the "Execution" menu (formerly the "Debug" menu). 
+The recording functionality is graphically available on the Call stack tool, or though the "Execution" menu (formerly the "Debug" menu).
 
-After you start debugging, if at some point you decide to start recording, click on the "record" button:
+After you start debugging, if at some point you decide to start recording, click on the "record" button in the Call stack tool:
 
 
 [[Image:exec-replay-00]]
+
+
+or follow the menu path: 
+<code lang=text>
+Execution --> Activate Execution Recording</code>
 
 
 {{note|If you want to record from the beginning, just enable the recording before starting the debug session (the recording button is a toggle button)}}

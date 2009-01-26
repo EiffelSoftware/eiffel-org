@@ -2,8 +2,8 @@
 [[Property:weight|5]]
 [[Property:uuid|f975b6e2-7f81-874b-82f2-e76db588ff5e]]
 To remove a class, you can: 
-*  [[Centering tools on a component|Center the editor on the component]] , and click  [[Image:16x16--general-delete-icon]]  in the [[Main toolbars|standard toolbar]]  or select '''Remove current item''' in the '''Tools''' menu. 
-*  [[Pick-and-drop mechanism|Drop a pebble]]  of this component on  [[Image:16x16--general-delete-icon]]  in the [[Main toolbars|standard toolbar]]  or in the [[Diagram tool: Introduction|Diagram tool]]  [[Diagram toolbar|toolbar]] . 
+*  [[Centering tools on a component|Center the editor on the component]], and click  [[Image:16x16--general-delete-icon]]  in the [[Main toolbars|standard toolbar]] or select '''Remove current item''' in the '''Tools''' menu. 
+*  [[Pick-and-drop mechanism|Drop a pebble]] of this component on  [[Image:16x16--general-delete-icon]]  in the [[Main toolbars|standard toolbar]] or in the [[Diagram tool]] [[Diagram toolbar|toolbar]]. 
 
 {{warning|Removing a class from the system implies the deletion of the corresponding file on disk. }}
 
