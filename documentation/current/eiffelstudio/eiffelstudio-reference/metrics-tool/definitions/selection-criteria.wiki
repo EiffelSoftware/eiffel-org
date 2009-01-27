@@ -38,17 +38,13 @@ The syntax for name_is is:
 name_is "pattern", matching_strategy, case_sensitive 
 
 The match_strategy modifier decides how criterion text "pattern" is matched, and can choose from one of the following four values:
-*  
-Identity - Pattern is matched if the text is identical to criterion text
+*  Identity - Pattern is matched if the text is identical to criterion text
 
-*  
-Containing - Pattern is matched the text contains criterion text
+*  Containing - Pattern is matched the text contains criterion text
 
-*  
-Wildcard - Pattern is matched if it occurs in criterion text according to wildcard rules
+*  Wildcard - Pattern is matched if it occurs in criterion text according to wildcard rules
 
-*  
-Regular expression - Pattern is matched if it occurs in criterion text according to regular expression rules
+*  Regular expression - Pattern is matched if it occurs in criterion text according to regular expression rules
 
 
 The case_sensitive modifier can be True or False, it indicates if pattern matching is case sensitive or not.

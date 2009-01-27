@@ -5,7 +5,7 @@ Every class or cluster has one or more views. Every view shows the [[Contexts|co
 <div>  [[Image:diagram-view-combo]]  </div>
 The view combo box, as seen in the image above, can be used to add a view or switch to a previously added one. Every class and cluster has a view "DEFAULT" that is generated automatically. If you create a new view and move for example a class around in it, the "DEFAULT" view is unaffected.
 
-The case tool provides you with the following possibilities to manipulate views:
+The Diagram tool provides you with the following possibilities to manipulate views:
 *  [[Adding a view|Adding a view]]  
 *  [[Deleting a view|Deleting a view]]  
 *  [[Showing or hiding links and labels|Showing or hiding links and labels]]  

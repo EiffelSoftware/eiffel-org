@@ -56,7 +56,7 @@ The following figure shows a new basic class metric:
 
 [[Image:interface9|basic metric]]  
 
-When defining basic metrics, you can press Ctrl + Space in a cell in the criterion column (the first column in "definition" area) to get a list of all applicable criteria. You can also type "and" or "or" in that cell to get criterion connectors. And you can put "not" in front of a criterion name to get its negation. After typing the criterion name and hitting enter, if the criterion needs further setup, the property cell of that criterion will be highlighted. For domain criterion such as ancestor_is, caller_is, you can pick an item and drop it into this property cell.
+When defining basic metrics, you can press <code>CTRL</code>+<code>Space</code> in a cell in the criterion column (the first column in "definition" area) to get a list of all applicable criteria. You can also type "and" or "or" in that cell to get criterion connectors. And you can put "not" in front of a criterion name to get its negation. After typing the criterion name and hitting enter, if the criterion needs further setup, the property cell of that criterion will be highlighted. For domain criterion such as ancestor_is, caller_is, you can pick an item and drop it into this property cell.
 
 The following figure shows a new linear feature metric:
 

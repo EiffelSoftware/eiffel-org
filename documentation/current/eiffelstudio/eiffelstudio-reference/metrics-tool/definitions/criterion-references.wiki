@@ -123,14 +123,14 @@ The related concepts of descendants, proper descendants, heirs, indirect heirs f
 '''Applicable on:''' Class<br/>
 '''Remarks:''' This criterion evaluates to True if a candidate class is supplier of any of the classes in criterion domain. Directness modifier is boolean modifier, if it's True only direct suppliers are picked, if indirect modifier is set, only indirect suppliers are picked. normally_referenced and syntactically_referenced modifiers are both boolean modifiers, they enable to specify how one class is used by another class. Let's use an example to demonstrate these ideas, for example, in class A, there is a feature foo:<br/>
 <code>
-	        foo is
-	                 local
-	                          l_str: STRING
-	                          l_file: FILE
-	                 do
-	                          create l_str.make_empty
-	                 end
-		</code>
+    foo 
+        local
+            l_str: STRING
+            l_file: FILE
+        do
+            create l_str.make_empty
+        end
+</code>
 <br/>
 Then both <eiffel>STRING</eiffel> and <eiffel>FILE</eiffel> are suppliers of class <eiffel>A</eiffel>. <eiffel>STRING</eiffel> is normal supplier because a feature make_empty in <eiffel>STRING</eiffel> is invoked in class <eiffel>A</eiffel>, but <eiffel>FILE</eiffel> is a syntactically referenced supplier because no feature from <eiffel>FILE</eiffel> is called from <eiffel>A</eiffel>. Classes explicitly listed in inherit clause of a class are also considered as syntactically referenced suppliers. 
 Concepts of direct/indirect, normally referenced/syntactically referenced clients follow the same rule expect in the other direction.
@@ -201,6 +201,7 @@ only_current_verision modifier is a boolean modifier, if it's True, when the cri
 '''is_implementors_of'''<br/>
 '''Syntax:''' is_implementors_of {domain}<br/>
 '''Applicable on:''' Feature<br/>
+
 
 '''Remark:''' This criterion will evaluate to True if the candidate feature is an implementer of some features listed in criterion domain.<br/>
 
