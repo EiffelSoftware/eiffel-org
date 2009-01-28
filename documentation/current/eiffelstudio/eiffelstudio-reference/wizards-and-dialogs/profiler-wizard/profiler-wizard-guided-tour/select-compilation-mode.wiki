@@ -4,7 +4,8 @@
 The first screen of the wizard lets you specify the mode in which the profiled system was compiled.
 
 If you have run a finalized system under the control of the profiler then select '''Finalized mode''' and click '''Next'''. On the contrary if you have executed the system in Workbench mode then select '''Workbench mode''' and click '''Next'''. 
-<br/>
+
+
 [[Image:profiler-wizard-first-state]]  <br/>
 <br/>
 
