@@ -58,17 +58,17 @@ To move a cluster from the right column to the left one, click it to select it, 
 
 You can play with moving a couple of clusters back and forth, but for this Tour we'll want to generate everything, including EiffelBase, so make sure that in the end all clusters appear in the right column, as on the last figure. Then click <code>Next</code>. 
 
-==Generating Metatags from Indexing entries==
+==Generating Metatags from Note entries==
 
-The next step of the documentation wizard asks you to select indexing entries:
+The next step of the documentation wizard asks you to select Note entries:
 
 [[Image:index-39]]
 
-Eiffel classes, as you know, may start with an <code>Indexing</code> entry that enables class authors to include documentary information in any category they like. It is standard (and part of the official style guidelines) to include at the very least an entry of the form <code>description:</code> <code>Descriptive text</code> in every class. The earlier displays of class <code>LIST</code> showed that entry, which read " <code>Sequential lists, without commitment to a particular representation</code>". 
+Eiffel classes, as you know, may start with an <code>note</code> entry that enables class authors to include documentary information in any category they like. It is standard (and part of the official style guidelines) to include at the very least an entry of the form <code>description:</code> <code>Descriptive text</code> in every class. The earlier displays of class <code>LIST</code> showed that entry, which read " <code>Sequential lists, without commitment to a particular representation</code>". 
 
-You may have noted that the purpose of Eiffel's <code>Indexing</code> clauses is, conceptually, similar to that of '''metatags''' in HTML. Metatags carry information which Web page visitors do not normally see in the browser; this information is available, however, to search engines and other tools that explore and classify Web pages. So it seems quite appropriate to generate metatags from <code>Indexing</code> entries. 
+You may have noted that the purpose of Eiffel's <code>note</code> clauses is, conceptually, similar to that of '''metatags''' in HTML. Metatags carry information which Web page visitors do not normally see in the browser; this information is available, however, to search engines and other tools that explore and classify Web pages. So it seems quite appropriate to generate metatags from <code>note</code> entries. 
 
-The dialog illustrated in the last figure lets you select the entries you wish to transform into metatags. It appears only if you have selected an HTML filter. It lists all the <code>Indexing</code> tags found anywhere in the system; those on the right will be retained for metatags. Initially the <code>Exclude</code> list on the left contains three tags conventionally used -- at Eiffel Software and other Eiffel sites -- for interfacing with configuration management tools, and hence of internal interest only. 
+The dialog illustrated in the last figure lets you select the entries you wish to transform into metatags. It appears only if you have selected an HTML filter. It lists all the <code>note</code> tags found anywhere in the system; those on the right will be retained for metatags. Initially the <code>Exclude</code> list on the left contains three tags conventionally used -- at Eiffel Software and other Eiffel sites -- for interfacing with configuration management tools, and hence of internal interest only. 
 
 There is no need to change the default selection, so just click <code>Next</code>. 
 

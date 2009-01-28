@@ -14,28 +14,29 @@ When clicking '''Attribute''', the window changes to the attribute layout. It ha
 This dialog box:<br/>
 <div>  [[Image:feature-wizard-attribute-example]]  </div><br/>
 Produces this feature:<br/>
-<code>class
-	PRODUCT
+<code>
+class
+    PRODUCT
 
 feature {NONE} -- Access
 
-	price: DOUBLE
-		-- Cost in dollars.
+    price: DOUBLE
+            -- Cost in dollars.
 
 feature -- Element change
 
-	set_price (a_price: DOUBLE) is
-			-- Assign `a_price' to `price'.
-		require
-			a_price_non_negative: a_price >= 0.0
-		do
-			price := a_price
-		ensure
-			price_assigned: price = a_price
-		end
+    set_price (a_price: DOUBLE)
+            -- Assign `a_price' to `price'.
+        require
+            a_price_non_negative: a_price >= 0.0
+        do
+            price := a_price
+        ensure
+            price_assigned: price = a_price
+        end
 
 invariant
-	price_non_negative: price >= 0.0
+    price_non_negative: price >= 0.0
 
 end -- class PRODUCT</code>
 

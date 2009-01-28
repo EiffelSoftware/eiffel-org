@@ -60,15 +60,15 @@ A directory is associated with each keyword. These directories contains six item
 
 *  Use default autocomplete: If this is set to True, the next preferences will be ignored and the default completion scheme will be used. Otherwise, the automatic completion will use the user-defined strings described below.
 
-*  Customized autocomplete (Return after keyword was typed): This [[Keyword completion customization|string]]  defines what will be inserted as you press Return just after typing the keyword if you chose not to use the [[Default values for keyword completion preferences|default value]]  (see Use default autocomplete above). 
+*  Customized autocomplete (Return after keyword was typed): This [[Keyword completion customization|string]] defines what will be inserted as you press Return just after typing the keyword if you chose not to use the [[Default values for keyword completion preferences|default value]] (see Use default autocomplete above). 
 
-*  Customized autocomplete (Space after keyword was typed): This [[Keyword completion customization|string]]  defines what will be inserted as you press Space just after typing the keyword if you chose not to use the [[Default values for keyword completion preferences|default value]]  (see Use default autocomplete above). 
+*  Customized autocomplete (Space after keyword was typed): This [[Keyword completion customization|string]] defines what will be inserted as you press Space just after typing the keyword if you chose not to use the [[Default values for keyword completion preferences|default value]] (see Use default autocomplete above). 
 
-*  Customized autocomplete (Return, other cases): This [[Keyword completion customization|string]]  defines what will be inserted as you press Return after a keyword which had been previously typed. It is effective only if you chose not to use the [[Default values for keyword completion preferences|default value]]  (see Use default autocomplete above). 
+*  Customized autocomplete (Return, other cases): This [[Keyword completion customization|string]] defines what will be inserted as you press Return after a keyword which had been previously typed. It is effective only if you chose not to use the [[Default values for keyword completion preferences|default value]] (see Use default autocomplete above). 
 
-*  Customized autocomplete (Space, other cases): This [[Keyword completion customization|string]]  defines what will be inserted as you press Space after a keyword which had been previously typed. It is effective only if you chose not to use the [[Default values for keyword completion preferences|default value]]  (see Use default autocomplete above). 
+*  Customized autocomplete (Space, other cases): This [[Keyword completion customization|string]] defines what will be inserted as you press Space after a keyword which had been previously typed. It is effective only if you chose not to use the [[Default values for keyword completion preferences|default value]] (see Use default autocomplete above). 
 
-The syntax used in the four last item is described in [[Keyword completion customization|Keyword completion customization]] . [[Default values for keyword completion preferences|Default values]]  are accessible in Keyword completion default values. 
+The syntax used in the four last item is described in [[Keyword completion customization|Keyword completion customization]]. [[Default values for keyword completion preferences|Default values]] are accessible in Keyword completion default values. 
 
 
 

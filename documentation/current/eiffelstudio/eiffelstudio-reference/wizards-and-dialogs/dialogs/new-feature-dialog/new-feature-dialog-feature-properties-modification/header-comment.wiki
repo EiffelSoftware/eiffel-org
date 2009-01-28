@@ -6,8 +6,9 @@ In the header comment field you can type a description of the feature. For style
 For example, suppose you have an attribute <eiffel>count</eiffel>. You can enter the following header comment: 
 <div>  [[Image:feature-wizard-comment]]  </div><br/>
 When clicking '''OK''' this code is generated: <br/>
-<code>count: INTEGER
-	-- Number of students in course</code>
+<code>
+    count: INTEGER
+            -- Number of students in course</code>
 
 
 

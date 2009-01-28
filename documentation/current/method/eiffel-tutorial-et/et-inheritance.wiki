@@ -8,7 +8,7 @@ Inheritance is a powerful and attractive technique. A look at either the practic
 
 To make a class inherit from another, simply use an <code>inherit</code> clause: 
 <code>
-indexing ...
+note ...
 
 class 
     D
@@ -36,7 +36,7 @@ Assume a class <code>SAVINGS_ACCOUNT</code> that specializes the notion of accou
 
 This example is typical of the form of reuse promoted by inheritance and crucial to effective reusability in software: the case of reuse with adaptation. Traditional forms of reuse are all-or-nothing: either you take a component exactly as it is, or you build your own. Inheritance will get us out of this "reuse or redo" dilemma by allowing us to reuse and redo. The mechanism is feature redefinition: 
 <code>
-indexing
+note
     description: "Savings accounts"
 
 class
@@ -179,7 +179,7 @@ It is also useful to define classes that leave the implementation of some of the
 
 At the level of the deferred class <code>LIST</code>, some features such as <code>extend</code> (add an item at the end of the list) will have no implementation and hence will be declared as deferred. Here is the corresponding form, illustrating the syntax for both deferred classes and their deferred features: 
 <code>
-indexing
+note
     description: "[
         Sequential finite lists, without a commitment
         to a representation."
@@ -278,7 +278,7 @@ The following sketch (from the book [http://eiffel.com/doc/oosc/ Object-Oriented
 
 Note the use of assertions to define semantic properties of the class, its instances and its features. Although often presented as high-level, most object-oriented analysis methods (with the exception of Walden's and Nerson's Business Object Notation) have no support for the expression of such properties, limiting themselves instead to the description of broad structural relationships. 
 <code>
-indexing
+note
     description: "Individual fragments of a broadcasting schedule"
 
 deferred class
@@ -347,7 +347,7 @@ For such classes it is again essential to permit effective features in a deferre
 
 {{note|The type <code>like Current</code> will be explained in [[9 Inheritance#Covariance_and_anchored_declarations|"Covariance and anchored declarations"]] ; you may understand it, in the following class, as equivalent to <code>COMPARABLE</code>. }}
 <code>
-indexing
+note
     description: "Objects that can be compared according to a total preorder relation"
 
 deferred class
@@ -398,7 +398,7 @@ In all such cases multiple inheritance provides the answer.
 
 Multiple inheritance can cause '''name clashes''' : two parents may include a feature with the same name. This would conflict with the ban on name overloading within a class -- the rule that no two features of a class may have the same name. Eiffel provides a simple way to remove the name clash at the point of inheritance through the <code>rename</code> subclause, as in 
 <code>
-indexing
+note
     description: "Sequential finite lists implemented as arrays"
 
 class

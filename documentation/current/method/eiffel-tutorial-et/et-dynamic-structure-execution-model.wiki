@@ -48,7 +48,7 @@ This principle of '''Uniform Access''' is central to Eiffel's goals of extendibi
 
 The following simple class text illustrates the preceding concepts
 <code>
-indexing
+note
     description: "Simple bank accounts"
 
 class
@@ -169,7 +169,7 @@ Same rules, applied recursively to all fields
 
 It is possible to override the initialization values by providing -- as in the earlier example of class <code>HELLO</code> -- one or more creation procedures. For example we might change <code>ACCOUNT</code> to make sure that every account is created with an initial deposit: 
 <code>
-indexing
+note
     description : "Simple bank accounts, initialized with a first deposit"
 
 class
@@ -289,6 +289,7 @@ instead of the usual
 <code>
             i + j
 
+
 </code>
 This would be awkward. Infix and prefix features solve the problem, reconciling the object-oriented view of computation with common notational practices of mathematics. The addition function is declared in class <code>INTEGER</code> as 
 <code>
@@ -345,7 +346,7 @@ the possible run-time values for <code> x </code> are references, which will be 
 
 Instead of <code>class</code>, however, you may use the double keyword <code>expanded class</code> , as in the EiffelBase class definition 
 <code>
-indexing
+note
     description : "Integer values"
 
 expanded class
@@ -374,7 +375,7 @@ so that the values for <code>x</code> will be objects of type <code>C</code>, ra
 
 Note that the value of an entity of an expanded type can never be void; only a reference can. Extending the earlier terminology, an expanded entity is always '''attached to''' an object, atomic (as in the case of <code>n: INTEGER</code> ) or composite (as in <code>x: expanded ACCOUNT</code>). 
 
-Expanded declarations make it possible to construct composite objects with subobjects, as in the following abbreviated class declaration (indexing clause and routines omitted):
+Expanded declarations make it possible to construct composite objects with subobjects, as in the following abbreviated class declaration (<code>note</code> clause and routines omitted):
 <code>
 class CAR
 

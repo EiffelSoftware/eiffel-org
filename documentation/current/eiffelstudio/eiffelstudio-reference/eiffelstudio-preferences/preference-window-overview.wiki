@@ -2,7 +2,10 @@
 [[Property:weight|1]]
 [[Property:uuid|52878474-02fd-c68f-0953-a785cac469c8]]
 The preferences dialog provide the main table, a filter bar, a the bottom tool bar. 
+
+
 [[Image:dialogs-and-wizards--preferences-dialog]]  
+
 
 The table is used to display a grid with the preferences displayed in a tree or flat view. 
 
@@ -13,6 +16,8 @@ There are several kinds of preferences:
 * Shortcut preferences : edit the value cell, and press the wanted shortcuts..
 * Other preferences : They will be modified by typing their value directly into an editable text field.
 If there is no message stating you need to restart EiffelStudio, changes will be taken into account immediately. 
+
+
 {{tip|below the table, you will find a text field with the internal name of the preference (for instance: ''editor.eiffel.auto-complete_...''). }}
 
 

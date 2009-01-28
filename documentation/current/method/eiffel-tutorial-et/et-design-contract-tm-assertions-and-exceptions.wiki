@@ -43,7 +43,7 @@ Eiffel provides syntax for expressing preconditions (<code>require</code>), post
 
 Here is a partial update of class <code>ACCOUNT</code> with more assertions: 
 <code>
-indexing
+note
     description: "Simple bank accounts"
 
 class
@@ -175,7 +175,7 @@ When releasing the final version of a system, it is usually appropriate to turn 
 
 Another application of assertions governs documentation. Environment mechanisms, such as clicking the <code>Form Contract</code> icon in Eiffelstudio, will produce, from a class text, an abstracted version which only includes the information relevant for client authors. Here is the contract form of class <code>ACCOUNT</code> in the latest version given: 
 <code>
-indexing
+note
     description: "Simple bank accounts"
 
 class interface

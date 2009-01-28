@@ -197,7 +197,7 @@ class IntArray {
 
 Here is the result of applying Legacy++ to that class, which will serve as an illustration of both the C++ interface mechanisms and Legacy++:
 <code>
-indexing
+note
     description: "Eiffel encapsulation of C++ class IntArray";
     date: "$Date: 2006-10-12 03:18:50 +0200 (Thu, 12 Oct 2006) $";
     revision: "$Revision: 64319 $"

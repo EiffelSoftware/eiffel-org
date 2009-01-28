@@ -13,9 +13,10 @@ For functions and procedures, you can build a formal argument list. You can do t
 For every attribute you selected, enter a name in the text box and a type using the [[Type selection|type selection]] . 
 <div>  [[Image:feature-wizard-1-argument]]  </div><br/>
 The code that is generated:
-<code>set_name (s: STRING) is
-	do
-	end</code>
+<code>
+    set_name (s: STRING)
+        do
+        end</code>
 
 
 

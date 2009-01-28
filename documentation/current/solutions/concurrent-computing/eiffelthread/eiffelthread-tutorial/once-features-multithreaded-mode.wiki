@@ -36,7 +36,7 @@ feature -- Access
             -- New 'object' (once per process)
             -- that could be shared between threads
             -- without reinitializing it.
-        indexing
+        note
             once_status: global
         once
             create Result.make

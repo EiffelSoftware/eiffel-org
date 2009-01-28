@@ -3,27 +3,36 @@
 [[Property:uuid|019ea318-e0e0-dae9-a818-e12232aa8431]]
 The feature you create will be inserted in the feature clause you specified. If the feature clause was not already in your class, or not in the right place, EiffelStudio adds the feature clause to the class text based on the feature clause order specified in the [[Preferences Reference|preferences]] . By default, this is the order used by the Eiffel Software libraries, such as EiffelBase. 
 ==Export status==
-The export status is the class the feature is accessible for. Usually, this is <eiffel>ANY</eiffel> for public features, or <eiffel>NONE</eiffel> for implementation features, but you can specify any class here. <br/>
+The export status is the class the feature is accessible for. Usually, this is <eiffel>ANY</eiffel> for public features, or <eiffel>NONE</eiffel> for implementation features, but you can specify any class here. 
+
+
 [[Image:feature-wizard-export]] 
+
+
 
 {{note|In the class text, you can export a feature to more than one class but (for simplicity) not with this dialog. }}
 
+
+
 ==Feature clause names==
-For feature clause names it is recommended that you pick one from the standard ones, but it is also possible to create a new one. If you have introduced a special feature clause name in your project, add it to the feature clause order list in the [[Preferences Reference|preferences]]  and it will also appear in this dialog. <br/>
+For feature clause names it is recommended that you pick one from the standard ones, but it is also possible to create a new one. If you have introduced a special feature clause name in your project, add it to the feature clause order list in the [[Preferences Reference|preferences]]  and it will also appear in this dialog. 
+
+
 [[Image:feature-wizard-clausenames]] 
+
 
 ==Generated code==
 The code that is inserted in your class as a result of the selections made for the feature clause, is of the form: <br/>
 <code>
-	feature {EXPORT} -- Clause name</code><br/>
+feature {EXPORT} -- Clause name</code><br/>
 except if you specified <eiffel>ANY</eiffel> as export status, which has the same meaning as not specifying class names in the export status: <br/>
 <code>
-	feature  --Clause name</code>
+feature  --Clause name</code>
 <br/>
 
 For example, if you specified a the "Initialization" feature clause name, and specified <eiffel>NONE</eiffel> as export status, you get: <br/>
 <code>
-	feature {NONE} -- Initialization</code>
+feature {NONE} -- Initialization</code>
 
 
 

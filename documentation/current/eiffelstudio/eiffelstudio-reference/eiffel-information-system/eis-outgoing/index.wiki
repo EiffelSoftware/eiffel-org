@@ -4,7 +4,7 @@
 ==Annotations==
 
 Annotations may be applicable to:
-*  An individual class or feature. In this case the annotation figures in the class text, as part of an Eiffel "note" clause ("indexing" is still supported, it depends on which syntax level users choose).
+*  An individual class or feature. In this case the annotation figures in the class text, as part of an Eiffel <code>note</code> clause (<code>indexing</code> is still supported, it depends on which syntax level users choose).
 *  A target, library or cluster. In this case the annotation figures in the associated ECF file; EiffelStudio provides support for entering it through a Information (EIS) Tool. 
 {{seealso|<br/>
 [[Information Tool|Information Tool]]  }}

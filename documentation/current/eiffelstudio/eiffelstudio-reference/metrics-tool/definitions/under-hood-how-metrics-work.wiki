@@ -39,7 +39,7 @@ We call a transformation from an element to another element a route, consecutive
 
 Some remarks on the transformation paths:
 *  If you go through the path from the end of an arrow to its head, you'll possibly find results, but if the transformation is done in the reversed direction, nothing will be found. For example, in any cases, the destination domain will be empty (indicating nothing is found) if you do a transformation from a line element to a class element. 
-*  Code element line appears in the path: Target -> Group -> Class -> Line because typically in an Eiffel class, there are some lines that do not belong to any features, such as class indexing lines or inherit clauses. 
+*  Code element line appears in the path: Target -> Group -> Class -> Line because typically in an Eiffel class, there are some lines that do not belong to any features, such as class <code>note</code> lines or <code>inherit</code> clauses. 
 *  The shortest path will always be used. So if you transform a target element to a line element, the path: Target -> Group -> Class -> Line will be used instead of Target -> Group -> Class -> Feature -> Line 
 *  Paths from element to the element of the same unit are omitted. i.e., there are paths such as Target -> Target, Group -> Group, Class -> Class 
 

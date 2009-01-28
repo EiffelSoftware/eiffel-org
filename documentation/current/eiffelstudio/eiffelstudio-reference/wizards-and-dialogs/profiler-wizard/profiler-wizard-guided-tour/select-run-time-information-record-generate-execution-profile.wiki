@@ -5,6 +5,7 @@ The third screen of the wizard lets you generate an ''Execution Profile'' from a
 
 Then, in the combo box labeled '''Profiler used to produce the above record''', select the profiler that has been used to produce the ''Run-time information record'' you have entered. If the profiler used to execute the system does not appear in the combo box, you have to add it. See [[How to set up a Profiler Configuration File|How to set up a Profiler Configuration File]]  for more details on how to do so. 
 
+
 {{note|The Run-time information record must be located in the ''EIFGENs/target_name/W_code'' directory of your project. }}
 
 <br/>
@@ -13,7 +14,8 @@ Then, in the combo box labeled '''Profiler used to produce the above record''', 
 
 
 Clicking '''Next''' will lead you to the [[Select the information you need and formulate your query|Final state]]  if the provided ''Run-time information record'' is valid. If the ''Run-time information record'' is not valid or is not located in the ''EIFGENs/target_name/W_code'' directory of the project, you will go to the '''Run-time Information Record Error state''' as shown below. 
-<br/>
+
+
 [[Image:profiler-wizard-rtir-error-state]]  <br/>
 <br/>
 

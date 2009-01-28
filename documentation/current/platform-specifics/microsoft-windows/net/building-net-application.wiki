@@ -7,7 +7,7 @@ For that reason, the [[EiffelStudio: Project settings window|project settings]] 
 * Specifying whether the generated assembly should be an EXE or a DLL. 
 * Choosing between generating verifiable or non verifiable IL code. Non verifiable IL code executes faster but requires high trust settings. 
 
-The Eiffel for .NET compiler generates a single assembly whose name is the name of the system as given in the [[System Options|project settings]] . 
+The Eiffel for .NET compiler generates a single assembly whose name is the name of the system as given in the [[System Options|system options of the project settings]] . 
 
 
 

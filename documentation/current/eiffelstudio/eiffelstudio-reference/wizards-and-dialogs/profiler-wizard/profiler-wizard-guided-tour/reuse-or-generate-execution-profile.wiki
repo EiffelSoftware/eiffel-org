@@ -5,7 +5,7 @@ The second screen of the wizard lets you reuse a previously generated ''Executio
 
 The profiler wizard has detected that one or more ''Execution Profiles'' have already been generated for this system in this compilation mode. If you have executed your system after the generation of the existing profile, select '''Generate a profile from Run-time information record''' to create a new ''Execution Profile'' for the newly produced ''Run-time information record''. 
 
-{{note|If you choose '''Generate a profile from Run-time information record''' the generated ''Execution Profile'' will be written into ''<project_directory>/EIFGENa/target_name/W_CODE/profinfo.pfi'' if you have selected '''Workbench mode''' in the first step, or ''<project_directory>/EIFGENs/target_name/F_CODE/profinfo.pfi'' if you have selected '''Finalized mode'''. If a file with the same name already exists its content will be destroyed and replaced. }}
+{{note|If you choose '''Generate a profile from Run-time information record''' the generated ''Execution Profile'' will be written into: <br/><br/>''<project_directory>/EIFGENa/target_name/W_CODE/profinfo.pfi'' <br/><br/>if you have selected '''Workbench mode''' in the first step, or into: <br/><br/>''<project_directory>/EIFGENs/target_name/F_CODE/profinfo.pfi'' <br/><br/>if you have selected '''Finalized mode'''. If a file with the same name already exists its content will be destroyed and replaced. }}
 <br/>
 
 However, if you have not executed your system since the generation of the last ''Execution Profile'', there is no need to generate a new ''Execution Profile''. If you are in the latter case, select '''Use existing profile''' and choose the last ''Execution Profile'' you have generated. 

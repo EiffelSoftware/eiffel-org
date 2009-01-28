@@ -4,7 +4,7 @@
 This document describes the syntax used to customize keyword automatic completion. <br/>
 [[Keywords automatic completion preferences|Four strings]]  are used to define the completion of a keyword. The rules are the same for all of them: 
 
-*  These strings will be inserted right after the keyword. The key that triggers the automatic completion will not be taken into account, i.e. no space or "new line" character will be inserted even though you press Return or Space. The strings should therefore begin with a space or a "new line" character (see below for "newline").
+*  These strings will be inserted right after the keyword. The key that triggers the automatic completion will not be taken into account, i.e. no space or "new line" character will be inserted even though you press Space or Return. The strings should therefore begin with a space or a "new line" character (see below for "newline").
 
 *  Two reserved words will allow you to position the cursor and to indent the text properly. Insert the word ''$cursor$'' in the string where you want the cursor to be moved once the completion is finished. Insert the word ''$indent$'' where you want to copy as many blank spaces as there were on the line where the keyword was typed. 
 

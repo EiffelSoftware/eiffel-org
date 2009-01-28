@@ -20,19 +20,19 @@ This dialog box:<br/>
 Produces this feature:<br/>
 <code>
 class
-	PRODUCT
+    PRODUCT
 
 feature {PERSON} -- Element change
 
-	place_order (person: PERSON; quantity: INTEGER) is
-			-- Mail `quantity' to `person'.
-        	require
-  			person /= Void and quantity > 0
-        	do
-			person.mail_order (Current, quantity)
-        	ensure
-			person.has_ordered (Current)
-		end
+    place_order (person: PERSON; quantity: INTEGER)
+            -- Mail `quantity' to `person'.
+        require
+            person /= Void and quantity > 0
+        do
+            person.mail_order (Current, quantity)
+        ensure
+            person.has_ordered (Current)
+        end
 
 end -- class PRODUCT</code>
 

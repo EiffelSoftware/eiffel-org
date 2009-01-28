@@ -17,20 +17,21 @@ When clicking '''Function''', the dialog changes to the function layout. It has 
 This dialog box:<br/>
 <div>  [[Image:feature-wizard-function-example]]  </div><br/>
 Produces this feature:<br/>
-<code>class
-	PRODUCT
+<code>
+class
+    PRODUCT
 
 feature -- Status report
 
-	order_price (quantity: INTEGER): DOUBLE is
-			-- Total price when ordering `quantity'.
-		require
-			quantity_non_negative: quantity >= 0
-		do
-			Result := quantity * price
-		ensure
-			correct: Result = quantity * price
-		end
+    order_price (quantity: INTEGER): DOUBLE
+            -- Total price when ordering `quantity'.
+        require
+            quantity_non_negative: quantity >= 0
+        do
+            Result := quantity * price
+        ensure
+            correct: Result = quantity * price
+        end
 
 end -- class PRODUCT</code>
 

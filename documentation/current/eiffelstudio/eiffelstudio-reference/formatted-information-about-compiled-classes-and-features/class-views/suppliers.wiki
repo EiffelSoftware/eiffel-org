@@ -2,7 +2,8 @@
 [[Property:weight|-6]]
 [[Property:uuid|deb168d4-1855-45d7-85c8-48f43ce5ce5e]]
 The suppliers view  [[Image:class-supliers-icon]] displays all the classes from which the current class is calling features. <br/>
-It is available through the '''Class''' tab of the [[EiffelStudio window overview|context tool]] . 
+It is available through the '''Class''' tab of the [[EiffelStudio window overview|context tool]]. 
+
 
 {{seealso|<br/>
 [[Clients|Clients]]  }}
