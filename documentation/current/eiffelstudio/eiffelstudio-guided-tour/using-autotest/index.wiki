@@ -7,7 +7,7 @@
 
 ==Overview==
 
-The Eiffel Testing Framework is a tool that helps you to create, manage, and run tests against your software. The Eiffel Testing Framework is accessible directly as a part of EiffelStudio, but works to a large extent behind the scenes so that it doesn't get in the way of your development activities. In other words, even though you may be accumulating a substantial collection of test software along with your project software, you can still run and deliver your project software without going to a lot of trouble separating the two. Tests managed by the Eiffel Testing Framework stay handy and can be run any time to help make sure everything still stands up to scrutiny of testing. 
+The Eiffel Testing Framework is a tool that helps you to create, manage, and run tests against your software. The Eiffel Testing Framework is accessible directly as a part of EiffelStudio, but works to a large extent behind the scenes so that it doesn't get in the way of your development activities. In other words, even though you may be accumulating a substantial collection of test software along with your project software, you can still run and deliver your project software without going to a lot of trouble separating the two. Tests managed by the Eiffel Testing Framework stay handy and can be run any time to help make sure everything still stands up to the scrutiny of testing. 
 
 
 ==Background and motivation for testing tools==
@@ -20,6 +20,7 @@ In parallel with the "agile" software development methods, a technique called Te
 So, in TDD, before each additional software element is written, its test is written. Once the software element is written, the test is run. If it fails, then the software (or possibly the test) needs to be fixed. If the test succeeds, then the programmer is free to write the test for the next element to be developed. In this way, the tests accumulate until eventually there is a whole suite of tests that can be run at anytime in order to ensure that the addition of any new software element causes a previously successful test now to fail. Some software development processes call for running a whole suite of tests after every increment of development activity. This type of testing is often referred to as regression testing, because it tends to expose software which had been satisfying its tests at one time, but because of some development activity has "regressed" to a failing state.
 
 Creating, managing and running a large number of tests manually can be time-consuming, messy, and error-prone, thus the motivation for automated testing tools. Testing tools help programmers to create, maintain, and execute a suite of tests by automating the activity.  
+
 
 ==The Eiffel advantage in testing==
 
@@ -48,7 +49,7 @@ View --> Tools --> Testing Tool </code>
 
 ==Test classes and tests==
 
-The Eiffel Testing Framework interface helps you to create and execute tests on the software you develop. The interface contains a wizard called the ''New Eiffel Test Wizard'' which helps you create or generate the types of tests you need. We'll learn more about the interface and the wizard as we go along. But first, let's look at what constitutes an ETF ''test''? For the Eiffel Testing Framework, we define the term ''test'' in the context of some other testing terminology:
+The Eiffel Testing Framework interface helps you to create and execute tests on the software you develop. The interface contains a wizard called the ''New Eiffel Test Wizard'' which helps you create or generate the types of tests you need. We'll learn more about the interface and the wizard as we go along. But first, let's look at what constitutes an Eiffel Testing Framework ''test''? For the Eiffel Testing Framework, we define the term ''test'' in the context of some other testing terminology:
 
 
 {{definition|Test class|An effective class that inherits from the class EQA_TEST_SET. }}
@@ -63,7 +64,8 @@ The Eiffel Testing Framework interface helps you to create and execute tests on 
 {{definition|Test suite|A set of test classes (and by implication the tests contained therein) which is designed to test some particular software system or library. }}
 
 
-Whenever you use the Eiffel Testing Framework, it will find test classes, those classes that inherit from EQA_TEST_SET. When you run tests, it will execute all the tests in those classes, or a subset of tests that you choose. So, you have probably figured out that the one class from the testing library that you may need to know a little about is EQA_TEST_SET. But you don't have to know very much, because the Eiffel Testing Framework can help you construct your test classes.
+Whenever you use the Eiffel Testing Framework, it will find your test classes, those classes that inherit from EQA_TEST_SET. When you run tests, it will execute all the tests in those classes, or a subset of tests that you choose. So, you have probably figured out that the one class from the testing library that you may need to know a little about is EQA_TEST_SET. But you don't have to know very much, because the Eiffel Testing Framework can help you construct your test classes.
+
 
 ==Types of Tests==
 
@@ -99,6 +101,7 @@ Extracted tests are convenient because they allow you to accumulate tests that a
 
 ==Anatomy of a test==
 
+
 {{definition|Target routine|A routine that is to be tested by a test. Sometimes called a "routine under test." }}
 
 
@@ -107,9 +110,9 @@ Extracted tests are convenient because they allow you to accumulate tests that a
 
 In its simplest form, a test is a routine that issues a call to some routine you've developed in some class you've developed. 
 
-So the tests and the test classes are in the testing realm and are used to test the target routines in target classes which are the real product of your software development project.
+So the tests and the test classes are in the realm of testing and are used to test the target routines in target classes which are the real product of your software development project.
 
-Still, you should understand that the Eiffel Testing Framework will manage and run the tests in any test class whether or not they actually test any target routines. Of course, it would seem silly to keep a test around that doesn't test anything, but the important thing to understand is that the Eiffel Testing Framework will work with anything that matches the definitions of test and test class above. That is, once tests are created, the Eiffel Testing Framework doesn't really have a stake in what you are trying to test.
+Even though the test shown above doesn't test anything, it still qualifies as a test. The Eiffel Testing Framework will manage and run the tests in any test class whether or not they actually test any target routines. Naturally, it would seem silly to keep a test around that doesn't test anything, but the important thing to understand is that the Eiffel Testing Framework will work with anything that matches the definitions of test and test class above. That is, once tests are created, the Eiffel Testing Framework doesn't really have a stake in what you are trying to test.
 
 Take a look at the following test class:
 
@@ -142,11 +145,10 @@ feature -- Test routines
 end</code>
 
 
-This test class was created by the Eiffel Testing Framework's New Eiffel Test Wizard. It is about as simple a test class as there can be. It doesn't do anyone any good, except to illustrate the basic form of ETF tests. So, let's look at that form. 
+This test class was created by the Eiffel Testing Framework's New Eiffel Test Wizard. It is about as simple a test class as there can be. Its only value is to illustrate the basic form of Eiffel Testing Framework tests. So, let's look at that form. 
 
-It is clear that <code>MY_TEST_CLASS</code> is an effective class that inherits from <code>EQA_TEST_SET</code>, so that makes it fit the definition of a test class. And, it's also clear the <code>my_test</code> is a feature of <code>MY_TEST_CLASS</code>, specifically a procedure, exported to <code>ANY</code>, requiring no arguments. That qualifies <code>my_test</code> as a test. If <code>MY_TEST_CLASS</code> is located in a test cluster of my project, then the Eiffel Testing Framework will find it and be able to run it whenever you request. 
+It is clear that <code>MY_TEST_CLASS</code> is an effective class that inherits from <code>EQA_TEST_SET</code>, so that makes it fit the definition of a test class. And, it's also clear the <code>my_test</code> is a feature of <code>MY_TEST_CLASS</code>, specifically a procedure, exported to <code>ANY</code>, requiring no arguments. That qualifies <code>my_test</code> as a test. If <code>MY_TEST_CLASS</code> is located in a test cluster of your project, then the Eiffel Testing Framework will find it and be able to run it whenever you request. 
 
-This test would always fail because of the <code>assert</code> that the wizard put in the implementation. So if you asked the Eiffel Testing Framework to run your tests, it would tell you that <code>my_test</code> was a failed test, for the reason: "not_implemented". The <code>assert</code> is not a necessary part of a test. The wizard puts it there to remind you that the test has not been implemented. If you removed the <code>assert</code> line from the test, then the test would always succeed, which would be nice, but it would be succeeding at testing nothing! We'll see more later about what it means for tests to succeed and fail.
-
+This test would always fail because of the <code>assert</code> that the wizard put in the implementation. So if you asked the Eiffel Testing Framework to run your tests, it would tell you that <code>my_test</code> was a failed test, for the reason: "not_implemented". The <code>assert</code> is not a necessary part of a test. The wizard puts it there to remind you that the test has not been implemented. If you removed the <code>assert</code> line from the test, then the test would always succeed, which would be nice, but it would be succeeding at testing nothing! We'll see more later about what it means for tests to succeed and fail. But next let's get some exposure to the Eiffel Testing Framework interface, but building a manual test.
 
 
