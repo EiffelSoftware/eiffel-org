@@ -1,0 +1,41 @@
+[[Property:title|Create and run a manual test]]
+[[Property:link_title|Create a manual test]]
+[[Property:weight|2]]
+[[Property:uuid|e78f25e3-ed3a-f8fa-e71d-28a4dda1825f]]
+{{underconstruction}}
+
+
+==A system to test==
+
+For developing our manual test, let's use a simple system that contains a class modeling bank accounts. Here are two classes that will make up our system. The first, <code>APPLICATION</code> will be the root class of our system. It looks like this:
+
+
+<code>
+indexing
+    description : "bank_account_test application root class"
+    date        : "$Date: 2008-09-19 11:33:35 -0700 (Fri, 19 Sep 2008) $"
+    revision    : "$Revision: 74752 $"
+
+class
+    APPLICATION
+
+inherit
+    ARGUMENTS
+
+create
+    make
+
+feature {NONE} -- Initialization
+
+    make
+            -- Run application.
+        do
+            create my_account
+            my_account.deposit (200)
+        end
+
+    my_account: BANK_ACCOUNT
+
+end
+</code>
+
