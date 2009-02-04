@@ -164,5 +164,7 @@ Here we will name our test. Let's say that we plan to write this test against th
 
 The other thing that can be done on this pane is to associate our test with any Eiffel Testing Framework '''tags''' that we feel are appropriate. 
 
-'''Tags''' are simply hierarchical names that can be associated with a test to help manage, maintain, execute, and monitor its results. It is quite likely that your system may eventually accumulate a great number of tests. And you may want only to execute some selected portion of those tests at any particular time. '''Tags''' help you do that
+'''Tags''' are simply names arranged hierarchically that can be associated with a test to help manage, maintain, execute, and monitor its results. It is quite likely that your system may eventually accumulate a great number of tests. And you may want only to execute some selected portion of those tests at any particular time. '''Tags''' help you do that. 
+
+
 
