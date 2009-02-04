@@ -9,13 +9,7 @@
 
 For developing our manual test, let's use a simple system that contains a class modeling bank accounts. Here are two classes that will make up our system. The first, <code>APPLICATION</code> will be the root class of our system. It looks like this:
 
-
 <code>
-indexing
-    description : "bank_account_test application root class"
-    date        : "$Date: 2008-09-19 11:33:35 -0700 (Fri, 19 Sep 2008) $"
-    revision    : "$Revision: 74752 $"
-
 class
     APPLICATION
 
@@ -38,4 +32,74 @@ feature {NONE} -- Initialization
 
 end
 </code>
+
+
+And here's the class <code>BANK_ACCOUNT</code>:
+
+<code>
+class
+    BANK_ACCOUNT
+inherit
+    ANY
+        redefine
+            default_create
+        end
+feature
+    default_create
+        do
+            balance := 300
+        end
+
+    balance: INTEGER
+
+    deposit (an_amount: INTEGER)
+        do
+        ensure
+            balance_increased: balance > old balance
+            deposited: balance = old balance + an_amount
+        end
+
+    withdraw (an_amount: INTEGER)
+        do
+            balance := balance - an_amount
+        ensure
+            balance_decreased: balance < old balance
+            withdrawn: balance = old balance + an_amount
+        end
+
+invariant
+    balance_not_negative: balance >= 0
+end
+</code>
+
+You shouldn't worry if you've noticed that the class <code>BANK_ACCOUNT</code> has some pretty obvious flaws. We'll deal with those later.
+
+If you want to work along with this tutorial, you should be able to copy the text of each these classes from this page and paste it into the EiffelStudio editor pane. Build a system using these two classes. 
+
+
+{{note|If you are using EiffelStudio version 6.3, there two things you will need to do to prepare your system for use with the Eiffel Testing Framework. Both of these are done from the [[EiffelStudio: Project settings window]].<br/> 1) Set your project to be a console application in the [[Advanced options]].<br/>2) Set a value of <code>False</code> for the <code>Recursive</code> attribute of your project cluster in [[Group options]].}}
+
+==Getting to the Eiffel Testing Framework interface==
+
+If the Eiffel Testing Framework interface is not on a tab next to Clusters, Features, and Favorites, you can invoke it by following the menu path:
+<code lang=text>
+View --> Tools --> Testing Tool
+</code>
+Depending upon your version and platform, the Eiffel Testing Framework interface should look about like this:
+
+
+[[Image:empty testing tool 01]]
+
+
+==Creating a new test==
+
+To begin the process of creating a new test, click the Create New Tests button on the interface's tool bar.
+
+[[Image:create new tests]]
+
+If this is the first time you've used the testing tool for this project, it is likely that you will be presented with a dialog box asking if you want to add the testing library classes to your project and recompile. 
+
+[[Image:add testing libraries dialog]]
+
+
 

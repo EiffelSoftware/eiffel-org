@@ -49,7 +49,7 @@ The Eiffel Testing Framework interface helps you to create and execute tests on 
 {{definition|Test class|An effective class that inherits from the class EQA_TEST_SET. }}
 
 
-{{definition|Test|Any procedure defined within the text of a test class that is exported to <code>ANY</code> and which takes no arguments. }}
+{{definition|Test|Any procedure of a test class that satisfies all of the following conditions: <br/>1) Is exported to <code>ANY</code><br/>2) Is immediate (i.e., introduced within the text of the test class)<br/>3) Takes no arguments }}
 
 
 {{definition|Test set|The set of tests in a test class. }}  
