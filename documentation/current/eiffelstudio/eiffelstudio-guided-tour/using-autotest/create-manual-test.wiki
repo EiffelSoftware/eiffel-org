@@ -92,9 +92,7 @@ Depending upon your version and platform, the Eiffel Testing Framework interface
 
 ==Creating a new test==
 
-To begin the process of creating a new test, click the Create New Tests button on the interface's tool bar. 
-
-[[Image:create new tests]]
+To begin the process of creating a new test, click the Create New Tests button ( [[Image:create new tests]] ) on the interface's tool bar. 
 
 This will launch the New Eiffel Test Wizard which guides you through the test creation process.
 
@@ -164,7 +162,7 @@ Here we will name our test. Let's say that we plan to write this test against th
 
 The other thing that can be done on this pane is to associate our test with any Eiffel Testing Framework '''tags''' that we feel are appropriate. 
 
-'''Tags''' are simply strings of characters or names arranged hierarchically that can be associated with a test to help manage, maintain, execute, and monitor its results. Any one test can support many tags. It is quite likely that during the development process, your system may eventually accumulate a great number of tests. And you may want only to execute some selected portion of those tests at any particular time. '''Tags''' allow you do that with the help of the Eiffel Testing Framework.
+'''Tags''' are simply names or otherwise meaningful strings of characters that are arranged hierarchically and can be associated with a test to help manage, maintain, execute, and monitor its results. Any one test can support many tags. It is quite likely that during the development process, your system may eventually accumulate a great number of tests. And you may want only to execute some selected portion of those tests at any particular time. '''Tags''' allow you do that with the help of the Eiffel Testing Framework.
 
 One of the most common types of tags specifies what class and feature a test covers. In our example, we will write our test against the <code>deposit</code> procedure of the class <code>BANK_ACCOUNT</code>. As you will see in a moment, the tag that will express this is:
 <code>
@@ -186,14 +184,76 @@ So this test would be specifically for Linux running on Intel architecture. When
 
 ==Associating tags with a new test==
 
-Now that we've named our new test, let's associate a tag with it that indicates that it covers the <code>deposit</code> procedure of class <code>BANK_ACCOUNT</code>. Looking again at the New Eiffel test wizard pane, you will see that there are three boxes under the label '''Tags for new tests'''. The first is just a display of the list of tags that you have added to the new test. The next box down allows you to add an arbitrary tag sequence like:
+Now that we've named our new test, let's associate a tag with it that indicates that it <code>covers</code> the <code>deposit</code> procedure of class <code>BANK_ACCOUNT</code>. Looking again at the New Eiffel test wizard pane, you will see that there are three boxes under the label '''Tags for new tests'''. The first is just a display of the list of tags that you have added to the new test. The next box down allows you to add an arbitrary tag sequence like:
 <code>
 platform/os/linux
 </code>
 And the third allows you to add certain commonly used or predefined tag types. This is the box we'll use. So first we will select '''Add class/feature under test tag''', then click the '''Add''' button to the right of the box. This will cause the appearance of a dialog that allows us to pick a target class and routine from our system. So we navigate to <code>{BANK_ACCOUNT}.deposit</code>. The dialog will look like this:
 
 
-Now we click '''OK''' to add the tag to the list of tags for the new test we are creating.
+[[Image: New test wizard screen 03M dialog 01]]
+
+
+Now we click '''OK'''. The dialog disappears and the <code>covers</code> tag:
+<code>
+covers/{BANK_ACCOUNT}.deposit
+</code>
+is now visible in the list of tags for the new test we are creating. So, next click '''Create''' and the wizard pane disappears and the Eiffel Testing Frame work will create our test class and display it in the edit window.
+
+
+==Writing a test==
+
+Let's look at the class <code>TEST_BANK_ACCOUNT</code>:
+
+<code>
+note
+    description: "[
+        Eiffel tests that can be executed by testing tool.
+    ]"
+    author: "EiffelStudio test wizard"
+    date: "$Date$"
+    revision: "$Revision$"
+    testing: "type/manual"
+
+class
+    TEST_BANK_ACCOUNT
+
+inherit
+    EQA_TEST_SET
+
+feature -- Test routines
+
+    test_deposit_01
+            -- New test routine
+        note
+            testing:  "covers/{BANK_ACCOUNT}.deposit"
+        do
+            assert ("not_implemented", False)
+        end
+
+end
+</code>
+
+We can see that the feature <code>test_deposit_01</code> exists, but doesn't really test anything. So, let's change that. We'll alter <code>test_deposit_01</code> so that it creates an instance of <code>BANK_ACCOUNT</code> and then makes a deposit to that account. 
+
+So, <code>test_deposit_01</code> now looks like this:
+
+<code>
+    test_deposit_01
+            -- New test routine
+        note
+            testing:  "covers/{BANK_ACCOUNT}.deposit"
+        local
+            l_ba: BANK_ACCOUNT
+        do
+            create l_ba
+            l_ba.deposit (500)
+        end 
+</code>
+
+Now we have created and written an Eiffel Testing Framework manual test.
+
+Next let's see what it takes to execute a test.
 
 
 
