@@ -6,7 +6,7 @@
 
 ==A system to test==
 
-For developing our manual test, let's use a simple system that contains a class modeling bank accounts. Here are two classes that will make up our system. The first, <code>APPLICATION</code> will be the root class of our system. It looks like this:
+For developing our manual test, let's use a simple system that contains a class modeling bank accounts. Here are two classes that will make up our system. The first, <code>APPLICATION</code> will be the root class of our system. <code>APPLICATION</code> really only serves to declare an attribute of type <code>BANK_ACCOUNT</code>, which is the class we will write a test against. <code>APPLICATION</code> looks like this:
 
 <code>
 class
@@ -23,8 +23,6 @@ feature {NONE} -- Initialization
     make
             -- Run application.
         do
-            create my_account
-            my_account.deposit (200)
         end
 
     my_account: BANK_ACCOUNT
@@ -46,12 +44,15 @@ inherit
 feature
     default_create
         do
-            balance := 300
+            balance := 0
         end
 
     balance: INTEGER
 
     deposit (an_amount: INTEGER)
+            -- Deposit `an_amount'.
+        require
+            amount_large_enough: an_amount > 0
         do
         ensure
             balance_increased: balance > old balance
@@ -59,6 +60,10 @@ feature
         end
 
     withdraw (an_amount: INTEGER)
+            -- Withdraw `an_amount'.
+        require
+            amount_large_enough: an_amount > 0
+            amount_valid: balance >= an_amount
         do
             balance := balance - an_amount
         ensure
@@ -71,7 +76,7 @@ invariant
 end
 </code>
 
-You shouldn't worry if you've noticed that the class <code>BANK_ACCOUNT</code> has some pretty obvious flaws. We'll deal with those later.
+You shouldn't let it worry you if you've noticed that the class <code>BANK_ACCOUNT</code> contains some flaws. We'll deal with these later.
 
 If you want to work along with this tutorial, you should be able to copy the text of each these classes from this page and paste it into the EiffelStudio editor pane. Build a system using these two classes. 
 
