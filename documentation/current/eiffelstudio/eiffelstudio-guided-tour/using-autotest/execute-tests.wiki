@@ -1,6 +1,10 @@
 [[Property:title|Execute tests]]
 [[Property:weight|3]]
 [[Property:uuid|d0515cb1-0792-3028-2a24-a71b56506959]]
+{{underconstruction}}
+
+
+
 In the previous section we coded a manually created test. The Eiffel Testing Framework will allow us to execute that test, or, in more practical terms, any set of tests that we select. But before we execute our test, let's take a look at what we will get out of such an execution.  
 
 ==About Test Results==
@@ -50,6 +54,8 @@ Here you see under "Tests" the project cluster <code>bank_account</code>, the te
 You see that the "Status" of <code>test_deposit</code> is "not tested", and that the "Last executed" date is empty.
 
 To execute tests we use the "Run" button ( [[Image:debug-run-icon]] ) on the interface toolbar. The Run button will run all tests by default. However, there is a list of run options that you can access by clicking the black triangle just to the right of Run. You can choose to run all tests, only those with failing status, a filtered set of tests, or only those tests that you have selected in the tree below. We'll cover filtering a little later. For now, life is simple, we have only one test so just clicking the Run button should execute it. 
+
+==Examining test results==
 
 The test runs in background and the Eiffel Testing Framework interface now looks like this:
 

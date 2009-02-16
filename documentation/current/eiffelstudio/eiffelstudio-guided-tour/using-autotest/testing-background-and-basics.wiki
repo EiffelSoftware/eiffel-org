@@ -79,7 +79,7 @@ Manual tests are features, procedures in fact, of classes that inherit from EQA_
 A manual test is "manual" in the sense that you code the essential procedural part of the test by hand. But you really don't have to deal with the more mundane business of creating the whole test class and ensuring the proper inheritance. The ''New Eiffel Test Wizard'' helps out by automatically creating the shell of a test class and the shell of a test for you to fill in. Then it's pretty easy to add new tests manually to an existing test class.
 
 
-{{definition|Synthesized test|A test that is the product of generating and running a series of randomly generated invocations target routines. }} 
+{{definition|Synthesized test|A test that is the product of generating and running a series of randomly generated invocations of target routines. }} 
 
 
 The process of creating synthesized tests is sometimes known in the community as creating via ''AutoTest''. The randomly generated calls to target routines which were created and run are discarded at the completion of the creation. But from the results of these calls, a set of permanent tests is distilled. These are the synthesized tests. 
