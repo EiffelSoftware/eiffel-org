@@ -101,10 +101,15 @@ After compiling, we execute the test again, and view the result:
 
 This time we see that the test is successful, as indicated by the Success icon ( [[Image:general-tick-icon]] ) in the Status column. 
 
-==The start of a test suite==
+==The beginnings of a test suite==
 
 Of course, we would not have had to use the Eiffel Testing Framework to find that bug in <code>{BANK_ACCOUNT}.deposit</code>. We could have just written a simple class to exercise instances of <code>BANK_ACCOUNT</code> and truth would have come out. 
 
 The advantage of using the Eiffel Testing Framework is that the test that we wrote to cover <code>{BANK_ACCOUNT}.deposit</code> can stay with us throughout the lifecycle of class <code>BANK_ACCOUNT</code>. We can expand the <code>TEST_BANK_ACCOUNT</code> with additional manual tests and run them after every development increment to ensure that all tests that were once successful are still successful. 
+
+==Manual test summary==
+
+We have seen how to create and execute a manual test. You will find that manual tests form the backbone of your test suite. But there are two other times of tests available in the Eiffel Testing Framework. Next let's take a look at these test types and in what ways they can be used.
+
 
 
