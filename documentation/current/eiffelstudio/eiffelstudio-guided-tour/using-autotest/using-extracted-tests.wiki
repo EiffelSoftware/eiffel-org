@@ -4,6 +4,8 @@
 {{underconstruction}}
 
 
+When you are running a system in EiffelStudio debugger, you can ask the Eiffel Testing Framework to extract a new test class and test from the current executable context. Most often you would use this capability in the case in which you experienced an unexpected failure or exception in one of your routines. It is possible, though, to extract at any point at which the system is paused.
 
+The great advantage to extracted tests is that they provide a kind of a snapshot in testing form that will reproduce the unexpected failure. 
 
 
