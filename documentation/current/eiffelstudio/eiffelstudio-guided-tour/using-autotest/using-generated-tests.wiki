@@ -2,16 +2,30 @@
 [[Property:link_title|Using generated tests]]
 [[Property:weight|7]]
 [[Property:uuid|c17ebddf-5d35-76c1-4912-d9f1ca3770a5]]
-
-
 {{underconstruction}}
 
 
 
 ==About synthesized tests==
 
+Synthesized tests fill a different role from either extracted or manual tests. The idea behind synthesized tests is that because we specify software through its contracts, and because compliance of the software to those contracts can be actively monitored at runtime, we can know two things necessary for building tests:
+#For any routine, what argument values are valid 
+#For the execution of any routine, what are the acceptable results
+
+The first bit of knowledge comes from the ''preconditions'' of target routines. The second comes from ''postconditions'' of target routines and the ''invariants'' of target classes. Armed with this knowledge, we should be able to generate a series of invocations target routines using random (but valid) argument values, and evaluate the results. This is what is done by an internal facility of the Eiffel Testing Framework that builds synthesized tests (this facility is often referred to as AutoTest). After many of these randomly generated invocations, the Eiffel Testing Facility attempts to synthesize the results of these feature calls into new test classes. The tests in these new test classes contain the calls leading up and including calls that fail. 
+
+You may look at a synthesized test class and think that it seems to be very long and to contain lots of stuff that you doubt is relevant. This is a fair assessment. The processes that the Eiffel Testing Framework uses to build synthesized tests are constantly being improved. But for now, synthesized tests, although useful, are not always things of extraordinary beauty. 
+
+So for the time being, unlike manual and extracted tests, you should not make synthesized tests a part of your permanent test suite. Rather, you should consider them a disposable means to an end. Use each synthesized tests as a guide for building an effective and readable manual test. 
 
 
+==Creating synthesized tests==
+
+If you've been through the creation of manual and extracted tests, then it should come as no surprise to learn that you use the '''New Eiffel test wizard''' to create synthesized tests. And much of this process will seem familiar now. 
+
+In the first pane, choose the radio button labeled '''Synthesized test using AutoTest'''. Then click '''Next'''. 
+
+The second pane asks you to provide a class name for the new test class and designate a cluster for it. In the case of synthesized tests, the class name you enter is actually a prefix, that will have a unique number appended to it. 
 
 
 

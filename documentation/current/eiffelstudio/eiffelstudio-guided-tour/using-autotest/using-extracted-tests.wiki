@@ -10,12 +10,12 @@ At any time that you are running a system in EiffelStudio debugger and your syst
 
 The value of extracted tests is that they provide a kind of a snapshot in testing form that will reproduce the unexpected failure. An extracted test attempts to reproduce the context in which the offending routine executed. So, extracted tests supplement your manual tests. They serve to cover situations which you just may not have written manual tests to cover.
 
-So, extracted tests are intended to supplement the suite of manual tests that you have created, by covering situations that you had not anticipated. 
+Extracted tests are intended to supplement the suite of manual tests that you have created to do the bulk of your testing. So, usually when you create an extracted test, it happens as a result of your being surprised. You will notice that each time you create an extracted test, you get a new test class, too. This is in contrast to manual tests, in which you might use the wizard to create a new test class and one new test to cover a particular target class and target routine. Then you might manually create, in that same test class, many additional tests covering the routine behavior of the same or other target routines in the same target class. 
 
 
 ==Creating a extracted test==
 
-Let's use the same test system we used for manual tests to demonstrate the creation of an extracted test. 
+Let's use the same test system we used for manual tests to demonstrate the creation of an extracted test. The example will be slightly lame because it will find a problem that certainly we would already have discovered had we written a comprehensive set of manual tests against the <code>BANK_ACCOUNT</code> class. Still, the simplicity should help keep things clear.
 
 If you remember, the root class for the example application, contained no instructions, just a root procedure with no instructions and a declaration <code>my_account</code> of type <code>BANK_ACCOUNT</code>:
 
