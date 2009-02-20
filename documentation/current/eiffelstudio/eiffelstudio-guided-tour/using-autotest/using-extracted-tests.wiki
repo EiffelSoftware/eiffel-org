@@ -6,9 +6,11 @@
 
 ==About extracted tests==
 
-When you are running a system in EiffelStudio debugger and whenever your system is paused, you can ask the Eiffel Testing Framework to extract a new test class and test from the current executable context. Most often you would use this capability in the case in which you experienced an unexpected failure or exception in one of your routines. It is possible, though, to extract at any point at which the system is paused.
+At any time that you are running a system in EiffelStudio debugger and your system is paused, you can ask the Eiffel Testing Framework to extract a new test class and test from the current executable context. Most often you would use this capability in the case in which you experienced an unexpected failure or exception in one of your routines. It is possible, though, to extract at any point at which the system is paused.
 
 The value of extracted tests is that they provide a kind of a snapshot in testing form that will reproduce the unexpected failure. An extracted test attempts to reproduce the context in which the offending routine executed. So, extracted tests supplement your manual tests. They serve to cover situations which you just may not have written manual tests to cover.
+
+So, extracted tests are intended to supplement the suite of manual tests that you have created, by covering situations that you had not anticipated. 
 
 
 ==Creating a extracted test==
@@ -64,7 +66,7 @@ Certainly we will fix this, but the Eiffel Testing Framework gives us the opport
 So, we go to the Eiffel Testing Framework interface and click the ''Create new tests'' button to request the ''New Eiffel test wizard''. Because we are paused in the debugger, the test wizard appears with the '''Extract tests from running application''' radio button already checked: 
 
 
-When we click next, we are presented with the same ''New test class'' pane that we saw with manual tests. We can give the test class a name. <code>TEST_BANK_ACCOUNT_EXTRACTED_WITHDRAW_01</code> should be unique. And we'll select the '''tests''' cluster.
+When we click next, we are presented with the same ''New test class'' pane that we saw with manual tests. We can give the test class a name. <code>TEST_BANK_ACCOUNT_EXTRACTED_WITHDRAW_01</code> should be fairly descriptive. And we'll select the '''tests''' cluster.
 
 When we click next, we are presented with a wizard pane that shows a depiction of the current call stack and asks us for which feature(s) on the stack we want to create the test:
 
@@ -73,16 +75,21 @@ When we click next, we are presented with a wizard pane that shows a depiction o
 
 The choice for <code>withdraw</code> is the selection we want, so we just click next. The Testing Framework creates the new test and returns us to the debugger, where our system is still on hold. We can stop execution and compile to include the new test.
 
-Now we see the new test class and test in the Testing Framework's interface windows. If we run our tests we see that the test on <code>withdraw</code> is still failing:
+Now we see the new test class and test in the Testing Framework's interface windows. 
+
+
+==Run the tests, fix a problem, run the tests==
+
+We run our tests and we see that the test on <code>withdraw</code> is still failing:
 
 [[Image:Testing Framework interface after run 04]]
 
-If we fix the error in the postcondition in <code>withdraw</code> and re-execute the test, we find it successful.
+If we fix the error in the postcondition in <code>withdraw</code> and re-execute the test, we find that it is successful.
 
 
 ==A closer look at an extracted test==
 
-Look at the code that got generated for the extracted test after the assertion violation occurred:
+Look at the code that was generated for the extracted test after the assertion violation occurred:
 
 <code>
 note
@@ -120,12 +127,16 @@ feature {NONE} -- Access
 end
 </code>
 
-You have probably noticed that it doesn't look much like the code that we wrote for our manual test in the previous section. 
 
-There are some items of interest here that are worth mentioning. One is that the class does not inherit directly from EQA_TEST_SET as our manual test did. Instead, it inherits from EQA_EXTRACTED_TEST_SET which descends from <code>EQA_TEST_SET</code>. <code>EQA_EXTRACTED_TEST_SET</code> provides additional functionality for extracted tests. 
+You probably noticed immediately that it doesn't look much like the code that we wrote for our manual test in the previous section. 
 
-Secondly, notice that the call to the target routine <code>{BANK_ACCOUNT}.withdraw</code> is effected in the routine <code>test_withdraw</code> which passes an agent representing <code>{BANK_ACCOUNT}.withdraw</code> to the procedure <code>run_extracted_test</code>. The second argument to <code>run_extracted_test</code> is a <code>TUPLE</code> with the argument values which were used in the call to <code>withdraw</code> which caused the original assertion violation.
+One reason for the difference is that the class does not inherit directly from <code>EQA_TEST_SET</code> as our manual test did. Instead, it inherits from <code>EQA_EXTRACTED_TEST_SET</code> which itself is a descendant of <code>EQA_TEST_SET</code>. <code>EQA_EXTRACTED_TEST_SET</code> provides additional functionality for extracted tests. 
 
-A third thing to notice is the function <code>context</code>. This is how the Eiffel Testing Framework recreates the state of the instance of <code>BANK_ACCOUNT</code> at the time of the assertion violation. 
+Notice that the call to the target routine <code>{BANK_ACCOUNT}.withdraw</code> is effected in the routine <code>test_withdraw</code> which passes an agent representing <code>{BANK_ACCOUNT}.withdraw</code> to the procedure <code>run_extracted_test</code>. The second argument to <code>run_extracted_test</code> is a <code>TUPLE</code> with the argument values which were used in the call to <code>withdraw</code> which caused the original assertion violation.
+
+Another thing worth noting is the function <code>context</code>. This is how the Eiffel Testing Framework recreates the state of the instance of <code>BANK_ACCOUNT</code> at the time of the assertion violation. 
+
+{{caution|The extracted test recreates the state at the point at which execution has halted. So, in the case of a postcondition or invariant violation, the values of the attributes will reflect any changes that have been made during the execution of the routine. (In the example, the value of balance is set to 400, rather than 500 as it would have been when routine <code>withdraw</code> began execution.) This could make a difference in whether the test extracted after an exception is a valid recreation of the original failure. One way of dealing with this, at least in simple cases like this, is to change the test class code to reflect the proper value. A safer way would be rather than extracting the test after the exception, restart the system and stop execution as it enters the failing routine, then extract the test at that point. }}
+
 
 
