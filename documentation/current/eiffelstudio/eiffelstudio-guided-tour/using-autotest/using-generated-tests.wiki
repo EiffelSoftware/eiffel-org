@@ -25,7 +25,11 @@ If you've been through the creation of manual and extracted tests, then it shoul
 
 In the first pane, choose the radio button labeled '''Synthesized test using AutoTest'''. Then click '''Next'''. 
 
-The second pane asks you to provide a class name for the new test class and designate a cluster for it. In the case of synthesized tests, the class name you enter is actually a prefix, that will have a unique number appended to it. 
+The second pane is the now familiar pane that asks you to provide a class name for the new test class and designate a cluster for it. In the case of synthesized tests, the class name you enter is actually a prefix, that will have a sequential number appended to it. This means that for the <code>BANK_ACCOUNT</code> example, if we might choose a test class name like <code>TEST_BANK_ACCOUNT_SYNTHESIZED</code>, the first test class with that prefix would be named <code>TEST_BANK_ACCOUNT_SYNTHESIZED_001</code>.
+
+In the third pane, you are asked to configure certain options for the generation of synthesized tests: 
+
+
 
 
 
