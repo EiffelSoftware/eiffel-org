@@ -21,13 +21,109 @@ So for the time being, unlike manual and extracted tests, you should not make sy
 
 ==Creating synthesized tests==
 
-If you've been through the creation of manual and extracted tests, then it should come as no surprise to learn that you use the '''New Eiffel test wizard''' to create synthesized tests. And much of this process will seem familiar now. 
+If you've been through the discussion of the creation of [[Create a manual test|manual]] and [[Using extracted tests|extracted]] tests, then it should come as no surprise to learn that you use the '''New Eiffel test wizard''' to create synthesized tests. And much of this process will seem familiar now. 
 
 In the first pane, choose the radio button labeled '''Synthesized test using AutoTest'''. Then click '''Next'''. 
 
 The second pane is the now familiar pane that asks you to provide a class name for the new test class and designate a cluster for it. In the case of synthesized tests, the class name you enter is actually a prefix, that will have a sequential number appended to it. This means that for the <code>BANK_ACCOUNT</code> example, if we might choose a test class name like <code>TEST_BANK_ACCOUNT_SYNTHESIZED</code>, the first test class with that prefix would be named <code>TEST_BANK_ACCOUNT_SYNTHESIZED_001</code>.
 
 In the third pane, you are asked to configure certain options for the generation of synthesized tests: 
+
+
+[[Image:New test wizard screen 03S 01]]
+
+
+This is where you declare target class(es) for the synthesized tests. You type a class name into the box labeled '''Class or type name''' and click the "'''+'''" button to added it to the list. Of course you can remove an item from the list by selecting it and clicking "'''-'''".
+
+On the right side of the pane you can configure certain options for the synthesizing process.
+
+'''Duration''' controls the length of time the Eiffel Testing Framework will run random invocations of the routines in your target class.
+
+'''Routine timeout''' sets an upper limit on how long the Testing Framework will wait for a random feature call to complete.
+
+'''Random number generation seed''' provides a way for you to control the seeding of the random number generator used by the Framework. When the value is '''0''', as shown here, the seed is created from the system clock. This is adequate in most cases, but this option is provided because there might be some cases in which you would want to try to reproduce a previous test generation run. And to do that, you would have to set the seed to the same value for multiple runs.
+
+The two check boxes '''Use slicing for minimization''' and '''Use ddmin for minimization''' allow you to select the approach that you want to use for minimizing the size of synthesized tests. Generally, the default value here is adequate. '''Slicing''' and '''ddmin''' are two different ways of doing minimization. Tests are synthesized after running many randomly generated calls to routines in your target class. Tests are generated for calls that fail. So, there may have been many randomized calls leading up to the failed call. Minimization helps to eliminate the majority of the unrelated randomly generated calls, leaving the test code as short as possible. You will notice that minimization processing is memory and processor intensive. 
+
+The last check box, '''Create HTML output''' give you the option of having the Eiffel Testing Framework record the results of a synthesizing run in a set of files that you can review with a web browser. When the synthesizing run completes, you will see a dialog box that directs you to the location of the results:
+
+
+[[Image:Testing Framework synthesized complete dialog]]
+
+
+The view the result summary, navigate to the <code>result</code> subdirectory of the directory shown in the dialog, then open the file <code>index.html</code> with your browser.
+
+In fact, if we try to synthesize tests on the class <code>BANK_ACCOUNT</code> in which we have already fixed bugs, we will see something about like the following results:
+
+
+[[Image:Testing Framework synthesized results pass]]
+
+
+The important thing to notice here is the status: '''pass'''. There were no randomly generated cases that failed. So every valid invocation of a routine for class <code>BANK_ACCOUNT</code> completed satisfactorily. Therefore, no synthesized test class was created.
+
+If we re-introduce the bug into the <code>deposit</code> procedure of class <code>BANK_ACCOUNT</code> (i.e,. Remove this line of code: <code>balance := balance + an_amount</code>), and then request synthesized tests again, we get different results:
+
+
+[[Image:Testing Framework synthesized results fail]]
+
+
+This time, as we expected, failures were encountered. And a synthesized test class was created. 
+
+==A look at a synthesized test==
+
+
+The synthesized test class looks like this:
+
+
+<code>
+note
+    description: "Synthesized test created by AutoTest."
+    author: "Testing tool"
+
+class
+    TEST_BANK_ACCOUNT_SYNTHESIZED_001
+	
+inherit
+    EQA_SYNTHESIZED_TEST_SET
+
+feature -- Test routines
+
+    generated_test_1
+        note
+            testing: "type/generated"
+            testing: "covers/{BANK_ACCOUNT}.deposit"
+        local
+            v_6: BANK_ACCOUNT
+            v_7: INTEGER_32
+        do
+            execute_safe (agent: BANK_ACCOUNT
+                do
+                    create {BANK_ACCOUNT} Result
+                end)
+            if {l_ot1: BANK_ACCOUNT} last_object then
+                v_6 := l_ot1
+            end
+            v_7 := {INTEGER_32} 3
+
+                -- Final routine call
+            set_is_recovery_enabled (False)
+            execute_safe (agent v_6.deposit (v_7))
+        end
+
+end
+</code> 
+
+
+{{note|If you've been working along in EiffelStudio, you may notice that your synthesized class looks slightly different. }}
+
+
+This test is written in a way that is a little different from both the manual test we wrote and the extracted test. But it's not too hard to figure out what's going on. An object of type <code>BANK_ACCOUNT</code> will be created (local <code>v_6</code>) and the <code>deposit</code> feature will be applied to it with an argument value of <code>3</code> (local <code>v_7</code>). 
+
+You can see that this test, although it is implemented differently, is about the same as the manual test we wrote covering <code>{BANK_ACCOUNT}.deposit</code>. Because we have re-introduced the bug in <code>BANK_ACCOUNT</code>, if we run all tests, we see that both our manual test and the synthesized test are failing ... only the extracted test covering <code>{BANK_ACCOUNT}.withdraw</code> is successful:
+
+
+[[Image:Testing Framework interface after run 05]]
+
 
 
 
