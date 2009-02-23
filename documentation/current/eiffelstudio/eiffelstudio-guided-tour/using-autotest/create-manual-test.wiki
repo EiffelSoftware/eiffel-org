@@ -78,7 +78,7 @@ end
 
 You shouldn't let it worry you if you've noticed that the class <code>BANK_ACCOUNT</code> contains some flaws. We'll deal with these later.
 
-If you want to work along with this tutorial, you should be able to copy the text of each these classes from this page and paste it into the EiffelStudio editor pane. Build a system using these two classes. 
+If you want to work along with this tutorial, you should be able to copy the text of each these classes from this page and paste it into the EiffelStudio editor pane. Build a system using these two classes, and <code>{APPLICATION}.make</code> as the root.
 
 
 {{note|If you are using EiffelStudio version 6.3, there two things you will need to do to prepare your system for use with the Eiffel Testing Framework. Both of these are done from the [[EiffelStudio: Project settings window]].<br/> 1) Set your project to be a console application in the [[Advanced options]].<br/>2) Set a value of <code>False</code> for the <code>Recursive</code> attribute of your project cluster in [[Group options]].}}

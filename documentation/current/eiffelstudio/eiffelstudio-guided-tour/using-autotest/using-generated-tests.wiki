@@ -51,9 +51,13 @@ The last check box, '''Create HTML output''' give you the option of having the E
 [[Image:Testing Framework synthesized complete dialog]]
 
 
-The view the result summary, navigate to the <code>result</code> subdirectory of the directory shown in the dialog, then open the file <code>index.html</code> with your browser.
+To view the result summary, navigate to the <code>result</code> subdirectory of the directory shown in the dialog, then open the file <code>index.html</code> with your browser.
 
-In fact, if we try to synthesize tests on the class <code>BANK_ACCOUNT</code> in which we have already fixed bugs, we will see something about like the following results:
+
+{{note|The <code>result</code> directory includes files that summarize the whole synthesized testing process. Some of these are lengthy because they contain information on test cases used for each target routine.  }}
+
+
+In fact, if we try to synthesize tests on the class <code>BANK_ACCOUNT</code> in which we have already fixed two bugs after the manual and extracted tests, we will see something about like the following results:
 
 
 [[Image:Testing Framework synthesized results pass]]
@@ -68,6 +72,7 @@ If we re-introduce the bug into the <code>deposit</code> procedure of class <cod
 
 
 This time, as we expected, failures were encountered. And a synthesized test class was created. 
+
 
 ==A look at a synthesized test==
 
@@ -114,7 +119,7 @@ end
 </code> 
 
 
-{{note|If you've been working along in EiffelStudio, you may notice that your synthesized class looks slightly different. }}
+{{note|If you've been following along by the doing these examples in EiffelStudio, you may notice that your synthesized class looks slightly different. }}
 
 
 This test is written in a way that is a little different from both the manual test we wrote and the extracted test. But it's not too hard to figure out what's going on. An object of type <code>BANK_ACCOUNT</code> will be created (local <code>v_6</code>) and the <code>deposit</code> feature will be applied to it with an argument value of <code>3</code> (local <code>v_7</code>). 
@@ -125,7 +130,7 @@ You can see that this test, although it is implemented differently, is about the
 [[Image:Testing Framework interface after run 05]]
 
 
-
+If we replace the implementation for <code>{BANK_ACCOUNT}.deposit</code> that we had removed, and then re-execute the tests, all are successful.
 
 
 
