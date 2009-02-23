@@ -103,7 +103,7 @@ This time we see that the test is successful, as indicated by the Success icon (
 
 ==The beginnings of a test suite==
 
-Of course, we would not have had to use the Eiffel Testing Framework to find that bug in <code>{BANK_ACCOUNT}.deposit</code>. We could have just written a simple class to exercise instances of <code>BANK_ACCOUNT</code> and truth would have come out. 
+Of course we would not have had to use the Eiffel Testing Framework to find that bug in <code>{BANK_ACCOUNT}.deposit</code>. We could have just written a simple class to exercise instances of <code>BANK_ACCOUNT</code> and truth would have come out. 
 
 The advantage of using the Eiffel Testing Framework is that the test that we wrote to cover <code>{BANK_ACCOUNT}.deposit</code> can stay with us throughout the lifecycle of class <code>BANK_ACCOUNT</code>. We can expand the <code>TEST_BANK_ACCOUNT</code> with additional manual tests and run them after every development increment to ensure that all tests that were once successful are still successful. 
 
