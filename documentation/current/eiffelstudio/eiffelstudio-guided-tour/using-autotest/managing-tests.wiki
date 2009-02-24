@@ -4,16 +4,49 @@
 {{underconstruction}}
 
 
+The previous sections cover the basics of testing and what it takes to create and use each of the test types supported by the Eiffel Testing Framework. This section will finish things up with some miscellaneous information about testing strategy and hints on using of the Framework.
 
-==Favoring manual tests==
 
+
+==Favor manual tests==
+
+
+It is worth repeating that currently, manual tests should form the majority of your testing suite. As you have seen, extracted and synthesized tests use more complex setup and execution mechanisms. These mechanisms make tests less robust and readable than manual tests. So using extracted and synthesized tests as a guide to produce manual tests with the same coverage is, at this time, the best way to work. You will probably be able to do this easily enough with synthesized tests. Extracted tests attempt to recreate the context at a specific point in time, which may make it more difficult to write a manual test that is equivalent an extracted test. 
+
+Because manual tests are more easily readable than either of the automatically generated test types, you should be able to understand more quickly what has happened when a test produces failing results.
 
 
 ==Deleting uneeded tests==
 
 
+At some point and for various reasons, you will probably want to delete tests from your test suite. This is easy enough to do. Remember that test sets are actually just classes with certain characteristics, and that tests are actually just specialized routines of test classes. 
+
+If you want to delete a single test, you can delete that feature from its test class. 
+
+If you want to remove a whole test set, then [[Removing a class|delete the class]] that defines that test set.
+
 
 ==Using Views and Filters==
+
+
+The View box on the Eiffel Testing Framework can be used to display tests by different criteria. However, the workings of the View box deserve some explanation. If you just try to use View without any background knowledge, you may find it non-intuitive. 
+
+It is important to bear in mind that the View box works with the system of [[Create a manual test#About tags|tags]] described in the section on creating manual tests. Tags are hierarchically structured names that are applied to tests through the <code>note</code> clause. When you use the View box to display a set of tests, you specify that set by the tags on the tests. Some of the tags are implicit, in the sense that the Testing Framework accounts for them, and they are not explicitly coded in <code>note</code> clauses. This should become clear when we look at some examples.
+
+When the View box is displaying a set of tests, the "root" tag(s) for the sub tree of tests is what is visible in the View box. Let's look at some examples.
+
+If the view box is empty, it will display all tests, accessible through all root tags. So, using the example we built in the preceding sections, if we just select the blank choice for the View box, here's what we see:
+
+
+[[Image:Testing Framework interface View box 01]]
+
+
+In the column labeled '''Tests''', you see tree view root words '''class''', '''covers''', and '''type'''. The view labeled '''class''' means ''tests as they are structured in their test classes''. So, if we expand '''class''' for our test system, then in the '''Tests''' column we see:
+
+
+[[Image:Testing Framework interface View box 02]]
+
+
 
 
 
