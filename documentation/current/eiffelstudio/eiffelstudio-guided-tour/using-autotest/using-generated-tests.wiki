@@ -10,7 +10,7 @@
 
 Synthesized tests fill a different role from either extracted or manual tests. The idea behind synthesized tests is that because we specify software through its contracts, and because compliance of the software to those contracts can be actively monitored at runtime, we can know two things necessary for building tests:
 #For any routine, what argument values are valid 
-#For the execution of any routine, what are the acceptable results
+#For the execution of any routine, what resulting states are acceptable
 
 The first bit of knowledge comes from the ''preconditions'' of target routines. The second comes from ''postconditions'' of target routines and the ''invariants'' of target classes. Armed with this knowledge, we should be able to generate a series of invocations target routines using random (but valid) argument values, and evaluate the results. This is what is done by an internal facility of the Eiffel Testing Framework that builds synthesized tests (this facility is often referred to as AutoTest). After many of these randomly generated invocations, the Eiffel Testing Facility attempts to synthesize the results of these feature calls into new test classes. The tests in these new test classes contain the calls leading up and including calls that fail. 
 

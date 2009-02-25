@@ -28,6 +28,7 @@ If you want to remove a whole test set, then [[Removing a class|delete the class
 
 ==Using Views and Filters==
 
+===The View box===
 
 The View box on the Eiffel Testing Framework can be used to display tests by different criteria. However, the workings of the View box deserve some explanation. If you just try to use View without any background knowledge, you may find it non-intuitive. 
 
@@ -41,12 +42,72 @@ If the view box is empty, it will display all tests, accessible through all root
 [[Image:Testing Framework interface View box 01]]
 
 
-In the column labeled '''Tests''', you see tree view root words '''class''', '''covers''', and '''type'''. The view labeled '''class''' means ''tests as they are structured in their test classes''. So, if we expand '''class''' for our test system, then in the '''Tests''' column we see:
+In the column labeled '''Tests''', you see tree view root words '''class''', '''covers''', '''outcome''', and '''type'''. The view labeled '''class''' means ''"tests as they are structured in their test classes."'' So, if we completely expand '''class''' for our test system, then in the '''Tests''' column we see:
 
 
 [[Image:Testing Framework interface View box 02]]
 
 
+The '''covers''' tag root means ''"tests based on their target classes and target routines."'' 
+
+
+[[Image:Testing Framework interface View box 03]]
+
+
+This shows that there is only one target class <code>BANK_ACCOUNT</code>, and two of its routines are target routines, <code>deposit</code> and <code>withdraw</code>.
+
+The '''outcome''' tag root means ''"tests categorized by whether they were successful or failing in the most recent run."'' So expanding '''outcome''' we see that all of out tests show up as successful:
+
+
+[[Image:Testing Framework interface View box 04]]
+
+
+The '''type''' tag root means ''"tests categorized by type."'' So, if we expand '''types''', we see our tests grouped by '''extracted''', '''generated''' (synthesized), and '''manual''':
+
+
+[[Image:Testing Framework interface View box 05]]
+
+
+
+{{note|The tag roots will appear only if there are tests that can be categorized under them. For example, if you have not run any tests, then '''outcome''' will not appear. }}
+
+
+Notice that the View box has a list of options: 
+
+
+[[Image:Testing Framework interface View box 06]]
+
+
+These options are shortcuts to the various tag roots that we just discussed: 
+
+#'''Tests''' displays the sub-tree under the tag root '''class'''
+#'''Results''' displays the sub-tree under the tag root '''outcome'''
+#'''Classes under test''' displays the sub-tree under the tag root '''covers'''
+#'''Types''' displays the sub-tree under the tag root '''type'''
+
+
+Any tagging system that you devise will also show up in the View box. Let's edit the manual test and add a second line of testing information with some tags that we just made up.
+
+So, now the entire test now looks like this:
+
+<code>
+    test_deposit_01
+            -- New test routine
+        note
+            testing:  "covers/{BANK_ACCOUNT}.deposit"
+            testing:  "my_tag_1/my_tag_1_4/my_tag_1_4_2"
+        local
+            l_ba: BANK_ACCOUNT
+        do
+            create l_ba
+            l_ba.deposit (500)
+        end
+</code>
+
+As soon as we compile and look at the View box, we see that the root for our new tag shows up. And if we expand it completely, we find the test that we tagged.
+
+
+[[Image:Testing Framework interface View box 07]]
 
 
 
