@@ -51,7 +51,7 @@ Here you see under "Tests" the project cluster <code>bank_account</code>, the te
 {{note|If you've been working along in EiffelStudio, and you don't see this display, then go to the View combo box and type in "class" as shown in the pane above and press enter. Later we will see more about using the View and Filter boxes. }}
 
 
-You see that the "Status" of <code>test_deposit</code> is "not tested", and that the "Last executed" date is empty.
+You see that the '''Status''' of <code>test_deposit</code> is "not tested", and that the '''Last executed''' date is empty.
 
 To execute tests we use the "Run" button ( [[Image:debug-run-icon]] ) on the interface toolbar. The Run button will run all tests by default. However, there is a list of run options that you can access by clicking the black triangle just to the right of Run. You can choose to run all tests, only those with failing status, a filtered set of tests, or only those tests that you have selected in the tree below. We'll cover filtering a little later. For now, life is simple, we have only one test so just clicking the Run button should execute it. 
 
@@ -63,7 +63,7 @@ The test runs in background and the Eiffel Testing Framework interface now looks
 [[Image:Testing Framework interface after run 01]]
 
 
-It's pretty clear that our test has failed. Its status is now marked with the Failing icon ( [[Image:general-error-icon]] ) and in the box below the "Execution" tab we see that the status also includes a tag: <code>balance_increased</code>. To get a more detailed analysis, we can double-click the test in the "Tests" box. 
+It's pretty clear that our test has failed. Its status is now marked with the Failing icon ( [[Image:general-error-icon]] ) and in the box below the '''Execution''' tab we see that the status also includes a tag: <code>balance_increased</code>. To get a more detailed analysis, we can double-click the test in the '''Tests''' box. 
 
 
 [[Image:Testing Framework interface after run 02]]

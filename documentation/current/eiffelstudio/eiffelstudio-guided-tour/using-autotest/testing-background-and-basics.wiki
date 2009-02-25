@@ -65,8 +65,8 @@ Whenever you use the Eiffel Testing Framework, it will find your test classes, t
 
 There are three different types of tests supported by the Eiffel Testing Framework: 
 * Manual tests
-* Synthesized tests
 * Extracted tests 
+* Synthesized tests
 
 Each test of any of these types ultimately is a feature of class that inherits from EQA_TEST_SET. Ordinarily, though, the three types of tests won't be mixed in a test class. That is, any one particular test class will contain only one type of test. But from the point of view of the Eiffel Testing Framework, all types of tests are managed and run the same way. We will discuss these types of tests in more detail later, but for right now, let's just establish some definitions.   
 
@@ -79,6 +79,12 @@ Manual tests are features, procedures in fact, of classes that inherit from EQA_
 A manual test is "manual" in the sense that you code the essential procedural part of the test by hand. But you really don't have to deal with the more mundane business of creating the whole test class and ensuring the proper inheritance. The ''New Eiffel Test Wizard'' helps out by automatically creating the shell of a test class and the shell of a test for you to fill in. Then it's pretty easy to add new tests manually to an existing test class.
 
 
+{{definition|Extracted test|A test that has been created during the execution of a system as a result of a developer request or a failure of the system. Extracted with the test is the current runtime state. When run, the test will attempt to recreate the runtime context. }}
+
+
+Extracted tests are convenient because they allow you to accumulate tests that are based on actual failures of your software (good for the software, not so good for your ego!). Once these tests are in your suite of tests, they are available from then on.
+
+
 {{definition|Synthesized test|A test that is the product of generating and running a series of randomly generated invocations of target routines. }} 
 
 
@@ -86,11 +92,6 @@ The process of creating synthesized tests is sometimes known in the community as
 
 Synthesized tests are made possible by Design by Contract. Hopefully, you remember that one thing that DbC gives us is the handy ability to assign blame when something goes wrong. When a test makes a call to a routine we want to test, if a contract violation occurs, it may be the fault of the called routine or it may be the fault of the caller ... and that depends upon what type of contract violation has occurred. The contract violations that are interesting to the Eiffel Testing Framework in the process of synthesizing tests are only those in which the called routine is at fault. That is, postcondition and invariant violations. The Eiffel Testing Framework will then create a synthesized test for every ''unique'' failure in which the called routine being tested was to blame.  
 
-
-{{definition|Extracted test|A test that has been created during the execution of a system as a result of a developer request or a failure of the system. Extracted with the test is the current runtime state. When run, the test will attempt to recreate the runtime context. }}
-
-
-Extracted tests are convenient because they allow you to accumulate tests that are based on actual failures of your software (good for the software, not so good for your ego!). Once these tests are in your suite of tests, they are available from then on.
 
 
 ==Anatomy of a test==

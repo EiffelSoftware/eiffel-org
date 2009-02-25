@@ -86,16 +86,16 @@ These options are shortcuts to the various tag roots that we just discussed:
 #'''Types''' displays the sub-tree under the tag root '''type'''
 
 
-Any tagging system that you devise will also show up in the View box. Let's edit the manual test and add a second line of testing information with some tags that we just made up.
+Any tagging system that you devise will also show up in the View box. Let's edit our tests and add an additional line of testing information to each with some arbitrary hierarchical tags.
 
-So, now the entire test now looks like this:
+So, now the manual test now looks like this:
 
 <code>
     test_deposit_01
             -- New test routine
         note
             testing:  "covers/{BANK_ACCOUNT}.deposit"
-            testing:  "my_tag_1/my_tag_1_4/my_tag_1_4_2"
+            testing:  "my_tag_1/my_tag_1_1/my_tag_1_1_1"
         local
             l_ba: BANK_ACCOUNT
         do
@@ -104,6 +104,14 @@ So, now the entire test now looks like this:
         end
 </code>
 
+In the extracted test targeting <code>{BANK_ACCOUNT}.withdraw</code> this line has been added:
+<code>
+            testing: "my_tag_1/my_tag_1_1/my_tag_1_1_2"
+</code>
+and in the synthesized test which targets <code>{BANK_ACCOUNT}.withdraw</code> we add this line:
+<code>
+           testing: "my_tag_1/my_tag_1_2/my_tag_1_2_1"
+</code>
 As soon as we compile and look at the View box, we see that the root for our new tag shows up. And if we expand it completely, we find the test that we tagged.
 
 

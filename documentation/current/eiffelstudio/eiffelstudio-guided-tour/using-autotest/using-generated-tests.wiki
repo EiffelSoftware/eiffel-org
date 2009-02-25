@@ -65,7 +65,7 @@ In fact, if we try to synthesize tests on the class <code>BANK_ACCOUNT</code> in
 
 The important thing to notice here is the status: '''pass'''. There were no randomly generated cases that failed. So every valid invocation of a routine for class <code>BANK_ACCOUNT</code> completed satisfactorily. Therefore, no synthesized test class was created.
 
-If we re-introduce the bug into the <code>deposit</code> procedure of class <code>BANK_ACCOUNT</code> (i.e,. Remove this line of code: <code>balance := balance + an_amount</code>), and then request synthesized tests again, we get different results:
+If we re-introduce the bug into the <code>deposit</code> procedure of class <code>BANK_ACCOUNT</code> (i.e., Remove this line of code: <code>balance := balance + an_amount</code>), and then request synthesized tests again, we get different results:
 
 
 [[Image:Testing Framework synthesized results fail]]
