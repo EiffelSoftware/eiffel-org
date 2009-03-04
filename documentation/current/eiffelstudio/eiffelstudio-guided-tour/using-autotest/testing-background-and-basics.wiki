@@ -108,9 +108,8 @@ In its simplest form, a test is a routine that issues a call to some routine you
 
 So the tests and the test classes are in the realm of testing and are used to test the target routines in target classes which are the real product of your software development project.
 
-The Eiffel Testing Framework will manage and run the tests in any test class whether or not they actually test any target routines. Naturally, it would seem silly to keep a test around that doesn't test anything, but the important thing to understand is that the Eiffel Testing Framework will work with anything that matches the definitions of test and test class above. That is, once tests are created, the Eiffel Testing Framework doesn't really have a stake in what you are trying to test.
+The Eiffel Testing Framework will manage and run the tests in any test class whether or not they actually test any target routines. Even though the test shown below doesn't test anything, it still qualifies as a test. Naturally, it would seem silly to keep a test around that doesn't test anything, but the important thing to understand is that the Eiffel Testing Framework will work with anything that matches the definitions of test and test class above. That is, once tests are created, the Eiffel Testing Framework doesn't really have a stake in what you are trying to test.
 
-Take a look at the following test class:
 
 
 <code>
