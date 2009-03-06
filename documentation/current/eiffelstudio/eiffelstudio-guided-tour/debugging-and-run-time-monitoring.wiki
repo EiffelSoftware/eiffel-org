@@ -1,5 +1,4 @@
-[[Property:title|13 Debugging and Run-time Monitoring]]
-[[Property:link_title|Debugging and Run-time Monitoring]]
+[[Property:title|Debugging and Run-time Monitoring]]
 [[Property:weight|-2]]
 [[Property:uuid|a53f6a74-7145-35ab-ed5e-2905aeb88774]]
 The next set of EiffelStudio capabilities enable you to control and monitor the execution of your systems. The obvious immediate application is to debugging; but the more general goal is to let you follow the execution of your systems, explore the object structures, and gain a better understanding of the software.

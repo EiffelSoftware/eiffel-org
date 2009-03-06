@@ -1,5 +1,4 @@
-[[Property:title|12 Handling Syntax and Validity Errors]]
-[[Property:link_title|Handling Syntax and Validity Errors]]
+[[Property:title|Handling Syntax and Validity Errors]]
 [[Property:weight|-3]]
 [[Property:uuid|c2be8123-b793-f8ce-e082-d4fdacc6bbe6]]
 So far we have tried to make sure that everything went smoothly. But in actual software development you may encounter error situations, and it is useful to know what can happen then.

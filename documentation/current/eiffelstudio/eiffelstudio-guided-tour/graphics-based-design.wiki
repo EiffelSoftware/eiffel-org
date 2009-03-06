@@ -1,8 +1,7 @@
-[[Property:title|15 Graphics-based Design]]
-[[Property:link_title|Graphics-based Design]]
+[[Property:title|Graphics-based Design]]
 [[Property:weight|1]]
 [[Property:uuid|78239225-67a7-8718-857d-f2c8fb70ef18]]
-So far the project modifications that we have made used the text editor in the Editing Tool. We used graphics, but as a way to reflect system structures, not to build them ( [[6 STARTING TO BROWSE|See "A Peek at Diagrams" in Starting to Browse]] , and subsequent discussions). 
+So far the project modifications that we have made used the text editor in the Editing Tool. We used graphics, but as a way to reflect system structures, not to build them ( [[STARTING TO BROWSE|See "A Peek at Diagrams" in Starting to Browse]] , and subsequent discussions). 
 
 In line with the principles of seamlessness and reversibility recalled at the beginning of this Tour, EiffelStudio's text-diagram interaction is bi-directional. When you make a textual modification, the next incremental recompilation will update the diagram; but you can also work directly from the diagram, and the text will be generated or updated after each graphical operation.
 

@@ -1,5 +1,4 @@
-[[Property:title|6 Starting To Browse]]
-[[Property:link_title|Starting To Browse]]
+[[Property:title|Starting To Browse]]
 [[Property:weight|-10]]
 [[Property:uuid|cb6c2e52-d238-9b55-0b78-ab3af9568550]]
 It was important to take a look at how EiffelStudio stores your project, but unless your idea of fun is to poke around directories to look at compiler-generated files that's not really the exciting part yet. Among the most innovative aspects of EiffelStudio is a unique set of facilities to <span>browse</span> through a software system. 
@@ -52,7 +51,7 @@ This displays a class diagram in the Context Tool:
 
 [[Image:index-12]]
 
-{{note|If nothing appears in the Context Tool when you click the Diagram Tab, that's because the Context Tool and the Class View are not linked. Linking the two tools together will ensure that whenever a change is made in one tool the other will update to reflect that change. To link the tools select the menu entry <code>View -> Link context tool</code> ; this will display the diagram as shown. We'll see the explanation for this behavior in [[10 RETARGETING THROUGH PICK-AND-DROP|Isolating the context, pg 68]]  }}
+{{note|If nothing appears in the Context Tool when you click the Diagram Tab, that's because the Context Tool and the Class View are not linked. Linking the two tools together will ensure that whenever a change is made in one tool the other will update to reflect that change. To link the tools select the menu entry <code>View -> Link context tool</code> ; this will display the diagram as shown. We'll see the explanation for this behavior in [[RETARGETING THROUGH PICK-AND-DROP|Isolating the context, pg 68]]  }}
 
 The diagram is cropped to the available area; to get the whole picture, resize the window from the bottom-right corner. You can now see the inheritance structure:
 

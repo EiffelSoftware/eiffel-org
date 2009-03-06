@@ -1,5 +1,4 @@
-[[Property:title|3 Starting EiffelStudio and Opening a Project]]
-[[Property:link_title|Starting EiffelStudio and Opening a Project]]
+[[Property:title|Starting EiffelStudio and Opening a Project]]
 [[Property:weight|-13]]
 [[Property:uuid|676cf329-5640-69c4-d10b-b56fcd3f2ff9]]
 In the rest of this Tour <code>YOURDIR</code> denotes the directory where the example resides (the original, <code>$ISE_EIFFEL/examples/studio/tour</code> , or a copy). Launching will use the operating system's mechanism for starting a program, so we look separately at Windows and at Unix/OpenVMS. 

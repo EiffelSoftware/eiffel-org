@@ -1,5 +1,4 @@
-[[Property:title|16 How EiffelStudio Compiles]]
-[[Property:link_title|How EiffelStudio Compiles]]
+[[Property:title|How EiffelStudio Compiles]]
 [[Property:weight|3]]
 [[Property:uuid|6fc86303-8afe-78af-6ca7-2853e8bfcbc3]]
 So far we have relied on the compiling capabilities of EiffelStudio without exploring them in any detail. We must now understand the principles behind EiffelStudio's compiling strategy, in particular how it reconciles fast turnaround, efficient generated code, and strong typing.

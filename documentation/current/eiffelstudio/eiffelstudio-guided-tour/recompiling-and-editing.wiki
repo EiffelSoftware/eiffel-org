@@ -1,5 +1,4 @@
-[[Property:title|11 Recompiling and Editing]]
-[[Property:link_title|Recompiling and Editing]]
+[[Property:title|Recompiling and Editing]]
 [[Property:weight|-4]]
 [[Property:uuid|6574a573-48b9-6088-aa98-53d7119d7c5c]]
 So far we have relied on existing class texts. Fascinating as it may be to explore excellent software such as EiffelBase, you probably want to write your own too (with the help of the reusable components in the Eiffel libraries). EiffelStudio provides a built-in editor -- as well as the ability to use some other editor if you prefer -- and sophisticated compilation mechanisms.

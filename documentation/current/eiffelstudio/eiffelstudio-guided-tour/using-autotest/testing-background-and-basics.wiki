@@ -61,7 +61,7 @@ The Eiffel Testing Framework interface helps you to create and execute tests on 
 Whenever you use the Eiffel Testing Framework, it will find your test classes, those classes that inherit from EQA_TEST_SET. When you run tests, it will execute all the tests in those classes, or a subset of tests that you choose. So, you have probably figured out that the one class from the testing library that you may need to know a little about is EQA_TEST_SET. But you don't have to know very much, because the Eiffel Testing Framework can help you construct your test classes.
 
 
-==Types of Tests==
+==Types of tests==
 
 There are three different types of tests supported by the Eiffel Testing Framework: 
 * Manual tests

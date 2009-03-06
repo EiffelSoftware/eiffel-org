@@ -1,5 +1,4 @@
-[[Property:title|10 Retargeting Through Pick-and-Drop]]
-[[Property:link_title|Retargeting Through Pick-and-Drop]]
+[[Property:title|Retargeting Through Pick-and-Drop]]
 [[Property:weight|-5]]
 [[Property:uuid|a3789781-153b-7f4d-bb94-4bdf8923fb56]]
 You now know quite a few ways of re-targeting a Development Window to a "development object" -- a class or a feature -- but haven't yet seen one of the most important: "Pick-and-Drop", which lets you pick a development object that you have spotted anywhere in the display, and retarget the current tool, or another, to it.
@@ -8,7 +7,7 @@ You now know quite a few ways of re-targeting a Development Window to a "develop
 
 We restart from the last state, with a Development Window target to feature <code>forth</code> of class <code>LIST</code>. The next figure shows the whole window; it should be exactly what you see as a result of the last operations. We'll use the <code>Ancestor versions</code> view of the <code lang=text>Feature </code>Tab. 
 
-If for some reason the window doesn't look like the next figure, it's easy to reconstruct it: make sure both the Cluster tree and the Feature tree are visible (if not, click the corresponding buttons as detailed [[7 CLASS VIEWS|here]] ); target the tool to class <code>LIST</code> ; target further to its feature <code>forth</code> by clicking that feature name in the Feature tree; make sure both the top-right Editing Tool and the bottom-right Context Tool are visible; in the Context Tool, select the <code lang=text>Feature</code> Tab and its <code>Descendant versions </code>format. 
+If for some reason the window doesn't look like the next figure, it's easy to reconstruct it: make sure both the Cluster tree and the Feature tree are visible (if not, click the corresponding buttons as detailed [[CLASS VIEWS|here]] ); target the tool to class <code>LIST</code> ; target further to its feature <code>forth</code> by clicking that feature name in the Feature tree; make sure both the top-right Editing Tool and the bottom-right Context Tool are visible; in the Context Tool, select the <code lang=text>Feature</code> Tab and its <code>Descendant versions </code>format. 
 
 [[Image:index-60]]
 
@@ -138,34 +137,34 @@ As a conclusion to this review of Pick-and-Drop let's recapitulate the various w
 |- 
 | Type class name, then Enter, in class field at top-left of tool 
 | Same
-|  [[6 STARTING TO BROWSE|"Retargeting by name" in Chapter 6, "Starting To Browse".]]  
+|  [[STARTING TO BROWSE|"Retargeting by name" in the chapter "Starting To Browse".]]  
 |- 
 | Choose class in Cluster tree
 | Same
-|  [[6 STARTING TO BROWSE|"Retargeting from the Cluster Tree" in Chapter 6, "Starting To Browse". ]]  
+|  [[STARTING TO BROWSE|"Retargeting from the Cluster Tree" in the chapter "Starting To Browse". ]]  
 |- 
 | Choose class in Favorites 
 | Same
-|  [[6 STARTING TO BROWSE|"Adding to Favorites" in Chapter 6, "Starting To Browse".]]  
+|  [[STARTING TO BROWSE|"Adding to Favorites" in the chapter "Starting To Browse".]]  
 |- 
 | "Back" button 
 | Same
-|  [[6 STARTING TO BROWSE|"Moving back and forth" in Chapter 6, "Starting To Browse".]]  
+|  [[STARTING TO BROWSE|"Moving back and forth" in the chapter "Starting To Browse".]]  
 |- 
 | "Forth" button 
 | Same
-|  [[6 STARTING TO BROWSE|"Moving back and forth" in Chapter 6, "Starting To Browse".]]  
+|  [[STARTING TO BROWSE|"Moving back and forth" in the chapter "Starting To Browse".]]  
 |- 
 | Pick class from history list 
 | Same
-|  [[6 STARTING TO BROWSE|"The Target History" in Chapter 6, "Starting To Browse".]]  
+|  [[STARTING TO BROWSE|"The Target History" in the chapter "Starting To Browse".]]  
 |- 
 | Pick-and-drop: right-click on class name or graphical representation found in any tool, then move, then right-click
 | Existing window/tool (of drop target) 
-|  [[10 RETARGETING THROUGH PICK-AND-DROP|"How Pick-and-Drop works" In Chapter 10, "Retargeting Through Pick-and-Drop.]]  
+|  [[RETARGETING THROUGH PICK-AND-DROP|"How Pick-and-Drop works" in the chapter "Retargeting Through Pick-and-Drop.]]  
 |- 
 | Control-right-click on class name or graphical representation found in any tool 
 | New
-|  [[6 STARTING TO BROWSE|"Starting a new tool" in Chapter 6, "Starting To Browse".]]  
+|  [[STARTING TO BROWSE|"Starting a new tool" in the chapter "Starting To Browse".]]  
 |}
 

@@ -1,5 +1,4 @@
-[[Property:title|14 Computing Project Metrics]]
-[[Property:link_title|Computing Project Metrics]]
+[[Property:title|Computing Project Metrics]]
 [[Property:weight|0]]
 [[Property:uuid|8d1a3556-d9a2-0ac8-4d54-458f18cb56ad]]
 In earlier sections we saw how EiffelStudio provides extensive documentation on your systems. That information was qualitative. Project managers and developers will also be interested in <span>quantitative</span> information about their projects. You can get such information through the <code>Metrics</code> tool, which enables you to perform a number of operations, detailed over the next few pages: 
