@@ -7,7 +7,7 @@
 
 In the previous section we coded a manually created test. The Eiffel Testing Framework will allow us to execute that test, or, in more practical terms, any set of tests that we select. But before we execute our test, let's take a look at what we will get out of such an execution.  
 
-==About Test Results==
+==About test results==
 
 When the Eiffel Testing Framework executes a test, the result will be one of only three possibilities:
 # The test is '''successful'''
