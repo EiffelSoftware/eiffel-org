@@ -6,21 +6,20 @@
 
 ==Background and motivation for testing tools==
 
-Developers test their software with the goal of ensuring that the software meets its specification. Informally, this means that tests hope to show that the software does what it is supposed to do, and only that. Programmers design tests that exercise software given certain inputs and execution state, then observe the outcome to see if the software produces the expected results. During the last few years, both tests and testing tools have become more sophisticated. 
+Developers test software in the hope that the testing process will expose faults in the software they've developed. Most developers also realize that no amount of testing will ever prove software to be bug free. So while testing is a virtuous activity that we dare not neglect, we are wise to temper our expectation of the practical value of testing. 
 
-In parallel with the "agile" software development methods, a technique called Test-Driven Development (TDD) has emerged. In TDD, a software test is written before the code that it tests. In this way, the test serves not just to be a test, but as a portion of specification for the code yet to be written. 
-:Q: What is software element X supposed to do? 
-:A: For one thing, it is supposed to pass this test!
-So, in TDD, before each additional software element is written, its test is written. Once the software element is written, the test is run. If it fails, then the software (or possibly the test) needs to be fixed. If the test succeeds, then the programmer is free to write the test for the next element to be developed. In this way, the tests accumulate until eventually there is a whole suite of tests that can be run at any time in order to ensure that the addition of any new software element does not cause a previously successful test now to fail. Some software development processes call for running a whole suite of tests after every increment of development activity. This type of testing is often referred to as ''regression testing'', because it tends to expose software which had been satisfying its tests at one time, but because of some development activity has regressed to a failing state.
+A test is designed to exercise a software element given certain inputs and execution state. The state is observed after the test execution to see if the software element has behaved in a manner that is consistent with its specification. 
 
-Creating, managing and running a large number of tests manually can be time-consuming, messy, and error-prone, thus the motivation for automated testing tools. Testing tools help programmers to create, maintain, and execute a suite of tests by automating the activity.  
+As a body of software is developed and tested, a large number of tests may accumulate. This large suite of tests can be run at any time in order to ensure that a change or the addition of a new software element does not cause a previously successful test now to fail. Some software development processes call for running a whole suite of tests after every increment of development activity. This type of testing is often referred to as ''regression testing'', because it tends to expose software which had been satisfying its tests at one time, but because of some development activity has regressed to a failing state.
+
+Creating, managing and running a large number of tests manually can be time-consuming, messy, and error-prone, thus the motivation for automated testing tools. Testing tools help programmers to create, maintain, and execute a suite of tests by automating the activity. During the last few years, both testing methods and tools have become more sophisticated.  
 
 
 ==The Eiffel advantage in testing==
 
-So it's important to understand that the tests in TDD serve, not just as verification tools, but as a part of the software specification. 
+Some of today's development methods require tests to be written before the software elements they test. Then the tests are included as a part of the software specification. But tests can only reflect a very small subset of the possible execution cases. Testing can never replace a comprehensive software specification. 
 
-But in Eiffel, of course, the specification for a software element exists in its contract. Like the tests in TDD, Eiffel contracts are ordinarily written before the software elements that implement them.
+The great advantage you have with Eiffel, of course, is that the specification for a software element exists in its contract. Like the tests mentioned above, contracts for software are written prior to implementation. So, importantly, tests are ''not'' a part of a software specification in Eiffel.
 
 With contract checking enabled at run time, the running software's behavior is constantly monitored against the contract's expectations. In other words, for routines, the precondition defines an acceptable state in which the routine can execute, and the postcondition defines an acceptable state after successful execution. The class invariant defines the constraints necessary for instances of a class to be valid. 
 
@@ -146,6 +145,6 @@ It is clear that <code>MY_TEST_CLASS</code> is an effective class that inherits 
 
 This test would always fail because of the <code>assert</code> that the wizard put in the implementation. So if you asked the Eiffel Testing Framework to run your tests, it would tell you that <code>my_test</code> was a failed test, for the reason: "not_implemented". The <code>assert</code> is not a necessary part of a test. The wizard puts it there to remind you that the test has not been implemented. If you removed the <code>assert</code> line from the test, then the test would always succeed, which would be nice, but it would be succeeding at testing nothing! We'll see more later about what it means for tests to succeed and fail. 
 
-But first let's get some exposure to the Eiffel Testing Framework interface, by building a manual test for a simple system.
+But first let's get some exposure to the Eiffel Testing Framework interface, by building a manual test for a routine in a simple class.
 
 
