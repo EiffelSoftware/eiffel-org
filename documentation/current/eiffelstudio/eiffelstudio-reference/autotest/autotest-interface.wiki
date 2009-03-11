@@ -1,0 +1,84 @@
+[[Property:title|The Eiffel Testing Framework Interface]]
+[[Property:link_title|The AutoTest Interface]]
+[[Property:weight|0]]
+[[Property:uuid|6eec11df-9ea0-6834-d41b-a0c23b87c485]]
+{{underconstruction}}
+
+
+[[Image:Testing Framework interface annotated 01]]
+
+
+The interface consists of four primary components: 
+# The toolbar
+# The view filtering controls 
+# The tests view
+# The tabbed status and results reporting pane
+
+==Toolbar==
+
+The toolbar allows you to create new tests using the '''[[#The New Eiffel test wizard|New Eiffel test wizard]]''' and to run existing tests.
+
+The '''Create new tests''' command ( [[Image:Create new tests]] ) invokes the '''New Eiffel test wizard'''.
+
+The '''Run all tests in background''' command ( [[Image:debug-run-icon]] ) will, by default, run all tests. But if only certain tests are selected in the '''Tests''' list, then '''Run all tests in background''' will run only those tests. The '''Run all tests in background''' allows other options for running tests through its drop-down icon ( [[Image:toolbar-dropdown-icon]] ).
+
+
+[[Image:Testing Framework run all drop down]]
+
+
+The '''Debug all tests in EiffelStudio''' command ( [[Image:Testing Framework debug all icon]] ) functions in a similar manner to '''Run all tests in background''' with the exception that each test is paused at its starting point in the EiffelStudio debugger. '''Debug all tests in EiffelStudio''' has a drop-down icon providing the same options as '''Run all tests in background'''.
+
+
+[[Image:Testing Framework debug all drop down]]
+
+
+The '''Stop all execution''' command ( [[Image:debug-stop-icon]] ) will halt all tests which were started by the '''Run all tests in background''' or '''Debug all tests in EiffelStudio''' commands.
+
+
+==View Filtering==
+
+{{note|The development of this section is on hold pending interface changes. }}
+
+
+==Tests==
+
+The Tests pane presents tests in one or more expandable tree views. The structures of the trees depend upon the criteria that you have specified for organizing the view. For example, if you look at tests based on the test classes in which they exist, the structure of the tree view(s) will reflect the clusters in which the test classes exist. 
+
+
+[[Image:Testing Framework interface test view - class]]
+
+
+Likewise, if you look at tests based on their target classes, the structure of the display will be based on the target classes.
+
+
+[[Image:Testing Framework interface test view - covers]]
+
+
+Tests and test classes are pickable in the Tests pane.
+
+
+==Status and results==
+
+This pane supports a tabbed display that provides information about the execution and results of tests.
+
+After execution or debugging, the tests executed and their status are shown in the '''Execution''' tab or the '''Debugging''' tab.
+
+
+[[Image:Testing Framework interface results - Execution]]
+
+
+Double clicking a test in the '''Tests''' pane will switch the '''Status and results''' pane to the '''Results''' tab. This tab shows a history or the executions and results of that particular test. 
+
+
+[[Image:Testing Framework interface results - Results]]
+
+
+For failing executions, the failure code is shown, along with link to display the execution trace. 
+
+
+[[Image:Testing Framework interface results - trace]]
+
+
+
+
+

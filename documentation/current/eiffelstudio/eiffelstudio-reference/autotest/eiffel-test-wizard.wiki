@@ -1,0 +1,47 @@
+[[Property:title|The New Eiffel Test Wizard]]
+[[Property:link_title|The Eiffel Test Wizard]]
+[[Property:weight|1]]
+[[Property:uuid|305a8288-cb6a-df2a-1515-e23138e21566]]
+{{underconstruction}}
+
+
+==Introduction==
+
+The '''New Eiffel test wizard''' creates new tests based on information a developer enters on a series of forms. There is a different thread through these forms corresponding to each of the three test types supported by the Eiffel Testing Framework. 
+
+The '''New Eiffel test wizard''' is invoked by clicking the '''Create new tests''' button ( [[Image:create new tests]] ) on the Eiffel Testing Framework interface toolbar. 
+
+
+
+==The "New Eiffel test wizard" pane==
+
+The first pane of the wizard allows you to choose which type of test(s) you wish to create.
+
+
+[[Image: New test wizard screen 01 01]]
+
+
+==The manual test thread==
+
+Creating manual tests will involve using the following wizard panes. For a guided tour of this process, see [[Create a manual test]].
+
+
+===The "New test class" pane===
+
+
+In this pane you provide a name and cluster for the test class that will be created. You can also indicate that the created class include redefined versions of features <eiffel>on_prepare</eiffel> (called during preparation for test execution) and <eiffel>on_clean</eiffel> (called during clean-up after test execution).
+
+
+[[Image: New test wizard screen 02M 01]]
+
+
+===The "Test routine" pane===
+
+This pane gives you the ability to name the test, and to associate it with certain [[Create a manual test#About tags|tags]].
+
+
+[[Image: New test wizard screen 03M 01]]
+
+
+
+
