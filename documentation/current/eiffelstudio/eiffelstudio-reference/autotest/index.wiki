@@ -52,12 +52,12 @@ The '''Stop all execution''' command ( [[Image:debug-stop-icon]] ) will halt all
 
 ====View Filtering====
 
-{{note|This section is under construction pending interface changes. }}
+{{note|The development of this section is on hold pending interface changes. }}
 
 
 ====Tests====
 
-The test pane presents tests in one or more expandable tree views. The root of the tree depends upon the criteria that you have specified for organizing the view. For example, if you look at tests based on the test classes in which they exist, the roots of the tree views will reflect the clusters in which the test classes exist. 
+The Tests pane presents tests in one or more expandable tree views. The structures of the trees depend upon the criteria that you have specified for organizing the view. For example, if you look at tests based on the test classes in which they exist, the roots of the tree views will reflect the clusters in which the test classes exist. 
 
 Likewise, if you look at tests based on their target classes, the roots will be the clusters that include the target classes.
 
