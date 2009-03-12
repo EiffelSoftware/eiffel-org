@@ -7,7 +7,7 @@
 
 ==Introduction==
 
-The '''New Eiffel test wizard''' creates new tests based on information a developer enters on a series of forms. There is a different thread through these forms corresponding to each of the three test types supported by the Eiffel Testing Framework. 
+The '''New Eiffel test wizard''' creates new tests based on information entered by a developer on a series of wizard panes. Each of the three test types supported by the Eiffel Testing Framework requires certain unique information. Therefore, there is a unique sequence of wizard panes corresponding to each test type. 
 
 The '''New Eiffel test wizard''' is invoked by clicking the '''Create new tests''' button ( [[Image:create new tests]] ) on the Eiffel Testing Framework interface toolbar. 
 
@@ -21,7 +21,8 @@ The first pane of the wizard allows you to choose which type of test(s) you wish
 [[Image: New test wizard screen 01 01]]
 
 
-==The manual test thread==
+==The manual test wizard sequence==
+
 
 Creating manual tests will involve using the following wizard panes. For a guided tour of this process, see [[Create a manual test]].
 
@@ -29,7 +30,7 @@ Creating manual tests will involve using the following wizard panes. For a guide
 ===The "New test class" pane===
 
 
-In this pane you provide a name and cluster for the test class that will be created. You can also indicate that the created class include redefined versions of features <eiffel>on_prepare</eiffel> (called during preparation for test execution) and <eiffel>on_clean</eiffel> (called during clean-up after test execution).
+In this pane you provide a name and cluster for the test class that will be created. You can also indicate that the created class should include redefined versions of features <eiffel>on_prepare</eiffel> (called during preparation for test execution) and/or <eiffel>on_clean</eiffel> (called during clean-up after test execution).
 
 
 [[Image: New test wizard screen 02M 01]]
@@ -48,7 +49,7 @@ For tags, there are two entry boxes with '''Add''' buttons to their right. You c
 On the bottom box, use the drop-down arrow to choose a predefined tag, such as associating the test with a target class and routine.
 
 
-==The extracted test thread==
+==The extracted test wizard sequence==
 
 
 The '''Extract tests from running application''' radio button is only sensitive if the system is currently running. 
@@ -70,7 +71,7 @@ For extracted tests, the second pane to appear is the '''New test class''' pane.
 This pane provides a depiction of the current call stack. Choose the routine or routines for which you want extracted tests to be created.
 
 
-==The synthesized test thread==
+==The synthesized test wizard sequence==
 
 
 Creating synthesized tests will involve using the following wizard panes. For a guided tour of this process, see [[Using synthesized tests]].

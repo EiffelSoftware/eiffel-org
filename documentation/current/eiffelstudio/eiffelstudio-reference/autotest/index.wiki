@@ -22,4 +22,7 @@ This documentation is intended to describe the Eiffel Testing Framework interfac
 When you use the Eiffel Testing Framework, you control things by using two components: '''[[The Eiffel Testing Framework Interface]]''' and '''[[The New Eiffel Test Wizard]]'''. The interface is used to access, manage, execute, and monitor tests. The New Eiffel test wizard is used to help you create new tests.
 
 
+{{SeeAlso|<br/>[[Using the Eiffel Testing Framework]]  }}
+
+
 
