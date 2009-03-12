@@ -6,12 +6,15 @@
 
 ==Introduction==
 
-The Eiffel Testing Framework is a facility within EiffelStudio that helps developers create, manage, and execute software tests. These pages are intended to describe the Eiffel Testing Framework interface and capabilities. In addition to this material, you will find a tutorial entitled [[Using the Eiffel Testing Framework]] in [[EiffelStudio: A Guided Tour]]. The tutorial includes a simple example that you can use to work through the Testing Frameworks different facilities. It also contains definitions for terminology used in the tutorial and in this reference. Specifically:
+The Eiffel Testing Framework is a facility within EiffelStudio that helps developers create, manage, and execute software tests. 
+
+This documentation is intended to describe the Eiffel Testing Framework interface and capabilities. In addition to this material, you will find a tutorial entitled [[Using the Eiffel Testing Framework]] in [[EiffelStudio: A Guided Tour]]. The tutorial employs a simple example that is used to work step-by-step through the Testing Framework's different facilities. The tutorial also explains testing basics and recommendations for using the Eiffel Testing Framework. Lastly, the tutorial contains definitions for terminology used in both the tutorial and in these reference pages. It is recommended that you become familiar with these definitions, specifically:
 
 #[[Testing: Background and basics#Test classes and tests|Test classes and tests]]
 #[[Testing: Background and basics#Types of tests|The types of test supported by the Eiffel Testing Framework]]
 #[[Testing: Background and basics#Anatomy of a test|Target classes and target routines]]
 #[[Execute tests#About test results|Test results]]
+
 
 
 ==Components==

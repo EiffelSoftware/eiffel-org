@@ -37,10 +37,70 @@ In this pane you provide a name and cluster for the test class that will be crea
 
 ===The "Test routine" pane===
 
-This pane gives you the ability to name the test, and to associate it with certain [[Create a manual test#About tags|tags]].
+This pane gives you the ability to name the test, and to associate it with certain [[Create a manual test#About Tags|tags]].
 
 
 [[Image: New test wizard screen 03M 01]]
+
+
+For tags, there are two entry boxes with '''Add''' buttons to their right. You can use the top entry box to create entries for a tag system that you have developed. 
+
+On the bottom box, use the drop-down arrow to choose a predefined tag, such as associating the test with a target class and routine.
+
+
+==The extracted test thread==
+
+
+The '''Extract tests from running application''' radio button is only sensitive if the system is currently running. 
+
+Creating extracted tests will involve using the following wizard panes. For a guided tour of this process, see [[Using extracted tests]].
+
+
+===The "New test class" pane===
+
+For extracted tests, the second pane to appear is the '''New test class''' pane. It is completed just as for manual tests.
+
+
+===The "Extract application state" pane===
+
+
+[[Image:New test wizard screen 03E 01]]
+
+
+This pane provides a depiction of the current call stack. Choose the routine or routines for which you want extracted tests to be created.
+
+
+==The synthesized test thread==
+
+
+Creating synthesized tests will involve using the following wizard panes. For a guided tour of this process, see [[Using synthesized tests]].
+
+
+===The "New test class" pane===
+
+
+[[Image:New test wizard screen 02S 01]]
+
+
+This pane appears slightly different for synthesized tests versus manual or extracted tests. The class name is actually a prefix upon which a numeric index will be appended. The index is depicted to the right of the entry box. 
+
+
+===The "Generate tests through AutoTest" pane===
+
+
+[[Image:New test wizard screen 03S 01]]
+
+
+On this pane enter the information needed to produce synthesized tests. Use the '''Class or type name''' entry box in the lower left, along with the <code>+</code> and <code>-</code> buttons, to declare a list of one or more classes as target classes for synthesized tests. 
+
+Other information necessary for creating synthesized tests is:
+
+*'''Duration (minutes)''' -- How long the Eiffel Testing Framework will execute random invocations of the routines in the classes to be tested.
+*'''Routine timeout (seconds)''' -- How long the Framework will wait for completion of any invocation.
+*'''Random number generation seed''' -- The seed used for random number generator used during the process. A value of zero instructs the Framework to use a seed derived from the system clock.
+*'''Use slicing for minimization''' -- Designate '''slicing''' as the approach for minimizing the size of synthesized tests.
+*'''Use ddmin for minimization''' -- Designate '''ddmin''' as the approach for minimizing the size of synthesized tests.
+*'''Create html output''' -- Output history and statistics from the synthesizing process in html format.
 
 
 

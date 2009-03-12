@@ -8,7 +8,7 @@
 [[Image:Testing Framework interface annotated 01]]
 
 
-The interface consists of four primary components: 
+The Eiffel Testing Framework interface consists of four primary components: 
 # The toolbar
 # The view filtering controls 
 # The tests view
@@ -67,7 +67,7 @@ After execution or debugging, the tests executed and their status are shown in t
 [[Image:Testing Framework interface results - Execution]]
 
 
-Double clicking a test in the '''Tests''' pane will switch the '''Status and results''' pane to the '''Results''' tab. This tab shows a history or the executions and results of that particular test. 
+Double clicking a test in the '''Tests''' pane will switch the '''Status and results''' pane to the '''Results''' tab. This tab shows an expandable history of the executions and results of that particular test. 
 
 
 [[Image:Testing Framework interface results - Results]]
