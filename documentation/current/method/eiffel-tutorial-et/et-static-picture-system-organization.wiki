@@ -35,7 +35,7 @@ The client relation can be cyclic; an example involving a cycle would be classes
 
 In modeling terms, client roughly represents the relation "has" and heir roughly represents "is". For example we may use Eiffel classes to model a certain system and express that every child <code>has</code> a birth date (client relation) and is a person (inheritance). 
 
-Distinctive of Eiffel is the rule that lasses can only be connected through these two relations. This excludes the behind-the-scenes dependencies often found in other approaches, such as the use of global variables, which jeopardize the modularity of a system. Only through a strict policy of limited and explicit inter-class relations can we achieve the goals of reusability and extendibility. 
+Distinctive of Eiffel is the rule that classes can only be connected through these two relations. This excludes the behind-the-scenes dependencies often found in other approaches, such as the use of global variables, which jeopardize the modularity of a system. Only through a strict policy of limited and explicit inter-class relations can we achieve the goals of reusability and extendibility. 
 
 ==The global inheritance structure==
 
@@ -66,7 +66,7 @@ The subsequent sections will show how to write Eiffel classes with their feature
          end
 </code>
 
-to indicate that it is actually an encapsulation of a C function whose original name is <code>fstat _</code>. The <code>alias</code> clause is optional, but here it is needed because the C name, starting with an underscore, is not valid as an Eiffel identifier. 
+to indicate that it is actually an encapsulation of a C function whose original name is <code>_fstat</code>. The <code>alias</code> clause is optional, but here it is needed because the C name, starting with an underscore, is not valid as an Eiffel identifier. 
 
 Similar syntax exists to interface with C++ classes. EiffelStudio includes a tool called Legacy++ which will automatically produce, from a C++ class, an Eiffel class that encapsulates its facilities, making them available to the rest of the Eiffel software as bona fide Eiffel features. 
 

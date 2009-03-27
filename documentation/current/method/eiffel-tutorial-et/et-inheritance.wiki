@@ -26,7 +26,7 @@ This makes <code>D</code> an heir of <code>A</code>, <code>B</code> and any othe
 
 {{note|This discussion will rely on the terminology introduced in [[5 The Static Picture: System Organization|The Static Picture: System Organization]]: descendants of a class are the class itself, its heirs, the heirs of its heirs and so on. Proper descendants exclude the class itself. The reverse notions are ancestors and proper ancestors. }}
 
-By default <code>D</code> will simply include all the original features of <code>A</code>, <code>B</code>, ..., to which it may add its own through its <code>feature</code> clauses if any. But the inheritance mechanism is more flexible, allowing <code>D</code> to adapt the inherited features in many ways. Each parent name -- <code>A</code>, <code>B</code>, ... in the example -- can be followed by a Feature Adaptation clause, with subclauses, all optional, introduced by keywords <code>rename</code>, <code>export</code>, <code>undefine</code>, <code>redefine</code> and <code>select</code>, enabling the author of <code>A</code> to make the best use of the inheritance mechanism by tuning the inherited features to the precise needs of <code>D</code>. This makes inheritance a principal tool in the Eiffel process, mentioned earlier, of carefully crafting each individual class, like a machine, for the benefit of its clients. The next sections review the various Feature Adaptation subclauses. 
+By default <code>D</code> will simply include all the original features of <code>A</code>, <code>B</code>, ..., to which it may add its own through its <code>feature</code> clauses if any. But the inheritance mechanism is more flexible, allowing <code>D</code> to adapt the inherited features in many ways. Each parent name -- <code>A</code>, <code>B</code>, ... in the example -- can be followed by a Feature Adaptation clause, with subclauses, all optional, introduced by keywords <code>rename</code>, <code>export</code>, <code>undefine</code>, <code>redefine</code> and <code>select</code>, enabling the author of <code>D</code> to make the best use of the inheritance mechanism by tuning the inherited features to the precise needs of <code>D</code>. This makes inheritance a principal tool in the Eiffel process, mentioned earlier, of carefully crafting each individual class, like a machine, for the benefit of its clients. The next sections review the various Feature Adaptation subclauses. 
 
 ==Redefinition==
 
@@ -73,7 +73,7 @@ end -- class SAVINGS_ACCOUNT
 
 Without the <code>redefine</code> subclause, the declaration of <code>deposit</code> would be invalid, yielding two features of the same name, the inherited one and the new one. The subclause makes this valid by specifying that the new declaration will override the old one. 
 
-In a redefinition, the original version -- such as the <code>ACCOUNT</code> implementation of <code>deposit</code> in this example -- is called the <code>precursor</code> of the new version. It is common for a redefinition to rely on the precursor's algorithm and add some other actions; the reserved word <code>Precursor</code> helps achieve this goal simply. Permitted only in a routine redefinition, it denotes the parent routine being redefined. So here he body of the new <code>deposit</code> (called "implementation New" above) could be of the form 
+In a redefinition, the original version -- such as the <code>ACCOUNT</code> implementation of <code>deposit</code> in this example -- is called the <code>precursor</code> of the new version. It is common for a redefinition to rely on the precursor's algorithm and add some other actions; the reserved word <code>Precursor</code> helps achieve this goal simply. Permitted only in a routine redefinition, it denotes the parent routine being redefined. So here the body of the new <code>deposit</code> (called "New implementation" above) could be of the form 
 <code>
             Precursor (sum)
                 -- Apply ACCOUNT's version of deposit
@@ -87,7 +87,7 @@ Besides changing the implementation of a routine, a redefinition can turn an arg
 
 ==Polymorphism==
 
-The inheritance mechanism is relevant to both roles of classes: module and type. Its application as a mechanism to reuse, adapt and extend features from one class to another, as just seen, covers its role as a '''module extension''' mechanism. But it's also a '''subtyping''' mechanism. To say that <code>D</code> is an heir of <code>A</code>, or more generally a descendant of <code>A</code>, is to expresses that instances of <code>D</code> can be viewed as instances of <code>A</code>. 
+The inheritance mechanism is relevant to both roles of classes: module and type. Its application as a mechanism to reuse, adapt and extend features from one class to another, as just seen, covers its role as a '''module extension''' mechanism. But it's also a '''subtyping''' mechanism. To say that <code>D</code> is an heir of <code>A</code>, or more generally a descendant of <code>A</code>, is to express that instances of <code>D</code> can be viewed as instances of <code>A</code>. 
 
 '''Polymorphic assignment''' supports this second role. In an assignment <code>x := y</code>, the types of <code>x</code> and <code>y</code> do not have, with inheritance, to be identical; the rule is that the type of <code>y</code> must simply '''conform''' to the type of <code>x</code>. A class <code>D</code> conforms to a class <code>A</code> if and only if it is a descendant of <code>A</code> (which includes the case in which <code>A</code> and <code>D</code> are the same class); if these classes are generic, conformance of <code>D</code> <code>[</code> <code>U</code> <code>]</code> to <code>C</code> <code>[</code> <code>T</code> <code>]</code> requires in addition that type <code>U</code> conform to type <code>T</code> (through the recursive application of the same rules). 
 
@@ -122,11 +122,11 @@ A consequence of polymorphism is the ability to define '''polymorphic data struc
     accounts: LIST [ACCOUNT]
 </code>
 
-the procedure call <code>accounts.extend</code> ( <code>acc</code>), because it uses a procedure <code>extend</code>which in this case expects an argument of any type conforming to <code>ACCOUNT</code>, will be valid not only if <code>acc</code> is of type <code>ACCOUNT</code> but also if it is of a descendant type such as <code>SAVINGS_ACCOUNT</code>. Successive calls of this kind make it possible to construct a data structure that, at run-time, might contain objects of several types, all conforming to <code>ACCOUNT</code>: 
+the procedure call <code>accounts.extend</code> ( <code>acc</code>), because it uses a procedure <code>extend</code> which in this case expects an argument of any type conforming to <code>ACCOUNT</code>, will be valid not only if <code>acc</code> is of type <code>ACCOUNT</code> but also if it is of a descendant type such as <code>SAVINGS_ACCOUNT</code>. Successive calls of this kind make it possible to construct a data structure that, at run-time, might contain objects of several types, all conforming to <code>ACCOUNT</code>: 
 
 [[Image:tutorial-10]]   [[Image:tutorial-11]]  
 
-Such polymorphic data structures combine the flexibility and safety of genericity and inheritance. You can make them more or less general by choosing for the actual generic parameter, here <code>ACCOUNT</code>, a type higher or lower in the inheritance hierarchy. Static typing is again essential here, prohibiting for example a mistaken insertion of the form <code>accounts.extend (dep)</code> where <code>dep</code>is of type <code>DEPOSIT</code>, which does not conform to <code>ACCOUNT</code>. 
+Such polymorphic data structures combine the flexibility and safety of genericity and inheritance. You can make them more or less general by choosing for the actual generic parameter, here <code>ACCOUNT</code>, a type higher or lower in the inheritance hierarchy. Static typing is again essential here, prohibiting for example a mistaken insertion of the form <code>accounts.extend (dep)</code> where <code>dep</code> is of type <code>DEPOSIT</code>, which does not conform to <code>ACCOUNT</code>. 
 
 At the higher (most abstract) end of the spectrum, you can produce an unrestrictedly polymorphic data structure <code>general_list: LIST [ANY]</code> which makes the call <code>general_list.extend (x)</code> valid for any <code>x</code>. The price to pay is that retrieving an element from such a structure will yield an object on which the only known applicable operations are the most general ones, valid for all types: assignment, copy, twin, equality comparison and others from <code>ANY</code>. Assignment attempt, studied below, will make it possible to apply more specific operations after checking dynamically that a retrieved object is of the appropriate type. 
 
@@ -211,7 +211,7 @@ feature -- Element change
 end -- class LIST
 </code>
 
-A deferred feature (considered to be a routine, although it can yield an attribute in a proper descendant) has the single keyword <code>deferred</code> in lieu of the <code>do</code> ''Instructions'' clause of an effective routine. A deferred class -- defined as a class that has at least one deferred feature -- must be introduced by <code>class deferred</code> instead of just <code>class</code>. 
+A deferred feature (considered to be a routine, although it can yield an attribute in a proper descendant) has the single keyword <code>deferred</code> in lieu of the <code>do</code> ''Instructions'' clause of an effective routine. A deferred class -- defined as a class that has at least one deferred feature -- must be introduced by <code>deferred class</code> instead of just <code>class</code>. 
 
 As the example of <code>extend</code> shows, a deferred feature, although it has no implementation, can be equipped with assertions. They will be binding on implementations in descendants, in a way to be explained below. 
 
@@ -341,9 +341,9 @@ Some deferred classes describe a structural property, useful to the description 
 
 <code>NUMERIC</code> describes objects on which arithmetic operations <code>+, -, *, /</code> are available, with the properties of a ring (associativity, distributivity, zero elements etc.). Kernel Library classes such as <code>INTEGER</code> and <code>REAL</code> -- but not, for example, <code>STRING</code> -- are descendants of <code>NUMERIC</code>. An application that defines a class <code>MATRIX</code> may also make it a descendant of <code>NUMERIC</code>. 
 
-<code>COMPARABLE</code> describes objects on which comparison operations <code><, <=, >, >=</code> are available, with the properties of a total preorder (transitivity, irreflexivity). Kernel Library classes such as <code>CHARACTER</code>, <code>STRING</code> and <code>INTEGER</code> -- but not out <code>MATRIX</code> example -- are descendants of <code>NUMERIC</code>. 
+<code>COMPARABLE</code> describes objects on which comparison operations <code><, <=, >, >=</code> are available, with the properties of a total preorder (transitivity, irreflexivity). Kernel Library classes such as <code>CHARACTER</code>, <code>STRING</code> and <code>INTEGER</code> -- but not our <code>MATRIX</code> example -- are descendants of <code>NUMERIC</code>. 
 
-For such classes it is again essential to permit effective features in a deferred class, and to include assertions. For example class <code>COMPARABLE</code> declares <code>infix "<"</code> as deferred, and expresses <code>>, >=</code> and <code><</code> effectively in terms of it. 
+For such classes it is again essential to permit effective features in a deferred class, and to include assertions. For example class <code>COMPARABLE</code> declares <code>infix "<"</code> as deferred, and expresses <code>>, >=</code> and <code><=</code> effectively in terms of it. 
 
 {{note|The type <code>like Current</code> will be explained in [[9 Inheritance#Covariance_and_anchored_declarations|"Covariance and anchored declarations"]] ; you may understand it, in the following class, as equivalent to <code>COMPARABLE</code>. }}
 <code>
@@ -452,14 +452,22 @@ As a result of dynamic binding, a call <code>a1</code> . <code>r</code> from a c
 
 The problem is to keep subcontractors honest. Assuming preconditions and postconditions as shown on the last figure, a call in <code>C</code> of the form 
 <code>
-        if a1.pre then a1.r end
+            if a1.pre then 
+                a1.r 
+            end
 </code>
 
-or just <code>a1.q</code>; <code>a1.r</code> where the postcondition of <code>q</code> implies the precondition <code>pre</code> of <code>r</code>, satisfies the terms of the contract and hence is entitled to being handled correctly -- to terminate in a state satisfying <code>a1</code> . <code>post</code>. But if we let the subcontractor <code>B</code> redefine the assertions to arbitrary ''pre'' <code>'</code> and ''post''', this is not necessarily the case: ''pre''' could be stronger than ''pre'', enabling <code>B</code> not to process correctly certain calls that are correct from <code>A</code>'s perspective; and ''post''' could be weaker than ''post'', enabling <code>B</code> to do less of a job than advertized for <code>r</code> in the Contract Form of <code>A</code>, the only official reference for authors of client classes such as <code>C</code>. (An assertion <code>p</code> is stronger than or equal to an assertion <code>q</code> if <code>p</code> implies <code>q</code> in the sense of boolean implication.) 
+or possibly 
+<code>
+            a1.q
+            a1.r
+</code> 
 
-The rule, then, is that for the redefinition to be correct the new precondition ''pre''' must be weaker than or equal to the original ''pre'', and the new postcondition ''post''' must be stronger than or equal to the original ''post'''. 
+where the postcondition of some routine <code>q</code> implies the precondition <code>pre</code> of <code>r</code>, satisfies the terms of the contract and hence is entitled to being handled correctly -- to terminate in a state satisfying <code>a1</code>.<code>post</code>. But if we let the subcontractor <code>B</code> redefine the assertions to arbitrary ''pre' ''and ''post','' this is not necessarily the case: ''pre' ''could be stronger than ''pre'', enabling <code>B</code> not to process correctly certain calls that are correct from <code>A</code>'s perspective; and ''post' ''could be weaker than ''post'', enabling <code>B</code> to do less of a job than advertized for <code>r</code> in the Contract Form of <code>A</code>, the only official reference for authors of client classes such as <code>C</code>. (An assertion <code>p</code> is stronger than or equal to an assertion <code>q</code> if <code>p</code> implies <code>q</code> in the sense of boolean implication.) 
 
-Because it is impossible to check simply that an assertion is weaker or stronger than another, the language rule relies on different forms of the assertion constructs, <code>else require</code> and <code>then ensure</code>, for redeclared routines. They rely on the mathematical property that, for any assertions <code>p</code> and <code>q,</code> <code>p implies ( p or q )</code>, and <code>(p and q) implies p</code>. For a precondition, using <code>else require</code> with a new assertion will perform an <code>or</code>, which can only weaken the original; for a postcondition, <code>then ensure</code> will perform an <code>and</code>, which can only strengthen the original. Hence the rule: 
+The rule, then, is that for the redefinition to be correct the new precondition ''pre' ''must be weaker than or equal to the original ''pre'', and the new postcondition ''post' ''must be stronger than or equal to the original ''post''. 
+
+Because it is impossible to check simply that an assertion is weaker or stronger than another, the language rule relies on different forms of the assertion constructs, <code>else require</code> and <code>then ensure</code>, for redeclared routines. They rely on the mathematical property that, for any assertions <code>p</code> and <code>q,</code> <code>p implies (p or q)</code>, and <code>(p and q) implies p</code>. For a precondition, using <code>require else</code> with a new assertion will perform an <code>or</code>, which can only weaken the original; for a postcondition, <code>ensure then</code> will perform an <code>and</code>, which can only strengthen the original. Hence the rule: 
 
 {{rule|name=Assertion Redeclaration|text=In the redeclared version of a routine, it is not permitted to use a require or ensure clause. Instead you may: Introduce a new condition with require else, for or-ing with the original precondition. Introduce a new condition with ensure then, for and-ing with the original postcondition. In the absence of such a clause, the original assertions are retained. }}
 

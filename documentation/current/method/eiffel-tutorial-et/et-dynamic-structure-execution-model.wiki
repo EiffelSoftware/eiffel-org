@@ -405,13 +405,7 @@ Assignment uses the symbol <code> := </code>. The assignment instruction
             x := y
 </code>
 
-updates the value of <code>x</code> to be the same as that of <code>y</code>. This means that: 
-
-
-[[Image:tutorial-9]]  
-
-
-For entities of reference types, the value of <code>x</code> will be a void reference if the value of <code>y</code> is void, and otherwise <code>x</code> will be attached to the same object OBJ2 as <code>y</code>: 
+updates the value of <code>x</code> to be the same as that of <code>y</code>. This means that for entities of reference types, the value of <code>x</code> will be a void reference if the value of <code>y</code> is void, and otherwise <code>x</code> will be attached to the same object OBJ2 as <code>y</code>: 
 
 
 [[Image:tutorial-9]]  
@@ -423,7 +417,7 @@ To copy an object, use
 <code>
             x.copy (y)
 </code>
-which assumes that both <code>x</code> and <code>y</code> are non-void, and copies the contents of <code>y</code>'s attached object onto those of <code>x</code>'s. For expanded entities the effect is the same as that the of the assignment <code>x := y</code>. 
+which assumes that both <code>x</code> and <code>y</code> are non-void, and copies the contents of <code>y</code>'s attached object onto those of <code>x</code>'s. For expanded entities the effect is the same as that of the assignment <code>x := y</code>. 
 
 An operation performing similar duty to <code>copy</code> is <code>twin</code> . The assignment
 <code>
@@ -600,13 +594,13 @@ From then on only two events can change the current object and current procedure
 
 In a call of the form <code>target.routine (...)</code> , <code>target</code> denotes a certain object TC. (If not, that is to say, if the value of target is void, attempting to execute the call will trigger an exception, as studied below.) The generating class of TC must, as per the Feature Call rule, contain a routine of name <code>routine</code>. As the call starts, TC becomes the new current object and <code>routine</code> becomes the new current routine. 
 
-When a routine execution terminates, the target object and routine of the most recent non-terminated call -- which, just before just before the terminated call, were the current object and the current routine -- assume again the role of current object and current routine. 
+When a routine execution terminates, the target object and routine of the most recent non-terminated call -- which, just before the terminated call, were the current object and the current routine -- assume again the role of current object and current routine. 
 
 The only exception to the last rule is termination of the original root procedure call; in this case the entire execution terminates. 
 
 ==Abstraction==
 
-The description of assignments stated that in <code>x := y</code> the target <code>x</code> must be an entity. More precisely it must be a '''writable''' entity. This notion excludes formal routine arguments: as noted, a routine <code>r (arg: SOME_TYPE)</code> may assign to <code>arg</code> (reattaching it to a different object), although it can change the attached objects through calls of the form <code>arg.procedure (...)</code> . 
+The description of assignments stated that in <code>x := y</code> the target <code>x</code> must be an entity. More precisely it must be a '''writable''' entity. This notion excludes formal routine arguments: as noted, a routine <code>r (arg: SOME_TYPE)</code> may not assign to <code>arg</code> (reattaching it to a different object), although it can change the attached objects through calls of the form <code>arg.procedure (...)</code> . 
 
 Restricting assignment targets to entities precludes assignments of the form <code>obj.some_attribute := some_value</code> , since the left-hand side <code>obj.some_attribute</code> is an expression (a feature call), not an entity: you may no more assign to <code>obj.some_attribute</code> than to, say, <code>b + a</code> -- another expression that is also, formally, a feature call. 
 

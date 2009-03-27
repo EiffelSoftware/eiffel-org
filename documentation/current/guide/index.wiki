@@ -6,7 +6,7 @@
 
 These pages are the central repository of information about Eiffel and the products and technologies of Eiffel Software.
 
-The documentation is organized into virtual books. Each book covers an important aspect of the world of Eiffel..
+The documentation is organized into virtual books. Each book covers an important aspect of the world of Eiffel.
 
 * [[Guide]] -- Guide to Eiffel Information
 * [[Why Eiffel?]] -- Why Eiffel?
@@ -23,32 +23,33 @@ Sources of information on Eiffel include:
 
 ===[[Guide]] -- Guide to Eiffel Information===
 
-You are reading this book now.
+:You are reading this book now.
 
 ===[[Why Eiffel?]] -- Why Eiffel? ===
 
-A summary of the arguments for using Eiffel.
+:A summary of the arguments for using Eiffel.
 
 ===[[Method|Method and Language]] -- The Eiffel Method and Language===
 
-Materials promoting the understanding of the Eiffel software development method and Eiffel the language.
+:Materials promoting the understanding of the Eiffel software development method and Eiffel the language.
 
 ===[[EiffelStudio]] -- The EiffelStudio Interactive Development Environment===
 
-Information about installing and using EiffelStudio
+:Information about installing and using EiffelStudio
 
 ===[[Solutions]] -- Eiffel Solutions, Technologies, and Class Libraries===
 
-Technologies available with Eiffel provide solutions to many ordinary development needs ... and some extraordinary needs too. This book addresses these requirements and the Eiffel technologies that satisfy them.
+:Technologies available with Eiffel provide solutions to many ordinary development needs ... and some extraordinary needs too. This book addresses these requirements and the Eiffel technologies that satisfy them.
 
 ===[[Platform specifics]] -- Support for particular operating systems===
 
-Although most  Eiffel technology is completely platform-independent, Eiffel also provides important platform-specific solutions, described in this book.
+:Although most  Eiffel technology is completely platform-independent, Eiffel also provides important platform-specific solutions, described in this book.
 
 ===[[Community]] -- You can contribute to the documentation!===
 
+:EiffelStudio documentation is available in a convenient Wiki format. This makes it possible to improve the documentation continuously and make sure it is always up to date.
 
-EiffelStudio documentation is available in a convenient Wiki format. This makes it possible to improve the documentation continuously and make sure it is always up to date.
+
 
 '''Community input''' is welcome. If you are interested in improving and developing EiffelStudio documentation, you can become a ''contributor'' or ''editor'':
 
@@ -69,28 +70,28 @@ If you are interested in becoming a contributor, please send an email to info@ei
 ----
 
 
-===The Eiffel.com website===
+===The [http://eiffel.com Eiffel.com] website===
 
 Eiffel Software's website [http://eiffel.com Eiffel.com] contains an enormous amount of information about Eiffel. There are product descriptions, special pages for developers and their managers, case studies and testimonials, the latest Eiffel news, and much more.
 
 
 ----
 
-===Web Presentations on Eiffel.com===
+===[http://eiffel.com/developers/presentations/ Web Presentations] on Eiffel.com===
 
 Learn quickly about Eiffel and the things that help make it special, like Design by Contract and EiffelStudio. Learn how Eiffel fits in with and compares to other popular technologies. All this and more is available on the [http://eiffel.com/developers/presentations/ presentations page] on Eiffel.com. 
 
 
 ----
 
-===Learning Maps on Eiffel.com===
+===[http://eiffel.com/developers/learning_maps/ Learning Maps] on Eiffel.com===
 
-AGet an in-depth view of topics by navigating the [http://eiffel.com/developers/learning_maps/ Eiffel Learning Maps]. Learning maps represent knowledge as a network of interrelated concepts. Attached to the concepts you may find links to additional resources. These resources can be just about anything. You'll find plain text files, web pages, screen shots, and even Eiffel Learnlets. Learnlets are small units of learning in web presentation form that are designed to take no more than 30 minutes to view ... just right for your lunch break.
+Get an in-depth view of topics by navigating the [http://eiffel.com/developers/learning_maps/ Eiffel Learning Maps]. Learning maps represent knowledge as a network of interrelated concepts. Attached to the concepts you may find links to additional resources. These resources can be just about anything. You'll find plain text files, web pages, screen shots, and even Eiffel Learnlets. Learnlets are small units of learning in web presentation form that are designed to take no more than 30 minutes to view ... just right for your lunch break.
 
 
 ----
 
-===The EiffelRoom Website===
+===The [http://www.eiffelroom.com/ EiffelRoom] Website===
 
 [http://www.eiffelroom.com/ EiffelRoom] is an Eiffel community website on which Eiffel developers from across the globe come together and share their experiences ... and their products. You'll find how-to articles, tips and tricks, example code, whole libraries of EIffel classes, and specialized products. It is easy to contribute to EiffelRoom and start giving back to the community.
 
@@ -111,7 +112,7 @@ A few times a year, we send out an email newsletter containing announcements of 
 
 ----
 
-===Object-oriented Software Construction, 2nd Edition===
+===[http://www.eiffel.com/doc/oosc/ Object-oriented Software Construction, 2nd Edition]===
 
 There is no better place to gain an in-depth understanding of the Eiffel software development method than [http://www.eiffel.com/doc/oosc/ Object-oriented Software Construction, 2nd Edition], by Bertrand Meyer, published by Prentice Hall. It is the world's most complete guide to building great object-oriented software.
 
@@ -129,11 +130,11 @@ Eiffel has been standardized under ECMA and ISO. The comprehensive description o
 
 You can help Eiffel by contributing your time, expertise, and products. Here are some websites that you can visit to see what's up with the development of Eiffel Software products. 
 
-====dev.eiffel.com====
+====[http://dev.eiffel.com dev.eiffel.com]====
 
 :This [http://dev.eiffel.com wiki site] is the hub of development activity for the EiffelStudio interactive development environment. Even if you do not plan to contribute, dev.eiffel.com is a valuable source of information concerning where EiffelStudio is going ... and, if you're curious, where it has been.
 
-====EiffelStudio on Origo====
+====[http://eiffelstudio.origo.ethz.ch/ EiffelStudio on Origo]====
 
 :[http://eiffelstudio.origo.ethz.ch/ EiffelStudio on Origo] contains blogs and forums focusing on Eiffel and EiffelStudio topics.
 
