@@ -28,7 +28,7 @@ where <code>r</code> is the name of a routine of the enclosing class. This is an
             your_icon.click_actions.extend (agent your_routine)
 </code>
 
-This adds to the end of <code>my_icon.click_actions</code> -- the list of agents associated with the "click" event for <code>my_icon</code>, denoting an icon in the application's user interface -- an agent representing <code>your_routine</code>. Then when a user clicks on the associated icon at execution, the EiffelVision 2 mechanisms will call the procedure <code>call</code> on every agent of the list, which for this agent will execute <code>your_routine</code>. This is a simple way to associate elements of your application, more precisely its "business model" (the processing that you have defined, directly connected to the application's business domain), with elements of its GUI. 
+This adds to the end of <code>your_icon.click_actions</code> -- the list of agents associated with the "click" event for <code>your_icon</code>, denoting an icon in the application's user interface -- an agent representing <code>your_routine</code>. Then when a user clicks on the associated icon at execution, the EiffelVision 2 mechanisms will call the procedure <code>call</code> on every agent of the list, which for this agent will execute <code>your_routine</code>. This is a simple way to associate elements of your application, more precisely its "business model" (the processing that you have defined, directly connected to the application's business domain), with elements of its GUI. 
 
 Similarly although in a completely different area, you may request the integration of a function <code>your_function</code> over the interval <code>0..1</code> through a call such as 
 <code>
@@ -50,7 +50,7 @@ An agent <code>agent</code> <code>r</code> built from a procedure <code>r</code>
 
 Among the features of <code>ROUTINE</code> and its descendants the most important are <code>call</code>, already noted, which calls the associated routine, and <code>item</code>, appearing only in <code>FUNCTION</code> and yielding the result of the associated function, which it obtains by calling <code>call</code>. 
 
-As an example of using these mechanisms, here is how the function <code>integral</code> could look like in our <code>INTEGRATOR</code> example class. The details of the integration algorithm (straight forward, and making no claims to numerical sophistication) do not matter, but you see, in the highlighted line, the place were we evaluate the mathematical function associated with <code>f</code>, by calling <code>item</code> on <code>f</code>: 
+As an example of using these mechanisms, here is how the function <code>integral</code> could look like in our <code>INTEGRATOR</code> example class. The details of the integration algorithm (straight forward, and making no claims to numerical sophistication) do not matter, but you see the place were we evaluate the mathematical function associated with <code>f</code>, by calling <code>item</code> on <code>f</code>: 
 <code>
     integral (f: FUNCTION [ANY, TUPLE [REAL], REAL]; low, high: REAL): REAL
             -- Integral of `f' over the interval [`low', `high']
@@ -69,7 +69,7 @@ As an example of using these mechanisms, here is how the function <code>integral
             until 
                 x > high
             loop
-                Result := Result + step * f.item ([x])
+                Result := Result + step * f.item ([x])     -- Here item is applied to f 
                 x := x + step
             end
         end
@@ -80,7 +80,7 @@ Function <code>integral</code> takes three arguments: the agent <code>f</code> r
             Result := Result + step * f.item ([x])
 </code>
 
-we don't directly pass <code>x</code> to <code>item</code>; instead, we pass a one-element tuple <code>[x]</code>, using the syntax for manifest tuples introduced in [[10 Other Mechanisms#Tuple_types|"Tuple types"]] . You will always use tuples for the argument to <code>call</code> and <code>item</code>, because these features must be applicable to any routine, and so cannot rely on a fixed number of arguments. Instead they take a single tuple intended to contain all the arguments. This property is reflected in the type of the second actual generic parameter to <code>f</code>, corresponding to <code>ARGS</code> (the formal generic parameter of <code>FUNCTION</code>): here it's <code>TUPLE [REAL]</code> to require an argument such as <code>[ x]</code>, where <code>x</code> is of type <code>REAL</code>. 
+we don't directly pass <code>x</code> to <code>item</code>; instead, we pass a one-element tuple <code>[x]</code>, using the syntax for manifest tuples introduced in [[10 Other Mechanisms#Tuple_types|"Tuple types"]] . You will always use tuples for the argument to <code>call</code> and <code>item</code>, because these features must be applicable to any routine, and so cannot rely on a fixed number of arguments. Instead they take a single tuple intended to contain all the arguments. This property is reflected in the type of the second actual generic parameter to <code>f</code>, corresponding to <code>ARGS</code> (the formal generic parameter of <code>FUNCTION</code>): here it's <code>TUPLE [REAL]</code> to require an argument such as <code>[x]</code>, where <code>x</code> is of type <code>REAL</code>. 
 
 Similarly, consider the agent that the call seen above:
 <code>
@@ -179,7 +179,7 @@ even though the two procedures used in the agents have quite different forms. We
         end
 </code>
 
-so that it doesn't take an argument: it is normally called on its target, as in <code>my_account.deposit_one_grand</code>. In contrast, the other routine has an argument: 
+so that it doesn't take an argument: it is normally called on its target, as in <code>your_account.deposit_one_grand</code>. In contrast, the other routine has an argument: 
 <code>
     add_to_n (x: INTEGER)
             -- Add `x' to the value of `total'. 
@@ -195,6 +195,8 @@ where <code>total</code> is an integer attribute of the enclosing class. Without
 
 Agents provide a welcome complement to the other mechanisms of Eiffel. They do not conflict with them but, when appropriate -- as in the examples sketched in this section -- provide clear and expressive programming schemes, superior to the alternatives.
 
+
+{{SeeAlso|[[Event Programming with Agents]] }}
 
 
 

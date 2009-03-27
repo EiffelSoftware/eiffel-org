@@ -467,7 +467,12 @@ where the postcondition of some routine <code>q</code> implies the precondition 
 
 The rule, then, is that for the redefinition to be correct the new precondition ''pre' ''must be weaker than or equal to the original ''pre'', and the new postcondition ''post' ''must be stronger than or equal to the original ''post''. 
 
-Because it is impossible to check simply that an assertion is weaker or stronger than another, the language rule relies on different forms of the assertion constructs, <code>require else</code> and <code>ensure then</code>, for redeclared routines. They rely on the mathematical property that, for any assertions <code>p</code> and <code>q,</code> <code>p implies (p or q)</code>, and <code>(p and q) implies p</code>. For a precondition, using <code>require else</code> with a new assertion will perform an <code>or</code>, which can only weaken the original; for a postcondition, <code>ensure then</code> will perform an <code>and</code>, which can only strengthen the original. Hence the rule: 
+Because it is impossible to check simply that an assertion is weaker or stronger than another, the language rule relies on different forms of the assertion constructs, <code>require else</code> and <code>ensure then</code>, for redeclared routines. They rely on the mathematical property that for any assertions <code>p</code> and <code>q</code>, the following are true:
+<code lang='text'>
+   1) p implies (p or q) 
+   2) (p and q) implies p
+</code>
+For a precondition, using <code>require else</code> with a new assertion will perform an <code>or</code>, which can only weaken the original; for a postcondition, <code>ensure then</code> will perform an <code>and</code>, which can only strengthen the original. Hence the rule: 
 
 {{rule|name=Assertion Redeclaration|text=In the redeclared version of a routine, it is not permitted to use a require or ensure clause. Instead you may: Introduce a new condition with require else, for or-ing with the original precondition. Introduce a new condition with ensure then, for and-ing with the original postcondition. In the absence of such a clause, the original assertions are retained. }}
 
@@ -521,7 +526,7 @@ More generally, it is permitted to have any number of deferred features and at m
 
 All this is not a violation of the Final Name rule (defined in [[9 Inheritance#Multiple_inheritance_and_renaming|"Multiple inheritance and renaming"]] ), since the name clashes prohibited by the rule involve two different features having the same final name; here the result is just one feature, resulting from the join of all the inherited versions. 
 
-Sometimes we may want to join ''effective'' features inherited from different parents, assuming again the features have compatible signatures. One way is to redefine them all into a new version; then they again become one feature, with no name clash in the sense of the Final Name rule. But in other cases we may simply want one of the inherited implementations to take over the others. The solution is to revert to the preceding case by '''uneffecting''' the other features; uneffecting an inherited effective feature makes it deferred (this is the reverse of effecting, which turns an inherited deferred feature into an effective one). The syntax uses the <code>undefine</code> subclause: 
+Sometimes we may want to join ''effective'' features inherited from different parents, assuming again the features have compatible signatures. One way is to redefine them all into a new version. That is, list each in a <code>redefine</code> clause, then write a redefined version of the feature. In this case, they again become one feature, with no name clash in the sense of the Final Name rule. But in other cases we may simply want one of the inherited implementations to take over the others. The solution is to revert to the preceding case by '''uneffecting''' the other features; uneffecting an inherited effective feature makes it deferred (this is the reverse of effecting, which turns an inherited deferred feature into an effective one). The syntax uses the <code>undefine</code> subclause: 
 <code>
 class D
 
@@ -595,7 +600,7 @@ Thanks to inheritance, a concise class text may achieve a lot, relying on all th
 
 This is part of the power of the object-oriented form of reuse, but can create a comprehension and documentation problem when the inheritance structures become deep: how does one understand such a class, either as client author or as maintainer? For clients, the Contract Form, entirely deduced from the class text, does not tell the full story about available features; and maintainers must look to proper ancestors for much of the relevant information. 
 
-These observations suggest ways to produce, from a class text, a version that is equivalent feature-wise and assertion-wise, but has no inheritance dependency. This is called the '''Flat Form''' of the class. It is a class text that has no inheritance clause and includes all the features of the class, immediate (declared in the class itself) as well as inherited. For the inherited features, the flat form must of course take account of all the feature adaptation mechanisms: renaming (each feature must appear under its final name), redefinition, effecting, uneffecting and export status change. For redeclared features, <code>else require</code> clauses are or-ed with the precursors' preconditions, and <code>then ensure</code> clauses are and-ed with precursors' postconditions. For invariants, all the ancestors' clauses are concatenated. As a result, the flat form yields a view of the class, its features and its assertions that conforms exactly to the view offered to clients and (except for polymorphic uses) heirs. 
+These observations suggest ways to produce, from a class text, a version that is equivalent feature-wise and assertion-wise, but has no inheritance dependency. This is called the '''Flat Form''' of the class. It is a class text that has no inheritance clause and includes all the features of the class, immediate (declared in the class itself) as well as inherited. For the inherited features, the flat form must of course take account of all the feature adaptation mechanisms: renaming (each feature must appear under its final name), redefinition, effecting, uneffecting and export status change. For redeclared features, <code>require else</code> clauses are or-ed with the precursors' preconditions, and <code>ensure then</code> clauses are and-ed with precursors' postconditions. For invariants, all the ancestors' clauses are concatenated. As a result, the flat form yields a view of the class, its features and its assertions that conforms exactly to the view offered to clients and (except for polymorphic uses) heirs. 
 
 As with the Contract Form ( [[8 Design by Contract (tm), Assertions and Exceptions#The_contract_form_of_a_class|"The contract form of a class"]] ), producing the Flat Form is the responsibility of tools in the development environment. In EiffelStudio, you will just click the "Flat" icon. 
 
@@ -623,7 +628,7 @@ The Eiffel rule enables, once again, the software developer to craft the resulti
 
 So to tune the repeated descendant, feature by feature, for sharing and replication it suffices to use renaming. 
 
-Doing nothing will cause sharing, which is indeedthe desired policy in most cases (especially those cases of unintended repeated inheritance: making <code>D</code> inherit from <code>A</code> even though it also inherits from <code>B</code>, which you forgot is already a descendant of <code>A</code>). 
+Doing nothing will cause sharing, which is indeed the desired policy in most cases (especially those cases of unintended repeated inheritance: making <code>D</code> inherit from <code>A</code> even though it also inherits from <code>B</code>, which you forgot is already a descendant of <code>A</code>). 
 
 If you use renaming somewhere along the way, so that the final names are different, you will obtain two separate features. It does not matter where the renaming occurs; all that counts is whether in the common descendant, <code>TEACHING_ASSISTANT</code> in the last figure, the names are the same or different. So you can use renaming at that last stage to cause replication; but if the features have been renamed higher you can also use last-minute renaming to avoid replication, by bringing them back to a single name. 
 
@@ -684,7 +689,7 @@ class SORTABLE_ARRAY [G -> COMPARABLE]
 </code>
 making it '''constrained generic'''. The symbol <code>-></code> recalls the arrow of inheritance diagrams; what follows it is a type, known as the generic constraint. Such a declaration means that: 
 
-Within the class, you may apply the features of the generic constraint -- here the features of <code>COMPARABLE</code>: <code>infix "<"</code>, <code>infix "<"</code> etc. -- to expressions of type <code>G</code>. 
+Within the class, you may apply the features of the generic constraint -- here the features of <code>COMPARABLE</code>: <code>infix "<"</code>, <code>infix ">"</code> etc. -- to expressions of type <code>G</code>. 
 
 A generic derivation is only valid if the chosen actual generic parameter conforms to the constraint. Here you can use <code>SORTABLE_ARRAY [INTEGER]</code> since <code>INTEGER</code> inherits from <code>COMPARABLE</code>, but not <code>SORTABLE_ARRAY [COMPLEX]</code> if <code>COMPLEX</code> is not a descendant of <code>COMPARABLE</code>. 
 
@@ -746,7 +751,7 @@ Assignment attempt is useful in the cases cited -- access to external objects be
 
 ==Covariance and anchored declarations==
 
-The final property of Eiffel inheritance involves the rules for adapting not only the implementation of inherited features (through redeclaration of either kind, redeclaration and redefinition, as seen so far) and their contracts (through the Assertion Redeclaration rule), but also their types. More general than type is the notion of a feature's '''signature''', defined by the number of its arguments, their types, the indication of whether it has a result (that is to say, is a function or attribute rather than a procedure) and, if so, the type of the result. 
+The final property of Eiffel inheritance involves the rules for adapting not only the implementation of inherited features (through redeclaration of either kind, effecting and redefinition, as seen so far) and their contracts (through the Assertion Redeclaration rule), but also their types. More general than type is the notion of a feature's '''signature''', defined by the number of its arguments, their types, the indication of whether it has a result (that is to say, is a function or attribute rather than a procedure) and, if so, the type of the result. 
 
 In many cases the signature of a redeclared feature remains the same as the original's. But in some cases you may want to adapt it to the new class. Assume for example that class <code>ACCOUNT</code> has features 
 <code>

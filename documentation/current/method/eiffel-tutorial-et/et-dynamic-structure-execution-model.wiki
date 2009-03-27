@@ -277,7 +277,7 @@ meaning that, at the time of each call, the value of each formal will be set to 
 
 In the routine body, it is not permitted to change the value of a formal argument, although it is possible to change the value of an attached object through a procedure call such as <code>formal_1.some_procedure ( ... )</code> . 
 
-==Infix and prefix notation==
+==Infix and prefix notations==
 
 Basic types such as <code>INTEGER</code> are, as noted, full-status citizens of Eiffel's type system, and so are declared as classes (part of the Kernel Library). <code>INTEGER</code>, for example, is characterized by the features describing integer operations: plus, minus, times, division, less than, and so on. 
 
@@ -288,22 +288,22 @@ With the dot notation seen so far, this would imply that simple arithmetic opera
 instead of the usual 
 <code>
             i + j
-
-
 </code>
-This would be awkward. Infix and prefix features solve the problem, reconciling the object-oriented view of computation with common notational practices of mathematics. The addition function is declared in class <code>INTEGER</code> as 
+This would be awkward. Infix and prefix notations solve the problem, reconciling the object-oriented view of computation with common notational practices of mathematics. The addition function is declared in class <code>INTEGER</code> as 
 <code>
-    infix "+" (other: INTEGER): INTEGER
+    plus alias "+" (other: INTEGER): INTEGER
         do
             ...
         end
 </code>
 
-Such a feature has all the properties and prerogatives of a normal "identifier" feature, except for the form of the calls, which is infix, as in <code>i + j</code> , rather than using dot notation. An infix feature must be a function, and take exactly one argument. Similarly, a function can be declared as <code>prefix "-" </code>, with no argument, permitting calls of the form <code>-3</code> rather than <code>(3).negated</code> . 
+Such a feature has all the properties and prerogatives of both normal "identifier-dot" notation and infix notation. This allowing invoking <code>plus</code> using either notation: <code>i.plus (j)</code> or <code>i + j</code> . A feature such as <code>plus</code> allowing infix notation must be a function, and take exactly one argument. 
+
+Prefix notation is allowed as well. A function can be declared as <code>opposite alias "-" </code>, with no argument, permitting calls of the form <code>-3</code> rather than <code>(3).opposite</code> . 
 
 Predefined library classes covering basic types such as <code>INTEGER</code>, <code>CHARACTER</code>, <code>BOOLEAN</code>, <code>REAL</code>, <code>DOUBLE</code> are known to the Eiffel compiler, so that a call of the form <code>j + i</code>, although conceptually equivalent to a routine call, can be processed just as efficiently as the corresponding arithmetic expression in an ordinary programming language. This brings the best of both worlds: conceptual simplicity, enabling Eiffel developers, when they want to, to think of integers and the like as objects; and efficiency as good as in lower-level approaches. 
 
-Infix and prefix features are available to any class, not just the basic types' predefined classes. For example a graphics class could use the name <code>infix "|-|"</code> for a function computing the distance between two points, to be used in expressions such as 
+Infix and prefix notations are available to any class, not just the basic types' predefined classes. For example a graphics class could use the name <code>distance alias "|-|"</code> for a function computing the distance between two points, to be used in expressions such as 
 <code>
                 point1 |-|  point2
 </code> 
@@ -354,7 +354,7 @@ expanded class
 
 feature -- Basic operations
 
-    infix "+" (other: INTEGER): INTEGER
+    plus alias "+" (other: INTEGER): INTEGER
         do
             ...
         end
