@@ -448,7 +448,7 @@ Consider a parent <code>A</code> and a proper descendant <code>B</code> (a direc
 
 [[Image:tutorial-12]]  
 
-As a result of dynamic binding, a call <code>a1</code> . <code>r</code> from a client <code>C</code> may be serviced not by <code>A</code> 's version of <code>r</code> but by <code>B</code> 's version if <code>a1</code>, although declared of type <code>A</code>, becomes at run time attached to an instance of <code>B</code>. This shows the combination of inheritance, redefinition, polymorphism and dynamic binding as providing a form of subcontracting; <code>A</code> subcontracts certain calls to <code>B</code>. 
+As a result of dynamic binding, a call <code>a1</code>.<code>r</code> from a client <code>C</code> may be serviced not by <code>A</code>'s version of <code>r</code> but by <code>B</code> 's version if <code>a1</code>, although declared of type <code>A</code>, becomes at run time attached to an instance of <code>B</code>. This shows the combination of inheritance, redefinition, polymorphism and dynamic binding as providing a form of subcontracting; <code>A</code> subcontracts certain calls to <code>B</code>. 
 
 The problem is to keep subcontractors honest. Assuming preconditions and postconditions as shown on the last figure, a call in <code>C</code> of the form 
 <code>
@@ -467,7 +467,7 @@ where the postcondition of some routine <code>q</code> implies the precondition 
 
 The rule, then, is that for the redefinition to be correct the new precondition ''pre' ''must be weaker than or equal to the original ''pre'', and the new postcondition ''post' ''must be stronger than or equal to the original ''post''. 
 
-Because it is impossible to check simply that an assertion is weaker or stronger than another, the language rule relies on different forms of the assertion constructs, <code>else require</code> and <code>then ensure</code>, for redeclared routines. They rely on the mathematical property that, for any assertions <code>p</code> and <code>q,</code> <code>p implies (p or q)</code>, and <code>(p and q) implies p</code>. For a precondition, using <code>require else</code> with a new assertion will perform an <code>or</code>, which can only weaken the original; for a postcondition, <code>ensure then</code> will perform an <code>and</code>, which can only strengthen the original. Hence the rule: 
+Because it is impossible to check simply that an assertion is weaker or stronger than another, the language rule relies on different forms of the assertion constructs, <code>require else</code> and <code>ensure then</code>, for redeclared routines. They rely on the mathematical property that, for any assertions <code>p</code> and <code>q,</code> <code>p implies (p or q)</code>, and <code>(p and q) implies p</code>. For a precondition, using <code>require else</code> with a new assertion will perform an <code>or</code>, which can only weaken the original; for a postcondition, <code>ensure then</code> will perform an <code>and</code>, which can only strengthen the original. Hence the rule: 
 
 {{rule|name=Assertion Redeclaration|text=In the redeclared version of a routine, it is not permitted to use a require or ensure clause. Instead you may: Introduce a new condition with require else, for or-ing with the original precondition. Introduce a new condition with ensure then, for and-ing with the original postcondition. In the absence of such a clause, the original assertions are retained. }}
 
