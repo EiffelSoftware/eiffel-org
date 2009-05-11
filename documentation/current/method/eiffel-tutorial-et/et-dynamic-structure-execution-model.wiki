@@ -1,5 +1,4 @@
-[[Property:title|6 The Dynamic Structure: Execution Model]]
-[[Property:link_title|ET: The Dynamic Structure: Execution Model]]
+[[Property:title|ET: The Dynamic Structure: Execution Model]]
 [[Property:weight|-10]]
 [[Property:uuid|1f3f2707-9129-4dca-76c7-157143d7ae74]]
 A system with a certain static structure describes a set of possible executions. The run-time model governs the structure of the data (objects) created during such executions. 
@@ -203,7 +202,7 @@ known as a creation call. Such a creation call will have the same effect as the 
 
 Note that in this example all that <code>make</code> does is to call <code>deposit</code>. So an alternative to introducing a new procedure <code>make</code> would have been simply to introduce a creation clause of the form <code>create deposit</code> , elevating <code>deposit</code> to the status of creation procedure. Then a creation call would be of the form <code>create x.deposit (2000)</code> . 
 
-{{info|Some variants of the basic creation instruction will be reviewed later: instruction with an explicit type; creation expressions. See [[10 Other Mechanisms#Creation_variants|"Creation variants"]] . }}
+{{info|Some variants of the basic creation instruction will be reviewed later: instruction with an explicit type; creation expressions. See [[ET: Other Mechanisms#Creation_variants|"Creation variants"]] . }}
 
 ==Entities==
 
@@ -458,7 +457,7 @@ A more general variant of <code>is_equal</code> is used under the form:
 <code>
             equal (x, y)
 </code>
-This is always defined, even if <code>x</code> is void, returning true whenever <code>is_equal</code> would but also if <code>x</code> and <code>y</code> are both void. (In contrast, <code>x.is_equal (y)</code> is not defined for void <code>x</code> and would, if evaluated, yield an exception as explained in [[8 Design by Contract (tm), Assertions and Exceptions#Exception_handling|"Exception handling"]]  below.) 
+This is always defined, even if <code>x</code> is void, returning true whenever <code>is_equal</code> would but also if <code>x</code> and <code>y</code> are both void. (In contrast, <code>x.is_equal (y)</code> is not defined for void <code>x</code> and would, if evaluated, yield an exception as explained in [[ET: Design by Contract (tm), Assertions and Exceptions#Exception_handling|"Exception handling"]]  below.) 
 
 <code>Void</code> denotes a void reference. So you can make <code>x</code> void through the assignment 
 <code>
@@ -533,7 +532,7 @@ feature {NONE} -- Implementation
             -- List of deposits since account's opening.
 </code>
 
-This form indicates that the features appearing in that clause are only '''available''' -- in the sense of available for calls, as used in the Feature Call rule -- to the classes listed. In the example feature <code> all_deposits </code> is only available to <code> NONE </code>. Because of the [[5 The Static Picture: System Organization#The_global_inheritance_structure|global inheritance structure]], this means it is in fact available to no useful client at all, and is equivalent in practice to <code>feature { }</code> with an empty class list, although the form listing <code> NONE </code> explicitly is more visible and hence preferred. 
+This form indicates that the features appearing in that clause are only '''available''' -- in the sense of available for calls, as used in the Feature Call rule -- to the classes listed. In the example feature <code> all_deposits </code> is only available to <code> NONE </code>. Because of the [[ET: The Static Picture: System Organization#The_global_inheritance_structure|global inheritance structure]], this means it is in fact available to no useful client at all, and is equivalent in practice to <code>feature { }</code> with an empty class list, although the form listing <code> NONE </code> explicitly is more visible and hence preferred. 
 
 
 
@@ -549,7 +548,7 @@ Besides fully exported features (introduced by <code>feature ... </code>; withou
 feature {A, B,  ...}
 </code>
 
-for arbitrary classes <code>A, B</code>, ... This enables a group of related classes to provide each other with privileged access, without requiring the introduction of a special module category above the class level (see [[5 The Static Picture: System Organization#Clusters|"Clusters"]] ). 
+for arbitrary classes <code>A, B</code>, ... This enables a group of related classes to provide each other with privileged access, without requiring the introduction of a special module category above the class level (see [[ET: The Static Picture: System Organization#Clusters|"Clusters"]] ). 
 
 Exporting features selectively to a set of classes <code>A, B</code>, ... also makes them available to the descendants of these classes. So a feature clause beginning with just <code>feature</code> is equivalent to one starting with <code>feature {ANY}</code> . 
 
@@ -621,11 +620,11 @@ The levels of privilege available to the class author include, for any field:
 * Export it for free read and write by any client, by also exporting a procedure of the <code>set_attribute</code> kind. 
 * Export it in '''restricted-write''' mode, by exporting a procedure such as <code>deposit</code> of class <code>ACCOUNT</code>, which adds a specified amount to the <code>balance</code> field, rather than directly setting the balance. 
 
-The last case is particularly interesting is that it allows the class designer to set the precise way in which clients will manipulate the class instances, respecting the properties of the class and its integrity. The exported routines may, through the Design by Contract mechanism reviewed later in ( [[8 Design by Contract (tm), Assertions and Exceptions]] ), place some further restrictions on the permitted modifications, for example by requiring the withdrawn amount to be positive. 
+The last case is particularly interesting is that it allows the class designer to set the precise way in which clients will manipulate the class instances, respecting the properties of the class and its integrity. The exported routines may, through the Design by Contract mechanism reviewed later in ( [[ET: Design by Contract (tm), Assertions and Exceptions]] ), place some further restrictions on the permitted modifications, for example by requiring the withdrawn amount to be positive. 
 
 These rules follow directly from the more general goals (reusability, extendibility, reliability) and principles (Uniform Access, information hiding) underlying Eiffel software design. They reflect a view that each class must denote a well-understood abstraction, defined by a set of exported features chosen by the class designer -- the "control panel". 
 
-The class documentation (see [[8 Design by Contract (tm), Assertions and Exceptions#The_contract_form_of_a_class|the contract form of a class]] ) makes this view clear to client authors; no violation of that interface is permitted. This approach also paves the way for future '''generalization''' -- the final step of the cluster lifecycle, seen earlier in the section [[3 The Software Process in Eiffel#Generalization_and_reuse|Generalization and reuse]]  -- of the most promising components, and their inclusion into reusable libraries. 
+The class documentation (see [[ET: Design by Contract (tm), Assertions and Exceptions#The_contract_form_of_a_class|the contract form of a class]] ) makes this view clear to client authors; no violation of that interface is permitted. This approach also paves the way for future '''generalization''' -- the final step of the cluster lifecycle, seen earlier in the section [[ET: The Software Process in Eiffel#Generalization_and_reuse|Generalization and reuse]]  -- of the most promising components, and their inclusion into reusable libraries. 
 
 
 

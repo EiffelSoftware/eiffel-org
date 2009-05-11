@@ -1,5 +1,4 @@
-[[Property:title|6 Design by Contract and Assertions]]
-[[Property:link_title|I2E: Design by Contract and Assertions]]
+[[Property:title|I2E: Design by Contract and Assertions]]
 [[Property:weight|-9]]
 [[Property:uuid|f563aa75-3a5a-5110-b4f1-07da5448f668]]
 If classes are to deserve their definition as abstract data type implementations, they must be known not just by the available operations, but also by the formal properties of these operations, which did not yet appear in the preceding example. 
@@ -134,7 +133,7 @@ feature
 end -- ACCOUNT
 </code>
 
-This is not actual Eiffel, only documentation of Eiffel classes, hence the use of slightly different syntax to avoid any confusion ( <code>interface class</code> rather than <code>class</code>). In accordance with the Uniform Access Principle (page [[4 Classes|7]] ), the output for <code>balance</code> would be the same if this feature were a function rather than an attribute. 
+This is not actual Eiffel, only documentation of Eiffel classes, hence the use of slightly different syntax to avoid any confusion ( <code>interface class</code> rather than <code>class</code>). In accordance with the Uniform Access Principle (in [[I2E: Classes|Classes]]), the output for <code>balance</code> would be the same if this feature were a function rather than an attribute. 
 
 You will find in EiffelStudio automatic tools to produce the Contract Form of a class. You can also get the '''Flat Contract''' form, based on the same ideas but including inherited features along with those introduced in the class itself. EiffelStudio can produce these forms, and other documentation views of a class, in a variety of output formats including HTML, so that collaborative projects can automatically post the latest versions of their class interfaces on the Internet or an Intranet. 
 

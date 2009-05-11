@@ -1,5 +1,4 @@
-[[Property:title|12 Lexical Conventions and Style Rules]]
-[[Property:link_title|ET: Lexical Conventions and Style Rules]]
+[[Property:title|ET: Lexical Conventions and Style Rules]]
 [[Property:weight|-2]]
 [[Property:uuid|60fdf029-8626-166d-cc4f-9069aacdda7f]]
 Eiffel software texts are free-format: distribution into lines is not semantically significant, and any number of successive space and line-return characters is equivalent to just one space. The style rules suggest indenting software texts as illustrated by the examples in this chapter. 

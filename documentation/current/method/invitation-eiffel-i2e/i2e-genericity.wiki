@@ -1,5 +1,4 @@
-[[Property:title|9 Genericity]]
-[[Property:link_title|I2E: Genericity]]
+[[Property:title|I2E: Genericity]]
 [[Property:weight|-6]]
 [[Property:uuid|091c0b65-73de-b454-b3f2-d8752983780e]]
 Building software components (classes) as implementations of abstract data types yields systems with a solid architecture but does not in itself ensure reusability and extendibility. Two key techniques address the problem: generosity (unconstrained or constrained) and inheritance. Let us look first at the unconstrained form. 

@@ -1,5 +1,4 @@
-[[Property:title|9 Inheritance]]
-[[Property:link_title|ET: Inheritance]]
+[[Property:title|ET: Inheritance]]
 [[Property:weight|-7]]
 [[Property:uuid|c90e6ee3-b39d-48e5-2321-a34e12fd5327]]
 Inheritance is a powerful and attractive technique. A look at either the practice or literature shows, however, that it is not always well applied. Eiffel has made a particular effort to tame inheritance for the benefit of modelers and software developers. Many of the techniques are original with Eiffel. Paul Dubois has written (comp.lang.python Usenet newsgroup, 23 March 1997): there are two things that [Eiffel] got right that nobody else got right anywhere else: support for design by contract, and multiple inheritance. Everyone should understand these "correct answers" if only to understand how to work around the limitations in other languages.
@@ -22,9 +21,9 @@ feature
     ...
 </code>
 
-This makes <code>D</code> an heir of <code>A</code>, <code>B</code> and any other class listed. Eiffel supports '''multiple''' inheritance: a class may have as many parents as it needs. Later sections ( [[9 Inheritance#Multiple_inheritance_and_renaming|"Multiple inheritance and renaming"]]  and [[9 Inheritance#Repeated_inheritance_and_selection|"Repeated inheritance and selection"]] ) will explain how to handle possible conflicts between parent features. 
+This makes <code>D</code> an heir of <code>A</code>, <code>B</code> and any other class listed. Eiffel supports '''multiple''' inheritance: a class may have as many parents as it needs. Later sections ( [[ET: Inheritance#Multiple_inheritance_and_renaming|"Multiple inheritance and renaming"]]  and [[ET: Inheritance#Repeated_inheritance_and_selection|"Repeated inheritance and selection"]] ) will explain how to handle possible conflicts between parent features. 
 
-{{note|This discussion will rely on the terminology introduced in [[5 The Static Picture: System Organization|The Static Picture: System Organization]]: descendants of a class are the class itself, its heirs, the heirs of its heirs and so on. Proper descendants exclude the class itself. The reverse notions are ancestors and proper ancestors. }}
+{{note|This discussion will rely on the terminology introduced in [[ET: The Static Picture: System Organization|The Static Picture: System Organization]]: descendants of a class are the class itself, its heirs, the heirs of its heirs and so on. Proper descendants exclude the class itself. The reverse notions are ancestors and proper ancestors. }}
 
 By default <code>D</code> will simply include all the original features of <code>A</code>, <code>B</code>, ..., to which it may add its own through its <code>feature</code> clauses if any. But the inheritance mechanism is more flexible, allowing <code>D</code> to adapt the inherited features in many ways. Each parent name -- <code>A</code>, <code>B</code>, ... in the example -- can be followed by a Feature Adaptation clause, with subclauses, all optional, introduced by keywords <code>rename</code>, <code>export</code>, <code>undefine</code>, <code>redefine</code> and <code>select</code>, enabling the author of <code>D</code> to make the best use of the inheritance mechanism by tuning the inherited features to the precise needs of <code>D</code>. This makes inheritance a principal tool in the Eiffel process, mentioned earlier, of carefully crafting each individual class, like a machine, for the benefit of its clients. The next sections review the various Feature Adaptation subclauses. 
 
@@ -80,7 +79,7 @@ In a redefinition, the original version -- such as the <code>ACCOUNT</code> impl
             ... Instructions to update the interest ...
 </code>
 
-Besides changing the implementation of a routine, a redefinition can turn an argument-less function into an attribute; for example a proper descendant of <code>ACCOUNT</code> could redefine <code>deposits_count</code>, originally a function, as an attribute. The Uniform Access Principle (introduced in [[6 The Dynamic Structure: Execution Model|The Dynamic Structure: Execution Model]] ) guarantees that the redefinition makes no change for clients, which will continue to use the feature under the form 
+Besides changing the implementation of a routine, a redefinition can turn an argument-less function into an attribute; for example a proper descendant of <code>ACCOUNT</code> could redefine <code>deposits_count</code>, originally a function, as an attribute. The Uniform Access Principle (introduced in [[ET: The Dynamic Structure: Execution Model|The Dynamic Structure: Execution Model]] ) guarantees that the redefinition makes no change for clients, which will continue to use the feature under the form 
 <code>
             acc.deposits_count
 </code>
@@ -91,7 +90,7 @@ The inheritance mechanism is relevant to both roles of classes: module and type.
 
 '''Polymorphic assignment''' supports this second role. In an assignment <code>x := y</code>, the types of <code>x</code> and <code>y</code> do not have, with inheritance, to be identical; the rule is that the type of <code>y</code> must simply '''conform''' to the type of <code>x</code>. A class <code>D</code> conforms to a class <code>A</code> if and only if it is a descendant of <code>A</code> (which includes the case in which <code>A</code> and <code>D</code> are the same class); if these classes are generic, conformance of <code>D</code> <code>[</code> <code>U</code> <code>]</code> to <code>C</code> <code>[</code> <code>T</code> <code>]</code> requires in addition that type <code>U</code> conform to type <code>T</code> (through the recursive application of the same rules). 
 
-{{note|In addition, it will be shown in the discussion of tuples ([[10 Other Mechanisms#Tuple_types|"Tuple types"]]), that <code>TUPLE [X]</code> conforms to <code>TUPLE</code>, <code>TUPLE [X, Y]</code> to <code>TUPLE [X]</code> and so on. }}
+{{note|In addition, it will be shown in the discussion of tuples ([[ET: Other Mechanisms#Tuple_types|"Tuple types"]]), that <code>TUPLE [X]</code> conforms to <code>TUPLE</code>, <code>TUPLE [X, Y]</code> to <code>TUPLE [X]</code> and so on. }}
 
 So with the inheritance structure that we have seen, the declarations
 <code>
@@ -113,7 +112,7 @@ For polymorphism to respect the reliability requirements of Eiffel, it must be c
 
 The second case listed in the rule is a call such as <code>target.routine(..., y, ...)</code> where the routine declaration is of the form <code>routine (..., x: SOME_TYPE)</code>. The relationship between <code>y</code>, the actual argument in the call, and the corresponding formal argument <code>x</code>, is exactly the same as in an assignment <code>x := y</code>: not just the type rule, as expressed by Type Conformance (the type of <code>y</code> must conform to <code>SOME_TYPE</code>), but also the actual run-time effect which, as for assignments, will be either a reference attachment or, for expanded types, a copy. 
 
-The ability to accept the assignment <code>x := Void</code> for <code>x</code> of any reference type (see [[6 The Dynamic Structure: Execution Model#Basic_operations|"Basic operations"]] ) is a consequence of the Type Conformance rule, since <code>Void</code> is of type <code>NONE</code> which by construction ([[5 The Static Picture: System Organization#The_global_inheritance_structure|"The global inheritance structure"]] ) conforms to all types. 
+The ability to accept the assignment <code>x := Void</code> for <code>x</code> of any reference type (see [[ET: The Dynamic Structure: Execution Model#Basic_operations|"Basic operations"]] ) is a consequence of the Type Conformance rule, since <code>Void</code> is of type <code>NONE</code> which by construction ([[ET: The Static Picture: System Organization#The_global_inheritance_structure|"The global inheritance structure"]] ) conforms to all types. 
 
 Polymorphism also yields a more precise definition of "instance". A '''direct instance''' of a type <code>A</code> is an object created from the exact pattern defined by the declaration of <code>A</code> 's base class, with one field for each of the class attributes; you will obtain it through a creation instruction of the form <code>create x</code> ..., for <code>x</code> of type <code>A</code>, or by cloning an existing direct instance. An '''instance''' of <code>A</code> is a direct instance of any type conforming to <code>A</code>: <code>A</code> itself, but also any type based on descendant classes. So an instance of <code>SAVINGS_ACCOUNT</code> is also an instance, although not a direct instance, of <code>ACCOUNT</code>. 
 
@@ -272,7 +271,7 @@ Deferred classes cover abstract notions with many possible variants. They are wi
 
 These applications make deferred classes a central tool of the Eiffel method's support for seamlessness and reversibility. The last one in particular uses deferred classes and features to model objects from an application domain, without any commitment to implementation, design, or even software (and computers). Deferred classes are the ideal tool here: they express the properties of the domain's abstractions, without any temptation of implementation bias, yet with the precision afforded by type declarations, inheritance structures (to record classifications of the domain concepts), and contracts to express the abstract properties of the objects being described. 
 
-Rather than using a separate method and notation for analysis and design, this approach integrates seamlessly with the subsequent phases (assuming the decision is indeed taken to develop a software system): it suffices to refine the deferred classes progressively by introducing effective elements, either by modifying the classes themselves, or by introducing design- and implementation-oriented descendants. In the resulting system, the classes that played an important role for analysis, and are the most meaningful for customers, will remain important; as we have seen ( [[3 The Software Process in Eiffel#Seamlessness_and_reversibility|"Seamlessness and reversibility"]] ) this direct mapping property is a great help for extendibility. 
+Rather than using a separate method and notation for analysis and design, this approach integrates seamlessly with the subsequent phases (assuming the decision is indeed taken to develop a software system): it suffices to refine the deferred classes progressively by introducing effective elements, either by modifying the classes themselves, or by introducing design- and implementation-oriented descendants. In the resulting system, the classes that played an important role for analysis, and are the most meaningful for customers, will remain important; as we have seen ( [[ET: The Software Process in Eiffel#Seamlessness_and_reversibility|"Seamlessness and reversibility"]] ) this direct mapping property is a great help for extendibility. 
 
 The following sketch (from the book [http://eiffel.com/doc/oosc/ Object-Oriented Software Construction] ) illustrates these ideas on the example of scheduling the programs of a TV station. This is pure modeling of an application domain; no computers or software are involved yet. The class describes the notion of program segment. 
 
@@ -345,7 +344,7 @@ Some deferred classes describe a structural property, useful to the description 
 
 For such classes it is again essential to permit effective features in a deferred class, and to include assertions. For example class <code>COMPARABLE</code> declares <code>infix "<"</code> as deferred, and expresses <code>>, >=</code> and <code><=</code> effectively in terms of it. 
 
-{{note|The type <code>like Current</code> will be explained in [[9 Inheritance#Covariance_and_anchored_declarations|"Covariance and anchored declarations"]] ; you may understand it, in the following class, as equivalent to <code>COMPARABLE</code>. }}
+{{note|The type <code>like Current</code> will be explained in [[ET: Inheritance#Covariance_and_anchored_declarations|"Covariance and anchored declarations"]] ; you may understand it, in the following class, as equivalent to <code>COMPARABLE</code>. }}
 <code>
 note
     description: "Objects that can be compared according to a total preorder relation"
@@ -478,9 +477,9 @@ For a precondition, using <code>require else</code> with a new assertion will pe
 
 The last case -- retaining the original -- is frequent but by no means universal. 
 
-The Assertion Redeclaration rule applies to '''redeclarations'''. This terms covers not just redefinition but also effecting (the implementation, by a class, of a feature that it inherits deferred). The rules -- not just for assertions but also, as reviewed below, for typing -- are indeed the same in both cases. Without the Assertion Redeclaration rule, assertions on deferred features, such as those on <code>extend</code>, <code>count</code> and <code>forth</code> in [[9 Inheritance#Deferred_features_and_classes|"Deferred features and classes"]] , would be almost useless -- wishful thinking; the rule makes them binding on all effectings in descendants. 
+The Assertion Redeclaration rule applies to '''redeclarations'''. This terms covers not just redefinition but also effecting (the implementation, by a class, of a feature that it inherits deferred). The rules -- not just for assertions but also, as reviewed below, for typing -- are indeed the same in both cases. Without the Assertion Redeclaration rule, assertions on deferred features, such as those on <code>extend</code>, <code>count</code> and <code>forth</code> in [[ET: Inheritance#Deferred_features_and_classes|"Deferred features and classes"]] , would be almost useless -- wishful thinking; the rule makes them binding on all effectings in descendants. 
 
-From the Assertion Redeclaration rule follows an interesting technique: '''abstract preconditions'''. What needs to be weakened for a precondition (or strengthened for a postcondition) is not the assertion's concrete semantics but its abstract specification as seen by the client. A descendant can change the implementation of that specification as it pleases, even to the effect of strengthening the concrete precondition, as long as the abstract form is kept or weakened. The precondition of procedure <code>extend</code> in the deferred class <code>LIST</code> provided an example. We wrote the routine (in [[9 Inheritance#Deferred_features_and_classes|"Deferred features and classes"]] ) as 
+From the Assertion Redeclaration rule follows an interesting technique: '''abstract preconditions'''. What needs to be weakened for a precondition (or strengthened for a postcondition) is not the assertion's concrete semantics but its abstract specification as seen by the client. A descendant can change the implementation of that specification as it pleases, even to the effect of strengthening the concrete precondition, as long as the abstract form is kept or weakened. The precondition of procedure <code>extend</code> in the deferred class <code>LIST</code> provided an example. We wrote the routine (in [[ET: Inheritance#Deferred_features_and_classes|"Deferred features and classes"]] ) as 
 <code>
     extend (x: G)
             -- Add `x' at end of list.
@@ -524,7 +523,7 @@ It is not an error to inherit two deferred features from different parents under
 
 More generally, it is permitted to have any number of deferred features and at most one effective feature that share the same name: the effective version, if present will effect all the others. 
 
-All this is not a violation of the Final Name rule (defined in [[9 Inheritance#Multiple_inheritance_and_renaming|"Multiple inheritance and renaming"]] ), since the name clashes prohibited by the rule involve two different features having the same final name; here the result is just one feature, resulting from the join of all the inherited versions. 
+All this is not a violation of the Final Name rule (defined in [[ET: Inheritance#Multiple_inheritance_and_renaming|"Multiple inheritance and renaming"]] ), since the name clashes prohibited by the rule involve two different features having the same final name; here the result is just one feature, resulting from the join of all the inherited versions. 
 
 Sometimes we may want to join ''effective'' features inherited from different parents, assuming again the features have compatible signatures. One way is to redefine them all into a new version. That is, list each in a <code>redefine</code> clause, then write a redefined version of the feature. In this case, they again become one feature, with no name clash in the sense of the Final Name rule. But in other cases we may simply want one of the inherited implementations to take over the others. The solution is to revert to the preceding case by '''uneffecting''' the other features; uneffecting an inherited effective feature makes it deferred (this is the reverse of effecting, which turns an inherited deferred feature into an effective one). The syntax uses the <code>undefine</code> subclause: 
 <code>
@@ -602,7 +601,7 @@ This is part of the power of the object-oriented form of reuse, but can create a
 
 These observations suggest ways to produce, from a class text, a version that is equivalent feature-wise and assertion-wise, but has no inheritance dependency. This is called the '''Flat Form''' of the class. It is a class text that has no inheritance clause and includes all the features of the class, immediate (declared in the class itself) as well as inherited. For the inherited features, the flat form must of course take account of all the feature adaptation mechanisms: renaming (each feature must appear under its final name), redefinition, effecting, uneffecting and export status change. For redeclared features, <code>require else</code> clauses are or-ed with the precursors' preconditions, and <code>ensure then</code> clauses are and-ed with precursors' postconditions. For invariants, all the ancestors' clauses are concatenated. As a result, the flat form yields a view of the class, its features and its assertions that conforms exactly to the view offered to clients and (except for polymorphic uses) heirs. 
 
-As with the Contract Form ( [[8 Design by Contract (tm), Assertions and Exceptions#The_contract_form_of_a_class|"The contract form of a class"]] ), producing the Flat Form is the responsibility of tools in the development environment. In EiffelStudio, you will just click the "Flat" icon. 
+As with the Contract Form ( [[ET: Design by Contract (tm), Assertions and Exceptions#The_contract_form_of_a_class|"The contract form of a class"]] ), producing the Flat Form is the responsibility of tools in the development environment. In EiffelStudio, you will just click the "Flat" icon. 
 
 The Contract Form of the Flat Form of a class is known as its '''Flat-Contract Form'''. It gives the complete interface specification, documenting all exported features and assertions -- immediate or inherited -- and hiding implementation aspects. It is the appropriate documentation for a class.
 
@@ -669,7 +668,7 @@ So if you traverse a list <code>computer_users: LIST [UNIVERSITY_PERSON]</code> 
 
 You may, if desired, redefine <code>faculty_account</code> in class <code>TEACHING_ASSISTANT</code>, using <code>student_account</code> if necessary, to take into consideration the existence of another account. But in all cases we need a precise disambiguation of what <code>computer_account</code> means for a <code>TEACHING_ASSISTANT</code> object known only through a <code>UNIVERSITY_PERSON</code> entity. 
 
-The <code>select</code> is only needed in case of replication. If the Repeated Inheritance rule would imply sharing, as with change_address, and one or both of the shared versions has been redeclared, the Final Name rule makes the class invalid, since it now has '''two different features''' with the same name. (This is only a problem if both versions are effective; if one or both are deferred there is no conflict but a mere case of feature joining as explained in [[9 Inheritance#Join_and_uneffecting|"Join and uneffecting"]] .) The two possible solutions follow from the previous discussions: 
+The <code>select</code> is only needed in case of replication. If the Repeated Inheritance rule would imply sharing, as with change_address, and one or both of the shared versions has been redeclared, the Final Name rule makes the class invalid, since it now has '''two different features''' with the same name. (This is only a problem if both versions are effective; if one or both are deferred there is no conflict but a mere case of feature joining as explained in [[ET: Inheritance#Join_and_uneffecting|"Join and uneffecting"]] .) The two possible solutions follow from the previous discussions: 
 
 If you do want sharing, one of the two versions must take precedence over the other. It suffices to '''undefine''' the other, and everything gets back to order. Alternatively, you can redefine both into a new version, which takes precedence over both. 
 
@@ -677,7 +676,7 @@ If you want to keep both versions, switch from sharing to replication: rename on
 
 ==Constrained genericity==
 
-Eiffel's inheritance mechanism has an important application to extending the flexibility of the '''genericity''' mechanism. In a class <code>SOME_CONTAINER [G]</code>, as noted in [[7 Genericity and Arrays|"Genericity and Arrays"]] ), the only operations available on entities of type <code>G</code>, the formal generic parameter, are those applicable to entities of all types. A generic class may, however, need to assume more about the generic parameter, as with a class <code>SORTABLE_ARRAY [G ...]</code> which will have a procedure <code>sort</code> that needs, at some stage, to perform tests of the form 
+Eiffel's inheritance mechanism has an important application to extending the flexibility of the '''genericity''' mechanism. In a class <code>SOME_CONTAINER [G]</code>, as noted in [[ET: Genericity and Arrays|"Genericity and Arrays"]] ), the only operations available on entities of type <code>G</code>, the formal generic parameter, are those applicable to entities of all types. A generic class may, however, need to assume more about the generic parameter, as with a class <code>SORTABLE_ARRAY [G ...]</code> which will have a procedure <code>sort</code> that needs, at some stage, to perform tests of the form 
 <code>
         if item (i) < item (j) then ...
 </code>
@@ -699,9 +698,9 @@ Unconstrained genericity, as in <code>C [G]</code>, is defined as equivalent to 
 
 ==Assignment attempt==
 
-The Type Conformance rule ( [[9 Inheritance#Polymorphism|"Polymorphism"]] ) ensures type safety by requiring all assignments to be from a more specific source to a more general target. 
+The Type Conformance rule ( [[ET: Inheritance#Polymorphism|"Polymorphism"]] ) ensures type safety by requiring all assignments to be from a more specific source to a more general target. 
 
-Sometimes you can't be sure of the source object's type. This happens for example when the object comes from the outside -- a file, a database, a network. The persistence storage mechanism( [[6 The Dynamic Structure: Execution Model#Deep_operations_and_persistence|"Deep operations and persistence"]] ) includes, along with the procedure <code>store</code> seen there, the reverse operation, a function <code>retrieved</code> which yields an object structure retrieved from a file or network, to which it was sent using <code>store</code>. But <code>retrieved</code> as declared in the corresponding class <code>STORABLE</code> of EiffelBase can only return the most general type, <code>ANY</code>; it is not possible to know its exact type until execution time, since the corresponding objects are not under the control of the retrieving system, and might even have been corrupted by some external agent. 
+Sometimes you can't be sure of the source object's type. This happens for example when the object comes from the outside -- a file, a database, a network. The persistence storage mechanism( [[ET: The Dynamic Structure: Execution Model#Deep_operations_and_persistence|"Deep operations and persistence"]] ) includes, along with the procedure <code>store</code> seen there, the reverse operation, a function <code>retrieved</code> which yields an object structure retrieved from a file or network, to which it was sent using <code>store</code>. But <code>retrieved</code> as declared in the corresponding class <code>STORABLE</code> of EiffelBase can only return the most general type, <code>ANY</code>; it is not possible to know its exact type until execution time, since the corresponding objects are not under the control of the retrieving system, and might even have been corrupted by some external agent. 
 
 In such cases you cannot trust the declared type but must check it against the type of an actual run-time object. Eiffel introduces for this purpose the '''assignment attempt''' operation, written 
 <code>
@@ -807,7 +806,7 @@ This means that anchored declaration are a form of of implicit covariant redecla
 
 In the example, class <code>BUSINESS_ACCOUNT</code> only needs to redefine the type of <code>owner</code> (to <code>BUSINESS</code>). It doesn't have to redefine <code>set_owner</code> except if it needs to change its implementation or assertions. 
 
-It is possible to use <code>Current</code> as anchor; the declaration <code>like Current</code> denotes a type based on the current class (with the same generic parameters if any). This is in fact a common case; we saw in [[9 Inheritance#Structural_property_classes|"Structural property classes"]] , that it applies in class <code>COMPARABLE</code> to features such as 
+It is possible to use <code>Current</code> as anchor; the declaration <code>like Current</code> denotes a type based on the current class (with the same generic parameters if any). This is in fact a common case; we saw in [[ET: Inheritance#Structural_property_classes|"Structural property classes"]] , that it applies in class <code>COMPARABLE</code> to features such as 
 <code>
     infix "<" (other: like Current): BOOLEAN ...
 </code>
@@ -821,7 +820,7 @@ Similarly, class <code>ANY</code> declares procedure <code>copy</code> as
 
 with the argument anchored to the current object. 
 
-A final, more application-oriented example of anchoring to <code>Current</code> is the feature <code>merge</code> posited in an earlier example (in [[6 The Dynamic Structure: Execution Model|"The Dynamic Structure: Execution Model"]] ) with the signature <code>merge (other: ACCOUNT)</code>. By using instead <code>merge (other: like Current)</code> we can ensure that in any descendant class -- <code>BUSINESS_ACCOUNT</code>, <code>SAVINGS_ACCOUNT</code>, <code>MINOR_ACCOUNT</code> ... -- an account will only be mergeable with another of a compatible type. 
+A final, more application-oriented example of anchoring to <code>Current</code> is the feature <code>merge</code> posited in an earlier example (in [[ET: The Dynamic Structure: Execution Model|"The Dynamic Structure: Execution Model"]] ) with the signature <code>merge (other: ACCOUNT)</code>. By using instead <code>merge (other: like Current)</code> we can ensure that in any descendant class -- <code>BUSINESS_ACCOUNT</code>, <code>SAVINGS_ACCOUNT</code>, <code>MINOR_ACCOUNT</code> ... -- an account will only be mergeable with another of a compatible type. 
 
 Covariance makes static type checking more delicate; mechanisms of "system validity" and "catcalls" address the problem, discussed in detail in the book [http://eiffel.com/doc/oosc/ Object-Oriented Software Construction]  (see the bibliography). 
 

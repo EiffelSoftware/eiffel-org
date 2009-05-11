@@ -118,7 +118,7 @@
 | Yes
 | Yes
 |- 
-|  [[7 Genericity and Arrays|Generic creation]]  
+|  [[ET: Genericity and Arrays|Generic creation]]  
 | <code>create {G} x.make</code>
 | No
 | Yes
@@ -244,13 +244,13 @@
 | Yes
 | Yes
 |- 
-| Manifest [[10 Other Mechanisms|tuple]]  
+| Manifest [[ET: Other Mechanisms|tuple]]  
 | <code>[a, b, c]</code>
 | No
 | Yes
 | Yes
 |- 
-|  [[11 Agents|Agent]]  
+|  [[ET: Agents|Agent]]  
 | <code>list.do_all (agent print (?))</code>
 | No
 | Yes

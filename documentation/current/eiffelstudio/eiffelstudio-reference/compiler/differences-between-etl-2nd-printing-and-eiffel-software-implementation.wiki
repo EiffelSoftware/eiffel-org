@@ -2,7 +2,10 @@
 [[Property:link_title|]]
 [[Property:weight|-9]]
 [[Property:uuid|fc1e73f4-5646-aa41-e7fe-97dc6f3ceb04]]
-{{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]]  }}
+{{seealso|See also: [[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]]  }}
+
+==Added classes==
+* New basic classes have been added: <eiffel>INTEGER_8</eiffel>, <eiffel>INTEGER_16</eiffel>, <eiffel>INTEGER_64</eiffel> and <eiffel>WIDE_CHARACTER</eiffel>.{{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]]  }}
 
 ==Added classes==
 * New basic classes have been added: <eiffel>INTEGER_8</eiffel>, <eiffel>INTEGER_16</eiffel>, <eiffel>INTEGER_64</eiffel> and <eiffel>WIDE_CHARACTER</eiffel>. <eiffel>INTEGER</eiffel> is now specified as having a 32 bits representation
@@ -33,7 +36,7 @@
 
 
 ==Added semantics==
-*  [[7 Genericity and Arrays|Generic creation]]  
+*  [[ET: Genericity and Arrays|Generic creation]]  
 * Expression creation: you can now create an object within an expression. For example, you want to create an object and pass it as an argument to a function. Whereas you had to create a local variable, create the object and pass it to the function, you now simply need to pass to the function the creation expression. Here is a small example: 
 {| 
 |- 
@@ -60,8 +63,8 @@ end
 |}
 This is also very useful since it can improve the power of assertions. 
 * Mutually recursive constraints: one can now write class A [H, G->H] or class B [H -> C, G -> ARRAY [H]]. As a result, the declaration A [D, E] is valid only if E is a descendant of D. Similarly, the declaration B [E, ARRAY [D]] is not valid, if E is a descendant of D.
-*  [[10 Other Mechanisms|Tuples]]  
-*  [[11 Agents|Agents]]  
+*  [[ET: Other Mechanisms|Tuples]]  
+*  [[ET: Agents|Agents]]  
 * Feature access: <br/>
 <code>
 local

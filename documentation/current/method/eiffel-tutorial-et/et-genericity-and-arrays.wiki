@@ -1,5 +1,4 @@
-[[Property:title|7 Genericity and Arrays]]
-[[Property:link_title|ET: Genericity and Arrays]]
+[[Property:title|ET: Genericity and Arrays]]
 [[Property:weight|-9]]
 [[Property:uuid|7f3bd1d7-357e-031d-9faa-b00594aa9ae0]]
 Some of the classes that we will need, particularly in libraries, are '''container''' classes, describing data structures made of a number of objects of the same or similar types. Examples of containers include arrays, stacks and lists. The class <code>DEPOSIT_LIST</code> posited in earlier examples describes containers. 
