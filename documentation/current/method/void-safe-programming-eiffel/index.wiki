@@ -1,0 +1,67 @@
+[[Property:title|Void-safe programming in Eiffel]]
+[[Property:weight|3]]
+[[Property:uuid|a03568e8-eb79-70d7-04a3-6fd3ed7ac2b3]]
+{{underconstruction}}
+
+
+=About void-safe software development using Eiffel=
+
+When you develop software in Eiffel, you can be assured (at compile time) that your system will not attempt (at run time) to apply a feature to a void reference. That is, Eiffel prevents situations in which systems fail at run time with the error: "Feature call on void target".
+
+Throughout the history of Eiffel, a small number of important new capabilities, agents for example, have been added. Always these capabilities have added significantly to the power of Eiffel, and have been carefully designed to cause a minimum of impact on existing software. Void-safe Eiffel is such a capability. 
+
+However, it is not quite right to refer to it as "void-safe Eiffel". In fact, it is Eiffel ... and it is void-safe, just as it is statically typed.  
+
+Still, the reality is that Eiffel did not always provide void-safety, and that has the potential to cause confusion among both new and seasoned Eiffel developers. New developers will find for awhile that parts of the Eiffel documentation were written prior to the advent of void-safety, and may not have been updated yet. Experienced Eiffel programmers will find that software that compiled in versions of Eiffel before it became void-safe, may not compile anymore with void-safe capabilities enabled. 
+
+The result is that we must consider certain questions:
+
+# How is void-safety defined?
+# What are the specific elements of the mechanism for void-safety?
+## How do these relate to Eiffel before void-safety?
+# What do I need to know to produce standard Eiffel software?
+# What do I need to know to convert my existing systems to be standard?
+
+Let's try to answer those questions.
+
+==Background==
+
+The primary focus of Eiffel is on software quality. Void-safety, like static typing, is another facility for improving software quality. Void-safe software is protected from run time errors caused by calls to void references, and therefore will be more reliable than software in which calls to void targets can occur. The analogy to static typing is a useful one. In fact, void-safe capability could be seen as an extension to the type system, or a step beyond static typing, because the mechanism for ensuring void-safety is integrated into the type system.
+
+===Static typing===
+
+You know that static typing eliminates a whole class of software failures. This is done by making an assurance at compile time about a feature call of the form:
+<code>
+            x.f (a)
+</code>
+Such a feature call is judged acceptable at compile time only if the type of <code>x</code> has a feature <code>f</code> and that any arguments, represented here by <code>a</code>, number the same as the formal arguments of <code>f</code>, and are compatible with the types of those formal arguments.
+
+
+In statically typed languages like Eiffel, the compiler guarantees that you cannot, at run time, have a situation in which feature <code>f</code> is not applicable to the object attached to <code>x</code>. If you've ever been a Smalltalk programmer, you are certainly familiar with this most common of errors that manifests itself as "Message not understood." It happens because Smalltalk is not statically typed. 
+
+===Non-void-safe software===
+
+Static typing will ensure that there is some feature <code>f</code> that can be applied at run time to <code>x</code> in the example above. But it does not assure us that, in the case in which <code>x</code> is a reference, that there will always be an object attached to <code>x</code> at any time <code>x.f (a)</code> is executed. 
+
+This problem is not unique to Eiffel. Other environments that allow or mandate reference semantics also allow the possibility of non-void-safe run time errors. If you've worked in Java or .NET you may have seen the NullReferenceException. Sometimes you might have experienced this rather poetic sounding message: "Object reference not set to an instance of an object". In Eiffel you would see "Feature call on void target". All these are the hallmarks of run time errors resulting from non-void-safe software.
+
+{{note|If you need a review of difference between reference types and expanded types in Eiffel, see [[ET: The Dynamic Structure: Execution Model|the chapter of the Eiffel Tutorial dedicated to the Eiffel execution model]]. }}
+
+Of course this is not an issue with instances of expanded types, because these instances are indeed "expanded" within their parent objects. But we could not imagine a world with expanded types only. References are important for performance reasons and for modeling purposes. For example, consider that a car has an engine and a manufacturer. When we model cars in software, it might be appropriate for engines to be expanded types, as each car has one engine. But certainly the same is not true for manufacturer. Many cars can share, through a reference, a single manufacturer.
+
+So, references are necessary, but we want them to be trouble free. 
+
+==Void-safe software==
+
+Void-safe software, then, is software in which the compiler can give assurance, through a static analysis of the code, that at run time whenever a feature is applied to a reference, that the reference in question will have an object attached. This means that the feature call
+<code>
+            x.f (a)
+</code>
+is valid only if we are assured that <code>x</code> will be attached to an object when the call executes.
+
+
+{{info|This validity rule is called the '''Target rule''', validity code VUTA, and is the primary rule for void-safety. In the following discussion, you will see that other validity rules are involved, too. You can see the formal definition of all validity rules in the [http://www.ecma-international.org/publications/standards/Ecma-367.htm ISO/ECMA standard document] available online. }}
+
+
+Once we have committed ourselves to this validity rule, we must have a strategy for complying with the rule.
+
