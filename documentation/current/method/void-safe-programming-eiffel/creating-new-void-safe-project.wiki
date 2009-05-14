@@ -1,0 +1,73 @@
+[[Property:title|Creating a new void-safe project]]
+[[Property:weight|2]]
+[[Property:uuid|92cea2e9-b094-6380-2c5d-1cd1eb3038b4]]
+{{underconstruction}}
+
+
+
+=Creating a new void-safe project=
+
+Now that we've been introduced to the Eiffel void-safe facilities, let's look at what it takes to set up a new void-safe software project. Here we'll look at the void-safety related project settings and how the can be used. Then we'll look deeper into the use of some of the void-safe tools.
+
+==Project settings for void-safe projects==
+
+There are three project settings that are related to void-safety. These settings can be set with great granularity throughout your project to allow you maximum flexibility, particularly when including classes or libraries that are non-void-safe or that have been converted to void-safety, but must do double duty in the void-safe and non-void-safe worlds. 
+
+===The ''"Void-safe"'' setting===
+
+The '''Void-safe''' setting determines whether and how the Eiffel compiler checks your project against the void-safe related validity rules. 
+
+This is the essential void-safe project setting. It can assume one of three values:
+# '''No void safety''': No checking against any of the void-safety validity rules.
+# '''On demand void safety''': Validity rules are selectively checked. Attachment status (VJAR/VBAR and related) is taken into account when performing conformance checks, but initialization rule (VEVI) and the target rule (VUTA) are checked only for attached entities and attached call targets -- i.e., detachable cases are not checked. 
+# '''Complete void safety''': Complete checking against all void-safety validity rules.
+
+So, for a new void-safe project, you would want to set this option to either '''Complete void safety''' or '''On demand void safety'''.
+
+===The ''"Are types attached by default?"'' setting===
+
+It is this setting that tells the compiler how to treat declarations which specify neither the <code>detachable</code> keyword nor the <code>attached</code> keyword, for example:
+<code>
+    x: T
+</code>
+A value of '''True''' will instruct the compiler to treat <code>x</code> as if it were declared:
+<code>
+    x: attached T
+</code>
+A value of '''False''', and <code>x</code> will be viewed as if it were:
+<code>
+    x: detachable T
+</code>
+
+In a new project, ideally all of your declarations would be of attached types. But of course there are some occasions, for various reasons, that you must or should use detachable types. 
+
+So, for a new void-safe project, it is recommended that a value of '''True''' is used. 
+
+===The ''"Full class checking"'' setting===
+
+This setting instructs the compiler to recheck inherited features in descendant classes. 
+
+'''Full class checking''' should always be set to '''True''' when compiling void-safe code.
+
+
+==Void-safe libraries==
+
+As of EiffelStudio version 6.4, the majority of the libraries distributed with EiffelStudio are void-safe. 
+
+During a period of transition, there will be different Eiffel configuration files (.ecf's) for non-void-safe and void-safe projects. If you have set the '''Void-safe''' setting to check for void-safety, then when you add a library to your project in EiffelStudio, you will see the void-safe configurations by default. After the transition period, it is expected that there will be only one version of the configuration files for each library. The single configuration files will serve both non-void-safe and void-safe projects.
+
+==Using non-void-safe libraries==
+
+==Using the ''attribute'' keyword carefully==
+
+The keyword <code>attribute</code> is should be used with some care. You might be tempted to think that it would be convenient or add an extra element of safety to use self-initializing attributes widely. And in a way, you would be correct. But you should also understand that there is a price to pay for using self-initializing attributes and stable attributes. It is that upon every access, an evaluation of the state of the attribute must be made. So, as a general rule, you should avoid using self-initializing attributes only for the purpose of lazy initialization.
+
+==More about CAPs==
+
+==More about the ''attached syntax''==
+
+==Stable attributes==
+
+
+
+
