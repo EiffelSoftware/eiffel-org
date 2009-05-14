@@ -95,17 +95,17 @@ By using the '''attached syntax''', we can perform an '''object test''' on a var
                 l_x.f (a)
             end
 </code>
-In the example above, <code>x</code> is tested to make certain that it is attached. If so, the local <code>l_x</code> is created and can be used safely even if <code>x</code> is a class attribute. So, the attached syntax, is really another CAP, because it provides a clearly verifiable place for the application of features to targets that are guaranteed not to be void.
+In the example above, <code>x</code> is tested to make certain that it is attached. If so, the local <code>l_x</code> is attached to the same object as <code>x</code> and can be used safely even if <code>x</code> is a class attribute. So, the attached syntax, is really another CAP, because it provides a clearly verifiable place for the application of features to targets that are guaranteed not to be void.
 
 
 {{note|The attached syntax has other syntax variations as well as other uses. These will be discussed later. }}
 
 
-One way to make sure we comply with the target rule would be always use a CAP or the attached syntax every time we want to apply a feature to a referenced object. That might work, but it falls among the impractical approaches to the problem ... it would break a very high percentage of existing EIffel code, not to mention cluttering things up quite a bit.
+One way to make sure we comply with the target rule would be always use a CAP or the attached syntax every time we want to apply a feature to a referenced object. That might work, but it falls among the impractical approaches to the problem ... it would break a very high percentage of existing Eiffel code, not to mention cluttering things up quite a bit.
 
 ===Types as "attached" or "detachable"===
 
-Rather than trying to protect every feature call, Eiffel allows us to declare variables as being of '''attached types'''. This is an important extension to the Eiffel type system.  
+Rather than trying to protect every feature call, Eiffel allows us to declare any variable as being of an '''attached type'''. This is an important extension to the Eiffel type system.  
 
 In Eiffel prior to the introduction of void-safe facilities, any reference variable could be set to <code>Void</code>. So, all variables were considered '"detachable"'. 
 
