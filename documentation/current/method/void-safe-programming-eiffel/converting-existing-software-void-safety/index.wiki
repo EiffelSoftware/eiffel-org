@@ -111,7 +111,7 @@ Let's look at some specific cases and how fixing them unfolds.
 [[Image:VoidSafeVEVI1]]
 
 
-There are two errors like this in our legacy system. They are probably the most obvious and easiest cases to handle. 
+There are two VEVI errors like this in class <code>APPLICATION</code> our legacy system. They are probably the most obvious and easiest cases to handle. 
 
 <code>
 feature {NONE} -- Initialization
@@ -137,7 +137,7 @@ Here attribute declarations for <code>my_nvp</code> and <code>my_nvp_list</code>
     make
             -- Run application.
         do
-            create my_nvp.make ("Hello", "World")
+            create my_nvp.make ("SomeName", "SomeValue")
             create my_nvp_list.make
                 ...
         end

@@ -95,7 +95,7 @@ By using the '''attached syntax''', we can perform an '''object test''' on a var
                 l_x.f (a)
             end
 </code>
-In the example above, <code>x</code> is tested to make certain that it is attached. If so, the local <code>l_x</code> is attached to the same object as <code>x</code> and can be used safely even if <code>x</code> is a class attribute. So, the attached syntax, is really another CAP, because it provides a clearly verifiable place for the application of features to targets that are guaranteed not to be void.
+In the example above, <code>x</code> is tested to make certain that it is attached. If so, the new local <code>l_x</code> becomes attached to the same object as <code>x</code>. And so the object can be used safely even if <code>x</code> is a class attribute. So, the attached syntax, is really another CAP, because it provides a clearly verifiable place for the application of features to targets that are guaranteed not to be void.
 
 
 {{note|The attached syntax has other syntax variations as well as other uses. These will be discussed later. }}
@@ -162,11 +162,13 @@ Still, it's not too hard to understand the basics of initializing variables of a
         end
 </code>
 
-* A variable is considered properly set if it is '''self-initializing'''. What it means to be self-initializing is explained [[Void-safe programming in Eiffel#Self-initializing variables|below]].
+* A variable is considered properly set if it is '''self-initializing'''. What it means to be self-initializing is explained below.
 
 ===Self-initializing attributes===
 
-A self-initializing attribute is guaranteed to have a value when accessed at run time. Declarations of self-initializing attributes are characterized by the use of <code>attribute</code> keyword. The code that follows the <code>attribute</code> keyword is executed to initialize the attribute in the case that the attribute is accessed prior to being initialized in any other way. So, the code in the attribute part is a kind of last resort for initialization. 
+A self-initializing attribute is guaranteed to have a value when accessed at run time. Declarations of self-initializing attributes are characterized by the use of <code>attribute</code> keyword. The code that follows the <code>attribute</code> keyword is executed to initialize the attribute in the case that the attribute is accessed prior to being initialized in any other way. 
+
+So, self-initializing attributes are just ordinary attributes,  and they can be initialized in the traditional ways. The difference is that the code in the attribute part serves as a kind of safety net guaranteeing that a self-initializing attribute will never be void.
 
 <code>
     value: STRING

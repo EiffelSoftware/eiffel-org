@@ -62,9 +62,60 @@ During a period of transition, there will be different Eiffel configuration file
 
 The keyword <code>attribute</code> is should be used with some care. You might be tempted to think that it would be convenient or add an extra element of safety to use self-initializing attributes widely. And in a way, you would be correct. But you should also understand that there is a price to pay for using self-initializing attributes and stable attributes. It is that upon every access, an evaluation of the state of the attribute must be made. So, as a general rule, you should avoid using self-initializing attributes only for the purpose of lazy initialization.
 
-==More about CAPs==
-
 ==More about the ''attached syntax''==
+
+In the introduction to the attached syntax, we used an example which showed how the attached syntax is directly relevant to void-safety. The code: 
+<code>
+            if x /= Void then
+--              ... Any other instructions here that do not assign to x
+                x.f (a)
+            end
+</code>
+
+is a CAP for <code>x</code> ... but that's only true if <code>x</code> is a local variable or a formal argument to the routine that contains the code. 
+
+So access a detachable attribute safely,  we could declare a local variable, make an assignment, and test for <code>Void</code> as above. Something like this:
+<code>
+    my_detachable_attribute: detachable MY_TYPE
+
+            ...
+    some_routine
+        local
+           x: like my_detachable_attribute
+        do
+            x := my_detachable_attribute
+            if x /= Void then
+--              ... Any other instructions here that do not assign to x
+                x.f (a)
+            end
+                ...
+</code>
+The attached syntax can both check the attached status of a detachable attribute and also provide a new local variable. So the routine becomes:
+<code>
+    some_routine
+        do
+            if attached my_detachable_attribute as x then
+--                  ... Any other instructions here that do not assign to x
+                x.f (a)
+            end
+                ...
+</code>
+
+
+In its simplest form, the attached syntax can be used to test attached status only:
+<code>
+            if attached x then
+                do_something
+            else
+                do_something_different
+            end
+</code>
+
+
+
+
+
+==More about CAPs==
 
 ==Stable attributes==
 
