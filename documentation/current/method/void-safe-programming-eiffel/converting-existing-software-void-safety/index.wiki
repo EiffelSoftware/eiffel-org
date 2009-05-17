@@ -49,7 +49,7 @@ Here's an example of the kind of error you might expect when compiling with full
 [[Image:VGCC error]]
 
 
-The situation here is that the feature <code>split</code> has been inherited by our class <code>NVP_LIST</code>. Feature <code>split</code> includes code to create and attach feature <code>sublist</code> which is typed <code>attached like Current</code> which in this case means <code>attached NVP_LIST</code>. To do this creation, <code>split</code> uses a creation procedure <code>make_sublist</code>. 
+The situation here is that the feature <code>split</code> has been inherited (from class <code>TWO_WAY_LIST [G]</code>) by our class <code>NVP_LIST</code>. Feature <code>split</code> includes code to create and attach feature <code>sublist</code> which is typed <code>attached like Current</code> which in this case means <code>attached NVP_LIST</code>. To do this creation, <code>split</code> uses a creation procedure <code>make_sublist</code>. 
 
 Now here's the rub: <code>NVP_LIST</code> has not named <code>make_sublist</code> as a creation procedure: 
 <code>

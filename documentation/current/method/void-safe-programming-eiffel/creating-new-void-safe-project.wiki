@@ -64,7 +64,9 @@ The keyword <code>attribute</code> is should be used with some care. You might b
 
 ==More about the ''attached syntax''==
 
-In the introduction to the attached syntax, we used an example which showed how the attached syntax is directly relevant to void-safety. The code: 
+===As a CAP which yields a local variable===
+
+In the introduction to the attached syntax, we used an example which showed how the attached syntax is directly relevant to void-safety. That is, the code: 
 <code>
             if x /= Void then
 --              ... Any other instructions here that do not assign to x
@@ -101,6 +103,7 @@ The attached syntax can both check the attached status of a detachable attribute
                 ...
 </code>
 
+===As a test for attachment===
 
 In its simplest form, the attached syntax can be used to test attached status only:
 <code>
@@ -111,8 +114,49 @@ In its simplest form, the attached syntax can be used to test attached status on
             end
 </code>
 
+So in this simple form, <code>attached x</code> can be used instead of <code>x /= Void</code>. The two are semantically equivalent, and which one you choose is a matter of personal preference. 
 
 
+===As a tool for "once per object"===
+
+There is a code pattern for functions that exists in some Eiffel software to effect "once-per-object / lazy evaluation". 
+
+{{note|This is different from an Eiffel <code>once</code> routine, which is "once-per-thread" or "once-per-process" depending upon how it is configured. }}
+
+This "once-per-object" code pattern employs a cached value for some object which is not exported. When it is applied, the "once-per-object" function checks the attachment status of the cached value. If the cached value is void, then it is created and assigned to <code>Result</code>. If the cached value was found already to exist, then it is just assigned to <code>Result</code>. 
+
+Here's an example of this pattern used to produce some descriptive text of an instance of its class:
+
+<code>
+feature -- Access
+
+    descriptive_text: STRING
+        local
+            l_result: like descriptive_text_cache
+        do
+            l_result := descriptive_text_cache
+            if l_result = Void then
+                create Result.make_empty
+--			... Build Result with appropriate descriptive text for Current
+                descriptive_text_cache := Result
+            else
+                Result := l_result
+            end
+        ensure
+            result_attached: Result /= Void
+            result_not_empty: not Result.is_empty
+            result_consistent: Result = descriptive_text
+        end
+
+feature {NONE} -- Implementation
+
+	descriptive_text_cache: like descriptive_text
+
+</code>
+
+
+
+===As a replacement for assignment attempt===
 
 
 ==More about CAPs==
