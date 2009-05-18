@@ -200,7 +200,7 @@ where <code>x</code> is the formal argument for <code>r</code>, then if x is of 
 
 ===Stable attributes===
 
-Stable attributes are really stable detachable attributes, as adding the concept of stability is meaningful only for detachable attributes. Declaring a detachable attribute as stable, means that it behaves like a detachable attribute except that its assignment rules mimic those of attached attributes. In other words, a stable attribute can never be the target of an assignment in which the source is <code>Void</code> or a detachable type.
+Stable attributes are really stable ''detachable'' attributes, as adding the concept of stability is meaningful only for detachable attributes. Declaring a detachable attribute as stable, means that it behaves like a detachable attribute except that its assignment rules mimic those of attached attributes. In other words, a stable attribute can never be the target of an assignment in which the source is <code>Void</code> or a detachable type.
 <code>
     test: detachable TEST
         note

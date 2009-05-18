@@ -150,13 +150,78 @@ feature -- Access
 
 feature {NONE} -- Implementation
 
-	descriptive_text_cache: like descriptive_text
+    descriptive_text_cache: like descriptive_text
 
+</code>
+This example will not compile in a void-safe project (assuming types are attached by default). The problem is that the attribute <code>descriptive_text_cache</code> is of an attached type, therefore will be flagged by the compiler as not properly set (VEVI). Of course, it will be ... that's the whole idea here: not to initialize <code>descriptive_text_cache</code> until it's actually used. So it sounds like <code>descriptive_text_cache</code> should be declared detachable. That is:
+<code>
+    descriptive_text_cache: detachable like descriptive_text
+</code>
+This change will make this routine compile in a void-safe project. But you should notice that there is a ripple-down effect due to the change. Within the routine, <code>l_result</code> is typed <code>like descriptive_text_cache</code>, so it also will be detachable. Therefore we might expect trouble, because later in the routine we have:
+<code>
+                Result := l_result
+</code>
+Because we know Result is attached and l_result is detachable, we might expect a compiler error in which the source of an assignment does not conform to its target (VJAR). 
+
+But we don't get such an error. The reason is two-fold. First, <code>l_result</code> is a local variable whose use can be protected by a CAP. Second, the CAP in this case is the check to ensure that <code>l_result</code> is not void. We only make the assignment to <code>Result</code> if <code>l_result</code> is not void. So the compiler can prove that <code>l_result</code> cannot be void at the point at which the assignment occurs ... therefore, no error.
+
+Because the '''attached syntax''' can test attached status and provide a local variable, it can be used to remove some unnecessary code from this routine. The version of the routine that follows shows the attached syntax being used to test the attached status of <code>descriptive_text_cache</code> and yield the local variable <code>l_result</code> in the case that <code>descriptive_text_cache</code> is indeed attached. 
+<code>
+    descriptive_text: STRING
+        do
+            if attached descriptive_text_cache as l_result then
+                Result := l_result
+            else
+                create Result.make_empty
+                descriptive_text_cache := Result
+            end
+        ensure
+            result_attached: Result /= Void
+            result_not_empty: not Result.is_empty
+            result_consistent: Result = descriptive_text
+    end
 </code>
 
 
-
 ===As a replacement for assignment attempt===
+
+The assignment attempt ( <code>?=</code> ) has traditionally been used to deal with external objects (e.g., persistent objects from files and databases) and to narrow the type of an object in order to use more specific features. The latter is a process known by names such as "down casting" in some technological circles. A classic example is doing specific processing on some elements of a polymorphic data structure. Let's look at an example. Suppose we have a <code>LIST</code> of items of type <code>POLYGON</code>:
+<code>
+    my_polygons: LIST [POLYGON]
+</code>
+<code>POLYGON</code>s could be of many specific types, and one of those could be <code>RECTANGLE</code>. Suppose too that we want to print the measurements of the diagonals of all the <code>RECTANGLE</code>s in the list. Class <code>RECTANGLE</code> might have a query <code>diagonal</code> returning such a measurement, but <code>POLYGON</code> would not, for the reason that the concept of diagonal is not meaningful for all <code>POLYGON</code>s, e.g., <code>TRIANGLE</code>s.
+
+As we traverse the list we would use assignment attempt to try to attach each <code>POLYGON</code> to a variable typed as <code>RECTANGLE</code>. If successful, we can print the result of the application of <code>diagonal</code>. 
+<code>
+    l_my_rectangle: RECTANGLE
+
+                ...
+            from
+                my_polygons.start
+            until
+                my_polygons.exhausted
+            loop
+                l_my_rectangle ?= my_polygons.item
+                if l_my_rectangle /= Void then
+                    print (l_my_rectangle.diagonal)
+                    print ("%N")
+                end
+            end
+</code>
+The '''attached syntax''' allows us to check both attached status and type, and provides us with a fresh local variable when appropriate:
+<code>
+            from
+                my_polygons.start
+            until
+                my_polygons.exhausted
+            loop
+                if attached {RECTANGLE} my_polygons.item as l_my_rectangle then
+                    print (l_my_rectangle.diagonal)
+                    print ("%N")
+                end
+            end
+</code>
+As with the other examples of the '''attached syntax''', it is no longer necessary to make a declaration for the local variable, in this case <code>l_my_rectangle</code>.
 
 
 ==More about CAPs==
