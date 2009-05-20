@@ -107,6 +107,7 @@ Next you fix the problems that the compiler discovered. The compiler errors conc
 
 Let's look at some specific cases and how fixing them unfolds.
 
+===Variables not properly set===
 
 [[Image:VoidSafeVEVI1]]
 
@@ -144,7 +145,7 @@ Here attribute declarations for <code>my_nvp</code> and <code>my_nvp_list</code>
 </code>
 
 
-In second case, there is also an Initialization rule violation (VEVI), this time on <code>Result</code>, in this routine:
+In a second case, there is also an Initialization rule violation (VEVI), this time on <code>Result</code>, in this routine:
 
 <code>
     at_first (nm: STRING): NVP is
@@ -178,9 +179,11 @@ So the least impact to this routine will be to declare its type as <code>detacha
 </code>
 
 
-The same change is made in other routines that can return void by design.
+The same change is made in other routines that can return void by design, particularly including a routine called <code>value_at_first</code>, which gets our attention next.
 
-The change to <code>at_first</code> satisfies the VEVI issue in <code>at_first</code>, but it introduces a previously unseen conformance issue (VJAR) in a routine <code>value_at_first</code>:
+===Source of assignment does not conform to target===
+
+The change to <code>at_first</code> satisfies the VEVI issue in <code>at_first</code>, but it introduces a previously unseen conformance issue (VJAR) in the routine <code>value_at_first</code>:
 
 
 [[Image:VoidSafeVJAR1]]
@@ -225,6 +228,10 @@ Here the '''attached syntax''' can fix the problem and streamline the routine:
 </code>
 
 In this version <code>tn</code> need not be declared as a local variable. Remember that the attached syntax provides a fresh local variable, if the expression is not void. 
+
+===Both VEVI and VJAR errors===
+
+A design issue in class <code>NVP_LIST</code> causes issues of both conformance and initialization. In the original design, an instance of the class NVP_LIST could traverse its contents NVP-by-NVP with inherited functionality.  But it also could traverse its contents returning "sublists" based on recurring patterns of the <code>name</code> attributes of a sequence of name/value pairs. 
 
 
 ==Code patterns==
