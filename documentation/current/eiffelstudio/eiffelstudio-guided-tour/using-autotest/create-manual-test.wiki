@@ -203,7 +203,7 @@ Now we click '''OK'''. The dialog disappears and the <code>covers</code> tag:
 <code>
 covers/{BANK_ACCOUNT}.deposit
 </code>
-is now visible in the list of tags for the new test we are creating. So, next click '''Create''' and the wizard pane disappears and the Eiffel Testing Frame work will create our test class and display it in the edit window.
+is now visible in the list of tags for the new test we are creating. So, next click '''Create''' and the wizard pane disappears and the Eiffel Testing framework will create our test class and display it in the edit window.
 
 
 ==Writing a test==
