@@ -271,14 +271,14 @@ However, because these attributes are not exported, we may be able to leave them
 Those exported features which take arguments of the type <code>ARRAY [STRING]</code> which will serve as sequencing or segmenting control also require that the array contain at least one element. For example, the contract for feature <code>segment_start</code> contains these preconditions:
 
 <code>
-	segment_start (nms: ARRAY [STRING_8])
-			-- Place segment cursor on the first occurrence of a seqment of list which
-			-- 	begins at the current cursor position and
-			-- 	terminates in a sequence with names equivalent to and ordered the same as `nms'.
-			-- If no such sequence exists, then ensure exhausted
-		require
-			nms_valid: nms /= Void and then (nms.count > 0)
-			not_sequencing: not sequence_readable
+    segment_start (nms: ARRAY [STRING_8])
+            -- Place segment cursor on the first occurrence of a seqment of list which
+            -- 	begins at the current cursor position and
+            -- 	terminates in a sequence with names equivalent to and ordered the same as `nms'.
+            -- If no such sequence exists, then ensure exhausted
+        require
+            nms_valid: nms /= Void and then (nms.count > 0)
+            not_sequencing: not sequence_readable
 </code>
 
 Because the restriction always exists that a valid <code>sequence_array</code> or <code>segment_array</code> must contain at least one element, it is possible to redesign the implementation of the class such that an empty <code>sequence_array</code> and <code>segment_array</code> could serve the same purpose as a <code>Void</code> one does in the original design.
@@ -289,6 +289,18 @@ So the invariant clauses that we saw above would now become:
 	not_sequencing_and_segmenting: not (segment_readable and sequence_readable)
 	sequence_traversal_convention: (sequence_array.is_empty) = (not sequence_readable)
 	segment_traversal_convention: (segment_array.is_empty) = (not segment_readable)
+</code>
+
+We already have compiler errors (VJAR's) that point us to those places in which we have code that sets either <code>sequence_array</code> or <code>segment_array</code> to <code>Void</code>. Like this:
+
+<code>
+            segment_array := Void
+</code>
+
+These instances need to be changed to attach an empty array, maybe like this:
+
+<code>
+            create segment_array.make (1, 0)
 </code>
 
 Additionally, some postconditions which reference the implementation features <code>sequence_array</code> and/or <code>segment_array</code> would have to be changed. Looking at the postcondition clauses for <code>segment_start</code> we see that <code>segment_array</code> is expected (or not) to be <code>Void</code>:
@@ -317,7 +329,6 @@ To support the "empty array" design, <code>segment_start</code>'s postcondition 
 
 ===Using generic classes===
 
-===Using '''check''' blocks===
 
 ==Transitioning steps==
 

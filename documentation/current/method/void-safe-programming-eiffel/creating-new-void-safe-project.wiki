@@ -54,7 +54,7 @@ This setting instructs the compiler to recheck inherited features in descendant 
 
 As of EiffelStudio version 6.4, the majority of the libraries distributed with EiffelStudio are void-safe. 
 
-During a period of transition, there will be different Eiffel configuration files (.ecf's) for non-void-safe and void-safe projects. If you have set the '''Void-safe''' setting to check for void-safety, then when you add a library to your project in EiffelStudio, you will see the void-safe configurations by default. After the transition period, it is expected that there will be only one version of the configuration files for each library. The single configuration files will serve both non-void-safe and void-safe projects.
+{{note|During a period of transition, there will be different Eiffel configuration files (.ecf's) for non-void-safe and void-safe projects (for example, base.ecf and base-safe.ecf). If you have set the '''Void-safe''' setting to check for void-safety, then when you add a library to your project in EiffelStudio, you will see only the void-safe configurations by default. After the transition period, it is expected that there will be only one version of each of the configuration files for each library. The single configuration files will serve both non-void-safe and void-safe projects. }}
 
 ==Using non-void-safe libraries==
 
