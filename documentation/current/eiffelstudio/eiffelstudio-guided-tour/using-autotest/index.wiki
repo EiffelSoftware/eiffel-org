@@ -2,9 +2,6 @@
 [[Property:link_title|Using AutoTest]]
 [[Property:weight|-1]]
 [[Property:uuid|6b900a65-85c6-9cd6-ef57-ccd4b8decbef]]
-{{underconstruction}}
-
-
 ==Introduction==
 
 The Eiffel Testing Framework is a tool that helps you to create, manage, and run tests against your software. The Eiffel Testing Framework is accessible directly as a part of EiffelStudio, but works to a large extent behind the scenes so that it doesn't get in the way of your development activities. In other words, even though you may be accumulating a substantial collection of test software along with your project software, you can still run and deliver your project software without going to a lot of trouble to separate the two. Tests managed by the Eiffel Testing Framework stay handy and can be run any time to help make sure everything always stands up to the scrutiny of testing. 

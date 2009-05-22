@@ -5,11 +5,12 @@
 
 
 
-If you have been using Eiffel for some time, you may be maintaining systems which were developed in the time before Eiffel became void-safe. If that's the case, then you will probably want to make those systems void-safe. 
+If you have been using Eiffel for a while, you may be maintaining systems which were developed before Eiffel became void-safe. If that's the case, then you will probably want to make those systems void-safe. 
 
 In this section we will use the experience of converting a set of simple (but not too simple) legacy Eiffel classes to show the types of issues that you may encounter, and how to deal with them. 
 
-The system we will use consists of these classes:
+So in the discussion below, you will see references to these classes:
+
 
 {| border="1"
 |-
@@ -31,7 +32,11 @@ The system we will use consists of these classes:
 
 ==To redesign or not to redesign==
 
-As you sift through your existing software during the void-safe conversion, you may not get very far before you see things that you wish had been done differently. This occurs often during reviews of existing systems, not just because of the introduction of void-safety. You will see some such cases in the routines of legacy classes below.
+During the process of conversion of classes to void-safety, the compiler will point out problems which you will have to fix. Some of these will be straightforward, while others may be tricky. It is natural, or sometimes mandatory, at times to consider changing elements of the design of your software. 
+
+Also, as you sift through your existing software during the void-safe conversion, you may not get very far before you see things that you wish had been done differently. This occurs often during reviews of existing systems, not just because of the introduction of void-safety. 
+
+In the discussions that follow you will see these redesign opportunities arise, and the decisions that were made for these cases.
 
 =Conversion process=
 
@@ -39,7 +44,7 @@ As you sift through your existing software during the void-safe conversion, you 
 
 First make sure your project will compile correctly under the configuration of EiffelStudio that you intend to use to convert to void-safe.
 
-Then set the project setting '''Full Class Checking''' to '''True'''. Do a ''clean'' compile of your system. To do this shut down and restart EiffelStudio. When the project selection dialog appears, select your project, then next to '''Action:''' select '''Compile''' in the drop-down, and check '''Clean'''.
+Then set the project setting '''Full Class Checking''' to '''True'''. Do a ''clean'' compile of your system. To do this shut down EiffelStudio, and restart it. When the project selection dialog appears, select your project, then next to '''Action:''' select '''Compile''' in the drop-down, and check '''Clean'''.
 
 Full class checking will analyze your classes to make sure that in cases of inheritance features of the parent classes are recheck for validity in the heirs.
 
@@ -56,7 +61,7 @@ Now here's the rub: <code>NVP_LIST</code> has not named <code>make_sublist</code
 create
     make, make_from_string, make_from_file_named
 </code>
-So if we go to the <code>create</code> part of <code>NVP_LIST</code> and add <code>make_sublist</code> to its list of creation procedures, this will fix the problem:
+If we go to the <code>create</code> part of <code>NVP_LIST</code> and add <code>make_sublist</code> to its list of creation procedures, this will fix the problem:
 <code>
 create
 	make, make_from_string, make_from_file_named, make_sublist
@@ -112,7 +117,7 @@ Let's look at some specific cases and how fixing them unfolds.
 [[Image:VoidSafeVEVI1]]
 
 
-There are two VEVI errors like this in class <code>APPLICATION</code> our legacy system. They are probably the most obvious and easiest cases to handle. 
+There are two VEVI errors like this in class <code>APPLICATION</code> of our legacy system. They are probably the most obvious and easiest cases to handle. 
 
 <code>
 feature {NONE} -- Initialization
@@ -168,7 +173,7 @@ In a second case, there is also an Initialization rule violation (VEVI), this ti
         end
 </code>
 
-Here we cannot just ensure that <code>Result</code> is attached, because, as indicated by the header comment, <code>Result</code> is allowed to be void by design. 
+Here we cannot just ensure that <code>Result</code> is always attached, because, as indicated by the header comment, <code>Result</code> is allowed to be void by design. 
 
 So the least impact to this routine will be to declare its type as <code>detachable</code>:
 
