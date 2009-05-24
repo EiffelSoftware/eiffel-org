@@ -226,6 +226,31 @@ As with the other examples of the '''attached syntax''', it is no longer necessa
 
 ==More about CAPs==
 
+You might wonder about the use of a CAP using a <code>check</code> like this:
+
+<code>
+    my_detachable_any: detachable ANY
+
+    my_attached_any: ANY
+        local
+            l_result: like my_detachable_any
+        do
+            l_result := my_detachable_any
+            check
+                attached l_result 
+            end
+            Result := l_result
+        end
+</code>
+
+The assertion in the <code>check</code> guarantees that <code>l_result</code> is attached at the time of its assignment to <code>Result</code>. If <code>my_detachable_any</code> had not been attached, then an exception would have occurred. 
+
+This would be fine in ''workbench'' code, but what happens if the code is ''finalized'' and assertions are discarded?
+
+The answer is that the <code>check</code> remains in force in finalized code, because it is necessary to prove void-safety.
+
+
+
 ==Stable attributes==
 
 

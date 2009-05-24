@@ -2,7 +2,8 @@
 [[Property:link_title|The AutoTest Interface]]
 [[Property:weight|0]]
 [[Property:uuid|6eec11df-9ea0-6834-d41b-a0c23b87c485]]
-{{underconstruction}}
+
+
 
 
 [[Image:Testing Framework interface annotated 01]]
@@ -37,7 +38,7 @@ The '''Stop all execution''' command ( [[Image:debug-stop-icon]] ) will halt all
 
 ==View Filtering==
 
-{{note|The development of this section is on hold pending changes to the interface. }}
+{{note|The development of this documentation section is currently on hold pending changes to the interface expected in an upcoming release. }}
 
 
 ==Tests==

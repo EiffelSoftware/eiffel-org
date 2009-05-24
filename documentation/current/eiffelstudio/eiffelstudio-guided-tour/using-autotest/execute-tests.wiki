@@ -1,8 +1,6 @@
 [[Property:title|Execute tests]]
 [[Property:weight|3]]
 [[Property:uuid|d0515cb1-0792-3028-2a24-a71b56506959]]
-{{underconstruction}}
-
 
 
 In the previous section we coded a manually created test. The Eiffel Testing Framework will allow us to execute that test, or, in more practical terms, any set of tests that we select. But before we execute our test, let's take a look at what we will get out of such an execution.  

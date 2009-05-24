@@ -2,10 +2,6 @@
 [[Property:link_title|Using generated tests]]
 [[Property:weight|7]]
 [[Property:uuid|c17ebddf-5d35-76c1-4912-d9f1ca3770a5]]
-{{underconstruction}}
-
-
-
 ==About synthesized tests==
 
 Synthesized tests fill a different role from either extracted or manual tests. The idea behind synthesized tests is that because we specify software through its contracts, and because compliance of the software to those contracts can be actively monitored at runtime, we can know two things necessary for building tests:
@@ -41,7 +37,9 @@ This is where you declare target class(es) for the synthesized tests. You type a
 
 On the right side of the pane you can configure certain options for the synthesizing process.
 
-'''Duration''' controls the length of time the Eiffel Testing Framework will run random invocations of the routines in your target class.
+'''Cutoff (minutes)''' lets you specify a number of minutes for the Eiffel Testing Framework to run random invocations of the routines in your target class(es).
+
+'''Cutoff (invocations)''' lets you control how long the Eiffel Testing Framework will run random invocations by declaring a specific number of invocations.
 
 '''Routine timeout''' sets an upper limit on how long the Testing Framework will wait for a random feature call to complete.
 

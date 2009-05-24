@@ -2,7 +2,6 @@
 [[Property:link_title|The Eiffel Test Wizard]]
 [[Property:weight|1]]
 [[Property:uuid|305a8288-cb6a-df2a-1515-e23138e21566]]
-{{underconstruction}}
 
 
 ==Introduction==
@@ -96,7 +95,8 @@ On this pane enter the information needed to produce synthesized tests. Use the 
 
 Other information necessary for creating synthesized tests is:
 
-*'''Duration (minutes)''' -- How long the Eiffel Testing Framework will execute random invocations of the routines in the classes to be tested.
+*'''Cutoff (minutes)''' -- How long the Eiffel Testing Framework will execute random invocations of the routines in the classes to be tested, specified in minutes.
+*'''Cutoff (invocations)''' -- How long the Eiffel Testing Framework will execute random invocations of the routines in the classes to be tested, specified by invocation count.
 *'''Routine timeout (seconds)''' -- How long the Framework will wait for completion of any invocation.
 *'''Random number generation seed''' -- The seed used for random number generator used during the process. A value of zero instructs the Framework to use a seed derived from the system clock.
 *'''Use slicing for minimization''' -- Designate '''slicing''' as the approach for minimizing the size of synthesized tests.
