@@ -226,11 +226,11 @@ As with the other examples of the '''attached syntax''', it is no longer necessa
 
 ==More about CAPs==
 
-You might wonder about the use of a CAP using a <code>check</code> like this:
+You might wonder about the use of a CAP which employs a <code>check</code> instruction like this:
 
 <code>
     my_detachable_any: detachable ANY
-
+            ...
     my_attached_any: ANY
         local
             l_result: like my_detachable_any
