@@ -26,6 +26,7 @@ The version dialog looks similar to this one:
 [[Image:version-dialog|Version dialog]]  
 
 It allows a version number and some copyright information to be set. On .NET this information will be put into the generated assembly.
+
 <span id="file_pattern"></span> 
 The Exclude Rules setting allows to define rules to exclude certain files from every cluster. This can be used to exclude CVS or SVN directories globally instead of excluding them on each cluster. The dialog looks like this:
 
@@ -36,6 +37,7 @@ Exclude rules are regular expressions which are matched against directories and 
 {{sample| We have a recursive cluster in c:\projects\calculator\cluster and in there we have a file c:\projects\calculator\cluster\interface\ignore_me.e<br/>
 Matching would now be first done against ''/interface'' and then against ''/interface/ignore_me.e''<br/>
 A rule like ''^/interface$'' would exclude the whole subdirectory, a rule like ''^/interface/ignore_me\.e$'' would only exclude the ignore_me.e class. }}
+
 <span id="condition"></span> 
 It is also possible to add conditions to a file rule (set of include and exclude file patterns). Adding conditions allows a file rule to be active only under certain conditions. The condition dialog looks like this:
 

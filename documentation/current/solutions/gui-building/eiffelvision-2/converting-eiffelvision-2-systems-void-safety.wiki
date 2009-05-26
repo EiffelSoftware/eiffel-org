@@ -2,33 +2,30 @@
 [[Property:link_title|Converting EiffelVision 2 Systems to Void-Safety]]
 [[Property:weight|1]]
 [[Property:uuid|96e01318-700b-da6e-42d1-14fee219daf5]]
-Converting EiffelVision 2 System to Void Safety
+==Introduction==
 
 In order to convert systems that employ EiffelVision 2 (Vision2) to void-safety, some adjustments may be needed depending on its usage.  This document describes the various usage scenarios of Vision2 that will need converting to adhere to void-safety.
 
-Inheritance purely from an Interface Class
+==Inheritance purely from an Interface Class==
 
-If you have classes that inherit from a Vision2 interface class such as EV_DRAWING_AREA, the first change that has to be made is to alter 'initialize' so that any types that are attached (ie: types that remain non-void throughout the lifetime of its housing parent object) are initialized via 'create_interface_objects', this needs to be redefined if the type from Vision2 is instantiable, if not then it may need to be made effective (such as inheritance directly from EV_ANY).  It is important that any attached types in the interface class are instantiated in `create_interface_objects' and these objects are initialized via 'initialize'.  Attached types should not be instantiated in `initialize' due to the bridge pattern implementation and initialization of these types in `create_interface_objects' MUST be performed via 'initialize', otherwise unexpected behavior may occur as the bridge pattern has not been fully set up at this point in time.
+If you have classes that inherit from a Vision2 interface class such as EV_DRAWING_AREA, the first change that has to be made is to alter 'initialize' so that any types that are attached (ie: types that remain non-void throughout the lifetime of its housing parent object) are instantiated via 'create_interface_objects', this needs to be redefined if the type from Vision2 is instantiable, if not then it may need to be made effective (such as inheritance directly from EV_ANY).  It is important that any attached types in the interface class are instantiated in `create_interface_objects' and these objects are initialized via 'initialize'.  Attached types should not be instantiated in `initialize' due to the bridge pattern implementation and initialization of these types in `create_interface_objects' MUST be performed via 'initialize', otherwise unexpected behavior may occur as the bridge pattern has not been fully set up at this point in time.
 
 Example from EV_TIMEOUT
+<code>
+   create_interface_objects
+         -- <Precursor>
+      do
+         create actions
+      end
+   
+   create_implementation
+         -- Create implementation of timeout.
+      do
+         create {EV_TIMEOUT_IMP} implementation.make
+      end
+</code>
 
-
-feature {NONE} -- Implementation
-
-create_interface_objects
--- <Precursor>
-do
-create actions
-end
-
-create_implementation
--- Create implementation of button.
-do
-create {EV_TIMEOUT_IMP} implementation.make
-end
-
-
-Inheritance from an Implementation Interface Class with associating interface class
+==Inheritance from an Implementation Interface Class with associating interface class==
 
 If you have an existing, custom platform dependent implementation, there are a few more changes needed than what was required for the interface class.
 
@@ -37,7 +34,7 @@ For the interface class changes, now the interface object is passed to the imple
 
 An example from the conversion of Windows implementation of EV_BUTTON_IMP.
 
-
+<code>
    make (an_interface: like interface) 
            -- Create `Current' with interface `an_interface'. 
        do 
@@ -57,9 +54,11 @@ An example from the conversion of Windows implementation of EV_BUTTON_IMP.
        end
 
     interface: EV_BUTTON;
+</code>
 
 would become: 
 
+<code>
    make 
            -- Initialize `Current'. 
        do 
@@ -73,11 +72,12 @@ would become:
        end
 
     interface: detachable EV_BUTTON note option: stable attribute end;
+</code>
 
 The following steps are needed during the conversion:
 
-- The attribute 'interface' needs to be made a stable attribute
-- Copy any initialization of the widget from 'make' to 'initialize' excluding `base_make' setup.  Any initialization code that relies on `interface' would have to be rewritten so that this gets passed to new creation routine that in turn calls the original `make'.  See EV_PRINT_PROJECTOR_IMP on Windows `make_with_context' for an example of this.
-- Remove `make', rename `initialize' to `make', make sure that any calls to Precursor do not override any settings set in 'initialize', the ordering may need to be changed in order to make the code void-safe so.  See EV_POPUP_WINDOW_IMP.make (Windows implementation) where the setting of 'user_can_resize' is performed after the Precursor call so that is doesn't get overriden.
+* The attribute 'interface' needs to be made a stable attribute, the converted 'interface' attribute shows the syntax for doing so.
+* Copy any initialization of the widget from 'make' to 'initialize' excluding `base_make' setup.  Any initialization code that relies on `interface' would have to be rewritten so that this gets passed to new creation routine that in turn calls the original `make'.  See EV_PRINT_PROJECTOR_IMP on Windows `make_with_context' for an example of this.
+* Remove `make', rename `initialize' to `make', make sure that any calls to Precursor do not override any settings set in 'initialize', the ordering may need to be changed in order to make the code void-safe so.  See EV_POPUP_WINDOW_IMP.make (Windows implementation) where the setting of 'user_can_resize' is performed after the Precursor call so that is doesn't get overriden.
 
 
