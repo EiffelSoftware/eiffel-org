@@ -29,7 +29,7 @@ Example from EV_TIMEOUT
 
 If you have an existing, custom platform dependent implementation, there are a few more changes needed than what was required for the interface class.
 
-For the interface class changes, now the interface object is passed to the implementation after creation, via `assign_interface', this means that `make' no longer takes an argument.  This also means that to adhere to void-safety all of the types are now created and initialized via the creation routine of the implementation object.
+For the interface class changes, now the interface object is passed to the implementation after creation, via `assign_interface', this means that `make' no longer takes an argument (see `create_implementation' above).  This also means that to adhere to void-safety all of the types are now created and initialized via the creation routine of the implementation object.
 
 
 An example from the conversion of Windows implementation of EV_BUTTON_IMP.
