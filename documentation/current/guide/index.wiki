@@ -9,11 +9,11 @@ These pages are the central repository of information about Eiffel and the produ
 The documentation is organized into virtual books. Each book covers an important aspect of the world of Eiffel.
 
 * [[Guide]] -- Guide to Eiffel Information
-* [[Why Eiffel?]] -- Why Eiffel?
-* [[Method|Method and Language]] -- The Eiffel Method and Language
 * [[EiffelStudio]] -- The EiffelStudio Interactive Development Environment
 * [[Solutions]] -- Eiffel Solutions, Technologies, and Class Libraries
 * [[Platform specifics]] -- Specific support for particular platforms, e.g., Microsoft Windows 
+* [[Method|Method and Language]] -- The Eiffel Method and Language
+* [[Why Eiffel?]] -- Why Eiffel?
 * [[Community]] -- Community Contributions
 <!--break-->
 Sources of information on Eiffel include:
@@ -24,14 +24,6 @@ Sources of information on Eiffel include:
 ===[[Guide]] -- Guide to Eiffel Information===
 
 :You are reading this book now.
-
-===[[Why Eiffel?]] -- Why Eiffel? ===
-
-:A summary of the arguments for using Eiffel.
-
-===[[Method|Method and Language]] -- The Eiffel Method and Language===
-
-:Materials promoting the understanding of the Eiffel software development method and Eiffel the language.
 
 ===[[EiffelStudio]] -- The EiffelStudio Interactive Development Environment===
 
@@ -44,6 +36,14 @@ Sources of information on Eiffel include:
 ===[[Platform specifics]] -- Support for particular operating systems===
 
 :Although most  Eiffel technology is completely platform-independent, Eiffel also provides important platform-specific solutions, described in this book.
+
+===[[Method|Method and Language]] -- The Eiffel Method and Language===
+
+:Materials promoting the understanding of the Eiffel software development method and Eiffel the language.
+
+===[[Why Eiffel?]] -- Why Eiffel? ===
+
+:A summary of the arguments for using Eiffel.
 
 ===[[Community]] -- You can contribute to the documentation!===
 

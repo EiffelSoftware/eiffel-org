@@ -72,7 +72,7 @@ This is because "item" is type <code>ANY</code> and although it may be currently
 
 You can see that this type of list has its drawbacks. Of course you could build a <code>LIST_OF_CATS</code> class in which <code>item</code> and the argument for <code>put</code> would be of type <code>CAT</code>. This would let you <code>purr</code> a cat without pulling it out of the list, and it would also prevent you from accidently letting old Thor in with the cats. But, every time you needed a list to hold a different type of object, you have to write a new class. 
 
-Indeed, this is how things are done in environements without facilities genericity.
+Indeed, this is how things are done in environments without facilities genericity.
 
 What we would like to have is a way to produce the text of the list class once. Then only when we make declarations do we add the additional information about the particular types we want allowed in the list.
 
