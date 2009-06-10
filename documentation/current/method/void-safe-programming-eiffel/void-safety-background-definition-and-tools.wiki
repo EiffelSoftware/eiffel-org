@@ -178,7 +178,7 @@ So, self-initializing attributes are just ordinary attributes,  and they can be 
         end
 </code>
 
-In the example above, the attribute <code>value</code> will be attached to an object of type STRING, in fact, the empty string, if no other initialization occurs before the first access of <code>value</code>.
+In the example above, the attribute <code>value</code> will be attached to an object of type <code>STRING</code>, in fact, the empty string, if no other initialization occurs before the first access of <code>value</code>.
 
 ===Rule for conformance===
 
