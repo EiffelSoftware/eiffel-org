@@ -1,6 +1,69 @@
-[[Property:title|EiffelStudio 6.4 release notes]]
+[[Property:title|Release notes for EiffelStudio 6.4]]
 [[Property:link_title|6.4]]
 [[Property:weight|-11]]
 [[Property:uuid|2f88d204-6e51-6150-8fbe-f6a3b41d5ec1]]
+==Graphical environment==
 
+===What's new===
+* Initial support for the iPhone platform to develop command line applications. Support for graphical applications will be available in the next release.
+* Added a few new libraries: the '''diff''' library, the '''encoding''' and '''internationalization''' libraries.
+* To minimize breaking changes, EiffelStudio comes with two sets of libraries. The first set, which is the default set, is compatible with previous versions of EiffelStudio. The second set, which is labeled '''experimental''', is void-safe and contains some breaking changes such as new ARRAY, ARRAYED_LIST, HASH_TABLE, SPECIAL classes. Users are encourage to compile the experimental libraries to prepare their code when experimental will become the de facto library. It is possible to have code that compiles against both set without a change.
+
+===Improvements===
+*Added completion of <eiffel>attribute</eiffel> to create an attribute body.
+*The completion window will now show a feature or class description tool tip.
+* Better formatting of verbatim strings, that guarantees that copy/pasting from the formatted text will yield the same string content as the one in the Eiffel source code.
+
+===Changes===
+* The EiffelNet library with IPv6 support is now the default library. The old one is still available as part of our obsolete libraries.
+* The project configuration format has a new version with new settings for void-safety compilation. The compiler will choose the default options based on the version of the project configuration file. Making it easy to have the same code compile identically with old versions of EiffelStudio.
+
+===Bug fixes===
+
+==Compiler==
+* Click [[Major changes between ISE Eiffel 6.3 and ISE Eiffel 6.4|here]]  for the compiler release notes.
+
+==Debugger==
+* Click [[Release notes for EiffelStudio 6.4 related to the debugger|here]]  for the EiffelStudio debugger release notes.
+
+==EiffelBuild==
+* Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.
+
+==Libraries==
+
+===EiffelBase===
+* For object comparison, containers are now using the ~ operator instead of  <eiffel>is_equal</eiffel>. As a result, if you had heterogeneous containers, then it might not find items that were found before (although it was a catcall). 
+* EiffelBase is now using the <eiffel>alias</eiffel> notation instead of <eiffel>infix/prefix</eiffel>.
+* Updated the IMMUTABLE_STRING classes to have an efficient string extraction query <eiffel>shared_substring</eiffel> which will let you create a substring of an existing immutable string without actually duplicating the data.
+* The creation procedure <eiffel>default_create</eiffel> from <eiffel>CELL</eiffel> has been removed to ensure that the same code can be compiled in both non-void-safe and void-safe mode.
+* Implemented <eiffel>{EXCEPTION}.cause</eiffel> which returns the exception object that caused the current exception while executing the rescue clause.
+* Fixed the inconsistent behaviors of <eiffel>{EXCEPTIONS}.original*</eiffel> with 5.7 potentially breaking code using exceptions. 
+* Ensured that in void-safe mode, one can call <eiffel>{INTERNAL}.set_reference_field</eiffel> to set a reference attribute to Void if the attribute is of a detachable type.
+* In <eiffel>INTERNAL</eiffel>, fixed a bug that would not recognize a class name A_SOMETHING as a valid identifier for INTERNAL. 
+* Changed <eiffel>IO_MEDIUM.last_string</eiffel> to be attached so that existing code can easily be migrated to void-safe without changing the pattern <eiffel>read_line/last_string</eiffel>. 
+* The following classes have been excluded from the void-safe version of EiffelBase as they cannot be made void-safe under their current design:
+:* COMPACT_CURSOR_TREE
+:* LINKED_CURSOR_TREE
+:* TWO_WAY_CURSOR_TREE
+:* COMPACT_TREE_CURSOR
+:* LINKED_CURSOR_TREE_CURSOR
+:* TWO_WAY_CURSOR_TREE_CURSOR 
+* Fixed eweasel test#list003 where calling copy on a non-empty <eiffel>LINKED_LIST</eiffel> and providing the same list as argument would wipe out the content of the <eiffel>LINKED_LIST</eiffel> instead of preserving the elements.
+* Fixed eweasel test#list014 where calling <eiffel>merge_left</eiffel> and <eiffel>merge_right</eiffel> on a <eiffel>TWO_WAY_LIST</eiffel> was violating the invariant.
+* Fixed eweasel test#array005 where calling <eiffel>wipe_out</eiffel> on an <eiffel>ARRAY2</eiffel> was violating the invariant. 
+* Fixed eweasel test#except035 where we incorrectly merged the code value for <eiffel>IO_EXCEPTION</eiffel> and <eiffel>RUNTIME_IO_EXCEPTION</eiffel> thus breaking existing code not based on Eiffel exception object.
+* Fixed eweasel test#except033 that an exception thrown through rescues caused infinite loop. 
+* Added <eiffel>same_keys</eiffel> to <eiffel>HASH_TABLE</eiffel>. You can redefine this feature to use a different comparison criterion for the keys. 
+
+===EiffelNet===
+* net: Added ability to only listen on the loopback address in NETWORK_STREAM_SOCKET. 
+* Fixed some issues  when trying to listen for either any address or the loopback address in both IPv4 and IPv6 mode on Windows. It also solves a security issue since if you have IPv6 enabled, then listening to the loopback would also listen to any address on the IPv4 interface.
+
+===EiffelProcess===
+* Changed the redirection semantics so that the output is now appended to a file rather than recreating it. 
+
+===EiffelVision2===
+* [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
+
+[[EiffelStudio release notes|Click here to check out what was new in other versions]]  
 
