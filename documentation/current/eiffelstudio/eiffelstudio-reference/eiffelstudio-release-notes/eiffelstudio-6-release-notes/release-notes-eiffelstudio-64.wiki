@@ -8,17 +8,30 @@
 * Initial support for the iPhone platform to develop command line applications. Support for graphical applications will be available in the next release.
 * Added a few new libraries: the '''diff''' library, the '''encoding''' and '''internationalization''' libraries.
 * To minimize breaking changes, EiffelStudio comes with two sets of libraries. The first set, which is the default set, is compatible with previous versions of EiffelStudio. The second set, which is labeled '''experimental''', is void-safe and contains some breaking changes such as new ARRAY, ARRAYED_LIST, HASH_TABLE, SPECIAL classes. Users are encourage to compile the experimental libraries to prepare their code when experimental will become the de facto library. It is possible to have code that compiles against both set without a change.
+* Added new tools to the EiffelStudio delivery. They are located under $ISE_EIFFEL/tools/spec/$ISE_PLATFORM/bin. The new tools are:
+:*'''compile_all''': compile all the Eiffel Configuration File projects found under a directory and report which one do and do not compiles.
+:*'''syntax_updater''': update the Eiffel code found under a directory to use the latest ECMA syntax in your code.
 
 ===Improvements===
 *Added completion of <eiffel>attribute</eiffel> to create an attribute body.
 *The completion window will now show a feature or class description tool tip.
+* Supported new attached syntax for code completion. 
 * Better formatting of verbatim strings, that guarantees that copy/pasting from the formatted text will yield the same string content as the one in the Eiffel source code.
+* Improved display of ~ and /~ operators, as well as object test expressions.
+* The project name in status bar, when we load a configuration (i.e: even before any compilation) 
+* Vastly improved population of the error list tool when thousands or errors/warnings are generated.
+* Added option in the new library dialog to show only void-safe libraries, for void-safe projects.
 
 ===Changes===
 * The EiffelNet library with IPv6 support is now the default library. The old one is still available as part of our obsolete libraries.
 * The project configuration format has a new version with new settings for void-safety compilation. The compiler will choose the default options based on the version of the project configuration file. Making it easy to have the same code compile identically with old versions of EiffelStudio.
+* Changed the Eiffel Information System to use the note element in project configuraton file in this style: <note><eis name="NAME1"><eis name="NAME2"></note>.
 
 ===Bug fixes===
+* Fixed failure when generating the flat view of some classes.
+* Fixed various issues with the testing tool.
+* Fixed a bug where editor will disappear when debugging. 
+* Fixed some corruptions of docking layout of EiffelStudio.
 
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 6.3 and ISE Eiffel 6.4|here]]  for the compiler release notes.
@@ -56,8 +69,11 @@
 * Added <eiffel>same_keys</eiffel> to <eiffel>HASH_TABLE</eiffel>. You can redefine this feature to use a different comparison criterion for the keys. 
 
 ===EiffelNet===
-* net: Added ability to only listen on the loopback address in NETWORK_STREAM_SOCKET. 
+* net: Added ability to only listen on the loopback address in <eiffel>NETWORK_STREAM_SOCKET</eiffel> 
 * Fixed some issues  when trying to listen for either any address or the loopback address in both IPv4 and IPv6 mode on Windows. It also solves a security issue since if you have IPv6 enabled, then listening to the loopback would also listen to any address on the IPv4 interface.
+* Fixed a memory leak in read and receive from <eiffel>SOCKET</eiffel> because we forgot to free the temporary buffer used to hold the data. 
+* Renamed privately exported <eiffel>make_from_fd</eiffel> to <eiffel>make_from_descriptor_and_address</eiffel>. 
+* Re-enabled listening on 256 ports on Windows for the IPv6 library.
 
 ===EiffelProcess===
 * Changed the redirection semantics so that the output is now appended to a file rather than recreating it. 
