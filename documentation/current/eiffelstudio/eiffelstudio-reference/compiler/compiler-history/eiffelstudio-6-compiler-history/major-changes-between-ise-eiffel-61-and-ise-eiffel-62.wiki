@@ -4,6 +4,13 @@
 [[Property:uuid|20122f4c-22c6-d0ee-c38b-36908ca86ad2]]
 ==What's new==
 
+{{seealso|See also: [[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
+* Exceptions as objects are now implemented.
+* Added support for new ~ operator which can compare 2 objects safely regardless of their type.
+* Added detection of harmful catcall at runtime (harmless ones are currently ignored).
+* Added support for `note' keyword with a migration path in case `note' is being used as an identifier in your code.
+* Added `-gc_stats' option to get some information on how much CPU==What's new==
+
 {{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
 * Exceptions as objects are now implemented.
 * Added support for new ~ operator which can compare 2 objects safely regardless of their type.
