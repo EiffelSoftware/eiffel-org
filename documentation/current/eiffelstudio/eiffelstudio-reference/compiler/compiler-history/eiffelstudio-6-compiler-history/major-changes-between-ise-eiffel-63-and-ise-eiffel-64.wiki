@@ -4,18 +4,30 @@
 [[Property:uuid|08206c9f-42fc-d007-ca09-4cf6a42207c2]]
 ==What's new==
 {{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
+* Added support for iPhone platform.
 
 ==Improvements==
+# Made precompilations work on Mac OS X. 
+# Improved inlining of deferred routines implemented as attributes or constants in INLINER by allowing their inlining.
 
 ==Changes==
+* Ensured that particular options specified in a library cannot be overridden in a project, because they apply to the source code (e.g., specify a variant of a syntax) rather than to the code generation (e.g., specify which assertions have to be monitored). 
 
 ==Bug fixes==
+* Fixed eweasel test#incr322 and test#final079 where compiler would crash when a routine was implemented as an attribute that can be access statically in final mode. 
+Fixed eweasel test#incr322 and test#final079 which caused a crash during finalization of a call to a deferred routine implemented as an attribute with a body or some assertions. 
+
 
 ===Language issues===
 
 ===Compiler issues===
+* Incremented ECF XML schema version to reflect the recent changes.
+* Replaced ECF schema attribute syntax_level of an integer type with syntax of a string type that contains one of the three possible values.
+* Replaced ECF schema attribute is_void_safe of a boolean type with void_safety of a string type that contains one of the three possible values (none - no void safety checks, all - all void safety checks, initialization - on-demand void safety checks, i.e. only for entities that are attached).
+
 
 ===Runtime/code generation issues===
+* Fixed broken generation of single threaded DLL. 
 
 ===Store/Retrieve issues===
 
