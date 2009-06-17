@@ -25,7 +25,7 @@
 ===Changes===
 * The EiffelNet library with IPv6 support is now the default library. The old one is still available as part of our obsolete libraries.
 * The project configuration format has a new version with new settings for void-safety compilation. The compiler will choose the default options based on the version of the project configuration file. Making it easy to have the same code compile identically with old versions of EiffelStudio.
-* Changed the Eiffel Information System to use the note element in project configuraton file in this style: <note><eis name="NAME1"><eis name="NAME2"></note>.
+* Changed the Eiffel Information System to use the note element in project configuraton file in this style: <nowiki><note><eis name="NAME1"/><eis name="NAME2"/></note></nowiki>.
 
 ===Bug fixes===
 * Fixed failure when generating the flat view of some classes.
