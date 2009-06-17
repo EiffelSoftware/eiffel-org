@@ -295,7 +295,7 @@ y := "{
 | <code>0xFF</code>
 | No
 | Yes
-| Hexadecimal integers
+| Yes
 |- 
 | Integer with intermediate underscores
 | <code>1_000 0xFFFF_0000</code>

@@ -25,18 +25,18 @@ a: detachable MY_TYPE note option: stable attribute end
 
 ==Changes==
 * Ensured that particular options specified in a library cannot be overridden in a project, because they apply to the source code (e.g., specify a variant of a syntax) rather than to the code generation (e.g., specify which assertions have to be monitored). 
-* We have removed usage of infix/prefix in most of the libraries. To make the transition smooth for our users, we have added a compatibility option that allows existing code using the infix/prefix notation to still compile.
-* Taken into account attachment status of formal generic constraints when checking conformance and detecting VUTA errors when target type is a formal generic. '''Important''': default attachment status of the constraints follows the "attached-by-default" setting, so the code might need to be updated by adding a detachable mark in front of the formal generic constraints if the actual generic parameters can be detachable types. 
-* The compiler does not produce the class progress output in batch mode. If you want the old behavior, you have to use '''-verbose''' option. 
-* Fixed incorrect display of NATURAL_32 attributes when calling `out' (fixes eweasel test#exec298 and bug#13862. 
+* Removed usage of infix/prefix in most of the libraries. To ease transition, added a compatibility option that allows existing code using the infix/prefix notation to continue to compile.
+* Attachment status of formal generic constraints are now taken into account when checking conformance and detecting VUTA errors when target type is a formal generic. '''Important''': default attachment status of the constraints follows the "attached-by-default" setting, so the code might need to be updated by adding a detachable mark in front of the formal generic constraints if the actual generic parameters can be detachable types. 
+* The compiler does not produce the class progress output in batch mode. The old behavior is available by using the '''-verbose''' option. 
+* Fixed incorrect display of NATURAL_32 attributes when calling `out' (fixes eweasel test#exec298 and bug#13862.) 
 
 ==Bug fixes==
 
 ===Language issues===
 * Renamed VUPR errors to their ECMA name VDPR. 
-* Better explanation for VDPR(3) errors when two or more precursor are available by listing all the precursors.
+* Better explanation for VDPR(3) errors when two or more precursors are available, by listing all the precursors.
 * Non-void arguments are now detected not only when they are specified in the voidness tests in immediate preconditions, but also in inherited ones. 
-* Fixed missing detection of VRFT errors in cases like "a: TUPLE [a: TUPLE [out: INTEGER]]".
+* Fixed missing detection of VRFT errors in cases like "<eiffel>a: TUPLE [a: TUPLE [out: INTEGER]]</eiffel>".
 
 ===Compiler issues===
 * Incremented ECF XML schema version to reflect the recent changes.
