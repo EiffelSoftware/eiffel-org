@@ -6,7 +6,7 @@
 
 ===What's new===
 * Initial support for the iPhone platform to develop command line applications. Support for graphical applications will be available in the next release.
-* Added new libraries: the '''diff''' library, the '''encoding''' and '''internationalization''' libraries.
+* Added new libraries: the '''api wrapper''', '''diff''', the '''encoding''', and '''internationalization''' libraries.
 * To minimize breaking changes, EiffelStudio comes with two sets of libraries. The first set, which is the default set, is compatible with previous versions of EiffelStudio. The second set, which is labeled '''experimental''', is void-safe and contains some breaking changes such as new ARRAY, ARRAYED_LIST, HASH_TABLE, SPECIAL classes. Users are encouraged to compile with the experimental libraries in order to prepare their code for the future when today's experimental libraries will become the de facto libraries. It is possible to adjust code so that a single version compiles against both sets of libraries.
 * Added new tools to the EiffelStudio delivery. They are located under $ISE_EIFFEL/tools/spec/$ISE_PLATFORM/bin. The new tools are:
 :*'''compile_all''': compile all the Eiffel Configuration File projects found under a directory and report which ones do and do not compile.

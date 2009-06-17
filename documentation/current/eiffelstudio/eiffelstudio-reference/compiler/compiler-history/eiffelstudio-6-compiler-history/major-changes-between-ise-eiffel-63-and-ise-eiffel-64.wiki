@@ -18,7 +18,7 @@ a: detachable MY_TYPE note option: stable attribute end
 * Improved inlining of deferred routines implemented as attributes or constants in INLINER by allowing their inlining.
 * Added support for detecting Mac OS X and VxWorks target compilation. 
 * Improved C compilation speed of E1/eskelet.c in workbench mode when using VS 2005 C++ for 64-bit. We went from a benchmark of 3 minutes down to 1 minute. This is definitely caused by a bug in VS, because the 32-bit version compiles the same code in just a matter of a few seconds. Microsoft reports having a fix for this in VS 2010.
-* Fixed bug#15343 when backups where very large if you referenced many .NET assemblies even when not compiling for .NET. 
+* Fixed bug#15343 where backups were very large if you referenced many .NET assemblies even when not compiling for .NET. 
 * Attached attribute initialization in creation procedures is now detected not only by inspecting the top-level instructions, but also the nested complex instructions with several possible execution paths, like conditional instruction, multi-branch, etc.
 * Improved degree 6 performance by not examining the content of all .e files to determine the associated class name. We now assume on the first pass that the file name is the class name. On EiffelStudio, if none of the files were buffered, we went from about 1 minute spent to just less than 3 seconds. The improvement should be even more visible when classes are on a remote drive.
 * Fixed eweasel test#runtime010 where certain allocation patterns could cause a major slow down during a garbage collection cycle.
