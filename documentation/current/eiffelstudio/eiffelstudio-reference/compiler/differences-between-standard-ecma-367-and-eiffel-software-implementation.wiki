@@ -198,23 +198,23 @@
 | Yes, default attachment status is controlled by option ''is_attached_by_default''
 |- 
 | Object test
-| <code>{o: STRING} e</code>
+| <code>attached {STRING} e as o</code>
 | No
 | Yes
-| Yes, all object tests should use different names for locals inside a feature, object tests are not permitted in preconditions and check instructions
+| Yes
 |- 
 | Attached target of a call
 | <code>x.f</code>
 | No
 | Yes
-| Yes, by option ''is_void_safe''
+| Yes, by option ''void_safety''
 |- 
 | Properly set variable
 |  <code>x := value</code> <br/>
 <code>use (x)</code> 
 | No
 | Yes
-| Yes, by option ''is_void_safe''
+| Yes, by option ''void_safety''
 |}
 
 ==Expressions==
