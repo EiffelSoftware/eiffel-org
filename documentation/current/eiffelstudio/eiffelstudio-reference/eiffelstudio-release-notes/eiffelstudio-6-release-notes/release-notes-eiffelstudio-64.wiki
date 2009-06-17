@@ -7,19 +7,19 @@
 ===What's new===
 * Initial support for the iPhone platform to develop command line applications. Support for graphical applications will be available in the next release.
 * Added new libraries: the '''diff''' library, the '''encoding''' and '''internationalization''' libraries.
-* To minimize breaking changes, EiffelStudio comes with two sets of libraries. The first set, which is the default set, is compatible with previous versions of EiffelStudio. The second set, which is labeled '''experimental''', is void-safe and contains some breaking changes such as new ARRAY, ARRAYED_LIST, HASH_TABLE, SPECIAL classes. Users are encourage to compile the experimental libraries to prepare their code when experimental will become the de facto library. It is possible to have code that compiles against both set without a change.
+* To minimize breaking changes, EiffelStudio comes with two sets of libraries. The first set, which is the default set, is compatible with previous versions of EiffelStudio. The second set, which is labeled '''experimental''', is void-safe and contains some breaking changes such as new ARRAY, ARRAYED_LIST, HASH_TABLE, SPECIAL classes. Users are encouraged to compile with the experimental libraries in order to prepare their code for the future when today's experimental libraries will become the de facto libraries. It is possible to adjust code so that a single version compiles against both sets of libraries.
 * Added new tools to the EiffelStudio delivery. They are located under $ISE_EIFFEL/tools/spec/$ISE_PLATFORM/bin. The new tools are:
-:*'''compile_all''': compile all the Eiffel Configuration File projects found under a directory and report which one do and do not compiles.
+:*'''compile_all''': compile all the Eiffel Configuration File projects found under a directory and report which ones do and do not compile.
 :*'''syntax_updater''': update the Eiffel code found under a directory to use the latest ECMA syntax in your code.
 
 ===Improvements===
-*Added completion of <eiffel>attribute</eiffel> to create an attribute body.
-*The completion window will now show a feature or class description tool tip.
-* Supported new attached syntax for code completion. 
-* Better formatting of verbatim strings, that guarantees that copy/pasting from the formatted text will yield the same string content as the one in the Eiffel source code.
+* Added automatic completion of the <eiffel>attribute</eiffel> keyword to create an attribute body.
+* The completion window will now show a feature or class description tool tip.
+* Added support for new <eiffel>attached</eiffel> syntax for code completion. 
+* Better formatting of verbatim strings, guaranteeing that copy/pasting from the formatted text will yield the same string content as the one in the Eiffel source code.
 * Improved display of ~ and /~ operators, as well as object test expressions.
-* The project name in status bar, when we load a configuration (i.e: even before any compilation) 
-* Vastly improved population of the error list tool when thousands or errors/warnings are generated.
+* The project name is displayed in the status bar, when a configuration is loaded (i.e: even before any compilation) 
+* Vastly improved population of the error list tool when thousands of errors/warnings are generated.
 * Added option in the new library dialog to show only void-safe libraries, for void-safe projects.
 
 ===Changes===
@@ -30,8 +30,8 @@
 ===Bug fixes===
 * Fixed failure when generating the flat view of some classes.
 * Fixed various issues with the testing tool.
-* Fixed a bug where editor will disappear when debugging. 
-* Fixed some corruptions of docking layout of EiffelStudio.
+* Fixed a bug which caused editor to disappear when debugging. 
+* Fixed some corruptions of the docking layout of EiffelStudio.
 
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 6.3 and ISE Eiffel 6.4|here]]  for the compiler release notes.
@@ -70,8 +70,8 @@
 
 ===EiffelNet===
 * net: Added ability to only listen on the loopback address in <eiffel>NETWORK_STREAM_SOCKET</eiffel> 
-* Fixed some issues  when trying to listen for either any address or the loopback address in both IPv4 and IPv6 mode on Windows. It also solves a security issue since if you have IPv6 enabled, then listening to the loopback would also listen to any address on the IPv4 interface.
-* Fixed a memory leak in read and receive from <eiffel>SOCKET</eiffel> because we forgot to free the temporary buffer used to hold the data. 
+* Fixed some issues  when trying to listen for either any address or the loopback address in both IPv4 and IPv6 mode on Windows. The fix also solves a security issue, because if you have IPv6 enabled, then listening to the loopback would also listen to any address on the IPv4 interface.
+* Fixed a memory leak in read and receive from <eiffel>SOCKET</eiffel> caused by failure to free the temporary buffer used to hold the data. 
 * Renamed privately exported <eiffel>make_from_fd</eiffel> to <eiffel>make_from_descriptor_and_address</eiffel>. 
 * Re-enabled listening on 256 ports on Windows for the IPv6 library.
 
