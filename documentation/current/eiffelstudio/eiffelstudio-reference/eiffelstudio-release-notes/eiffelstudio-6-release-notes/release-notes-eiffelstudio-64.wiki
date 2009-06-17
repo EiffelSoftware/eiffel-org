@@ -69,7 +69,7 @@
 * Added <eiffel>same_keys</eiffel> to <eiffel>HASH_TABLE</eiffel>. You can redefine this feature to use a different comparison criterion for the keys. 
 
 ===EiffelNet===
-* net: Added ability to only listen on the loopback address in <eiffel>NETWORK_STREAM_SOCKET</eiffel> 
+* Added ability to only listen on the loopback address in <eiffel>NETWORK_STREAM_SOCKET</eiffel>.
 * Fixed some issues  when trying to listen for either any address or the loopback address in both IPv4 and IPv6 mode on Windows. The fix also solves a security issue, because if you have IPv6 enabled, then listening to the loopback would also listen to any address on the IPv4 interface.
 * Fixed a memory leak in read and receive from <eiffel>SOCKET</eiffel> caused by failure to free the temporary buffer used to hold the data. 
 * Renamed privately exported <eiffel>make_from_fd</eiffel> to <eiffel>make_from_descriptor_and_address</eiffel>. 
