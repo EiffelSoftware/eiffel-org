@@ -191,14 +191,14 @@
 | <center>'''EiffelStudio'''</center>
 |- 
 | Attachment marks
-|  <code>a: !ANY</code> <br/>
-<code>b: ?ANY</code> 
+|  <code>a: attached ANY</code> <br/>
+<code>b: detachable ANY</code> 
 | No
 | Yes, attached by default
 | Yes, default attachment status is controlled by option ''is_attached_by_default''
 |- 
 | Object test
-| <code>{o: !STRING} e</code>
+| <code>{o: STRING} e</code>
 | No
 | Yes
 | Yes, all object tests should use different names for locals inside a feature, object tests are not permitted in preconditions and check instructions
