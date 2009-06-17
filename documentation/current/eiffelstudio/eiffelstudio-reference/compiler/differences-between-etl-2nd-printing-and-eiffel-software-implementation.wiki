@@ -33,6 +33,10 @@
 | !<eiffel>B</eiffel>! a.make
 | <code>create</code> {<eiffel>B</eiffel>} a.make
 |}
+*  <code>note</code>: replacement for the keyword <code>indexing</code>.
+*  <code>attribute</code>: new keyword to declare attribute body.
+*  <code>attached</code>: new keyword to specify attached types and object tests.
+*  <code>detachable</code>: new keyword to specify detachable types.
 
 
 ==Added semantics==
