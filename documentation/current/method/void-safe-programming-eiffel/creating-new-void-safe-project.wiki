@@ -76,7 +76,7 @@ In the introduction to the attached syntax, we used an example which showed how 
 
 is a CAP for <code>x</code> ... but that's only true if <code>x</code> is a local variable or a formal argument to the routine that contains the code. 
 
-So access a detachable attribute safely,  we could declare a local variable, make an assignment, and test for <code>Void</code> as above. Something like this:
+So to access a detachable attribute safely,  we could declare a local variable, make an assignment, and test for <code>Void</code> as above. Something like this:
 <code>
     my_detachable_attribute: detachable MY_TYPE
 
