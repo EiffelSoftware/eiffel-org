@@ -12,7 +12,7 @@ The first bit of knowledge comes from the ''preconditions'' of target routines. 
 
 You may look at a synthesized test class and think that it seems to be very long and to contain lots of stuff that you doubt is relevant. This is a fair assessment. The processes that the Eiffel Testing Framework uses to build synthesized tests are constantly being improved. But for now, synthesized tests, although useful, are not always things of extraordinary beauty. 
 
-So for the time being, unlike manual and extracted tests, you should not make synthesized tests a part of your permanent test suite. Rather, you should consider them a disposable means to an end. Use each synthesized tests as a guide for building an effective and readable manual test. 
+So for the time being, unlike manual and extracted tests, you should not make synthesized tests a part of your permanent test suite. Rather, you should consider them a disposable means to an end. Use each synthesized test as a guide for building an effective and readable manual test. 
 
 
 ==Creating synthesized tests==
