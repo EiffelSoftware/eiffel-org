@@ -328,16 +328,11 @@ To support the "empty array" design, <code>segment_start</code>'s postcondition 
 </code>
 
 
-
-==Code patterns==
-
-===CAPs===
-
-===The '''attribute''' keyword===
-
 ===Using generic classes===
 
 
-==Transitioning steps==
+
+
+{{SeeAlso|[[Converting EiffelVision 2 Systems to Void Safety]]}}
 
 
