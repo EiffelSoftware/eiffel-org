@@ -24,7 +24,7 @@ So in the discussion below, you will see references to these classes:
 | Class modeling name/value pairs of type STRING
 |-
 | NVP_LIST
-| Class modeling a list of NVP's with specialized behavior
+| Class modeling a list of NVP's with specialized behavior; heir of TWO_WAY_LIST [NVP]
 |}
 
 
