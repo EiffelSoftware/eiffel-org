@@ -7,15 +7,23 @@ The main address bar is located in the top part of windows, between the two [[Ma
 
 It has several components:
 * History back and forth arrows  [[Image:view-previous-icon]]  and  [[Image:view-next-icon]]  
+** These functions are also accessible from the menu path <code lang=text>View -> Go to</code>
+
 * Fields where the current class or feature name is displayed
-* View icons to change the view displayed in the editor  [[Image:view-editor-icon]] ,  [[Image:view-clickable-icon]] ,  [[Image:view-flat-icon]] ,  [[Image:view-contracts-icon]]  and  [[Image:view-flat-contracts-icon]]  
+** It is possible to type a class or feature name to center the editor on it. 
+** Typing a class name that does not exist in the set of known classes pops up a dialog to create a class of that name.
+** The "wildcard" characters '''*''' and '''?''' may be used in these fields.
 
-It is possible to type a class or feature name to center the editor on it. Typing a class name that does not exist in the set of known classes pops up a dialog to create a class of that name.
+* View icons [[Image:view-editor-icon]] ,  [[Image:view-clickable-icon]] ,  [[Image:view-flat-icon]] ,  [[Image:view-contracts-icon]]  and  [[Image:view-flat-contracts-icon]]  
+** Click to change the view currently displayed in the editor.
+** Drop a pebble to retarget the editor to a class or feature using the selected view.
 
-{{tip|Wildcards (* and ?) are available in these fields. }}
+* The Viewpoints selector
+** The Viewpoints selector is only activated if you have used [[Group Options#Renaming|renaming and/or prefixing]] to use alternate class names in your project, otherwise it is inactive.
+** The Viewpoints selector allows you to select a way of looking at classes either as they truly exist, i.e., as if you are their producer, or by using the alternative names that you have specified for your project using renaming and/or prefixing.
 
 
-{{tip|The history is also accessible in the '''View/Go to''' menu. }}
+
 
 
 
