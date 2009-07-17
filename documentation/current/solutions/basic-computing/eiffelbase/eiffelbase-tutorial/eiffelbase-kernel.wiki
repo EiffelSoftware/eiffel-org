@@ -379,7 +379,7 @@ Sometime you will be in a position where the schema of a class will have changed
 
 The storable mechanism allows you to retrieve the old version of the object only if it was saved using the <eiffel>independent_store</eiffel> facility. Each time you retrieve an object of a certain base class whose schema has changed, the feature <eiffel>correct_mismatch</eiffel> will be called. This feature is defined in [[ref:/libraries/base/reference/any_chart|ANY]] and by default will raise an exception. To handle the mismatch, you need to redefine <eiffel>correct_mismatch</eiffel> in the base class whose schema has been changed. For example in EiffelBase, [[ref:/libraries/base/reference/hash_table_chart|HASH_TABLE]] has changed between version 5.1 and version 5.2 to use <eiffel> SPECIAL</eiffel> rather than [[ref:/libraries/base/reference/array_chart|ARRAY]] for its internal data storage. To retrieve a 5.1 version of [[ref:/libraries/base/reference/hash_table_chart|HASH_TABLE]], you need to define <eiffel>correct_mismatch</eiffel> as following: 
 <code>
-correct_mismatch is
+correct_mismatch
             -- Attempt to correct object mismatch during retrieve using `mismatch_information'.
     local
         array_content: ARRAY [G]

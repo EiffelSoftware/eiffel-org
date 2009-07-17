@@ -17,20 +17,20 @@ The search panel has two tabs. The '''search tab''' allows you to define how and
 
 ===The Search tab===
 
-On the "Search" tab of the search panel, you will find two combo boxes, labeled "Search for:" and "Replace with:". These are used to enter the string or pattern for which you want to search and the word or phrase, if any, which you want the editor to use to replace matches resulting from the search. <br/>
-There are also buttons that control whether you want to search, to replace the most recently found match, or replace all matches.
+On the '''search tab''' of the search panel, you will find two combo boxes, labeled '''Search for:''' and '''Replace with:'''. These are used to enter the string or pattern for which you want to search and the word or phrase, if any, which you want the editor to use to replace matches resulting from the search. <br/>
+There are also buttons that control whether you want to '''search''', to '''replace''' the most recently found match, or '''replace all''' matches.
 
 ===The options group===
 
 There are five search options, each of them represented by a check box:
 
-*  Match case: If this option is selected, the search will be case-sensitive, which means that if you search for "example", the tool will highlight "example" but not "EXAMPLE" or "Example", as there are no capital letters in the searched pattern.
+*  '''Match case:''' If this option is selected, the search will be case-sensitive, which means that if you search for "example", the tool will highlight "example" but not "EXAMPLE" or "Example", as there are no capital letters in the searched pattern.
 
-* Whole word: If this option is selected, the tool will look for isolated words. A word is isolated if it is surrounded by spaces or if it is at the beginning or the end of a line.
+* '''Whole word:''' If this option is selected, the tool will look for isolated words. A word is isolated if it is surrounded by spaces or if it is at the beginning or the end of a line.
 
-*  Use regular expressions: You can enter a regular expression as a pattern for matching. 
+* '''Use regular expressions:''' You can enter a regular expression as a pattern for matching. 
 
-*  Search backwards: If this option is selected, the tool will highlight the previous occurrence of the searched pattern instead of the next occurrence when you press the "Search" button.
+* '''Search backwards:''' If this option is selected, the tool will highlight the previous occurrence of the searched pattern instead of the next occurrence when you click the '''Search button'''.
 
 
 {{note|If the search tool hits one end of the text, it will automatically continue from the other end. }}
