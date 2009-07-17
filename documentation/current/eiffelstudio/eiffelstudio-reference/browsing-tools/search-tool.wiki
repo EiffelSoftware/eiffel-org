@@ -5,26 +5,30 @@
 
 EiffelStudio includes a search tool which allows you to look for a word or a pattern in the editor, the class tool, the feature tool or the output tool, and to replace it by another word if you want. It is located in the left part of the development window, like the cluster tool or the favorites for instance.
 
-To make it appear, if it is not displayed, click on the search icon  [[Image:tool-search-icon]]  or choose the '''Search''' entry in the '''Edit''' menu. The search panel is divided in three parts (see Fig. 1). 
+To make it appear, if it is not displayed, click on the search icon  [[Image:tool-search-icon]]  or choose the '''Search''' entry in the '''Edit''' menu. 
+
+===The Search panel===
 
 [[Image:search-tool]]  
 
 Fig. 1: Search panel
 
-In the top part, you will find a combo box and a check box. The title of this text field is "Search for:", it will be used to enter the pattern you want to look for. The button is labeled "Replace with". If you click on it, another text field will appear. If you click again, the second text field will be hidden. This text field will be used to enter the word which you want the editor to use to replace found patterns. <br/>
-In the middle part of the search panel, you will find search options. They are described below. <br/>
-The bottom part contains two buttons: "Search" and "Replace". Click on the first one to launch the search for the pattern entered in the "Search for" field. The "Replace" button will be active only if the "Replace with" field is displayed. Press this button if you want to replace the last found pattern by the contents of the "Replace with" text field. 
+The search panel has two tabs. The '''search tab''' allows you to define how and for what strings and patterns you want to search (or search and replace). The '''scope tab''' allows you to define the limits of your search.
 
-==Options==
+===The Search tab===
 
-The options are located in the middle of the search panel. There are five buttons, each of them corresponding to an option:
+On the "Search" tab of the search panel, you will find two combo boxes, labeled "Search for:" and "Replace with:". These are used to enter the string or pattern for which you want to search and the word or phrase, if any, which you want the editor to use to replace matches resulting from the search. <br/>
+There are also buttons that control whether you want to search, to replace the most recently found match, or replace all matches.
+
+===The options group===
+
+There are five search options, each of them represented by a check box:
 
 *  Match case: If this option is selected, the search will be case-sensitive, which means that if you search for "example", the tool will highlight "example" but not "EXAMPLE" or "Example", as there are no capital letters in the searched pattern.
 
 * Whole word: If this option is selected, the tool will look for isolated words. A word is isolated if it is surrounded by spaces or if it is at the beginning or the end of a line.
-*  Use wildcards: If this option is not selected, the tool will look for the exact sequence of letters you entered in the "Search for" field. If it is selected, you will be able to use '*' and '?' wildcards. '?' in the searched pattern is equivalent to any character. For instance, "sample" and "simple" will be highlighted if you look for "s?mple". '*' is equivalent to any sequence of characters, including no characters at all. It means that if you search for "exam*ple", every piece of text beginning with "exam" and finishing with "ple" will be highlighted. Use it in combination with "Whole word" to search for words beginning with "exam" and finishing with "ple". 
 
-*  Replace all: If it is selected when you press the "Replace" button, every occurrence of the searched pattern will be replaced with the content of the "Replace with" field. It is possible to activate this option only if the "Replace with" field is displayed.
+*  Use regular expressions: You can enter a regular expression as a pattern for matching. 
 
 *  Search backwards: If this option is selected, the tool will highlight the previous occurrence of the searched pattern instead of the next occurrence when you press the "Search" button.
 
@@ -33,7 +37,6 @@ The options are located in the middle of the search panel. There are five button
 
 
 {{seealso|The [[Search functionality]] part of the EiffelStudio Editor section to learn keyboard shortcuts and menu entries to launch searches without using the search tool directly.  }}
-
 
 
 
