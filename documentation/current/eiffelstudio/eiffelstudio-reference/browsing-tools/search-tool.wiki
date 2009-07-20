@@ -1,13 +1,18 @@
 [[Property:title|Search tool]]
 [[Property:weight|6]]
 [[Property:uuid|4d0cc8b3-2ffd-42d4-7855-672fa0c11cf8]]
-==Description and usage==
+EiffelStudio includes a search tool which allows you to look for a word or a pattern in the editor, the class tool, the feature tool or the output tool, and to replace it by another word if you want. It is located in the left part of the development window.
 
-EiffelStudio includes a search tool which allows you to look for a word or a pattern in the editor, the class tool, the feature tool or the output tool, and to replace it by another word if you want. It is located in the left part of the development window, like the cluster tool or the favorites for instance.
+To make the search tool appear, if it is not visible, click on the search icon  [[Image:tool-search-icon]]  or follow the menu path:
+<code lang="text">
+        View -> Tools -> Search
+</code>
+or
+<code lang="text">
+        Edit -> Find
+</code>
 
-To make it appear, if it is not displayed, click on the search icon  [[Image:tool-search-icon]]  or choose the '''Search''' entry in the '''Edit''' menu. 
-
-===The Search panel===
+==The Search panel==
 
 [[Image:search-tool]]  
 
@@ -17,23 +22,54 @@ The search panel has two tabs. The '''search tab''' allows you to define how and
 
 ===The Search tab===
 
-On the '''search tab''' of the search panel, you will find two combo boxes, labeled '''Search for:''' and '''Replace with:'''. These are used to enter the string or pattern for which you want to search and the word or phrase, if any, which you want the editor to use to replace matches resulting from the search. <br/>
+On the '''search tab''' of the search panel (shown in Fig. 1), you will find two combo boxes, labeled '''Search for:''' and '''Replace with:'''. These are used to enter the string or pattern for which you want to search and the word or phrase, if any, which you want the editor to use to replace matches resulting from the search. <br/>
 There are also buttons that control whether you want to '''search''', to '''replace''' the most recently found match, or '''replace all''' matches.
 
-===The options group===
+====The options group====
 
-There are five search options, each of them represented by a check box:
+There are four search options, each of them represented by a check box:
 
 *  '''Match case:''' If this option is selected, the search will be case-sensitive, which means that if you search for "example", the tool will highlight "example" but not "EXAMPLE" or "Example", as there are no capital letters in the searched pattern.
 
 * '''Whole word:''' If this option is selected, the tool will look for isolated words. A word is isolated if it is surrounded by spaces or if it is at the beginning or the end of a line.
 
-* '''Use regular expressions:''' You can enter a regular expression as a pattern for matching. 
+* '''Use regular expressions:''' You can enter a regular expression as a pattern for matching. In Fig. 1, the regular expression in the '''Search for:''' box describes very simple quoted strings. Regular expressions give you the ability to create powerful pattern-oriented searches. If you are not familiar with regular expressions, you might check out the tutorial at [http://www.regular-expressions.info/ www.regular-expressions.info]. 
+
+{{note|It might be good advice to temper your expectations of using regular expressions with these words, [http://www.devtopics.com/101-more-great-computer-quotes/ attributed] to Jamie Zawinski: "Some people, when confronted with a problem, think `I know, I'll use regular expressions.' Now they have two problems."}}
 
 * '''Search backwards:''' If this option is selected, the tool will highlight the previous occurrence of the searched pattern instead of the next occurrence when you click the '''Search button'''.
 
-
 {{note|If the search tool hits one end of the text, it will automatically continue from the other end. }}
+
+===The Scope tab===
+
+[[Image:search-tool-scope-tab]]
+
+Fig. 2 Scope tab
+
+In the scope tab, you can choose how wide a search you would like to make. 
+
+* '''Current editor''' Your search will be confined to the class which is the current target of the Editor pane.
+* '''Whole project''' The entire project universe will be searched. 
+* '''Custom''' You are given the opportunity to choose which classes and clusters you would like to be included in the search scope.
+
+When you make certain choices, one or both of the check boxes become enabled.
+
+If you choose '''Whole project''', the '''Only compiled classes''' check box becomes enabled. If you check the box, then the search is confined to classes which are actually included in your system (i.e., reachable via relationships from your root class ... the classes shown with blue ovals). If you leave '''Only compiled classes''' unchecked, all classes in your project's universe are included in the search (blue and grey ovals). With '''Whole project''', the '''Recursive''' check box remains disabled.
+
+If you choose '''Custom''', both the '''Only compiled classes''' check box and the '''Recursive''' check box become enabled. The '''Recursive''' check box allows the search to include recursively subclusters of any cluster included in the search.
+
+==The Search Report panel==
+
+[[Image:search-report-01]]
+
+Fig. 3 Search Report panel
+
+The search report panel will be visible whenever your search returns matches on multiple classes. The '''collapsed''' view of the search results shows the class name of classes in which matches were found, and the number of matches. When you '''expand''' and entry, you see the line number at which the match occurs, and the exact string that caused the match.
+
+The items in the search report panel can be [[Pick-and-drop mechanism|picked and dropped]] into the editor or other appropriate targets in EiffelStudio.
+
+
 
 
 {{seealso|The [[Search functionality]] part of the EiffelStudio Editor section to learn keyboard shortcuts and menu entries to launch searches without using the search tool directly.  }}
