@@ -1,10 +1,9 @@
-[[Property:title|Cluster tool]]
-[[Property:link_title|Groups tool]]
+[[Property:title|Groups tool]]
 [[Property:weight|2]]
 [[Property:uuid|0baebaa5-a9c8-4c7c-6ace-c11d82804906]]
-The cluster tool (  [[Image:tool-clusters-icon]] ) is one of the tools located on the left of development windows. 
+[[Image:tool-clusters-icon]]
 
 [[Image:cluster-tool]]  
 
-It gives a [[System tree representation|tree representation]]  of all clusters and classes of the project. The toolbar contains a [[New cluster command|new cluster command]] , a [[New class command|new class command]] , and the [[Locate command|locate command]] . 
+The groups tool gives a [[System tree representation|tree representation]]  of all clusters, libraries and classes of the project. The toolbar contains a [[New cluster command|new cluster command]] , a [[New class command|new class command]] , and the [[Locate command|locate command]] . 
 
