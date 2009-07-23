@@ -1,7 +1,7 @@
 [[Property:title|Search tool]]
 [[Property:weight|6]]
 [[Property:uuid|4d0cc8b3-2ffd-42d4-7855-672fa0c11cf8]]
-EiffelStudio includes a '''search tool''' which allows you to look for a word or a pattern in the editor, the class tool, the feature tool or the output tool, and to replace it by another word if you want. 
+EiffelStudio includes a '''search tool''' which allows you to look for a word, phrase, string or even a pattern and, if you wish, to replace the matches it finds with some other word, phrase, or string. The search scope of the tool can be confined to the current editor pane, to the whole project, or to a custom domain of your choosing.
 
 If the search tool is not currently visible, you can make it appear by clicking on the search icon  [[Image:tool-search-icon]]  or by following either menu path:
 <code lang="text">

@@ -9,7 +9,7 @@ The set of files is composed of:
 <div> 
 *  <code>EIFGENs/target_name/W_code/</code>'''system.def''' (or F_code) 
 *  <code>EIFGENs/target_name/W_code/</code>'''edynlib.c''' (or F_code) 
-*  <code lang=text>$(ISE_EIFFEL)/studio/spec/$(ISE_PLATFORM)/templates/</code>'''egc_dynlib.template''' <br/>
+*  <code lang=text>$(ISE_EIFFEL)/studio/config/$(ISE_PLATFORM)/templates/</code>'''egc_dynlib.template''' <br/>
 this file will be copied during the compilation into the EIFGENs/target_name/W_code/E1 directory as '''egc_dynlib.c''' 
 *  <code lang=text>$(ISE_EIFFEL)/studio/spec/$(ISE_PLATFORM)/include/</code>'''egc_dynlib.h''' 
 * and the Makefile
