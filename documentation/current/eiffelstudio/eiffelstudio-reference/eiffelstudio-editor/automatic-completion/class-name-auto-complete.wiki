@@ -23,14 +23,19 @@ The class auto-completion window will pop up and display the list of class names
 
 [[Image:editor-class-auto-completion-window]]  
 
-Figure 1. The class auto-completion window
+Figure 1. The class name auto-completion window
 
 
 ===Options===
 
-At the bottom of the auto-completion window you will find a row of icons labeled "Options:". These icons help you control which choices are presented to you and the format of their presentation.  
+At the bottom of the auto-completion window you will find a row of icons labeled "Options:". These icons help you control which choices are presented to you and the format of their presentation. 
 
+Each icon can be toggled between an "up" position and a "down" position by clicking on it. You can also toggle the option icons up and down by using the function keys <code>F1</code> through <code>F7</code>.
 
+Not all of the options are applicable to class name auto-completion. Some apply only to feature name completion.
+
+* [[Image:filter]]  (F1) Filter: When down, you will see only those class names whose first characters match the string you have typed. When up, you see all classes in your system's universe.
+* 
 
 
 
