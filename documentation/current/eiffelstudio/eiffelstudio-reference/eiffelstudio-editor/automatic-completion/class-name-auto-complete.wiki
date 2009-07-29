@@ -2,15 +2,21 @@
 [[Property:weight|3]]
 [[Property:uuid|0f11a078-7dab-54d1-b624-4c04476564a5]]
 ==Overview==
-The EiffelStudio editor will complete class names automatically. This means, for example, when the user types:
+The EiffelStudio editor will complete class names automatically. This means, for example, when you type in the editor pane:
 <code>
     a_variable_name: LI</code>
 and then triggers the auto-complete, one of two things will happen:
-* If there is only one class name in the universe that begins `<code>LI</code>', then that class name will be automatically placed in the editor window at the cursor.
-* If there is more than one such class name, the editor will propose a list of possible valid class names, as seen in Figure 1. <br/>
+* If there is only one class name in the universe that begins `<code>LI</code>', then that class name will be automatically placed in the editor pane at the cursor.
+* If there is more than one such class name, the editor will propose a list of possible valid class names, as seen in Figure 1. 
+
+Auto-completion can be triggered by pressing <code>Ctrl+Shift+Space</code> or by following the [[Edit menu commands|edit menu]] path:
+<code lang="text">
+Edit --> Advanced --> Complete Class Name
+</code>
+<br/>
 
 ==The class auto-completion window==
-The class auto-completion window will pop up and display the list of class names which begin with the string `<code>LI</code>'. The user can select a class name from the list by double-clicking a name in the list or by highlighting a name and pressing <code>Return</code>. The auto-complete window can be cancelled by clicking outside the window. 
+The class auto-completion window will pop up and display the list of class names which begin with the string `<code>LI</code>'. So, you can imaging the auto-completion as a search for class names using the characters you type followed by a wild card character (*). The first item of the list will be selected. You can select a class name from the list by double-clicking a name in the list or by using the keyboard <code>Up</code> and <code>Down</code> buttons to navigate the list, then pressing <code>Enter</code> to select a highlighted class name. The auto-completion window can be cancelled by clicking outside the window or pressing <code>Esc</code>.
 
 
 [[Image:editor-class-auto-completion-window]]  
@@ -18,12 +24,12 @@ The class auto-completion window will pop up and display the list of class names
 Figure 1. The class auto-completion window
 
 
-To trigger the auto complete, press the key combination "Ctrl+Shift+Space" or click on '''Complete class name''' in the '''Advanced''' sub-menu of the  [[Edit menu commands|menu]] . If automatic completion is possible, there are two cases : if only one name matches, this name will be inserted in the editor. If there are no matching names or several ones a window will appear. This window will contain a text field and a list. The text field will be filled with the beginning of the class name that was entered. The first item in the list, if any, will be selected. <br/>
-To complete your code with the selected item, press "Enter" or "Ctrl+Space". <br/>
+===Options===
 
-To choose another item, use keyboard Up and Down arrows or the mouse. You can also modify the content of the text field. The list will be updated automatically. To validate your choice, press "Enter" or "Ctrl+Space". If there is no selected item, the content of the text field will be inserted. <br/>
+At the bottom of the auto-completion window you will find a row of icons labeled "Options:". These icons help you control which choices are presented to you and the format of their presentation.  
 
-To cancel the auto-complete, press "Esc" at any time. 
+
+
 
 
 
