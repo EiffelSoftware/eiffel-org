@@ -13,6 +13,8 @@ Auto-completion can be triggered by pressing <code>Ctrl+Shift+Space</code> or by
 <code lang="text">
 Edit --> Advanced --> Complete Class Name
 </code>
+
+Class name auto-completion is also available in the parents "Entry:" text box on the New Class tool. The functionality is the same as in the Editor pane.
 <br/>
 
 ==The class auto-completion window==
