@@ -1,19 +1,19 @@
 [[Property:title|Eiffel Information System]]
 [[Property:weight|-2]]
 [[Property:uuid|7e0394e1-cb31-fae3-79b6-9d1847ef8db7]]
-The Eiffel Information System (EIS) provides a unified mechanism for linking development objects - classes, features and so on - of Eiffel systems with external information. This term refers to information other than Eiffel program texts. Usually the tools maintaining external information are separate tools, such as a browser; we call them external tools. Examples of external information and possible corresponding external tools are: 
+The Eiffel Information System (EIS) provides a unified mechanism for linking development objects - e.g., classes and features - of Eiffel systems with '''external''' information. External means information other than Eiffel program texts. Usually the tools associated with external information are separate from Eiffel, such as web browsers. Examples of external information and possible corresponding external tools are: 
 *  Web page - the default browser
 *  PDF document - Acrobat
 
 EIS is also intended to be the standard mechanism for obtaining help on Eiffel and EiffelStudio, replacing previous solutions. In that case external tools may actually be Eiffel tools. 
 
-The basic mechanisms that EIS makes available to users include two categories: outgoing (from Eiffel to external tools), incoming (the reverse).
+EIS makes two mechanisms available to users: outgoing (from Eiffel to external tools), incoming (the reverse).
 
 Examples of outgoing mechanisms include: 
 *  Annotating Eiffel targets, classes and features to include references to external information. Such annotations can include tags.
-*  By selecting an annotation in EiffelStudio, automatically open the corresponding external tool to display or edit that information.
-*  Provide a list of all external information (in a class, cluster or entire system) corresponding to a specified tag.
+*  Automatically opening the corresponding external tool to display or edit information associated with an annotation.
+*  Listing all external information (in a class, cluster or entire system) corresponding to a specified tag.
 
 Examples of incoming mechanisms include: 
-*  For supported tools, select external information linked to an Eiffel developer object and have EiffelStudio directly open on that object. In 6.2, eiffel: schema is supported on Windows.
+*  For supported tools, selecting external information linked to an Eiffel developer object and having EiffelStudio open automatically and targeted to that object. 
 

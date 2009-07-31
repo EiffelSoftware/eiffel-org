@@ -10,7 +10,7 @@ and then triggers the auto-complete, the editor will propose a list of possible 
 To be more precise, a window will pop up and display the list of features that can be called on <code>an_identifier</code> and that match <code>an_incomplete_feature_name</code>. The user can accept the suggested name, choose another name (in the list or not), or simply cancel the auto-complete. 
 
 
-[[Image:editor-auto-completion-window]]  
+[[Image:editor feature auto-completion window]]  
 
 
 To trigger the auto complete, press the key combination "Ctrl+Space" or click on '''Complete word''' in the '''Advanced''' sub-menu of the  [[Edit menu commands|menu]] . If automatic completion is possible, there are two cases : if only one name matches, this name will be inserted in the editor. If there are no matching names or several ones a window will appear. This window will contain a text field and a list. The text field will be filled with the beginning of the feature name that was entered. The first item in the list, if any, will be selected. <br/>

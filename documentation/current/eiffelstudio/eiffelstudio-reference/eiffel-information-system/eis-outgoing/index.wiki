@@ -3,28 +3,30 @@
 [[Property:uuid|773ef802-5f9f-107a-4c5d-8dcf17654d23]]
 ==Annotations==
 
-Annotations may be applicable to:
+Annotations for outgoing EIS links may be applicable to:
 *  An individual class or feature. In this case the annotation appears in the class text, as part of an Eiffel <code>note</code> clause (the obsolete keyword <code>indexing</code> may still be supported, depending upon which syntax level is chosen in project preferences).
 *  A target, library or cluster. In this case the annotation appears in the associated ECF file; EiffelStudio provides support for entering it through a Information (EIS) Tool. 
 {{seealso|<br/>
 [[Information Tool|Information Tool]]  }}
 
 
-The basic way to specify a dependency is to include such an annotation. The required part of an annotation is:
-*  The "EIS" marker
+To specify a link between Eiffel and external information, you include such an annotation. 
 
-However the following parts are suggested:
-*  The "protocol", indicating the type of external information, and making it possible for EIS to determine the associated external tool. If the "protocol" part is omitted, the source defaults to be web page.
-*  The source, identification of where to find information itself, for example a URL, or a file name. 
+An annotation consists of: 
+#  The '''EIS''' marker. 
+#  The '''protocol''', which indicates the type of external information, and making it possible for EIS to determine the associated external tool. If the '''protocol''' is omitted, its value defaults to "web page".
+#  The '''source'''. This is the location of the external information, for example a URL, or a file name. 
 
 ==Syntax for Annotations==
 
-The following example illustrates the basic form of an EIS note entry:
+Annotations can occur in Eiffel source code and in project configuration files (.ecf). The format of the '''EIS marker''' varies depending upon the context in which it is used. The rest of the annotation format is the same in both contexts.
+
+The following example illustrates the form of an EIS annotation written in Eiffel source code. The annotation appears in the <code>note</code> part of a class or feature definition:
 <code lang="text">
 EIS: "name=Project Requirement", "src=($PROJ)/docs/requirements.pdf", "protocol=PDF", "nameddest=4.1", "tag=requirement"
 </code>
 
-The label (or Note_name as it is called in the ECMA/ISO Eiffel Standard syntax) is '''EIS:'''. The '''EIS:''' Note_name tells the Eiffel Information System that this Note_entry is of interest to EIS, as distinct from any other information that might be expressed through a Note_entry. In this example, the file name (src) includes '''$PROJ''', referring to a variable, defining the project location. The protocol is PDF. The '''nameddest''' property (name destination) is a specific property of PDF documents. The tag '''requirement''' indicating that this entry links the enclosing Eiffel class or feature with some parts of the requirement documents.
+The '''EIS marker''' is the label '''EIS:''' (this label is called the ''Note_name'' in the ISO/ECMA Eiffel Standard syntax). The '''EIS marker''' tells the Eiffel Information System that this particular ''Note_entry'' is of interest to EIS. In this example, the file name (src) includes '''$PROJ''', referring to a variable, defining the project location. The '''protocol''' is '''PDF'''. The '''nameddest''' property (name destination) is a specific property of PDF documents. The tag '''requirement''' indicating that this entry links the enclosing Eiffel class or feature with some parts of the requirement documents.
 
 
 Similarly, the following example demonstrates how annotations look like in ECF files: 
