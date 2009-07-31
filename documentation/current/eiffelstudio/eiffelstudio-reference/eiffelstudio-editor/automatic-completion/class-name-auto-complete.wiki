@@ -18,24 +18,34 @@ Class name auto-completion is also available in the parents "Entry:" text box on
 <br/>
 
 ==The class auto-completion window==
-The class auto-completion window will pop up and display the list of class names which begin with the string `<code>LI</code>'. So, you can imaging the auto-completion as a search for class names using the characters you type followed by a wild card character (*). The first item of the list will be selected. You can select a class name from the list by double-clicking a name in the list or by using the keyboard <code>Up</code> and <code>Down</code> buttons to navigate the list, then pressing <code>Enter</code> to select a highlighted class name. The auto-completion window can be cancelled by clicking outside the window or pressing <code>Esc</code>.
+The class auto-completion window will pop up and display the list of class names which begin with the string `<code>LI</code>'. So, you can imaging the auto-completion as a search for class names using the characters you type followed by a wild card character, the asterisk (`*'). Of course, you don't have to put the asterisk at the end, it's always there by implication. Once you've triggered the auto-completion, you can however use the wild card character in the middle of a string, like this:
+<code>
+    a_variable_name: LI*R
+</code> 
+which would list all class names starting with `<code>LI</code>' and containing the character `<code>R</code>' appearing at some point after the `<code>LI</code>'.
+
+When the list appears, the first list item will be selected. You can select a class name from the list by double-clicking a name in the list or by using the keyboard <code>Up</code> and <code>Down</code> buttons to navigate the list, then pressing <code>Enter</code> to select a highlighted class name. The auto-completion window can be cancelled by clicking outside the window or pressing <code>Esc</code>.
 
 
 [[Image:editor-class-auto-completion-window]]  
 
 Figure 1. The class name auto-completion window
 
-
-===Options===
+===Auto-completion list display options===
 
 At the bottom of the auto-completion window you will find a row of icons labeled "Options:". These icons help you control which choices are presented to you and the format of their presentation. 
 
 Each icon can be toggled between an "up" position and a "down" position by clicking on it. You can also toggle the option icons up and down by using the function keys <code>F1</code> through <code>F7</code>.
 
-Not all of the options are applicable to class name auto-completion. Some apply only to feature name completion.
+Note that not all of the options are applicable to class name auto-completion. Some apply only to feature name completion.
 
-* [[Image:filter]]  (F1) Filter: When down, you will see only those class names whose first characters match the string you have typed. When up, you see all classes in your system's universe.
-* 
+* [[Image:hide non-matching entries icon]]  (F1) Hide non-matching entries. 
+* [[Image:query return type icon]] (F2) Show query return types.
+* [[Image:feature signatures icon]] (F3) Show feature signatures.
+* [[Image:disambiguated name icon]] (F4) Show disambiguated names.
+* [[Image:obsolete items icon]] (F5) Show obsolete items.
+* [[Image:show descriptions icon]] (F6) Show description of selected item.
+* [[Image:remember list size icon]] (F7) Remember the size of the completion list between triggerings.
 
 
 
