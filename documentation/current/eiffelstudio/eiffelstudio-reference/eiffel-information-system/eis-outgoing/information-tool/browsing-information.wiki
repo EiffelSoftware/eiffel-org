@@ -1,12 +1,15 @@
 [[Property:title|Browsing Information]]
 [[Property:weight|0]]
 [[Property:uuid|2260eabd-cbc9-c385-6295-96474249953f]]
-[[Image:information-tool]]  
+[[Image:information tool v64]]  
+
+Figure 1: The Information Tool
+
 ==Information Tree==
 
-On the left of the tool window is the information tree. The tree displays all locations where annotations are, as well as a subtree of tags by which annotations can be better organized in tag style. Double clicking or pressing enter on tree nodes opens annotation list corresponding to that node.
+On the left of the tool window is the information tree. The tree displays all locations which contain annotations, as well as a subtree of tags by which annotations can be organized. Clicking or pressing enter on a node of the tree displays the list of annotations associated with that node. In Figure 1, the node APPLICATION, a class, has been selected, and its annotations are listed on the right.
 
-The following are types of nodes in the tree can be navigated to:
+You can navigate to the following types of nodes in the information tree:
 *  Target
 *  Cluster
 *  Library
@@ -17,35 +20,42 @@ The following are types of nodes in the tree can be navigated to:
 
 ==Annotation List==
 
-Double clicking on the tree node, the annotation list appears on the right of the tool window.
+The annotation list appears on the right of the tool window.
 
 The following columns are available in the list:
-*  Location - the development object where that piece of annotation belongs to. Typical locations are target, cluster, class and feature.
-*  Name - the name of the piece of annotation, given by users.
-*  Protocol - type of the annotation EIS treats. 
-{{seealso| [[Protocols|Protocols]]  }}
+*  '''Location''' - the development object where that piece of annotation belongs to. Typical locations are target, cluster, class and feature.
+*  '''Name''' - the name of the annotation.
+*  '''[[Protocols|Protocol]]''' - the type of the Source. 
+*  '''Source''' - the address of the resource, typically a URL or file path. Variables can be used.
+*  '''Tags''' - terms or phrases used to categorize annotations. Tags are separated by '''","'''
+*  '''Override''' - 
+*  '''Others''' - other related attributes. Attributes are separated by '''","''' 
 
-*  Source - normally the location EIS takes to open. Variables can be used.
-*  Tags - terms or phrases users use to categrize the piece of information. Tags are separated by '''","'''
-*  Others - other related attributes. Attributes are separated by '''","''' 
-{{note|Only attributes used by '''protocol''' are taken into account. Otherwise, ignored. }}
+{{note|EIS ignores any attributes in '''Others''' which are not used by the '''protocol'''. }}
 
 
 {{tip| Clicking on title of each column sorts that column. }}
 
+
 ==Opening Resources==
 
-Information or resources can be opened by either double clicking into the annotation list or pressing enter on it. EIS interpretes available attributes via the given protocol and opens the target resource.
+The resources associated with a particular annotation can be opened by double-clicking on the annotation in the Information Tool list. Alternatively, you can use the arrow keys to highlight the annotation in the Information Tool list and then press enter. EIS opens the resource associated with the annotation using the external tool for the resource's protocol. So, for example, Raw URL resources will be opened in the default web browser.
 
-{{note| Pressing '''F1''' in the editor, a list of all available information pops up, from which information can be accessed too. }}
+While using EiffelStudio, pressing '''F1''' while the cursor is in the editor pane will access annotations associated with the Eiffel object that is currently shown in the editor pane. If only one annotation is available, then its resource is automatically opened by EIS. If more than one annotation is available, the '''Select help document''' dialog box (see Figure 2) appears providing the name and type of the available resources. You can use the dialog to choose which resources you wish to display.
+
+
+[[Image:select help document dialog]]
+
+Figure 2: The Select Help Document dialog box
+
 
 ==Sweeping Information==
 
-Sweeping information synchronizes all information of current system into the tool. This is needed when changes may occur externally and EIS may need to know full information to display a correct list of existing tags. Two ways of sweeping:
-*  Automatic - EIS automatically sweeps information when Information tool is shown. Enabling the first button on the bottom toolbar activates this function.
-*  Manual - The second button on the bottom toolbar triggers a manual sweeping.
+Sweeping annotation information will update the Information Tool with current data for all the annotations in the current system. There are two approaches to sweeping information:
+*  '''Automatic''' - EIS automatically sweeps information at times when Information tool is visible. Toggling down the automatic sweeping button [[Image:automatic sweeping icon]] on the bottom toolbar activates this function.
+*  '''Manual''' - Clicking the manual sweeping button [[Image:manual sweeping icon]] on the bottom toolbar triggers an immediate manual sweep.
 
-The progress bar in the bottom of the tool indicates current sweeping progress.
+The progress bar in the bottom of the tool indicates the progress of a currently executing sweep..
 
 
 

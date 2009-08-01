@@ -14,7 +14,7 @@ To specify a link between Eiffel and external information, you include such an a
 
 The primary components of an annotation are: 
 #  The '''EIS''' marker. 
-#  The '''protocol''', which indicates the type of external information, and making it possible for EIS to determine the associated external tool. If the '''protocol''' is omitted, its value defaults to "web page".
+#  The '''[[Protocols|protocol]]''', which indicates the type of external information, and making it possible for EIS to determine the associated external tool. If the '''protocol''' is omitted, its value defaults to "Raw URL".
 #  The '''source'''. This is the location of the external information, for example a URL, or a file name. 
 
 ==Syntax for Annotations==
@@ -34,14 +34,14 @@ The '''protocol''' is '''PDF'''.
 
 The '''nameddest''' property (name destination) is a specific property of PDF documents that tells the external tool for PDF documents to open the document at a particular named destination. 
 
-The '''tag''' property associates a text tag, in this case "requirement" with this link. Tags show up in the [[Information Tool]] and can be used to group annotations. 
+The '''tag''' property associates a text tag, in this case "requirement" with this link. Tags show up in the [[Information Tool]] and can be used to organize annotations. 
 
 The following is an example of an annotation  Eiffel configuration (.ecf) file: 
 
 <code lang="text">
 <note ise_support="EIS" protocol="pdf" name="Project Requirement" src="($PROJ)/docs/requirements.pdf" nameddest="4.1"/></code>
 
-The one major difference here is the form of the '''EIS marker'''. Here it appears in an XML attribute. '''ise_support="EIS"''' plays the same role as '''EIS:''' does in the <code>note</code> entry example above. '''ise_support''' tells the parser this <code lang="text"><note/></code> element is of interest to Eiffel Software specific tools. The <code lang="text">note</code> element in Eiffel configuration files is supported in ECF schema 1.4.
+The one major difference here is the form of the '''EIS marker'''. Here it appears in an XML attribute. '''ise_support="EIS"''' plays the same role as '''EIS:''' does in the <code>note</code> entry example above. '''ise_support''' tells the parser this <code lang="text"><note/></code> element is of interest to Eiffel Software specific tools. The <code lang="text">note</code> element in Eiffel configuration files is supported in ECF schema version 1.4.
 
 
 {{seealso|<br/>
