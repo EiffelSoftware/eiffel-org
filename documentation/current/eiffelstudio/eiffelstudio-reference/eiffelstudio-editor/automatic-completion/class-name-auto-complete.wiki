@@ -6,7 +6,7 @@ The EiffelStudio editor will complete class names automatically. This means, for
 <code>
     a_variable_name: LI</code>
 and then triggers the auto-complete, one of two things will happen:
-* If there is only one class name in the universe that begins `<code>LI</code>', then that class name will be automatically placed in the editor pane at the cursor.
+* If there is only one accessible class name that begins `<code>LI</code>', then that class name will be automatically placed in the editor pane at the cursor.
 * If there is more than one such class name, the editor will propose a list of possible valid class names, as seen in Figure 1. 
 
 Auto-completion can be triggered by pressing <code>Ctrl+Shift+Space</code> or by following the [[Edit menu commands|edit menu]] path:
@@ -42,9 +42,9 @@ Note that not all of the options are applicable to class name auto-completion. S
 * [[Image:hide non-matching entries icon]]  (F1) Hide non-matching entries. 
 * [[Image:query return type icon]] (F2) Show query return types.
 * [[Image:feature signatures icon]] (F3) Show feature signatures.
-* [[Image:disambiguated name icon]] (F4) Show disambiguated names.
+* [[Image:disambiguated name icon]] (F4) Show disambiguated names. (Applicable to .NET overloaded feature names.)
 * [[Image:obsolete items icon]] (F5) Show obsolete items.
-* [[Image:show descriptions icon]] (F6) Show description of selected item.
+* [[Image:show descriptions icon]] (F6) Show description of selected item in the ''tool tip'' area at the bottom of the window. (See Figure 1)
 * [[Image:remember list size icon]] (F7) Remember the size of the completion list between triggerings.
 
 

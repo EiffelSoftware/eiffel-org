@@ -23,8 +23,25 @@ By pressing '''Delete''', or clicking the ''delete'' button [[Image:16x16--gener
 
 {{note|Multiple entries in the annotation list can be deleted by selecting them all prior to clicking ''delete''. }}
 
+==Enabling and disabling automatic annotation entries==
 
-{{note| All means to manage annotations via the tool are inreversible, except that the location - class or feature - has been opened in the editor, thus undo can be achieved via the editor. Removing is prompted on user demands. The tag tree is automatically updated when annotations are added/modified/removed or through system sweeping. }}
+Automatic annotations can be enabled for a particular project target. Once enabled, each class in the target will exhibit an implicit annotation with a particular source. You can define the source at the same time you enable automatic annotations for a target.
+
+To enable automatic annotations, select the desired target in the information tree. When you do this, the button on the bottom toolbar with the automatic annotation [[Image:automatic annotation icon]] icon becomes enabled. Click this button and you will see the '''Edit Automatic EIS Entry'' dialog box as in Figure 1.
+
+
+[[Image:edit automatic eis entry dialog]]
+
+Figure 1. The Edit Automatic EIS Entry dialog
+
+
+You enable automatic annotations by checking the box labeled '''Enable Auto-Entry'''. You construct an appropriate source from explicit strings and/or variable names in the are labeled '''Source'''. 
+
+You can disable automatic annotation entries on a target by invoking the Edit Automatic EIS Entry dialog box and un-checking the '''Enable Auto-Entry''' checkbox. 
+
+
+{{note|Most changes made to annotations via the Information Tool are irreversible. However, changes made to annotations on a class or feature which is currently open in the Editor Pane may be reversed by using the editor's '''Undo''' command. The '''undo''' feature should be used with caution as the '''undo''' does not function in some early EIS versions.}}
+
 
 
 

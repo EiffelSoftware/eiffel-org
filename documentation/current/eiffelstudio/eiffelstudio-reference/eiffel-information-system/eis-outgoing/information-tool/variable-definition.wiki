@@ -12,9 +12,9 @@ EIS supports following types of variables which can be used in '''Source''' of a
 **  group_name 
 **  target_name 
 
-{{note|This kind of variable can only be used in a component that is enclosed in a component to which the variable name refers. For example, '''feature_name''' has no effect if used in a target component.}}
+{{note|This kind of variable is only valid in a annotation that is associated with a component to which the variable name refers. For example, '''feature_name''' has no effect if used in a '''target''' component.}}
 
-*  Individual system or library preferences. This kind of variable is defined in .ecf files, can be accessed via Project Setting dialog by following a path such as:
+*  Individual system or library preferences. This kind of variable is defined in your Project Settings. Manage these variables by following this path in the System tree on the left of the Project Setting dialog:
 <code lang="text">
 	System -> Target -> Advanced -> Variables
 </code>

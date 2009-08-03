@@ -28,7 +28,7 @@ The following columns are available in the list:
 *  '''[[Protocols|Protocol]]''' - the type of the Source. 
 *  '''Source''' - the address of the resource, typically a URL or file path. Variables can be used.
 *  '''Tags''' - terms or phrases used to categorize annotations. Tags are separated by '''","'''
-*  '''Override''' - 
+*  '''Override''' - checkbox is checked if an implicit, automatically generated annotation is being overridden by the annotation in this list entry. If this list entry is itself an implicit annotation, this column shows the automatic annotation [[Image: automatic annotation icon]] icon. Override is defined only for  annotations on classes.
 *  '''Others''' - other related attributes. Attributes are separated by '''","''' 
 
 {{note|EIS ignores any attributes in '''Others''' which are not used by the '''protocol'''. }}
