@@ -52,8 +52,8 @@ Figure 2: The Select Help Document dialog box
 ==Sweeping Information==
 
 Sweeping annotation information will update the Information Tool with current data for all the annotations in the current system. There are two approaches to sweeping information:
-*  '''Automatic''' - EIS automatically sweeps information at times when Information tool is visible. Toggling down the automatic sweeping button [[Image:automatic sweeping icon]] on the bottom toolbar activates this function.
-*  '''Manual''' - Clicking the manual sweeping button [[Image:manual sweeping icon]] on the bottom toolbar triggers an immediate manual sweep.
+*  '''Automatic''' - EIS automatically sweeps information at times when Information tool is visible. On the bottom toolbar, clicking the ''automatic sweeping'' toggle button [[Image:automatic sweeping icon]] to the ''down'' position activates automatic sweeping. Clicking the button back to the ''up'' position disables automatic sweeping.
+*  '''Manual''' - Clicking the ''manual sweeping'' button [[Image:manual sweeping icon]] on the bottom toolbar triggers an immediate manual sweep.
 
 The progress bar in the bottom of the tool indicates the progress of a currently executing sweep..
 

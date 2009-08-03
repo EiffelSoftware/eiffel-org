@@ -1,28 +1,28 @@
 [[Property:title|Annotation Management]]
 [[Property:weight|1]]
 [[Property:uuid|696457ef-ac1f-40c1-a0da-54900d9cccf8]]
-The Information Tool provides information management functions: adding, modifying and removing. 
+The Information Tool gives you the ability to '''add''', '''modify''', and '''remove''' annotations from within the tool. When you manage annotations via the Information Tool, the appropriate text changes are made to the annotation targets. So, for example, if you use the Information Tool to add an annotation to a class, you will see the annotation after a new '''EIS marker''' in the <code>note</code> part of the class text. 
 
-{{note|Annotation management is only available in lists coresponding to nodes rather than tag nodes - all tags and "Items without tag". }}
+
+{{note|Annotation management is not available in lists corresponding to tag nodes in the information tree. That is, annotations listed in ''All tags'', ''Items without tag'', and nodes for specific named tags cannot be altered. }}
+
+Of course, you can also use the EiffelStudio editor or an external editor to manage annotations in Eiffel source code and configuration files using the annotation syntax described in [[EIS: Outgoing]]. The advantage to using the Information Tool is that the tool modifies the files for you, making the process less prone to error.
 
 ==Adding==
 
-For each kind of nodes in the information tree, related annotations are listed in the right annotaton list. At the end of such lists, double clicking the blank line with '''"..."''' in the '''Name''' column creates a new unnamed annotation. You can then modify the new entry as you wish.  
+For each node in the information tree, the list of associated annotations is visible to the right. At the bottom the list, there is an entry that is blank, except for the '''Name''' column which contains an ellipsis (" ... "). Double clicking the blank line creates a new unnamed annotation. You can then modify the new entry as you wish.  
 
 ==Modifying==
 
-To modify an annotation, one can use the Information Tool or modify it by code.
-*  Using Information Tool, select a line in the annotation list, then click into columns and activate editing/choosing mode. Once the editing area drop down list is deactivated, the modification is done and synchronized into code automatically. 
-*  By code, one simply modifies code in the editor, or .ecf files in external editor (not recommended). 
-{{seealso|<br/>
-[[EIS: Outgoing|Syntax for Annotations]]  }}
-
+Select a line in the annotation list, then click into a column you wish to change. This will activate ''editing/choosing'' mode. Now you can edit text in the column or if the column is a drop down list, you can choose an alternative entry. Once the editing area drop down list is deactivated, the modification is done and synchronized into code automatically. 
 
 ==Removing==
 
-By pressing '''Delete''', or clicking the third button on the bottom toolbar deletes all selected annotations in the list. And corresponding code is synchronized.
+By pressing '''Delete''', or clicking the ''delete'' button [[Image:16x16--general-delete-icon]] on the bottom toolbar, you will delete any selected annotations in the list. This deletes the annotation entries from the list and also from the corresponding the Eiffel class or configuration text.
 
-{{note|Annotation list can be multi-selected. }}
+
+{{note|Multiple entries in the annotation list can be deleted by selecting them all prior to clicking ''delete''. }}
+
 
 {{note| All means to manage annotations via the tool are inreversible, except that the location - class or feature - has been opened in the editor, thus undo can be achieved via the editor. Removing is prompted on user demands. The tag tree is automatically updated when annotations are added/modified/removed or through system sweeping. }}
 
