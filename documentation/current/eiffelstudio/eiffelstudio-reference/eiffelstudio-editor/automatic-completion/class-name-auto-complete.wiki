@@ -5,20 +5,24 @@
 The EiffelStudio editor will complete class names automatically. This means, for example, when you type in the editor pane:
 <code>
     a_variable_name: LI</code>
-and then triggers the auto-complete, one of two things will happen:
+and then triggers the class name auto-completion, one of two things will happen:
 * If there is only one accessible class name that begins `<code>LI</code>', then that class name will be automatically placed in the editor pane at the cursor.
 * If there is more than one such class name, the editor will propose a list of possible valid class names, as seen in Figure 1. 
 
-Auto-completion can be triggered by pressing <code>Ctrl+Shift+Space</code> or by following the [[Edit menu commands|edit menu]] path:
+Class name auto-completion can be triggered by pressing <code>Ctrl+Shift+Space</code> or by following the [[Edit menu commands|edit menu]] path:
 <code lang="text">
 Edit --> Advanced --> Complete Class Name
 </code>
 
-Class name auto-completion is also available in the parents "Entry:" text box on the New Class tool. The functionality is the same as in the Editor pane.
+Class name auto-completion is most commonly used in the Editor Pane. But the same functionality is also available in other areas of EiffelStudio, for example:
+* The "Entry:" text box on the New Class tool. 
+* Expressions in the editable grid of the Watch tool
+* "Class name:" in the New Expression dialog of the Watch tool.
+* "Condition" in the Breakpoints dialog
 <br/>
 
 ==The class auto-completion window==
-The class auto-completion window will pop up and display the list of class names which begin with the string `<code>LI</code>'. So, you can imaging the auto-completion as a search for class names using the characters you type followed by a wild card character, the asterisk (`*'). Of course, you don't have to put the asterisk at the end, it's always there by implication. Once you've triggered the auto-completion, you can however use the wild card character in the middle of a string, like this:
+Using the example above, when auto-completion is triggered, the class auto-completion window will pop up and display the list of class names which begin with the string `<code>LI</code>'. So, you can imaging the auto-completion as a search for class names using the characters you type followed by a wild card character, the asterisk (`*'). Of course, you don't have to put the asterisk at the end, it's always there by implication. Once you've triggered the auto-completion, you can however use the wild card character in the middle of a string, like this:
 <code>
     a_variable_name: LI*R
 </code> 

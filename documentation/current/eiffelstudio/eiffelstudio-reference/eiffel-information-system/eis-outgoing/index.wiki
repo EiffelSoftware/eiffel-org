@@ -5,7 +5,9 @@
 
 Annotations for outgoing EIS links may be applicable to:
 *  An individual class or feature. In this case the annotation appears in the class text, as part of an Eiffel <code>note</code> clause (the obsolete keyword <code>indexing</code> may still be supported, depending upon which syntax level is chosen in project preferences).
-*  A target, library or cluster. In this case the annotation appears in the associated ECF file; EiffelStudio provides support for entering it through the [[Information Tool|Information Tool]]. 
+*  A target, library or cluster. In this case the annotation appears in the associated ECF file. 
+
+EiffelStudio provides support for entering annotations through the [[Information Tool|Information Tool]]. 
 
 To specify a link between Eiffel and external information, you include such an annotation. 
 
