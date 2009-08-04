@@ -1,6 +1,28 @@
-[[Property:title|Void safety]]
+[[Property:title|Void safety: how Eiffel removes void references]]
 [[Property:link_title|Void-safety: how Eiffel removes null-pointer dereferencing]]
 [[Property:weight|0]]
 [[Property:uuid|d9380464-4312-b76e-9bfd-e57df0f59b4a]]
-Here is the paper.
+This white paper (see link below) presents the Eiffel void safety mechanism, fully implemented in EiffelStudio 6.4.
+
+In almost every program running today there is a ticking time bomb: the risk of a "void call". A void call is possible in programs written in almost any programming language; its effect is usually to crash the program. Many unexplained program  crashes and other abnormal behaviors result from void calls. While  extensive testing can decrease the likelihood of a void call, it cannot  remove the possibility.  The solution has to com from the programming  language.
+<!--break-->
+Professor C.A.R. Hoare from Microsoft Research, winner of the Turing Award and the Kyoto Prize, calls the presence of void calls  in modern programming languages the "billion-dollar mistake":
+
+<ul>"The invention of the null reference in 1965" [the source of void calls] "has led to innumerable errors, vulnerabilities, and system crashes, which have probably caused a billion dollars of pain and damage in the last forty years."
+</ul>
+
+(Citation at:  http://qconlondon.com/london-2009/presentation/Null+References:+The+Billion+Dollar+Mistake</a>.)
+
+
+The Eiffel solution relies on a combination of language mechanisms:
+
+<ul><li>
+"Certified Attachment Patterns" are code schemes that the  EiffelStudio compiler guarantees to be void-safe.
+
+<li>"Attached types" are types that are guaranteed to have  non-void values.
+
+<li>The "Object Test" instruction lets programmers treat  void values in a special way.
+</ul>
+
+The White Paper describes the theoretical and practical challenges of ensuring void safety and presents the Eiffel mechanism.
 
