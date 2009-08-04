@@ -14,6 +14,7 @@ The documentation is organized into virtual books. Each book covers an important
 * [[Platform specifics]] -- Specific support for particular platforms, e.g., Microsoft Windows 
 * [[Method|Method and Language]] -- The Eiffel Method and Language
 * [[Why Eiffel?]] -- Why Eiffel?
+* [[Papers]] -- Technical and position papers relating to Eiffel and the engineering of high quality software
 * [[Community]] -- Community Contributions
 <!--break-->
 Sources of information on Eiffel include:
@@ -44,6 +45,10 @@ Sources of information on Eiffel include:
 ===[[Why Eiffel?]] -- Why Eiffel? ===
 
 :A summary of the arguments for using Eiffel.
+
+===[[Papers]] -- Technical and position papers relating to Eiffel===
+
+:This book is a place for white papers which provide background, foundation, or supplemental information about the the Eiffel method and language as well as the goal of engineering high quality software. 
 
 ===[[Community]] -- You can contribute to the documentation!===
 

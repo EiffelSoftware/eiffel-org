@@ -5,16 +5,15 @@
 
 EiffelStudio editor provides automatic help for completing feature calls. 
 
+With the default EiffelStudio preferences, feature call auto-completion occurs automatically when you type a dot ('.') character after a feature name.
+
 This means, for example, that in the Editor pane when you type:
 <code>
-            an_string.a</code> 
-and then trigger feature call auto-completion, one of two things will happen:
-# If there is only one available feature name that begins with "<code>a</code>", then a template for a call to that feature will be inserted into the code.
-# If more than one such feature name exists, the editor will propose a list of possible valid feature names from which to choose, as seen in Figure 1.
+            my_string.</code> 
+the editor will propose a list of possible valid feature names from which to choose, as seen in Figure 1.
 
-Feature call auto-completion can be triggered:
+Feature call auto-completion can also be triggered:
 
-# Automatically as soon as you type a dot ('.') after a feature name
 # By pressing <code>crtl+space</code> 
 # By following the edit menu path:
 
@@ -32,7 +31,7 @@ Feature call auto-completion is most commonly used in the Editor pane. But the s
 
 ==The feature call auto-completion window==
 
-Using the example above, when auto-completion is triggered, the feature call auto-completion window will pop up and display a list of feature names which begin with the string "<code>a</code>". So, you can think of the auto-completion as a search for feature names using the characters you
+Using the example above, when auto-completion is triggered, the feature call auto-completion window will pop up and display a list of feature names which can be applied in the current context. 
 
 
 [[Image:editor feature auto-completion window]]  
@@ -40,10 +39,17 @@ Using the example above, when auto-completion is triggered, the feature call aut
 Figure 1. The feature auto-completion window.
 
 
-This window will contain a text field and a list. The text field will be filled with the beginning of the feature name that was entered. The first item in the list, if any, will be selected. <br/>
-To complete your code with the selected item, press "Enter" or "Ctrl+Space". <br/>
-To choose another item, use keyboard Up and Down arrows or the mouse. You can also modify the content of the text field. The list will be updated automatically. To validate your choice, press "Enter" or "Ctrl+Space". If there is no selected item, the content of the text field will be inserted. <br/>
+When the auto-completion window appears, the first item in the list, if any, will be selected. To complete your code with the selected item, press "Enter" or "Ctrl+Space". To choose another item, use keyboard Up and Down arrows or the mouse. 
+
+You can also continue typing characters and the list will automatically be narrowed provided that you have non-matching entries filtered out (see [[#Auto-completion list display options|Auto-completion list display options]] below). To validate your choice, press "Enter" or "Ctrl+Space". If there is no selected item, the content of the text field will be inserted. 
+
+
 To cancel the auto-complete, press "Esc" at any time. 
+
+==Auto-complete list display options==
+
+At the bottom of the auto-completion window you will find a row of icons labeled "Options:". These options help you control which choices are presented to you and the format of their presentation. The options are described in the [[Class name auto complete#Auto-completion list display options|section on class name auto-completion]].
+
 
 {{tip|The following tips can help you get the most out of feature call automatic completion: }}
 * If the selected feature is a query, you can call the auto-complete again right after the previous completion. There is no need to type a dot.

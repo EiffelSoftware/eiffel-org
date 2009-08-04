@@ -33,7 +33,9 @@ which would list all class names starting with "<code>LI</code>" and containing 
 {{note|Using the wild card character with auto-completion is valid only '''after''' auto-completion is triggered.}}
 
 
-When the list appears, the first list item will be selected. You can select a class name from the list by double-clicking a name in the list or by using the keyboard <code>Up</code> and <code>Down</code> buttons to navigate the list, then pressing <code>Enter</code> to select a highlighted class name. The auto-completion window can be cancelled by clicking outside the window or pressing <code>Esc</code>.
+When the list appears, the first list item will be selected. You can select a class name from the list by double-clicking a name in the list or by using the keyboard <code>Up</code> and <code>Down</code> buttons to navigate the list, then pressing <code>Enter</code> to select a highlighted class name. You can also continue to type characters and the list will automatically narrow, provided that you have non-matching entries filtered out (see [[#Auto-completion list display options|Auto-completion list display options]] below.) To validate your choice, press <code>Enter</code>. If there is no selected item when you validate, then the content of the text you have type will be used.
+
+The auto-completion window can be cancelled by clicking outside the window or pressing <code>Esc</code>.
 
 
 [[Image:editor-class-auto-completion-window]]  
@@ -46,7 +48,7 @@ At the bottom of the auto-completion window you will find a row of icons labeled
 
 Each icon can be toggled between an "up" position and a "down" position by clicking on it. You can also toggle the option icons up and down by using the function keys <code>F1</code> through <code>F7</code>.
 
-Note that not all of the options are applicable to class name auto-completion. Some apply only to feature name completion.
+Note that not all of the options are applicable to class name auto-completion. Some apply only to feature name completion or to both class names and feature names.
 
 * [[Image:hide non-matching entries icon]]  (F1) Hide non-matching entries. 
 * [[Image:query return type icon]] (F2) Show query return types.

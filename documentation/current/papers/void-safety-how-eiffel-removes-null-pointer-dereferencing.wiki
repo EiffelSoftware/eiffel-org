@@ -6,14 +6,14 @@ This white paper (see "Attachment" link below) presents the Eiffel void safety m
 
 In almost every program running today there is a ticking time bomb: the risk of a "void call". A void call is possible in programs written in almost any programming language; its effect is usually to crash the program. Many unexplained program failures and other abnormal behaviors result from void calls.
 
-While  extensive testing can decrease the likelihood of a void call, it cannot  remove the possibility.  The solution has to com from the programming  language.
+While  extensive testing can decrease the likelihood of a void call, it cannot  remove the possibility.  The solution has to come from the programming  language.
 <!--break-->
 Professor C.A.R. Hoare from Microsoft Research, winner of the Turing Award and the Kyoto Prize, calls the presence of void calls  in modern programming languages the "billion-dollar mistake":
 
 <ul>"The invention of the null reference in 1965" [the source of void calls] "has led to innumerable errors, vulnerabilities, and system crashes, which have probably caused a billion dollars of pain and damage in the last forty years."
 </ul>
 
-(Citation at:  http://qconlondon.com/london-2009/presentation/Null+References:+The+Billion+Dollar+Mistake</a>.)
+(Citation at:  http://qconlondon.com/london-2009/presentation/Null+References:+The+Billion+Dollar+Mistake .)
 
 
 The Eiffel solution relies on a combination of language mechanisms:
