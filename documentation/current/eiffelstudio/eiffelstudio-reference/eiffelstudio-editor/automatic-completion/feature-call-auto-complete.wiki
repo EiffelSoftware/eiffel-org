@@ -1,17 +1,26 @@
 [[Property:title|Feature call auto complete]]
 [[Property:weight|2]]
 [[Property:uuid|40ae30a6-c033-dae7-8dae-2569e7ba0adc]]
+==Overview==
+
 EiffelStudio editor will complete feature calls automatically. 
 
-This means that when the user types:
+This means, for example, that when the user types:
 <code>
-            an_identifier.an_incomplete_feature_name</code> 
-and then triggers the auto-complete, the editor will propose a list of possible feature names correct in this situation. <br/>
-To be more precise, a window will pop up and display the list of features that can be called on <code>an_identifier</code> and that match <code>an_incomplete_feature_name</code>. The user can accept the suggested name, choose another name (in the list or not), or simply cancel the auto-complete. 
+            an_string.a</code> 
+and then triggers feature call auto-completion, one of two things will happen:
+# If there is only one available feature name that begins with "<code>a</code>", then a template for a call to that feature will be inserted into the code.
+# If more than one such feature name exists, the editor will propose a list of possible valid feature names from which to choose, as seen in Figure 1.
 
+Feature call auto-completion can be triggered by pressing <code>crtl+space</code> or by following the edit menu path:
+
+<code>
+Edit --> Advanced --> Complete word
+</code>
 
 [[Image:editor feature auto-completion window]]  
 
+Figure 1. The feature auto-completion window.
 
 To trigger the auto complete, press the key combination "Ctrl+Space" or click on '''Complete word''' in the '''Advanced''' sub-menu of the  [[Edit menu commands|menu]] . If automatic completion is possible, there are two cases : if only one name matches, this name will be inserted in the editor. If there are no matching names or several ones a window will appear. This window will contain a text field and a list. The text field will be filled with the beginning of the feature name that was entered. The first item in the list, if any, will be selected. <br/>
 To complete your code with the selected item, press "Enter" or "Ctrl+Space". <br/>
