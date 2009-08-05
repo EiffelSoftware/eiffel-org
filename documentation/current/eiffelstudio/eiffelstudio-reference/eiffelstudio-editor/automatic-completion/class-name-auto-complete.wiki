@@ -33,9 +33,13 @@ which would list all class names starting with "<code>LI</code>" and containing 
 {{note|Using the wild card character with auto-completion is valid only '''after''' auto-completion is triggered.}}
 
 
-When the list appears, the first list item will be selected. You can select a class name from the list by double-clicking a name in the list or by using the keyboard <code>Up</code> and <code>Down</code> buttons to navigate the list, then pressing <code>Enter</code> to select a highlighted class name. You can also continue to type characters and the list will automatically narrow, provided that you have non-matching entries filtered out (see [[#Auto-completion list display options|Auto-completion list display options]] below.) To validate your choice, press <code>Enter</code>. If there is no selected item when you validate, then the content of the text you have type will be used.
+When the list appears, the first list item will be selected. You can select a class name from the list by double-clicking a name in the list or by using the keyboard <code>Up</code> and <code>Down</code> buttons to navigate the list, then pressing <code>Enter</code> to select a highlighted class name. You can also continue to type characters and the list will automatically narrow, provided that you have non-matching entries filtered out (see [[#Auto-completion list display options|Auto-completion list display options]] below.) 
 
-The auto-completion window can be cancelled by clicking outside the window or pressing <code>Esc</code>.
+To validate your choice, press <code>Enter</code>. 
+
+If there is no selected item when you validate, then the content of the text you have type will be inserted.
+
+The auto-completion can be cancelled by clicking outside the window or pressing <code>Esc</code>.
 
 
 [[Image:editor-class-auto-completion-window]]  
