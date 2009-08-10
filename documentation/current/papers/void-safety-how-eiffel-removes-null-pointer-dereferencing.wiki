@@ -2,7 +2,7 @@
 [[Property:link_title|Void-safety: how Eiffel removes null-pointer dereferencing]]
 [[Property:weight|0]]
 [[Property:uuid|d9380464-4312-b76e-9bfd-e57df0f59b4a]]
-This white paper (see "Attachment" link below) presents the Eiffel void safety mechanism, fully implemented in EiffelStudio 6.4.
+This white paper (see [[file:void-safe-eiffel.pdf|"Attachment" link ]] below) presents the Eiffel void safety mechanism, fully implemented in EiffelStudio 6.4.
 
 In almost every program running today there is a ticking time bomb: the risk of a "void call". A void call is possible in programs written in almost any programming language; its effect is usually to crash the program. Many unexplained program failures and other abnormal behaviors result from void calls.
 
