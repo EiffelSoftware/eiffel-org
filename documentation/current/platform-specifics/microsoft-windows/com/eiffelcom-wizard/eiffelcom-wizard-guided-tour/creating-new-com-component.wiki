@@ -18,12 +18,12 @@ This first tutorial describes creating a COM component from a COM definition fil
 
 ==First look at the generated code==
 
-At the end of the processing the '''EiffelStudio''' button becomes enabled. Click on it. This will automatically start EiffelStudio with the generated project so you can more easily navigate through the created Eiffel classes. You can save the processing output by clicking the '''Save''' button. 
+At the end of the processing the '''EiffelStudio''' button becomes enabled. Click on it. This will automatically start EiffelStudio with the generated project so you can navigate more easily through the created Eiffel classes. You can save the processing output by clicking the '''Save''' button. 
 
 The deferred class <eiffel>STRING_MANIPULATOR_COCLASS</eiffel> represents the component and exposes all its functionality. It inherits from <eiffel>ISTRING_INTERFACE</eiffel> which corresponds to the '''IString''' interface and has one heir <eiffel>STRING_MANIPULATOR_COCLASS_IMP</eiffel> which implements all the deferred features. The default implementation in the heir is empty. 
 
 ==Implementing the component==
-To do something more interesting than merely returning an error to the client edit the implementation of the <eiffel>STRING_MANIPULATOR_COCLASS_IMP</eiffel> class. There is an implementation of the class in ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\server''\. Copy this file over to ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\generated\component\server\component'' and freeze the project. Voila!, you have your first EiffelCOM component up and running. 
+To do something more interesting than merely returning an error to the client, edit the implementation of the <eiffel>STRING_MANIPULATOR_COCLASS_IMP</eiffel> class. There is an implementation of the class in ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\server''\. Copy this file over to ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\generated\component\server\component'' and freeze the project. Voila!, you have your first EiffelCOM component up and running. 
 ==Running the component==
 The component needs to be registered prior to being loaded. Register an out-of-process component using the following syntax: 
 <code>
