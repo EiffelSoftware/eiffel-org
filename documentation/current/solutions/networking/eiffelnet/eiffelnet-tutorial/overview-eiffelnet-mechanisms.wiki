@@ -22,9 +22,17 @@ In network-style client-server communication, the mechanism will be dissymmetric
 A software system will exchange objects with another by sending them to a socket. Although if you stay at the predefined level you will not need to manipulate sockets explicitly, it is useful to understand this concept and know about the corresponding EiffelNet classes.
 
 You may think of a socket as a communication port; by attaching sockets together you enable communication between the corresponding systems, for example a client and a server:
+
+
 [[Image:fig-2]]  
+
+
 EiffelNet has been designed so that sockets look very much like files. You send objects to a socket in the same way that you write objects onto a file, and receive objects from a socket in the same way that you read objects from a file. This fundamental commonality is reflected in the inheritance hierarchy of the corresponding classes:
+
+
 [[Image:fig-3]]  
+
+
 Note that the hierarchy as shown is not complete; in particular the full structure uses classes STREAM (of which the <code> STREAM_ </code> classes are heirs) and <code> DATAGRAM </code> for multiple inheritance ''. ''Only the classes below the dotted line are part of EiffelNet; the others are part of EiffelBase, the fundamental data structure and algorithm library of ISE Eiffel [ [[Bibliography|2]] ]. 
 
 The most important property of this inheritance hierarchy is that it shows how sockets fit within the overall structure. Thanks to the common ancestor <code>IO_MEDIUM</code>, socket classes have most of their features in common with files.
@@ -66,7 +74,7 @@ As documented in [ [[Bibliography|2]] ], <code>STORABLE</code> provides features
 	struct1.independent_store (iom1)
 </code>
 
-Assuming that the type of ''iom1 ''is <code>IO_MEDIUM</code> or a conforming type such as [[ref:libraries/base/reference/file_chart|FILE]]  or one of the <code>_SOCKET</code> classes, and that the type of ''struct1'' conforms to <code>STORABLE</code> ''.''Note that reference [2] in its original version does not include ''independent_store'', and requires ''iom'' to be of type FILE rather than the more general <code>IO_MEDIUM</code>. The current version of EiffelBase, however, supports the more general properties described here. 
+Assuming that the type of ''iom1 ''is <code>IO_MEDIUM</code> or a conforming type such as [[ref:libraries/base/reference/file_chart|FILE]]  or one of the <code>_SOCKET</code> classes, and that the type of ''struct1'' conforms to <code>STORABLE</code>. Note that reference [2] in its original version does not include ''independent_store'', and requires ''iom'' to be of type FILE rather than the more general <code>IO_MEDIUM</code>. The current version of EiffelBase, however, supports the more general properties described here. 
 
 All three storage procedures have the effect of sending to ''iom1 ''(whether a file, a socket or some other IO-medium) a copy of the entire object structure starting at ''struc1''. Together with the retrieval routines seen below, they apply the principle of reference completeness stated in [ [[Bibliography|1]] ] and [ [[Bibliography|2]] ]: 
 {| border="1" 
@@ -104,12 +112,5 @@ EiffelNet supports a highly asynchronous (and hence efficient) mode of operation
 * The actions are represented by class <code>POLL_COMMAND</code>, an heir of the EiffelBase class <code>COMMAND</code> with, in particular, the procedure ''execute''. 
 * Using <code>MEDIUM_POLLER</code>, you can specify that a certain command (an instance of <code>POLL_COMMAND</code>) must be executed whenever a certain medium becomes available for the appropriate operation (read, write, handling of out-of-bounds cases).
 * Using <code>POLL_MASK</code>, you can set a mask to select the sockets or files on which your instance of <code>MEDIUM_POLLER</code> is working.
-
-
-
-
-
-
-
 
 

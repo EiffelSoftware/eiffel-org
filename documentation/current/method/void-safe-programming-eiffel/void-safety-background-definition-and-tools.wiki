@@ -200,7 +200,7 @@ where <code>x</code> is the formal argument for <code>r</code>, then if x is of 
 
 ===Stable attributes===
 
-Stable attributes are really stable ''detachable'' attributes, as adding the concept of stability is meaningful only for detachable attributes. Declaring a detachable attribute as stable, means that it behaves like a detachable attribute except that its assignment rules mimic those of attached attributes. In other words, a stable attribute does not need to be attached upon creation like attached attributes do. But like attached attributes, stable attributes can never be the target of an assignment in which the source is <code>Void</code> or a detachable type.
+Stable attributes are really stable ''detachable'' attributes, as adding the concept of stability is meaningful only for detachable attributes. Declaring a detachable attribute as stable, means that it behaves like a detachable attribute except that its assignment rules mimic those of attached attributes. In other words, a stable attribute does not need to be attached during object creation the way that attributes declared as attached must. But like attached type attributes, stable attributes can never be the target of an assignment in which the source is <code>Void</code> or a detachable type.
 <code>
     my_test: detachable TEST
         note
@@ -209,9 +209,9 @@ Stable attributes are really stable ''detachable'' attributes, as adding the con
         end
 </code>
 
-This means that even though stable attributes do not need to be initialized like attached attributes, once they are attached to an object, they can never be void again.
+This means that even though stable attributes do not need to be initialized like attributes of attached types, once they are attached to an object, they can never be void again.
 
-Stable attributes are also interesting in that they are the only exception to the rule given in the [[Void-safety: Background, definition, and tools#Certified Attachment Patterns (CAPs)|CAPs section]] above that said that access to attributes cannot be protected by a CAP. A stable attribute can be used under the protection of a CAP. This is because once a stable attribute has an object attached, it can never again be set to <code>Void</code>. So there's no worry about having the attribute's state going from attached to non-attached because of the actions of other routines or threads.
+Stable attributes are also interesting in that they are the only exception to the rule given above in the [[Void-safety: Background, definition, and tools#Certified Attachment Patterns (CAPs)|CAPs section]] that stated that direct access to attributes cannot be protected by a CAP. A stable attribute can be used under the protection of a CAP. This is because once a stable attribute has an object attached, it can never again be set to <code>Void</code>. So there's no worry about having the attribute's state going unexpectedly from attached to non-attached because of the actions of other routines or threads.
 
 ===Rule for generic parameters===
 

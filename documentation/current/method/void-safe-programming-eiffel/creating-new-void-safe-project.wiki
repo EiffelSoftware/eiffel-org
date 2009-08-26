@@ -250,9 +250,29 @@ This would be fine in ''workbench'' code, but what happens if the code is ''fina
 The answer is that the <code>check</code> remains in force in finalized code, because it is necessary to prove void-safety.
 
 
-
 ==Stable attributes==
 
+Remember that stable attributes are actually detachable attributes, with the difference that they can never be the target of an assignment in which the source is <code>Void</code> or anything that could have a value of <code>Void</code>.
 
+Stable attributes are useful in situations in which there are valid object life scenarios in which some particular attribute will never need an object attached, or will only need an object attached late in the scenario. So in this case, the attribute is used only under certain runtime conditions. Declaring these attributes as stable eliminates the need to make attachments during object creation. Yet once needed, that is, once the attribute is attached, it will always be attached.
+
+Also, you should remember that unlike other attributes, you can access stable attributes directly in a CAP:
+<code>
+    my_stable_attribute: detachable SOME_TYPE
+        note
+            options: stable
+        attribute
+        end
+
+            ...
+
+            if my_stable_attribute /= Void then
+                my_stable_attribute.do_something
+            end
+
+            ...
+</code>
+
+ 
 
 
