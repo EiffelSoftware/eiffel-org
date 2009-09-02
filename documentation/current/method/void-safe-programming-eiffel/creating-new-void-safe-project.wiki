@@ -226,6 +226,8 @@ As with the other examples of the '''attached syntax''', it is no longer necessa
 
 ==More about CAPs==
 
+===Use of <code>check</code> instructions===
+
 You might wonder about the use of a CAP which employs a <code>check</code> instruction like this:
 
 <code>
@@ -249,6 +251,62 @@ This would be fine in ''workbench'' code, but what happens if the code is ''fina
 
 The answer is that the <code>check</code> remains in force in finalized code, because it is necessary to prove void-safety.
 
+{{note|As of version 6.4 this standard behavior is not yet implemented in EiffelStudio. That is, in version 6.4 it is still possible to disable run-time monitoring of <code>check</code> instructions. As a result, until the standard behavior is implemented, it is best not to discard <code>check</code> instruction monitoring, particularly in the case of void-safe checks.}}
+
+===Choosing CAPs versus the Attached Syntax===
+
+The attached syntax is convenient because it can check attached status and deliver a new local variable at the same time. But there are cases in which you might choose instead to define a local variable and use a CAP. Suppose you had code acting on several similar and detachable expressions, and you use the attached syntax in each case:
+<code>
+    foobar
+        do
+            if attached dictionary_entry ("abc") as l_abc then
+                l_abc.do_something
+            end
+            if attached dictionary_entry ("def") as l_def then
+                l_def.do_something
+            end
+            if attached dictionary_entry ("ghi") as l_ghi then
+                l_ghi.do_something
+            end
+        end
+</code>
+This routine causes three local variables to be allocated for the duration of routine <code>foobar</code>, one each for <code>l_abc</code>, <code>l_def</code>, and <code>l_ghi</code>. And it is no better to do this:
+<code>
+    foobar
+        do
+            if attached dictionary_entry ("abc") as l_entry then
+                l_entry.do_something
+            end
+            if attached dictionary_entry ("def") as l_entry then
+                l_entry.do_something
+            end
+            if attached dictionary_entry ("ghi") as l_entry then
+                l_entry.do_something
+            end
+        end
+</code>
+Even though the names are the same, still three separate local variables are allocated for <code>foobar</code>.
+
+In cases like this, you could effect a minor performance improvement by declaring one local variable and reusing it. In the following code, only one local variable is used and access to it is protected by the CAP <code>if l_entry /= Void then</code>. 
+<code>
+    foobar
+       local
+          l_entry: like dictionary_entry
+       do
+          l_entry := dictionary_entry ("abc")
+          if l_entry /= Void then
+                l_entry.do_something
+          end
+          l_entry := dictionary_entry ("def")
+          if l_entry /= Void then
+                l_entry.do_something
+          end
+          l_entry := dictionary_entry ("ghi")
+          if l_entry /= Void then
+                l_entry.do_something
+          end
+    end
+</code>
 
 ==Stable attributes==
 
