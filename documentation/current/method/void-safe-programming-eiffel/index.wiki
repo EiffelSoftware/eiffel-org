@@ -1,9 +1,6 @@
 [[Property:title|Void-safe programming in Eiffel]]
 [[Property:weight|3]]
 [[Property:uuid|a03568e8-eb79-70d7-04a3-6fd3ed7ac2b3]]
-{{underconstruction}}
-
-
 =About void-safe software development using Eiffel=
 
 When you develop software in Eiffel, you can be assured (at compile time) that your system will not attempt (at run time) to apply a feature to a void reference. That is, Eiffel prevents situations in which systems fail at run time with the error: "Feature call on void target".
