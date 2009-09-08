@@ -4,7 +4,11 @@
 [[Property:uuid|63b7a88c-86ff-7aef-bf31-05d0ed850e4e]]
 The callers view  [[Image:feature-callers-icon]]  display all the features which use the current feature in any way. 
 
-So the callers view includes features which actually call the current feature. Callers also includes those features that assign to the current feature (the feature's assigners [[Image:feature-assigners-icon]]), those features that create the current feature (the feature's creators [[Image:feature-creators-icon]]), and those features that use the current feature as an argument to other features.
+
+So the callers view includes features which actually call the current feature. 
+
+
+Callers also includes, where appropriate, those features that assign to the current feature (the feature's assigners [[Image:feature-assigners-icon]]), those features that create the current feature (the feature's creators [[Image:feature-creators-icon]]), and those features that use the current feature as an argument to other features. So, for example, assigners and creators could show up only in a list of callers for a feature that is an attribute.
 
 
 In the EiffelStudio preferences it is possible to choose whether callers of the feature's descendant versions should be displayed too (they are by default). 
