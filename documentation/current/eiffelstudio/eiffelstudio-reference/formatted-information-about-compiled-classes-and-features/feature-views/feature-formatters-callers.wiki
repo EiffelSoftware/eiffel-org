@@ -2,7 +2,7 @@
 [[Property:link_title|Feature formatters: Callers]]
 [[Property:weight|3]]
 [[Property:uuid|63b7a88c-86ff-7aef-bf31-05d0ed850e4e]]
-The callers view  [[Image:feature-callers-icon]]  display all the features which use the current feature in any way. 
+The callers view  [[Image:feature-callers-icon]]  displays all the features which use the current feature in any way. 
 
 
 So the callers view includes features which actually call the current feature. 
