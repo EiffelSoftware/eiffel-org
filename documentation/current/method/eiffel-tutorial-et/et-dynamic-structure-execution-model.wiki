@@ -599,20 +599,52 @@ The only exception to the last rule is termination of the original root procedur
 
 ==Abstraction==
 
+===Restriction of assignment targets===
+
 The description of assignments stated that in <code>x := y</code> the target <code>x</code> must be an entity. More precisely it must be a '''writable''' entity. This notion excludes formal routine arguments: as noted, a routine <code>r (arg: SOME_TYPE)</code> may not assign to <code>arg</code> (reattaching it to a different object), although it can change the attached objects through calls of the form <code>arg.procedure (...)</code> . 
 
-Restricting assignment targets to entities precludes assignments of the form <code>obj.some_attribute := some_value</code> , since the left-hand side <code>obj.some_attribute</code> is an expression (a feature call), not an entity: you may no more assign to <code>obj.some_attribute</code> than to, say, <code>b + a</code> -- another expression that is also, formally, a feature call. 
-
-To obtain the intended effect of such an assignment you may use a procedure call of the form <code>obj.set_attribute (some_value)</code> , where the base class of <code>obj</code>'s type has defined the procedure 
+Restricting the targets of assignments to entities precludes assignments of the form 
 <code>
-    set_attribute (v: VALUE_TYPE)
-                -- Set value of attribute to v.
+            obj.some_attribute := some_value
+                -- This syntax is disallowed (except in the presence of an `assigner command', see below)
+</code>
+This is because the left-hand side <code>obj.some_attribute</code> is an expression (a feature call), not an entity: you may no more assign to <code>obj.some_attribute</code> than to, say, <code>b + a</code> -- another expression that is also, formally, a feature call. 
+
+To obtain the intended effect of such an assignment you may use a procedure call, where the base class of <code>obj</code>'s type has defined the procedure 
+<code>
+    set_some_attribute (v: VALUE_TYPE)
+                -- Set value of some_attribute to `v'.
             do
-                attribute := v
+                some_attribute := v
             end
 </code>
 
-This rule is essential to enforcing the method. Permitting direct assignments to an object's fields -- as in C++ and Java -- would violate all the tenets of information hiding by letting clients circumvent the interface carefully crafted by the author of a supplier class. It is the responsibility of each class author to define the exact privileges that the class gives to each of its clients, in particular field modification rights. Building a class is like building a machine: you design the internals, to give yourself the appropriate mechanisms; and you design the control panel, letting users (clients) access the desired subset of these mechanisms, safely and conveniently. 
+So instead of the disallowed assignment shown above, you would code:
+<code>
+            obj.set_some_attribute (some_value)
+</code>
+
+This rule is essential to enforcing the method. Permitting direct assignments to an object's fields -- as in C++ and Java -- would violate all the tenets of information hiding by letting clients circumvent the interface carefully crafted by the author of a supplier class.
+
+===Assigner commands===
+
+However, many developers have become accustomed to reading and writing code in other languages which do allow assignments of the form:
+<code>
+            obj.some_attribute := some_value    
+</code>
+For this reason, it is possible in Eiffel to allow such a syntax without actually enabling an end-run around the constraints of the class. It is done by using a facility called an '''assigner command'''. In the example shown in the previous section, we might expect <code>some_attribute</code> to be declared something like this:
+<code>
+    some_attribute: SOME_TYPE
+</code>
+If this were the case the assignment above would cause a syntax error at compile time. But if the declaration included the specification of an assigner command, as shown below, then the assignment syntax would be valid.
+<code>
+    some_attribute: SOME_TYPE assign set_some_attribute
+</code>
+The assigner command then is the procedure <code>set_some_attribute</code> coded as shown in the previous section. In the presence of the assigner command, the previously invalid assignment syntax is now valid. But it is translated by the compiler as a call to <code>set_some_attribute</code>, using the source of the assignment as an argument.
+
+===Controlling modification of class fields===
+
+It is the responsibility of each class author to define the exact privileges that the class gives to each of its clients, in particular field modification rights. Building a class is like building a machine: you design the internals, to give yourself the appropriate mechanisms; and you design the control panel, letting users (clients) access the desired subset of these mechanisms, safely and conveniently. 
 
 The levels of privilege available to the class author include, for any field:
 * Hide the field completely from clients, by exporting the corresponding attribute to <code>NONE</code>. 

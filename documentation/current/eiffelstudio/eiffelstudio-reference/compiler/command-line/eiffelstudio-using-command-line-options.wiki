@@ -2,6 +2,8 @@
 [[Property:link_title|Using command line options]]
 [[Property:weight|1]]
 [[Property:uuid|a6b6a676-8660-ce2d-6f37-03de7f23a78e]]
+==Compiling and viewing==
+
 You may start ec through a command of the following form: 
 :'''ec''' ''option'' ... [''class_name''][''feature_name'']
 
@@ -180,6 +182,57 @@ You must now run "finish_freezing" in:
 
 
 with | replaced by \ if your platform is Windows, / if it is Unix. To execute the C compilation and linking part of the finalization, change directory to ''your_project_path''|EIFGENs|''target_name''|F_code as indicated and execute '''finish_freezing'''. 
+
+===Usage of finish_freezing===
+
+<code lang="text">
+finish_freezing [-location <directory>] [-generate_only] [-nproc <n>] [-low]
+[-x86] [-silent [-silent...]] [-library [-library...]] [-version] [-nologo]
+</code>
+
+OPTIONS:
+:Options should be prefixed with: '-' or '/'
+
+{| border="1"
+|-
+| '''OPTION'''
+| '''ARGUMENTS'''
+|-
+|-
+|  -location
+|  Alternative location to compile C code in. (Optional)
+<directory>: Location to compile C code in
+|-
+| -generate_only
+| Informs tool to only generate a Makefile. (Optional)
+|-
+| -nproc 
+| Maximum number of processors to use (Optional)
+<n>: Number of processors
+|-
+| -low
+| Executes finish freezing in low-execution priority mode. (Optional)
+|-
+| -x86
+| Generate 32bit lib DLLs for .NET projects. (Optional)
+|-
+| -silent
+| Suppresses confirmation dialog (Optional)
+|-
+| -library
+| Compiles the C code of an Eiffel library (Optional)
+|-
+| -?
+| Display usage information. (Optional)
+|-
+| -version
+| Displays version information. (Optional)
+|-
+| -nologo
+| Supresses copyright information. (Optional)
+|}
+
+
 
 {{seealso|<br/>
 [[Batch compilation|Batch compilation]]  }}

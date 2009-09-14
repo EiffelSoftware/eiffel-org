@@ -1,13 +1,12 @@
-[[Property:title|Implementers]]
-[[Property:link_title|Feature formatters: Implementers]]
+[[Property:title|Feature formatters: Implementers]]
 [[Property:weight|9]]
 [[Property:uuid|4032bef0-39e5-5fa6-0ffe-156392c0234e]]
-The implementers view  [[Image:feature-implementers-icon]]  displays all the different versions of the current feature by exploring the [[Ancestor versions|ancestor versions]] and the [[Descendant versions|descendant versions]], and selecting among those the ones which are not inherited. 
+The '''implementers''' view  [[Image:feature-implementers-icon]]  displays all the different versions of the current feature by exploring the [[Feature formatters: Ancestor versions|ancestor versions]] and the [[Feature formatters: Descendant versions|descendant versions]], and selecting among those the ones which are not inherited. 
 
 
 {{seealso|<br/>
-[[Ancestor versions|Ancestor versions]]  <br/>
-[[Descendant versions|Descendant versions]]  }}
+[[Feature formatters: Ancestor versions|Ancestor versions]]  <br/>
+[[Feature formatters: Descendant versions|Descendant versions]]  }}
 
 
 

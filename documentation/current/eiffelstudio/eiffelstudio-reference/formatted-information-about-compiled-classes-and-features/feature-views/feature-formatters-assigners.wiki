@@ -1,7 +1,7 @@
 [[Property:title|Feature formatters: Assigners]]
 [[Property:weight|4]]
 [[Property:uuid|6fdc5d59-d63b-39f7-68f8-13777077cbd2]]
-The assigners view  [[Image:feature-assigners-icon]] displays the features which assign to the current feature. 
+The '''assigners''' view  [[Image:feature-assigners-icon]] displays the features which assign to the current feature. 
 
 This means that unless the current feature is an attribute, assignment is not defined and this view will be empty. 
 

@@ -1,7 +1,7 @@
 [[Property:title|Feature formatters: Callees]]
 [[Property:weight|6]]
 [[Property:uuid|0e81a9a8-9bce-91b3-3dce-b0c09186837e]]
-The callees view will list the names of all features used by the current feature. This includes those features called directly, and as appropriate, those features which are targets of assignments in the current feature (the feature's assignees [[Image:feature-assignees-icon]], those features which are the targets of creation instructions in the current feature (the feature's creations [[Image:feature-creations-icon]], and those features which are used by the current feature as arguments in calls to other features.
+The '''callees''' view [[Image:feature-callees-icon]] will list the names of all features used by the current feature. This includes those features called directly, and as appropriate, those features which are targets of assignments in the current feature (the feature's assignees [[Image:feature-assignees-icon]], those features which are the targets of creation instructions in the current feature (the feature's creations [[Image:feature-creations-icon]], and those features which are used by the current feature as arguments in calls to other features.
 
 
 
