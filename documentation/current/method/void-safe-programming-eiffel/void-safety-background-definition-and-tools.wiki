@@ -72,7 +72,7 @@ It is important to understand that in this example (and with other CAPs), <code>
 {{note|You will find more useful information about CAPs in [[Void-safe programming in Eiffel#More about CAPs|More about CAPs]]. Learn how certain code patterns are determined to be CAPs in [[What makes a Certified Attachment Pattern]]. }}
 
 
-===The ''attached syntax''===
+===The ''attached syntax'' (object test)===
 
 For the purposes of void-safety, the '''attached syntax''' does double duty for us. It allows us to make certain that a reference is attached, and it provides us a safe way to access objects that are attached to class attributes. 
 
