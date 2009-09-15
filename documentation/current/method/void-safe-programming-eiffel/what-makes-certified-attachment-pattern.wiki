@@ -5,6 +5,27 @@
 
 
 
+==A little background on CAPs==
+
+Certified Attachment Patterns (CAPs) were described in the section on [[Void-safety: Background, definition, and tools#Certified attachment patterns (CAPs)|void-safety tools]]. To review, a CAP is a code pattern for a certain expression, say <code>exp</code> of a detachable type that ensures that <code>exp</code> will never have a void run-time value within the covered scope. 
+
+A simple example is the familiar test for void reference:
+<code>
+            if x /= Void then
+                x.do_something
+            end
+</code>
+We know that after the explicit check to make sure <code>x</code> is not <code>Void</code>, that the feature application <code>x.do_something</code> is void-safe.
+Of course, you should remember from previous discussions that <code>x</code> must be a local variable, a formal argument, or a  [[Void-safety: Background, definition, and tools#Stable attributes|stable attribute]].
+
+When void-safety was first envisioned for Eiffel, it was intended that individual CAPs would be proven or certified and documented. This would produce a "catalog" of CAPs. 
+
+What happened instead is that the standard committee was able to produce a definition of the nature of a CAP from which a determination can be made as to whether a particular code pattern is or is not a CAP.
+
+The definition in the standard document is not easily readable by most developers. So, in this documentation, you will see various examples of CAPs and the rationale behind them.
+
+
+
 
 
 

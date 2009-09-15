@@ -603,7 +603,7 @@ The only exception to the last rule is termination of the original root procedur
 
 The description of assignments stated that in <code>x := y</code> the target <code>x</code> must be an entity. More precisely it must be a '''writable''' entity. This notion excludes formal routine arguments: as noted, a routine <code>r (arg: SOME_TYPE)</code> may not assign to <code>arg</code> (reattaching it to a different object), although it can change the attached objects through calls of the form <code>arg.procedure (...)</code> . 
 
-Restricting the targets of assignments to entities precludes assignments of the form 
+Allowing only entities to be the targets of assignments precludes assignments of the form 
 <code>
             obj.some_attribute := some_value
                 -- This syntax is disallowed (except in the presence of an `assigner command', see below)
