@@ -94,7 +94,7 @@ By using the '''attached syntax''', we can perform an '''object test''' on a var
 In the example above, <code>x</code> is tested to make certain that it is attached. If so, the new local <code>l_x</code> becomes attached to the same object as <code>x</code>. And so the object can be used safely even if <code>x</code> is a class attribute. So, the attached syntax, is really another CAP, because it provides a clearly verifiable place for the application of features to targets that are guaranteed not to be void.
 
 
-{{note|The attached syntax has other syntax variations as well as other uses. These will be discussed later. }}
+{{note|The attached syntax has other syntax variations as well as other uses. These will be discussed [[Creating a new void-safe project#More about the attached syntax|later]]. }}
 
 
 One way to make sure we comply with the target rule would be always use a CAP or the attached syntax every time we want to apply a feature to a referenced object. That might work, but it falls among the impractical approaches to the problem ... it would break a very high percentage of existing Eiffel code, not to mention cluttering things up quite a bit.

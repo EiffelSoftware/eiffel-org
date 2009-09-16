@@ -29,12 +29,15 @@ The definition in the standard document is not easily readable by most developer
 
 The Eiffel standard (2nd edition, June 2006) defines a CAP as follows:
 ----
-''A Certified Attachment Pattern (or CAP) for an expression <code>exp</code> whose type is detachable is an occurrence of <code>exp</code> in one of the following contexts: ''
-#'' <code>exp</code> is an Object-Test Local and the occurrence is in its scope. ''
-#'' <code>exp</code> is a read-only entity and the occurrence is in the scope of a void test involving <code>exp</code>.''
+'''''A Certified Attachment Pattern (or CAP) for an expression <code>exp</code> whose type is detachable is an occurrence of <code>exp</code> in one of the following contexts: '''''
+
+
+'''''1. <code>exp</code> is an Object-Test Local and the occurrence is in its scope. '''''
+
+'''''2. <code>exp</code> is a read-only entity and the occurrence is in the scope of a void test involving <code>exp</code>.'''''
 ----
 
-The terminology used in the definition is precise. For example, terms like "read-only" entity and "scope of a void test" have specific meanings that are supported by their own definitions in the standard. 
+The terminology used in the definition is precise. For example, terms like "read-only entity" and "scope of a void test" have specific meanings that are supported by their own definitions in the standard. 
 
 Here we will consider the CAP definition only, but our discussion will be supported by the ancillary definitions. Of course, the [http://www.ecma-international.org/publications/standards/Ecma-367.htm standard document] is available for download if you need to review the specific details.
 
