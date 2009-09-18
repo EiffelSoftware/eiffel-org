@@ -52,13 +52,19 @@ As of EiffelStudio version 6.4, the majority of the libraries distributed with E
 
 {{note|During a period of transition, there will be different Eiffel configuration files (.ecf's) for non-void-safe and void-safe projects (for example, base.ecf and base-safe.ecf). If you have set the '''Void-safe''' setting to check for void-safety, then when you add a library to your project in EiffelStudio, you will see only the void-safe configurations by default. After the transition period, it is expected that there will be only one version of each of the configuration files for each library. The single configuration files will serve both non-void-safe and void-safe projects. }}
 
-==Using non-void-safe libraries==
 
 ==Using the ''attribute'' keyword carefully==
 
 The keyword <code>attribute</code> is should be used with some care. You might be tempted to think that it would be convenient or add an extra element of safety to use self-initializing attributes widely. And in a way, you would be correct. But you should also understand that there is a price to pay for using self-initializing attributes and stable attributes. It is that upon every access, an evaluation of the state of the attribute must be made. So, as a general rule, you should avoid using self-initializing attributes only for the purpose of lazy initialization.
 
+
 ==More about the ''attached syntax''==
+
+The complete attached syntax is:
+<code>
+		attached {SOME_CLASS} exp as l_exp
+</code>
+In this section, we will see more ways in which to use this versatile language facility.
 
 ===As a CAP which yields a local variable===
 

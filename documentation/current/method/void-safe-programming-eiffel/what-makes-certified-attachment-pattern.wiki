@@ -39,7 +39,22 @@ The Eiffel standard (2nd edition, June 2006) defines a CAP as follows:
 
 The terminology used in the definition is precise. For example, terms like "read-only entity" and "scope of a void test" have specific meanings that are supported by their own definitions in the standard. 
 
-Here we will consider the CAP definition only, but our discussion will be supported by the ancillary definitions. Of course, the [http://www.ecma-international.org/publications/standards/Ecma-367.htm standard document] is available for download if you need to review the specific details.
+The discussion here will be less formal (and less precise) than that in the standard, and is intended to be a practical guide. Of course, the [http://www.ecma-international.org/publications/standards/Ecma-367.htm standard document] is available for download if you wish to follow the specifics.
+
+
+==CAP-able expressions==
+
+In the first context, the definition states that the expression <code>exp</code> can be an '''Object-Test Local'''. An Object-Test Local is the identifier specified for a fresh local entity in an '''object test'''. Remember, object tests are coded using the '''attached syntax'''. 
+<code>
+            attached x as l_x 
+</code>
+In the object test expression above, the identifier <code>l_x</code> is an Object-Test Local.
+
+In the second context, the expression can be a read-only entity. Read-only entities are:
+# Constant attributes
+# formal arguments
+# Object-Test Locals
+# <code>Current</code>
 
 
 
