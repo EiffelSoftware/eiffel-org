@@ -822,7 +822,63 @@ with the argument anchored to the current object.
 
 A final, more application-oriented example of anchoring to <code>Current</code> is the feature <code>merge</code> posited in an earlier example (in [[ET: The Dynamic Structure: Execution Model|"The Dynamic Structure: Execution Model"]] ) with the signature <code>merge (other: ACCOUNT)</code>. By using instead <code>merge (other: like Current)</code> we can ensure that in any descendant class -- <code>BUSINESS_ACCOUNT</code>, <code>SAVINGS_ACCOUNT</code>, <code>MINOR_ACCOUNT</code> ... -- an account will only be mergeable with another of a compatible type. 
 
-Covariance makes static type checking more delicate; mechanisms of "system validity" and "catcalls" address the problem, discussed in detail in the book [http://eiffel.com/doc/oosc/ Object-Oriented Software Construction]  (see the bibliography). 
+Covariance makes static type checking more delicate; mechanisms of '''system validity''' and '''catcalls''' address the problem, discussed in detail in the book [http://eiffel.com/doc/oosc/ Object-Oriented Software Construction]  (see the bibliography). Catcalls are discussed briefly below.
+
+===Catcalls===
+
+The capabilities of polymorphism combined with covariance provide for powerful and flexible modeling. Under certain conditions, though, this flexibility can lead to problems. 
+
+In short, you should be careful to avoid polymorphic '''catcalls'''. The '''call''' part of '''catcall''' means feature call. The '''cat''' part is an acronym for '''C'''hanging '''A'''vailability or '''T'''ype. What is changing here are features of descendant classes through the adaptation of inheritance. So maybe a descendant class has changed the export status of an inherited feature, so that that feature is not available on instances of the descendant class ... this is the case of '''changing availability'''. Or perhaps, through covariant modeling, the type of an argument to a feature in a descendant class has changed ... the case of '''changing type'''. 
+
+Let's look at an example of changing type, due to covariant modeling. Suppose we have a system which uses the classes depicted on the following diagram:
+
+[[Image:Catcall example class diagram]]
+
+If in a client class, we declare the following attributes:
+
+<code>
+    my_animal: ANIMAL
+    my_food_stuff: FOOD_STUFF
+</code>
+
+Also, the class <code>ANIMAL</code> contains the feature:
+<code>
+    eat (a_f: FOOD_STUFF)
+            -- Consume `a_f'
+        deferred
+        end
+</code>
+This routine is implemented in <code>COW</code> as:
+<code>
+    eat (a_f: GRASS)
+</code>
+and in class <code>LION</code> as:
+<code>
+    eat (a_f: WILDEBEEST_FILET)
+</code>
+
+So, covariant modeling is used to make the type of the argument for <code>eat</code> appropriate for each of <code>ANIMAL</code>'s heirs.
+
+Here's where the problem comes in. It is possible at run-time to attach to <code>my_animal</code> a direct instance of either <code>COW</code> or <code>LION</code>. So, <code>my_animal</code> is a polymorphic attribute. Likewise, it is possible at run-time that <code>my_food_stuff</code> could be attached to a direct instance of either <code>GRASS</code> or <code>WILDEBEEST_FILET</code>. 
+
+So, the feature call:
+<code>
+            my_animal.eat (my_food_stuff) 
+</code>
+is a '''catcall''', because there is a possibility that through the changing type of the argument to <code>eat</code>, we could be causing a <code>COW</code> to engage in the inappropriate practice of eating a <code>WILDEBEEST_FILET</code>. 
+
+Because this possibility exists, developers should exercise caution in using polymorphism and covariant modeling. 
+
+In version 6.2 of EiffelStudio, a capability was added to detect harmful catcalls at runtime. So, in our example, if we used <code>my_animal.eat (my_food_stuff)</code> only to feed grass to cows and wildebeest filets to lions, then all would be well. But if we attempted to use that same call to feed an inappropriate food to an animal, we would see an exception. 
+
+Likewise the compiler in EiffelStudio will produce warnings in cases in which catcalls are possible. Below is an example of the compiler warning issued on the example. 
+
+[[Image:Catcall compiler warning]]
+
+
+
+
+
 
 
 
