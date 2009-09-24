@@ -796,7 +796,7 @@ In other cases, however, the body will be exactly the same as in the precursor. 
         end
 </code>
 
-A <code>like</code> ''anchor'' type, known as an anchored type, may appear in any context in which ''anchor'' has a well-defined type; ''anchor'' can be an attribute or function of the enclosing class, or an argument of the enclosing routine. Then, assuming <code>T</code> is the type of ''anchor'', the type <code>like</code> ''anchor'' means the following: 
+A <code>like</code> ''anchor'' type, known as an anchored type, may appear in any context in which ''anchor'' has a well-defined type; that is, ''anchor'' can be an attribute or function of the enclosing class. Then, assuming <code>T</code> is the type of ''anchor'', the type <code>like</code> ''anchor'' means the following: 
 
 In the class in which it appears, <code>like</code> ''anchor'' means the same as <code>T</code>. For example, in <code>set_owner</code> above, the declaration of <code>h</code> has the same effect as if <code>h</code> had been declared of type <code>HOLDER</code>, the type of the anchor <code>owner</code> in class <code>ACCOUNT</code>. 
 
@@ -828,9 +828,9 @@ Covariance makes static type checking more delicate; mechanisms of '''system val
 
 The capabilities of polymorphism combined with covariance provide for powerful and flexible modeling. Under certain conditions, though, this flexibility can lead to problems. 
 
-In short, you should be careful to avoid polymorphic '''catcalls'''. The '''call''' part of '''catcall''' means feature call. The '''cat''' part is an acronym for '''C'''hanging '''A'''vailability or '''T'''ype. What is changing here are features of descendant classes through the adaptation of inheritance. So maybe a descendant class has changed the export status of an inherited feature, so that that feature is not available on instances of the descendant class ... this is the case of '''changing availability'''. Or perhaps, through covariant modeling, the type of an argument to a feature in a descendant class has changed ... the case of '''changing type'''. 
+In short, you should be careful to avoid polymorphic '''catcalls'''. The '''call''' part of '''catcall''' means feature call. The '''cat''' part is an acronym for '''C'''hanged '''A'''vailability or '''T'''ype. What is changing here are features of descendant classes through the adaptation of inheritance. So maybe a descendant class has changed the export status of an inherited feature, so that that feature is not available on instances of the descendant class ... this is the case of '''changed availability'''. Or perhaps, through covariant modeling, the type of an argument to a feature in a descendant class has changed ... the case of '''changed type'''. 
 
-Let's look at an example of changing type, due to covariant modeling. Suppose we have a system which uses the classes depicted on the following diagram:
+Let's look at an example of changed type, due to covariant modeling. Suppose we have a system which uses the classes depicted on the following diagram:
 
 [[Image:Catcall example class diagram]]
 
