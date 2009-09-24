@@ -273,7 +273,7 @@ These applications make deferred classes a central tool of the Eiffel method's s
 
 Rather than using a separate method and notation for analysis and design, this approach integrates seamlessly with the subsequent phases (assuming the decision is indeed taken to develop a software system): it suffices to refine the deferred classes progressively by introducing effective elements, either by modifying the classes themselves, or by introducing design- and implementation-oriented descendants. In the resulting system, the classes that played an important role for analysis, and are the most meaningful for customers, will remain important; as we have seen ( [[ET: The Software Process in Eiffel#Seamlessness_and_reversibility|"Seamlessness and reversibility"]] ) this direct mapping property is a great help for extendibility. 
 
-The following sketch (from the book [http://eiffel.com/doc/oosc/ Object-Oriented Software Construction] ) illustrates these ideas on the example of scheduling the programs of a TV station. This is pure modeling of an application domain; no computers or software are involved yet. The class describes the notion of program segment. 
+The following sketch (from the book [[Object-Oriented Software Construction, 2nd Edition]] ) illustrates these ideas on the example of scheduling the programs of a TV station. This is pure modeling of an application domain; no computers or software are involved yet. The class describes the notion of program segment. 
 
 Note the use of assertions to define semantic properties of the class, its instances and its features. Although often presented as high-level, most object-oriented analysis methods (with the exception of Walden's and Nerson's Business Object Notation) have no support for the expression of such properties, limiting themselves instead to the description of broad structural relationships. 
 <code>
@@ -822,7 +822,7 @@ with the argument anchored to the current object.
 
 A final, more application-oriented example of anchoring to <code>Current</code> is the feature <code>merge</code> posited in an earlier example (in [[ET: The Dynamic Structure: Execution Model|"The Dynamic Structure: Execution Model"]] ) with the signature <code>merge (other: ACCOUNT)</code>. By using instead <code>merge (other: like Current)</code> we can ensure that in any descendant class -- <code>BUSINESS_ACCOUNT</code>, <code>SAVINGS_ACCOUNT</code>, <code>MINOR_ACCOUNT</code> ... -- an account will only be mergeable with another of a compatible type. 
 
-Covariance makes static type checking more delicate; mechanisms of '''system validity''' and '''catcalls''' address the problem, discussed in detail in the book [http://eiffel.com/doc/oosc/ Object-Oriented Software Construction]  (see the bibliography). Catcalls are discussed briefly below.
+Covariance makes static type checking more delicate; mechanisms of '''system validity''' and '''catcalls''' address the problem, discussed in detail in the book [[Object-Oriented Software Construction, 2nd Edition]]  (see the bibliography). Catcalls are discussed briefly below.
 
 ===Catcalls===
 
