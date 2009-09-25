@@ -6,3 +6,14 @@
 
 
 
+Eiffel the Language is described in detail in the ISO/ECMA standard document, available [http://www.ecma-international.org/publications/standards/Ecma-367.htm online]. 
+
+Sometimes there are differences between the language as defined by the standard and that which is implemented by Eiffel Software. These differences are documented in a [[Differences between standard ECMA-367 and Eiffel Software implementation|chapter]] of the online documentation.
+
+So, the final authority on Eiffel as implemented by Eiffel Software is the content of the standard document, amended by those variances cited in the "differences" [[Differences between standard ECMA-367 and Eiffel Software implementation|chapter]] of the online documentation. 
+
+The Quick Reference to Eiffel here to provide an informal guide to the language. Because this reference is based on the 2006 ISO/ECMA standard document, you should be aware that some differences may exist between what is in the Quick Reference and the implementation.
+
+
+
+

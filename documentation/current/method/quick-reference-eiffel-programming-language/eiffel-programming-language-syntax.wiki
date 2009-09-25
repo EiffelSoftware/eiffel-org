@@ -1,0 +1,511 @@
+[[Property:title|Eiffel syntax specification]]
+[[Property:link_title|Eiffel programming language syntax]]
+[[Property:weight|0]]
+[[Property:uuid|d0f94270-f1e0-5545-2b1a-8cde3a6c73ab]]
+{{underconstruction}}
+
+
+
+
+The syntax specification is shown here as it is in the standard document. The format is BNF-E (Backus-Naur Form - Extended) which is also explained in the Language Specification section of the standard document.
+
+
+==Eiffel Syntax==
+
+There are a few parts of the syntax that are either non-production or non-representable in BNF-E which have been omitted from the following specification. These omitted parts of the syntax definition add to the precision of the specification, but knowledge of them is not always vital for developers. 
+
+Probably the most important to developers is the definition of an ''identifier'':
+
+===Identifiers===
+
+An '''Identifier''' is a sequence of one or more alpha_numeric characters of which the first is a letter. 
+
+The definition is augmented by the rule that Identifiers are not valid if they are the same as one of the language's reserved words.
+
+
+===Class names ===
+Class_name =Δ [[#Identfiers|Identifier]] <br/><br/>
+<br/>
+===Class declarations ===
+Class_declaration =Δ <nowiki>[</nowiki>[[#Notes|Notes]]<nowiki>]</nowiki> <br/>
+[[#Class headers|Class_header]] <br/>
+<nowiki>[</nowiki>[[#Formal generic parameters|Formal_generics]]<nowiki>]</nowiki> <br/>
+<nowiki>[</nowiki>[[#Obsolete marks|Obsolete]]<nowiki>]</nowiki> <br/>
+<nowiki>[</nowiki>[[#Inheritance parts|Inheritance]]<nowiki>]</nowiki> <br/>
+<nowiki>[</nowiki>[[#Creators parts|Creators]]<nowiki>]</nowiki> <br/>
+<nowiki>[</nowiki>[[#Converter clauses|Converters]]<nowiki>]</nowiki> <br/>
+<nowiki>[</nowiki>[[#Feature parts|Features]]<nowiki>]</nowiki> <br/>
+<nowiki>[</nowiki>[[#Assertions|Invariant]]<nowiki>]</nowiki> <br/>
+<nowiki>[</nowiki>[[#Notes|Notes]]<nowiki>]</nowiki> <br/>
+<code>end</code><br/>
+<br/>
+===Notes ===
+Notes =Δ <code>note</code> Note_list<br/>
+Note_list =Δ {Note_entry ";" …}* <br/>
+Note_entry =Δ Note_name Note_values <br/>
+Note_name =Δ [[#Identifiers|Identifier]] ":" <br/>
+Note_values =Δ {Note_item ","…}+ <br/>
+Note_item =Δ [[#Identifiers|Identifier]] | [[#Manifest constants|Manifest_constant]] <br/>
+<br/>
+===Class headers ===
+Class_header =Δ [Header_mark] <code>class</code> [[#Class names|Class_name]] <br/>
+Header_mark =Δ <code>deferred</code> | <code>expanded</code> | <code>frozen</code> <br/>
+<br/>
+===Obsolete marks ===
+Obsolete =Δ <code>obsolete</code> Message <br/>
+Message =Δ [[#Manifest strings|Manifest_string]] <br/>
+<br/>
+===Feature parts ===
+Features =Δ Feature_clause+ <br/>
+Feature_clause =Δ <code>feature</code> <nowiki>[</nowiki>[[#Clients|Clients]]<nowiki>]</nowiki> [Header_comment] Feature_declaration_list <br/>
+Feature_declaration_list =Δ {[[#Feature declarations|Feature_declaration]] ";" …}* <br/>
+Header_comment =Δ Comment <br/>
+<br/>
+===Feature declarations ===
+Feature_declaration =Δ New_feature_list Declaration_body <br/>
+Declaration_body =Δ [Formal_arguments] [Query_mark] [Feature_value] <br/>
+Query_mark =Δ Type_mark [Assigner_mark] <br/>
+Type_mark =Δ ":" Type <br/>
+Feature_value =Δ [Explicit_value] <br/>
+[Obsolete] <br/>
+[Header_comment] <br/>
+[Attribute_or_routine] <br/>
+Explicit_value =Δ "=" Manifest_constant <br/>
+<br/>
+<br/>
+===New feature lists ===
+New_feature_list =Δ {New_feature "," …}+ <br/>
+New_feature =Δ [frozen] Extended_feature_name<br/>
+<br/>
+<br/>
+===Feature bodies ===
+Attribute_or_routine =Δ [Precondition] <br/>
+[Local_declarations] <br/>
+Feature_body <br/>
+[Postcondition] <br/>
+[Rescue] <br/>
+<code>end</code><br/>
+Feature_body =Δ Deferred | Effective_routine | Attribute<br/>
+<br/>
+<br/>
+===Feature names ===
+Extended_feature_name =Δ Feature_name [Alias] <br/>
+Feature_name =Δ Identifier <br/>
+Alias =Δ <code>alias</code> '"' Alias_name '"' [convert] <br/>
+Alias_name =Δ Operator | Bracket <br/>
+Bracket =Δ "[  ]" <br/>
+<br/>
+<br/>
+===Operators ===
+Operator =Δ Unary | Binary <br/>
+Unary =Δ <code>not</code> | "+" | "–" | Free_unary <br/>
+Binary =Δ "+" | "–" | "*" | "/" | "//" | "\\" | "^" | ".." | <br/>
+"<" | ">" | "<=" | ">=" | <br/>
+<code>and</code> | <code>or</code> | <code>xor</code> | <code>and</code> <code>then</code> | <code>or</code> <code>else</code> | <code>implies</code> | <br/>
+Free_binary <br/>
+<br/>
+<br/>
+===Assigner marks ===
+Assigner_mark =Δ <code>assign</code> Feature_name<br/>
+<br/>
+<br/>
+===Inheritance parts ===
+Inheritance =Δ Inherit_clause+ <br/>
+Inherit_clause =Δ <code>inherit</code> [Non_conformance] Parent_list <br/>
+Non_conformance =Δ "{" NONE "}" <br/>
+Parent_list =Δ {Parent ";" …}+ <br/>
+Parent =Δ Class_type [Feature_adaptation] <br/>
+Feature_adaptation =Δ [Undefine] <br/>
+[Redefine] <br/>
+[Rename] <br/>
+[New_exports] <br/>
+[Select] <br/>
+<code>end</code> <br/>
+<br/>
+<br/>
+<br/>
+===Rename clauses ===
+Rename =Δ <code>rename</code> Rename_list <br/>
+Rename_list =Δ {Rename_pair "," …}+ <br/>
+Rename_pair =Δ Feature_name <code>as</code> Extended_feature_name <br/>
+<br/>
+<br/>
+===Clients ===
+Clients =Δ "{" Class_list "}" <br/>
+Class_list =Δ {Class_name "," …}+<br/>
+<br/>
+<br/>
+<br/>
+===Export adaptation ===
+New_exports =Δ <code>export</code> New_export_list <br/>
+New_export_list =Δ {New_export_item ";" …}+ <br/>
+New_export_item =Δ Clients [Header_comment] Feature_set <br/>
+Feature_set =Δ Feature_list | <code>all</code> <br/>
+Feature_list =Δ {Feature_name "," …}+<br/>
+<br/>
+<br/>
+<br/>
+===Formal argument and entity declarations ===
+Formal_arguments =Δ "(" Entity_declaration_list ")" <br/>
+Entity_declaration_list =Δ {Entity_declaration_group ";" …}+ <br/>
+Entity_declaration_group =Δ Identifier_list Type_mark <br/>
+Identifier_list =Δ {Identifier "," …}+ <br/>
+<br/>
+<br/>
+===Routine bodies ===
+Deferred =Δ <code>deferred</code> <br/>
+Effective_routine =Δ Internal | External <br/>
+Internal =Δ Routine_mark Compound <br/>
+Routine_mark =Δ <code>do</code> | Once <br/>
+Once =Δ <code>once</code> [ "("Key_list ")" ] <br/>
+Key_list =Δ {Manifest_string "," …}+<br/>
+<br/>
+<br/>
+===Local variable declarations ===
+Local_declarations =Δ <code>local</code> [Entity_declaration_list]<br/>
+<br/>
+<br/>
+===Instructions ===
+Compound =Δ {Instruction ";" …}* <br/>
+Instruction =Δ Creation_instruction | Call | Assignment | Assigner_call | Conditional | Multi_branch <br/>
+| Loop | Debug | Precursor | Check | Retry<br/>
+<br/>
+<br/>
+===Assertions ===
+Precondition =Δ <code>require</code> [else] Assertion <br/>
+Postcondition =Δ <code>ensure</code> [then] Assertion [Only] <br/>
+Invariant =Δ <code>invariant</code> Assertion <br/>
+Assertion =Δ {Assertion_clause ";" …}* <br/>
+Assertion_clause =Δ [Tag_mark] Unlabeled_assertion_clause <br/>
+Unlabeled_assertion_clause =Δ Boolean_expression | Comment <br/>
+Tag_mark =Δ Tag ":" <br/>
+Tag =Δ Identifier <br/>
+<br/>
+<br/>
+===“Old” postcondition expressions ===
+Old =Δ <code>old</code> Expression<br/>
+<br/>
+<br/>
+===“Only” postcondition clauses ===
+Only =Δ <code>only</code> [Feature_list]<br/>
+<br/>
+<br/>
+===Check instructions ===
+Check =Δ <code>check</code> Assertion [Notes] end<br/>
+<br/>
+<br/>
+===Variants ===
+Variant =Δ <code>variant</code> [Tag_mark] Expression<br/>
+<br/>
+<br/>
+===Precursor ===
+Precursor =Δ <code>Precursor</code> [Parent_qualification] [Actuals] <br/>
+Parent_qualification =Δ "{" Class_name "}"<br/>
+<br/>
+<br/>
+===Redefinition ===
+Redefine =Δ <code>redefine</code> Feature_list<br/>
+<br/>
+<br/>
+===Undefine clauses ===
+Undefine =Δ <code>undefine</code> Feature_list<br/>
+<br/>
+<br/>
+===Types ===
+Type =Δ Class_or_tuple_type | Formal_generic_name | Anchored <br/>
+Class_or_tuple_type =Δ Class_type | Tuple_type <br/>
+Class_type =Δ [Attachment_mark] Class_name [Actual_generics] <br/>
+Attachment_mark =Δ "?"  |  "!" <br/>
+Anchored =Δ [Attachment_mark] <code>like</code> Anchor <br/>
+Anchor =Δ Feature_name | Current<br/>
+<br/>
+<br/>
+===Actual generic parameters ===
+Actual_generics =Δ "[" Type_list "]" <br/>
+Type_list =Δ {Type "," …}+<br/>
+<br/>
+<br/>
+===Formal generic parameters ===
+Formal_generics =Δ "[" Formal_generic_list "]" <br/>
+Formal_generic_list =Δ {Formal_generic ","…}+ <br/>
+Formal_generic =Δ [frozen] Formal_generic_name [Constraint] <br/>
+Formal_generic_name =Δ [?] Identifier<br/>
+<br/>
+<br/>
+===Generic constraints ===
+Constraint =Δ "–>" Constraining_types [Constraint_creators] <br/>
+Constraining_types =Δ Single_constraint | Multiple_constraint <br/>
+Single_constraint =Δ Type [Renaming] <br/>
+Renaming =Δ Rename end<br/>
+Multiple_constraint =Δ "{" Constraint_list "}" <br/>
+Constraint_list =Δ {Single_constraint "," …}+ <br/>
+Constraint_creators =Δ <code>create</code> Feature_list end<br/>
+<br/>
+<br/>
+===Tuple types ===
+Tuple_type =Δ <code>TUPLE</code> [Tuple_parameter_list] <br/>
+Tuple_parameter_list =Δ "[" Tuple_parameters "]"<br/>
+Tuple_parameters =Δ Type_list | Entity_declaration_list<br/>
+<br/>
+<br/>
+===Manifest tuples ===
+Manifest_tuple =Δ "[" Expression_list "]" <br/>
+Expression_list =Δ {Expression "," …}*<br/>
+<br/>
+<br/>
+===Converter clauses ===
+Converters =Δ <code>convert</code> Converter_list <br/>
+Converter_list =Δ {Converter ","…}+ <br/>
+Converter =Δ Conversion_procedure | Conversion_query <br/>
+Conversion_procedure =Δ Feature_name "(" "{" Type_list "}" ")" <br/>
+Conversion_query =Δ Feature_name ":" "{" Type_list "}"<br/>
+<br/>
+<br/>
+===Select clauses ===
+Select =Δ <code>select</code> Feature_list<br/>
+<br/>
+<br/>
+===Conditionals ===
+Conditional =Δ <code>if</code> Then_part_list [Else_part] <code>end</code> <br/>
+Then_part_list =Δ {Then_part <code>elseif</code> …}+ <br/>
+Then_part =Δ Boolean_expression <code>then</code> Compound <br/>
+Else_part =Δ <code>else</code> Compound<br/>
+<br/>
+<br/>
+===Multi-branch instructions ===
+Multi_branch =Δ <code>inspect</code> Expression [When_part_list] [Else_part] <code>end</code> <br/>
+When_part_list =Δ When_part+ <br/>
+When_part =Δ <code>when</code> Choices <code>then</code> Compound <br/>
+Choices =Δ {Choice "," …}+ <br/>
+Choice =Δ Constant | Manifest_type | Constant_interval | Type_interval <br/>
+Constant_interval =Δ Constant ".." Constant <br/>
+Type_interval =Δ Manifest_type ".." Manifest_type<br/>
+<br/>
+<br/>
+===Loops ===
+Loop =Δ Initialization <br/>
+[Invariant] <br/>
+Exit_condition <br/>
+Loop_body <br/>
+[Variant] <br/>
+<code>end</code> <br/>
+Initialization =Δ <code>from</code> Compound <br/>
+Exit_condition =Δ <code>until</code> Boolean_expression <br/>
+Loop_body =Δ <code>loop</code> Compound<br/>
+<br/>
+<br/>
+===Debug instructions ===
+Debug =Δ <code>debug</code> [ "("Key_list ")" ] Compound end<br/>
+<br/>
+<br/>
+===Attribute bodies ===
+Attribute =Δ <code>attribute</code> Compound<br/>
+<br/>
+<br/>
+===Entities and variables ===
+Entity =Δ Variable | Read_only <br/>
+Variable =Δ Variable_attribute | Local <br/>
+Variable_attribute =Δ Feature_name <br/>
+Local =Δ Identifier | <code>Result</code> <br/>
+Read_only =Δ Formal | Constant_attribute | <code>Current</code> <br/>
+Formal =Δ Identifier <br/>
+Constant_attribute =Δ Feature_name<br/>
+<br/>
+<br/>
+===Creators parts ===
+Creators =Δ Creation_clause+ <br/>
+Creation_clause =Δ <code>create</code> [Clients] [Header_comment] Creation_procedure_list <br/>
+Creation_procedure_list =Δ {Creation_procedure ","…}+ <br/>
+Creation_procedure =Δ Feature_name<br/>
+<br/>
+<br/>
+===Creation instructions ===
+Creation_instruction =Δ <code>create</code> [Explicit_creation_type] Creation_call <br/>
+Explicit_creation_type =Δ "{" Type "}" <br/>
+Creation_call =Δ Variable [Explicit_creation_call] <br/>
+Explicit_creation_call =Δ "." Unqualified_call<br/>
+<br/>
+<br/>
+===Creation expressions ===
+Creation_expression =Δ <code>create</code> Explicit_creation_type [Explicit_creation_call]<br/>
+<br/>
+<br/>
+===Equality expressions ===
+Equality =Δ Expression Comparison Expression <br/>
+Comparison =Δ "=" | "/=" | "~" | "/~"<br/>
+<br/>
+<br/>
+===Assignments ===
+Assignment =Δ Variable ":=" Expression<br/>
+<br/>
+<br/>
+===Assigner calls ===
+Assigner_call =Δ Expression ":=" Expression<br/>
+<br/>
+<br/>
+===Feature calls ===
+Call =Δ Object_call | Non_object_call <br/>
+Object_call =Δ [Target "."] Unqualified_call <br/>
+Unqualified_call =Δ Feature_name [Actuals] <br/>
+Target =Δ Local | Read_only | Call | Parenthesized_target <br/>
+Parenthesized_target =Δ "( |" Expression "| )" <br/>
+Non_object_call =Δ "{" Type "}" "." Unqualified_call<br/>
+<br/>
+<br/>
+===Actual arguments ===
+Actuals =Δ "(" Actual_list ")" <br/>
+Actual_list =Δ {Expression "," …}+<br/>
+<br/>
+<br/>
+===Object test ===
+Object_test =Δ "{" Identifier ":" Type "}" Expression<br/>
+<br/>
+<br/>
+===Rescue clauses ===
+Rescue =Δ <code>rescue</code> Compound <br/>
+Retry =Δ retry<br/>
+<br/>
+<br/>
+===Agents ===
+Agent =Δ Call_agent | Inline_agent <br/>
+Call_agent =Δ <code>agent</code> Call_agent_body <br/>
+Inline_agent =Δ <code>agent</code> [Formal_arguments] [Type_mark] [Attribute_or_routine] [Agent_actuals]<br/>
+<br/>
+<br/>
+===Call agent bodies ===
+Call_agent_body =Δ Agent_qualified | Agent_unqualified <br/>
+Agent_qualified =Δ Agent_target ". " Agent_unqualified <br/>
+Agent_unqualified =Δ Feature_name [Agent_actuals] <br/>
+Agent_target =Δ Entity | Parenthesized | Manifest_type <br/>
+Agent_actuals =Δ "(" Agent_actual_list ")" <br/>
+Agent_actual_list =Δ {Agent_actual "," …}+ <br/>
+Agent_actual =Δ Expression | Placeholder <br/>
+Placeholder =Δ [Manifest_type] "?"<br/>
+<br/>
+<br/>
+===Expressions ===
+Expression =Δ Basic_expression | Special_expression <br/>
+Basic_expression =Δ Read_only | Local | Call | Precursor | Equality | Parenthesized | Old | <br/>
+Operator_expression | Bracket_expression  | Creation_expression <br/>
+Special_expression =Δ Manifest_constant | Manifest_tuple | Agent | Object_test | Once_string | <br/>
+Address <br/>
+Parenthesized =Δ "(" Expression ")" <br/>
+Address =Δ "$" Variable <br/>
+Once_string =Δ <code>once</code> Manifest_string <br/>
+Boolean_expression =Δ Basic_expression | Boolean_constant | Object_test<br/>
+<br/>
+<br/>
+===Operator expressions ===
+Operator_expression =Δ Unary_expression | Binary_expression <br/>
+Unary_expression =Δ Unary Expression <br/>
+Binary_expression =Δ Expression Binary Expression<br/>
+<br/>
+<br/>
+===Bracket expressions ===
+Bracket_expression =Δ Bracket_target "[" Actuals "]" <br/>
+Bracket_target =Δ Target | Once_string | Manifest_constant | Manifest_tuple<br/>
+<br/>
+<br/>
+===Constants ===
+Constant =Δ Manifest_constant | Constant_attribute <br/>
+Constant_attribute =Δ Feature_name<br/>
+<br/>
+<br/>
+===Manifest constants ===
+Manifest_constant =Δ [Manifest_type] Manifest_value <br/>
+Manifest_type =Δ "{" Type "}"<br/>
+Manifest_value =Δ Boolean_constant |  <br/>
+Character_constant |  <br/>
+Integer_constant |  <br/>
+Real_constant |  <br/>
+Manifest_string | <br/>
+Manifest_type <br/>
+Sign =Δ "+" | "–" <br/>
+Integer_constant =Δ [Sign] Integer <br/>
+Character_constant =Δ " ' " Character " ' " <br/>
+Boolean_constant =Δ <code>True</code> | <code>False</code> <br/>
+Real_constant =Δ [Sign] Real<br/>
+<br/>
+<br/>
+===Manifest strings ===
+Manifest_string =Δ Basic_manifest_string | Verbatim_string <br/>
+Basic_manifest_string =Δ ' " '  String_content  ' " ' <br/>
+String_content =Δ {Simple_string Line_wrapping_part …}+<br/>
+Verbatim_string =Δ Verbatim_string_opener Line_sequence Verbatim_string_closer <br/>
+Verbatim_string_opener =Δ ' " ' [Simple_string] Open_bracket <br/>
+Verbatim_string_closer =Δ Close_bracket [Simple_string] ' " ' <br/>
+Open_bracket =Δ "[" | "{" <br/>
+Close_bracket =Δ "]" | "}"Verbatim_string =Δ Verbatim_string_opener Line_sequence Verbatim_string_closer <br/>
+Verbatim_string_opener =Δ ' " ' [Simple_string] Open_bracket <br/>
+Verbatim_string_closer =Δ Close_bracket [Simple_string] ' " ' <br/>
+Open_bracket =Δ "[" | "{" <br/>
+Close_bracket =Δ "]" | "}" <br/>
+<br/>
+<br/>
+===External routines ===
+External =Δ <code>external</code> External_language [External_name] <br/>
+External_language =Δ Unregistered_language | Registered_language <br/>
+Unregistered_language =Δ Manifest_string <br/>
+External_name =Δ <code>alias</code> Manifest_string<br/>
+<br/>
+<br/>
+===Registered languages ===
+Registered_language =Δ C_external | C++_external | DLL_external<br/>
+<br/>
+<br/>
+===External signatures ===
+External_signature =Δ signature [External_argument_types] [: External_type] <br/>
+External_argument_types =Δ "(" External_type_list ")" <br/>
+External_type_list =Δ {External_type "," …}* <br/>
+External_type =Δ Simple_string<br/>
+<br/>
+<br/>
+===External file use ===
+External_file_use =Δ use External_file_list <br/>
+External_file_list =Δ {External_file "," …}+ <br/>
+External_file =Δ External_user_file | External_system_file <br/>
+External_user_file =Δ ' " '  Simple_string  ' " ' <br/>
+External_system_file =Δ "<"Simple_string ">"<br/>
+<br/>
+<br/>
+===C externals ===
+C_external =Δ ’' " ' C  <br/>
+’[inline] <br/>
+[External_signature] [External_file_use] <br/>
+' " '<br/>
+<br/>
+<br/>
+===C++ externals ===
+C++_external =Δ ' " '  C++  <br/>
+inline <br/>
+[External_signature] <br/>
+[External_file_use] <br/>
+' " '<br/>
+<br/>
+<br/>
+===DLL externals ===
+DLL_external =Δ ' " ' dll <br/>
+[windows] <br/>
+DLL_identifier <br/>
+[DLL_index] <br/>
+[External_signature] <br/>
+[External_file_use] <br/>
+' " ' <br/>
+DLL_identifier =Δ Simple_string <br/>
+DLL_index =Δ Integer<br/>
+<br/>
+<br/>
+===Comments ===
+Comment =Δ "– –" {Simple_string Comment_break …}* <br/>
+Comment_break =Δ New_line [Blanks_or_tabs] "– –"<br/>
+<br/>
+===Integers ===
+Integer =Δ [Integer_base] Digit_sequence <br/>
+Integer_base =Δ "0" Integer_base_letter <br/>
+Integer_base_letter =Δ "b"  |  "c"  |  "x" |  "B"  |  "C"  |  "X" <br/>
+Digit_sequence =Δ Digit+ <br/>
+Digit =Δ "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"  | <br/>
+"a" | "b" | "c" | "d" | "e" | "f" | <br/>
+"A" | "B" | "C" | "D" | "E" | "F" | "_"<br/>
+
+
