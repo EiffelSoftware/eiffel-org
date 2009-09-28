@@ -43,6 +43,10 @@ The logical conjunction [[Eiffel language syntax#Operators|operator]]. Strict wh
 
 ===as===
 
+Used when [[ET: Inheritance#Multiple inheritance and renaming|renaming]] features in descendant classes.
+
+:[[Eiffel language syntax#Rename clauses|Syntax.]]
+
 
 ===assign===
 

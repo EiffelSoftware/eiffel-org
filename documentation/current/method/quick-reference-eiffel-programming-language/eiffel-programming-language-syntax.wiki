@@ -75,7 +75,7 @@ Explicit_value ::= "=" Manifest_constant <br/>
 <br/>
 ===New feature lists ===
 New_feature_list ::= {New_feature "," …}+ <br/>
-New_feature ::= [frozen] Extended_feature_name<br/>
+New_feature ::= [<code>frozen</code>] Extended_feature_name<br/>
 <br/>
 <br/>
 ===Feature bodies ===
@@ -228,7 +228,7 @@ Type_list ::= {Type "," …}+<br/>
 ===Formal generic parameters ===
 Formal_generics ::= "[" Formal_generic_list "]" <br/>
 Formal_generic_list ::= {Formal_generic ","…}+ <br/>
-Formal_generic ::= [frozen] Formal_generic_name [Constraint] <br/>
+Formal_generic ::= [<code>frozen</code>] Formal_generic_name [Constraint] <br/>
 Formal_generic_name ::= [?] Identifier<br/>
 <br/>
 <br/>
