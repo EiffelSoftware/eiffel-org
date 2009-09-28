@@ -63,13 +63,13 @@ Header_comment ::= [[#Comments|Comment]] <br/>
 <br/>
 ===Feature declarations ===
 Feature_declaration ::= [[#New feature lists|New_feature_list]] Declaration_body <br/>
-Declaration_body ::= [Formal_arguments] [Query_mark] [Feature_value] <br/>
-Query_mark ::= Type_mark [Assigner_mark] <br/>
-Type_mark ::= ":" Type <br/>
+Declaration_body ::= <nowiki>[</nowiki>[[#Formal argument and entity declarations|Formal_arguments]]<nowiki>]</nowiki> [Query_mark] [Feature_value] <br/>
+Query_mark ::= Type_mark <nowiki>[</nowiki>[[#Assigner marks|Assigner_mark]]<nowiki>]</nowiki> <br/>
+Type_mark ::= ":" [[#Types|Type]] <br/>
 Feature_value ::= [Explicit_value] <br/>
-[Obsolete] <br/>
-[Header_comment] <br/>
-[Attribute_or_routine] <br/>
+<nowiki>[</nowiki>[[#Obsolete parts|Obsolete]]<nowiki>]</nowiki> <br/>
+<nowiki>[</nowiki>[[#Feature Parts|Header_comment]]<nowiki>]</nowiki> <br/>
+<nowiki>[</nowiki>[[#Feature bodies|Attribute_or_routine]]<nowiki>]</nowiki> <br/>
 Explicit_value ::= "=" Manifest_constant <br/>
 <br/>
 <br/>
@@ -369,7 +369,7 @@ Retry ::= retry<br/>
 ===Agents ===
 Agent ::= Call_agent | Inline_agent <br/>
 Call_agent ::= <code>agent</code> Call_agent_body <br/>
-Inline_agent ::= <code>agent</code> [Formal_arguments] [Type_mark] [Attribute_or_routine] [Agent_actuals]<br/>
+Inline_agent ::= <code>agent</code> <nowiki>[</nowiki>[[#Formal argument and entity declarations|Formal_arguments]]<nowiki>]</nowiki> [Type_mark] [Attribute_or_routine] [Agent_actuals]<br/>
 <br/>
 <br/>
 ===Call agent bodies ===
