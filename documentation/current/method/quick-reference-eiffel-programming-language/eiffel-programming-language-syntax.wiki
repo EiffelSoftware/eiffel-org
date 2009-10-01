@@ -497,49 +497,49 @@ Registered_language ::= [[#C externals|C_external]] | [[#C++ externals|C++_exter
 <br/>
 <br/>
 ===External signatures ===
-External_signature ::= signature [External_argument_types] [: External_type] <br/>
+External_signature ::= <code>signature</code> [External_argument_types] [: External_type] <br/>
 External_argument_types ::= "(" External_type_list ")" <br/>
 External_type_list ::= {External_type "," …}* <br/>
-External_type ::= Simple_string<br/>
+External_type ::= [[#Simple strings|Simple_string]]<br/>
 <br/>
 <br/>
 ===External file use ===
-External_file_use ::= use External_file_list <br/>
+External_file_use ::= <code>use</code> External_file_list <br/>
 External_file_list ::= {External_file "," …}+ <br/>
 External_file ::= External_user_file | External_system_file <br/>
-External_user_file ::= ' " '  Simple_string  ' " ' <br/>
-External_system_file ::= "<"Simple_string ">"<br/>
+External_user_file ::= ' " '  [[#Simple strings|Simple_string]]  ' " ' <br/>
+External_system_file ::= "<"[[#Simple strings|Simple_string]] ">"<br/>
 <br/>
 <br/>
 ===C externals ===
-C_external ::= ’' " ' C  <br/>
-’[inline] <br/>
+C_external ::= ’' " ' <code>C</code>  <br/>
+’[<code>inline</code>] <br/>
 [External_signature] [External_file_use] <br/>
 ' " '<br/>
 <br/>
 <br/>
 ===C++ externals ===
-C++_external ::= ' " '  C++  <br/>
-inline <br/>
+C++_external ::= ' " '  <code>C++</code>  <br/>
+<code>inline</code> <br/>
 [External_signature] <br/>
 [External_file_use] <br/>
 ' " '<br/>
 <br/>
 <br/>
 ===DLL externals ===
-DLL_external ::= ' " ' dll <br/>
-[windows] <br/>
+DLL_external ::= ' " ' <code>dll</code> <br/>
+[<code>windows</code>] <br/>
 DLL_identifier <br/>
 [DLL_index] <br/>
 [External_signature] <br/>
 [External_file_use] <br/>
 ' " ' <br/>
-DLL_identifier ::= Simple_string <br/>
+DLL_identifier ::= [[#Simple strings|Simple_string]] <br/>
 DLL_index ::= [[#Integers|Integer]]<br/>
 <br/>
 <br/>
 ===Comments ===
-Comment ::= "– –" {Simple_string Comment_break …}* <br/>
+Comment ::= "– –" {[[#Simple strings|Simple_string]] Comment_break …}* <br/>
 Comment_break ::= New_line [Blanks_or_tabs] "– –"<br/>
 <br/>
 ===Integers ===
