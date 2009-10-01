@@ -50,6 +50,10 @@ Used when [[ET: Inheritance#Multiple inheritance and renaming|renaming]] feature
 
 ===assign===
 
+Used to designate [[ET: The Dynamic Structure: Execution Model#Abstraction|assigner commands]].
+
+:[[Eiffel language syntax#Assigner marks|Syntax]]
+
 
 ===attribute===
 
