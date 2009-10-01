@@ -147,28 +147,28 @@ Feature_list ::= {[[#Feature names|Feature_name]] "," …}+<br/>
 <br/>
 <br/>
 ===Formal argument and entity declarations ===
-Formal_arguments ::= "(" Entity_declaration_list ")" <br/>
+Formal_arguments ::= "(" [[#Formal argument and entity declarations|Entity_declaration_list]] ")" <br/>
 Entity_declaration_list ::= {Entity_declaration_group ";" …}+ <br/>
-Entity_declaration_group ::= Identifier_list Type_mark <br/>
+Entity_declaration_group ::= Identifier_list [[#Feature declarations|Type_mark]] <br/>
 Identifier_list ::= {[[#Identfiers|Identifier]] "," …}+ <br/>
 <br/>
 <br/>
 ===Routine bodies ===
 Deferred ::= <code>deferred</code> <br/>
-Effective_routine ::= Internal | External <br/>
-Internal ::= Routine_mark Compound <br/>
+Effective_routine ::= Internal | [[#External routines|External]] <br/>
+Internal ::= Routine_mark [[#Instructions|Compound]] <br/>
 Routine_mark ::= <code>do</code> | Once <br/>
 Once ::= <code>once</code> [ "("Key_list ")" ] <br/>
-Key_list ::= {Manifest_string "," …}+<br/>
+Key_list ::= {[[#Manifest strings|Manifest_string]] "," …}+<br/>
 <br/>
 <br/>
 ===Local variable declarations ===
-Local_declarations ::= <code>local</code> [Entity_declaration_list]<br/>
+Local_declarations ::= <code>local</code> <nowiki>[</nowiki>[[#Formal argument and entity declarations|Entity_declaration_list]]<nowiki>]</nowiki><br/>
 <br/>
 <br/>
 ===Instructions ===
 Compound ::= {Instruction ";" …}* <br/>
-Instruction ::= Creation_instruction | Call | Assignment | Assigner_call | Conditional | Multi_branch <br/>
+Instruction ::= [[#Creation instructions|Creation_instruction]] | [[#Feature calls|Call]] | Assignment | Assigner_call | Conditional | Multi_branch <br/>
 | Loop | Debug | Precursor | Check | Retry<br/>
 <br/>
 <br/>
@@ -246,7 +246,7 @@ Constraint_creators ::= <code>create</code> [[#Export adaptation|Feature_list]] 
 ===Tuple types ===
 Tuple_type ::= <code>TUPLE</code> [Tuple_parameter_list] <br/>
 Tuple_parameter_list ::= "[" Tuple_parameters "]"<br/>
-Tuple_parameters ::= Type_list | Entity_declaration_list<br/>
+Tuple_parameters ::= Type_list | [[#Formal argument and entity declarations|Entity_declaration_list]]<br/>
 <br/>
 <br/>
 ===Manifest tuples ===
@@ -269,14 +269,14 @@ Select ::= <code>select</code> [[#Export adaptation|Feature_list]]<br/>
 ===Conditionals ===
 Conditional ::= <code>if</code> Then_part_list [Else_part] <code>end</code> <br/>
 Then_part_list ::= {Then_part <code>elseif</code> …}+ <br/>
-Then_part ::= Boolean_expression <code>then</code> Compound <br/>
-Else_part ::= <code>else</code> Compound<br/>
+Then_part ::= Boolean_expression <code>then</code> [[#Instructions|Compound]] <br/>
+Else_part ::= <code>else</code> [[#Instructions|Compound]]<br/>
 <br/>
 <br/>
 ===Multi-branch instructions ===
 Multi_branch ::= <code>inspect</code> Expression [When_part_list] [Else_part] <code>end</code> <br/>
 When_part_list ::= When_part+ <br/>
-When_part ::= <code>when</code> Choices <code>then</code> Compound <br/>
+When_part ::= <code>when</code> Choices <code>then</code> [[#Instructions|Compound]] <br/>
 Choices ::= {Choice "," …}+ <br/>
 Choice ::= Constant | Manifest_type | Constant_interval | Type_interval <br/>
 Constant_interval ::= Constant ".." Constant <br/>
@@ -290,17 +290,17 @@ Exit_condition <br/>
 Loop_body <br/>
 [Variant] <br/>
 <code>end</code> <br/>
-Initialization ::= <code>from</code> Compound <br/>
+Initialization ::= <code>from</code> [[#Instructions|Compound]] <br/>
 Exit_condition ::= <code>until</code> Boolean_expression <br/>
-Loop_body ::= <code>loop</code> Compound<br/>
+Loop_body ::= <code>loop</code> [[#Instructions|Compound]]<br/>
 <br/>
 <br/>
 ===Debug instructions ===
-Debug ::= <code>debug</code> [ "("Key_list ")" ] Compound end<br/>
+Debug ::= <code>debug</code> [ "("Key_list ")" ] [[#Instructions|Compound]] end<br/>
 <br/>
 <br/>
 ===Attribute bodies ===
-Attribute ::= <code>attribute</code> Compound<br/>
+Attribute ::= <code>attribute</code> [[#Instructions|Compound]]<br/>
 <br/>
 <br/>
 ===Entities and variables ===
@@ -363,14 +363,14 @@ Object_test ::= "{" [[#Identfiers|Identifier]] ":" Type "}" Expression<br/>
 <br/>
 <br/>
 ===Rescue clauses ===
-Rescue ::= <code>rescue</code> Compound <br/>
+Rescue ::= <code>rescue</code> [[#Instructions|Compound]] <br/>
 Retry ::= retry<br/>
 <br/>
 <br/>
 ===Agents ===
 Agent ::= Call_agent | Inline_agent <br/>
 Call_agent ::= <code>agent</code> Call_agent_body <br/>
-Inline_agent ::= <code>agent</code> <nowiki>[</nowiki>[[#Formal argument and entity declarations|Formal_arguments]]<nowiki>]</nowiki> [Type_mark] <nowiki>[</nowiki>[[#Feature bodies|Attribute_or_routine]]<nowiki>]</nowiki> [Agent_actuals]<br/>
+Inline_agent ::= <code>agent</code> <nowiki>[</nowiki>[[#Formal argument and entity declarations|Formal_arguments]]<nowiki>]</nowiki> <nowiki>[</nowiki>[[#Feature declarations|Type_mark]]<nowiki>]</nowiki> <nowiki>[</nowiki>[[#Feature bodies|Attribute_or_routine]]<nowiki>]</nowiki> [Agent_actuals]<br/>
 <br/>
 <br/>
 ===Call agent bodies ===
@@ -386,13 +386,13 @@ Placeholder ::= [Manifest_type] "?"<br/>
 <br/>
 ===Expressions ===
 Expression ::= Basic_expression | Special_expression <br/>
-Basic_expression ::= Read_only | Local | Call | Precursor | Equality | Parenthesized | Old | <br/>
+Basic_expression ::= Read_only | Local | [[#Feature calls|Call]] | Precursor | Equality | Parenthesized | Old | <br/>
 Operator_expression | Bracket_expression  | Creation_expression <br/>
 Special_expression ::= Manifest_constant | Manifest_tuple | Agent | Object_test | Once_string | <br/>
 Address <br/>
 Parenthesized ::= "(" Expression ")" <br/>
 Address ::= "$" Variable <br/>
-Once_string ::= <code>once</code> Manifest_string <br/>
+Once_string ::= <code>once</code> [[#Manifest strings|Manifest_string]] <br/>
 Boolean_expression ::= Basic_expression | Boolean_constant | Object_test<br/>
 <br/>
 <br/>
@@ -419,7 +419,7 @@ Manifest_value ::= Boolean_constant |  <br/>
 Character_constant |  <br/>
 Integer_constant |  <br/>
 Real_constant |  <br/>
-Manifest_string | <br/>
+[[#Manifest strings|Manifest_string]] | <br/>
 Manifest_type <br/>
 Sign ::= "+" | "–" <br/>
 Integer_constant ::= [Sign] Integer <br/>
@@ -446,8 +446,8 @@ Close_bracket ::= "]" | "}" <br/>
 ===External routines ===
 External ::= <code>external</code> External_language [External_name] <br/>
 External_language ::= Unregistered_language | Registered_language <br/>
-Unregistered_language ::= Manifest_string <br/>
-External_name ::= <code>alias</code> Manifest_string<br/>
+Unregistered_language ::= [[#Manifest strings|Manifest_string]] <br/>
+External_name ::= <code>alias</code> [[#Manifest strings|Manifest_string]]<br/>
 <br/>
 <br/>
 ===Registered languages ===
