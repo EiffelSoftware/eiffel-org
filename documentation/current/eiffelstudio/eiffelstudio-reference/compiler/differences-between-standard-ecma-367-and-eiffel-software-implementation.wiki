@@ -45,6 +45,22 @@
 | Yes
 |}
 
+==Design by Contract==
+{| 
+|- 
+| <center>'''Feature'''</center>
+| <center>'''Example'''</center>
+| <center>'''ETL2'''</center>
+| <center>'''ECMA-367'''</center>
+| <center>'''EiffelStudio'''</center>
+|- 
+| Only postcondition clauses
+| <eiffel>ensure only a, b</eiffel>
+| No
+| Yes
+| No
+|}
+
 ==Genericity==
 {| 
 |- 
