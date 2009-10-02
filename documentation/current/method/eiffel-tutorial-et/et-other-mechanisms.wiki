@@ -60,6 +60,8 @@ which is an expression of type <code>ARRAY [INTEGER]</code>. Manifest arrays and
 
 Eiffel has a remarkably small set of instructions. The basic computational instructions have been seen: creation, assignment, assignment attempt, procedure call, retry. They are complemented by control structures: conditional, multi-branch, loop, as well as debug and check. 
 
+===Conditional===
+
 A conditional instruction has the form 
 <code>
             if ... then
@@ -71,6 +73,8 @@ A conditional instruction has the form
             end
 </code> 
 The <code>elseif</code> ... <code>then</code> ... part (of which there may be more than one) and the <code>else</code> ... part are optional. After <code>if</code> and <code>elseif</code> comes a boolean expression; after <code>then</code> and <code>else</code> come zero or more instructions. 
+
+===Multi-branch===
 
 A multi-branch instruction has the form
 <code>
@@ -91,6 +95,8 @@ where the <code>else inst0</code> part is optional, <code>exp</code> is a charac
 The effect of such a multi-branch instruction, if the value of <code>exp</code> is one of the <code>vi</code>, is to execute the corresponding <code>insti</code>. If none of the <code>vi</code> matches, the instruction executes <code>inst0</code>, unless there is no <code>else</code> part, in which case it triggers an exception. 
 
 {{note|Raising an exception is the proper behavior, since the absence of an <code>else</code> indicates that the author asserts that one of the values will match. If you want an instruction that does nothing in this case, rather than cause an exception, use an <code>else</code> part with an empty <code>inst0</code>. In contrast, <code>if c then</code> <code>inst</code> <code>end</code> with no <code>else</code> part does nothing in the absence of an <code>else</code> part, since in this case there is no implied claim that <code>c</code> must hold. }}
+
+===Loop===
 
 The loop construct has the form
 <code>
@@ -113,7 +119,11 @@ The effect is to execute <code>initialization</code>, then, zero or more times u
 
 The assertion <code>inv</code>, if present, expresses a '''loop invariant''' (not to be confused with class invariants). For the loop to be correct, <code>initialization</code> must ensure <code>inv</code>, and then every iteration of <code>body</code> executed when <code>exit</code> is false must preserve the invariant; so the effect of the loop is to yield a state in which both <code>inv</code> and <code>exit</code> are true. The loop must terminate after a finite number of iterations, of course; this can be guaranteed by using a '''loop variant''' <code>var</code>. It must be an integer expression whose value is non-negative after execution of <code>initialization</code>, and decreased by at least one, while remaining non-negative, by any execution of <code>body</code> when <code>exit</code> is false; since a non-negative integer cannot be decreased forever, this ensures termination. The assertion monitoring mode, if turned on at the highest level, will check these properties of the invariant and variant after initialization and after each loop iteration, triggering an exception if the invariant does not hold or the variant is negative or does not decrease. 
 
+===Debug===
+
 An occasionally useful instruction is <code>debug</code> <code>(</code>''Debug_key'', ... <code>)</code> ''instructions'' <code>end</code> where ''instructions'' is a sequence of zero or more instructions and the part in parentheses is optional, containing if present one or more strings, called debug keys. The EiffelStudio compiler lets you specify the corresponding <code>debug</code> compilation option: <code>yes</code>, <code>no</code>, or an explicit debug key. The ''instructions'' will be executed if and only if the corresponding option is on. The obvious use is for instructions that should be part of the system but executed only in some circumstances, for example to provide extra debugging information. 
+
+===Check===
 
 The final instruction is connected with Design by Contract&#153;. The instruction 
 <code>

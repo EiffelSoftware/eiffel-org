@@ -4,7 +4,7 @@
 [[Property:uuid|047ce062-45de-f25c-f356-ee8ec0fc2d1d]]
 In the Eiffel language, there are certain words that are considered "reserved". These words have specific meanings recognized by the compiler. As such, it is invalid to attempt to use a reserved word as an ordinary language identifier.
 
-The reserved words listed in the ISO/ECMA standard are show below with a brief explanation of their meanings.
+The reserved words listed in the ISO/ECMA standard are shown below with a brief explanation of their meanings. Links are given where appropriate to the syntax definitions and to descriptions in the online documentation. Occasionally, references to the standard document are used and are recognizable as clause numbers in parentheses, i.e., three integers separated by dots, for example: (8.14.1)
 
 ==Reserved words==
 
@@ -52,37 +52,105 @@ Used when [[ET: Inheritance#Multiple inheritance and renaming|renaming]] feature
 
 Used to designate [[ET: The Dynamic Structure: Execution Model#Abstraction|assigner commands]].
 
-:[[Eiffel language syntax#Assigner marks|Syntax]]
+:[[Eiffel language syntax#Assigner marks|Syntax.]]
 
 
 ===attribute===
 
+Introduces an attribute body, as in [[Void-safety: Background, definition, and tools#Self-initializing attributes|self-initializing attributes]].
+
+:[[Eiffel language syntax#Attribute bodies|Syntax.]]
+
 
 ===check===
+
+Identifies a [[ET: Other Mechanisms#Check|check instruction]].
+
+:[[Eiffel language syntax#Check instructions|Syntax.]]
 
 
 ===class===
 
+Used in a class header in the declaration of a [[ET: The Dynamic Structure: Execution Model#A simple class|class]]. 
+
+:[[Eiffel language syntax#Class headers|Class header syntax.]]
+
 
 ===convert===
+
+Used in converter clauses.
+
+:[[Eiffel language syntax#Converter clauses|Syntax.]]
+
+Used in feature names for operator aliases, supporting mixed type expressions causing a conversion of the target (8.5.14).
+
+:[[Eiffel language syntax#Feature names|Syntax.]]
 
 
 ===create===
 
+In the creators part of a class, introduces those procedures which can be used to [[ET: The Dynamic Structure: Execution Model#Creating and initializing objects|initialize instances]].
+
+:[[EIffel language syntax#Creators parts|Syntax.]]
+
+Introduces a  [[ET: The Dynamic Structure: Execution Model#Creating and initializing objects|creation instruction]].
+
+:[[Eiffel language syntax#Creation instructions|Syntax.]]
+
+Introduces a creation expression (8.20.18)
+
+:[[Eiffel language syntax#Creation expressions|Syntax.]]
+
+In [[ET: Inheritance#Constrained genericity|constrained genericity]], introduces a list of names of features which can be used as creation procedures with a generic class for a particular formal generic parameter. (8.12.10)
+
+:[[Eiffel language syntax#Generic constraints|Syntax.]]
+
 
 ===Current===
+
+A predefined entity indicating the current object. 
+
+:[[Eiffel language syntax#Entities and variables|Entity syntax.]]
+
+:[[Eiffel language syntax#Types|Anchored types syntax.]]
 
 
 ===debug===
 
+Introduces a [[ET: Other Mechanisms#Debug|debug instruction]].
+
+:[[Eiffel language syntax#Debug Instructions|Syntax.]]
+
 
 ===deferred===
+
+Used in class header to indicate a [[ET: Inheritance#Deferred features and classes|deferred class]].
+
+:[[Eiffel language syntax#Class headers|Syntax.]]
+
+Used in routine body to indicate a [[ET: Inheritance#Deferred features and classes|deferred feature]].
+
+:[[Eiffel language syntax#Routine bodies|Syntax.]]
 
 
 ===do===
 
+Introduces a sequence of instructions as a routine body, as shown in the [[ET: Hello World|Hello World] example.
+
+:[[Eiffel language syntax#Routine bodies|Syntax.]]
+
 
 ===else===
+
+Used in [[ET: Other Mechanisms#Conditional|conditional]] and [[ET: Other Mechanisms#Multi-branch|multi-branch]] instructions to introduce a sequence of instructions to be executed in the case that no specified conditions are met.
+
+:[[Eiffel language syntax#Conditionals|Conditional syntax.]]
+
+:[[Eiffel language syntax#Multi-branch instructions|Multi-branch syntax.]]
+
+Used as part of the double reserved word <code>or else</code>, the semi-strict disjunction operator.
+
+:[[Eiffel language syntax#Operators|Syntax.]]
 
 
 ===elseif===
