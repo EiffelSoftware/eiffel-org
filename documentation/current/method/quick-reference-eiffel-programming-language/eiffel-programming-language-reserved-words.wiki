@@ -4,7 +4,7 @@
 [[Property:uuid|047ce062-45de-f25c-f356-ee8ec0fc2d1d]]
 In the Eiffel language, there are certain words that are considered "reserved". These words have specific meanings recognized by the compiler. As such, it is invalid to attempt to use a reserved word as an ordinary language identifier.
 
-The reserved words listed in the ISO/ECMA standard are shown below with a brief explanation of their meanings. Links are given where appropriate to the syntax definitions and to descriptions in the online documentation. Occasionally, references to the standard document are used and are recognizable as clause numbers in parentheses, i.e., three integers separated by dots, for example: (8.14.1)
+The reserved words listed in the ISO/ECMA standard are shown below with a brief explanation of their meanings. Links are given where appropriate to the syntax definitions and to descriptions in the online documentation. Occasionally, references to the June 2006 standard document are used and are recognizable as clause numbers in parentheses, i.e., three integers separated by dots, for example: (8.14.1)
 
 ==Reserved words==
 
@@ -152,14 +152,39 @@ Used as part of the double reserved word <code>or else</code>, the semi-strict d
 
 :[[Eiffel language syntax#Operators|Syntax.]]
 
+Used after the reserved word <code>require</code> as a precondition extension, allowing the weakening of an inherited precondition (8.10.3).
+
+:[[Eiffel language syntax#Assertions|Syntax.]]
+
 
 ===elseif===
+
+Used in [[ET: Other Mechanisms#Conditional|conditional]] instructions to effect a "multi-branch" choice instruction.
+
+:[[Eiffel language syntax#Conditionals|Syntax.]]
 
 
 ===end===
 
+Serves to terminate several Eiffel language constructs.
+
+:Syntax for:
+::[[Eiffel language syntax#Class declarations|Class declarations]]
+::[[Eiffel language syntax#Feature bodies|Feature bodies]]
+::[[Eiffel language syntax#Inheritance parts|Inheritance parts]]
+::[[Eiffel language syntax#Check instructions|Check instructions]]
+::[[Eiffel language syntax#Generic constraints|Generic constraints: renaming and constraint creators]]
+::[[Eiffel language syntax#Conditionals|Conditional instructions]]
+::[[Eiffel language syntax#Multi-branch instructions|Multi-branch instructions]]
+::[[Eiffel language syntax#Loops|Loops]]
+::[[Eiffel language syntax#Debug instructions|Debug instructions]]
+
 
 ===ensure===
+
+Introduces a [[ET: Design by Contract (tm), Assertions and Exceptions#Expressing assertions|postcondition]].
+
+:[[Eiffel language syntax#Assertions|Syntax.]]
 
 
 ===expanded===
