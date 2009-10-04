@@ -93,7 +93,7 @@ class
     OLD_FASHIONED_LIST [G]
 </code>
 
-The class header is introduced by the keyword "class", which in turn can be preceded by one of three keywords which mark the class as <code>deferred</code>, <code>expanded</code>, or <code>external</code>. In our example, the class has none of these markings, so it is an effective class whose instances are access by reference. 
+The class header is introduced by the keyword "class", which in turn can be preceded by one of three keywords which mark the class as <code>deferred</code>, <code>expanded</code>, or <code>frozen</code>. In our example, the class has none of these markings, so it is an effective class whose instances are access by reference. 
 
 The keyword class is followed by the class name, in this case "<code>OLD_FASHIONED_LIST</code>". 
 

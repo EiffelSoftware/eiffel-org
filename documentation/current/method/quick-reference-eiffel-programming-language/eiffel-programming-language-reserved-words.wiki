@@ -207,17 +207,37 @@ Used to [[ET: Inheritance#Changing the export status|change the export status]] 
 
 ===external===
 
+Denotes an [[ET: The Static Picture: System Organization#External software|external routine]]. External routines are commonly defined to interface with [[C externals|C external routines]] and [[C++ Externals|C++ external routines]].
+
+:[[Eiffel language syntax#External routines|Syntax]]
+
 
 ===False===
+
+Boolean manifest constant. 
+
+:[[Eiffel language syntax#Manifest constants|Syntax.]]
 
 
 ===feature===
 
+Introduces a [[ET: Hello World|feature clause]].
+
+:[[Eiffel language syntax#Feature parts|Syntax.]]
+
 
 ===from===
 
+Used in [[ET: Other Mechanisms#Loop|loop]] initialization.
+
+:[[Eiffel language syntax#Loops|Syntax.]]
+
 
 ===frozen===
+
+Used in a class header to mark a class explicitly as frozen. A frozen class prohibits it from serving as a "conforming parent" to other classes. (8.4.5).
+
+:[[Eiffel language syntax#Class headers|Syntax.]]
 
 
 ===if===
