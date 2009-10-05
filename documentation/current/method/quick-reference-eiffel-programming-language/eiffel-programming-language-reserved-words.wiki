@@ -239,26 +239,66 @@ Used in a class header to mark a class explicitly as frozen. A frozen class proh
 
 :[[Eiffel language syntax#Class headers|Syntax.]]
 
+Used in a feature declaration to mark a feature as frozen. A frozen feature cannot be redefined by heir classes.
+
+:[[Eiffel language syntax#New feature lists|Syntax.]]
+
+Used with a formal generic parameter to indicate that conformance of generic derivations of the class require identical actual generic parameters. (8.12.3)
+
+:[[Eiffel language syntax#Formal generic parameters|Syntax.]]
+
 
 ===if===
+
+Introduces a [[ET: Other Mechanisms#Conditional|conditional]].
+
+:[[Eiffel language syntax#Conditionals|Syntax.]]
 
 
 ===implies===
 
+The semi-strict logical implication [[Eiffel language syntax#Operators|operator]].
+
 
 ===inherit===
+
+Used in an [[ET: Inheritance|inherit]] clause.
+
+:[[Eiffel language syntax#Inheritance parts|Syntax.]]
 
 
 ===inspect===
 
+Introduces a [[ET: Other Mechanisms#Multi-branch|multi-branch]] instruction.
+
+:[[Eiffel language syntax#Multi-branch instructions|Syntax.]]
+
 
 ===invariant===
+
+Used to introduce an invariant assertion as a [[ET: Design by Contract (tm), Assertions and Exceptions#Class invariants|class invariant]] or [[ET: Other Mechanisms#Loop|loop invariant]].
+
+:[[Eiffel language syntax#Assertions|Assertions syntax.]]
+
+:[[Eiffel language syntax#Class declarations|Syntax of class declaration including class invariant.]]
+
+:[[EIffel language syntax#Loops|Syntax of loop including loop invariant.]]
 
 
 ===like===
 
+Used in the declaration of an [[ET: Inheritance#Covariance and anchored declarations|anchored]] entity.
+
+:[[Eiffel language syntax#Types|Syntax.]]
+
 
 ===local===
+
+Introduces the [[ET: The Dynamic Structure: Execution Model#Entities|local variable]] declarations in a feature body.
+
+:[[Eiffel language syntax#Feature bodies|Feature bodies syntax.]]
+
+:[[Eiffel language syntax#Local variables|Local variable declarations syntax.]]
 
 
 ===loop===

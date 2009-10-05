@@ -90,7 +90,11 @@ Each assertion is made of one or more subclauses, each of them a boolean express
 
 Because assertions benefit from the full power of boolean expressions, they may include function calls. This makes it possible to express sophisticated consistency conditions, such as " the graph contains no cycle", which would not be otherwise expressible through simple expressions, or even through first-order predicate calculus, but which are easy to implement as Eiffel functions returning boolean results. 
 
+===Preconditions===
+
 The precondition of a routine expresses conditions that the routine is imposing on its clients. Here a call to <code>deposit</code> is correct if and only if the value of the argument is non-negative. The routine does not guarantee anything for a call that does not satisfy the precondition. It is in fact part of the Eiffel method that a routine body should '''never''' test for the precondition, since it is the client's responsibility to ensure it. (An apparent paradox of Design by Contract&#153;, which is reflected in the bottom-right entries of the preceding and following contract tables, and should not be a paradox any more at the end of this discussion, is that one can get more reliable software by having fewer explicit checks in the software text.) 
+
+===Postconditions===
 
 The postcondition of a routine expresses what the routine guaranteed to its clients for calls satisfying the precondition. The notation <code>old expression</code>, valid in postconditions ( <code>ensure</code> clauses) only, denotes the value that <code>expression</code> had on entry to the routine. 
 
@@ -116,6 +120,7 @@ Update deposits list and balance.
 No need to handle negative arguments. 
 |}
 
+===Class invariants===
 
 The class invariant, as noted, applies to all features. It must be satisfied on exit by any creation procedure, and is implicitly added to both the precondition and postcondition of every exported routine. In this respect it is both good news and bad news for the routine implementer: good news because it guarantees that the object will initially be in a stable state, averting the need in the example to check that the total of <code>all_deposits</code> is compatible with the <code>balance</code>; bad news because, in addition to its official contract as expressed by its specific postcondition, every routine must take care of restoring the invariant on exit. 
 
