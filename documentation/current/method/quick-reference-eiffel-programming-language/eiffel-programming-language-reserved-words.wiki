@@ -303,8 +303,14 @@ Introduces the [[ET: The Dynamic Structure: Execution Model#Entities|local varia
 
 ===loop===
 
+Introduces a [[ET: Other Mechanisms#Loop|loop]] body.
+
+:[[Eiffel language syntax#Loops|Syntax.]]
+
 
 ===not===
+
+The logical negation [[Eiffel language syntax#Operators|operator]].
 
 
 ===note===
