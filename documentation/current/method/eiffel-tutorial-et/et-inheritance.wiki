@@ -72,7 +72,7 @@ end -- class SAVINGS_ACCOUNT
 
 Without the <code>redefine</code> subclause, the declaration of <code>deposit</code> would be invalid, yielding two features of the same name, the inherited one and the new one. The subclause makes this valid by specifying that the new declaration will override the old one. 
 
-In a redefinition, the original version -- such as the <code>ACCOUNT</code> implementation of <code>deposit</code> in this example -- is called the <code>precursor</code> of the new version. It is common for a redefinition to rely on the precursor's algorithm and add some other actions; the reserved word <code>Precursor</code> helps achieve this goal simply. Permitted only in a routine redefinition, it denotes the parent routine being redefined. So here the body of the new <code>deposit</code> (called "New implementation" above) could be of the form 
+In a redefinition, the original version -- such as the <code>ACCOUNT</code> implementation of <code>deposit</code> in this example -- is called the '''precursor''' of the new version. It is common for a redefinition to rely on the precursor's algorithm and add some other actions; the reserved word <code>Precursor</code> helps achieve this goal simply. Permitted only in a routine redefinition, it denotes the parent routine being redefined. So here the body of the new <code>deposit</code> (called "New implementation" above) could be of the form 
 <code>
             Precursor (sum)
                 -- Apply ACCOUNT's version of deposit

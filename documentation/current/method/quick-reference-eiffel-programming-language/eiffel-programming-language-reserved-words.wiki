@@ -315,17 +315,43 @@ The logical negation [[Eiffel language syntax#Operators|operator]].
 
 ===note===
 
+Used to begin a Notes part, in either a [[Eiffel language syntax#Class declarations|class declaration]] or a [[Eiffel language syntax#Check instructions|check instruction]].
+
+:[[Eiffel language syntax#Notes|Syntax.]]
+
 
 ===obsolete===
+
+Used to mark [[ET: Other Mechanisms#Obsolete features and classes|obsolete features and classes]].
+
+:[[Eiffel language syntax#Feature declarations|Feature declarations syntax.]]
+
+:[[Eiffel language syntax#Class declarations|Class declarations declarations syntax.]]
+
+:[[Eiffel language syntax#Obsolete marks|Obsolete mark syntax.]]
 
 
 ===old===
 
+Introduces an ''old expression''. Old expressions are valid only in the  [[ET: Design by Contract (tm), Assertions and Exceptions#Postconditions|postconditions]] of routines.
+
+:[[Eiffel language syntax#Old postcondition expressions|Syntax.]]
+
 
 ===once===
 
+Used to introduce [[ET: Other Mechanisms#Once routines and shared objects|once routines]] and once string expressions.
+
+:[[Eiffel language syntax#Routine bodies|Once routine syntax.]]
+
+:[[Eiffel language syntax#Expressions|Once string syntax.]]
+
 
 ===only===
+
+Used in an ''only postcondition clause''. (8.9.11)
+
+:[[Eiffel language syntax#"Old" postcondition expressions|Syntax.]]
 
 
 ===or===
