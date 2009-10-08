@@ -2,9 +2,6 @@
 [[Property:link_title|Eiffel programming language reserved words]]
 [[Property:weight|1]]
 [[Property:uuid|047ce062-45de-f25c-f356-ee8ec0fc2d1d]]
-{{underconstruction}}
-
-
 
 In the Eiffel language, there are certain words that are considered "reserved". These words have specific meanings recognized by the compiler. As such, it is invalid to attempt to use a reserved word as an ordinary language identifier.
 
@@ -139,7 +136,7 @@ Used in routine body to indicate a [[ET: Inheritance#Deferred features and class
 
 ===do===
 
-Introduces a sequence of instructions as a routine body, as shown in the [[ET: Hello World|Hello World] example.
+Introduces a sequence of instructions as a routine body, as shown in the [[ET: Hello World|Hello World]] example.
 
 :[[Eiffel language syntax#Routine bodies|Syntax.]]
 
@@ -156,7 +153,7 @@ Used as part of the double reserved word <code>or else</code>, the semi-strict d
 
 :[[Eiffel language syntax#Operators|Syntax.]]
 
-Used after the reserved word <code>require</code> as a precondition extension, allowing the weakening of an inherited precondition (8.10.3).
+Used after the reserved word [[#require|<code>require</code>]] as a precondition extension, allowing the weakening of an inherited precondition (8.10.3).
 
 :[[Eiffel language syntax#Assertions|Syntax.]]
 
@@ -187,6 +184,8 @@ Serves to terminate several Eiffel language constructs.
 ===ensure===
 
 Introduces a [[ET: Design by Contract (tm), Assertions and Exceptions#Expressing assertions|postcondition]].
+
+When followed by the reserved word [[#then|<code>then</code>]] denotes a postcondition extension, allowing the strengthening of an inherited postcondition (8.10.3).
 
 :[[Eiffel language syntax#Assertions|Syntax.]]
 
@@ -373,53 +372,127 @@ Used in an [[Eiffel language syntax#Inheritance parts|inheritance part]] of a [[
 :[[Eiffel language syntax#Redefinition|Redefine syntax.]]
 
 
-
 ===rename===
+
+Used in an [[Eiffel language syntax#Inheritance parts|inheritance part]] of a [[Eiffel language syntax#Class declarations|class declaration]] to [[ET: Inheritance#Multiple inheritance and renaming|provide alternative names]] for inherited features in an heir class.
+
+Used to rename features in a [[Eiffel language syntax#Generic constraints|generic constraint]]. (8.12.8).
+
+:[[Eiffel language syntax#Rename clauses|Syntax.]]
 
 
 ===require===
 
+Introduces a [[ET: Design by Contract (tm), Assertions and Exceptions#Expressing assertions|precondition]]. 
+
+When followed by the reserved word [[#else|<code>else</code>]] denotes a precondition extension, allowing the weakening of an inherited precondition (8.10.3).
+
+:[[Eiffel language syntax#Assertions|Syntax.]]
+
+
 
 ===rescue===
+
+Introduces a [[ET: Design by Contract (tm), Assertions and Exceptions#Exception handling|rescue clause]] in a [[Eiffel language syntax#Feature bodies|feature body]].
+
+:[[Eiffel language syntax#Rescue clauses|Syntax.]]
 
 
 ===Result===
 
+A predefined [[ET: The Dynamic Structure: Execution Model#Entities|entity]] used to represent the final result of a function.
+
+:[[Eiffel language syntax#Entities and variables|Syntax.]]
+
 
 ===retry===
+
+An [[Eiffel language syntax#Instructions|instruction]] valid only in [[Eiffel language syntax#Rescue clauses|rescue clauses]] and used to [[ET: Design by Contract (tm), Assertions and Exceptions#Exception handling|re-execute the routine]] in which it appears.
+
+:[[Eiffel language syntax#Rescue clauses|Syntax.]]
 
 
 ===select===
 
+Used in an [[Eiffel language syntax#Inheritance parts|inheritance part]] of a [[Eiffel language syntax#Class declarations|class declaration]] to resolve possible ambiguities related to polymorphism and dynamic binding in the presence of  [[ET: Inheritance#Repeated inheritance and selection|repeated inheritance]].
+
+:[[Eiffel language syntax#Select clauses|Syntax.]]
+
 
 ===separate===
+
+Reserved for future use.
 
 
 ===then===
 
+Used in [[ET: Other Mechanisms#Conditional|conditional]] and [[ET: Other Mechanisms#Multi-branch|multi-branch]] instructions to introduce a sequence of instructions to be executed in the case that a condition is met.
+
+:[[Eiffel language syntax#Conditionals|Conditional syntax.]]
+
+:[[Eiffel language syntax#Multi-branch instructions|Multi-branch syntax.]]
+
+Used as part of the double reserved word <code>and then</code>, the semi-strict conjunction operator.
+
+:[[Eiffel language syntax#Operators|Syntax.]]
+
+Used after the reserved word [[#ensure|<code>ensure</code>]] as a postcondition extension, allowing the strengthening of an inherited postcondition (8.10.3).
+
+:[[Eiffel language syntax#Assertions|Syntax.]]
+
 
 ===True===
+
+Boolean manifest constant. 
+
+:[[Eiffel language syntax#Manifest constants|Syntax.]]
 
 
 ===TUPLE===
 
+Denotes a [[ET: Other Mechanisms#Tuple types|TUPLE type]].
+
+:[[Eiffel language syntax#Tuple types|Syntax.]]
+
 
 ===undefine===
+
+Used in an [[Eiffel language syntax#Inheritance parts|inheritance part]] of a [[Eiffel language syntax#Class declarations|class declaration]] to  [[ET: Inheritance#Joining and uneffecting|uneffect]] an inherited feature.
+
+:[[Eiffel language syntax#Undefine clauses|Syntax.]]
 
 
 ===until===
 
+Used in [[ET: Other Mechanisms#Loop|loop]] initialization.
+
+:[[Eiffel language syntax#Loops|Syntax.]]
+
 
 ===variant===
+
+Introduces a [[ET: Other Mechanisms#Loop|loop variant]].
+
+:[[Eiffel language syntax#Variants|Syntax.]]
 
 
 ===Void===
 
+A predefined entity name representing a [[ET: The Dynamic Structure: Execution Model#Basic operations|void (a.k.a., null) reference]]. 
+
 
 ===when===
 
+Used in a [[ET: Other Mechanisms#Multi-branch|multi-branch instruction]] to introduce cases.
+
+:[[Eiffel language syntax#Multi-branch instructions|Syntax.]]
+
 
 ===xor===
+
+The exclusive disjunction [[Eiffel language syntax#Operators|operator]].
+
+
 
 
 
