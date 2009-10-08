@@ -356,11 +356,22 @@ Used in an ''only postcondition clause''. (8.9.11)
 
 ===or===
 
+The logical disjunction [[Eiffel language syntax#Operators|operator]]. Strict when used alone, nonstrict when used with [[#else|else]].
+
 
 ===Precursor===
 
+Allows a redefined routine to access the routine it redefines, i.e, its [[ET: Inheritance#Redefinition|precursor]].
+
+:[[Eiffel language syntax#Precursor|Syntax.]]
+
 
 ===redefine===
+
+Used in an [[Eiffel language syntax#Inheritance parts|inheritance part]] of a [[Eiffel language syntax#Class declarations|class declaration]] to list those inherited features which, in the heir class, will receive new implementations, specifications, or both, i.e, those features being [[ET: Inheritance#Redefinition|redefined]].
+
+:[[Eiffel language syntax#Redefinition|Redefine syntax.]]
+
 
 
 ===rename===
