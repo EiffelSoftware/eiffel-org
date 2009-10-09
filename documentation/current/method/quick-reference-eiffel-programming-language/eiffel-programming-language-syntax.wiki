@@ -2,14 +2,11 @@
 [[Property:link_title|Eiffel programming language syntax]]
 [[Property:weight|0]]
 [[Property:uuid|d0f94270-f1e0-5545-2b1a-8cde3a6c73ab]]
-{{underconstruction}}
-
-
-
-
-The syntax specification is shown here as a less complete and formal version of that which is in the standard document. The format is BNF-E. The Language Specification section of the standard document includes an overview of BNF-E. 
+The syntax specification shown here is a less complete and less formal version of that which is in the Eiffel ISO/ECMA standard document. The format is BNF-E. The Language Specification section of the standard document includes an overview of BNF-E. 
 
 There are a few parts of the syntax that are either non-production or non-representable in BNF-E. Some of these have been omitted from the following specification. These omitted parts of the syntax definition add to the precision of the specification, but knowledge of them is not always vital for developers. 
+
+In the BNF-E representation, generally non-terminals which are defined in the same group of productions in which they are used are not linked. However when a non-terminal is defined outside a group in which it is used, it is linked to the group in which it is defined.
 
 __TOC__
 
@@ -487,7 +484,7 @@ Close_bracket ::= "]" | "}" <br/>
 <br/>
 ===External routines ===
 External ::= <code>external</code> External_language [External_name] <br/>
-External_language ::= Unregistered_language | Registered_language <br/>
+External_language ::= Unregistered_language | [[#Registered languages|Registered_language]] <br/>
 Unregistered_language ::= [[#Manifest strings|Manifest_string]] <br/>
 External_name ::= <code>alias</code> [[#Manifest strings|Manifest_string]]<br/>
 <br/>
