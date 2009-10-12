@@ -2,15 +2,13 @@
 [[Property:link_title|Language Quick Reference]]
 [[Property:weight|4]]
 [[Property:uuid|4f61365d-59f6-a394-678b-144bad8ec12f]]
-{{UnderConstruction}}
-
 
 
 The Quick Reference to Eiffel the language provides an informal guide to the syntax and reserved words of the language. Eiffel the language is described in detail in the ISO/ECMA standard document, available [http://www.ecma-international.org/publications/standards/Ecma-367.htm online].  
 
 Sometimes there are differences between the language as defined by the standard and that which is implemented by Eiffel Software. These differences are documented in the online documentation.
 
-So, the final authority on Eiffel as implemented by Eiffel Software is the content of the standard document, amended by those variances cited in the "differences" [[Differences between standard ECMA-367 and Eiffel Software implementation|chapter]] of the online documentation. 
+So, the final authority on Eiffel as implemented by Eiffel Software is the content of the standard document, amended by those variances cited in the [[Differences between standard ECMA-367 and Eiffel Software implementation|"differences" chapter of the online documentation]]. 
 
 This reference is based on the June 2006 ISO/ECMA standard document.
 

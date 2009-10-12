@@ -22,8 +22,13 @@ The search panel has two tabs. The '''search tab''' allows you to define how and
 
 ===The Search tab===
 
-On the '''search tab''' of the search panel (shown in Fig. 1), you will find two combo boxes, labeled '''Search for:''' and '''Replace with:'''. These are used to enter the string or pattern for which you want to search and the word or phrase, if any, which you want the editor to use to replace matches resulting from the search. <br/>
-There are also buttons that control whether you want to '''search''', to '''replace''' the most recently found match, or '''replace all''' matches.
+On the '''search tab''' of the search panel (shown in Fig. 1), you will find two combo boxes, labeled '''Search for:''' and '''Replace with:'''. These are used to enter the string or pattern for which you want to search and the word or phrase, if any, which you want the editor to use to replace matches resulting from the search. 
+
+Also in the Search tab, there are buttons that control whether you want to '''search''', to '''replace''' the most recently found match, or '''replace all''' matches.
+
+====Using "search capture"====
+
+If you are searching using '''regular expressions''' (see [[#The options group|The options group]] below), you can use '''search capture''' in the '''Replace with:''' combo box. This allows you to use patterns that satisfied the search in the replacement. In the '''Search for:''' combo box, enclose in parentheses any parts of the search that you want to capture for use in the replacement. Then, in the '''Replace with:''' combo box, you can reference each capture by its index enclosed in backslashes. 
 
 ====The options group====
 
@@ -65,7 +70,7 @@ If you choose '''Custom''', both the '''Only compiled classes''' check box and t
 
 Fig. 3 Search Report panel
 
-The search report panel will be visible whenever your search returns matches on multiple classes. The '''collapsed''' view of the search results shows the class name of classes in which matches were found, and the number of matches. When you '''expand''' and entry, you see the line number at which the match occurs, and the exact string that caused the match.
+The search report panel will be visible whenever your search returns matches on multiple classes. The '''collapsed''' view of the search results shows the class name of classes in which matches were found, and the number of matches. When you '''expand''' and entry, you see the line number at which the match occurs, and the exact string that caused the match. If you have used [[#Using "search capture"|'''search capture''']], then the captures for each match will also be shown when the entry is completely expanded.
 
 The items in the search report panel can be [[Pick-and-drop mechanism|picked and dropped]] into the editor or other appropriate targets in EiffelStudio.
 
