@@ -28,7 +28,7 @@ Also in the Search tab, there are buttons that control whether you want to '''se
 
 ====Using "search capture"====
 
-If you are searching using '''regular expressions''' (see [[#The options group|The options group]] below), you can use '''search capture''' in the '''Replace with:''' combo box. This allows you to use patterns that satisfied the search in the replacement. In the '''Search for:''' combo box, enclose in parentheses any parts of the search that you want to capture for use in the replacement. Then, in the '''Replace with:''' combo box, you can reference each capture by its index enclosed in backslashes. 
+If you are searching using '''regular expressions''' (see [[#The options group|The options group]] below), you can use '''search capture'''. This allows you to place patterns that satisfied certain parts of the search into the replacement. In the '''Search for:''' combo box, enclose in parentheses any parts of the search that you want to capture for use in the replacement. Then, in the '''Replace with:''' combo box, you can reference each capture by its index enclosed in backslashes. 
 
 ====The options group====
 
