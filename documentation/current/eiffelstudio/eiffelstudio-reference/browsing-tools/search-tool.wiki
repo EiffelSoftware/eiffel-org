@@ -30,6 +30,20 @@ Also in the Search tab, there are buttons that control whether you want to '''se
 
 If you are searching using '''regular expressions''' (see [[#The options group|The options group]] below), you can use '''search capture'''. This allows you to place patterns that satisfied certain parts of the search into the replacement. In the '''Search for:''' combo box, enclose in parentheses any parts of the search that you want to capture for use in the replacement. Then, in the '''Replace with:''' combo box, you can reference each capture by its index enclosed in backslashes. 
 
+For example, assume that the text you are searching contains the following:
+<code>
+            -- The dog is chasing the cat
+</code>
+Then, you enter values into the '''Search for:''' and '''Replace with:''' boxes so that it looks like this:
+
+
+[[Image:Search capture boxes]]
+
+After the replacement, your text will look like this:
+<code>
+            -- The cat is being chased by the dog
+</code>
+
 ====The options group====
 
 There are four search options, each of them represented by a check box:
@@ -70,7 +84,7 @@ If you choose '''Custom''', both the '''Only compiled classes''' check box and t
 
 Fig. 3 Search Report panel
 
-The search report panel will be visible whenever your search returns matches on multiple classes. The '''collapsed''' view of the search results shows the class name of classes in which matches were found, and the number of matches. When you '''expand''' and entry, you see the line number at which the match occurs, and the exact string that caused the match. If you have used [[#Using "search capture"|'''search capture''']], then the captures for each match will also be shown when the entry is completely expanded.
+The search report panel will be visible whenever your search returns matches on multiple classes. The '''collapsed''' view of the search results shows the class name of classes in which matches were found, and the number of matches. When you '''expand''' and entry, you see the line number at which the match occurs, and the exact string that caused the match. If you have used [[#Using "search capture"|'''search capture''']], then the captures for each match will also be shown in the search report panel when the entries are completely expanded.
 
 The items in the search report panel can be [[Pick-and-drop mechanism|picked and dropped]] into the editor or other appropriate targets in EiffelStudio.
 
