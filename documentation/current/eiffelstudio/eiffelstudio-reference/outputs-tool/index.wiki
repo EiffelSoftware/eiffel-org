@@ -16,6 +16,7 @@ You can view the outputs from different facilities by selecting the name of a pa
 [[Image:Outputs tool 02]]
 
  
-The output panes you see listed depend somewhat upon how you've been using EiffelStudio. For example, if during a session you edit and compile a project but never run it, you would not see the Debugger output pane. Then after you had run the system, the Debugger output pane would join the list.
+The output panes you see listed depend somewhat upon how you've been using EiffelStudio. A few of the panes are always present, but other panes only show up in the list after you used the facilities or tools that log information to those panes. For example, if during a session you edit and compile a project but never run it, you would not see the Debugger output pane. Then after you had run the system, the Debugger output pane would join the list.
+
 
 
