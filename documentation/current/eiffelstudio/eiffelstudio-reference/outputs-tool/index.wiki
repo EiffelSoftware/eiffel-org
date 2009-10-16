@@ -8,14 +8,14 @@
 [[Image:Outputs tool 01]]
 
 
-Several EiffelStudio facilities log their progress to the various panes of the '''outputs tool'''. 
+Several EiffelStudio facilities log their progress to the various panes of the '''Outputs tool'''. 
 
-You can view the outputs from different facilities by selecting the name of a pane from the '''Output:''' combo box, as shown below.
+You can view the outputs from different facilities by selecting the name of a pane from the '''Output:''' drop-down list, as shown below.
 
 
 [[Image:Outputs tool 02]]
 
  
-The following pages describe the various output panes.
+The output panes you see listed depend somewhat upon how you've been using EiffelStudio. For example, if during a session you edit and compile a project but never run it, you would not see the Debugger output pane. Then after you had run the system, the Debugger output pane would join the list.
 
 
