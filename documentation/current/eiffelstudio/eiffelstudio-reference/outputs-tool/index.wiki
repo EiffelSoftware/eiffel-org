@@ -49,5 +49,7 @@ If you choose a value of '''False''', then the Outputs tool will remain visible 
 
 The preference '''C output panel prompted''' controls whether the [[External compilation pane|External compilation pane]] appears whenever an external compilation (usually a C compilation) occurs. 
 
+The default value is '''False''', so the External compilation pane does not appear automatically when an external compilation occurs.
  
+
 
