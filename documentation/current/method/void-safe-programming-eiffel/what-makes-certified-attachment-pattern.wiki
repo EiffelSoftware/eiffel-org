@@ -52,7 +52,7 @@ In the object test expression above, the identifier <code>l_x</code> is an Objec
 
 In the second context, the expression can be a read-only entity. Read-only entities are:
 # Constant attributes
-# formal arguments
+# Formal arguments
 # Object-Test Locals
 # <code>Current</code>
 
