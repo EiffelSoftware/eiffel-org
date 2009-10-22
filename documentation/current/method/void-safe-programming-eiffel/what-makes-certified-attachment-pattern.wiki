@@ -39,22 +39,50 @@ The Eiffel standard (2nd edition, June 2006) defines a CAP as follows:
 
 The terminology used in the definition is precise. For example, terms like "read-only entity" and "scope of a void test" have specific meanings that are supported by their own definitions in the standard. 
 
-The discussion here will be less formal (and less precise) than that in the standard, and is intended to be a practical guide. Of course, the [http://www.ecma-international.org/publications/standards/Ecma-367.htm standard document] is available for download if you wish to follow the specifics.
+Still, the standard does contain informative text that gives us a guideline that a CAP is a scheme to ensure that a particular expression of a detachable type will never have void run-time value in the scope covered by the CAP.
+
+The discussion here will follow that guideline, and, as such, will be less formal (and consequently less precise) than that in the standard, and is intended to be a practical guide. Of course, the [http://www.ecma-international.org/publications/standards/Ecma-367.htm standard document] is available for download if you wish to investigate the specifics.
 
 
 ==CAP-able expressions==
 
-In the first context, the definition states that the expression <code>exp</code> can be an '''Object-Test Local'''. An Object-Test Local is the identifier specified for a fresh local entity in an '''object test'''. Remember, object tests are coded using the '''attached syntax'''. 
+In the first context in the definition above, the expression <code>exp</code> can be an '''Object-Test Local'''. An Object-Test Local is the identifier specified for a fresh local entity in an '''object test'''. Remember, object tests are coded using the [[Void-safety: Background, definition, and tools#The attached syntax (object test)|attached syntax]]. 
 <code>
             attached x as l_x 
 </code>
-In the object test expression above, the identifier <code>l_x</code> is an Object-Test Local.
+In the object test expression above, the identifier '''<code>l_x</code>''' is an Object-Test Local.
 
-In the second context, the expression can be a read-only entity. Read-only entities are:
+In the second context, the expression can be a '''read-only entity'''. Read-only entities are:
 # Constant attributes
 # Formal arguments
 # Object-Test Locals
 # <code>Current</code>
+
+Additionally, the Eiffel Software compiler allows for [[Void-safety: Background, definition, and tools#Stable attributes|stable attributes]] and local variables to be protected by a CAP. 
+
+Stable attributes are the only class attributes which are CAP-able. This is because stable attributes, once attached at run-time, can never have a void value again. 
+
+Local variables can be used in a CAP as long as they are not the target of an assignment whose source is <code>Void</code> or some expression which could possibly be void.
+
+So, for a local variable <code>l_string</code>, the following is valid:
+<code>
+        local
+            l_string: detachable STRING
+        do
+            if l_string /= Void then
+                l_string.append ("xyz")        -- Valid
+                    ...
+</code>
+But, if <code>l_string</code> had been a target of an assignment in which the source could possibly have been void, then it could no longer be guaranteed that <code>l_string</code> is non-void. So, assuming that <code>my_detachable_string</code> is an attribute declared as type <code>detachable STRING</code>, the code in this example would be invalid:
+<code>
+        local
+            l_string: detachable STRING
+        do
+            if l_string /= Void then
+                l_string := my_detachable_string
+                l_string.append ("xyz")        -- Invalid: my_detachable_string could be void
+                    ...
+</code>
 
 
 
