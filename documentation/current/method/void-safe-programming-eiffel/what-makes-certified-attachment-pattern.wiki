@@ -60,7 +60,29 @@ In the second context, the expression can be a '''read-only entity'''. Read-only
 
 Additionally, the Eiffel Software compiler allows for [[Void-safety: Background, definition, and tools#Stable attributes|stable attributes]] and local variables to be protected by a CAP. 
 
-Stable attributes are the only class attributes which are CAP-able. This is because stable attributes, once attached at run-time, can never have a void value again. 
+===Stable attributes===
+
+Stable attributes are the only class attributes which are CAP-able. This is because stable attributes, once attached at run-time, can never have a void value again. So, you use stable attributes safely by using them under the protection of a CAP. Consider this stable attribute:
+<code>
+    my_stable_string: detachable STRING
+        note
+            option: stable
+        attribute
+        end
+</code>
+The detachable attribute <code>my_stable_string</code>, because it is stable, is not required to be initialized during the creation of instances of the class in which it is a feature. That means that for each instance, <code>my_stable_string</code> can be initialized later during the instance's life-cycle or not at all. But because it is detachable, <code>my_stable_string</code> cannot be accessed in any context in which it cannot be determined that it is currently attached. For ordinary attributes, this means either using an object test and accessing the object through an object test local, or using using a local variable under the protection of a CAP. 
+
+Stable attributes however, can be used directly in a CAP, as shown below: 
+
+<code>
+            if my_stable_string /= Void then
+                my_stable_string.append ("abc")        -- Valid
+                    ...
+</code>
+
+So using stable attributes can reduce the need to initialize rarely used attributes, and the need to code object tests.
+
+===Local variables===
 
 Local variables can be used in a CAP as long as they are not the target of an assignment whose source is <code>Void</code> or some expression which could possibly be void.
 
@@ -70,20 +92,22 @@ So, for a local variable <code>l_string</code>, the following is valid:
             l_string: detachable STRING
         do
             if l_string /= Void then
-                l_string.append ("xyz")        -- Valid
+                l_string.append ("abc")        -- Valid
                     ...
 </code>
-But, if <code>l_string</code> had been a target of an assignment in which the source could possibly have been void, then it could no longer be guaranteed that <code>l_string</code> is non-void. So, assuming that <code>my_detachable_string</code> is an attribute declared as type <code>detachable STRING</code>, the code in this example would be invalid:
+
+But, if <code>l_string</code> had been a target of an assignment in which the source could possibly have been void, then it could no longer be guaranteed that <code>l_string</code> is non-void. So, assuming that <code>my_detachable_string</code> is an attribute declared as type <code>detachable STRING</code>, the second application of <code>append</code> in this example would be invalid:
+
 <code>
         local
             l_string: detachable STRING
         do
             if l_string /= Void then
+                l_string.append ("abc")        -- Valid
                 l_string := my_detachable_string
                 l_string.append ("xyz")        -- Invalid: my_detachable_string could be void
                     ...
 </code>
-
 
 
 

@@ -16,11 +16,11 @@ Such a feature call is judged acceptable at compile time only if the type of <co
 
 In statically typed languages like Eiffel, the compiler guarantees that you cannot, at run time, have a situation in which feature <code>f</code> is not applicable to the object attached to <code>x</code>. If you've ever been a Smalltalk programmer, you are certainly familiar with this most common of errors that manifests itself as "Message not understood." It happens because Smalltalk is not statically typed. 
 
-==Non-void-safe software==
+==Void-unsafe software==
 
 Static typing will ensure that there is some feature <code>f</code> that can be applied at run time to <code>x</code> in the example above. But it does not assure us that, in the case in which <code>x</code> is a reference, that there will always be an object attached to <code>x</code> at any time <code>x.f (a)</code> is executed. 
 
-This problem is not unique to Eiffel. Other environments that allow or mandate reference semantics also allow the possibility of non-void-safe run time errors. If you've worked in Java or .NET you may have seen the NullReferenceException. Sometimes you might have experienced this rather poetic sounding message: "Object reference not set to an instance of an object". In Eiffel you would see "Feature call on void target". All these are the hallmarks of run time errors resulting from non-void-safe software.
+This problem is not unique to Eiffel. Other environments that allow or mandate reference semantics also allow the possibility of void-unsafe run time errors. If you've worked in Java or .NET you may have seen the NullReferenceException. Sometimes you might have experienced this rather poetic sounding message: "Object reference not set to an instance of an object". In Eiffel you would see "Feature call on void target". All these are the hallmarks of run time errors resulting from void-unsafe software.
 
 {{note|If you need a review of difference between reference types and expanded types in Eiffel, see [[ET: The Dynamic Structure: Execution Model|the chapter of the Eiffel Tutorial dedicated to the Eiffel execution model]]. }}
 
@@ -200,7 +200,7 @@ Stable attributes are really stable ''detachable'' attributes, as adding the con
 <code>
     my_test: detachable TEST
         note
-            options: stable
+            option: stable
         attribute
         end
 </code>
