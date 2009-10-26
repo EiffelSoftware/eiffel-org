@@ -7,7 +7,7 @@ Now that we've been introduced to the Eiffel void-safe facilities, let's look at
 
 ==Project settings for void-safe projects==
 
-There are three project settings that are related to void-safety. These settings can be set with great granularity throughout your project to allow you maximum flexibility, particularly when including classes or libraries that are non-void-safe or that have been converted to void-safety, but must do double duty in the void-safe and non-void-safe worlds. 
+There are three project settings that are related to void-safety. These settings can be set with great granularity throughout your project to allow you maximum flexibility, particularly when including classes or libraries that are void-unsafe or that have been converted to void-safety, but must do double duty in the void-safe and void-unsafe worlds. 
 
 ===The ''"Void-safe"'' setting===
 
@@ -50,7 +50,27 @@ This setting instructs the compiler to recheck inherited features in descendant 
 
 As of EiffelStudio version 6.4, the majority of the libraries distributed with EiffelStudio are void-safe. 
 
-{{note|During a period of transition, there will be different Eiffel configuration files (.ecf's) for non-void-safe and void-safe projects (for example, base.ecf and base-safe.ecf). If you have set the '''Void-safe''' setting to check for void-safety, then when you add a library to your project in EiffelStudio, you will see only the void-safe configurations by default. After the transition period, it is expected that there will be only one version of each of the configuration files for each library. The single configuration files will serve both non-void-safe and void-safe projects. }}
+{{note|During a period of transition, there will be different Eiffel configuration files (.ecf's) for void-unsafe and void-safe projects (for example, base.ecf and base-safe.ecf). If you have set the '''Void-safe''' setting to check for void-safety, then when you add a library to your project in EiffelStudio, you will see only the void-safe configurations by default. After the transition period, it is expected that there will be only one version of each of the configuration files for each library. The single configuration files will serve both void-unsafe and void-safe projects. }}
+
+===Using generic classes===
+
+Void-safety affects generic classes. Fortunately, from the viewpoint of those writing clients to the generic classes in the EiffelBase library, not much has changed. Still, you should understand the interplay between void-safety and [[ET: Genericity and Arrays|genericity]].
+
+Consider a generic class like <code>LIST [G]</code>. The formal generic parameter <code>G</code> represents an arbitrary type. In a generic derivation of <code>LIST [G]</code>, say <code>LIST [STRING]</code>, the formal generic type is replaced by an actual generic type, in this case <code>STRING</code>. 
+
+Remember that unconstrained genericity, <code>LIST [G]</code>, for example, is really a case of [[ET: Inheritance#Constrained genericity|constrained genericity]] in which the generic parameter is constrained to <code>ANY</code>, that is, it could be written <code>LIST [G -> ANY]</code>.
+
+With the advent of void-safe Eiffel, the unconstrained generic class name <code>LIST [G]</code> now equates to <code>LIST [G -> detachable ANY]</code>. Because any type, say <code>T</code>, (synonymous with <code>attached T</code> in void-safe Eiffel) conforms to <code>detachable T</code>, this change facilitates the production of generic classes, but has little effect on writers of clients to those classes.
+
+This change works for all the generic classes in EiffelBase ... except for one: <code>ARRAY</code>.  Arrays are a special case because we often create arrays with a pre-allocated number of elements. In the case of expanded types, there's not a problem. For example, in this code
+<code>
+    my_array: ARRAY [INTEGER]
+                ...
+            create my_array.make (1, 100)
+</code>
+we create <code>my_array</code> with one hundred <code>INTEGER</code> elements. Each element is initialized by applying the default initialization rule for <code>INTEGER</code>. 
+
+However, if <code>my_array</code> had been declared of a type with reference semantics, say <code>STRING</code>, the default rule would not work well, because the default initialization for references types is <code>Void</code>. 
 
 
 ==Using the ''attribute'' keyword carefully==
@@ -320,7 +340,7 @@ Also, you should remember that unlike other attributes, you can access stable at
 <code>
     my_stable_attribute: detachable SOME_TYPE
         note
-            options: stable
+            option: stable
         attribute
         end
 

@@ -96,7 +96,7 @@ So, for a local variable <code>l_string</code>, the following is valid:
                     ...
 </code>
 
-But, if <code>l_string</code> had been a target of an assignment in which the source could possibly have been void, then it could no longer be guaranteed that <code>l_string</code> is non-void. So, assuming that <code>my_detachable_string</code> is an attribute declared as type <code>detachable STRING</code>, the second application of <code>append</code> in this example would be invalid:
+But, if <code>l_string</code> had been a target of an assignment in which the source could possibly have been void, then it could no longer be guaranteed that <code>l_string</code> is not void. So, assuming that <code>my_detachable_string</code> is an attribute declared as type <code>detachable STRING</code>, the second application of <code>append</code> in this example would be invalid:
 
 <code>
         local

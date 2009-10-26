@@ -80,7 +80,7 @@ In the project settings for the target in which you are working:
 # Set '''Void safe''' to either '''Complete void safety''' or '''On demand void safety'''. 
 # Set '''Are types attached by default?''' to '''True'''. 
 
-{{note|Remember that during a transitional period starting with V6.4, there will be multiple versions of the configuration files for Eiffel libraries and precompiles. For example, base.ecf (non-void-safe) and base-safe.ecf (void-safe). It is expected that in the future there will only be one configuration file (e.g., base.ecf) that will work with both void-safe and non-void-safe client software. }}
+{{note|Remember that during a transitional period starting with V6.4, there will be multiple versions of the configuration files for Eiffel libraries and precompiles. For example, base.ecf (void-unsafe) and base-safe.ecf (void-safe). It is expected that in the future there will only be one configuration file (e.g., base.ecf) that will work with both void-safe and void-unsafe client software. }}
 
 If necessary, remove Eiffel libraries and any precompiled library that your project uses and re-add them with their void-safe configuration files. Because you've set your target to void-safety, when you click '''Add Library''', you should see only void-safe configurations by default. 
 You will see a check box on the dialog that you can uncheck if you want to see all available library configurations:
