@@ -1,6 +1,9 @@
 [[Property:title|Creating a new void-safe project]]
 [[Property:weight|2]]
 [[Property:uuid|92cea2e9-b094-6380-2c5d-1cd1eb3038b4]]
+{{underconstruction}}
+
+
 =Creating a new void-safe project=
 
 Now that we've been introduced to the Eiffel void-safe facilities, let's look at what it takes to set up a new void-safe software project. Here we'll look at the void-safety related project settings and how the can be used. Then we'll look deeper into the use of some of the void-safe tools.
@@ -68,9 +71,26 @@ This change works for all the generic classes in EiffelBase ... except for one: 
                 ...
             create my_array.make (1, 100)
 </code>
-we create <code>my_array</code> with one hundred <code>INTEGER</code> elements. Each element is initialized by applying the default initialization rule for <code>INTEGER</code>. 
+we create <code>my_array</code> with one hundred <code>INTEGER</code> elements. <code>INTEGER</code> is an expanded type, and each element is initialized by applying the default initialization rule for <code>INTEGER</code>, i.e, the integer representation of zero.
 
-However, if <code>my_array</code> had been declared of a type with reference semantics, say <code>STRING</code>, the default rule would not work well, because the default initialization for references types is <code>Void</code>. 
+However, if <code>my_array</code> had been declared of a type with reference semantics, say <code>STRING</code> (meaning, or course, <code>attached STRING</code>, the default rule would not work well, because the default initialization for references types is <code>Void</code>. 
+
+The solution to this challenge is fairly simple. For arrays of elements of detachable or expanded types, there is no different behavior. For arrays of elements of attached types, then we must be careful. 
+
+Creating an array using <code>ARRAY</code>'s creation procedure <code>make</code> may still be safe in some cases. Specifically, <code>make</code> can be used with arrays of elements of attached types if the arguments have values such that an empty array will be created, that is, when
+<code>
+        min_index = max_index + 1
+</code>
+
+In all other situations involving arrays of elements of attached types, it is not safe to use <code>make</code> to do the creation. Rather, you should use the creation procedure <code>make_filled</code> which takes three arguments. The first is an object of the type of the array, and the second and third are the minimum and maximum indexes, respectively. When the array is created, each of the elements will be initialized with a reference to the object of the first argument. 
+
+So, a call using <code>make_filled</code> would look like this:
+<code>
+    my_array: ARRAY [STRING]
+                ...
+            create my_array.make_filled (" ", 1, 100)
+</code>
+Upon creation, each element of the array will reference the same object; an object of type <code>STRING</code> composed of one space character.
 
 
 ==Using the ''attribute'' keyword carefully==
