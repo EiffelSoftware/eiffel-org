@@ -263,7 +263,11 @@ In the case of an actual generic parameter of an attached reference type, all th
 <code>
             create my_array.make_filled ("", 1, 100)
 </code>
-The third argument is an object of the actual generic type, in this case an empty <code>STRING</code>. Every entry in the newly created <code>ARRAY</code> will be initialized to reference this object.
+The first argument is an object of the actual generic type, in this case an empty <code>STRING</code>. Every entry in the newly created <code>ARRAY</code> will be initialized to reference this object.
+
+
+For more detail on void-safe use of arrays and other generic classes, see the section: [[Creating a new void-safe project#Using generic classes|Using generic classes]].
+
 
 
 

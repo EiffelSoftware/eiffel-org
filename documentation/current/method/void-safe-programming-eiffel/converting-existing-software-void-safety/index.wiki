@@ -49,7 +49,7 @@ First make sure your project will compile correctly under the configuration of E
 
 Then set the project setting '''Full Class Checking''' to '''True'''. Do a ''clean'' compile of your system. To do this shut down EiffelStudio, and restart it. When the project selection dialog appears, select your project, then next to '''Action:''' select '''Compile''' in the drop-down, and check '''Clean'''.
 
-Full class checking will analyze your classes to make sure that in cases of inheritance features of the parent classes are recheck for validity in the heirs.
+Full class checking will analyze your classes to make sure that in cases of inheritance, features of the parent classes are rechecked for validity in the heirs.
 
 Here's an example of the kind of error you might expect when compiling with full class checking:
 
@@ -67,7 +67,7 @@ create
 If we go to the <code>create</code> part of <code>NVP_LIST</code> and add <code>make_sublist</code> to its list of creation procedures, this will fix the problem:
 <code>
 create
-	make, make_from_string, make_from_file_named, make_sublist
+    make, make_from_string, make_from_file_named, make_sublist
 </code>
 
 So, fix any problems that arise out of turning on full class checking.
@@ -326,10 +326,6 @@ To support the "empty array" design, <code>segment_start</code>'s postcondition 
         started: (not exhausted) implies (segment_readable and (not segment_array.is_empty) and (last_segment_element_index > 0))
         not_started: exhausted implies ((not segment_readable) and (segment_array.is_empty) and (last_segment_element_index = 0))
 </code>
-
-
-===Using generic classes===
-
 
 
 
