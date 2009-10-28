@@ -93,6 +93,9 @@ So, a call using <code>make_filled</code> would look like this:
 Upon creation, each element of the array will reference the same object; an object of type <code>STRING</code> composed of one space character.
 
 
+{{note|Full void-safety on arrays of attached types requires a change to class <code>ARRAY</code> which can break existing code. During a transitional period, this and similar changes are available for testing and use in an "experimental" version of EiffelStudio. This version of EiffelStudio can be invoked by using the "-experiment" option from the command line, or by selecting it on Microsoft Windows by following the '''Start''' menu path to EiffelStudio. You are encouraged to try to compile your libraries and systems using experimental mode in order to prepare for the time when these changes are made permanent.}}
+
+
 ==Using the ''attribute'' keyword carefully==
 
 The keyword <code>attribute</code> is should be used with some care. You might be tempted to think that it would be convenient or add an extra element of safety to use self-initializing attributes widely. And in a way, you would be correct. But you should also understand that there is a price to pay for using self-initializing attributes and stable attributes. It is that upon every access, an evaluation of the state of the attribute must be made. So, as a general rule, you should avoid using self-initializing attributes only for the purpose of lazy initialization.
@@ -270,7 +273,7 @@ As with the other examples of the '''attached syntax''', it is no longer necessa
 
 ===Use of <code>check</code> instructions===
 
-You might wonder about the use of a CAP which employs a <code>check</code> instruction like this:
+Technically speaking, <code>check</code> instructions are not CAPs. But they are useful in cases in which an entity is always expected to be attached at a certain point in the code. In the following example, the attribute <code>my_detachable_any</code> is detachable. But at the particular point at which it is the source of the assignment to <code>l_result</code>, it is expected always to be attached. If it is not attached at the time of the assignment, and therefore <code>l_result</code> becomes void, then an exception should occur. The <code>check</code> instruction provides this behavior.
 
 <code>
     my_detachable_any: detachable ANY
@@ -287,7 +290,7 @@ You might wonder about the use of a CAP which employs a <code>check</code> instr
         end
 </code>
 
-The assertion in the <code>check</code> guarantees that <code>l_result</code> is attached at the time of its assignment to <code>Result</code>. If <code>my_detachable_any</code> had not been attached, then an exception would have occurred. 
+You might wonder about the use of a <code>check</code> instruction in the situation above. Specifically, the assertion in the <code>check</code> guarantees that <code>l_result</code> is attached at the time of its assignment to <code>Result</code>. If <code>my_detachable_any</code> had not been attached, then an exception would have occurred. 
 
 This would be fine in ''workbench'' code, but what happens if the code is ''finalized'' and assertions are discarded?
 
