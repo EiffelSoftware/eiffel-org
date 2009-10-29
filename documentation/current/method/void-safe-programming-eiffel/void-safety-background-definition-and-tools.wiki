@@ -101,7 +101,7 @@ One way to make sure we comply with the target rule would be always use a CAP or
 
 ===Types as "attached" or "detachable"===
 
-Rather than trying to protect every feature call, Eiffel allows us to declare any variable as being of an '''attached type'''. This is an important extension to the Eiffel type system.  
+Rather than trying to protect every feature call, Eiffel allows us to declare any variable as being of an '''attached type'''. This is an important extension to the Eiffel type system. 
 
 In Eiffel prior to the introduction of void-safe facilities, any reference variable could be set to <code>Void</code>. So, all variables were considered '"detachable"'. 
 
@@ -123,9 +123,24 @@ When it is necessary to allow <code>Void</code> as a value, a declaration can us
 
 This doesn't mean that on every declaration you must put either an ''attached mark'' or a ''detachable mark''. Declarations that are unmarked are allowed. Whether unmarked declarations are considered attached or detachable is determined by the value of an EiffelStudio project setting named '''Are types attached by default?''' This setting can be set differently in different parts of your project giving you fine-grained control, which is particularly useful while converting existing software or mixing libraries of differing void-safety levels. 
 
-In Eiffel then, all declarations will have types that are either '''attached''' or '''detachable'''.
+In Eiffel then, all declarations will have types that are either '''attached''' or '''detachable'''. As a result, we need only use CAPs and the attached syntax with detachable types. So the important thing to remember is that ''direct access to class attributes of detachable types is never void-safe.''
 
-This means that we need only use CAPs and the attached syntax with detachable types. So the important thing to remember is that ''direct access to class attributes of detachable types is never void-safe.''
+When building void-safe software in Eiffel it is best, in virtually every case, to set '''Are types attached by default?''' to '''True'''. This means that if a declaration contains neither '''attached''' nor '''detachable''', then it is assumed to be '''attached'''.
+
+====Attachment and conformance====
+
+The distinction between attached and detachable types results in a small but important addition to the rules of conformance.
+
+Because features declared as attached types can never be void, then it is important not to allow any assignment of a detachable source to an attached target, as shown below, assuming types are attached by default.
+<code>
+    my_attached_string: STRING
+    my_detachable_string: detachable STRING
+
+                ...
+
+            my_attached_string := my_detachable_string    -- Invalid
+            my_detachable_string := my_attached_string    -- Valid
+</code>
 
 
 ===Initialization rule===
