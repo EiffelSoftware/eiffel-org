@@ -109,5 +109,69 @@ But, if <code>l_string</code> had been a target of an assignment in which the so
                     ...
 </code>
 
+==Common CAPs==
+
+We've already seen the simple test for void as a CAP:
+<code>
+    local
+        l_str: detachable STRING
+
+                ...
+
+            if l_str /= Void then
+                l_str.append ("xyz")
+            end
+</code>
+
+Additionally, a creation instruction can serve as a CAP. After the execution of a creation instruction, the target of the creation instruction will be attached:
+<code>
+        local
+            l_str: detachable STRING
+        do
+            create l_str.make_empty
+            l_str.append ("xyz")
+                ...
+</code>
+
+
+==Less obvious cases==
+
+There are some situations that constitute CAPs that we might not think of immediately. 
+
+For example, the case of the non-strict boolean operator <code>and then</code>: 
+<code>
+            if x /= Void and not x.is_empty then        -- Invalid
+                ...
+
+            if x /= Void and then not x.is_empty then        -- Valid
+                ...
+</code>
+Assuming that <code>x</code> is CAP-able, the first line of code is invalid because the expression <code>x.is_empty</code> could always be evaluated even in the case in which <code>x</code> is void. 
+
+In the second line of code, the non-strict boolean is used, guaranteeing that <code>x.is_empty</code> will not be evaluated in cases in which <code>x</code> is void. Therefore, <code>x.is_empty</code> falls within the scope of the void test on <code>x</code>.
+
+In contracts, multiple assertion clauses are treated as if they were separated by <code>and then</code>. This allows preconditions like the one in the following example:
+<code>
+my_routine (l_str: detachable STRING)
+        require
+            l_str /= Void
+            not l_str.is_empty        -- Valid
+                ...
+</code>
+
+Another not-so-obvious CAP is related to the use of the logical implication:
+<code>
+        local
+            l_str: detachable STRING
+        do
+            if l_str /= Void implies some_expression then
+                ...
+            else
+                l_str.append ("xyz")        -- Valid
+            end
+</code>
+
+
+
 
 

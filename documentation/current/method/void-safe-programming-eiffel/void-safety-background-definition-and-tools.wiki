@@ -129,9 +129,7 @@ When building void-safe software in Eiffel it is best, in virtually every case, 
 
 ====Attachment and conformance====
 
-The distinction between attached and detachable types results in a small but important addition to the rules of conformance.
-
-Because features declared as attached types can never be void, then it is important not to allow any assignment of a detachable source to an attached target, as shown below, assuming types are attached by default.
+The distinction between attached and detachable types results in a small but important addition to the rules of conformance. Because variables declared as attached types can never be void, then it is important not to allow any assignment of a detachable source to an attached target. However, assigning an attached source to a detachable target is permissible. The following code shows both cases and assumes types are attached by default.
 <code>
     my_attached_string: STRING
     my_detachable_string: detachable STRING
