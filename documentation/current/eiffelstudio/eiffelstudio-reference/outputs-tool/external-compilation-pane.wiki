@@ -4,21 +4,23 @@
 {{underconstruction}}
 
 
-The external compilation pane is where C compilation output is shown. But the external compilation pane is more than just a log. 
+The external compilation pane shows a log of the compilation output from the external (C language) compiler. But the external compilation pane is more than just a log. 
 
 [[Image:coutput1|C output tool]]  
 
-If the C compiler uses a different locale than your default locale, you can select that particular locale in the "Locale" region.
+==Selecting your locale==
 
-==Open a file mentioned in the C output==
+If the external compiler uses a different locale than your default locale, you can select your particular locale in the "Locale" box.
 
-You can open a file mentioned in the C output in a specified external editor by selecting the file name and then clicking the  [[Image:metrics-tool--command-send-to-external-editor-icon|C output tool]]  button highlighted in the following figure:
+==Open a file mentioned in the external compilation output==
+
+You can open a file mentioned in the external compiler output in a specified external editor by selecting the file name and then clicking the  [[Image:metrics-tool--command-send-to-external-editor-icon|external compilation pane]]  button highlighted in the following figure:
 
 [[Image:coutput2|C output tool]]  
 
-==Find C code for a class/feature==
+==Find external code for a class/feature==
 
-Pick the class or feature whose related C code you want to see and drop it into the  [[Image:coutput4|C output tool]] button or the  [[Image:coutput5|C output tool]]  button. The related C code will be shown in specified editor. 
+Pick the class or feature whose generated code you want to see, and drop it into the  [[Image:coutput4|C output tool]] button or the  [[Image:coutput5|C output tool]]  button. The related code will be shown in specified editor. 
 
 [[Image:coutput3|C output tool]]  
 
