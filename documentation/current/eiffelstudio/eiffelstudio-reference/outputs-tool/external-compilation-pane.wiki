@@ -4,9 +4,10 @@
 {{underconstruction}}
 
 
-The external compilation pane shows a log of the compilation output from the external (C language) compiler. But the external compilation pane is more than just a log. 
+[[Image:External compilation pane 01]]  
 
-[[Image:coutput1|C output tool]]  
+
+The external compilation pane shows a log of the compilation output from the external (typically C language) compiler. But the external compilation pane is more than just a log. 
 
 ==Selecting your locale==
 

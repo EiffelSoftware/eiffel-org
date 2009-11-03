@@ -34,6 +34,11 @@ You can adjust how panes change to some extent as you will see in the [[#Relevan
 
 But sometimes things happen that change more than one output pane during an action. When this occurs, one or more transient buttons will be added to the Outputs tool's top bar to the right of the search button. This lets you know that there have been modifications to a pane other than the one that is currently displayed. If you click on one of these buttons, you will be taken to that pane, and the button will be dismissed. 
 
+The figure below shows the Outputs tool during an external compilation. Notice the transient button that has become visible indicating that new changes have been made in the Eiffel Compilation pane.
+
+
+[[Image:Outputs tool transient functionality]]
+
 
 ==Relevant EiffelStudio preferences==
 
@@ -45,9 +50,9 @@ The preference '''Outputs tool prompted''' controls whether the Outputs tool is 
 
 If you choose a value of '''False''', then the Outputs tool will remain visible if it is already visible. But if you close it, a recompile will not cause it to reappear. 
 
-===C output panel prompted===
+===External compilation output prompted===
 
-The preference '''C output panel prompted''' controls whether the [[External compilation pane|External compilation pane]] appears whenever an external compilation (usually a C compilation) occurs. 
+The preference '''External compilation output prompted ''' (''C output panel prompted'', in earlier versions) controls whether the [[External compilation pane|External compilation pane]] appears whenever an external compilation (usually a C compilation) occurs. 
 
 The default value is '''False''', so the External compilation pane does not appear automatically when an external compilation occurs.
  
