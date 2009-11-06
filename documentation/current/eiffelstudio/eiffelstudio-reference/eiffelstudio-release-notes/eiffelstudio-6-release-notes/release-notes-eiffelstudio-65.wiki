@@ -15,6 +15,8 @@
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 6.4 and ISE Eiffel 6.5|here]]  for the compiler release notes.
 
+== AutoTest==
+
 ==Debugger==
 * Click [[Release notes for EiffelStudio 6.5 related to the debugger|here]]  for the EiffelStudio debugger release notes.
 
@@ -24,6 +26,21 @@
 ==Libraries==
 
 ===EiffelBase===
+* In experimental mode, we have changed the signature of <eiffel>generating_type</eiffel> to return an instance of <eiffel>TYPE</eiffel> rather than an instance of <eiffel>STRING</eiffel>. Existing code should still compile out of the box since we have equipped <eiffel>TYPE</eiffel> with conversions and new features similar to those of <eiffel>STRING</eiffel>. In the few cases where it would still not compile, use `generating_type.out' to ensure that the code will compile fine regardless of the compiler mode chosen (i.e. experimental or non-experimental).
+* Fixed an issue in <eiffel>copy</eiffel> from <eiffel>HEAP_PRIORITY_QUEUE</eiffel> which would not do anything because it was simply copying itself, not the other queue.
+* Fixed a bug in <eiffel>remove</eiffel> from <eiffel>HEAP_PRIORITY_QUEUE</eiffel> which caused the internal structure to be referenced beyond its bounds. 
+* Made <eiffel>clear_all</eiffel> in <eiffel>STRING_8</eiffel>, <eiffel>STRING_32</eiffel> and <eiffel>HASH_TABLE</eiffel> obsolete. One has to use <eiffel>wipe_out</eiffel>instead.
+* Strengthen precondition of <eiffel>resize</eiffel> in <eiffel>STRING_8</eiffel>/<eiffel>STRING_32</eiffel> to forbid values that would shrink the string content. Use <eiffel>grow</eiffel> instead to preserve the former <eiffel>resize</eiffel> behavior. 
+* Added the base extension library that offers some extra functionality to EiffelBase: <eiffel>SEARCH_TABLE</eiffel> which is a HASH_TABLE where keys and items are the same (basically becoming a set), and sorting facilities for <eiffel>INDEXABLE</eiffel> containers.
+* Added the "+" operator in <eiffel>READABLE_STRING_GENERAL</eiffel>. 
+* Added ability to create a directory recursively. 
+* Fixed bug#4118 where on .NET <eiffel>{EXECUTION_ENVIRONMENT}.put</eiffel> had no effect on the actual process environment variables because the API was only available in .NET 2.0 which is what we now support at the minimum. 
+* Fixed a bug in <eiffel>{MEMORY}.memory_map</eiffel> which would cause a precondition violation in one of its call. 
+* Fixed issue with <eiffel>{BINARY_SEARCH_TREE_SET}.remove</eiffel> which would not move the cursor and thus causing an infinite loop in <eiffel>subtract</eiffel> and <eiffel>intersect</eiffel>.
+* Fixed issue with <eiffel>{PART_SORTED_SET}.put</eiffel> and <eiffel>{PART_SORTED_SET}.extend</eiffel> which had no effect and thus causing a postcondition violation.
+* Fixed invalid retrieval of SPECIAL objects using the Eiffel SED serializer in experimental mode. 
+* Fixed a missing element in <eiffel>{BOUNDED_QUEUE}.linear_representation</eiffel>.
+
 ===EiffelNet===
 
 ===EiffelProcess===

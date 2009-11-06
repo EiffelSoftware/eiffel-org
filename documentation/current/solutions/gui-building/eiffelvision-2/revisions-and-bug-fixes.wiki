@@ -3,6 +3,16 @@
 [[Property:uuid|eb11a237-0c75-0427-452a-303d4f276b97]]
 This document contains details of modifications and bug fixes to the EiffelVision 2 library listed by the release version of EiffelStudio. All bug fixes and modifications are relative to the previously released version.
 
+==EiffelStudio 6.5==
+
+'''Improvements'''
+* Improved the pick and drop mechanism on Windows platforms to not use the `wel_hook.dll'. The visible change is that when the cursor is outside the vision2 application its shape changes depending on what is beneath.
+
+'''Bug fixes'''
+*'''Platform Independent'''
+** Fixed potential crash with tab navigation code when a key press was sent to a widget that is in the process of being unparented. 
+
+
 ==EiffelStudio 6.4==
 
 As part of the void-safety conversion for EiffelStudio 6.4, EiffelVision 2 was converted to a void-safe library (currently in experimental mode only) and no changes were made to the existing library.  To use the void-safe library, some areas may need to be rewritten, these changes are described [[Converting EiffelVision 2 Systems to Void Safety| here]]

@@ -1,12 +1,20 @@
 [[Property:title|EiffelBuild Version History]]
 [[Property:weight|2]]
 [[Property:uuid|8cc0540e-8ee7-c005-0534-a2ed62f41c96]]
+==6.5 Release==
+* Fixed bug#15947 to make the generated code compiles in void-safe mode.
+* Fixed bug#13296 when retrieving a project using an EV_SPIN_BUTTON element.
+* Fixed bug#12880 by improving speed of key navigation wich was slow down by attempting to refresh the object editor each time a new widget was highlighted. Now it is only done when the highlight doesn't change for a while.
+
 ==6.4 Release==
 No changes.
+
 ==6.3 Release==
 No changes.
+
 ==6.2 Release==
 No changes.
+
 ==6.1 Release==
 No changes.
 

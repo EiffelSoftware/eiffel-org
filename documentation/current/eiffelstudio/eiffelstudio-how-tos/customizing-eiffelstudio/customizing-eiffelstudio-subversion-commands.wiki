@@ -1,0 +1,16 @@
+[[Property:title|Customizing EiffelStudio for Subversion commands]]
+[[Property:weight|8]]
+[[Property:uuid|83a8ca76-d714-db60-f697-ae48b161161a]]
+{{underconstruction}}
+
+
+==Overview==
+
+By configuring external commands, you can set up EiffelStudio to execute commands for Subversion or other source code management (SCM) systems. 
+
+==Defining external commands==
+
+You can define external commands by using the [[External commands editor dialog|external commands editor dialog]]. Then you can execute those commands through the '''Tools''' menu or with keyboard shortcuts.
+
+
+

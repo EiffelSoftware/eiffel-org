@@ -1,0 +1,28 @@
+[[Property:title|Major changes between ISE Eiffel 6.4 and ISE Eiffel 6.5]]
+[[Property:link_title|6.5]]
+[[Property:weight|-12]]
+[[Property:uuid|c4cf1874-cb2b-1034-704b-a537c1d5cd68]]
+==What's new==
+{{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
+*Added support for transient attribute. A transient attribute is an attribute which is not stored at runtime and for which its absence in the retrieval system has no effect. Only implemented for C based storable.
+
+==Improvements==
+
+==Changes==
+
+==Bug fixes==
+
+===Language issues===
+
+===Compiler issues===
+
+===Runtime/code generation issues===
+* Fixed bug#13969 where an Eiffel generated DLL trying to print something to the console would cause a crash
+* Fixed bug#15553 where querying <eiffel>{FILE}.is_socket</eiffel> and some other file properties would not work properly on some Unix platforms (Solaris in particular).
+* Fixed bug#13852 and bug#13816 where allocating large arrays would cause a memory corruption.
+* Improved runtime protection of certain routines if a signal is delivered to avoid either corruption or memory leak (Fixes bug#13851, bug#13842, bug#13849, bug#13850 and bug#13840).
+
+
+===Store/Retrieve issues===
+
+
