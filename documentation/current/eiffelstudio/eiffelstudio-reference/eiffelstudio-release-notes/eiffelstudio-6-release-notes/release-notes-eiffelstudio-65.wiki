@@ -16,6 +16,13 @@
 * Click [[Major changes between ISE Eiffel 6.4 and ISE Eiffel 6.5|here]]  for the compiler release notes.
 
 == AutoTest==
+* <strong>Library: <eiffel>EQA_TES_SET.on_prepare</eiffel> is now called during <eiffel>default_create</eiffel>, making it simpler to write void-safe tests.</strong>
+* Library: Added the possibility to wrap the actual test routine call.
+* AutoTest traverses all writeable clusters in the project for possible test classes, making &lt;tests&gt;-clusters obsolete. The traversal happens in the background allowing the user to continue to work on the project.
+* Tags can be used to control the test execution flow. Tagging a test with "execution/isolated" makes the test execute in a separate evaluator process, meaning the evaluator is restarted before and after executing the corresponding test (useful for tests relying on the initial access to a once routine or tests which possibly leave the memory corrupted).<br />Also any tag of the form "execution/serial[/*]" groups the tests to ensure that they are not executed in parallel (useful when a group of tests share a resource which has to be accessed sequentially).
+* Any results are stored between EiffelStudio sessions.
+* Improved the management of existing tests by merging the "View" and "Filter" box into one input field.
+* Improved bottom part of AutoTest tool by only having two tabs displaying test execution and test creation results.
 
 ==Debugger==
 * Click [[Release notes for EiffelStudio 6.5 related to the debugger|here]]  for the EiffelStudio debugger release notes.
