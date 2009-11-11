@@ -20,7 +20,7 @@ Of course, you should remember from previous discussions that <code>l_x</code> m
 
 When void-safety was first envisioned for Eiffel, it was intended that individual CAPs would be proven or certified and documented. This would produce a "catalog" of CAPs. 
 
-What happened instead is that the members of the Eiffel standards committee have been able to produce and publish as part of the [http://www.ecma-international.org/publications/standards/Ecma-367.htm standard] a definition of the nature of a CAP from which a determination can be made as to whether a particular code pattern is or is not a CAP. 
+What happened instead is that the members of the Eiffel standard committee have been able to produce and publish as part of the [http://www.ecma-international.org/publications/standards/Ecma-367.htm standard] a definition of the nature of a CAP from which a determination can be made as to whether a particular code pattern is or is not a CAP. 
 
 The definition in the standard document is not easily readable by most developers. So, in this documentation, you will see various examples of CAPs and the rationale behind them.
 
@@ -176,7 +176,9 @@ Another not-so-obvious CAP is related to the use of the logical implication:
 
 In summary, CAPs provide void-safe protection for certain types of detachable expressions. 
 
-Possibly the characteristic of CAPs which is most important to developers is whether or not a particular CAP is supported by the compiler. In other words, if the compiler can provide assurance that a certain code pattern provides void-safe protection, then the developer has that pattern available as a CAP. Likewise, even if a pattern can be shown to be a CAP, but for some reason it is not supported by the compiler, then that pattern is not available as a CAP and the compiler will not allow its use. 
+Possibly the characteristic of CAPs which is most important to developers is whether or not a particular CAP is supported by the compiler. In other words, from the developers viewpoint, the only opinion that matters in the argument of whether a particular pattern constitutes a CAP is that of the compiler. 
+
+If the compiler can provide assurance that a certain code pattern provides void-safe protection, then the developer has that pattern available as a CAP. Likewise, even if a pattern can be shown to be a CAP, but for some reason it is not supported by the compiler, then that pattern is not available as a CAP and the compiler will not allow its use. 
 
 
 

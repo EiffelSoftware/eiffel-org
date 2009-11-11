@@ -6,11 +6,40 @@
 
 ==Overview==
 
-By configuring external commands, you can set up EiffelStudio to execute commands for Subversion or other source code management (SCM) systems. 
+By configuring external commands, you can set up EiffelStudio to execute basic commands for Subversion or other source code management (SCM) systems. Source code management systems, sometimes called revision control or version control systems are often used as part of a software configuration management strategy to track and control changes to software and its supporting documents. 
 
 ==Defining external commands==
 
 You can define external commands by using the [[External commands editor dialog|external commands editor dialog]]. Then you can execute those commands through the '''Tools''' menu or with keyboard shortcuts.
+
+===Defining a Subversion command===
+
+Suppose that you want to add an external command to EiffelStudio to Subversion's ''update'' command (''update'' brings your working copy up-to-date with the repository). You can define a command with an appropriate name, say ''svn update'', as shown below. 
+
+
+[[Image:subversion-update-command-01|define svn update]]
+
+
+The command line invokes Subversion and executes the ''update'' command. The placeholder '''$file_name''' substitutes the name of the file associated with the class currently targeted in the editor pane. So if you were editing class <code>MY_CLASS</code> which exists in file <code>my_class.e</code>, then that file name would be used in the Subversion update command executed.
+
+Once the command is defined, it will be accessible through EiffelStudio's Tools menu, either by selecting it explicitly or by using its associated keyboard short cut, <code>Alt+0</code>, in the case of this example. 
+
+
+[[Image:subversion-update-in-tools-menu|Subversion update command in the tools menu]]
+
+
+===The option to confirm execution of a command===
+
+Now imagine that you want your command to Subversion to offer you a chance to back out of the deal before it executes. You can do this by adding a little more to the command line:
+
+
+[[Image:subversion-update-command-02|Confirmable svn update command]]
+
+
+Here the command line first asks for confirmation before executing the command. 
+
+When you execute this command you will see the confirmation prompt in EiffelStudio's [[Console tool|Console tool]]. If you choose to execute the command, then just press <code>return</code>. If you have second thoughts and want to cancel the command, then do so by clicking the Console tool's stop button ( [[Image:metrics-tool--debug-stop-icon|Stop command]] ).
+
 
 
 
