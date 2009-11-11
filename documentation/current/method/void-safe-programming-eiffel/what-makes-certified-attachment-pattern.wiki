@@ -172,6 +172,12 @@ Another not-so-obvious CAP is related to the use of the logical implication:
 </code>
 
 
+==The bottom line on CAPs==
+
+In summary, CAPs provide void-safe protection for certain types of detachable expressions. 
+
+Possibly the characteristic of CAPs which is most important to developers is whether or not a particular CAP is supported by the compiler. In other words, if the compiler can provide assurance that a certain code pattern provides void-safe protection, then the developer has that pattern available as a CAP. Likewise, even if a pattern can be shown to be a CAP, but for some reason it is not supported by the compiler, then that pattern is not available as a CAP and the compiler will not allow its use. 
+
 
 
 
