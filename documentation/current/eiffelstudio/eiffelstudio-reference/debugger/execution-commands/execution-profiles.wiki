@@ -1,12 +1,12 @@
 [[Property:title|Execution profiles]]
 [[Property:weight|-13]]
 [[Property:uuid|90e64e1c-b5fc-e150-9901-50daffaac893]]
-While working on a project, you may want to launch it with one or more arguments, on specific working directory, and you may want to change the environment variables.
+While working on a project, you may want to launch your system with one or more arguments, on specific working directory, and you may want to change the environment variables.
 
-Those parameters are done by changing the execution profiles. For that you need to use the "Execution parameters" dialog.
+Those parameters are done by changing the execution profiles. For that you need to use the '''Execution parameters''' dialog.
 
-*How to open this dialog?
-** From the '''Execution, Execution parameters" menu.
+* Open this dialog either:
+** From the EiffelStudio menu path: <code>Execution -> Execution parameters</code> .
 ** By right-clicking any of the buttons on the debugging/execution toolbar.
 
 ==Using the Execution parameters' dialog==
@@ -16,16 +16,16 @@ Those parameters are done by changing the execution profiles. For that you need 
 
 The dialog allows you to manage different execution profiles to specify parameters to be passed to the system at execution time. 
 
-Each profile allows to set a title, the '''arguments''', the '''working directory''', and you can also set your own '''environment variables'''.
+Each profile lets you set a title, the '''arguments''', the '''working directory''', as well as your own '''environment variables'''.
 
 To use a profile, just select it by clicking the corresponding line in the grid..
 
 Once the appropriate execution profile is selected then the system can be run with those parameters using the Run button (If "Keep Dialog Open" is selected the dialog remains opened).<br/>
-To run without any particular parameter select '''default''' 's profile.
+To run without any particular parameter select the '''default''' profile.
 
-If you click on "Run Workbench" or "Run Finalized", the system will be executed outside EiffelStudio (thus no debugging)..
+If you click on "Run Workbench" or "Run Finalized", the system will be executed outside EiffelStudio (thus debugging is unavailable)..
 
-{{tip|You can unset an environment variable FOO by adding the "&-FOO" to the environment variables, by prefixing with "&-", this marks the variable "FOO" to be removed. If you use "&-*", all variables will be removed (except the one you can still add after this "&-*"). }}
+{{tip|From version 6.5, you can unset an environment variable FOO by adding the "&-FOO" to the environment variables, by prefixing with "&-", this marks the variable "FOO" to be removed. If you use "&-*", all variables will be removed (except the one you can still add after this "&-*"). }}
 
 
 
