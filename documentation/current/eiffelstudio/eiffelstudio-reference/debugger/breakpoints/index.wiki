@@ -18,7 +18,7 @@ The [[Breakpoint editing|breakpoint menu]]  lets you change the state of one bre
 {{note|You can toggle the status of a breakpoint easily using shortcuts<br/> - '''F9''': toggle between enabled/not-set. <br/> - '''Shift+F9''': toggle between enabled/disabled.<br/> - '''Ctrl+F9''': open the breakpoint dialog for [[Breakpoint editing|editing]]. }}
 
 {{note|Breakpoints cannot be set in all features. In particular, breakpoints cannot be set in external features or attributes. <br/>
-However, breakpoints can now be set in assertions (require and ensure). }}
+However, breakpoints can be set in assertions (require and ensure). }}
 
 {{tip|Breakpoints can be set on-the-fly while the application is running. }}
  
