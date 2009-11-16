@@ -6,7 +6,7 @@
 
 ==Overview==
 
-By configuring external commands, you can set up EiffelStudio to execute basic commands for Subversion or other source code management (SCM) systems. Source code management systems, sometimes called revision control or version control systems are often used as part of a software configuration management strategy to track and control changes to software and its supporting documents. 
+By configuring external commands, you can set up EiffelStudio to execute a few basic commands for Subversion or other source code management (SCM) systems. Source code management systems, sometimes called revision control or version control systems are often used as part of a software configuration management strategy to track and control changes to software and its supporting documents. 
 
 
 ==Defining external commands==
@@ -30,15 +30,21 @@ Once the command is defined, it will be accessible through EiffelStudio's Tools 
 [[Image:subversion-update-in-tools-menu|Subversion update command in the tools menu]]
 
 
-You can uses this same technique to add external commands for other Subversion commands that require only a basic form. For example, to create a command that will add the file for the currently edited class to the repository, add a new external command with the command line:
+===Other Subversion commands===
+
+You can use this same technique to add external commands for other Subversion commands that require only a basic form. For example, to create a command that will add the file for the currently edited class to the repository, add a new external command with the command line:
 <code lang="text">
 svn add $file_name
 </code>
 
+or, to revert local changes to the file associated with the class which is currently the target of the editor:
+<code lang="text">
+svn revert $file_name
+</code>
 
 ===The option to confirm execution of a command===
 
-Now imagine that you want your command to Subversion to offer you a chance to back out of the deal before it executes. You can do this by adding a little more to the command line:
+It's possible that in some cases, for example that of ''svn revert'', you might want to have the command provide you with a chance to back out of the deal before the command actually executes. You can do this by adding a little more to the command line:
 
 
 [[Image:subversion-update-command-02|Confirmable svn update command]]
