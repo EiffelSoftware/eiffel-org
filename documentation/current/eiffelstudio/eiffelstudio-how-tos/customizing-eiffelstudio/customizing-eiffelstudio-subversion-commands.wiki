@@ -16,13 +16,21 @@ You can define external commands by using the [[External commands editor dialog|
 
 ===Defining a Subversion command===
 
+
+{{note|The notation used in the examples on this page will work for Microsoft Windows. Other platforms may require different command formats.}}
+
+
 Suppose that you want to add an external command to EiffelStudio to Subversion's ''update'' command (''update'' brings your working copy up-to-date with the repository). You can define a command with an appropriate name, say ''svn update'', as shown below. 
 
 
 [[Image:subversion-update-command-01|define svn update]]
 
 
-The command line invokes Subversion and executes the ''update'' command. The placeholder '''$file_name''' substitutes the name of the file associated with the class currently targeted in the editor pane. So if you were editing class <code>MY_CLASS</code> which exists in file <code>my_class.e</code>, then that file name would be used in the Subversion update command executed.
+The command line:
+<code /lang="text">
+svn up $file_name
+</code>
+invokes Subversion and executes the ''update'' command. The placeholder '''$file_name''' substitutes the name of the file associated with the class currently targeted in the editor pane. So if you were editing class <code>MY_CLASS</code> which exists in file <code>my_class.e</code>, then that file name would be used in the Subversion update command executed.
 
 Once the command is defined, it will be accessible through EiffelStudio's Tools menu, either by selecting it explicitly or by using its associated keyboard short cut, <code>Alt+0</code>, in the case of this example. 
 
@@ -50,7 +58,13 @@ It's possible that in some cases, for example that of ''svn revert'', you might 
 [[Image:subversion-update-command-02|Confirmable svn update command]]
 
 
-Here the command line first asks for confirmation before executing the command. 
+Here the command line:
+
+<code /lang="text">
+echo Revert changes to $class_name? && pause && svn revert $file_name
+</code>
+
+first asks for confirmation before executing the command. 
 
 When you execute this command you will see the confirmation prompt in EiffelStudio's [[Console tool|Console tool]]: 
 
