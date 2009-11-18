@@ -54,11 +54,11 @@ If you choose a value of '''False''', then the Outputs tool will remain visible 
 
 The preference '''External compilation output prompted ''' (''C output panel prompted'', in earlier versions) controls whether the [[External compilation pane|External compilation pane]] appears whenever an external compilation (usually a C compilation) occurs. 
 
-The default value is '''False'''. In this case, the External compilation pane does not appear automatically when an external compilation occurs, except under the following conditions:
+The default value is '''False'''. In this case, the External compilation pane does not appear automatically when an external compilation occurs, except when both of the following conditions are ture:
 # The Outputs tool is already displayed, and
 # The Eiffel Compilation pane is active.
 
-When an external compilation is performed, and the Eiffel Compilation output pane is already active, the External Compilation pane will become the active pane. When the external compilation completes, under most circumstances the Eiffel Compilation pane will become active again. However, the Eiffel Compilation pane will not become active if there were external compilation errors, or if you activated some other output pane during the external compilation. 
+So, regardless of the preference value, when an external compilation is performed, and the Eiffel Compilation output pane is already active in the Outputs tool, the External Compilation pane will become the active pane. When the external compilation completes, under most circumstances the Eiffel Compilation pane will become active again. However, the Eiffel Compilation pane will not become active if there were external compilation errors, or if you activated some other output pane during the external compilation.
  
 
 

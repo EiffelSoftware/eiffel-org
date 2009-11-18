@@ -45,7 +45,7 @@ The figure below shows an example of picking the feature <code>make</code> and d
 
 ===View external code from the finalized folder===
 
-By default the code that you see in an external editor is from the workbench (W_code) folder. You can see the corresponding external code from the finalized (F_code) folder by holding the <code>CTRL</code> key while you drop the class or feature pebble.
+By default the code that you see in an external editor is from the workbench (W_code) folder. You can see the corresponding external code from the finalized (F_code) folder by holding the <code>CTRL</code> key while you drop the class or feature pebble. 
 
 
 

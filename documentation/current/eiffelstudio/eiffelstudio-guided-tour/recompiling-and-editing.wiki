@@ -17,7 +17,7 @@ Make sure that the Editing Tool is big enough to display the text of the class:
 
 The Editing Tool hosts a text editor which you can use to change the class text. Here the routine <code>display</code> starts by outputting a simple message; let's precede it by another line of display to check that we affected the outcome. We'll want to add the following two lines just after the <code>do</code>, before the first two instructions of the routine: 
 <code>
-            io.put_string ("This is some more added text") 
+            io.put_string ("THIS IS SOME ADDED TEXT") 
             io.new_line
 </code>
 
