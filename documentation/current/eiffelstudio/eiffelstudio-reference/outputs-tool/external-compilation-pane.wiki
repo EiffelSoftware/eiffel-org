@@ -35,6 +35,8 @@ You can open a file mentioned in the external compiler output in a specified ext
 
 [[Image:External compilation pane file selection|Selecting a file to open]]  
 
+If, as is often the case with C compilation errors, a line number is adjacent to the file name, you can select the line number and the file will be opened in the external editor and the cursor positioned at that line number.
+
 ==View external code for a class/feature==
 
 You can view the external code for a particular Eiffel class or feature in an external editor. Pick the class or feature whose generated code you want to see, and drop it onto the [[Image:metrics-tool--command-send-to-external-editor-icon|send to external editor]] button. The external code for the class or feature will be shown in an external editor. 
@@ -42,6 +44,8 @@ You can view the external code for a particular Eiffel class or feature in an ex
 The figure below shows an example of picking the feature <code>make</code> and dropping it on the '''send to external editor''' button.
 
 [[Image:External compilation pane edit feature]]  
+
+You can also drop a class or feature pebble on the '''open folder''' or '''terminal''' icon. This will get you to the folder in which the generated code for the class or feature resides. 
 
 ===View external code from the finalized folder===
 

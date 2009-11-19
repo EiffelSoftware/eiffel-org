@@ -21,7 +21,7 @@ The Editing Tool hosts a text editor which you can use to change the class text.
             io.new_line
 </code>
 
-They are very similar to the current first two lines of the routine, so you can just use copy-paste: select the first two lines with the mouse, copy them using <code>CTRL-C</code> (or <code>Copy</code> from the <code>Edit</code> menu), then paste them just after the <code>do</code> using <code>CTRL-V</code> (or <code>Paste</code> from the <code>Edit</code> menu). Add or remove tabs to align with the rest of the routine, and change the string to <code lang=text>THIS IS SOME MORE ADDED TEXT</code> so that the result will look like what's shown on the next figure. This is all there is to change; the second line remains untouched. Please check the result and be careful not to introduce any mistakes; in the next section we'll study how EiffelStudio will report syntax and other errors, but right now we want to see what happens when everything is right! 
+They are very similar to the current first two lines of the routine, so you can just use copy-paste: select the two lines with the mouse, copy them using <code>CTRL-C</code> (or <code>Copy</code> from the <code>Edit</code> menu), then paste them just after the <code>do</code> using <code>CTRL-V</code> (or <code>Paste</code> from the <code>Edit</code> menu). Add or remove tabs to align with the rest of the routine, so that the result will look like what's shown on the next figure. This is all there is to change; the second line remains untouched. Please check the result and be careful not to introduce any mistakes; in the next section we'll study how EiffelStudio will report syntax and other errors, but right now we want to see what happens when everything is right! 
 
 [[Image:index-67]] 
 
