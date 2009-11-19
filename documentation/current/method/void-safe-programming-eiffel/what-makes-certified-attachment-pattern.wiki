@@ -178,7 +178,7 @@ In summary, CAPs provide void-safe protection for certain types of detachable ex
 
 Possibly the characteristic of CAPs which is most important to developers is whether or not a particular CAP is supported by the compiler. In other words, from the developers viewpoint, the only opinion that matters in the argument of whether a particular pattern constitutes a CAP is that of the compiler. 
 
-If the compiler can provide assurance that a certain code pattern provides void-safe protection, then the developer has that pattern available as a CAP. Likewise, even if a pattern can be shown to be a CAP, but for some reason it is not supported by the compiler, then that pattern is not available as a CAP and the compiler will not allow its use. 
+If the compiler can provide assurance that a certain code pattern guarantees void-safe protection, then the developer will have that pattern available as a CAP. Likewise, even if a pattern can be shown logically to be a CAP, but for some reason it is not supported by the compiler, then that pattern will not available as a CAP and the compiler will not allow its use. 
 
 
 

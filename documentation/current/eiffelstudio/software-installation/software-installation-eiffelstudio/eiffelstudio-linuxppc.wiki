@@ -12,6 +12,9 @@
 | '''Operating System'''
 | Yellow Dog Linux 4.0 with either Gnome 2.6 or GTK+ 2.4.
 |- 
+| '''C compiler'''
+| gcc
+|- 
 | '''Memory'''
 | 512MB of RAM (1GB recommended).
 |- 

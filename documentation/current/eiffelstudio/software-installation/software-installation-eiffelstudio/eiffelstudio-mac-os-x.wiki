@@ -6,29 +6,32 @@
 
 {| 
 |- 
-| Computer/Processor
-| G4
+| '''Computer/Processor'''
+| x86
 |- 
-| Operating System
-| Mac OS X 10.4 (Tiger) or above
+| '''Operating System'''
+| Mac OS X 10.5 (Leopard) or above
 |- 
-| Memory
+| '''C compiler'''
+| gcc included in XCode
+|- 
+| '''Memory'''
 | 512MB of RAM (1GB recommended)
 |- 
-| Hard Disk
+| '''Hard Disk'''
 | 400MB of hard disk space (1GB recommended) 
 |- 
-| Drive
+| '''Drive'''
 | CD-ROM or DVD drive (not required when downloading EiffelStudio)
 |- 
-| Display
+| '''Display'''
 | 1024 x 768 or higher resolution video adapter and monitor
 |- 
-| Peripherals
+| '''Peripherals'''
 | Keyboard and mouse or compatible pointing device
 |- 
 | '''ISE_PLATFORM'''
-| '''macosx-ppc''' or '''macosx-x86'''.
+| ''macosx-x86''' for x86 based CPU and '''macosx-x86-64''' for x64 based CPU. 
 |}
 
 

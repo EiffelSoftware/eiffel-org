@@ -12,6 +12,9 @@
 | '''Operating System'''
 | FreeBSD 5.2 with either Gnome 2.6 or GTK+ 2.4.
 |- 
+| '''C compiler'''
+| gcc
+|- 
 | '''Memory'''
 | 512 MB of RAM (1GB recommended).
 |- 

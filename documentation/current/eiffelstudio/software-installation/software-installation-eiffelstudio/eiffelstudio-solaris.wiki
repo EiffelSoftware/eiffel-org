@@ -12,6 +12,9 @@
 | '''Operating System'''
 | Solaris 9.0 or greater for Sparc, Solaris 10 or greater for x86 with either Gnome 2.6 or GTK+ 2.4.
 |- 
+| '''C compiler'''
+| Sun Studio 12 C compiler
+|- 
 | '''Memory'''
 | 512MB of RAM (1GB recommended).
 |- 
