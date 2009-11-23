@@ -75,5 +75,30 @@ When you execute this command you will see the confirmation prompt in EiffelStud
 If you choose to execute the command, then just press <code>return</code>. If you have second thoughts and want to cancel the command, then do so by clicking the Console tool's stop button ( [[Image:metrics-tool--debug-stop-icon|Stop command]] ).
 
 
+==Defining commands for TortoiseSVN==
+
+If you are using the TortoiseSVN GUI client for Subversion on Microsoft Windows, you may prefer to have TortoiseSVN execute the Subversion commands for you from EiffelStudio. You can do this by starting '''tortoiseproc.exe''', and providing the specifics for each command as shown in [http://tortoisesvn.net/docs/nightly/TortoiseSVN_en/tsvn-automation.html Appendix D of the TortoiseSVN documentation]. 
+
+Some common Subversion command invocations are shown with their respective command lines below:
+
+
+{| border="1"
+|- 
+| '''Subversion command'''
+| '''Command line'''
+|- 
+| revert
+| start tortoiseproc /command:revert /path:"$file_name" /notempfile
+|-
+| commit
+| start tortoiseproc /command:commit /path:"$file_name" /notempfile
+|-
+| log
+| start tortoiseproc /command:log /path:"$file_name" /notempfile
+|-
+| diff
+| start tortoiseproc /command:diff /path:"$file_name" /notempfile
+|}
+
 
 

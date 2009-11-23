@@ -12,7 +12,7 @@ Certified Attachment Patterns (CAPs) were described in the section on [[Void-saf
 A simple example is the familiar test for void reference:
 <code>
             if l_x /= Void then
-                l_x.do_something
+                l_x.do_something    -- Valid for formal arguments, local variables, and stable attributes
             end
 </code>
 We know that after the explicit check to make sure <code>l_x</code> is not <code>Void</code>, that the feature application <code>l_x.do_something</code> is void-safe.
@@ -105,7 +105,7 @@ But, if <code>l_string</code> had been a target of an assignment in which the so
             if l_string /= Void then
                 l_string.append ("abc")        -- Valid
                 l_string := my_detachable_string
-                l_string.append ("xyz")        -- Invalid: my_detachable_string could be void
+                l_string.append ("xyz")        -- Invalid: my_detachable_string might have been void
                     ...
 </code>
 
@@ -119,7 +119,7 @@ We've already seen the simple test for void as a CAP:
                 ...
 
             if l_str /= Void then
-                l_str.append ("xyz")
+                l_str.append ("xyz")        -- Valid
             end
 </code>
 
@@ -129,7 +129,7 @@ Additionally, a creation instruction can serve as a CAP. After the execution of 
             l_str: detachable STRING
         do
             create l_str.make_empty
-            l_str.append ("xyz")
+            l_str.append ("xyz")        -- Valid
                 ...
 </code>
 
