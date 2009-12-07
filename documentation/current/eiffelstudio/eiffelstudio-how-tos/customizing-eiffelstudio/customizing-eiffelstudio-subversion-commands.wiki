@@ -79,6 +79,7 @@ If you choose to execute the command, then just press <code>return</code>. If yo
 
 If you are using the TortoiseSVN GUI client for Subversion on Microsoft Windows, you may prefer to have TortoiseSVN execute the Subversion commands for you from EiffelStudio. You can do this by starting '''tortoiseproc.exe''', and providing the specifics for each command as shown in [http://tortoisesvn.net/docs/nightly/TortoiseSVN_en/tsvn-automation.html Appendix D of the TortoiseSVN documentation]. 
 
+
 Some common Subversion command invocations are shown with their respective command lines below:
 
 
@@ -99,6 +100,7 @@ Some common Subversion command invocations are shown with their respective comma
 | diff
 | start tortoiseproc /command:diff /path:"$file_name" /notempfile
 |}
+
 
 
 
