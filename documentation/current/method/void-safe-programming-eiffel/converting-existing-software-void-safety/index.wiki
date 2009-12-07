@@ -1,9 +1,6 @@
 [[Property:title|Converting existing software to void-safety]]
 [[Property:weight|6]]
 [[Property:uuid|eb901272-d405-2277-005d-e37275b9baa4]]
-{{underconstruction}}
-
-
 
 If you have been using Eiffel for a while, you may be maintaining systems which were developed before Eiffel became void-safe. If that's the case, then you will probably want to make those systems void-safe. 
 
