@@ -447,7 +447,7 @@ As with assignment, there is also a form that works on objects rather than refer
 </code>
 will return true when <code>x</code> and <code>y</code> are both non-void and attached to field-by-field identical objects. This can be true even when <code>x = y</code> is not, for example, in the figure, ''before'' the assignment, if the two objects shown are field-by-field equal.
 
-The expression <code>x.is_equal (y)</code> can be written alternatively, using the ''tilde'' ('~") character, in a notation similar in form to <code>x = y</code> . The expression:
+The expression <code>x.is_equal (y)</code> can be written alternatively, using the ''tilde'' ('~') character, in a notation similar in form to <code>x = y</code> . The expression:
 <code>
             x ~ y
 </code>
