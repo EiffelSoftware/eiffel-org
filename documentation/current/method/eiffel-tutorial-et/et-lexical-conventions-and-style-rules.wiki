@@ -100,7 +100,7 @@ Features of reusable classes should use consistent names. A set of standard name
 
 For local entities and formal arguments of routines, it is all right to use abbreviated names, since these identifiers only have a local scope, and choosing a loud name would give them too much pretense, leading to potential conflicts with features. 
 
-The complete set of style rules applied by ISE is available on the web in both <span> [http://www.eiffel.com/doc/manuals/language/style/ HTML]  </span> and <span> [http://www.eiffel.com/doc/manuals/language/style/style.pdf PDF]  </span> forms. These rules are an integral part of the Eiffel method; in quality software, there is no such thing as a detail. Applying them systematically promotes consistency between projects in the Eiffel world, enhances reusability, and facilitates everyone's work. 
+The complete set of style rules applied by ISE is available on the web in both <span> [http://archive.eiffel.com/doc/manuals/language/style/page.html HTML]  </span> and <span> [http://archive.eiffel.com/doc/manuals/language/style/style.pdf PDF]  </span> forms. These rules are an integral part of the Eiffel method; in quality software, there is no such thing as a detail. Applying them systematically promotes consistency between projects in the Eiffel world, enhances reusability, and facilitates everyone's work. 
 
 
 
