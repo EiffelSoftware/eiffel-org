@@ -79,7 +79,7 @@ The most extensive of these EiffelBase libraries is <code>structures</code>, whi
 
 {{note|If you initially don't see as many details as shown on this figure, you may get them by resizing the window, moving the vertical pane boundary, and possibly scrolling.}}
 
-The EiffelBase Data Structure library and its subclusters are described in the book <span> [http://www.eiffel.com/doc/ Reusable Software]  </span>. Let's go to one of the most frequently used subclusters, <code>list</code>, containing implementations of list structures. Click the <code>+</code> next to <code>list</code>. This time, since list is a terminal cluster, it's not subclusters you'll see, but '''classes''', identified by small ellipses: 
+The EiffelBase Data Structure library and its subclusters are described in the book <span> [http://www.eiffel.com/services/training/books.html Reusable Software]  </span>. Let's go to one of the most frequently used subclusters, <code>list</code>, containing implementations of list structures. Click the <code>+</code> next to <code>list</code>. This time, since list is a terminal cluster, it's not subclusters you'll see, but '''classes''', identified by small ellipses: 
 
 [[Image:index-18]]
 
