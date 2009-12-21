@@ -69,14 +69,14 @@ Symbol
 Tab
 </code>
 
-Most of these denote Eiffel constructs as they appear in the official language reference, the book <span> [http://www.eiffel.com/doc/ Eiffel: The Language]  </span>. Since the Eiffel construct names <code>Feature</code>, <code>Invariant</code> and <code>Obsolete</code> are also keywords and EFF, like Eiffel, is case-insensitive, the EFF construct names use the suffix <code>_clause</code>, for example <code>Feature_clause</code>. 
+Most of these denote Eiffel constructs as they appear in the official language reference, the book <span> [[Eiffel: The Language]] </span>. Since the Eiffel construct names <code>Feature</code>, <code>Invariant</code> and <code>Obsolete</code> are also keywords and EFF, like Eiffel, is case-insensitive, the EFF construct names use the suffix <code>_clause</code>, for example <code>Feature_clause</code>. 
 
 The constructs corresponding to syntactic constructs are self-explanatory. The others are:
 *  <code>Class_end</code>, denoting the final end of a class text. 
-*  <code>Keyword</code>, denoting any Eiffel keyword among those listed in boldface in the corresponding appendix in <span> [http://www.eiffel.com/doc/ Eiffel: The Language]  </span> 
+*  <code>Keyword</code>, denoting any Eiffel keyword among those listed in boldface in the corresponding appendix in <span> [[Eiffel: The Language]] </span> 
 *  <code>New_line</code>, denoting any passage to a new line in the class text. 
 *  <code>Suffix</code>, used to introduce the file extension for the generated documentation files. If you don't specify this, EiffelStudio will use the filter's name as extension. 
-*  <code>Symbol</code>, denoting any of the Eiffel symbols listed in the corresponding appendix of <span> [http://www.eiffel.com/doc/ Eiffel: The Language]  </span>. 
+*  <code>Symbol</code>, denoting any of the Eiffel symbols listed in the corresponding appendix of <span> [[Eiffel: The Language]] </span>. 
 *  <code>Escape</code>, to protect special characters of the external tool, as explained below. 
 *  <code>Tab</code>, denoting any tab character appearing in the class text. 
 <div> 
