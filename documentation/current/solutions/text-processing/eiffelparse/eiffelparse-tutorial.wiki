@@ -113,7 +113,7 @@ Conditional [=] if Then_part_list [Else_part] end
 
 This means that a specimen of Conditional (a conditional instruction) is made of the keyword <code>if</code>, followed by a specimen of Then_part_list, followed by zero or one specimen of Else_part (the square brackets represent an optional component), followed by the keyword <code>end</code>. 
 
-{{note|This notation for productions uses conventions similar to those of the book Eiffel: The Language. Keywords are written in '''boldface italics''' and stand for themselves. Special symbols, such as the semicolon, are written in double quotes, as in ";". The <nowiki>[=]</nowiki> symbol means "is defined as" and is more accurate mathematically than plain <nowiki>=</nowiki>, which, however, is often used for this purpose (see "Introduction to the Theory of Programming Languages", Prentice Hall, 1991, for a more complete discussion of this issue). }}
+{{note|This notation for productions uses conventions similar to those of the book ''Eiffel: The Language''. Keywords are written in '''boldface italics''' and stand for themselves. Special symbols, such as the semicolon, are written in double quotes, as in ";". The <nowiki>[=]</nowiki> symbol means "is defined as" and is more accurate mathematically than plain <nowiki>=</nowiki>, which, however, is often used for this purpose (see "Introduction to the Theory of Programming Languages", Prentice Hall, 1991, for a more complete discussion of this issue). }}
 
 A choice production defines a construct whose specimens are specimens of one among a number of specified constructs. For example, the production for construct Type in an Eiffel grammar may read:
 <code>
