@@ -5,7 +5,7 @@ So far we have tried to make sure that everything went smoothly. But in actual s
 <div> 
 ==Levels of language description==
 
-Let's remind ourselves first of how the language is specified. The book <span> [http://www.eiffel.com/doc/ Eiffel: The Language]  </span>, the language reference, carefully distinguishes between three levels of description: '''syntax''', '''validity''' and '''semantics'''. Their roles are clearly distinct: 
+Let's remind ourselves first of how the language is specified. The book [[Eiffel: The Language]], the language reference, carefully distinguishes between three levels of description: '''syntax''', '''validity''' and '''semantics'''. Their roles are clearly distinct: 
 *  <span>Syntax</span> defines the structure of software texts. A typical syntax rule states that an assignment starts with a <code>Writable</code> entity, continues with the symbol <code>:=</code>, and ends with an <code>Expression</code>. This is a purely structural specification, saying nothing for example about the types of the <code>Writable</code> and the <code>Expression</code>. 
 *  <span>Validity</span>, applicable only to syntactically legal texts, defines required consistency conditions. A typical validity rule states that in an assignment the right-hand-side <code>Expression</code> must <span>conform</span> -- a property of its type, defined rigorously on the basis of inheritance -- to the left-hand-side <code>Writable</code>. Eiffel has about 75 validity rules; part of the language's originality is that these rules are of the "<span>if and only if</span>" form, not only telling you individual error cases ("this is valid <span>only if</span> <span>...</span> ") but also reassuring you that your text will in fact be valid <span>if</span> it satisfies the conditions listed exhaustively. 
 * Semantics, applicable only to valid texts, defines the software's expected run-time behavior. A typical semantic rule states that an assignment replaces the value of its left-hand-side <code>Writable</code> by the value of the right-hand-side <code>Expression</code> at the time the assignment is executed, with precise rules on the different possible cases involving references, objects and simple values. 
@@ -25,11 +25,11 @@ To see what happens for a syntax error, replace the keyword <code>is</code> by <
 
 To correct the error, just bring the mouse back to its location, remove the spurious <code>t</code>, and click Save again; also click Compile to make sure that the project is recompiled up-to-date. 
 
-You may wonder why the syntax error messages are not a little more verbose than just <code>Syntax error</code>. The reason is merely that Eiffel's syntax, being simple and regular, does not require sophisticated error messages; syntax errors usually result from trivial oversights. If you make a syntax error and the reason is not immediately clear, check the syntax summary in the appendix of <span> [http://www.eiffel.com/doc/ Eiffel: The Language]  </span>. 
+You may wonder why the syntax error messages are not a little more verbose than just <code>Syntax error</code>. The reason is merely that Eiffel's syntax, being simple and regular, does not require sophisticated error messages; syntax errors usually result from trivial oversights. If you make a syntax error and the reason is not immediately clear, check the syntax summary in the appendix of [[Eiffel: The Language]]. 
 </div><div> 
 ==A validity error==
 
-A validity error is a violation of one of the validity constraints given in <span> [http://www.eiffel.com/doc/ Eiffel: The Language]  </span>. Every such constraint is identified by a four-letter code of the form <code>VXXX</code> (the first letter is always <code>V</code>). 
+A validity error is a violation of one of the validity constraints given in [[Eiffel: The Language]]. Every such constraint is identified by a four-letter code of the form <code>VXXX</code> (the first letter is always <code>V</code>). 
 
 A validity error will produce a precise error message, which includes the validity code. Although short, the error message is usually sufficient to find out what the error is. If not, you can get the complete rule, straight from the book.
 
@@ -67,7 +67,7 @@ As is often the case when dropping into a specific hole, you don't need to shoot
 
 [[Image:index-81]]
 
-The result is to display the complete text of the violated rule, straight from the pages of <span> [http://www.eiffel.com/doc/ Eiffel: The Language]  </span>. 
+The result is to display the complete text of the violated rule, straight from the pages of [[Eiffel: The Language]]. 
 
 The rule has several clauses, numbered. Since the error message showed the error code as <code lang=text>VUAR(1)</code>, the violated clause is the first; this convention of showing the clause number in parentheses applies to all multi-clause validity constraints. 
 
