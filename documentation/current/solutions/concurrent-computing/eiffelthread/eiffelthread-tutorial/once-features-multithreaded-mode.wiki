@@ -13,7 +13,7 @@ Then the once feature is not initialized once per process but once per thread. Y
 
 Current once features in Eiffel are once per thread. This means that when a once feature is called in a thread, the Eiffel run-time will check whether it has been already computed in this thread. If not, the once feature will be initialized and computed. This seems to be a relevant way of managing once features in multithreaded mode: most of the time, a once called in a thread is not likely to share its result. 
 
-However, in some case, we need to share once features. 
+However, in some cases, we need to share once features. 
 
 Moreover, an Eiffel programmer should be able to have an alternative between a once per thread or per process implementation. 
 
