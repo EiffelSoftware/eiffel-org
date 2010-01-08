@@ -87,12 +87,12 @@ The <code lang="text">license_name</code> term should be placed in the top <code
 
 In this case, EiffelStudio will search for the file `<code lang="text">OurLicense.lic</code>'. It will look first in the '''Eiffel user files license template directory''', then in the '''Eiffel Software license template directory'''.
 
-Look in the '''Eiffel Software license template directory''' and you will see several standard license files, for example, <code lang="text">forum2.lic</code> and <code lang="text">gpl2</code>. Also included is <code lang="text">default.lic</code>, which we'll examine later.
+Look in the '''Eiffel Software license template directory''' and you will see several standard license files that are used by Eiffel Software, for example, <code lang="text">forum2.lic</code> and <code lang="text">eiffelsoftware</code>. Also included is <code lang="text">default.lic</code>, which we'll examine [[#The default license|later]].
 
-So, if you can use one of the provided license files, they are there. If you need a customized license file, you should create it in the '''Eiffel user files license template directory'''. 
+You should create your customized license text files in the '''Eiffel user files license template directory''', or in a local project directory as described below.
 
 
-===Using a project license file===
+===Using a local project license file===
 
 If you use the same license for a particular project, or set of related projects, you can keep the license file in the project directory along with your project ( <code lang="text">.ecf</code> ) file. In this case EiffelStudio will include the license text from that license file in each class in the project. 
 
@@ -104,6 +104,23 @@ The license text file should be named in one of two ways:
 :# The license text file is named <code lang="text">license.lic</code>
 
 The second option is convenient if you have a project, a library for instance, that has multiple <code lang="text">.ecf</code> files for different purposes.
+
+Even if the license text you want to use is in one of the license template directories, you can use this local method to retrieve that text without including a <code lang="text">license_name</code> term in the source code for each class.  You do this by building a local license text file and include in it only a reference to the appropriate license name. 
+
+For example, suppose that the our license text is in the file <code lang="text">OurLicense.lic</code> in the '''Eiffel user files license template directory'''. To include the license text in the classes of <code lang="text">our_project</code>, the <code lang="text">our_project.lic</code> (or <code lang="text">license.lic</code>) file would contain this reference:
+
+<code lang="text">
+    reference:OurLicense
+</code> 
+
+
+===The default license===
+
+As mentioned earlier, the file <code lang="text">default.lic</code> exists in the '''Eiffel Software license template directory'''. This file is empty ... and you should probably leave it that way.
+
+The license text in <code lang="text">default.lic</code> is added to a class when no <code lang="text">license_name</code> term is found in the source code and no appropriate license text file exists in the project directory. So, because the <code lang="text">default.lic</code> file is empty, no license text is added to classes by default.
+
+However, if you would like to set up a different default license text behavior, you can do so. Just create a <code lang="text">default.lic</code> file in the '''Eiffel user files license template directory''', and whenever license text is not found by some other method, the text from your customized <code lang="text">default.lic</code> will be included.
 
 
 
