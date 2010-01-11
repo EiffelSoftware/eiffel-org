@@ -8,7 +8,7 @@ The [[ref:/libraries/base/reference/exceptions_chart|<eiffel>EXCEPTIONS</eiffel>
 When an exception is raised while the application is being debugged, the application stops immediately and the debugger displays the context in which the exception occurred, whether or not the exception is rescued.
 
 {{seealso|<br/>
-[[8 Design by Contract (tm), Assertions and Exceptions|Reference of exceptions]]  }}
+[[ET: Design by Contract (tm), Assertions and Exceptions|Reference of exceptions]]  }}
 
 
 
