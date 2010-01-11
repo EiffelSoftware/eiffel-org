@@ -1,9 +1,6 @@
 [[Property:title|Customizing EiffelStudio for Subversion commands]]
 [[Property:weight|8]]
 [[Property:uuid|83a8ca76-d714-db60-f697-ae48b161161a]]
-{{underconstruction}}
-
-
 ==Overview==
 
 By configuring external commands, you can set up EiffelStudio to execute a few basic commands for Subversion or other source code management (SCM) systems. Source code management systems, sometimes called revision control or version control systems are often used as part of a software configuration management strategy to track and control changes to software and its supporting documents. 
