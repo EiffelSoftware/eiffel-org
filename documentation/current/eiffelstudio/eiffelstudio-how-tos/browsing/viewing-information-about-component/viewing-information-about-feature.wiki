@@ -1,7 +1,7 @@
 [[Property:title|Viewing information about a feature]]
 [[Property:weight|3]]
 [[Property:uuid|0151eab9-ee25-210a-bed9-b2709e9fa5f0]]
-Once you [[Centering tools on a component|centered the editor]] on a feature, you have access to its text. The feature tab in the context tool can display more information. To have access to it, you have first to center the context tool on the wanted class and select the feature tab. You can then consult the different views of the text of the feature ([[Feature formatters: Basic text view|basic text]] or [[Feature formatters: Flat view|flat]]) and other information such as its [[Feature formatters: Callers|callers]] or its [[Descendant versions|descendant]] versions. <br/>
+Once you [[Centering tools on a component|centered the editor]] on a feature, you have access to its text. The feature tab in the context tool can display more information. To have access to it, you have first to center the context tool on the wanted class and select the feature tab. You can then consult the different views of the text of the feature ([[Feature formatters: Basic text view|basic text]] or [[Feature formatters: Flat view|flat]]) and other information such as its [[Feature formatters: Callers|callers]] or its [[Feature formatters: Descendant versions|descendant]] versions. <br/>
 The [[Metrics tool|metric tool]] provides another kind of data. It enables you to compute some [[How to analyze a project|measures]]  on your feature. 
 
 

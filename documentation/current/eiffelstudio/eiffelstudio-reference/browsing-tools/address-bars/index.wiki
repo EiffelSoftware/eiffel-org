@@ -1,7 +1,7 @@
 [[Property:title|Address bars]]
 [[Property:weight|1]]
 [[Property:uuid|e145c4d3-afd3-653d-cf7c-14fd80f4d566]]
-All development windows are composed of two major components, each of which can be centered on a given "address" (either a cluster, a class or a feature). One is the editor, with which go all the peripheral tools (including the [[Cluster tool|cluster tool]]  and the [[Feature tool|feature tool]] ). The other is the context tool, which contains for example the [[Formatted information about compiled classes and features|class and feature tabs]] , the [[Diagram tool|diagram tool]]  and the [[Metrics tool|metric tool]] . 
+All development windows are composed of two major components, each of which can be centered on a given "address" (either a cluster, a class or a feature). One is the editor, with which go all the peripheral tools (including the [[Groups tool|groups tool]]  and the [[Feature tool|feature tool]] ). The other is the context tool, which contains for example the [[Formatted information about compiled classes and features|class and feature tabs]] , the [[Diagram tool|diagram tool]]  and the [[Metrics tool|metric tool]] . 
 
 It is possible to either link both components so that they share the same address (allowing to immediately have extended information on the class that is being edited), or to unlink them (allowing to have extended information on any class while editing a class).
 

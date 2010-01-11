@@ -9,7 +9,7 @@ It is possible to create new clusters from EiffelStudio. A dialog window has bee
 
 There are three ways to make this window appear. You can:
 * Click  [[Image:16x16--new-cluster-icon]]  in the [[Main toolbars|standard toolbar]] . 
-* Click  [[Image:new-cluster-icon]]  in the [[Cluster tool|cluster tool]] . 
+* Click  [[Image:new-cluster-icon]]  in the [[Groups tool|groups tool]] . 
 * Select '''New cluster''' in the '''Tools''' menu. 
 Using this dialog, you can either create a subcluster of an existing cluster or a top-level cluster. 
 If you decide to create a top-level cluster, you should give it a name and a path (if the selected path does not exist, it will be created). You can also choose if it should be recursive or not..

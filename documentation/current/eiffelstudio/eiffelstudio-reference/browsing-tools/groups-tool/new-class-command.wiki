@@ -1,7 +1,7 @@
 [[Property:title|New class command]]
 [[Property:weight|3]]
 [[Property:uuid|ca2a2b34-7bdf-52c7-c300-f780df40bca0]]
-The new class command (  [[Image:new-class-icon]] ) located in the groups tool toolbar creates a class in the same fashion as the main new class command. The only difference is that when using the cluster tool command, the new class is by default located in the cluster selected in the [[System tree representation|cluster tree]]  (or the parent cluster of the selected class, if a class is selected). 
+The new class command (  [[Image:new-class-icon]] ) located in the groups tool toolbar creates a class in the same fashion as the main new class command. The only difference is that when using the groups tool command, the new class is by default located in the cluster selected in the [[System tree representation|cluster tree]]  (or the parent cluster of the selected class, if a class is selected). 
 
 A dialog is then popped up in which it is possible to select the name of the new class, the name of the file it should be created in (by default ".e" is appended to the name of the new class to generate the file name), and the cluster in which the new class should be inserted. Only clusters that are not libraries are displayed in the list, since library clusters cannot be modified.
 

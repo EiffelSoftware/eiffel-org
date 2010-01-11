@@ -8,7 +8,7 @@ To modify the assertion level in a generated binary (executable or library),
 * You must [[Generating executables|recompile]]  your project for the changes to take effect. 
 
 {{seealso|<br/>
-[[8 Design by Contract (tm), Assertions and Exceptions|Assertions in Eiffel]]  }}
+[[ET: Design by Contract (tm), Assertions and Exceptions|Assertions in Eiffel]]  }}
 
 
 
