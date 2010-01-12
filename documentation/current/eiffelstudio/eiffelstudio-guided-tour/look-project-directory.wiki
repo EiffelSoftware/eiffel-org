@@ -5,7 +5,7 @@ Before we proceed with the facilities of the environment, let's take a look at t
 
 With EiffelStudio, you build projects. Most projects yield an executable system, although you can also build a project just to define a library for use by such systems.
 
-Every session is relative to a project; you can start a new project from within EiffelStudio by going to the <code>File  -->  New Project</code> menu, but please '''don't select that menu entry now''' as we have many more things to do with our current project first. 
+Every session is relative to a project; you can start a new project from within EiffelStudio by going to the <code lang="text">File --> New Project</code> menu, but please '''don't select that menu entry now''' as we have many more things to do with our current project first. 
 
 Every project has a '''project directory''' which will contain the files generated and managed by EiffelStudio. The project directory may also host some of the source files containing your Eiffel classes, the ECF (eiffel configurationl file), and external software written in other languages, but that is not required; the source files and ecf may reside anywhere. Some users, in fact, like to put nothing else than the EiffelStudio-generated files in the project directory; this separates user-managed and system-managed files, and can facilitate configuration management, backups and porting. 
 
