@@ -879,6 +879,31 @@ Likewise the compiler in EiffelStudio will produce warnings in cases in which ca
 
 
 
+===Non-conforming inheritance===
+
+So far, our experience with inheritance is that of "conforming" inheritance ... the most commonly used type of inheritance. Conforming inheritance is what allows a direct instance (in the '''catcall''' example above) of <code>COW</code> to be attached at runtime to an entity of type <code>ANIMAL</code>. This can be a powerful modeling capability, but it is this same polymorphism facilitated by conforming inheritance that puts us in the danger of using polymorphic '''catcalls'''. 
+
+In cases in which polymorphic attachment is not anticipated, the possibility of catcalls can be avoided by using '''non-conforming inheritance'''. Non-conforming inheritance is just a more restrictive form of inheritance. It allows features to be inherited from parent to heir, but it disallows polymorphic attachment of a direct instance of an heir to an entity based on a non-conforming parent.
+
+In order to use non-conforming inheritance for a particular parent, we use the marker <code>{NONE}</code> in the appropriate inheritance part of the class:
+
+<code>
+class
+    MY_HEIR_CLASS
+inherit
+    MY_CONFORMING_PARENT
+inherit
+    {NONE} MY_NON_CONFORMING_PARENT
+        ...
+</code>
+
+Here there are two inherit clauses, one to specify conforming parents, and one to specify non-conforming parents. The clause specifying the conforming inheritance must precede the one specifying the non-conforming inheritance.
+
+So, in this case, at runtime it is valid for a direct instance of <code>MY_HEIR_CLASS</code> to be attached to an entity of type <code>MY_CONFORMING_PARENT</code>, but not to an entity of type <code>MY_NON_CONFORMING_PARENT</code>. Accordingly, the compiler would reject any code in which an instance of <code>MY_HEIR_CLASS</code> could become attached to an entity of type <code>MY_NON_CONFORMING_PARENT</code>. Because the polymorphic attachment cannot be made, the possibility of a catcall is avoided.
+
+
+
+
 
 
 
