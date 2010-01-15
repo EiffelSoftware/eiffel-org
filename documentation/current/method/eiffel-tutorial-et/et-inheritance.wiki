@@ -901,6 +901,10 @@ inherit {NONE}
 
 Here there are two <code>inherit</code> clauses, one to specify conforming parents, and one to specify non-conforming parents. The clause specifying the conforming inheritance must precede the one specifying the non-conforming inheritance.
 
+
+{{note|According to the Eiffel language standard, it is possible to have any number of inherit clauses an any order, however EiffelStudio versions as late as 6.5 allow only one conforming and one non-conforming clause, with the conforming clause preceding the non-conforming one. This restriction will be removed in a future release.}}
+
+
 So, in this case, at runtime it is valid for a direct instance of <code>MY_HEIR_CLASS</code> to be attached to an entity of type <code>MY_CONFORMING_PARENT</code>, but not to an entity of type <code>MY_NON_CONFORMING_PARENT</code>. Accordingly, the compiler would reject any code in which an instance of <code>MY_HEIR_CLASS</code> could become attached to an entity of type <code>MY_NON_CONFORMING_PARENT</code>. Because the polymorphic attachment cannot be made, the possibility of a catcall is avoided.
 
 
