@@ -1,17 +1,14 @@
-[[Property:title|The Eiffel Testing Framework]]
-[[Property:link_title|AutoTest]]
+[[Property:title|AutoTest]]
 [[Property:weight|-1]]
 [[Property:uuid|1d8cc843-238e-feaa-cfa6-629f080ffba7]]
-
-
 ==Introduction==
 
-The Eiffel Testing Framework is a facility within EiffelStudio that helps developers create, manage, and execute software tests. 
+AutoTest is a facility within EiffelStudio that helps developers create, manage, and execute software tests. 
 
-This documentation is intended to describe the Eiffel Testing Framework interface and capabilities. In addition to this material, you will find a tutorial entitled [[Using the Eiffel Testing Framework]] in [[EiffelStudio: A Guided Tour]]. The tutorial employs a simple example that is used to work step-by-step through the Testing Framework's different facilities. The tutorial also explains testing basics and recommendations for using the Eiffel Testing Framework. Lastly, the tutorial contains definitions for terminology used in both the tutorial and in these reference pages. It is recommended that you become familiar with these definitions, specifically:
+This documentation is intended to describe the AutoTest interface and capabilities. In addition to this material, you will find a tutorial entitled [[Using AutoTest]] in [[EiffelStudio: A Guided Tour]]. The tutorial employs a simple example that is used to work step-by-step through AutoTest's different facilities. The tutorial also explains testing basics and recommendations for using AutoTest. Lastly, the tutorial contains definitions for terminology used in both the tutorial and in these reference pages. It is recommended that you become familiar with these definitions, specifically:
 
 #[[Testing: Background and basics#Test classes and tests|Test classes and tests]]
-#[[Testing: Background and basics#Types of tests|The types of test supported by the Eiffel Testing Framework]]
+#[[Testing: Background and basics#Types of tests|The types of test supported by AutoTest]]
 #[[Testing: Background and basics#Anatomy of a test|Target classes and target routines]]
 #[[Execute tests#About test results|Test results]]
 
@@ -19,10 +16,10 @@ This documentation is intended to describe the Eiffel Testing Framework interfac
 
 ==Components==
 
-When you use the Eiffel Testing Framework, you control things by using two components: '''[[The Eiffel Testing Framework Interface]]''' and '''[[The New Eiffel Test Wizard]]'''. The interface is used to access, manage, execute, and monitor tests. The New Eiffel test wizard is used to help you create new tests.
+When you use AutoTest, you control things by using two components: '''[[The AutoTest Interface]]''' and '''[[The New Eiffel Test Wizard]]'''. The interface is used to access, manage, execute, and monitor tests. The New Eiffel test wizard is used to help you create new tests.
 
 
-{{SeeAlso|<br/>[[Using the Eiffel Testing Framework]]  }}
+{{SeeAlso|<br/>[[Using AutoTest]]  }}
 
 
 
