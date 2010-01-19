@@ -1,19 +1,14 @@
-[[Property:title|The Eiffel Testing Framework Interface]]
-[[Property:link_title|The AutoTest Interface]]
+[[Property:title|The AutoTest Interface]]
 [[Property:weight|0]]
 [[Property:uuid|6eec11df-9ea0-6834-d41b-a0c23b87c485]]
+[[Image:AutoTest interface annotated 01]]
 
 
-
-
-[[Image:Testing Framework interface annotated 01]]
-
-
-The Eiffel Testing Framework interface consists of four primary components: 
+The AutoTest interface consists of four primary components: 
 # The toolbar
-# The view filtering controls 
-# The tests view
-# The tabbed status and results reporting pane
+# The tests pane
+# The test filtering box 
+# The tabbed creation and results reporting pane
 
 ==Toolbar==
 
@@ -21,65 +16,99 @@ The toolbar allows you to create new tests using the '''[[#The New Eiffel test w
 
 The '''Create new tests''' command ( [[Image:Create new tests]] ) invokes the '''New Eiffel test wizard'''.
 
-The '''Run all tests in background''' command ( [[Image:debug-run-icon]] ) will, by default, run all tests. But if only certain tests are selected in the '''Tests''' list, then '''Run all tests in background''' will run only those tests. The '''Run all tests in background''' allows other options for running tests through its drop-down icon ( [[Image:toolbar-dropdown-icon]] ).
+The '''Run filtered tests''' command ( [[Image:debug-run-icon]] ) will, by default, run all tests that are visible in the Tests pane. Whether or not a test is visible depends upon any test [[#Filtering|filtering]] currently in effect. The '''Run filtered tests''' allows other options for running tests through its drop-down icon ( [[Image:toolbar-dropdown-icon]] ).
 
 
-[[Image:Testing Framework run all drop down]]
+[[Image:AutoTest run all drop down]]
 
 
-The '''Debug all tests in EiffelStudio''' command ( [[Image:Testing Framework debug all icon]] ) functions in a similar manner to '''Run all tests in background''' with the exception that each test is paused at its starting point in the EiffelStudio debugger. '''Debug all tests in EiffelStudio''' has a drop-down icon providing the same options as '''Run all tests in background'''.
+The '''Debug filtered tests''' command ( [[Image:AutoTest debug all icon]] ) functions in a similar manner to '''Run filtered tests''' with the exception that each test is paused at its starting point in the EiffelStudio debugger. '''Debug filtered tests''' has a drop-down icon providing the same options as '''Run filtered tests'''.
 
 
-[[Image:Testing Framework debug all drop down]]
+[[Image:AutoTest debug all drop down]]
 
 
-The '''Stop all execution''' command ( [[Image:debug-stop-icon]] ) will halt all tests which were started by the '''Run all tests in background''' or '''Debug all tests in EiffelStudio''' commands.
-
-
-==View Filtering==
-
-{{note|The development of this documentation section is currently on hold pending changes to the interface expected in an upcoming release. }}
+The '''Stop all test related tasks''' command ( [[Image:debug-stop-icon]] ) will halt all tests which were started by the '''Run filtered tests''' or '''Debug filtered tests''' commands.
 
 
 ==Tests==
 
-The Tests pane presents tests in one or more expandable tree views. The structures of the trees depend upon the criteria that you have specified for organizing the view. For example, if you look at tests based on the test classes in which they exist, the structure of the tree view(s) will reflect the clusters in which the test classes exist. 
+The Tests pane presents tests in one or more expandable tree views. The structures of the trees depend upon the [[#Filtering|filter]] criteria that you have specified for organizing the view. For example, if you look at tests based on the test classes in which they exist (tag root "''class''"), the structure of the tree view(s) will reflect the clusters in which the test classes exist. 
 
 
-[[Image:Testing Framework interface test view - class]]
+[[Image:AutoTest interface test view class]]
 
 
-Likewise, if you look at tests based on their target classes, the structure of the display will be based on the target classes.
+Likewise, if you look at tests based on their target classes (tag root "''covers''"), the structure of the display will be based on the target classes.
 
 
-[[Image:Testing Framework interface test view - covers]]
+[[Image:AutoTest interface test view covers]]
 
 
 Tests and test classes are pickable in the Tests pane.
 
 
-==Status and results==
+==Filtering==
 
-This pane supports a tabbed display that provides information about the execution and results of tests.
+The '''Filter''' box allows you to limit which tests are visible in the Tests pane (and, by consequence, the tests run when '''Run filtered tests''' is clicked) by entering filter text in the box and pressing the Enter key. Filter text can be a string of characters that is contained in a test class or test routine name, or it can be a [[Create a manual test#About Tags|tag]] or a portion of a tag hierarchy. 
 
-After execution or debugging, the tests executed and their status are shown in the '''Execution''' tab or the '''Debugging''' tab.
+In fact, filter text fully supports [http://www.regular-expressions.info/ regular expressions], so you can craft fine-grained filters.
 
-
-[[Image:Testing Framework interface results - Execution]]
-
-
-Double clicking a test in the '''Tests''' pane will switch the '''Status and results''' pane to the '''Results''' tab. This tab shows an expandable history of the executions and results of that particular test. 
+Clicking the '''Clear filter''' icon ( [[Image:general-reset-icon]] ) to the right of the filter box will clear any filter contents and enable the viewing of all tests. The Tests pane is depicted below after clicking the '''Clear filter''' icon and expanding some of the items:
 
 
-[[Image:Testing Framework interface results - Results]]
+[[Image:AutoTest tests pane null filter]]
 
 
-For failing executions, the failure code is shown, along with link to display the execution trace. 
+The '''Filter''' box has a drop down icon on its right end. By default this icon provides views of the tests in the Tests pane based on tag criteria. 
 
 
-[[Image:Testing Framework interface results - trace]]
+[[Image:AutoTest filter drop down]]
 
 
+The criteria are associated with the roots of their respective tag trees. So for example, if '''Results''' is chosen the Tests pane shows tests grouped by their latest results. 
+
+
+[[Image:AutoTest filter result]]
+
+
+{{note|The '''result''' tag hierarchy is, as you may have guessed, virtual and dynamic. A test falling into the '''fail''' subtree may later become part of the '''pass''' subtree without any change to the '''"testing:"''' notes in the test routine code, where tags are established. But for filtering purposes '''result''' tags work like other tags. }}
+
+
+If the '''fail''' subtree name were appended to the '''result''' filter, only the failed tests would be visible in the Tests pane:
+
+
+[[Image:AutoTest filter result fail]]
+
+
+If the filter text is a character string that occurs in a test name, test class name, or a tag path, tests with any match will be visible:
+
+
+[[Image:AutoTest filter withdraw]]
+
+
+==Results==
+
+This pane supports a tabbed display that provides information about the creation and execution of tests.
+
+After creation of one or more tests, the creation is logged under the '''Creation''' tab.
+
+After execution, the tests executed and the status of those tests are shown in the '''Execution''' tab.
+
+
+[[Image:AutoTest interface results execution]]
+
+
+After executing a set of tests, the Testing pane of the Outputs tool shows a chronology of the executions and the results of the tests executed. 
+
+
+[[Image:AutoTest testing pane execution results]]
+
+
+You can view more detail about a test's execution by clicking the '''Information''' icon ( [[Image:AutoTest information icon]] ) to the right of the test's entry in '''Results''' when the '''Execution''' tab is selected. 
+
+
+[[Image:AutoTest test results details]]
 
 
 

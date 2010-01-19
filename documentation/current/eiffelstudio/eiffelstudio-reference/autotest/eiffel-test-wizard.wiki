@@ -2,13 +2,11 @@
 [[Property:link_title|The Eiffel Test Wizard]]
 [[Property:weight|1]]
 [[Property:uuid|305a8288-cb6a-df2a-1515-e23138e21566]]
-
-
 ==Introduction==
 
-The '''New Eiffel test wizard''' creates new tests based on information entered by a developer on a series of wizard panes. Each of the three test types supported by the Eiffel Testing Framework requires certain unique information. Therefore, there is a unique sequence of wizard panes corresponding to each test type. 
+The '''New Eiffel test wizard''' creates new tests based on information entered by a developer on a series of wizard panes. Each of the three test types supported by AutoTest requires certain unique information. Therefore, there is a unique sequence of wizard panes corresponding to each test type. 
 
-The '''New Eiffel test wizard''' is invoked by clicking the '''Create new tests''' button ( [[Image:create new tests]] ) on the Eiffel Testing Framework interface toolbar. 
+The '''New Eiffel test wizard''' is invoked by clicking the '''Create new tests''' button ( [[Image:create new tests]] ) on the AutoTest interface toolbar. 
 
 
 
@@ -17,7 +15,7 @@ The '''New Eiffel test wizard''' is invoked by clicking the '''Create new tests'
 The first pane of the wizard allows you to choose which type of test(s) you wish to create.
 
 
-[[Image: New test wizard screen 01 01]]
+[[Image:AutoTest new test wizard 01 01]]
 
 
 ==The manual test wizard sequence==
@@ -32,7 +30,7 @@ Creating manual tests will involve using the following wizard panes. For a guide
 In this pane you provide a name and cluster for the test class that will be created. You can also indicate that the created class should include redefined versions of features <eiffel>on_prepare</eiffel> (called during preparation for test execution) and/or <eiffel>on_clean</eiffel> (called during clean-up after test execution).
 
 
-[[Image: New test wizard screen 02M 01]]
+[[Image: AutoTest new test wizard 02M 01]]
 
 
 ===The "Test routine" pane===
@@ -40,7 +38,7 @@ In this pane you provide a name and cluster for the test class that will be crea
 This pane gives you the ability to name the test, and to associate it with certain [[Create a manual test#About Tags|tags]].
 
 
-[[Image: New test wizard screen 03M 01]]
+[[Image: AutoTest new test wizard 03M 01]]
 
 
 For tags, there are two entry boxes with '''Add''' buttons to their right. You can use the top entry box to create entries for a tag system that you have developed. 
@@ -64,45 +62,43 @@ For extracted tests, the second pane to appear is the '''New test class''' pane.
 ===The "Extract application state" pane===
 
 
-[[Image:New test wizard screen 03E 01]]
+[[Image:AutoTest new test wizard 03E 01]]
 
 
 This pane provides a depiction of the current call stack. Choose the routine or routines for which you want extracted tests to be created.
 
 
-==The synthesized test wizard sequence==
+==The generated test wizard sequence==
 
 
-Creating synthesized tests will involve using the following wizard panes. For a guided tour of this process, see [[Using synthesized tests]].
+Creating generated tests will involve using the following wizard panes. For a guided tour of this process, see [[Using generated tests]].
 
 
 ===The "New test class" pane===
 
 
-[[Image:New test wizard screen 02S 01]]
+[[Image:AutoTest new test wizard 02S 01]]
 
 
-This pane appears slightly different for synthesized tests versus manual or extracted tests. The class name is actually a prefix upon which a numeric index will be appended. The index is depicted to the right of the entry box. 
+This pane appears slightly different for generated tests versus manual or extracted tests. The class name is actually a prefix upon which a numeric index will be appended. The index is depicted to the right of the entry box. 
 
 
 ===The "Generate tests through AutoTest" pane===
 
 
-[[Image:New test wizard screen 03S 01]]
+[[Image:AutoTest new test wizard 03S 01]]
 
 
-On this pane enter the information needed to produce synthesized tests. Use the '''Class or type name''' entry box in the lower left, along with the <code>+</code> and <code>-</code> buttons, to declare a list of one or more classes as target classes for synthesized tests. 
+On this pane enter the information needed to produce generated tests. Use the '''Class or type name''' entry box in the lower left, along with the <code>+</code> and <code>-</code> buttons, to declare a list of one or more classes as target classes for generated tests. 
 
-Other information necessary for creating synthesized tests is:
+Other information necessary for creating generated tests is:
 
-*'''Cutoff (minutes)''' -- How long the Eiffel Testing Framework will execute random invocations of the routines in the classes to be tested, specified in minutes.
-*'''Cutoff (invocations)''' -- How long the Eiffel Testing Framework will execute random invocations of the routines in the classes to be tested, specified by invocation count.
-*'''Routine timeout (seconds)''' -- How long the Framework will wait for completion of any invocation.
-*'''Random number generation seed''' -- The seed used for random number generator used during the process. A value of zero instructs the Framework to use a seed derived from the system clock.
-*'''Use slicing for minimization''' -- Designate '''slicing''' as the approach for minimizing the size of synthesized tests.
-*'''Use ddmin for minimization''' -- Designate '''ddmin''' as the approach for minimizing the size of synthesized tests.
+*'''Cutoff (minutes)''' -- How long AutoTest will execute random invocations of the routines in the classes to be tested, specified in minutes.
+*'''Cutoff (invocations)''' -- How long AutoTest will execute random invocations of the routines in the classes to be tested, specified by invocation count.
+*'''Routine timeout (seconds)''' -- How long AutoTest will wait for completion of any invocation.
+*'''Random number generation seed''' -- The seed used for random number generator used during the process. A value of zero instructs AutoTest to use a seed derived from the system clock.
+*'''Use slicing for minimization''' -- Designate '''slicing''' as the approach for minimizing the size of generated tests.
+*'''Use ddmin for minimization''' -- Designate '''ddmin''' as the approach for minimizing the size of generated tests.
 *'''Create html output''' -- Output history and statistics from the synthesizing process in html format.
-
-
 
 

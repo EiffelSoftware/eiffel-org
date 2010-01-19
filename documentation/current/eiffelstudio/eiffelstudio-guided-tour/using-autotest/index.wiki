@@ -1,18 +1,18 @@
-[[Property:title|Using the Eiffel Testing Framework]]
-[[Property:link_title|Using AutoTest]]
+[[Property:title|Using AutoTest]]
 [[Property:weight|-1]]
 [[Property:uuid|6b900a65-85c6-9cd6-ef57-ccd4b8decbef]]
 ==Introduction==
 
-The Eiffel Testing Framework is a tool that helps you to create, manage, and run tests against your software. The Eiffel Testing Framework is accessible directly as a part of EiffelStudio, but works to a large extent behind the scenes so that it doesn't get in the way of your development activities. In other words, even though you may be accumulating a substantial collection of test software along with your project software, you can still run and deliver your project software without going to a lot of trouble to separate the two. Tests managed by the Eiffel Testing Framework stay handy and can be run any time to help make sure everything always stands up to the scrutiny of testing. 
+AutoTest is a tool that helps you to create, manage, and run tests against your software. AutoTest is accessible directly as a part of EiffelStudio, but works to a large extent behind the scenes so that it doesn't get in the way of your development activities. In other words, even though you may be accumulating a substantial collection of test software along with your project software, you can still run and deliver your project software without going to a lot of trouble to separate the two. Tests managed by AutoTest stay handy and can be run any time to help make sure everything always stands up to the scrutiny of testing. 
 
-This tutorial will guide you through the use of the Eiffel Testing Framework. A [[The Eiffel Testing Framework|reference section]] for the Framework is also available.
-
-
-{{note|It is recommended, at least on your first viewing of this tutorial, that you take the sections in the order in which they are presented. There are three different types of tests supported by the Eiffel Testing Framework. Each type of test is discussed on its own page. But to avoid repetition, the pages for the second and third types of tests omit some of the detail in the first and assume a familiarity with the example.  }}
+This tutorial will guide you through the use of AutoTest. A [[AutoTest|reference section]] for AutoTest is also available.
 
 
-{{SeeAlso|<br />[[The Eiffel Testing Framework]] reference }} 
+{{note|It is recommended, at least on your first viewing of this tutorial, that you take the sections in the order in which they are presented. There are three different types of tests supported by AutoTest. Each type of test is discussed on its own page. But to avoid repetition, the pages for the second and third types of tests omit some of the detail in the first and assume a familiarity with the example.  }}
+
+
+{{SeeAlso|<br />[[AutoTest]] reference }} 
+
 
 
 
