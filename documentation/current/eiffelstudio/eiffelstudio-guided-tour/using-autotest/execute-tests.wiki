@@ -1,13 +1,13 @@
 [[Property:title|Execute tests]]
 [[Property:weight|3]]
 [[Property:uuid|d0515cb1-0792-3028-2a24-a71b56506959]]
-
-
-In the previous section we coded a manually created test. The Eiffel Testing Framework will allow us to execute that test, or, in more practical terms, any set of tests that we select. But before we execute our test, let's take a look at what we will get out of such an execution.  
+In the previous section we coded a manually created test. AutoTest will allow us to execute that test, or, in more practical terms, any set of tests that we select. But before we execute our test, let's take a look at what we will get out of such an execution. 
 
 ==About test results==
 
-When the Eiffel Testing Framework executes a test, the result will be one of only three possibilities:
+It is important to understand that for AutoTest, test results are solely determined by whether an exception occurs during the execution of a test, and, in cases in which an exception does occur, what kind of exception it is. So, with AutoTest, it is not necessary for you to write anything special into a test that propagates the test's results.
+
+When AutoTest executes a test, the result will be one of only three possibilities:
 # The test is '''successful'''
 # The test is '''failing'''
 # The test result is '''unresolved'''
@@ -30,24 +30,31 @@ Failing tests and unresolved test results both mean that an exception occurred d
 When we execute our test <code>{TEST_BANK_ACCOUNT}.test_deposit_01</code>, we know that <code>test_deposit_01</code> will make a call to <code>{BANK_ACCOUNT}.deposit</code>. If the exception occurs during the execution of a target routine (i.e., in <code>{BANK_ACCOUNT}.deposit</code>), then the test is considered failing. If the exception occurs anywhere else in the execution of <code>{TEST_BANK_ACCOUNT}.test_deposit_01</code>, then the test is considered to have an unresolved result. 
 
 
-{{note|Be aware that some early versions of the Eiffel Testing Framework reported some unresolved test results as failing tests. }}
+{{note|Be aware that some early versions of AutoTest reported some unresolved test results as failing tests. }}
 
 This behavior can be helpful to us as testers. A failing test indicates that there is something amiss in the target routine. The routine has not completed in a state that satisfies its postcondition and class invariant, or is dealing with an unresolved exception from some routine that it has called. An unresolved test result indicates that something is amiss in our test. Something went wrong in the setup or cleanup of the test or perhaps the test called a target routine from a state that did not satisfy the target routine's precondition.
 
 
+==Refreshing the test suite==
+
+In the last section, we created a manual test. The AutoTest tool shows us a log of that action in the Creation tab of the lower pane. So, now the tool should look something like this:
+
+[[Image:AutoTest tool Creation and Refresh 01]]
+
+To make the new test visible in the upper pane, we refresh the test suite by clicking the refresh button ( [[Image:refresh-icon]] ) indicated by the cursor in the screenshot above. 
+
+{{tip|You can force the test suite to be refreshed automatically after each compile by clicking the triangle to the right of the refresh button and checking the '''Refresh after compilation''' option in the list. }}
+
+
 ==Test execution==
 
-Let's return now to the Eiffel Testing Framework interface so that we can execute the test we wrote earlier. 
+After refreshing the test suite, the new test becomes visible in the top pane of the AutoTest tool. 
 
 
-[[Image:Testing Framework interface 01]]
+[[Image:AutoTest interface 01]]
 
 
-Here you see under "Tests" the project cluster <code>bank_account</code>, the test cluster <code>tests</code>, the test class <code>TEST_BANK_ACCOUNT</code>, and the test <code>test_deposit_01</code>. 
-
-
-{{note|If you've been working along in EiffelStudio, and you don't see this display, then go to the View combo box and type in "class" as shown in the pane above and press enter. Later we will see more about using the View and Filter boxes. }}
-
+Here you see under "Tests" the project cluster <code>accounts</code>, the test cluster <code>tests</code>, the test class <code>TEST_BANK_ACCOUNT</code>, and the test <code>test_deposit_01</code>. 
 
 You see that the '''Status''' of <code>test_deposit</code> is "not tested", and that the '''Last executed''' date is empty.
 
@@ -55,16 +62,16 @@ To execute tests we use the "Run" button ( [[Image:debug-run-icon]] ) on the int
 
 ==Examining test results==
 
-The test runs in background and the Eiffel Testing Framework interface now looks like this:
+The test runs in background and the AutoTest interface now looks like this:
 
 
-[[Image:Testing Framework interface after run 01]]
+[[Image:AutoTest interface after run 01]]
 
 
-It's pretty clear that our test has failed. Its status is now marked with the Failing icon ( [[Image:general-error-icon]] ) and in the box below the '''Execution''' tab we see that the status also includes a tag: <code>balance_increased</code>. To get a more detailed analysis, we can double-click the test in the '''Tests''' box. 
+It's pretty clear that our test has failed. Its status is now marked with the Failing icon ( [[Image:general-error-icon]] ) and in the box below the '''Execution''' tab we see that the status also includes a tag: <code>balance_increased</code>. More detail is provided in the Testing pane of the Outputs tool, as shown below.
 
 
-[[Image:Testing Framework interface after run 02]]
+[[Image:AutoTest Testing pane after run 01]]
 
 
 We see that <code>balance_increased</code> is a postcondition tag on the target routine <code>{BANK_ACCOUNT}.deposit</code>. Upon examination of the code:
@@ -94,20 +101,19 @@ we realize that there is no implementation here. So we add the code to implement
 After compiling, we execute the test again, and view the result:
 
 
-[[Image:Testing Framework interface after run 03]]
+[[Image:AutoTest interface after run 03]]
 
 
 This time we see that the test is successful, as indicated by the Success icon ( [[Image:general-tick-icon]] ) in the Status column. 
 
 ==The beginnings of a test suite==
 
-Of course we would not have had to use the Eiffel Testing Framework to find that bug in <code>{BANK_ACCOUNT}.deposit</code>. We could have just written a simple class to exercise instances of <code>BANK_ACCOUNT</code> and truth would have come out. 
+Of course we would not have had to use AutoTest to find that bug in <code>{BANK_ACCOUNT}.deposit</code>. We could have just written a simple class to exercise instances of <code>BANK_ACCOUNT</code> and truth would have come out. 
 
-The advantage of using the Eiffel Testing Framework is that the test that we wrote to cover <code>{BANK_ACCOUNT}.deposit</code> can stay with us throughout the lifecycle of class <code>BANK_ACCOUNT</code>. We can expand the <code>TEST_BANK_ACCOUNT</code> with additional manual tests and run them after every development increment to ensure that all tests that were once successful are still successful. 
+The advantage of using AutoTest is that the test that we wrote to cover <code>{BANK_ACCOUNT}.deposit</code> can stay with us throughout the lifecycle of class <code>BANK_ACCOUNT</code>. We can expand the <code>TEST_BANK_ACCOUNT</code> with additional manual tests and run them after every development increment to ensure that all tests that were once successful are still successful. 
 
 ==Manual test summary==
 
-We have seen how to create and execute a manual test. You will find that manual tests form the backbone of your test suite. But there are two other types of tests available in the Eiffel Testing Framework. Next let's take a look at these test types and in what ways they can be used.
-
+We have seen how to create and execute a manual test. You will find that manual tests form the backbone of your test suite. But there are two other types of tests available in AutoTest. Next let's take a look at these test types and in what ways they can be used.
 
 
