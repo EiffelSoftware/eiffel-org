@@ -1,94 +1,95 @@
-[[Property:title|Using synthesized tests]]
-[[Property:link_title|Using generated tests]]
+[[Property:title|Using generated tests]]
 [[Property:weight|7]]
 [[Property:uuid|c17ebddf-5d35-76c1-4912-d9f1ca3770a5]]
-==About synthesized tests==
+==About generated tests==
 
-Synthesized tests fill a different role from either extracted or manual tests. The idea behind synthesized tests is that because we specify software through its contracts, and because compliance of the software to those contracts can be actively monitored at runtime, we can know two things necessary for building tests:
+Generated tests fill a different role from either extracted or manual tests. The idea behind generated tests is that because we specify software through its contracts, and because compliance of the software to those contracts can be actively monitored at runtime, we can know two things necessary for building tests:
 #For any routine, what argument values are valid 
 #For the execution of any routine, what resulting states are acceptable
 
-The first bit of knowledge comes from the ''preconditions'' of target routines. The second comes from ''postconditions'' of target routines and the ''invariants'' of target classes. Armed with this knowledge, we should be able to generate a series of invocations target routines using random (but valid) argument values, and evaluate the results. This is what is done by an internal facility of the Eiffel Testing Framework that builds synthesized tests (this facility is often referred to as AutoTest). After many of these randomly generated invocations, the Eiffel Testing Facility attempts to synthesize the results of these feature calls into new test classes. The tests in these new test classes contain the calls leading up and including calls that fail. 
+The first bit of knowledge comes from the ''preconditions'' of target routines. The second comes from ''postconditions'' of target routines and the ''invariants'' of target classes. Armed with this knowledge, we should be able to generate a series of invocations target routines using random (but valid) argument values, and evaluate the results. This is what is done by an internal facility of AutoTest that builds generated tests (this facility is often also referred to as AutoTest). After many of these randomly generated invocations, the Eiffel Testing Facility attempts to synthesize the results of these feature calls into new test classes. The tests in these new test classes contain the calls leading up and including calls that fail. 
 
-You may look at a synthesized test class and think that it seems to be very long and to contain lots of stuff that you doubt is relevant. This is a fair assessment. The processes that the Eiffel Testing Framework uses to build synthesized tests are constantly being improved. But for now, synthesized tests, although useful, are not always things of extraordinary beauty. 
+You may look at a generated test class and think that it seems to be very long and to contain lots of stuff that you doubt is relevant. This is a fair assessment. The processes that AutoTest uses to build generated tests are constantly being improved. But for now, generated tests, although useful, are not always things of extraordinary beauty. 
 
-So for the time being, unlike manual and extracted tests, you should not make synthesized tests a part of your permanent test suite. Rather, you should consider them a disposable means to an end. Use each synthesized test as a guide for building an effective and readable manual test. 
-
-
-==Creating synthesized tests==
-
-If you've been through the discussion of the creation of [[Create a manual test|manual]] and [[Using extracted tests|extracted]] tests, then it should come as no surprise to learn that you use the '''New Eiffel test wizard''' to create synthesized tests. And much of this process will seem familiar now. 
-
-In the first pane, choose the radio button labeled '''Synthesized test using AutoTest'''. Then click '''Next'''. 
-
-The second pane is the now familiar pane that asks you to provide a class name for the new test class and designate a cluster for it. In the case of synthesized tests, the class name you enter is actually a prefix, that will have a sequential number appended to it. This means that for the <code>BANK_ACCOUNT</code> example, if we might choose a test class name like <code>TEST_BANK_ACCOUNT_SYNTHESIZED</code>, the first test class with that prefix would be named <code>TEST_BANK_ACCOUNT_SYNTHESIZED_001</code>:
+So for the time being, unlike manual and extracted tests, you should not make generated tests a part of your permanent test suite. Rather, you should consider them a disposable means to an end. Use each generated test as a guide for building an effective and readable manual test. 
 
 
-[[Image:New test wizard screen 02S 01]]
+==Creating generated tests==
+
+If you've been through the discussion of the creation of [[Create a manual test|manual]] and [[Using extracted tests|extracted]] tests, then it should come as no surprise to learn that you use the '''New Eiffel test wizard''' to create generated tests. And much of this process will seem familiar now. 
+
+In the first pane, choose the radio button labeled '''Generated tests'''. Then click '''Next'''. 
+
+The second pane is the now familiar pane that asks you to provide a class name for the new test class and designate a cluster for it. In the case of generated tests, the class name you enter is actually a prefix, that will have a sequential number appended to it. This means that for the <code>BANK_ACCOUNT</code> example, if we might choose a test class name like <code>TEST_BANK_ACCOUNT_GENERATED</code>, the first test class with that prefix would be named <code>TEST_BANK_ACCOUNT_GENERATED_001</code>:
 
 
-In the third pane, you are asked to configure certain options for the generation of synthesized tests: 
+[[Image:AutoTest new test wizard 02S 01]]
 
 
-[[Image:New test wizard screen 03S 01]]
+In the third pane, you are asked to configure certain options for the generation of generated tests: 
 
 
-This is where you declare target class(es) for the synthesized tests. You type a class name into the box labeled '''Class or type name''' and click the "'''+'''" button to added it to the list. Of course you can remove an item from the list by selecting it and clicking "'''-'''".
-
-On the right side of the pane you can configure certain options for the synthesizing process.
-
-'''Cutoff (minutes)''' lets you specify a number of minutes for the Eiffel Testing Framework to run random invocations of the routines in your target class(es).
-
-'''Cutoff (invocations)''' lets you control how long the Eiffel Testing Framework will run random invocations by declaring a specific number of invocations.
-
-'''Routine timeout''' sets an upper limit on how long the Testing Framework will wait for a random feature call to complete.
-
-'''Random number generation seed''' provides a way for you to control the seeding of the random number generator used by the Framework. When the value is '''0''', as shown here, the seed is created from the system clock. This is adequate in most cases, but this option is provided because there might be some cases in which you would want to try to reproduce a previous test generation run. And to do that, you would have to set the seed to the same value for multiple runs.
-
-The two check boxes '''Use slicing for minimization''' and '''Use ddmin for minimization''' allow you to select the approach that you want to use for minimizing the size of synthesized tests. Generally, the default value here is adequate. '''Slicing''' and '''ddmin''' are two different ways of doing minimization. Tests are synthesized after running many randomly generated calls to routines in your target class. Tests are generated for calls that fail. So, there may have been many randomized calls leading up to the failed call. Minimization helps to eliminate the majority of the unrelated randomly generated calls, leaving the test code as short as possible. You will notice that minimization processing is memory and processor intensive. 
-
-The last check box, '''Create HTML output''' give you the option of having the Eiffel Testing Framework record the results of a synthesizing run in a set of files that you can review with a web browser. When the synthesizing run completes, you will see a dialog box that directs you to the location of the results:
+[[Image:AutoTest new test wizard 03S 01]]
 
 
-[[Image:Testing Framework synthesized complete dialog]]
+This is where you declare target class(es) for the generated tests. You type a class name into the box labeled '''Class or type name''' and click the "'''+'''" button to added it to the list. Of course you can remove an item from the list by selecting it and clicking "'''-'''".
+
+On the right side of the pane you can configure certain options for the test generation process.
+
+'''Cutoff (minutes)''' lets you specify a number of minutes for AutoTest to run random invocations of the routines in your target class(es).
+
+'''Cutoff (invocations)''' lets you control how long AutoTest will run random invocations by declaring a specific number of invocations.
+
+'''Routine timeout''' sets an upper limit on how long AutoTest will wait for a random feature call to complete.
+
+'''Random number generation seed''' provides a way for you to control the seeding of the random number generator used by AutoTest. When the value is '''0''', as shown here, the seed is created from the system clock. This is adequate in most cases, but this option is provided because there might be some cases in which you would want to try to reproduce a previous test generation run. And to do that, you would have to set the seed to the same value for multiple runs.
+
+The two check boxes '''Use slicing for minimization''' and '''Use ddmin for minimization''' allow you to select the approach that you want to use for minimizing the size of generated tests. Generally, the default value here is adequate. '''Slicing''' and '''ddmin''' are two different ways of doing minimization. Tests are generated after running many randomly generated calls to routines in your target class. Tests are generated for calls that fail. So, there may have been many randomized calls leading up to the failed call. Minimization helps to eliminate the majority of the unrelated randomly generated calls, leaving the test code as short as possible. You will notice that minimization processing is memory and processor intensive. 
+
+The last check box, '''Create HTML output''' give you the option of having AutoTest record the results of a test generation run in a set of files that you can review with a web browser. 
+
+During the test generation you can watch the random invocations of your class's routines being logged in the Testing pane of the Outputs tool. When the generation completes, AutoTest directs you to the location of the results:
 
 
-To view the result summary, navigate to the <code>result</code> subdirectory of the directory shown in the dialog, then open the file <code>index.html</code> with your browser.
+[[Image:AutoTest testing pane after generation]]
 
 
-{{note|The <code>result</code> directory includes files that summarize the whole synthesized testing process. Some of these are lengthy because they contain information on test cases used for each target routine.  }}
+The file <code>statistics.txt</code> contains a summary of the generation run. If you enabled '''Create HTML output''' you can open the file <code lang="text">index.html</code> with your browser and view formatted summary and detail information.
 
 
-In fact, if we try to synthesize tests on the class <code>BANK_ACCOUNT</code> in which we have already fixed two bugs after the manual and extracted tests, we will see something about like the following results:
+{{note|The '''result''' directory includes files that summarize the whole generated testing process. Some of these are lengthy because they contain information on test cases used for each target routine.  }}
 
 
-[[Image:Testing Framework synthesized results pass]]
+If we try to generate tests on the class <code>BANK_ACCOUNT</code> in which we have already fixed two bugs after the manual and extracted tests, we will see something about like the following results:
 
 
-The important thing to notice here is the status: '''pass'''. There were no randomly generated cases that failed. So every valid invocation of a routine for class <code>BANK_ACCOUNT</code> completed satisfactorily. Therefore, no synthesized test class was created.
-
-If we re-introduce the bug into the <code>deposit</code> procedure of class <code>BANK_ACCOUNT</code> (i.e., Remove this line of code: <code>balance := balance + an_amount</code>), and then request synthesized tests again, we get different results:
+[[Image:AutoTest generated results pass]]
 
 
-[[Image:Testing Framework synthesized results fail]]
+The important thing to notice here is the status: '''pass'''. There were no randomly generated cases that failed. So every valid invocation of a routine for class <code>BANK_ACCOUNT</code> completed satisfactorily. Therefore, no generated test class was created.
+
+If we re-introduce the bug into the <code>deposit</code> procedure of class <code>BANK_ACCOUNT</code> (i.e., Remove this line of code: <code>balance := balance + an_amount</code>), and then request generated tests again, we get different results:
 
 
-This time, as we expected, failures were encountered. And a synthesized test class was created. 
+[[Image:AutoTest generated results fail]]
 
 
-==A look at a synthesized test==
+This time, as we expected, failures were encountered. And a generated test class was created. 
 
 
-The synthesized test class looks like this:
+==A look at a generated test==
+
+
+The generated test class looks like this:
 
 
 <code>
 note
-    description: "Synthesized test created by AutoTest."
+    description: "Generated test created by AutoTest."
     author: "Testing tool"
 
 class
-    TEST_BANK_ACCOUNT_SYNTHESIZED_001
+    TEST_BANK_ACCOUNT_GENERATED_001
 	
 inherit
     EQA_SYNTHESIZED_TEST_SET
@@ -121,15 +122,15 @@ end
 </code> 
 
 
-{{note|If you've been following along by the doing these examples in EiffelStudio, you may notice that your synthesized class looks slightly different. }}
+{{note|If you've been following along by the doing these examples in EiffelStudio, you may notice that your generated class looks slightly different. }}
 
 
 This test is written in a way that is a little different from both the manual test we wrote and the extracted test. But it's not too hard to figure out what's going on. An object of type <code>BANK_ACCOUNT</code> will be created (local <code>v_6</code>) and the <code>deposit</code> feature will be applied to it with an argument value of <code>3</code> (local <code>v_7</code>). 
 
-You can see that this test, although it is implemented differently, is about the same as the manual test we wrote covering <code>{BANK_ACCOUNT}.deposit</code>. Because we have re-introduced the bug in <code>BANK_ACCOUNT</code>, if we run all tests, we see that both our manual test and the synthesized test are failing ... only the extracted test covering <code>{BANK_ACCOUNT}.withdraw</code> is successful:
+You can see that this test, although it is implemented differently, is about the same as the manual test we wrote covering <code>{BANK_ACCOUNT}.deposit</code>. Because we have re-introduced the bug in <code>BANK_ACCOUNT</code>, if we run all tests, we see that both our manual test and the generated test are failing ... only the extracted test covering <code>{BANK_ACCOUNT}.withdraw</code> is successful:
 
 
-[[Image:Testing Framework interface after run 05]]
+[[Image:AutoTest interface after run 05]]
 
 
 If we replace the implementation for <code>{BANK_ACCOUNT}.deposit</code> that we had removed, and then re-execute the tests, all are successful.
