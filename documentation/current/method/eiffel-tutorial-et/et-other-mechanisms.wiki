@@ -153,7 +153,7 @@ Because of the call to <code>some_feature</code>, the routine will only work if 
 but this is not the only possible scheme; for example if an <code>create x</code> appears shortly before the call we know <code>x</code> is not void and do not need the protection. It is a good idea in such cases to use a <code>check</code> instruction to document this property, if only to make sure that a reader of the code will realize that the omission of an explicit test (justified or not) was not a mistake. This is particularly appropriate if the justification for not testing the precondition is less obvious. For example <code>x</code> could have been obtained, somewhere else in the algorithm, as <code>clone (y)</code> for some <code>y</code> that you know is not void. You should document this knowledge by writing the call as 
 <code>
             check
-                x_not_void: x /= Void end
+                x_not_void: x /= Void
                     -- Because x was obtained as a clone of y,
                     -- and y is not void because [etc.]
             end
