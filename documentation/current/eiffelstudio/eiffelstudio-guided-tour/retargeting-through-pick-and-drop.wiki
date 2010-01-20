@@ -7,7 +7,7 @@ You now know quite a few ways of re-targeting a Development Window to a "develop
 
 We restart from the last state, with a Development Window target to feature <code>forth</code> of class <code>LIST</code>. The next figure shows the whole window; it should be exactly what you see as a result of the last operations. We'll use the <code>Ancestor versions</code> view of the <code lang=text>Feature </code>Tab. 
 
-If for some reason the window doesn't look like the next figure, it's easy to reconstruct it: make sure both the Cluster tree and the Feature tree are visible (if not, click the corresponding buttons as detailed [[CLASS VIEWS|here]] ); target the tool to class <code>LIST</code> ; target further to its feature <code>forth</code> by clicking that feature name in the Feature tree; make sure both the top-right Editing Tool and the bottom-right Context Tool are visible; in the Context Tool, select the <code lang=text>Feature</code> Tab and its <code>Descendant versions </code>format. 
+If for some reason the window doesn't look like the next figure, it's easy to reconstruct it: make sure both the Cluster tree and the Feature tree are visible (if not, click the corresponding buttons as detailed in [[Viewing Classes]]); target the tool to class <code>LIST</code> ; target further to its feature <code>forth</code> by clicking that feature name in the Feature tree; make sure both the top-right Editing Tool and the bottom-right Context Tool are visible; in the Context Tool, select the <code lang=text>Feature</code> Tab and its <code>Descendant versions </code>format. 
 
 [[Image:index-60]]
 
