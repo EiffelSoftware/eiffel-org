@@ -52,7 +52,7 @@ Tests and test classes are pickable in the Tests pane.
 
 The '''Filter''' box allows you to limit which tests are visible in the Tests pane (and, by consequence, the tests run when '''Run filtered tests''' is clicked) by entering filter text in the box and pressing the Enter key. Filter text can be a string of characters that is contained in a test class or test routine name, or it can be a [[Create a manual test#About Tags|tag]] or a portion of a tag hierarchy. 
 
-In fact, filter text fully supports [http://www.regular-expressions.info/ regular expressions], so you can craft fine-grained filters.
+In fact, filter text fully supports [http://www.regular-expressions.info/ regular expressions], so you can craft more complex and precise filters. (You will notice below when the '''Results''' choice is selected from the Filter box drop-down, that the filter text used is the regular expression "<code lang="text">^result</code>".)
 
 Clicking the '''Clear filter''' icon ( [[Image:general-reset-icon]] ) to the right of the filter box will clear any filter contents and enable the viewing of all tests. The Tests pane is depicted below after clicking the '''Clear filter''' icon and expanding some of the items:
 

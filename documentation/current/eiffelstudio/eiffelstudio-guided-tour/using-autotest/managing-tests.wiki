@@ -69,8 +69,8 @@ Notice that the Filter box has a drop-down with a list of options:
 These options are shortcuts to the various tag roots listed above: 
 
 #'''Test classes''' displays the sub-tree under the tag root '''class'''
-#'''Results''' displays the sub-tree under the tag root '''result'''
 #'''Classes under test''' displays the sub-tree under the tag root '''covers'''
+#'''Results''' displays the sub-tree under the tag root '''result'''
 #'''User-defined tags''' displays the sub-tree under the tag root '''user'''
 
 
