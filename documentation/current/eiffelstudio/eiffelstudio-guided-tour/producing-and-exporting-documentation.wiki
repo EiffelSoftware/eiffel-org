@@ -144,7 +144,7 @@ The class bubbles in a diagram are all hyperlinks. To see the HTML documentation
 
 The display shows key information on the class, in a form called the "Chart format" listing the ancestors and then the features, divided into <code>Queries</code> (shown in part on the figure) and <code>Commands</code>. Note that all class names and feature names are hyperlinks, which would lead you to the appropriate place in a class text. 
 
-The top row of hyperlinks now includes class formats corresponding to those we discovered under EiffelStudio ( [[CLASS VIEWS|"CLASS VIEWS"]] ): <code>Relations</code> (covering ancestors, descendants, clients, suppliers, ), full <code>Text</code>, <code>Contracts</code>, <code>Flat contracts</code>. Click <code>Flat contracts</code> to see the full interface of the class: 
+The top row of hyperlinks now includes class formats corresponding to those we discovered in [[Viewing Classes]] in EiffelStudio: <code>Relations</code> (covering ancestors, descendants, clients, suppliers, ), full <code>Text</code>, <code>Contracts</code>, <code>Flat contracts</code>. Click <code>Flat contracts</code> to see the full interface of the class: 
 
 [[Image:index-49]]
 
