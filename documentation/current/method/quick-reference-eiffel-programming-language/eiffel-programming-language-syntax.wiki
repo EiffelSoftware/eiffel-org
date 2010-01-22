@@ -44,7 +44,7 @@ A string -- specimen of construct String -- is a sequence of zero or more manife
 
 ===Simple strings===
 
-A simple string -- specimen of Simple_string -- is a [[#Strings|String]] consisting of at most one line (that is to say, containing now embedded new-line manifest character).
+A simple string -- specimen of Simple_string -- is a [[#Strings|String]] consisting of at most one line (that is to say, containing no embedded new-line manifest character).
 
 ===Line wrapping parts===
 
