@@ -40,7 +40,7 @@ No intervening character (blank or otherwise) is permitted between these element
 
 ===Strings===
 
-A string -- specimen of construct String -- is a sequence of zero or more manifest characters.
+A string -- specimen of construct String -- is a sequence of zero or more manifest characters, possibly containing [[#Special characters|codes for special characters]].
 
 ===Simple strings===
 
@@ -547,5 +547,53 @@ Digit_sequence ::= Digit+ <br/>
 Digit ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"  | <br/>
 "a" | "b" | "c" | "d" | "e" | "f" | <br/>
 "A" | "B" | "C" | "D" | "E" | "F" | "_"<br/>
+<br/>
+===Special characters===
 
+{| border="2"
+|+ Special Characters and Their Codes
+! Character || Code || Mnemonic name
+|-
+| @ || %A || At-sign
+|-
+| BS || %B || Backspace
+|-
+| ^ || %C || Circumflex
+|-
+| $ || %D || Dollar
+|-
+| FF || %F || Form feed
+|-
+| \ || %H || Backslash
+|-
+| ~ || %L || Tilde
+|-
+| NL (LF) || %N || Newline
+|-
+| ` || %Q || Backquote
+|-
+| CR || %R || Carriage return
+|-
+| # || %S || Sharp
+|-
+| HT || %T || Horizontal tab
+|-
+| NUL || %U || Null
+|-
+| <nowiki>|</nowiki> || %V || Vertical bar
+|-
+| % || %% || Percent
+|-
+| ' || %' || Single quote
+|-
+| " || %" || Double quote
+|-
+| [ || %( || Opening bracket
+|-
+| ] || %) || Closing bracket
+|-
+| { || %< || Opening brace
+|-
+| } || %> || Closing brace
+|}
 
