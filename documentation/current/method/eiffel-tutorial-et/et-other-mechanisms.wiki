@@ -42,7 +42,7 @@ It is also possible to declare constant attributes, as in
 
 These will have the same value for every instance and hence do not need to occupy any space in objects at execution time. (In other approaches similar needs would be addressed by symbolic constants, as in Pascal or Ada, or macros, as in C.)
 
-What comes after the <code>=</code> is a manifest constant: a self-denoting value of the appropriate type. Manifest constants are available for integers, reals (also used for doubles), booleans ( <code>True</code> and <code>False</code>), characters (in single quotes, as <code>'A'</code>, with special characters expressed using a percent sign as in <code>'%N'</code> for new line, <code>'%B'</code> for backspace and <code>'%U'</code> for null). 
+What comes after the <code>=</code> is a manifest constant: a self-denoting value of the appropriate type. Manifest constants are available for integers, reals (also used for doubles), booleans ( <code>True</code> and <code>False</code>), characters (in single quotes, as <code>'A'</code>, with [[Eiffel language syntax#Special characters|special characters]] expressed using a percent sign as in <code>'%N'</code> for new line, <code>'%B'</code> for backspace, <code>'%"'</code> for double quote, and <code>'%U'</code> for null). 
 
 Manifest constants are also available for strings, using double quotes as in
 <code>
