@@ -1,11 +1,9 @@
 [[Property:title|Community]]
 [[Property:weight|2]]
 [[Property:uuid|75c75712-7c3e-2757-51b7-77b404471e2e]]
+==You can become a  contributor!==
+
 Eiffel is a community. Members of the Eiffel community can contribute to this documentation through this book.
-
-
-:'''You can become a contributor!'''
-
 
 EiffelStudio documentation is available in a convenient Wiki format. This makes it possible to improve the documentation continuously and make sure it is always up to date.
 
@@ -19,4 +17,13 @@ Community input is welcome. If you are interested in improving and developing Ei
 To become a contributor, you should be proficient in Eiffel technology and have good written English skills. To become an editor, you should already be a contributor and have contributed significant improvements or additions to the documentation.
 
 If you are interested in becoming a contributor, you can [[path:user/register|register]] for an account, and then please [[path:contact|contact us]] with a short description of your Eiffel experience and any other relevant background.
+
+==Some guidelines for contributors==
+
+# '''Entering log messages:''' When you change pages in the documentation, it can help sometimes if you can provide an explanation of your intent in the '''Log message''' box on the '''Edit''' page. This can eliminate confusion about why things have been changed. Of course, it is not necessary to provide a log message for every change. For fixing typographical errors or other simple changes, it generally would not be necessary. Likewise, if you are evolving new pages or a complex set of related changes to one or more pages, it should suffice to enter a single log message at the beginning of the series of edits. Use common sense here.
+## In cases in which a change is directly related to an external document or policy, it may be helpful to mention the impetus in the log message. For example, documentation changes made to satisfy Eiffel Software problem reports should reference the report in the log message.
+# '''Renaming pages or moving pages to Trash:''' Before you rename a page or move it to the Trash, you should use the '''References''' tab to make certain that there are no current references to the page. If there are, make sure you resolve those references before renaming or moving the page.
+
+
+
 
