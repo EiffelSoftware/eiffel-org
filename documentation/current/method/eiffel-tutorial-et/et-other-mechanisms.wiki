@@ -102,14 +102,14 @@ The loop construct has the form
 <code>
             from
                 initialization
-            until
-                exit
             invariant
                 inv
-            variant
-                var
+            until
+                exit
             loop
                 body
+            variant
+                var
             end
 </code>
 
