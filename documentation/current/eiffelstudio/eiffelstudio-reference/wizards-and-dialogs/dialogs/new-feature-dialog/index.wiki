@@ -1,10 +1,10 @@
 [[Property:title|New feature dialog]]
 [[Property:weight|0]]
 [[Property:uuid|deb4901a-7b5a-f669-802e-de1efefcc1a0]]
-The new feature dialog window lets you create simple Eiffel features using the coding standards described in [http://www.eiffel.com/doc/oosc/ Object-Oriented Software Construction, Second Edition]. It automates the task of writing set-procedures for attributes and it makes it easy for you to find the right feature clause for a new feature. The new feature dialog can be invoked whenever you have a class open in a development window. It is also used by the diagram tool when creating a client-supplier link.
+The new feature dialog window lets you create simple Eiffel features using the coding standards described in [[Object-Oriented Software Construction, 2nd Edition]]. It automates the task of writing set-procedures for attributes and it makes it easy for you to find the right feature clause for a new feature. The new feature dialog can be invoked whenever you have a class open in a development window. It is also used by the diagram tool when creating a client-supplier link.
 
 ==Use it when...==
-* You want to be introduced to the style rules for Eiffel code as described in [http://www.eiffel.com/doc/oosc/ Object-Oriented Software Construction, Second Edition] , chapter 26.5 (page 891). 
+* You want to be introduced to the style rules for Eiffel code as described in [[Object-Oriented Software Construction, 2nd Edition]], chapter 26.5 (page 891). 
 * You want to create an attribute and you also want an invariant and/or a set-procedure generated for it.
 * You want to add a feature in a feature clause that is not in your class yet, and you do not remember the feature clause order, or you want to add it in a feature clause that is in your class, but you cannot find it.
 
