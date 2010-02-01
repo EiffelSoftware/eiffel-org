@@ -44,26 +44,25 @@ The effect of such a multi-branch instruction, if the value of <code>exp</code> 
 
 ===Loop===
 
-The loop construct has the form
+The loop construct provides a flexible framework for doing iterative computation. Its flexibility lies in how the complete form can be tailored and simplified for certain purposes by omitting optional parts. We will explore the entire mechanism, but let's approach things a little at a time.
+
+First here is the loop in what is probably its most commonly used form:
+
 <code>
             from
-                initialization
-            invariant
-                inv
+                Initialization
             until
-                exit
+                Exit_condition
             loop
-                body
-            variant
-                var
+                Loop_body
             end
 </code>
 
-where the <code>invariant</code> <code>inv</code> and <code>variant</code> <code>var</code> parts are optional, the others required. <code>initialization</code> and <code>body</code> are sequences of zero or more instructions; <code>exit</code> and <code>inv</code> are boolean expressions (more precisely, <code>inv</code> is an assertion); <code>var</code> is an integer expression.
+<code>Initialization</code> and <code>Loop_body</code> are sequences of zero or more instructions; <code>Exit_condition</code> is a boolean expression.
 
-The effect is to execute <code>initialization</code>, then, zero or more times until <code>exit</code> is satisfied, to execute <code>body</code>. (If after <code>initialization</code> the value of <code>exit</code> is already true, <code>body</code> will not be executed at all.) Note that the syntax of loops always includes an initialization, as most loops require some preparation. If not, just leave <code>initialization</code> empty, while including the <code>from</code> since it is a required component. 
+The effect is to execute <code>Initialization</code>, then, zero or more times until <code>Exit_condition</code> is satisfied, to execute <code>Loop_body</code>. (If after <code>Initialization</code> the value of <code>Exit_condition</code> is already true, <code>Loop_body</code> will not be executed at all.) 
 
-The assertion <code>inv</code>, if present, expresses a '''loop invariant''' (not to be confused with class invariants). For the loop to be correct, <code>initialization</code> must ensure <code>inv</code>, and then every iteration of <code>body</code> executed when <code>exit</code> is false must preserve the invariant; so the effect of the loop is to yield a state in which both <code>inv</code> and <code>exit</code> are true. The loop must terminate after a finite number of iterations, of course; this can be guaranteed by using a '''loop variant''' <code>var</code>. It must be an integer expression whose value is non-negative after execution of <code>initialization</code>, and decreased by at least one, while remaining non-negative, by any execution of <code>body</code> when <code>exit</code> is false; since a non-negative integer cannot be decreased forever, this ensures termination. The assertion monitoring mode, if turned on at the highest level, will check these properties of the invariant and variant after initialization and after each loop iteration, triggering an exception if the invariant does not hold or the variant is negative or does not decrease. 
+
 
 ===Debug===
 
