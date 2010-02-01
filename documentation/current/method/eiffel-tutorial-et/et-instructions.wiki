@@ -44,9 +44,9 @@ The effect of such a multi-branch instruction, if the value of <code>exp</code> 
 
 ===Loop===
 
-The loop construct provides a flexible framework for doing iterative computation. Its flexibility lies in how the complete form can be tailored and simplified for certain purposes by omitting optional parts. We will explore the entire mechanism, but let's approach things a little at a time.
+The loop construct provides a flexible framework for doing iterative computation. Its flexibility lies in how the complete form can be tailored and simplified for certain purposes by omitting optional parts. We will explore the entire mechanism, but let's approach things a little at a time. 
 
-First here is the loop in what is probably its most commonly used form:
+First let's look at the loop in what is probably its most commonly usage. This is a case in which some parts of the loop construct have been omitted because they are not necessary. So, just remember that you are not seeing everything that loops can be in this example.
 
 <code>
             from
@@ -58,10 +58,28 @@ First here is the loop in what is probably its most commonly used form:
             end
 </code>
 
-<code>Initialization</code> and <code>Loop_body</code> are sequences of zero or more instructions; <code>Exit_condition</code> is a boolean expression.
+<code>Initialization</code> and <code>Loop_body</code> are sequences of zero or more instructions; <code>Exit_condition</code> is a boolean expression. 
 
 The effect is to execute <code>Initialization</code>, then, zero or more times until <code>Exit_condition</code> is satisfied, to execute <code>Loop_body</code>. (If after <code>Initialization</code> the value of <code>Exit_condition</code> is already true, <code>Loop_body</code> will not be executed at all.) 
 
+This form of the loop is used commonly to traverse data structures. For example, suppose that we wished to print every element in a linked list of strings. We can do so with this usage of the loop construct, as shown below. 
+
+<code>
+    my_list: LINKED_LIST [STRING]
+
+                ...
+
+            from
+                my_list.start
+            until
+                my_list.off
+            loop
+                print (my_list.item)
+                my_list.forth
+            end
+</code>
+
+The <code>Initialization</code> part will attempt to set the cursor at the first item of the list. The loop will exit when there is no active list item. Then, in the <code>Loop_body</code>, the current list item will be printed, and the cursor advanced.
 
 
 ===Debug===
