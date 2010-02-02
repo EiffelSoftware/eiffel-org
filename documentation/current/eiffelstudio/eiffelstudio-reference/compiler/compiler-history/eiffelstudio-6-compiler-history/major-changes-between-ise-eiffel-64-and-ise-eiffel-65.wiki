@@ -5,7 +5,7 @@
 ==What's new==
 {{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
 *Added support for transient attribute. A transient attribute is an attribute which is not stored at runtime and for which its absence in the retrieval system has no effect. Only implemented for C based storable.
-* New loop constructs implementation per a draft specification of the next ECMA standard. Although the compiler support the new construct, the library counterpart was not included in this release. It will be available as a separate download a few weeks after the 6.5 release.
+* New loop constructs implementation per a draft specification of the next ECMA standard. Although the compiler supports the new construct, the library counterpart was not included in this release. It will be available as a separate download a few weeks after the 6.5 release.
 
 ==Improvements==
 No major improvements in 6.5 as this release was mostly focused on quality improvements.
@@ -29,8 +29,8 @@ No major improvements in 6.5 as this release was mostly focused on quality impro
 
 
 ===Runtime/code generation issues===
-* Fixed eweasel test#final086 where an object test could evaluate more than once the expression. 
-* Fixed bug#13969 where an Eiffel generated DLL trying to print something to the console would cause a crash
+* Fixed eweasel test#final086 where an object test could evaluate the expression more than once. 
+* Fixed bug#13969 where an Eiffel generated DLL trying to print something to the console would cause a crash.
 * Fixed bug#15553 where querying <eiffel>{FILE}.is_socket</eiffel> and some other file properties would not work properly on some Unix platforms (Solaris in particular).
 * Fixed bug#13852 and bug#13816 where allocating large arrays would cause a memory corruption.
 * Improved runtime protection of certain routines if a signal is delivered to avoid either corruption or memory leak (Fixes bug#13851, bug#13842, bug#13849, bug#13850 and bug#13840).
