@@ -81,6 +81,13 @@ This form of the loop is used commonly to traverse data structures. For example,
 
 The <code>Initialization</code> part will attempt to set the cursor at the first item of the list. The loop will exit when there is no active list item. Then, in the <code>Loop_body</code>, the current list item will be printed, and the cursor advanced.
 
+So, this usage of the loop construct has been the traditional mechanism for traversing data structures. However, extensions to Eiffel's loop construct provided a more concise way of expressing the same traversal:
+
+<code>
+            across my_list as c loop print (c.item) end 
+</code>
+
+At first observation, this doesn't look much like it's using the same language construct. But, indeed it is. In order to see this more clearly, it will help now to examine (almost) the entire anatomy of the loop construct.
 
 ===Debug===
 
