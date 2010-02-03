@@ -46,7 +46,7 @@ The effect of such a multi-branch instruction, if the value of <code>exp</code> 
 
 The loop construct provides a flexible framework for doing iterative computation. Its flexibility lies in how the complete form can be tailored and simplified for certain purposes by omitting optional parts. We will explore the entire mechanism, but let's approach things a little at a time. 
 
-First let's look at the loop in what is probably its most commonly usage. This is a case in which some parts of the loop construct have been omitted because they are not necessary. So, just remember that you are not seeing everything that loops can be in this example.
+First let's look at the loop in what is probably its most common usage. This is a case in which some parts of the loop construct have been omitted because they are not necessary. So, just remember that what you are seeing in this example is not everything that loops can be.
 
 <code>
             from
@@ -81,17 +81,21 @@ This form of the loop is used commonly to traverse data structures. For example,
 
 The <code>Initialization</code> part will attempt to set the cursor at the first item of the list. The loop will exit when there is no active list item. Then, in the <code>Loop_body</code>, the current list item will be printed, and the cursor advanced.
 
-So, this usage of the loop construct has been the traditional mechanism for traversing data structures. However, extensions to Eiffel's loop construct provided a more concise way of expressing the same traversal:
+So, this usage of the loop construct has been the traditional mechanism for traversing data structures. However, extensions to Eiffel's loop construct have provided a more concise way of expressing the same traversal:
 
 <code>
             across my_list as c loop print (c.item) end 
 </code>
 
-At first observation, this doesn't look much like it's using the same language construct. But, indeed it is. In order to see this more clearly, it will help now to examine (almost) the entire anatomy of the loop construct.
+Here the <code>across</code> indicates an iteration process across the structure <code>my_list</code>. The <code>as c</code> indicates that a cursor object referenced by the name <code>c</code> will be created to effect the iteration. The element of <code>my_list</code> which is currently referenced by the cursor <code>c</code> is <code>c.item</code> as you see in the call to <code>print (c.item)</code> loop body. The loop body does not contain the call to the structure's <code>forth</code> feature, as our more traditional example did. Neither do you see the call to <code>start</code> nor the check of <code>off</code> in the exit condition. The semantics of the iteration abstract these for you and relieve you of their burden ... while eliminating opportunities for error.
+
+Concerning cursors, both ways of using the loop construct to traverse a structure employ a cursor. In the traditional usage, the cursor is internal to the structure object, the instance of <code>LINKED_LIST [STRING]</code> called <code>my_list</code>, in the case of the example. Applying the feature <code>item</code> to <code>my_list</code> retrieves the list element currently referenced by the cursor. In the iteration version of traversal, the variable <code>c</code> holds the iteration cursor, external to the list object. So, you apply <code>c.item</code> to get the current list element. The obvious use is for instructions that should be part of the system but executed only in some circumstances, for example to provide extra debugging information. The advantage to the external cursor is that multiple traversals of the structure can occur simultaneously without interfering with one another. This is possible in the traditional usage, but only by saving and restoring the structure's cursor.
+
+At first observation, it may not appear that both traversal examples are using the same language construct. But, indeed they are. In order to see this more clearly, it will help now to examine (almost) the entire anatomy of the loop construct.
 
 ===Debug===
 
-An occasionally useful instruction is <code>debug</code> <code>(</code>''Debug_key'', ... <code>)</code> ''instructions'' <code>end</code> where ''instructions'' is a sequence of zero or more instructions and the part in parentheses is optional, containing if present one or more strings, called debug keys. The EiffelStudio compiler lets you specify the corresponding <code>debug</code> compilation option: <code>yes</code>, <code>no</code>, or an explicit debug key. The ''instructions'' will be executed if and only if the corresponding option is on. The obvious use is for instructions that should be part of the system but executed only in some circumstances, for example to provide extra debugging information. 
+An occasionally useful instruction is <code>debug</code> <code>(</code>''Debug_key'', ... <code>)</code> ''instructions'' <code>end</code> where ''instructions'' is a sequence of zero or more instructions and the part in parentheses is optional, containing if present one or more strings, called debug keys. The EiffelStudio compiler lets you specify the corresponding <code>debug</code> compilation option: <code>yes</code>, <code>no</code>, or an explicit debug key. The ''instructions'' will be executed if and only if the corresponding option is on. 
 
 ===Check===
 
