@@ -2,11 +2,10 @@
 [[Property:link_title|]]
 [[Property:weight|2]]
 [[Property:uuid|056c0ab0-8e44-571f-f126-0b1850980754]]
+Often, when we speak about Eiffel to prospective users, we hear them repeat misinformation about the method, the language, or the tools. Most of the time, the stories are familiar to us … and untrue. Here are a few of the myths that we hear most often, as recounted and debunked by Eiffel Trainer Hal Webre in his [http://www.eiffel.com/developers/presentations/eiffel_introduction/player.html?slide= introductory online presentation] to the series entitled [http://eiffel.com/developers/presentations/ "Where Eiffel Fits"].
 
-Often, when we speak about Eiffel to prospective users, we hear them repeat misinformation about the method, the language, the method, or the tools. Most of the time, the stories are familiar to us … and untrue. Here are a few of the myths that we hear most often, as recounted and debunked by Eiffel Trainer Hal Webre in his [http://www.eiffel.com/developers/presentations/eiffel_introduction/player.html?slide= introductory online presentation] to the series entitled [http://eiffel.com/developers/presentations/ "Where Eiffel Fits"].
 
-
-==Eiffel is an "academic" language==
+==Eiffel is an "academic" language only:    ''Wrong ... twice!!''==
 
 Recently, I was offered the opportunity to speak to a local technology group about Eiffel for Microsoft .Net. The leader of this group is part of a small commercially-oriented software development company. Concerning Eiffel, he said, “All I know about Eiffel is that it’s an academic language.”
 
@@ -19,7 +18,7 @@ Secondly, I’m not sure what “academic language” means exactly, but if it m
 But Eiffel is also used successfully in many commercial and government endeavors. If you have any doubts, pay a visit to [http://eiffel.com/general/success-stories.html eiffel.com] and check out the success stories and customers testimonials. 
 
 
-==Eiffel is not for doing "real" work==
+==Eiffel is not for doing "real" work:     ''Who told you that!?!''==
 
 Occasionally we’ve heard people say that Eiffel is only suitable for building “toy” systems.
 
@@ -32,7 +31,7 @@ We see Eiffel being used instead of other technologies for systems in which scal
 One of our customers is an organization that has developed a payroll system using Eiffel that every week pays over two hundred thousand employees in twenty thousand different institutions … the people in this organization would assure you that Eiffel is indeed industrial grade.
 
 
-==Not many people are using Eiffel==
+==Not many people are using Eiffel:    ''You wouldn't want to share an elevator with them all!''==
 
 The answer to this one depends a bit upon your frame of reference. Some time ago Microsoft estimated that there were twenty million Visual Basic programmers world wide. 
 
@@ -45,7 +44,7 @@ Eiffel Software's dual licensing model gives developers the opportunity to learn
 So, don’t worry about it, plenty of people use Eiffel … and those numbers are increasing constantly.
 
 
-==If we use Eiffel, we may not be able to find qualified programmers==
+==If we use Eiffel, we may not be able to find qualified programmers: ''Gimme a break.''==
 
 Through the years some potential Eiffel users have expressed to us a concern that if they embrace Eiffel, that they may not be able to find a sufficient number of qualified developers.
 
@@ -56,7 +55,7 @@ First, almost all Eiffel people were proficient in some other technology before 
 Additionally, it is important also to understand that Eiffel developers are easy to create. Because Eiffel is simple, clean, and elegant, it doesn’t take long to get people going with it. I teach a five-day course that contains fifteen programming exercises. Each time I’ve taught the course, almost every student has finished every exercise. Students leave with a good foundation for how to begin saving time and money for their organization by constructing quality software with Eiffel. These people can be fluent in Eiffel in as little as a couple of months. This can be contrasted with the other extreme ... a well-known Microsoft Windows expert told me a couple of years ago that he estimates it to take 5 to 7 years to become truly fluent in C++/COM programming on Windows. Programmers who are proficient in other technologies often experience Eiffel as a breath of fresh air.
 
 
-==Eiffel might not be around in five/eight/ten (choose one) years==
+==Eiffel might not be around in five/eight/ten (choose one) years: ''Better clean your crystal ball, Nostradamus!''==
 
 I think the first time I heard this one, it was about 1989.
 
