@@ -5,7 +5,7 @@
 Often, when we speak about Eiffel to prospective users, we hear them repeat misinformation about the method, the language, or the tools. Most of the time, the stories are familiar to us … and untrue. Here are a few of the myths that we hear most often, as recounted and debunked by Eiffel Trainer Hal Webre in his [http://www.eiffel.com/developers/presentations/eiffel_introduction/player.html?slide= introductory online presentation] to the series entitled [http://eiffel.com/developers/presentations/ "Where Eiffel Fits"].
 
 
-==Eiffel is an "academic" language only:    ''Wrong ... twice!!''==
+==Eiffel is an "academic" language only:    ''Whoa, wrong! Twice!''==
 
 Recently, I was offered the opportunity to speak to a local technology group about Eiffel for Microsoft .Net. The leader of this group is part of a small commercially-oriented software development company. Concerning Eiffel, he said, “All I know about Eiffel is that it’s an academic language.”
 
@@ -18,13 +18,13 @@ Secondly, I’m not sure what “academic language” means exactly, but if it m
 But Eiffel is also used successfully in many commercial and government endeavors. If you have any doubts, pay a visit to [http://eiffel.com/general/success-stories.html eiffel.com] and check out the success stories and customers testimonials. 
 
 
-==Eiffel is not for doing "real" work:     ''Who told you that!?!''==
+==Eiffel is not for doing "real" work:     ''That's  a joke, right?''==
 
 Occasionally we’ve heard people say that Eiffel is only suitable for building “toy” systems.
 
 This is similar to the "academic language" argument and is just as false.
 
-We see Eiffel being used often in situations in which other technologies fail. If anything it is the other commonly used technologies that tend to break down under stress.
+In actuality, we see Eiffel being used often in situations in which other technologies fail. If anything it is the other commonly used technologies that tend to break down under stress.
 
 We see Eiffel being used instead of other technologies for systems in which scalability and reliability are essential.
 
@@ -55,7 +55,7 @@ First, almost all Eiffel people were proficient in some other technology before 
 Additionally, it is important also to understand that Eiffel developers are easy to create. Because Eiffel is simple, clean, and elegant, it doesn’t take long to get people going with it. I teach a five-day course that contains fifteen programming exercises. Each time I’ve taught the course, almost every student has finished every exercise. Students leave with a good foundation for how to begin saving time and money for their organization by constructing quality software with Eiffel. These people can be fluent in Eiffel in as little as a couple of months. This can be contrasted with the other extreme ... a well-known Microsoft Windows expert told me a couple of years ago that he estimates it to take 5 to 7 years to become truly fluent in C++/COM programming on Windows. Programmers who are proficient in other technologies often experience Eiffel as a breath of fresh air.
 
 
-==Eiffel might not be around in five/eight/ten (choose one) years: ''Better clean your crystal ball, Nostradamus!''==
+==Eiffel might not be around in five/eight/ten (choose one) years: ''Better recalibrate your crystal ball, Nostradamus!''==
 
 I think the first time I heard this one, it was about 1989.
 
@@ -69,7 +69,9 @@ It’s possible that twenty-five years from now, there will be a significantly b
 
 Besides, Eiffel constantly implements refinements and new capabilities with minimal impact on existing software. [[Void-safe programming in Eiffel|Void-safe programming]] is an excellent example of this. 
 
-Don’t worry about it. Eiffel will be here.
+You can get a feel for this issue by watching [http://channel9.msdn.com/posts/Charles/Emmanuel-Stapf-Eiffel-and-Contract-Oriented-Programming/ this video on Microsoft Developers Network Channel9]. Here you'll see Emmanuel Stapf, an engineer at Eiffel Software, speak with Mads Torgersen, one of Microsoft's C# language designers. You'll hear how Eiffel stays fresh and continues to set a technological standard worthy of the aspirations of other technologies.
+
+So, don’t worry about it. Eiffel will be here.
 
 
 
