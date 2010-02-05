@@ -44,31 +44,17 @@ The effect of such a multi-branch instruction, if the value of <code>exp</code> 
 
 ===Loop===
 
-The loop construct provides a flexible framework for doing iterative computation. Its flexibility lies in how the complete form can be tailored and simplified for certain purposes by omitting optional parts. We will explore the entire mechanism, but let's approach things a little at a time. 
+The loop construct provides a flexible framework for iterative computation. Its flexibility lies in how the complete form can be tailored and simplified for certain purposes by omitting optional parts. We will explore the entire mechanism, but let's approach things a little at a time. 
 
-First let's look at the loop in what is probably its most common usage. This is a case in which some parts of the loop construct have been omitted because they are not necessary. So, just remember that what you are seeing in this example is not everything that loops can be.
-
-<code>
-            from
-                Initialization
-            until
-                Exit_condition
-            loop
-                Loop_body
-            end
-</code>
-
-<code>Initialization</code> and <code>Loop_body</code> are sequences of zero or more instructions; <code>Exit_condition</code> is a boolean expression. 
-
-The effect is to execute <code>Initialization</code>, then, zero or more times until <code>Exit_condition</code> is satisfied, to execute <code>Loop_body</code>. (If after <code>Initialization</code> the value of <code>Exit_condition</code> is already true, <code>Loop_body</code> will not be executed at all.) So, at the risk of stating the obvious, the key to loops that always complete is to ensure that there is something in the loop body that will always cause the exit condition eventually to become true. 
-
-This form of the loop is used commonly to traverse data structures. For example, suppose that we wished to print every element in a linked list of strings. We can do so with this usage of the loop construct, as shown below. 
+First let's take a look at two examples. These examples both use a loop to visit and print the content of each node of a linked list of character strings. So, the list in question might be declared like this:
 
 <code>
     my_list: LINKED_LIST [STRING]
+</code>
 
-                ...
+Now for the two loop examples:
 
+<code>
             from
                 my_list.start
             until
@@ -81,9 +67,7 @@ This form of the loop is used commonly to traverse data structures. For example,
 Loop example 1.
 
 
-The <code>Initialization</code> part will attempt to set the cursor at the first item of the list. The loop will exit when there is no active list item. Then, in the <code>Loop_body</code>, the current list item will be printed, and the cursor advanced.
-
-So, the usage of the loop construct in Loop example 1 above has been the traditional mechanism for traversing data structures. However, extensions to Eiffel's loop construct have provided a more concise way of expressing the same traversal:
+and: 
 
 <code>
             across my_list as ic loop print (ic.item) end 
@@ -91,29 +75,14 @@ So, the usage of the loop construct in Loop example 1 above has been the traditi
 Loop example 2.
 
 
-Here the <code>across</code> indicates an iteration process across the structure <code>my_list</code>. The "<code>as ic</code>" indicates that an iteration cursor object referenced by the name <code>ic</code>, and available only for the scope of the iteration, will be created to effect the iteration. The element of <code>my_list</code> which is currently referenced by the cursor <code>ic</code> is <code>ic.item</code> as you see in the call to <code>print (ic.item)</code> in the loop body. The loop body does not contain the call to the structure's <code>forth</code> feature, as our more traditional example did. Neither do you see the call to <code>start</code> nor the check of <code>off</code> in the exit condition. The semantics of the iteration abstract these for you, relieving you of their burden ... while eliminating some opportunities for error.
+At first observation, it may not appear that both of these examples are using the same language construct. But, indeed, they are simply two different forms of a single language construct, as you will see.
 
-Concerning cursors, both ways of using the loop construct to traverse a structure employ a cursor. In the traditional usage, the cursor is internal to the structure object. In the case of the example, that would be the instance of <code>LINKED_LIST [STRING]</code> called <code>my_list</code>. Applying the feature <code>item</code> to <code>my_list</code> retrieves the list element currently referenced by the cursor. In the iteration version of traversal, the variable <code>ic</code> holds the iteration cursor, external to the list object. So, you apply <code>ic.item</code> to get the current list element. The advantage to the external cursor is that multiple traversals of the structure can occur simultaneously without interfering with one another. This is possible in the traditional usage, but only by saving and restoring the structure's cursor.
+In fact, these two examples illustrate the two basic usage forms of the loop construct in Eiffel. The two basic forms of the Eiffel loop construct can be differentiated by the parts of the construct with which they begin. 
 
-At first observation, it may not appear that both traversal examples are using the same language construct. But, indeed they are simply two different forms of a single language construct. In order to see this more clearly, it will help now to examine the specific parts of the loop construct.
+The form shown in Loop example 1 begins with an ''Initialization'' part ( <code>from my_list.start</code> ), which starts with the keyword <code>from</code>. Let's call this form the '''traditional''' form. So, the type of loop you see in Loop example 1 has been the traditional mechanism for traversing data structures. However, extensions to Eiffel's loop construct have provided a more concise way of expressing the same traversal.
 
+This is the form shown in Loop example 2. It begins with an ''Iteration'' part ( <code>across my_list as c</code> ), which starts with the keyword <code>across</code>. We'll call this form the '''iteration''' form.
 
-====Two basic loop forms====
-
-The two basic forms of use of the Eiffel loop construct can be differentiated by the parts of the construct with which they begin. 
-
-The form shown in Loop example 1 above begins with an ''Initialization'' part ( <code>from my_list.start</code> ). Let's call this form the ''traditional'' form.
-
-The form shown in Loop example 2 above begins with an ''Iteration'' part ( <code>across my_list as c</code> ). We'll call this form the ''iteration'' form.
-
-The iteration form is special in the sense that it is designed to work with objects which are ''iterable'', usually data structures. The iteration form always targets a particular object, usually a data structure, based on a class that inherits, either directly or indirectly from the library class <code>ITERABLE</code>.  
-
-Every valid loop must have at least an ''initialization'' part or ''iteration'' part. An ''iteration'' part always precedes an ''initialization'' part. So, it is possible for loops in the iteration form (but not possible for traditional loops) to have both. Suppose we wanted to compute the sum of the lengths of all the strings in the list <code>my_list</code>. We could write an iteration loop with an initialization setting the sum to zero:
-
-<code>
-            across my_list as ic from sum := 0 loop sum := sum + ic.item.count end
-</code>
-Loop example 3.
 
 ===Debug===
 
