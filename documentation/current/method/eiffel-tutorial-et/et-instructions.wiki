@@ -46,6 +46,8 @@ The effect of such a multi-branch instruction, if the value of <code>exp</code> 
 
 The loop construct provides a flexible framework for iterative computation. Its flexibility lies in how the complete form can be tailored and simplified for certain purposes by omitting optional parts. We will explore the entire mechanism, but let's approach things a little at a time. 
 
+====Some examples====
+
 First let's take a look at two examples. These examples both use a loop to visit and print the content of each node of a linked list of character strings. So, the list in question might be declared like this:
 
 <code>
@@ -104,7 +106,7 @@ First there is the ''initialization'' part:
 
 The first thing to occur in the execution of the traditional loop is the execution of any instructions in the initialization part (it is permissible for the initialization part to be empty of instructions, but the keyword <code>from</code> must be present to distinguish the traditional loop form). In our example, the feature <code>start</code> is applied to <code>my_list</code> which will attempt to set the list cursor to the first element in <code>my_list</code>. 
 
-The ''Exit condition'' part:
+The ''Exit condition part'':
 
 <code>
             until
@@ -132,7 +134,7 @@ And finally, there's the ''End'' part:
 <code>
             end
 </code>
-''End part.''
+''<code>end</code> part.''
 
 
 ====A closer look at the ''iteration'' form====
@@ -157,7 +159,7 @@ The "<code>as ic</code>" indicates that a local iteration cursor object referenc
 ''<code>loop</code> body part''.
 
 
-And lastly, of course, the iteration form includes an end part ... at the end.
+And lastly, of course, the iteration form includes an ''<code>end</code> part'' ... at the end.
 
 Notice that the loop body does not contain the call to the structure's <code>forth</code> feature, as our example in traditional form did. Neither do you see the call to <code>start</code> nor the check of <code>off</code> in the exit condition. The iteration form abstracts these for you, relieving you of their burden ... while eliminating some opportunities for error.
 
@@ -165,12 +167,67 @@ Notice also that the call "<code>print (ic.item)"</code>" accesses the current i
 
 Concerning cursors, both ways of using the loop construct to traverse a structure employ a cursor. In the traditional usage, the cursor is internal to the structure object. In the case of the example, that would be the instance of <code>LINKED_LIST [STRING]</code> called <code>my_list</code>. Applying the feature <code>item</code> to <code>my_list</code> retrieves the list element currently referenced by the cursor. In the iteration version of traversal, the variable <code>ic</code> holds the iteration cursor, external to the list object. So, you apply <code>ic.item</code> to get the current list element. The advantage to the external cursor is that multiple traversals of the structure can occur simultaneously without interfering with one another. This is possible in the traditional usage, but only by saving and restoring the structure's cursor.
 
-
 ====The ''iteration'' form as a boolean expression====
 
-In ''Loop example 2'', the loop behaves as an instruction. But it is possible to have the iteration loop form behave as a boolean expression. This is helpful in cases in which you might want to ask a question that can only be answered by traversing all or part of a structure. 
+In ''Loop example 2'', the loop behaves as an instruction. But it is possible to have the iteration loop form behave as a boolean expression. This is helpful in cases in which you might want to ask a question that can be answered by traversing all or part of a structure. 
 
-To get this effect, you use the iteration form with one of two alternative body notations, the ''<code>all</code> body'' or the ''<code>some</code> body'' in place of the ''<code>loop</code> body''.
+To get this effect, you use the iteration form with one of two alternative body notations, the ''<code>all</code> body part'' or the ''<code>some</code> body part'' in place of the ''<code>loop</code> body''. When you use either of these notations, the ''body'' is a boolean expression. So, the forms for these body parts are:
+
+<code>
+            all boolean_expression
+</code>
+''<code>all</code> body part.''
+
+<code>
+            some boolean_expression
+</code>
+''<code>some</code> body part.''
+
+
+So, to know if all the strings in <code>my_list</code> have lengths greater than three characters, we could code:
+
+<code>
+            across my_list as ic all ic.item.count > 3 end
+</code>
+''Loop example 3.''
+
+
+To know if at least one string in <code>my_list</code> has a length greater than three characters, we would use the ''<code>some</code> body part'':
+
+<code>
+            across my_list as ic some ic.item.count > 3 end
+</code>
+''Loop example 4.''
+
+Of course you can use loops like the two above as you would any boolean expression, in a [[#Conditional|conditional]], for example. 
+
+
+====Loop anatomy and validity====
+
+Now that we've seen examples of the two forms of loops and broken down their component parts, we're ready to examine the anatomy of the entire construct. You may remember from the beginning of this discussion of loops that the flexibility of the construct lies in its ability to use or omit its various parts to gain certain effects. 
+
+Here are all the possible loop parts, most of which we've seen in examples, in the order in which they must appear when we code them:
+
+{| border="2"
+! This loop part: !! Looks like this: 
+|-
+| ''Iteration part'' || <code>across my_list as ic</code>
+|-
+| ''Initialization part'' || <code>from my_list.start</code>
+|-
+| ''Invariant part''
+|-
+| ''Exit condition part'' || <code>until my_list.off</code>
+|-
+| ''Body part''
+|-
+| ''Variant part''
+|-
+| ''<code>end</code> part'' || <code>end</code>
+|}
+
+====Loop invariants and variants====
+
 
 
 ===Debug===
