@@ -83,7 +83,7 @@ Of course, there is no requirement that ''Loop example 1'' occupy multiple lines
 <code>
             from my_list.start until my_list.off loop print (my_list.item) my_list.forth end
 </code>
-just as ''Loop example 2'' could have been written to take multiple lines. It comes down to a matter of what can be read easily as a single line.
+just as ''Loop example 2'' could have been written to take multiple lines. It comes down to a matter of balance among traditional style, conciseness, and readability. 
 
 In fact, these two examples illustrate the two basic usage forms of the loop construct in Eiffel. The two basic forms can be differentiated by the parts of the construct with which they begin. 
 
@@ -219,7 +219,11 @@ Here are all the possible loop parts, most of which we've seen in examples, in t
 |-
 | ''Exit condition part'' || <code>until my_list.off</code>
 |-
-| ''Body part''
+| ''Body part'' || <code>loop</code> ''<code>zero_or_more_instructions   </code>'' '''or'''
+|-
+| || <code>all</code> ''<code>a_boolean_expression         </code>'' '''or'''
+|-
+| || <code>some</code> ''<code>a_boolean_expression</code>''
 |-
 | ''Variant part''
 |-
