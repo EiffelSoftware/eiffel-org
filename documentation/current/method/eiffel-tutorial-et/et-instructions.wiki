@@ -44,7 +44,7 @@ The effect of such a multi-branch instruction, if the value of <code>exp</code> 
 
 ===Loop===
 
-The loop construct provides a flexible framework for iterative computation. Its flexibility lies in how the complete form can be tailored and simplified for certain purposes by omitting optional parts. We will explore the entire mechanism, but let's approach things a little at a time. 
+The loop construct provides a flexible framework for iterative computation. Its flexibility lies in how the complete form can be tailored and simplified for certain purposes by including or omitting optional parts. We will explore the entire mechanism, but let's approach things a little at a time. 
 
 ====Some examples====
 
@@ -79,7 +79,7 @@ and:
 
 At first observation, it may not appear that both of these examples are using the same language construct. But, indeed, they are simply two different forms of a single language construct, as you will see.
 
-Of course, there is no requirement that ''Loop example 1'' occupy multiple lines, and ''Loop example 2'' occupy only one line. ''Loop example 1'' could have been written like this:
+Incidentally, there is no requirement that ''Loop example 1'' occupy multiple lines, and ''Loop example 2'' occupy only one line. ''Loop example 1'' could have been written like this:
 <code>
             from my_list.start until my_list.off loop print (my_list.item) my_list.forth end
 </code>
@@ -87,9 +87,9 @@ just as ''Loop example 2'' could have been written to take multiple lines. It co
 
 In fact, these two examples illustrate the two basic usage forms of the loop construct in Eiffel. The two basic forms can be differentiated by the parts of the construct with which they begin. 
 
-The form shown in ''Loop example 1'' begins with an ''Initialization'' part ( <code>from my_list.start</code> ), which starts with the keyword <code>from</code>. Let's call this form the '''traditional''' form. So, the type of loop you see in ''Loop example 1'' has been the traditional mechanism for accomplishing iterative computation, including iterating across data structures. However, extensions to Eiffel's loop construct have provided a more concise way of expressing traversing "iterable" structures.
+The form shown in ''Loop example 1'' begins with an ''Initialization part'' ( <code>from my_list.start</code> ), which starts with the keyword <code>from</code>. Let's call this form the '''traditional''' form. So, the type of loop you see in ''Loop example 1'' has been the traditional mechanism for accomplishing iterative computation, including iterating across data structures. However, extensions to Eiffel's loop construct have provided a more concise way of expressing traversing "iterable" structures.
 
-This is the form shown in ''Loop example 2''. It begins with an ''Iteration'' part ( <code>across my_list as c</code> ), which starts with the keyword <code>across</code>. We'll call this form the '''iteration''' form.
+This is the form shown in ''Loop example 2''. It begins with an ''Iteration part'' ( <code>across my_list as c</code> ), which starts with the keyword <code>across</code>. We'll call this form the '''iteration''' form.
 
 ====A closer look at the ''traditional'' form====
 
@@ -159,13 +159,14 @@ The "<code>as ic</code>" indicates that a local iteration cursor object referenc
 ''<code>loop</code> body part''.
 
 
-And lastly, of course, the iteration form includes an ''<code>end</code> part'' ... at the end.
-
 Notice that the loop body does not contain the call to the structure's <code>forth</code> feature, as our example in traditional form did. Neither do you see the call to <code>start</code> nor the check of <code>off</code> in the exit condition. The iteration form abstracts these for you, relieving you of their burden ... while eliminating some opportunities for error.
 
 Notice also that the call "<code>print (ic.item)"</code>" accesses the current item as "<code>ic.item"</code>" versus "<code>my_list.item"</code>" in the traditional form. This is because in the iteration form, access to the current item is through the cursor variable, "<code>ic</code>" in the case of ''Loop example 2''. 
 
 Concerning cursors, both ways of using the loop construct to traverse a structure employ a cursor. In the traditional usage, the cursor is internal to the structure object. In the case of the example, that would be the instance of <code>LINKED_LIST [STRING]</code> called <code>my_list</code>. Applying the feature <code>item</code> to <code>my_list</code> retrieves the list element currently referenced by the cursor. In the iteration version of traversal, the variable <code>ic</code> holds the iteration cursor, external to the list object. So, you apply <code>ic.item</code> to get the current list element. The advantage to the external cursor is that multiple traversals of the structure can occur simultaneously without interfering with one another. This is possible in the traditional usage, but only by saving and restoring the structure's cursor.
+
+Lastly, of course, the iteration form includes an ''<code>end</code> part'' ... at the end.
+
 
 ====The ''iteration'' form as a boolean expression====
 
@@ -202,33 +203,53 @@ To know if at least one string in <code>my_list</code> has a length greater than
 Of course you can use loops like the two above as you would any boolean expression, in a [[#Conditional|conditional]], for example. 
 
 
-====Loop anatomy and validity====
+====Loop anatomy and rules for constructing loops====
 
-Now that we've seen examples of the two forms of loops and broken down their component parts, we're ready to examine the anatomy of the entire construct. You may remember from the beginning of this discussion of loops that the flexibility of the construct lies in its ability to use or omit its various parts to gain certain effects. 
+Now that we've seen examples of the two forms of loops and broken down their component parts, we're ready to examine the anatomy of the entire construct. You may remember from the beginning of this discussion that the flexibility of the loop construct lies in its ability to use or omit its various parts to gain certain effects. 
 
 Here are all the possible loop parts, most of which we've seen in examples, in the order in which they must appear when we code them:
 
-{| border="2"
-! This loop part: !! Looks like this: 
+
+{| border="2" cellpadding="8" 
+! This loop part: !! Has this pattern: 
 |-
-| ''Iteration part'' || <code>across my_list as ic</code>
+| ''Iteration part'' || <code>across expression as identifier</code>
 |-
-| ''Initialization part'' || <code>from my_list.start</code>
+| ''Initialization part'' || <code>from zero_or_more_instructions</code>
 |-
-| ''Invariant part''
+| ''Invariant part'' || <code>invariant assertion</code>
 |-
-| ''Exit condition part'' || <code>until my_list.off</code>
+| ''Exit condition part'' || <code>until boolean_expression</code>
 |-
-| ''Body part'' || <code>loop</code> ''<code>zero_or_more_instructions   </code>'' '''or'''
+| rowspan="3" | ''Body part'' || <code>loop</code> ''<code>zero_or_more_instructions      </code>'' '''or'''
 |-
-| || <code>all</code> ''<code>a_boolean_expression         </code>'' '''or'''
+| <code>all</code> ''<code>boolean_expression              </code>'' '''or'''
 |-
-| || <code>some</code> ''<code>a_boolean_expression</code>''
+| <code>some</code> ''<code>boolean_expression</code>''
 |-
-| ''Variant part''
+| ''Variant part'' || <code>variant optional_tag: integer_expression</code>
 |-
 | ''<code>end</code> part'' || <code>end</code>
 |}
+
+
+Apart from seeing examples, it is useful to understand some of the rules of constructing loops from these parts. Here's an informal summary of what you should know about putting together valid loops:
+
+# Any loop parts being used must appear in the order shown in the table above.
+# Every loop used will assume one of the two forms mentioned early. As a result, every loop will begin either with the <code>across</code> keyword (''iteration'' form) or the <code>from</code> keyword (''traditional'' form). 
+# A ''Body part'' of some form and an ''End part'' are both required for every loop. 
+## ''Body parts'' using either the <code>all</code> keyword or the <code>some</code> keyword are only allowed in the ''iteration'' form.
+# An ''exit condition part'' is required for all loops of ''traditional'' form. 
+# The identifier you choose for the internal cursor used in loops of the ''iteration'' form shouldn't be the same as another identifier you are using.
+
+There are a few notions implied by these rules that are worth understanding. Let's look at some of them.
+
+All parts must appear in order (1) and every loop starts either <code>across</code> or <code>from</code> (2) taken together imply that it would be impossible for a loop in ''traditional'' form to include an ''iteration part''. But the opposite is not true. Because the ''initialization part'' falls after the ''iteration part'' it is possible for a loop in ''iteration'' form to contain an ''initialization'' part. Imagine for example, that we wanted to know to sum the number of characters in all elements of the list of strings in our examples. The ''initialization'' part could be used to initialize the sum entity before starting the iteration:
+<code>
+            across my_list as ic from sum := 0 loop sum := sum + ic.item.count end
+</code>
+
+Loops of the ''traditional''' form require an ''exit condition part'' (4) allows the possibility that ''Iteration'' loops may contain an ''exit condition part''. Indeed they may, but it is not required. Using an ''exit condition part'' in a loop of the ''iteration'' can be useful if you want to impose an early exit condition on an iteration. 
 
 ====Loop invariants and variants====
 
@@ -276,6 +297,7 @@ but this is not the only possible scheme; for example if an <code>create x</code
 </code>
 
 {{recommended|An extra indentation of the <code>check</code> part to separate it from the algorithm proper; and inclusion of a comment listing the rationale behind the developer's decision not to check explicitly for the precondition. }}
+
 
 In production mode with assertion monitoring turned off, this instruction will have no effect. But it will be precious for a maintainer of the software who is trying to figure out what it does, and in the process to reconstruct the original developer's reasoning. (The maintainer might of course be the same person as the developer, six months later.) And if the rationale is wrong somewhere, turning assertion checking on will immediately uncover the bug. 
 
