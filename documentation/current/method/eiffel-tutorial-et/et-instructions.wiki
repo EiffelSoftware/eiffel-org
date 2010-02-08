@@ -242,14 +242,18 @@ Apart from seeing examples, it is useful to understand some of the rules of cons
 # An ''exit condition part'' is required for all loops of ''traditional'' form. 
 # The identifier you choose for the internal cursor used in loops of the ''iteration'' form shouldn't be the same as another identifier you are using.
 
-There are a few notions implied by these rules that are worth understanding. Let's look at some of them.
+There are implications of these rules that are worth understanding. Let's look at some of them.
 
-All parts must appear in order (1) and every loop starts either <code>across</code> or <code>from</code> (2) taken together imply that it would be impossible for a loop in ''traditional'' form to include an ''iteration part''. But the opposite is not true. Because the ''initialization part'' falls after the ''iteration part'' it is possible for a loop in ''iteration'' form to contain an ''initialization'' part. Imagine for example, that we wanted to know to sum the number of characters in all elements of the list of strings in our examples. The ''initialization'' part could be used to initialize the sum entity before starting the iteration:
+Consider that all parts must appear in order (1) and that every loop starts either <code>across</code> or <code>from</code> (2). Taken together, these imply that it would be impossible for a loop in ''traditional'' form to include an ''iteration part''. But the opposite is not true. Because the ''initialization part'' falls after the ''iteration part'' it is possible for a loop in ''iteration'' form to contain an ''initialization'' part. Imagine for example, that we wanted to know to sum the number of characters in all elements of the list of strings in our examples. The ''initialization'' part could be used to initialize the sum entity before starting the iteration:
 <code>
             across my_list as ic from sum := 0 loop sum := sum + ic.item.count end
 </code>
 
-Loops of the ''traditional''' form require an ''exit condition part'' (4) allows the possibility that ''Iteration'' loops may contain an ''exit condition part''. Indeed they may, but it is not required. Using an ''exit condition part'' in a loop of the ''iteration'' can be useful if you want to impose an early exit condition on an iteration. 
+Loops of the ''traditional'' form require an ''exit condition part'' (4). This allows the possibility that ''Iteration'' loops ''may'' contain an ''exit condition part''. Indeed they may, but it is not required. Using an ''exit condition part'' in a loop of the ''iteration'' can be useful if you want to impose an early exit condition on an iteration. So, extending the previous example, if we wanted to sum the length of elements, but only until we reached an element whose content matched a certain criterion, we could add the ''exit condition part'':
+<code>
+            across my_list as ic from sum := 0 until ic.item ~ "Stop now" loop sum := sum + ic.item.count end
+</code>
+
 
 ====Loop invariants and variants====
 
