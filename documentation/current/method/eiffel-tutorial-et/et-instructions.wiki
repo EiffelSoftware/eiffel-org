@@ -46,15 +46,15 @@ The effect of such a multi-branch instruction, if the value of <code>exp</code> 
 
 The loop construct provides a flexible framework for iterative computation. Its flexibility lies in how the complete form can be tailored and simplified for certain purposes by including or omitting optional parts. We will explore the entire mechanism, but let's approach things a little at a time. 
 
-====Some examples====
+====Two examples====
 
-First let's take a look at two examples. These examples both use a loop to visit and print the content of each node of a linked list of character strings. So, the list in question might be declared like this:
+First let's take a look at two examples. These examples accomplish the same goal: they both use a loop to visit and print the content of each node of a linked list of character strings. So, the list in question might be declared like this:
 
 <code>
     my_list: LINKED_LIST [STRING]
 </code>
 
-Now for the two loop examples:
+Here's one example:
 
 <code>
             from
@@ -69,7 +69,7 @@ Now for the two loop examples:
 ''Loop example 1.''
 
 
-and: 
+and the other: 
 
 <code>
             across my_list as ic loop print (ic.item) end 
@@ -205,7 +205,7 @@ Of course you can use loops like the two above as you would any boolean expressi
 
 ====Loop anatomy and rules for constructing loops====
 
-Now that we've seen examples of the two forms of loops and broken down their component parts, we're ready to examine the anatomy of the entire construct. You may remember from the beginning of this discussion that the flexibility of the loop construct lies in its ability to use or omit its various parts to gain certain effects. 
+Now that we've seen examples of the two forms of loops and broken down their component parts, we're ready to examine the anatomy of the entire construct in more detail. You may remember from the beginning of this discussion that the flexibility of the loop construct lies in its ability to use or omit its various parts to gain certain effects. 
 
 Here are all the possible loop parts, most of which we've seen in examples, in the order in which they must appear when we code them:
 
@@ -237,9 +237,10 @@ Apart from seeing examples, it is useful to understand some of the rules of cons
 
 # Any loop parts being used must appear in the order shown in the table above.
 # Every loop used will assume one of the two forms mentioned early. As a result, every loop will begin either with the <code>across</code> keyword (''iteration'' form) or the <code>from</code> keyword (''traditional'' form). 
-# A ''Body part'' of some form and an ''End part'' are both required for every loop. 
-## ''Body parts'' using either the <code>all</code> keyword or the <code>some</code> keyword are only allowed in the ''iteration'' form.
+# A ''Body part'' and an ''End part'' are both required for every loop. 
+## ''Body parts'' using either the <code>all</code> keyword or the <code>some</code> keyword are only allowed in the absence of an ''initialization part''.
 # An ''exit condition part'' is required for all loops of ''traditional'' form. 
+# The expression you use in an ''iteration'' part, must have a type that is based on a class that inherits from the library class <code>ITERABLE</code>.
 # The identifier you choose for the internal cursor used in loops of the ''iteration'' form shouldn't be the same as another identifier you are using.
 
 There are implications of these rules that are worth understanding. Let's look at some of them.
@@ -254,9 +255,22 @@ Loops of the ''traditional'' form require an ''exit condition part'' (4). This a
             across my_list as ic from sum := 0 until ic.item ~ "Stop now" loop sum := sum + ic.item.count end
 </code>
 
+For loops of the ''iteration'' form, types of iteration targets must be based on classes inheriting from <code>ITERABLE</code> (5). What classes meet this criterion? All the appropriate classes in the EiffelBase library: lists, hash tables, arrays, intervals, etc. Although the details are beyond the scope of this tutorial, you also should recognize the implication that your own classes could be made iterable. 
+
+One useful descendant of iterable is the integer interval. The general operator "<code>|..|</code>" provides a concise way of creating the interval between two integers.  So, you can use this to loop across a range of integers without a lot of setup. This example:
+<code>
+            across 5 |..| 15 as ic loop print (ic.item.out+"%N") end
+</code>
+prints the integers in the interval 5 through 15. 
+
 
 ====Loop invariants and variants====
 
+The only loop parts that we have yet to address are the ''invariant part'' and the ''variant part''. These two optional loop parts exist to help guarantee the correctness of loops. The ''invariant part'' expresses a loop invariant (not to be confused with [[ET: Design by Contract (tm), Assertions and Exceptions#Class invariants|class invariants]]). For the loop to be correct, the instructions in ''initialization part'' must ensure that the loop invariant assertion is true, and then every execution of the loop body must preserve the invariant; so the effect of the loop is to yield a state, eventually, in which both the loop invariant and the exit condition are true.
+
+The loop must terminate after a finite number of iterations, of course. This can be guaranteed by including the loop ''variant part''. The ''variant part'' provides an integer expression whose value is non-negative after the execution of the instructions in the ''initialization part''. The value of the variant is then decreased by at least one, while remaining non-negative, by any execution of the loop body. Because a non-negative integer cannot be decreased forever, this guarantees that the loop will terminate. 
+
+When assertion monitoring is enabled for loop invariants and variants, the integrity of these properties is checked after initialization and after each loop iteration. An exception will be triggered if the loop invariant does not hold, or if the variant either becomes negative or does not decrease.
 
 
 ===Debug===
