@@ -127,7 +127,7 @@ The ''<code>loop</code> body'' part:
 ''<code>loop</code> body part.''
 
 
-The loop body part contains the sequence of instructions to be executed during each iteration. In the example, that includes printing the current list item and then advancing the cursor. At some point, the cursor will pass the last item in the list, causing the exit condition to become true and stop the loop's execution. So, at the risk of stating the obvious, the key to loops that always complete is to ensure that there is something in the loop body that is guaranteed always to cause the exit condition eventually to become true. Loop correctness will discussed in more detail later.
+The loop body part contains the sequence of instructions to be executed during each iteration. In the example, that includes printing the current list item and then advancing the cursor. At some point, the cursor will pass the last item in the list, causing the exit condition to become true and stop the loop's execution. So, at the risk of stating the obvious, the key to loops that always complete is to ensure that there is something in the loop body that is guaranteed always to cause the exit condition eventually to become true. Loop correctness will discussed in more detail [[#Loop invariants and variants|later]].
 
 And finally, there's the ''End'' part:
 
