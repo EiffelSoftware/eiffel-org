@@ -87,11 +87,11 @@ just as ''Loop example 2'' could have been written to take multiple lines. It co
 
 In fact, these two examples illustrate the two basic usage forms of the loop construct in Eiffel. The two basic forms can be differentiated by the parts of the construct with which they begin. 
 
-The form shown in ''Loop example 1'' begins with an ''Initialization part'' ( <code>from my_list.start</code> ), which starts with the keyword <code>from</code>. Let's call this form the '''traditional''' form. So, the type of loop you see in ''Loop example 1'' has been the traditional mechanism for accomplishing iterative computation, including iterating across data structures. However, extensions to Eiffel's loop construct have provided a more concise way of expressing traversing "iterable" structures.
+The form shown in ''Loop example 1'' begins with an ''Initialization part'' ( <code>from my_list.start</code> ), which starts with the keyword <code>from</code>. Let's call this form the '''base''' form. So, the type of loop you see in ''Loop example 1'' has been the traditional mechanism for accomplishing iterative computation, including iterating across data structures. However, extensions to Eiffel's loop construct have provided a more concise way of expressing traversing "iterable" structures.
 
 This is the form shown in ''Loop example 2''. It begins with an ''Iteration part'' ( <code>across my_list as c</code> ), which starts with the keyword <code>across</code>. We'll call this form the '''iteration''' form.
 
-====A closer look at the ''traditional'' form====
+====A closer look at the ''base'' form====
 
 What is happening in ''Loop example 1''? Let's dissect it and see.
 
@@ -104,7 +104,7 @@ First there is the ''initialization'' part:
 ''Initialization part.''
 
 
-The first thing to occur in the execution of the traditional loop is the execution of any instructions in the initialization part (it is permissible for the initialization part to be empty of instructions, but the keyword <code>from</code> must be present to distinguish the traditional loop form). In our example, the feature <code>start</code> is applied to <code>my_list</code> which will attempt to set the list cursor to the first element in <code>my_list</code>. 
+The first thing to occur in the execution of the base loop is the execution of any instructions in the initialization part (it is permissible for the initialization part to be empty of instructions, but the keyword <code>from</code> must be present to distinguish the base loop form). In our example, the feature <code>start</code> is applied to <code>my_list</code> which will attempt to set the list cursor to the first element in <code>my_list</code>. 
 
 The ''Exit condition part'':
 
@@ -159,11 +159,11 @@ The "<code>as ic</code>" indicates that a local iteration cursor object referenc
 ''<code>loop</code> body part''.
 
 
-Notice that the loop body does not contain the call to the structure's <code>forth</code> feature, as our example in traditional form did. Neither do you see the call to <code>start</code> nor the check of <code>off</code> in the exit condition. The iteration form abstracts these for you, relieving you of their burden ... while eliminating some opportunities for error.
+Notice that the loop body does not contain the call to the structure's <code>forth</code> feature, as our example in base form did. Neither do you see the call to <code>start</code> nor the check of <code>off</code> in the exit condition. The iteration form abstracts these for you, relieving you of their burden ... while eliminating some opportunities for error.
 
-Notice also that the call "<code>print (ic.item)"</code>" accesses the current item as "<code>ic.item"</code>" versus "<code>my_list.item"</code>" in the traditional form. This is because in the iteration form, access to the current item is through the cursor variable, "<code>ic</code>" in the case of ''Loop example 2''. 
+Notice also that the call "<code>print (ic.item)"</code>" accesses the current item as "<code>ic.item"</code>" versus "<code>my_list.item"</code>" in the base form. This is because in the iteration form, access to the current item is through the cursor variable, "<code>ic</code>" in the case of ''Loop example 2''. 
 
-Concerning cursors, both ways of using the loop construct to traverse a structure employ a cursor. In the traditional usage, the cursor is internal to the structure object. In the case of the example, that would be the instance of <code>LINKED_LIST [STRING]</code> called <code>my_list</code>. Applying the feature <code>item</code> to <code>my_list</code> retrieves the list element currently referenced by the cursor. In the iteration version of traversal, the variable <code>ic</code> holds the iteration cursor, external to the list object. So, you apply <code>ic.item</code> to get the current list element. The advantage to the external cursor is that multiple traversals of the structure can occur simultaneously without interfering with one another. This is possible in the traditional usage, but only by saving and restoring the structure's cursor.
+Concerning cursors, both ways of using the loop construct to traverse a structure employ a cursor. In the base form, the cursor is internal to the structure object. In the case of the example, that would be the instance of <code>LINKED_LIST [STRING]</code> called <code>my_list</code>. Applying the feature <code>item</code> to <code>my_list</code> retrieves the list element currently referenced by the cursor. In the iteration version of traversal, the variable <code>ic</code> holds the iteration cursor, external to the list object. So, you apply <code>ic.item</code> to get the current list element. The advantage to the external cursor is that multiple traversals of the structure can occur simultaneously without interfering with one another. This is possible in the base form, but only by saving and restoring the structure's cursor.
 
 Lastly, of course, the iteration form includes an ''<code>end</code> part'' ... at the end.
 
@@ -200,7 +200,7 @@ To know if at least one string in <code>my_list</code> has a length greater than
 </code>
 ''Loop example 4.''
 
-Of course you can use loops like the two above in the same way you would any other boolean expression, in a [[#Conditional|conditional]], for example. 
+Of course you can use iteration loops with "<code>all</code>" or "<code>some</code>" bodies in the same way that you would any other boolean expression; in [[#Conditional|conditionals]], for example. 
 
 
 ====Loop anatomy and rules for constructing loops====
@@ -236,21 +236,21 @@ Here are all the possible loop parts, most of which we've seen in examples, in t
 Apart from seeing examples, it is useful to understand some of the rules of constructing loops from these parts. Here's an informal summary of what you should know about putting together valid loops:
 
 # Any loop parts being used must appear in the order shown in the table above.
-# Every loop used will assume one of the two forms mentioned early. As a result, every loop will begin either with the <code>across</code> keyword (''iteration'' form) or the <code>from</code> keyword (''traditional'' form). 
+# Every loop used will assume one of the two forms mentioned early. As a result, every loop will begin either with the <code>across</code> keyword (''iteration'' form) or the <code>from</code> keyword (''base'' form). 
 # A ''Body part'' and an ''End part'' are both required for every loop. 
 ## ''Body parts'' using either the <code>all</code> keyword or the <code>some</code> keyword are only allowed in the absence of an ''initialization part''.
-# An ''exit condition part'' is required for all loops of ''traditional'' form. 
+# An ''exit condition part'' is required for all loops of ''base'' form. 
 # The expression you use in an ''iteration'' part, must have a type that is based on a class that inherits from the library class <code>ITERABLE</code>.
 # The identifier you choose for the internal cursor used in loops of the ''iteration'' form shouldn't be the same as another identifier you are using.
 
 There are implications of these rules that are worth understanding. Let's look at some of them.
 
-Consider that all parts must appear in order (1) and that every loop starts with one of two keywords: either <code>across</code> or <code>from</code> (2). Taken together, these imply that it would be invalid for a loop in ''traditional'' form to include an ''iteration part''. However, the opposite is not true. Because the ''initialization part'' falls after the ''iteration part'' it is possible for a loop in ''iteration'' form to contain an ''initialization'' part. Imagine for example, that we wanted to compute the sum of the number of characters in all elements of the list of strings in our examples. The ''initialization'' part could be used to initialize the sum entity before starting the iteration:
+Consider that all parts must appear in order (1) and that every loop starts with one of two keywords: either <code>across</code> or <code>from</code> (2). Taken together, these imply that it would be invalid for a loop in ''base'' form to include an ''iteration part''. However, the opposite is not true. Because the ''initialization part'' falls after the ''iteration part'' it is possible for a loop in ''iteration'' form to contain an ''initialization'' part. Imagine for example, that we wanted to compute the sum of the number of characters in all elements of the list of strings in our examples. The ''initialization'' part could be used to initialize the sum entity before starting the iteration:
 <code>
             across my_list as ic from sum := 0 loop sum := sum + ic.item.count end
 </code>
 
-Loops of the ''traditional'' form require an ''exit condition part'' (4). This allows the possibility that ''Iteration'' loops ''may'' contain an ''exit condition part''. Indeed they may, but it is not required. Using an ''exit condition part'' in a loop of the ''iteration'' can be useful if you want to impose an early exit condition on an iteration. So, extending the previous example, if we wanted to sum the length of elements, but only until we reached an element whose content matched a certain criterion, we could add the ''exit condition part'':
+Loops of the ''base'' form require an ''exit condition part'' (4). This allows the possibility that ''Iteration'' loops ''may'' contain an ''exit condition part''. Indeed they may, but it is not required. Using an ''exit condition part'' in a loop of the ''iteration'' can be useful if you want to impose an early exit condition on an iteration. So, extending the previous example, if we wanted to sum the length of elements, but only until we reached an element whose content matched a certain criterion, we could add the ''exit condition part'':
 <code>
             across my_list as ic from sum := 0 until ic.item ~ "Stop now" loop sum := sum + ic.item.count end
 </code>
