@@ -165,6 +165,10 @@ Notice also that the call "<code>print (ic.item)"</code>" accesses the current i
 
 Concerning cursors, both ways of using the loop construct to traverse a structure employ a cursor. In the base form, the cursor is internal to the structure object. In the case of the example, that would be the instance of <code>LINKED_LIST [STRING]</code> called <code>my_list</code>. Applying the feature <code>item</code> to <code>my_list</code> retrieves the list element currently referenced by the cursor. In the iteration version of traversal, the variable <code>ic</code> holds the iteration cursor, external to the list object. So, you apply <code>ic.item</code> to get the current list element. The advantage to the external cursor is that multiple traversals of the structure can occur simultaneously without interfering with one another. This is possible in the base form, but only by saving and restoring the structure's cursor.
 
+
+{{recommended|The ''iteration'' form of the loop construct is not appropriate for use in cases in which the target structure may be changed during the traversal. Therefore, it is recommended that if you choose to alter the structure during traversal, you use the ''base'' loop form with explicit cursor manipulation. This is still tricky business, so you should be certain to protect your work with appropriate contracts.}}
+
+
 Lastly, of course, the iteration form includes an ''<code>end</code> part'' ... at the end.
 
 
