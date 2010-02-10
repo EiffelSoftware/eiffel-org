@@ -166,7 +166,7 @@ Notice also that the call "<code>print (ic.item)"</code>" accesses the current i
 Concerning cursors, both ways of using the loop construct to traverse a structure employ a cursor. In the base form, the cursor is internal to the structure object. In the case of the example, that would be the instance of <code>LINKED_LIST [STRING]</code> called <code>my_list</code>. Applying the feature <code>item</code> to <code>my_list</code> retrieves the list element currently referenced by the cursor. In the iteration version of traversal, the variable <code>ic</code> holds the iteration cursor, external to the list object. So, you apply <code>ic.item</code> to get the current list element. The advantage to the external cursor is that multiple traversals of the structure can occur simultaneously without interfering with one another. This is possible in the base form, but only by saving and restoring the structure's cursor.
 
 
-{{recommended|The ''iteration'' form of the loop construct is not appropriate for use in cases in which the target structure may be changed during the traversal. Therefore, it is recommended that if you choose to alter the structure during traversal, you use the ''base'' loop form with explicit cursor manipulation. This is still tricky business, so you should be certain to protect your work with appropriate contracts.}}
+{{recommended|The ''iteration'' form of the loop construct is not appropriate for use in cases in which the target structure may be changed during the traversal. Therefore, if you choose to alter the structure during traversal, you must use the ''base'' loop form with explicit cursor manipulation. This is still tricky business, so you should be certain to protect your work with appropriate contracts.}}
 
 
 Lastly, of course, the iteration form includes an ''<code>end</code> part'' ... at the end.
@@ -261,11 +261,17 @@ Loops of the ''base'' form require an ''exit condition part'' (4). This allows t
 
 For loops of the ''iteration'' form, types of iteration targets must be based on classes inheriting from <code>ITERABLE</code> (5). What classes meet this criterion? All the appropriate classes in the EiffelBase library: lists, hash tables, arrays, intervals, etc. Although the details are beyond the scope of this tutorial, you also should recognize the implication that your own classes could be made iterable. 
 
-One useful descendant of iterable is the integer interval. The general operator "<code>|..|</code>" provides a concise way of creating the interval between two integers.  So, you can use this to loop across a range of integers without a lot of setup. This example:
+One useful descendant of <code>ITERABLE</code> is the integer interval. The general operator "<code>|..|</code>" provides a concise way of creating the interval between two integers.  So, you can use this to loop across a range of integers without a lot of setup. This example:
 <code>
             across 5 |..| 15 as ic loop print (ic.item.out+"%N") end
 </code>
 prints the integers in the interval 5 through 15. 
+
+Also descending from <code>ITERABLE</code> are the iteration cursors themselves. This means that a cursor can be the target of a loop of the ''iteration'' form. Consider this example that prints the items in <code>my_list</code> in reverse order:
+<code>
+            across my_list.new_cursor.reversed as ic loop print (ic.item) end 
+</code>
+Here the feature <code>new_cursor</code> is applied to <code>my_list</code>. The result is a new iteration cursor for traversing <code>my_list</code>. Then the <code>reversed</code> feature is applied to that result, which itself results in an iteration cursor having the order of the elements reversed. It is this cursor that is used for <code>ic</code> in the traversal.
 
 
 ====Loop invariants and variants====
