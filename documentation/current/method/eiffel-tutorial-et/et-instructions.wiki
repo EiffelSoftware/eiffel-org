@@ -115,7 +115,7 @@ The ''Exit condition part'':
 ''Exit condition part.''
 
 
-The exit condition part of the loop construct defines the conditions under which the loop body (explained below) should no longer be executed. In our example, the loop will no long execute if the cursor is "off", that is, there is no current item. So, if the list is empty, the loop body will not execute at all. 
+The exit condition part of the loop construct defines the conditions under which the loop body (explained below) should no longer be executed. In our example, the loop will no longer execute if the cursor is "off", that is, there is no current item. So, if the list is empty, the loop body will not execute at all. 
 
 The ''<code>loop</code> body'' part:
 
@@ -200,7 +200,7 @@ To know if at least one string in <code>my_list</code> has a length greater than
 </code>
 ''Loop example 4.''
 
-Of course you can use loops like the two above as you would any boolean expression, in a [[#Conditional|conditional]], for example. 
+Of course you can use loops like the two above in the same way you would any other boolean expression, in a [[#Conditional|conditional]], for example. 
 
 
 ====Loop anatomy and rules for constructing loops====
@@ -245,7 +245,7 @@ Apart from seeing examples, it is useful to understand some of the rules of cons
 
 There are implications of these rules that are worth understanding. Let's look at some of them.
 
-Consider that all parts must appear in order (1) and that every loop starts either <code>across</code> or <code>from</code> (2). Taken together, these imply that it would be impossible for a loop in ''traditional'' form to include an ''iteration part''. But the opposite is not true. Because the ''initialization part'' falls after the ''iteration part'' it is possible for a loop in ''iteration'' form to contain an ''initialization'' part. Imagine for example, that we wanted to know to sum the number of characters in all elements of the list of strings in our examples. The ''initialization'' part could be used to initialize the sum entity before starting the iteration:
+Consider that all parts must appear in order (1) and that every loop starts with one of two keywords: either <code>across</code> or <code>from</code> (2). Taken together, these imply that it would be invalid for a loop in ''traditional'' form to include an ''iteration part''. However, the opposite is not true. Because the ''initialization part'' falls after the ''iteration part'' it is possible for a loop in ''iteration'' form to contain an ''initialization'' part. Imagine for example, that we wanted to compute the sum of the number of characters in all elements of the list of strings in our examples. The ''initialization'' part could be used to initialize the sum entity before starting the iteration:
 <code>
             across my_list as ic from sum := 0 loop sum := sum + ic.item.count end
 </code>
