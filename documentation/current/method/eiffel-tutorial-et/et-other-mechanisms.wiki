@@ -1,7 +1,7 @@
 [[Property:title|ET: Other Mechanisms]]
 [[Property:weight|-4]]
 [[Property:uuid|c0a01664-194c-4e84-0517-8e7c1ca61dec]]
-We now examine a few important mechanisms that complement the preceding picture: shared objects; constants; instructions; and lexical conventions. 
+We now examine a few important mechanisms that complement the preceding picture: shared objects, constants, and lexical conventions. 
 
 ==Once routines and shared objects==
 
@@ -55,114 +55,6 @@ with special characters again using the <code>%</code> codes. It is also possibl
 </code>
 
 which is an expression of type <code>ARRAY [INTEGER]</code>. Manifest arrays and strings are not atomic, but denote instances of the Kernel Library classes <code>STRING</code> and <code>ARRAY</code>, as can be produced by once functions. 
-
-==Instructions==
-
-Eiffel has a remarkably small set of instructions. The basic computational instructions have been seen: creation, assignment, assignment attempt, procedure call, retry. They are complemented by control structures: conditional, multi-branch, loop, as well as debug and check. 
-
-===Conditional===
-
-A conditional instruction has the form 
-<code>
-            if ... then
-                ... 
-            elseif ... then 
-                ... 
-            else 
-                ... 
-            end
-</code> 
-The <code>elseif</code> ... <code>then</code> ... part (of which there may be more than one) and the <code>else</code> ... part are optional. After <code>if</code> and <code>elseif</code> comes a boolean expression; after <code>then</code> and <code>else</code> come zero or more instructions. 
-
-===Multi-branch===
-
-A multi-branch instruction has the form
-<code>
-            inspect
-                exp
-            when v1 then
-                inst
-            when v2 then
-                inst2
-            ...
-            else
-                inst0
-            end
-</code>
-
-where the <code>else inst0</code> part is optional, <code>exp</code> is a character or integer expression, <code>v1</code>, <code>v1</code>, ... are constant values of the same type as <code>exp</code>, all different, and <code>inst0</code>, <code>inst1</code>, <code>inst2</code>, ... are sequences of zero or more instructions. 
-
-The effect of such a multi-branch instruction, if the value of <code>exp</code> is one of the <code>vi</code>, is to execute the corresponding <code>insti</code>. If none of the <code>vi</code> matches, the instruction executes <code>inst0</code>, unless there is no <code>else</code> part, in which case it triggers an exception. 
-
-{{note|Raising an exception is the proper behavior, since the absence of an <code>else</code> indicates that the author asserts that one of the values will match. If you want an instruction that does nothing in this case, rather than cause an exception, use an <code>else</code> part with an empty <code>inst0</code>. In contrast, <code>if c then</code> <code>inst</code> <code>end</code> with no <code>else</code> part does nothing in the absence of an <code>else</code> part, since in this case there is no implied claim that <code>c</code> must hold. }}
-
-===Loop===
-
-The loop construct has the form
-<code>
-            from
-                initialization
-            invariant
-                inv
-            until
-                exit
-            loop
-                body
-            variant
-                var
-            end
-</code>
-
-where the <code>invariant</code> <code>inv</code> and <code>variant</code> <code>var</code> parts are optional, the others required. <code>initialization</code> and <code>body</code> are sequences of zero or more instructions; <code>exit</code> and <code>inv</code> are boolean expressions (more precisely, <code>inv</code> is an assertion); <code>var</code> is an integer expression.
-
-The effect is to execute <code>initialization</code>, then, zero or more times until <code>exit</code> is satisfied, to execute <code>body</code>. (If after <code>initialization</code> the value of <code>exit</code> is already true, <code>body</code> will not be executed at all.) Note that the syntax of loops always includes an initialization, as most loops require some preparation. If not, just leave <code>initialization</code> empty, while including the <code>from</code> since it is a required component. 
-
-The assertion <code>inv</code>, if present, expresses a '''loop invariant''' (not to be confused with class invariants). For the loop to be correct, <code>initialization</code> must ensure <code>inv</code>, and then every iteration of <code>body</code> executed when <code>exit</code> is false must preserve the invariant; so the effect of the loop is to yield a state in which both <code>inv</code> and <code>exit</code> are true. The loop must terminate after a finite number of iterations, of course; this can be guaranteed by using a '''loop variant''' <code>var</code>. It must be an integer expression whose value is non-negative after execution of <code>initialization</code>, and decreased by at least one, while remaining non-negative, by any execution of <code>body</code> when <code>exit</code> is false; since a non-negative integer cannot be decreased forever, this ensures termination. The assertion monitoring mode, if turned on at the highest level, will check these properties of the invariant and variant after initialization and after each loop iteration, triggering an exception if the invariant does not hold or the variant is negative or does not decrease. 
-
-===Debug===
-
-An occasionally useful instruction is <code>debug</code> <code>(</code>''Debug_key'', ... <code>)</code> ''instructions'' <code>end</code> where ''instructions'' is a sequence of zero or more instructions and the part in parentheses is optional, containing if present one or more strings, called debug keys. The EiffelStudio compiler lets you specify the corresponding <code>debug</code> compilation option: <code>yes</code>, <code>no</code>, or an explicit debug key. The ''instructions'' will be executed if and only if the corresponding option is on. The obvious use is for instructions that should be part of the system but executed only in some circumstances, for example to provide extra debugging information. 
-
-===Check===
-
-The final instruction is connected with Design by Contract&#153;. The instruction 
-<code>
-            check
-                Assertion
-            end
-</code>where Assertion is a sequence of zero or more assertions, will have no effect unless assertion monitoring is turned on at the <code>Check</code> level or higher. If so it will evaluate all the assertions listed, having no further effect if they are all satisfied; if any one of them does not hold, the instruction will trigger an exception. 
-
-This instruction serves to state properties that are expected to be satisfied at some stages of the computation -- other than the specific stages, such as routine entry and exit, already covered by the other assertion mechanisms such as preconditions, postconditions and invariants. A recommended use of <code>check</code> involves calling a routine with a precondition, where the call, for good reason, does not explicitly test for the precondition. Consider a routine of the form 
-<code>
-    r (ref: SOME_REFERENCE_TYPE)
-        require
-            not_void: ref /= Void
-        do
-            ref.some_feature
-            ...
-        end
-</code>
-
-Because of the call to <code>some_feature</code>, the routine will only work if its precondition is satisfied on entry. To guarantee this precondition, the caller may protect it by the corresponding test, as in 
-<code>
-            if x /= Void then 
-                a.r (x) 
-            end
-</code>
-
-but this is not the only possible scheme; for example if an <code>create x</code> appears shortly before the call we know <code>x</code> is not void and do not need the protection. It is a good idea in such cases to use a <code>check</code> instruction to document this property, if only to make sure that a reader of the code will realize that the omission of an explicit test (justified or not) was not a mistake. This is particularly appropriate if the justification for not testing the precondition is less obvious. For example <code>x</code> could have been obtained, somewhere else in the algorithm, as <code>clone (y)</code> for some <code>y</code> that you know is not void. You should document this knowledge by writing the call as 
-<code>
-            check
-                x_not_void: x /= Void
-                    -- Because x was obtained as a clone of y,
-                    -- and y is not void because [etc.]
-            end
-            a.r (x)
-</code>
-
-{{recommended|An extra indentation of the <code>check</code> part to separate it from the algorithm proper; and inclusion of a comment listing the rationale behind the developer's decision not to check explicitly for the precondition. }}
-
-In production mode with assertion monitoring turned off, this instruction will have no effect. But it will be precious for a maintainer of the software who is trying to figure out what it does, and in the process to reconstruct the original developer's reasoning. (The maintainer might of course be the same person as the developer, six months later.) And if the rationale is wrong somewhere, turning assertion checking on will immediately uncover the bug. 
 
 ==Obsolete features and classes==
 
@@ -274,7 +166,5 @@ Tuples are appropriate when these are the only operations you need, that is to s
 </code>
 
 As soon as you need a type with more specific features, you should define a class. 
-
-
 
 
