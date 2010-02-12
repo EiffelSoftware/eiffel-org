@@ -4,7 +4,7 @@
 [[Property:uuid|3abb5fc8-b5e5-2d25-fcac-72929abba0a7]]
 You can use EiffelStudio to include a license text in each of your classes automatically. The automatic class licensing facility is flexible so that you can use various strategies to retrieve the license text used.
 
-When you save the text of a class file in EiffelStudio, the automatic licensing facility searches for an appropriate license text file (file type <code lang="text">.lic</code>) to use. If such a file is found, then EiffelStudio includes the contents of that file as an ending <code>note</code> part in your class. Here's the text of a class that includes an Eiffel Software license:
+When you save the text of a class file in EiffelStudio, the automatic licensing facility searches for an appropriate license text file to use. If such a file is found, then EiffelStudio includes the contents of that file as an ending <code>note</code> part in your class. Here's the text of a class that includes an Eiffel Software license:
 
 <code>
 class
