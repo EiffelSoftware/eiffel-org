@@ -1,22 +1,25 @@
 [[Property:title|Overview and Prerequisites]]
 [[Property:weight|-15]]
 [[Property:uuid|acf5433b-14e9-1d21-c8cf-997db7821550]]
-EiffelStudio is the central tool of Eiffel Software's implementation of Eiffel, letting you design, develop, debug, document, measure, maintain, revise and expand systems using the full power of object technology and Design by Contract <span>TM</span>. 
+EiffelStudio is the central tool of Eiffel Software's implementation of Eiffel, letting you design, develop, debug, document, measure, maintain, test, revise and expand systems using the full power of object technology and Design by Contract&trade;. 
 
-This presentation introduces the essential properties of EiffelStudio. It will take you through a tour of the environment, using a pre-existing example system.
+This guided tour introduces the essential properties of EiffelStudio. It will take you through a tour of the environment, using a pre-existing example system.
 
 ==What will I achieve?==
 
 Although it skips many specific or advanced facilities, this Tour will help you quickly become familiar with the way you can use the environment for your work. After reading it you will know the basics of working with EiffelStudio:
-* Starting a project and retrieving an existing project.
-* Entering new software elements -- clusters, classes and features.
-* Compiling your software.
-* Making changes and having them immediately recompiled using the Melting Ice Technology <span>TM</span>. 
-* Displaying a graphical representation of your software elements, and modifying the software through the graphical views (as well as through its text).
-* Producing extensive documentation of your system, textual or graphical, under many different formats such as HTML, RTF, Postscript, XMI (for example Rational Rose) and others.
-* Browsing through simple or complex software systems, to find out their various components, properties and relationships.
-* Measuring quantitative properties of the software, by applying metrics predefined in EiffelStudio as well as new ones that you define.
-* Executing a compiled system, and controlling its execution through the debugging mechanisms of EiffelStudio.
+* '''Starting a project''' and '''retrieving an existing project'''.
+* '''Entering new software elements''' -- clusters, classes and features.
+* '''Compiling''' your software.
+* '''Making changes''' and '''recompiling''' them immediately using the Melting Ice Technology&trade;. 
+* Displaying a '''graphical representation''' of your software elements, and '''modifying''' the software through the graphical views (as well as through its text).
+* Producing extensive '''documentation''' of your system, textual or graphical, under many different formats such as HTML, RTF, Postscript, XMI (for example Rational Rose) and others.
+* '''Browsing''' through simple or complex software systems, to find out their various components, properties and relationships.
+* '''Measuring''' quantitative properties of the software, by applying metrics predefined in EiffelStudio as well as new ones that you define.
+* '''Executing''' a compiled system.
+* Controlling execution through the '''debugging''' mechanisms of EiffelStudio.
+* Creating an effective '''test suite''', with the automated assistance of '''AutoTest'''
+* Add '''licensing''' text to your classes automatically.
 
 ==About the scope of EiffelStudio==
 
@@ -77,4 +80,8 @@ Please take a moment to locate the example files on your installation. They all 
 <code>$ISE_EIFFEL/examples/studio/tour</code>
 
 (Windows users: remember that instead of the slash <code>/</code> your platform uses a backslash <code>\</code> . OpenVMS users: this is to be replaced by the OpenVMS path naming conventions.) 
+
+
+{{seealso|For a quick introduction to EiffelStudio, see the online presentation available on the Eiffel Software [http://www.eiffel.com/developers/presentations/ developers' presentations web page].}}
+
 
