@@ -17,7 +17,7 @@ Right now you first have to add the project, so click on the <code>Add Project..
 	simple.ecf
 </code>
 
-in the directory where you've chosen to work with the "tour" system. The ".ecf" file is an Eiffel Configuration File which contains the information necessary for construction of an Eiffel project.
+in the directory "<code>YOURDIR</code>", (either <code>$ISE_EIFFEL\examples\studio\tour</code> or the copy that you have made). The ".ecf" file is an Eiffel Configuration File which contains the information necessary for construction of an Eiffel project.
 
 So, use the File Explorer to find and select the file <code>simple.ecf</code>. 
 
