@@ -133,7 +133,7 @@ The related concepts of descendants, proper descendants, heirs, indirect heirs f
 </code>
 <br/>
 Then both <eiffel>STRING</eiffel> and <eiffel>FILE</eiffel> are suppliers of class <eiffel>A</eiffel>. <eiffel>STRING</eiffel> is normal supplier because a feature make_empty in <eiffel>STRING</eiffel> is invoked in class <eiffel>A</eiffel>, but <eiffel>FILE</eiffel> is a syntactically referenced supplier because no feature from <eiffel>FILE</eiffel> is called from <eiffel>A</eiffel>. Classes explicitly listed in inherit clause of a class are also considered as syntactically referenced suppliers. 
-Concepts of direct/indirect, normally referenced/syntactically referenced clients follow the same rule expect in the other direction.
+Concepts of direct/indirect, normally referenced/syntactically referenced clients follow the same rule except in the other direction.
 
 
 '''supplier_is'''<br/>
