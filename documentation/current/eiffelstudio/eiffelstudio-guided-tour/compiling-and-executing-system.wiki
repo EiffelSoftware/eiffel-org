@@ -28,6 +28,9 @@ Click the button labeled <code>Open</code> to confirm. This starts compilation o
 
 During Eiffel compilation, you can observe the successive compilation steps, or "degrees", in the [[Outputs tool]]. The bulk of our little project is the EiffelBase library, which the EiffelStudio installation procedure has precompiled; as a result, there are only a few extra classes to compile, and the process is almost instantaneous on a state-of-the-art computer. 
 
+
+{{note|As a frame of reference, on a Toshiba Satellite laptop, mobile dual core 1.73 GHz, 1 GB memory, running Windows Vista, this Eiffel compilation takes about 3.5 seconds. }}
+
 After Eiffel compilation completes you will see the message
 <code>
 	Eiffel Compilation Succeeded
