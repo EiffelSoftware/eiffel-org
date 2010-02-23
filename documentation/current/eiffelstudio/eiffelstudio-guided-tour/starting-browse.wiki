@@ -90,17 +90,28 @@ As a fourth way to retarget -- there are more, and after this one we'll stop cou
 
 [[Image:es gt target history 01]]
 
-If you click this arrow -- the little black triangle -- you will see a menu of all your recent targets. Doing this now will only show the two classes visited so far, <code>STRING_32</code> and <code>LIST</code>, but later on there will be more entries. By default EiffelStudio remembers 20 history entries; this is one of the settings you can change later if you wish, through the menu <code lang=text>Tools-->Preferences</code>. (But, there's no point in doing this now.) 
+If you click this arrow -- the little black triangle -- you will see a menu of all your recent targets. Doing this now will only show the two classes visited so far, <code>STRING_32</code> and <code>LIST</code>, but later on there will be more entries. By default EiffelStudio remembers 20 history entries; this is one of the settings you can change later if you wish, through the menu path: 
+<code lang=text>
+            Tools --> Preferences
+</code> 
+But, let's don't do that now. 
 
 ==Adding to Favorites==
 
-If you find yourself often needing to examine a particular class, you can add it to your "Favorites", much like adding an interesting page's web link to the bookmarks of a Web browser. 
+If you find yourself often needing to examine a particular class, you can add it to your [[Favorites tool|Favorites]], much like adding an interesting page's web link to the bookmarks of a Web browser. 
 
-It's easy to add the current target -- currently, <code>LIST</code> -- to your Favorites. Do it now: go to the <code>Favorites</code> menu and select <code>Add to favorites</code>. 
+It's easy to add the current target -- currently, <code>LIST</code> -- to your Favorites. Do it now by following the menu path: 
+<code lang="text">
+            Favorites --> Add to Favorites
+</code>
 
 [[Image:es gt add to favorites 01]]
 
-Now display the favorites; one way is to go back to that same Favorites menu and select <code>Show favorites</code>. The Favorites tool appears as a tab in the same area as the Groups tool: 
+Now display the favorites; one way is to go back to that same Favorites menu: 
+<code lang="text">
+            Favorites --> Favorites
+</code>
+The Favorites tool appears as a tab in the same area as the Groups tool: 
 
 [[Image:es gt favorites 01]] 
 
