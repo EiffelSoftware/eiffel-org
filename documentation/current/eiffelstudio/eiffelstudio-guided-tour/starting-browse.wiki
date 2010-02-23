@@ -133,13 +133,24 @@ With all the techniques seen so far, you were able to retarget the current the d
 
 To create a new development window, follow the menu path: 
 <code lang="text">
-            File-->New window
+            File --> New Window
 </code>
 This will create a new development window with a title bar that reads "<code lang=text>Empty development tool #1</code>" because the window is (as yet) untargeted. You can also create a new development window by using the keyboard accelerator: <code>CTRL-N</code>. 
 
-If you get a number of windows active and want to see an index to them, you can invoke the [[Windows tool|active windows tool]] by following the menu path: 
+You can close a development window either by clicking its close button in the corner of the window, or by following the menu path:
 <code lang="text">
-            View-->Tools-->Active windows
+            File --> Close Window
+</code>
+
+Be careful not to try to use:
+<code lang="text">
+            File --> Exit
+</code>
+to close a single window. This menu command will exit the entire EiffelStudio development environment, closing all windows.
+
+If, during a session, you end up with a number of windows active and want to see an active index to them, you can invoke the [[Windows tool|active windows tool]] by following the menu path: 
+<code lang="text">
+            View--> Tools--> Active windows
 </code>
 
 [[Image:es gt active windows tool 01]]
