@@ -1,7 +1,7 @@
 [[Property:title|Starting To Browse]]
 [[Property:weight|-10]]
 [[Property:uuid|cb6c2e52-d238-9b55-0b78-ab3af9568550]]
-It was important to take a look at how EiffelStudio stores your project, but unless your idea of fun is to poke around directories to look at compiler-generated files that's not really the exciting part yet. Among the most innovative aspects of EiffelStudio is a unique set of facilities to <span>browse</span> through a software system. 
+It was important to take a look at how EiffelStudio stores your project, but unless your idea of fun is to poke around directories to look at compiler-generated files that's not really the exciting part yet. Among the most innovative aspects of EiffelStudio is a unique set of facilities to "browse" through a software system. 
 
 ==Browsing style==
 
@@ -21,15 +21,15 @@ Let's see how this works. First, take a look at the EiffelStudio window:
 
 {{note|If some parts are too small, just resize the window to arrive at something like what's on the figure. As soon as you have resized it, EiffelStudio will remember that size, and start up in the next session with the size you've set.}}
 
-You can see that the bulk of the development window is divided into three primary panes or areas. The '''Editor''' tool is the large pane on the right. Although it is empty in this image, the Editor tool supports a tabbed display of the elements in your system ... usually that's class text, and it's in the Editor tool that you make changes to your software. We'll target the Editor tool to a class in a moment. The other two areas support multiple tools, also using a tabbed display. In the area below the Editor tool you see the '''Outputs''' tool currently selected. As you can see there are other tools represented by the tabs at the bottom of the same area. Likewise, the area to the right of the Editor tool shows the '''Groups''' tool selected, but in that area are also tabs for other tools. You will find that the layout of the development window is very flexible. Different tools can be made visible or hidden, panes can be removed, new panes created, tools can be docked in these areas or viewed as standalone windows. The appearance of EiffelStudio can be tailored to your needs and preferences. 
+You can see that the bulk of the development window is divided into three primary panes or areas. The [[EiffelStudio Editor|'''Editor''']] tool is the large pane on the right. Although it is empty in this image, the Editor tool supports a tabbed display of the elements in your system ... usually that's class text, and it's in the Editor tool that you make changes to your software. We'll target the Editor tool to a class in a moment. The other two areas support multiple tools, also using a tabbed display. In the area below the Editor tool you see the '''Outputs''' tool currently selected. As you can see there are other tools represented by the tabs at the bottom of the same area. Likewise, the area to the right of the Editor tool shows the '''Groups''' tool selected, but in that area are also tabs for other tools. You will find that the layout of the development window is very flexible. Different tools can be made visible or hidden, panes can be removed, new panes created, tools can be docked in these areas or viewed as standalone windows. The appearance of EiffelStudio can be tailored to your needs and preferences. 
 
-So far we have talked about "the EiffelStudio window", but in fact that's not correct. What you see is one "'''Development Window'''", of which you can have as many as you wish. Some people prefer to use a single development tool, avoiding screen clutter; others don't think twice about having lots of windows, taking the "desktop metaphor" to its full conclusion (some non-computer desktops are quite cluttered). There are many ways to start a new Development Window; for example if you look at the entries in the <code>File</code> menu at the top left -- don't select any of these entries yet, just look -- you'll see, among others, <code>New window</code>, which would create a new Development Window. 
+So far we have talked about "the EiffelStudio window", but in fact that's not correct. What you see is one '''Development Window''', of which you can have as many as you wish. Some people prefer to use a single development tool, avoiding screen clutter; others don't think twice about having lots of windows, taking the "desktop metaphor" to its full conclusion (some non-computer desktops are quite cluttered). There are many ways to start a new development window; for example if you look at the entries in the <code>File</code> menu at the top left -- don't select any of these entries yet, just look -- you'll see, among others, <code>New window</code>, which would create a new development window. 
 
-Whether you have one Development Window or many, each may have as its '''target''' an element of the system: system, cluster, class (the most common case), feature, run-time object. This simply means that the tool displays information about that element. 
+Whether you have one development window or many, each may have as its '''target''' an element of the system: system, cluster, class (the most common case), feature, run-time object. This simply means that the tool displays information about that element. 
 
 ==Retargeting by name==
 
-In our first look at the development window, the Editor tool was empty. To target it to a specific class, you can just type the class name -- if you know it -- into the Class Field at the top left:
+In our first look at the development window, the Editor tool was empty. To target it to a specific class, you can just type the class name -- if you know it -- into the '''Class field''' at the top left:
 
 
 [[Image:es gt class field 01]]
@@ -67,7 +67,7 @@ The EiffelBase Data Structure library and its subclusters are described in the b
 
 The ellipse, or "bubble", is indeed throughout EiffelStudio, as in the Business Object Notation (BON, the underlying graphical convention), the distinctive symbol for classes. You will notice that instead of the bubble, some classes are represented by what we call the "expanded" icon ([[Image:expanded-normal-icon]] ). These are still Eiffel classes. They are represented this way to show that they are marked as [[I2E: Types|expanded]]. Still other classes have a modified bubble ( [[Image:class-deferred-icon]] ) indicating that they are marked as [[ET: Inheritance#Deferred features and classes|deferred]]. 
 
-Our second technique for retargeting a Development Window to a class (other than typing the class name as we did before) is to click the class in the Groups tool. Do this now: click <code>LIST</code> in the tree. It doesn't matter whether you click on the class name or the adjacent bubble. This retargets the tool to class <code>LIST</code>. 
+Our second technique for retargeting a development window to a class (other than typing the class name as we did before) is to click the class in the Groups tool. Do this now: click <code>LIST</code> in the tree. It doesn't matter whether you click on the class name or the adjacent bubble. This retargets the tool to class <code>LIST</code>. 
 
 [[Image:es gt development window targeted to list 01]]
 
@@ -76,7 +76,7 @@ As the tool is now targeted to <code>LIST</code>, the Class Field at the top lef
 
 ==Moving back and forth==
 
-Here now is a third way to retarget. Towards the top-left part of the Development Window there are <code>Back</code> and <code>Forth</code> buttons, which will enable you to revisit classes already seen during the current session: 
+Here now is a third way to retarget. Towards the top-left part of the development window there are <code>Back</code> and <code>Forth</code> buttons, which will enable you to revisit classes already seen during the current session: 
 
 [[Image:es gt go back 01]]
 
@@ -104,7 +104,7 @@ Now display the favorites; one way is to go back to that same Favorites menu and
 
 [[Image:es gt favorites 01]] 
 
-This gives us one more way to retarget a Development Window: click a class in the Favorites tool. ''Two'' ways actually, because once you add a class to Favorites, it appears in the Favorites menu and you can select it by choosing its menu item.
+This gives us one more way to retarget a development window: click a class in the Favorites tool. ''Two'' ways actually, because once you add a class to Favorites, it appears in the Favorites menu and you can select it by choosing its menu item.
 
 [[Image:es gt list added to favorites 01]]
 
