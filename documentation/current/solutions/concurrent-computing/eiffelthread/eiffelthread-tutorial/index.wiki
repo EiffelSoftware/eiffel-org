@@ -13,5 +13,5 @@ There are special considerations for using "once" features in an Eiffel multithr
 
 If you encounter problems, take a look at the FAQ list. 
 
-Users of the EiffelThread library in version 4.5 and older should read "changes between 4.5 and 5.0" to get the info they need to migrate their code to the new implementation of threads in Eiffel. 
+
 
