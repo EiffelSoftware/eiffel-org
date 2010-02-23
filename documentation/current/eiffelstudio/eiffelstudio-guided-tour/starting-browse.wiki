@@ -125,6 +125,8 @@ So far, even though we've targeted to the development window to different classe
 
 You can click on any of the tabs and the development window will be retargeted to the class associated with the tab. Each tab has a "Close" button on it, so you can close tabs you no longer need. 
 
+So, for now, close the tab with the class <code>CHAIN</code> and leave just the one tab with class <code>LIST</code>.
+
 ==Using additional Development Windows== 
 
 With all the techniques seen so far, you were able to retarget the current the development window to a new class. And that may be all you'll ever need. But, as noted earlier, you may also wish to have two or more development windows active simultaneously. 
