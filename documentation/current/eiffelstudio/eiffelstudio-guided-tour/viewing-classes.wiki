@@ -104,3 +104,7 @@ Other Class tool buttons display information in the same format as <code>Attribu
 *  <code>External</code> features, implemented as calls to routines, macros or other elements implemented in other languages. <code>LIST</code> hasn't any. 
 *  <code>Exported</code> features: those available to all clients. <code>LIST</code> has quite a few. 
 
+Once you're done looking at the different views. Go to one of the tabs on the right margin of the development window, Groups, will work. Hold your cursor over it for a moment and it should expand. Then click the Disable Auto Hide icon, the horizontal pushpin, to restore the rightmost pane. 
+
+
+
