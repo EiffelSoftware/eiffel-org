@@ -31,8 +31,9 @@ The numbers yielded by measures are meaningless unless we describe what they ref
 
 EiffelStudio provides a set of predefined units. Some simply serve to count occurrences of certain construct specimens in the software; examples include <code>group</code>, <code lang=text>class</code>, <code lang=text>feature</code>, <code>line</code>, <span>...</span> The metric <code>ratio</code> describes metrics whose values are divisions, for example "average number of classes per cluster", obtained by dividing the number of classes by the number of classes. 
 
-A metric can be computed over a scope, this scope is defined using a domain. In a domain 
+A metric can be computed over a scope. This scope is defined using a '''domain'''. A domain is a set of program elements. You build up a domain by adding development objects to a list. These development objects are things like application targets, clusters, libraries, classes, and features.  
 </div>
+
 ==Metric tool interface==
 *  [[Metric Evaluation Panel|Metric Evaluation panel]]  
 *  [[Detailed Result Panel|Detailed Result panel]]  
