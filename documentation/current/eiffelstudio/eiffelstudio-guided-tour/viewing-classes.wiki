@@ -29,7 +29,7 @@ Two panes remain, showing the Editor tool and the lower pane containing the Outp
 
 ==The Class tool==
 
-Before we look at the Class tool, let's make sure that it will always display information about the current target. Go to the main menu bar and expand the menu item <code>View</code>. If you see a choice <code>Link Context Tool</code>, then select it. After it has been selected, or if it has already been selected, then instead you should see a choice <code>Unlink Context Tool</code>.
+Before we look at the Class tool, let's make sure that we set [[Change data share mode|linked data share mode]] which will always display information about the current target. Go to the main menu bar and expand the menu item <code>View</code>. If you see a choice marked with the link context icon  ([[Image:context-link-icon]]) and labeled <code>Link Context Tool</code>, then select it. After it has been selected, or if it has already been selected, then the label will read: <code>Unlink Context Tool</code>.
 
 At the bottom of the lower pane you'll find a tab labeled '''Class'''. This gives you access to many forms of information about the current class -- the target of the development window. Click on the Class tab to bring up the Class tool. A set of buttons at the top enables you to display a number of '''views''' of the class. The currently highlighted button indicates the default view: <code>Ancestors</code>. You can see the others' names by moving your cursor over the various view icons, and reading the tooltips. 
 
@@ -104,7 +104,14 @@ Other Class tool buttons display information in the same format as <code>Attribu
 *  <code>External</code> features, implemented as calls to routines, macros or other elements implemented in other languages. <code>LIST</code> hasn't any. 
 *  <code>Exported</code> features: those available to all clients. <code>LIST</code> has quite a few. 
 
-Once you're done looking at the different views. Go to one of the tabs on the right margin of the development window, Groups, will work. Hold your cursor over it for a moment and it should expand. Then click the Disable Auto Hide icon, the horizontal pushpin, to restore the rightmost pane. 
+==Restoring the look of the development window==
+
+Once you're done looking at the different views, let's undo the changes that we made to the configuration of the development window at the beginning of this section in '''[[#Making some room|Making some room]]'''. 
+
+Reduce the relative size of the lower pane. 
+
+Then go to one of the tabs on the right margin of the development window, Groups, will work. Hold your cursor over it for a moment and it should expand. Then click the Disable Auto Hide icon, the horizontal pushpin, to restore the rightmost pane. 
+
 
 
 
