@@ -15,6 +15,7 @@ The documentation is organized into virtual books. Each book covers an important
 * [[Method|Method and Language]] -- The Eiffel Method and Language
 * [[Why Eiffel?]] -- Why Eiffel?
 * [[Papers]] -- Technical and position papers relating to Eiffel and the engineering of high quality software
+* [[Examples]] -- Contributor supported examples of Eiffel solutions to common programming problems
 * [[Community]] -- Community Contributions
 <!--break-->
 Sources of information on Eiffel include:
@@ -49,6 +50,10 @@ Sources of information on Eiffel include:
 ===[[Papers]] -- Technical and position papers relating to Eiffel===
 
 :This book is a place for white papers which provide background, foundation, or supplemental information about the the Eiffel method and language as well as the goal of engineering high quality software. 
+
+===[[Examples]] -- Contributor supported examples of Eiffel solutions to common programming problems===
+
+:How have you approached common programming problems using Eiffel? 
 
 ===[[Community]] -- You can contribute to the documentation!===
 
