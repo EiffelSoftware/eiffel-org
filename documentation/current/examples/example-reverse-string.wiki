@@ -1,0 +1,47 @@
+[[Property:title|Reverse a string]]
+[[Property:link_title|Example: Reverse a string]]
+[[Property:weight|0]]
+[[Property:uuid|d888d308-6bb7-edd5-ee25-92d04b5658d3]]
+
+{{underconstruction}}
+
+
+__NOTOC__
+
+==Problem Description==
+
+Reverse the order of the characters in a give string of characters.
+
+==Problem Source==
+
+[http://rosettacode.org/wiki/Reverse_a_string Rosetta Code]
+
+==Solution==
+
+<code>
+class
+    APPLICATION
+create
+    make
+feature
+    make
+            -- Demonstrate string reversal.
+        do
+            my_string := "Hello World!"
+            my_string.mirror
+            print (my_string)
+        end
+    my_string: STRING
+            -- Used for reversal
+end
+</code>
+
+
+==Output==
+
+<code lang="text">
+!dlroW olleH
+</code>
+
+
+
