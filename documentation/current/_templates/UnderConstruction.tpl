@@ -1,1 +1,1 @@
-<center><p style="text-align:center; width: 500px; border: 1px solid #ff5c5c; padding: 10px; background-color: #FFAFAF; color: black;">[[Image:LogoConstruction|24px]] '''Not Ready for Review:''' This Page is Under Development!</p></center>
+<center><p style="text-align:center; width: 500px; border: 1px solid #FFB55F; padding: 10px; background-color: #FFEEBF; color: black;">[[Image:LogoConstruction|24px]] '''Under construction:''' This page is currently under development. You can help by becoming a [[Community|contributor]].</p></center>
