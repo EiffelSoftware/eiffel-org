@@ -18,7 +18,7 @@ If the tab for the Features tool is not visible, bring it back by following the 
 
 While we are at it, let's get make the Feature tool visible as well. Click on the tab on the lower pane that's labeled [[Image:feature-tab]]. As with the Features tool, if the Feature tab is missing, you can use the menu path to restore it. 
 
-One more thing, and we'll look at some features. If you restarted EiffelStudio since you worked through the [[Viewing Classes]] section, you may have to select Link Context Tool again from the <code>View</code> menu.
+One more thing, and we'll look at some features. If you restarted EiffelStudio since you worked through the [[Viewing Classes]] section, you may have to select <code>Link Context Tool</code> again from the <code>View</code> menu.
 
 ==Targeting to a feature==
 
