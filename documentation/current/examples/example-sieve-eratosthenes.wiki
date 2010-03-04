@@ -1,0 +1,65 @@
+[[Property:title|Sieve of Eratosthenes]]
+[[Property:link_title|Example: Sieve of Eratosthenes]]
+[[Property:weight|0]]
+[[Property:uuid|e825c874-4266-b5ee-501c-221e6940dacd]]
+{{underconstruction}}
+
+
+==Description==
+
+Deliver prime numbers up to a specified integer limit. Compute prime numbers using sieve of Eratosthenes.
+
+
+==Source==
+
+[http://rosettacode.org/wiki/Seive_of_Eratosthenes Rosetta Code]
+
+
+==Solution==
+
+<code>
+class
+	APPLICATION
+
+create
+	make
+
+feature
+    make
+    -- Run application.
+        do
+            across primes_through (100) as ic loop print (ic.item.out + " ") end
+        end
+
+    primes_through (a_limit: INTEGER): LINKED_LIST [INTEGER]
+            -- Prime numbers through `a_limit'
+        require
+            valid_upper_limit: a_limit >= 2
+        local
+            l_tab: ARRAY [BOOLEAN]
+        do
+            create Result.make
+            create l_tab.make (2, a_limit)
+            across
+                l_tab as ic
+            loop
+                if not ic.item then
+                    Result.extend (ic.target_index)
+                    across ((ic.target_index + ic.target_index) |..| l_tab.upper).new_cursor.with_step (ic.target_index) as id
+                    loop
+                        l_tab [id.item] := True
+                    end
+                end
+            end
+        end
+end
+</code>
+
+
+==Output==
+
+<code lang="text">
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
+</code>
+
+
