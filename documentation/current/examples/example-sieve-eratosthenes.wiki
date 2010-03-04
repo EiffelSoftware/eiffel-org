@@ -39,15 +39,15 @@ feature
             l_tab: ARRAY [BOOLEAN]
         do
             create Result.make
-            create l_tab.make (2, a_limit)
+            create l_tab.make_filled (True, 2, a_limit)
             across
                 l_tab as ic
             loop
-                if not ic.item then
+                if ic.item then
                     Result.extend (ic.target_index)
                     across ((ic.target_index + ic.target_index) |..| l_tab.upper).new_cursor.with_step (ic.target_index) as id
                     loop
-                        l_tab [id.item] := True
+                        l_tab [id.item] := False
                     end
                 end
             end
