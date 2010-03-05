@@ -43,7 +43,11 @@ The effect of such a multi-branch instruction, if the value of <code>exp</code> 
 
 ===Loop===
 
-The loop construct provides a flexible framework for iterative computation. Its flexibility lies in how the complete form can be tailored and simplified for certain purposes by including or omitting optional parts. We will explore the entire mechanism, but let's approach things a little at a time. 
+The loop construct provides a flexible framework for iterative computation. Its flexibility lies in how the complete form can be tailored and simplified for certain purposes by including or omitting optional parts. 
+
+You'll learn that the loop construct is always used in one of two forms: a '''base''' form which allows precise control over details of all loop aspects, and an '''iteration''' form which abstracts many of the details and provides a concise notation for traversing data structures and other objects which support iteration.
+
+We will explore the entire mechanism, but let's approach things a little at a time. 
 
 ====Two examples====
 
