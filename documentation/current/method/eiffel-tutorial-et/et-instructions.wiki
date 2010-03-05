@@ -45,11 +45,11 @@ The effect of such a multi-branch instruction, if the value of <code>exp</code> 
 
 The loop construct provides a flexible framework for iterative computation. Its flexibility lies in how the complete form can be tailored and simplified for certain purposes by including or omitting optional parts. 
 
-You'll learn that the loop construct is always used in one of two forms: a '''base''' form which allows precise control over details of all loop aspects, and an '''iteration''' form which abstracts many of the details and provides a concise notation for traversing data structures and other objects which support iteration.
+You'll learn that the loop construct is always used in one of two forms: a '''base''' form which allows precise control over details of all loop aspects, and an '''iteration''' form which abstracts many of the details and provides a concise notation, ideal for traversing data structures and other objects which support iteration.
 
 We will explore the entire mechanism, but let's approach things a little at a time. 
 
-====Two examples====
+====Two forms -- two examples====
 
 First let's take a look at two examples. These examples accomplish the same goal: they both use a loop to visit and print the content of each node of a linked list of character strings. So, the list in question might be declared like this:
 
