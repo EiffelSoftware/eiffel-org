@@ -37,6 +37,7 @@ To use DB_RESULT, process in 2 steps:
             create container.make (Max_results)
                 ...
             selection.set_container (container)
+            selection.load_result
                 ...
             from
                 container.start
