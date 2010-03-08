@@ -5,7 +5,7 @@ The type selector contains all the available EiffelVision 2 types supported by E
 
 [[Image:type-selector]]  
 
-The types are organized into three groups - Primitives, Containers and Items. All types that may be used in EiffelBuild have a text in uppercase, corresponding to their type in [[EiffelVision Introduction|EiffelVision 2]] . For example, looking at the screenshot above, the <eiffel>BUTTON</eiffel> item represents an <eiffel>EV_BUTTON</eiffel>, and the <eiffel>EV_COMBO_BOX</eiffel> item represents <eiffel>EV_COMBO_BOX</eiffel>. 
+The types are organized into three groups - Primitives, Containers and Items. All types that may be used in EiffelBuild have a text in uppercase, corresponding to their type in [[EiffelVision Introduction|EiffelVision 2]] . For example, looking at the screenshot above, the <eiffel>BUTTON</eiffel> item represents an <eiffel>EV_BUTTON</eiffel>, and the <eiffel>COMBO_BOX</eiffel> item represents <eiffel>EV_COMBO_BOX</eiffel>. 
 
 {{note|The types available in the type selector are fixed, and cannot be modified. Almost all [[EiffelVision Introduction|EiffelVision 2]]  components are available. }}
 
