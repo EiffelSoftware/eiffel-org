@@ -3,16 +3,18 @@
 [[Property:uuid|676cf329-5640-69c4-d10b-b56fcd3f2ff9]]
 In the rest of this Tour <code>YOURDIR</code> denotes the directory where the example resides (the original, <code>$ISE_EIFFEL/examples/studio/tour</code> , or a copy). Launching will use the operating system's mechanism for starting a program, so we look separately at Windows and at Unix/OpenVMS. 
 
+
 ==Launching EiffelStudio under Window==
 
-On Windows, you can launch EiffelStudio from the Start Menu under
+On Windows, you can launch EiffelStudio from the Start Menu by following the path:
 <code lang="text">
-	Programs --> EiffelStudio Version --> EiffelStudio
+Start --> Programs --> EiffelStudio Version --> EiffelStudio
 </code>
 
 where <code>Version</code> is the version number, e.g. 6.5. Alternatively, you can double-click the icon that the installation procedure will have added to your desktop (if you have selected that option during installation). 
 
 If this is the first time you are using EiffelStudio, you may get a dialog asking for an unlock code or inviting you to register the product. See [[Software Installation for EiffelStudio|your platform installation instructions]] for registration information. 
+
 
 ==Launching EiffelStudio under Unix or OpenVMS==
 
@@ -22,5 +24,6 @@ estudio
 </code>
 
 In general you can start EiffelStudio from any directory, but to make things simple for this Tour '''please make sure''' indeed to execute the <code>estudio</code> command from <code>YOURDIR</code>. (This will allow us to use relative rather than absolute names for some of the files involved.) 
+
 
 
