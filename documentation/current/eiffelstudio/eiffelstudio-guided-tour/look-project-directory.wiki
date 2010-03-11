@@ -7,7 +7,7 @@ With EiffelStudio, you build projects. Most projects yield an executable system,
 
 Every session is relative to a project; you can start a new project from within EiffelStudio by following the menu path:
 <code lang="text">
-            File --> New Project
+File --> New Project
 </code>
 ... but please '''don't select that menu entry now''' as we have many more things to do with our current project first. 
 
