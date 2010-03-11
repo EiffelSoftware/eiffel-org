@@ -13,12 +13,13 @@ Let's start by making the [[Features Tool|Features tool]] visible. To see the Fe
 
 If the tab for the Features tool is not visible, bring it back by following the menu path:
 <code lang="text">
-            View --> Tools --> Features
+View --> Tools --> Features
 </code>
 
 While we are at it, let's get make the Feature tool visible as well. Click on the tab on the lower pane that's labeled [[Image:feature-tab]]. As with the Features tool, if the Feature tab is missing, you can use the menu path to restore it. 
 
 One more thing, and we'll look at some features. If you restarted EiffelStudio since you worked through the [[Viewing Classes]] section, you may have to select <code>Link Context Tool</code> again from the <code>View</code> menu.
+
 
 ==Targeting to a feature==
 
@@ -31,6 +32,7 @@ The class only has a few immediate features because most of its interesting feat
 [[Image:es gt features tool 02]]
 
 Note how both of the top target fields are now filled: the first one shows the target class, <code>LIST</code>, and the second one shows the target feature, <code>forth</code>. 
+
 
 ==Basic feature information==
 
@@ -49,7 +51,8 @@ The flat view of a feature, similar in concept to the flat view of a class, give
 You can mouse-over the different buttons to see the views they represent.
 
 Just to the left of <code>Flat</code>, <code>Basic Text</code> gives the feature text, fully clickable. 
-<div> 
+
+
 ==Who calls this feature?==
 
 To the right of <code>Flat</code> is <code>Callers</code>. Try it now by clicking the corresponding button. You may have to scroll down some in the display to see the series of entries show in the image below;
@@ -63,6 +66,7 @@ This view shows all the places in the system that call the routine, or one of it
 * Although it is not shown in the figure, if you scroll around some, you will find cases in which a descendant of <code>forth</code> has been renamed and that renamed version is called. For example <code>child_forth</code> from <code>LINKED_TREE</code> is descendant version of <code>forth</code> and is called by routines in <code>LINKED_CURSOR_TREE</code> and <code>LINKED_TREE</code>.
  
 The following five view buttons are similar except that they let you specify what kind of callers you are looking for, or what is being called by the currently selected feature. Feel free to explore these views.
+
 
 ==What happens to my feature through the inheritance hierarchy?==
 
@@ -79,11 +83,13 @@ The format is self-explanatory: for each ancestor of <code>MULTI_ARRAY_LIST</cod
 In the case of feature merging (combining several features inherited from different parents, in conformance with the rules of the language) there could be more than one history branch, in this case each branch is labeled <code>Branch #X.</code> 
 
 The next button, <code>Descendant versions</code>, similarly tells you all that happens to a feature in the descendants of the current class. 
-</div><div> 
+
+ 
 ==Who has the same name?==
 
 The last button, <code>Homonyms</code>, displays all the features of the system which, related or not to the current feature by redeclaration, have the same name. You can then explore any such feature to see if the relationship is more than casual. 
 
 In any system or library that takes advantage of inheritance and its associated mechanisms -- renaming, redefinition, effecting, undefinition, multiple and repeated inheritance, polymorphism, dynamic binding -- the feature browsing facilities that we have just explored are invaluable to track what happens to features. What makes them even more precious is their connection with the rest of the browsing and documentation capabilities, especially the pick-and-drop which we will now study.
-</div>
+
+
 
