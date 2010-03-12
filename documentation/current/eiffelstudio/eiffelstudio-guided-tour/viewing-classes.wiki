@@ -4,6 +4,7 @@
 __FORCETOC__
 We haven't really looked at the text of a class yet. It's important anyway to see how EiffelStudio provides you with numerous, complementary '''views''' of your software. The Class tool and Feature tool are where the bulk of these views will be displayed, although the Editor tool does support some special views. For now we will concentrate on the views available in the Class tool.
 
+
 ==Making some room==
 
 We'll need just one development window for the moment, the one that was targeted to <code>LIST</code>. You should still have that window available from the previous Tour topic, and it should look about like this:
@@ -14,7 +15,7 @@ We'll need just one development window for the moment, the one that was targeted
 
 First let's give ourselves more space. Right now we don't need the Groups tool or any of the other tools sharing that pane. We could get rid of them by clicking the close buttons on the top right corner of the panes. Then we could get them back later by following the menu path:
 <code lang="text">
-            View --> Tools --> x
+View --> Tools --> x
 </code>
 where "x" is the name of a tool we want restored. But there is an easier way. Let's just hide them away until later.
 
@@ -65,7 +66,7 @@ As a result, the <code>Flat</code> view shows the class text as it might have co
 
 The first two features appearing in the above display, <code>cursor</code> and <code>first</code>, are indeed inherited from ancestors, rather than declared in <code>LIST</code> itself. Note how EiffelStudio, when producing the flat form, adds a line of the form 
 <code>
-	-- (from CLASS_OF_ORIGIN)
+            -- (from CLASS_OF_ORIGIN)
 </code>
 
 to the header comments of inherited routines, to document where they come from.
@@ -88,6 +89,7 @@ Now click the next button to see the <code>Suppliers</code> of <code>LIST</code>
 
 The only two classes that <code>LIST</code> needs for its own algorithms are basic types from the Kernel Library, <code>BOOLEAN</code> and <code>INTEGER_32</code>. In Eiffel, as you may remember, all types are defined by classes, even those describing such elementary values as integers and booleans. 
 
+
 ==Feature information in the Class View==
 
 Let's resist the natural urge to go see now what the classes <code>INTEGER_32</code> and <code>BOOLEAN</code> look like, and instead continue our survey of views. The remaining views will all display information about the '''features''' of the class. The first of them, <code>Attributes</code>, lists the attributes. It's not very interesting for <code>LIST</code>, a deferred class with only one attribute -- you can check this for yourself by clicking the <code>Attributes</code> button -- so let's look at the next one. Click the <code>Routines</code> button now to display information about the routines of class <code>LIST</code> : 
@@ -103,6 +105,7 @@ Other Class tool buttons display information in the same format as <code>Attribu
 *  <code>Once</code> and constants: constant attributes, "once functions" which provide shared objects (close to the "singleton" pattern), and once procedures which provide a convenient initialization mechanism. <code>LIST</code> has 'Operating_environment' and 'Io' inherited from the parent class ANY. 
 *  <code>External</code> features, implemented as calls to routines, macros or other elements implemented in other languages. <code>LIST</code> hasn't any. 
 *  <code>Exported</code> features: those available to all clients. <code>LIST</code> has quite a few. 
+
 
 ==Restoring the look of the development window==
 
