@@ -2,8 +2,6 @@
 [[Property:link_title|Example: Sieve of Eratosthenes]]
 [[Property:weight|0]]
 [[Property:uuid|e825c874-4266-b5ee-501c-221e6940dacd]]
-{{underconstruction}}
-
 
 ==Description==
 
@@ -19,14 +17,14 @@ Deliver prime numbers up to a specified integer limit. Compute prime numbers usi
 
 <code>
 class
-	APPLICATION
+    APPLICATION
 
 create
-	make
+    make
 
 feature
-    make
-    -- Run application.
+       make
+            -- Run application.
         do
             across primes_through (100) as ic loop print (ic.item.out + " ") end
         end
