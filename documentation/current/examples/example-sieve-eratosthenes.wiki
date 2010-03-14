@@ -45,7 +45,7 @@ feature
             loop
                 if ic.item then
                     Result.extend (ic.target_index)
-                    across ((ic.target_index + ic.target_index) |..| l_tab.upper).new_cursor.with_step (ic.target_index) as id
+                    across ((ic.target_index * ic.target_index) |..| l_tab.upper).new_cursor.with_step (ic.target_index) as id
                     loop
                         l_tab [id.item] := False
                     end
