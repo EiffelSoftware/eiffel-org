@@ -9,8 +9,8 @@ EiffelStudio documentation is available in a convenient Wiki format. This makes 
 
 Community input is welcome. If you are interested in improving and developing EiffelStudio documentation, you can become:
 
-* A contributor: authorized to edit existing pages to any book, and to add pages to the "Community contributions" book.
-**"Community contributions" book pages can be added to other books by an editor.
+* A contributor: authorized to edit existing pages to any book, and to add pages to the "Community" book.
+**"Community" book pages can be added to other books by an editor.
 
 * An editor: authorized to modify and add pages in any book.
 
@@ -23,6 +23,7 @@ If you are interested in becoming a contributor, you can [[path:user/register|re
 # '''Entering log messages:''' When you change pages in the documentation, it can help sometimes if you can provide an explanation of your intent in the '''Log message''' box on the '''Edit''' page. This can eliminate confusion about why things have been changed. Of course, it is not necessary to provide a log message for every change. For fixing typographical errors or other simple changes, it generally would not be necessary. Likewise, if you are evolving new pages or a complex set of related changes to one or more pages, it should suffice to enter a single log message at the beginning of the series of edits. Use common sense here.
 ## In cases in which a change is directly related to an external document or policy, it may be helpful to mention the impetus in the log message. For example, documentation changes made to satisfy Eiffel Software problem reports should reference the report in the log message.
 # '''Renaming pages or moving pages to Trash:''' Before you rename a page or move it to the Trash, you should use the '''References''' tab to make certain that there are no current references to the page. If there are, make sure you resolve those references before renaming or moving the page.
+# '''Replacing pages:''' If you need to replace a page completely, do so by replacing the '''content''' of the existing page, rather than moving the page to the Trash and creating a new page in its place. Replacing the content will leave the original page (and its UUID) in place, but with the new content. UUID's are used by the [[Eiffel Information System]] (EIS) to link EiffelStudio to documentation pages, and will be broken if the original page were to be deleted.
 
 
 
