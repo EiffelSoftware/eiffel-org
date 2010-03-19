@@ -1,7 +1,6 @@
 [[Property:title|Handling Syntax and Validity Errors]]
 [[Property:weight|-3]]
 [[Property:uuid|c2be8123-b793-f8ce-e082-d4fdacc6bbe6]]
-
 So far we have tried to make sure that everything went smoothly. But in actual software development you may encounter error situations, and it is useful to know what can happen then.
 
 
@@ -43,7 +42,7 @@ To see this mechanism at work, let us introduce a validity error. There is in fa
 <code>
 -- inv: INVALID;</code>
 
-If uncommented, this is a declaration of a feature of type <code>INVALID</code>. A class called <code>INVALID</code> indeed exists in file <code>invalid.e</code> of the root cluster, but it contains a validity error. To see what it is, remove the initial double-dash <code>--</code> in the above line from class <code>TESTROOT</code> so that it is not a comment any more. 
+If uncommented, this is a declaration of a feature of type <code>INVALID</code>. A class called <code>INVALID</code> indeed exists in file <code>invalid.e</code> of the root cluster, but it contains a validity error. To see what it is, remove the initial double-hyphen <code>--</code> in the above line from class <code>TESTROOT</code> so that it is not a comment any more. 
 
 [[Image:es gt development window validity error 01|inv: INVALID uncommented]]
 
