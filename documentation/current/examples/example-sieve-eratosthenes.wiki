@@ -6,12 +6,13 @@
 
 Deliver prime numbers up to a specified integer limit. Compute prime numbers using sieve of Eratosthenes.
 
-This example uses the ''iteration'' (<code>across</code>) form of the Eiffel loop construct to traverse a list, an array, and an integer interval.
+==Notes==
 
+This example uses the ''iteration'' (<code>across</code>) form of the Eiffel loop construct to traverse a list, an array, and an integer interval.
 
 ==Source==
 
-[http://rosettacode.org/wiki/Seive_of_Eratosthenes Rosetta Code]
+Problem description from [http://rosettacode.org/wiki/Seive_of_Eratosthenes Rosetta Code]
 
 
 ==Solution==
