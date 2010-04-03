@@ -1,0 +1,42 @@
+[[Property:title|Environment variables]]
+[[Property:link_title|Example: Environment variables]]
+[[Property:weight|0]]
+[[Property:uuid|60c39a34-0794-4c1f-a150-7431afa3e693]]
+==Description==
+
+Using features from the class <code>EXECUTION_ENVIRONMENT</code> to create and retrieve an environment variable.
+
+==Notes==
+
+The <code>make</code> procedure of the class <code>APPLICATION</code> below uses the features <code>put</code> and <code>get</code>, inherited from the class <code>EXECUTION_ENVIRONMENT</code>, to create the environment variable <code>MY_VARIABLE</code> with value "Hello World!", and then to retrieve the value by key and print it.
+
+==Solution==
+
+<code>
+class
+    APPLICATION
+
+inherit
+    EXECUTION_ENVIRONMENT
+
+create
+    make
+
+feature {NONE} -- Initialization
+    make
+            -- Create and retrieve an environment variable.
+        do
+            put ("Hello World!", "MY_VARIABLE")
+            print (get ("MY_VARIABLE"))
+        end
+end
+</code>
+
+
+==Output==
+
+<code lang="text">
+Hello World!
+</code>
+
+
