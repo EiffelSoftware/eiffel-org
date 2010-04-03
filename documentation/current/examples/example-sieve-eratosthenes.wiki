@@ -2,10 +2,11 @@
 [[Property:link_title|Example: Sieve of Eratosthenes]]
 [[Property:weight|0]]
 [[Property:uuid|e825c874-4266-b5ee-501c-221e6940dacd]]
-
 ==Description==
 
 Deliver prime numbers up to a specified integer limit. Compute prime numbers using sieve of Eratosthenes.
+
+This example uses the ''iteration'' (<code>across</code>) form of the Eiffel loop construct to traverse a list, an array, and an integer interval.
 
 
 ==Source==
