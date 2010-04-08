@@ -1,7 +1,7 @@
 [[Property:title|External commands editor dialog]]
 [[Property:weight|4]]
 [[Property:uuid|9f8de904-3d17-7ce2-1df8-f4824fab5ae3]]
-From EiffelStudio, you can define up to 10 external commands. Those commands will have their output redirected in the output pane of the context tool. You can execute them through the Tools menu. A typical usage is to use those external commands to integrate with your source control management solution (e.g. CVS, Visual SourceSafe,...)
+From EiffelStudio, you can define up to 10 external commands. Those commands will execute and display their output in the [[Console tool]]. You can execute them through the Tools menu. A typical usage is to use those external commands to integrate with your source control management solution (e.g. CVS, Visual SourceSafe,...)
 
 
 ==Defining external commands==
@@ -50,7 +50,7 @@ The shortcuts for the command indexes can be changed in the EiffelStudio prefere
         shortcuts -> external_commands
 </code>
 
-External commands execute in the context of the [[Console tool]]. The console tool should appear automatically, but you can make it visible by following the menu path:
+External commands execute in the context of the [[Console tool]]. The Console tool should appear automatically, but you can make it visible by following the menu path:
 <code lang="text">
         View -> Tools -> Console
 </code> 
