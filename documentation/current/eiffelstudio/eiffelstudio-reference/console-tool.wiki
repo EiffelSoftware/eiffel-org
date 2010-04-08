@@ -11,8 +11,8 @@ You can type your command in the "Command" region and then press the  [[Image:me
 In the "Command" region, the following placeholders can be used: 
 * $class_name: this will be replaced by the name in lower case of the targeted class in editor
 * $directory_name: this will be replaced by the directory location of the targeted class in editor
-* $file: this will be replaced by file name part, i.e., without heading directory, of $path of the targeted class in editor
-* $file_name: this will be replaced by the path to the targeted class in editor
+* $file: this will be replaced by file name part, i.e., without heading directory path ($directory_name) of the targeted class in editor
+* $file_name: this will be replaced by the fully specified file name ($directory_name + $file) to the targeted class in editor
 * $f_code: this will be replaced by the F_code directory of current target, if defined
 * $group_directory: this will be replaced by the directory of the group where targeted class in editor locates
 * $group_name: this will be replaced by the group name of the targeted class in editor
