@@ -26,7 +26,7 @@ feature -- Access
 
     object_per_thread: OBJECT
             -- Once per thread.
-        once
+        once ("THREAD")
             create Result.make
         end
 
@@ -34,14 +34,22 @@ feature -- Access
             -- New 'object' (once per process)
             -- that could be shared between threads
             -- without reinitializing it.
-        note
-            once_status: global
-        once
+        once ("PROCESS")
             create Result.make
         end
 
 end -- class TEST_ONCE_PER_PROCESS
 </code>
+
+Note that if you don't precise any once's key, the default is once per thread. For instance the following once is per thread.
+<eiffel>
+   object_per_thread: OBJECT
+            -- Once per thread.
+        once
+            create Result.make
+        end
+</eiffel>
+
 You can do the same with once procedures. 
 
 
