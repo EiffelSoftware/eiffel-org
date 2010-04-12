@@ -29,7 +29,7 @@ Whatever client first calls this function will create the appropriate window and
 
 For the classes using it, <code>console</code>, although a function, looks very much as if it were an attribute -- only one referring to a shared object. 
 
-The "[[ET: Hello World|Hello World]]" system at the beginning of this discussion used an output instruction of the form <code>io</code>. <code>put_string ( Some string )</code>. This is another example of the general scheme illustrated by <code>console</code>. Feature <code>io</code>, declared in <code>ANY</code> and hence usable by all classes, is a once function that returns an object of type <code>STANDARD_FILES</code> (another Kernel Library class) providing access to basic input and output features, one of which is procedure <code>put_string</code>. Because basic input and output must all work on the same files, <code>io</code> should clearly be a <code>once</code> function, shared by all classes that need these mechanisms. 
+The "[[ET: Hello World|Hello World]]" system at the beginning of this discussion used an output instruction of the form <code>io</code>. <code>put_string (some_string)</code>. This is another example of the general scheme illustrated by <code>console</code>. Feature <code>io</code>, declared in <code>ANY</code> and hence usable by all classes, is a once function that returns an object of type <code>STANDARD_FILES</code> (another Kernel Library class) providing access to basic input and output features, one of which is procedure <code>put_string</code>. Because basic input and output must all work on the same files, <code>io</code> should clearly be a <code>once</code> function, shared by all classes that need these mechanisms. 
 
 ==Constant attributes==
 
