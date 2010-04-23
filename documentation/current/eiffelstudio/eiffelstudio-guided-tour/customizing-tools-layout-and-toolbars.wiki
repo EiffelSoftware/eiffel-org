@@ -60,7 +60,7 @@ The Close button will close only the current tool. So, that tool goes away, but 
 View --> Tools --> tool name
 </code>
  
-{{note|EiffelStudio supports a number of [[EiffelStudio: Key shortcuts|'''keyboard shortcuts''']] (sometimes called '''accelerators''',  some of which can be useful for changing aspects of the Development Window. For example, <code>CTRL+M</code> will toggle the Editing pane between Maximize and Restore, and <code>CTRL+N</code> will create a fresh Development Window. Keyboard shortcuts themselves are tailorable in the [[Keyboard shortcuts preferences|EiffelStudio Preferences.}}
+{{note|EiffelStudio supports a number of [[EiffelStudio: Key shortcuts|'''key shortcuts''']] (sometimes called '''accelerators''',  some of which can be useful for changing aspects of the Development Window. For example, <code>CTRL+M</code> will toggle the Editing pane between Maximize and Restore, and <code>CTRL+N</code> will create a fresh Development Window. Keyboard shortcuts themselves are tailorable in the [[Keyboard shortcuts preferences|EiffelStudio Preferences]].}}
 
 
 ==Re-ordering tabs==
