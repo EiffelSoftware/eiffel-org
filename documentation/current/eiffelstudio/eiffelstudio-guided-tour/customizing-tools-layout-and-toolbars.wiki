@@ -60,6 +60,8 @@ The Close button will close only the current tool. So, that tool goes away, but 
 View --> Tools --> tool name
 </code>
  
+{{note|EiffelStudio supports a number of [[EiffelStudio: Key shortcuts|'''keyboard shortcuts''']] (sometimes called '''accelerators''',  some of which can be useful for changing aspects of the Development Window. For example, <code>CTRL+M</code> will toggle the Editing pane between Maximize and Restore, and <code>CTRL+N</code> will create a fresh Development Window. Keyboard shortcuts themselves are tailorable in the [[Keyboard shortcuts preferences|EiffelStudio Preferences.}}
+
 
 ==Re-ordering tabs==
 
@@ -248,6 +250,16 @@ Figure 14
 
 
 When you move a toolbar, drag it by its "head". The head is indicated by an icon ([[Image:toolbar-head-icon]]) that looks like a vertical row of dots at the left end of each toolbar.
+
+The figure above shows that there are two "rows" available for placing toolbars. This is the way it is in the default layout. But the number of rows can be expanded if needed. So, if you drag a toolbar toward the bottom of the toolbar area, you will see that a new row will become available in which you can dock the toolbar that you are moving.
+
+
+[[Image:es gt redocking project toolbar new row|Dragging a toolbar to a new toolbar row]]
+
+Figure 15 
+
+
+In the figure above, the Project toolbar has been dragged near the bottom of the toolbar area, and a new toolbar row has opened up to allow the Project toolbar to be docked there.
 
 
 ==Customizing toolbars==
