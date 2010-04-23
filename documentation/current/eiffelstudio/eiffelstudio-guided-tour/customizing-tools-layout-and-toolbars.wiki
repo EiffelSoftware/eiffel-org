@@ -81,7 +81,7 @@ So suppose that you felt that it would be more convenient to your style of work 
 Figure 3
 
 
-Try this now, if you'd like but be careful to move the tab only horizontally along the row of other tabs. If you move it off the row of tabs, you may inadvertently enter the extraordinary, but more complex realm of '''docking''', our next topic.
+Try this now, if you'd like but be careful to move the tab '''only''' horizontally along the row of other tabs. If you move it off the row of tabs, you may inadvertently enter the extraordinary, but more complex realm of '''docking''', our next topic. Just in case you do get off the row of tabs and you see strange icons appearing on the Development Window, don't release the mouse button, just press the <code>ESC</code> key to cancel the dragging action.
 
 
 ==Docking==
@@ -170,7 +170,7 @@ So go ahead and try it now. If you've pinned the pane with the Diagram tool open
 
 ===Docking a pane===
 
-The problem that some users have when first trying to adjust the tool layout using docking (without the benefit of this Guided Tour) is that once they move a pane, it's not obvious to them what to do next to get the effect that they want. As a consequence, they attempt to put things back the way that they were when they first dragged the pane ... and usually they aren't successful. 
+The problem that some users have when first trying to adjust the tool layout using docking (without the benefit of this Guided Tour) is that once they move a pane, it's not obvious to them what to do next to get the effect that they want. As a consequence, they attempt to put things back the way that they were when they first dragged the pane ... and usually they aren't successful. Remember that you can always press the <code>ESC</code> key to cancel the drag while still holding the mouse button down.
 
 Now let's take a look at the target graphics and what they mean, and we'll do an exercise in which we put the pane with the Diagram tool back where it was originally. 
 
