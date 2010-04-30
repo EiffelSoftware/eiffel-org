@@ -660,6 +660,44 @@ These rules follow directly from the more general goals (reusability, extendibil
 
 The class documentation (see [[ET: Design by Contract (tm), Assertions and Exceptions#The_contract_form_of_a_class|the contract form of a class]] ) makes this view clear to client authors; no violation of that interface is permitted. This approach also paves the way for future '''generalization''' -- the final step of the cluster lifecycle, seen earlier in the section [[ET: The Software Process in Eiffel#Generalization_and_reuse|Generalization and reuse]]  -- of the most promising components, and their inclusion into reusable libraries. 
 
+===Attribute specializations===
+
+In certain situations it is beneficial to be able to declare class attributes which behave in specialized ways. 
+
+====Attribute specializations useful in void-safe programming====
+
+Part of the strategy to ensure void-safety makes it necessary to be able to declare attributes as either [[Void-safety: Background, definition, and tools#Types as "attached" or "detachable"|'''detachable''' or '''attached''']]. 
+
+'''[[Void-safety: Background, definition, and tools#Self-initializing attributes|Self-initializing attributes]]''' and '''[[Void-safety: Background, definition, and tools#Stable attributes|stable attributes]]''' are other tools for making void-safe programming more convenient. 
+
+These attribute specializations are presented in the [[Void-safe programming in Eiffel|void-safe programming]] chapter. 
+
+====Transient attributes====
+
+Another special type of attribute supported by Eiffel Software's compiler is the '''transient attribute'''. When an instance of a class to which a transient attribute belongs is saved to persistent storage, the field for the transient attribute is not included. So, transient attributes are transient in the sense that they are part of the object at runtime, but not when the object is stored on disk. 
+
+This type of attribute has benefits when using the persistence mechanisms provided with EIffelStudio, like [http://eiffel.com/developers/learning_maps/Training/Maps/PersistenceCanPayOff/Serialization.html SED]. Because transient attributes are not stored, then they need not be accounted for upon retrieval. So, objects stored before changes to a class that only affect transient attributes will still be retrievable using the new class definition (whereas, if non-transient attributes were changed, a mismatch would occur during retrieval). 
+
+An attribute is marked as transient by including a note option in its declaration:
+
+<code>
+    transient_attribute: detachable STRING
+        note 
+           option: transient 
+        end
+</code>
+
+Only certain attributes can be marked as transient. Specifically, if attribute ''a'' is declared of type '''T''', it can be marked as transient only if it satisfies the following conditions:
+# If '''T''' is a reference type, '''T''' must be detachable
+# '''T''' is not a formal generic parameter
+# '''T''' is not a user defined expanded type
+# ''a'' is not an attribute of a user defined expanded class.
+
+The EiffelBase class <code>INTERNAL</code> includes features which are used to distinguish object fields as either persistent or transient and to reveal how many transient fields an object has.
+
+
+{{note|As of version 6.5, support for transient attributes is limited to the C storable mechanism. In version 6.6, support will be added for the Eiffel storable mechanism (SED) on both classic and .Net system targets.}}
+
 
 
 
