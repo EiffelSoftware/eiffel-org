@@ -365,33 +365,26 @@ end -- class INTEGER
 
 In this case the value of an entity declared as <code>n: INTEGER</code> is not a reference to an object, but the object itself -- in this case an atomic object, an integer value. 
 
-It is also possible, for some non-expanded class C, to declare an entity as
-<code>
-    x: expanded C
-</code>
-
-so that the values for <code>x</code> will be objects of type <code>C</code>, rather than references to such objects. This is our first example of a type -- <code>expanded C</code> -- that is not directly a class, although it is based on a class, <code>C</code>. The base type of such a type is <code>C</code>. 
-
-Note that the value of an entity of an expanded type can never be void; only a reference can. Extending the earlier terminology, an expanded entity is always '''attached to''' an object, atomic (as in the case of <code>n: INTEGER</code> ) or composite (as in <code>x: expanded ACCOUNT</code>). 
-
-Expanded declarations make it possible to construct composite objects with subobjects, as in the following abbreviated class declaration (<code>note</code> clause and routines omitted):
+Expanded classes make it possible to construct composite objects with subobjects. Suppose that two classes, <code>ENGINE</code> and <code>PLANT</code>, are suppliers to the class <code>CAR</code>. Further, <code>ENGINE</code> is defined as <code>expanded</code>, and <code>PLANT</code> not defined as <code>expanded</code>. So, here's an abbreviated class declaration (<code>note</code> clause and routines omitted) for <code>CAR</code>:
 <code>
 class CAR
 
 feature
 
-    engine: expanded ENGINE
+    engine: ENGINE
 
     originating_plant: PLANT
 
 end -- class CAR
 </code>
 
-Here is an illustration of the structure of a typical instance of <code>CAR</code>: 
+We can illustrate the structure of a typical instance of <code>CAR</code> like this: 
 
 
 [[Image:tutorial-8]]  
 
+
+The field for the attribute <code>originating_plant</code> is a reference to an object of type <code>PLANT</code> external to the instance of <code>CAR</code>. But in the case of the attribute <code>engine</code>, the fields for the instance of <code>ENGINE</code> exist as a subobject within the instance of <code>CAR</code>, because of class <code>ENGINE</code>'s expanded nature. 
 
 This example also illustrates that the distinction between expanded and reference types is important not just for system implementation purposes but for high-level system modeling as well. Consider the example of a class covering the notion of car. Many cars share the same <code>originating_plant</code>, but an <code>engine</code> belongs to just one car. References represent the modeling relation "knows about"; subobjects, as permitted by expanded types, represent the relation "has part", also known as aggregation. The key difference is that sharing is possible in the former case but not in the latter. 
 
