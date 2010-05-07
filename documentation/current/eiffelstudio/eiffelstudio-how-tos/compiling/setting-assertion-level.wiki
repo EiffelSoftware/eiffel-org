@@ -3,7 +3,7 @@
 [[Property:uuid|af3a030c-2970-2e07-7bd4-9e9333a8a8c3]]
 To modify the assertion level in a generated binary (executable or library),
 * Open the [[Assertion Options|Project Settings]]  dialog. 
-* In the '''Target, Assertions'''section, select the assertions you want to check (among require, ensure, check, loop and class invariant). 
+* In the '''Target --> Assertions''' section, set a value of "True" for the assertion types you want to have checked at runtime (among require, ensure, check, loop and class invariant). 
 * Click '''OK'''. 
 * You must [[Generating executables|recompile]]  your project for the changes to take effect. 
 
