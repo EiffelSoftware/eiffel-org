@@ -365,7 +365,7 @@ end -- class INTEGER
 
 In this case the value of an entity declared as <code>n: INTEGER</code> is not a reference to an object, but the object itself -- in this case an atomic object, an integer value. 
 
-Expanded classes make it possible to construct composite objects with subobjects. Suppose that two classes, <code>ENGINE</code> and <code>PLANT</code>, are suppliers to the class <code>CAR</code>. Further, <code>ENGINE</code> is defined as <code>expanded</code>, and <code>PLANT</code> not defined as <code>expanded</code>. So, here's an abbreviated class declaration (<code>note</code> clause and routines omitted) for <code>CAR</code>:
+Expanded classes make it possible to construct composite objects with subobjects. Suppose that two classes, <code>ENGINE</code> and <code>PLANT</code>, are suppliers to the class <code>CAR</code>. Further, <code>ENGINE</code> is defined as <code>expanded</code>, and <code>PLANT</code> is ''not'' defined as <code>expanded</code>. So, here's an abbreviated class declaration (<code>note</code> clause and routines omitted) for <code>CAR</code>:
 <code>
 class CAR
 
