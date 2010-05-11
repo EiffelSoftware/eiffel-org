@@ -11,9 +11,9 @@ EiffelStudio project settings supports four of these syntax compilation variants
 # '''Provisional syntax'''
 
 
-Because the language, and by necessity the compilation technology too, may be a moving target, it is difficult to give precise definitions of what these variants mean at any given time. Today's valid identifier is tomorrow's keyword and vice versa. Even so, we can use an example from a particular point in time to show the basic idea.
+Because the language, and by necessity the compilation technology too, may at times be a moving target, it is difficult to give precise definitions of what these variants mean at any given time. Today's valid identifier is tomorrow's keyword and vice versa. It's always a good idea to check the [[EiffelStudio release notes]] when you install a new version to see if new language elements are supported or existing ones have been made obsolete. 
 
-At one time, the word '''indexing''' was a keyword, and the word '''note''' was available for use as a valid identifier. But there came a time that due to a consensus of opinion within the Eiffel standards committee, the role of the keyword <code>indexing</code> was replaced by a new keyword <code>note</code>. This meant two things. First that if you had used the keyword <code>indexing</code> in your classes (and who hadn't?), then at some point you would want to change those occurrences to <code>note</code>. Second, if you had used the word '''note''' as an identifier, then at some point you would have to change your code to use a different identifier it its place. 
+Even so, we can use an example from a particular point in time to show the basic idea. At one time, the word '''indexing''' was a keyword, and the word '''note''' was available for use as a valid identifier. But there came a time that due to a consensus of opinion within the Eiffel standards committee, the role of the keyword <code>indexing</code> was replaced by a new keyword <code>note</code>. This meant two things. First that if you had used the keyword <code>indexing</code> in your classes (and who hadn't?), then at some point you would want to change those occurrences to <code>note</code>. Second, if you had used the word '''note''' as an identifier, then at some point you would have to change your code to use a different identifier it its place. 
 
 The Eiffel compiler is savvy enough in some cases to delay the necessity of these changes by considering code in its current context. For example, if a particular keyword is not appropriate in a certain context, then it is only reasonable that when the word is used in that context, it is used as an identifier. But sometimes ambiguities arise that the compiler cannot resolve by analyzing context. It is in these cases that the syntax variants are useful.
 
@@ -26,6 +26,8 @@ So, considering the transition from '''indexing''' to '''note''', here are the e
 :If '''Standard syntax''' is selected, then '''indexing''' is free to be used as an identifier, and '''note''' is recognized as a keyword.
 
 When '''Provisional syntax''' is selected, it allows the inclusion of certain language constructs which, although supported by the Eiffel Software compiler, may not yet be stamped into the standard. For example, version 6.6 of EiffelStudio includes support for the [[ET: Instructions#A closer look at the iteration form|iteration form]] of the Eiffel loop construct, which at the time of the release is not in the current standard ... although it is expected, with reasonable confidence, to become standard in the future. Of course, there is always the risk that, once standardized, the syntax may change some, so selecting '''Provisional syntax''' is an acknowledgment that non-standard language elements are being used.
+
+To set the syntax variant, open [[General Target Options|Project Settings]]. Then find the general setting '''Syntax''' for the target or group of interest. The value field for '''Syntax''' will give you a choice of the available variants when clicked. Select the appropriate variant, then, click '''OK'''.
 
 
 
