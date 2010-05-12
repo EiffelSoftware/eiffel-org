@@ -1,0 +1,83 @@
+[[Property:title|Syntax level variant settings by version]]
+[[Property:weight|-11]]
+[[Property:uuid|aa52a183-c616-4590-5e7e-f9b9e2a71f14]]
+{{Beta}}
+
+
+The Eiffel Software compiler provides a set of options, available in [[General Target Options|Project Settings]] which allow users to [[Setting the syntax variant|select a variant of the Eiffel language syntax]] that suits their needs. The meanings of these options, and in fact the options themselves, are subject to change from one version to the next. Below you will find a table that defines the meaning of the syntax level variants for each version. 
+
+
+{| border="1" style="float: right; border-collapse: collapse; border-style: solid;"
+|+ '''Legend'''
+| style="color: navy;" | '''keyword'''
+| Accepted as a keyword
+|-
+| style="color: blue;" | '''keyword'''
+| Accepted as a keyword with a warning
+|-
+| style="color: teal;" | '''keyword'''
+| Accepted as a keyword or if grammar permits as an identifier with a warning
+|-
+| style="color: gray;" | name
+| Accepted as an identifier with a warning
+|-
+| style="color: black;" | name
+| Accepted as an identifier
+|}
+
+{| border="1" style="border-collapse: collapse; border-style: solid;"
+|+ '''Constructs affected by the ''syntax'' project setting'''
+! rowspan="2" style="valign: center;" | Release
+! colspan="4" | Option value
+|-
+! Obsolete !! Transitional !! Standard !! Provisional
+|-
+! rowspan="9" style="valign: center;" | [[Release notes for EiffelStudio 6.6 | 6.6]]
+| style="color: gray;" | across
+| style="color: gray;" | across
+| style="color: gray;" | across
+| style="color: teal;" | '''across'''
+|-
+| style="color: teal;" | '''assign'''
+| style="color: teal;" | '''assign'''
+| style="color: navy;" | '''assign'''
+| style="color: teal;" | '''assign'''
+|-
+| style="color: gray;" | attached
+| style="color: teal;" | '''attached'''
+| style="color: navy;" | '''attached'''
+| style="color: teal;" | '''attached'''
+|-
+| style="color: gray;" | attribute
+| style="color: teal;" | '''attribute'''
+| style="color: navy;" | '''attribute'''
+| style="color: teal;" | '''attribute'''
+|-
+| style="color: gray;" | detachable
+| style="color: teal;" | '''detachable'''
+| style="color: navy;" | '''detachable'''
+| style="color: teal;" | '''detachable'''
+|-
+| style="color: navy;" | '''indexing'''
+| style="color: blue;" | '''indexing'''
+| style="color: black;" | indexing
+| style="color: black;" | indexing
+|-
+| style="color: navy;" | '''is'''
+| style="color: blue;" | '''is'''
+| style="color: black;" | is
+| style="color: black;" | is
+|-
+| style="color: gray;" | note
+| style="color: navy;" | '''note'''
+| style="color: navy;" | '''note'''
+| style="color: navy;" | '''note'''
+|-
+| style="color: gray;" | some
+| style="color: gray;" | some
+| style="color: gray;" | some
+| style="color: teal;" | '''some'''
+|}
+
+
+
