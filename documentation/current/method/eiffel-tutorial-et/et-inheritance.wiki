@@ -344,7 +344,7 @@ Some deferred classes describe a structural property, useful to the description 
 
 For such classes it is again essential to permit effective features in a deferred class, and to include assertions. For example class <code>COMPARABLE</code> declares <code>infix "<"</code> as deferred, and expresses <code>>, >=</code> and <code><=</code> effectively in terms of it. 
 
-{{note|The type <code>like Current</code> will be explained in [[ET: Inheritance#Covariance_and_anchored_declarations|"Covariance and anchored declarations"]] ; you may understand it, in the following class, as equivalent to <code>COMPARABLE</code>. }}
+{{note|The type <code>like Current</code> will be explained in [[ET: Inheritance#Covariance, anchored declarations, and "catcalls"|"Covariance, anchored declarations, and "catcalls""]] ; you may understand it, in the following class, as equivalent to <code>COMPARABLE</code>. }}
 <code>
 note
     description: "Objects that can be compared according to a total preorder relation"

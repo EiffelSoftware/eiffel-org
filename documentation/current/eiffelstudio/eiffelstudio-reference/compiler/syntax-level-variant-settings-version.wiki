@@ -33,7 +33,7 @@ The options are distinguished by how the compiler handles the processing of cert
 {| border="1" style="border-collapse: collapse; border-style: solid;"
 |+ '''Constructs affected by the ''syntax'' project setting'''
 ! rowspan="2" style="valign: center;" | Release
-! colspan="4" | Option value
+! colspan="4" | Setting value
 |-
 ! Obsolete !! Transitional !! Standard !! Provisional
 |-
