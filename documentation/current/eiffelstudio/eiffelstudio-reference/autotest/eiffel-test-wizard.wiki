@@ -4,6 +4,10 @@
 [[Property:uuid|305a8288-cb6a-df2a-1515-e23138e21566]]
 ==Introduction==
 
+
+{{note| '''To V6.6 users:''' As of V6.6, the New Eiffel test wizard panes have changed somewhat from this documentation. V6.6 introduces the ability to store certain preferred values for creating tests. The advantage is that one need not enter this information on wizard panes each time a test is created. Because preferred values can be stored, the panes containing the values more likely to change between test creations are presented earlier than other panes. In previous versions, these panes were presented later, as shown in this documentation. The documentation will be updated in the future to reflect the newer wizard sequences and pane layouts. }}
+
+
 The '''New Eiffel test wizard''' creates new tests based on information entered by a developer on a series of wizard panes. Each of the three test types supported by AutoTest requires certain unique information. Therefore, there is a unique sequence of wizard panes corresponding to each test type. 
 
 The '''New Eiffel test wizard''' is invoked by clicking the '''Create new tests''' button ( [[Image:create new tests]] ) on the AutoTest interface toolbar. 
