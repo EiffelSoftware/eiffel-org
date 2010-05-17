@@ -4,6 +4,9 @@
 {{note|The following few pages contain the AutoTest tutorial. This tutorial uses a different software example than the bulk of the EiffelStudio Guided Tour. If this is your first time through, you may want to delay the AutoTest tutorial until you have completed the rest of the Guided Tour, then come back to it when you're feeling more familiar with EiffelStudio.}}
 
 
+{{note| '''To V6.6 users:''' As of V6.6, the New Eiffel test wizard panes have changed somewhat from this documentation. V6.6 introduces the ability to store certain preferred values for creating tests. The advantage is that one need not enter this information on wizard panes each time a test is created. Because preferred values can be stored, the panes containing the values more likely to change between test creations are presented earlier than other panes. In previous versions, these panes were presented later, as shown in this documentation. The documentation will be updated in the future to reflect the newer wizard sequences and pane layouts. }}
+
+
 ==Introduction==
 
 AutoTest is a tool that helps you to create, manage, and run tests against your software. AutoTest is accessible directly as a part of EiffelStudio, but works to a large extent behind the scenes so that it doesn't get in the way of your development activities. In other words, even though you may be accumulating a substantial collection of test software along with your project software, you can still run and deliver your project software without going to a lot of trouble to separate the two. Tests managed by AutoTest stay handy and can be run any time to help make sure everything always stands up to the scrutiny of testing. 

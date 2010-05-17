@@ -8,7 +8,7 @@ The Eiffel Software compiler provides a set of options, available in [[General T
 
 The options are distinguished by how the compiler handles the processing of certain words found in Eiffel text which may be:
 # Associated with language constructs, or 
-# Allowed as identifiers,
+# Allowed as identifiers, or
 # In the case of some options as either keywords or identifiers depending upon the context in which the words are found.
 
 
