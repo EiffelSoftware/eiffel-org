@@ -12,7 +12,7 @@ The options are distinguished by how the compiler handles the processing of cert
 # In the case of some options as either keywords or identifiers depending upon the context in which the words are found.
 
 
-{| border="1" style="float: right; border-collapse: collapse; border-style: solid;"
+{| border="1" style="border-collapse: collapse; border-style: solid;"
 |+ '''Legend'''
 | style="color: navy;" | '''keyword'''
 | Accepted as a keyword
@@ -29,6 +29,9 @@ The options are distinguished by how the compiler handles the processing of cert
 | style="color: black;" | name
 | Accepted as an identifier
 |}
+
+
+
 
 {| border="1" style="border-collapse: collapse; border-style: solid;"
 |+ '''Constructs affected by the ''syntax'' project setting'''
