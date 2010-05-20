@@ -20,7 +20,7 @@ The options are distinguished by how the compiler handles the processing of cert
 | style="color: blue;" | '''keyword'''
 | Accepted as a keyword with a warning
 |-
-| style="color: teal;" | '''keyword'''
+| style="color: maroon;" | '''keyword'''
 | Accepted as a keyword or if grammar permits as an identifier with a warning
 |-
 | style="color: gray;" | name
@@ -44,27 +44,27 @@ The options are distinguished by how the compiler handles the processing of cert
 | style="color: gray;" | across
 | style="color: gray;" | across
 | style="color: gray;" | across
-| style="color: teal;" | '''across'''
+| style="color: maroon;" | '''across'''
 |-
-| style="color: teal;" | '''assign'''
-| style="color: teal;" | '''assign'''
+| style="color: maroon;" | '''assign'''
+| style="color: maroon;" | '''assign'''
 | style="color: navy;" | '''assign'''
-| style="color: teal;" | '''assign'''
+| style="color: maroon;" | '''assign'''
 |-
 | style="color: gray;" | attached
-| style="color: teal;" | '''attached'''
+| style="color: maroon;" | '''attached'''
 | style="color: navy;" | '''attached'''
-| style="color: teal;" | '''attached'''
+| style="color: maroon;" | '''attached'''
 |-
 | style="color: gray;" | attribute
-| style="color: teal;" | '''attribute'''
+| style="color: maroon;" | '''attribute'''
 | style="color: navy;" | '''attribute'''
-| style="color: teal;" | '''attribute'''
+| style="color: maroon;" | '''attribute'''
 |-
 | style="color: gray;" | detachable
-| style="color: teal;" | '''detachable'''
+| style="color: maroon;" | '''detachable'''
 | style="color: navy;" | '''detachable'''
-| style="color: teal;" | '''detachable'''
+| style="color: maroon;" | '''detachable'''
 |-
 | style="color: navy;" | '''indexing'''
 | style="color: blue;" | '''indexing'''
@@ -84,7 +84,7 @@ The options are distinguished by how the compiler handles the processing of cert
 | style="color: gray;" | some
 | style="color: gray;" | some
 | style="color: gray;" | some
-| style="color: teal;" | '''some'''
+| style="color: maroon;" | '''some'''
 |}
 
 
