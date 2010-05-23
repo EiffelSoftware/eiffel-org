@@ -1,7 +1,6 @@
 [[Property:title|Graphics-based Design]]
 [[Property:weight|1]]
 [[Property:uuid|78239225-67a7-8718-857d-f2c8fb70ef18]]
-
 So far the project modifications that we have made used the text editor in the Editing Tool. Now let's look at EiffelStudio's ability to provide a graphical depiction of our software system.
 
 In line with the principles of seamlessness and reversibility recalled at the beginning of this Tour, EiffelStudio's interaction between text and diagram access to software is bi-directional. When you make a textual modification, the next incremental recompilation will update the diagram; but you can also work directly from the diagram, and the text will be generated or updated after each graphical operation.
@@ -247,7 +246,7 @@ Among the many operations you can do graphically is to move a class from one clu
 
 This graphical manipulation has caused a structural change: class <code>HEIR2</code> is now part of <code>MY_CLUSTER</code>. Check this by expanding the Cluster Tree on the left: 
 
-[[Image:index-132]]
+[[Image:es gt class HEIR2 moved to new cluster|Class HEIR2 has been moved to my_cluster.]]
 
 If you like, you can also look into the project directory -- using the Windows Explorer, or <code>cd</code> and <code>ls</code> on Unix/Linux -- and check that it now has a subdirectory <code>my_cluster</code> with a file <code>heir2.e</code> containing the text of class <code>HEIR2</code>. 
 
