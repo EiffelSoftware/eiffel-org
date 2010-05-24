@@ -7,13 +7,13 @@
 {| 
 |- 
 | '''Computer/Processor'''
-| PC with 300 MHz or higher Pentium II class processor or equivalent recommended.
+| PC with 1GHz or higher Intel/AMD processor or equivalent recommended.
 |- 
 | '''Operating System'''
-| Windows NT/2000/XP/2003/Vista (.NET support is for Microsoft Windows 2000, XP and 2003 only).
+| Windows 2000/XP/2003/Vista/Win7.
 |- 
 | '''C compiler'''
-| Microsoft Visual Studio 2005 or greater, or using gcc included in the EiffelStudio delivery
+| Microsoft Visual Studio 2005 or greater, or using gcc included in the EiffelStudio delivery (only for 32-bit)
 |- 
 | '''Memory'''
 | 512MB of RAM (1GB recommended).
