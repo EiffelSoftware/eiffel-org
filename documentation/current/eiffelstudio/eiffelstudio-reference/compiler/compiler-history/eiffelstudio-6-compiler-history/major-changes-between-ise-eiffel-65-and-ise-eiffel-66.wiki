@@ -1,0 +1,49 @@
+[[Property:title|Major changes between ISE Eiffel 6.5 and ISE Eiffel 6.6]]
+[[Property:link_title|6.6]]
+[[Property:weight|-13]]
+[[Property:uuid|4ff759ff-c389-f765-0252-2d844b69fa54]]
+==What's new==
+{{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
+* Added support for new once syntax and once per object.
+* Added support for RAT/QAT.
+* Added a new option Total Order on REALs which let you have NaN equal to NaN and NaN being the smallest number of all. This option is disabled by default as it could break existing code. The rationale for this option is to have contracts work properly when manipulating the NaN value and not getting spurious contract violation.
+* Added the ability to version a class for storable. It is done via the note clause of a class, i.e. <e>note storable_version: tag</e>. When the storing and retrieving system have a different version a mismatch is triggered even if they look to have the same content.
+* Supported new variant of a check instruction that is not subject for assertion monitoring settings (in other words the check cannot be turned off) and can be used to introduce a new void safe scope of a read-only or object test local:
+<e>check Assertion then
+   Compound
+end
+</e>
+* Now the compiler will report usage of is keyword as obsolete in transitional mode and will reject it in standard mode.
+
+==Improvements==
+* Added support of transient attributes for .NET. Added queries in INTERNAL to find out the transient attributes. Extended the Eiffel serialization SED to support them.
+* Redone some of the multithreading internals of the Eiffel runtime to make it easier to add platforms and to ensure the same behavior on various platforms, namely that mutex should be recursive.
+* On Windows, the MUTEX class is now internally using a CRITICAL_SECTION object which is much more efficient especially on multiprocessors.
+
+==Changes==
+* The experimental mode available in 6.5 and earlier version has become the default mode. To have access to the default mode of 6.5, one has to use the compatible version. It can be accessed on Windows via the Start menu shortcut or by using "-compat" on the command line.
+* Allowed manifest real constants to be assigned to REAL_32 entities without having the need to type the constant, that is to say `r_32 := 4.5' will now be accepted whereas before one had to do `r_32 := {REAL_32} 4.5'. This is to simplify migration from code that compiled fine under 6.5 and would not under 6.6 due to the removal of the conversion routine from REAL_64 to REAL_32.
+* When twinning a <e>SPECIAL</e> instance where <e>capacity</e> is much higher than its <e>count</e> the new copy will have its <e>capacity</e> set to <e>count</e>.
+* The storable format has changed to support versioning. This new format is only available in the default mode. When using the compatible mode it will store using the old format and no version information will be stored.
+
+==Bug fixes==
+
+===Language issues===
+* Fixed in void-safe mode conformance of detachable COMPARABLE to attached ANY. Fixes updated eweasel test#conform001.
+
+===Compiler issues===
+* Fixed test#incr168 when recompilation did not regenerate the code in some complex cases when features are modified deep in inheritance tree. It also fixes eweasel test#exec283 and addresses a consistency issue with the order of merging inherited assertion clause that would not trigger the same output if recompiled from scratch after some incrementality changes (see eweasel test#incr124).
+* Fixed bug#16545 when compiler did not detect that a new file does not contain an expected class after referencing it in a system (see test#incr340).
+* Fixed several recompilation bugs (bug#16546, bug#16547, bug#16553) for cases when a feature with assertions is removed from a parent class while a child class remains unchanged (see test#incr341, test#incr342, test#incr343).
+* Fixed recompilation bugs (bug#14525, bug#16052) that caused compiler crash or incorrect error message when checking inherited code of a client that refers to a feature that is (re)moved (see test#incr293, test#incr338).
+* Fixed bug#16593 where finalizing twice in the same sessions with many changes in the system could cause the compiler to crash during degree -3.
+
+===Runtime/code generation issues===
+* Fixed test#runtime016 due to an improper optimization of the call {SPECIAL}.copy_data when inlining is enabled. It could cause a memory corruption.
+* Fixed bug#16626 bug that occurred when melted code called frozen code that called a melted agent triggering exception (see test#incr348).
+* Fixed eweasel test#agent001 and test#agent013 by preventing wrong optimization when call to `{ROUTINE}.call' or `{FUNCTION}.item' are subject to dynamic binding.
+* Fixed eweasel test#exec323 where comparison using <= or >= in melted mode which involved NaN was not yielding the same result as in workbench mode.
+
+===Store/Retrieve issues===
+* Fixed eweasel test#store029 where retrieving a storable made by 6.3 or older could fail with a mismatch error when there is actually no mismatch.
+

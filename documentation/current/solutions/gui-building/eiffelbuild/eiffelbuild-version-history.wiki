@@ -1,6 +1,9 @@
 [[Property:title|EiffelBuild Version History]]
 [[Property:weight|2]]
 [[Property:uuid|8cc0540e-8ee7-c005-0534-a2ed62f41c96]]
+==6.6 Release==
+No changes.
+
 ==6.5 Release==
 * Fixed bug#15947 to make the generated code compile in void-safe mode.
 * Fixed bug#13296 when retrieving a project using an EV_SPIN_BUTTON element.

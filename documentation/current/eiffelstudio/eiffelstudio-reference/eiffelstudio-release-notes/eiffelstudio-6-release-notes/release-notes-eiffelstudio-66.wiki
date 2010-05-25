@@ -1,0 +1,57 @@
+[[Property:title|Release notes for EiffelStudio 6.6]]
+[[Property:link_title|6.6]]
+[[Property:weight|-13]]
+[[Property:uuid|16d03e3f-d0ff-c56e-6e77-232087ec3bfb]]
+==Graphical environment==
+
+===What's new===
+* Added the parent clauses of a class in the "Features tool" making it easier to navigate/edit parent classes.
+
+===Improvements===
+* Double clicking in the editor tab ribbon will create a new tab of the editor.
+* Pressing "Ctrl+Enter" while typing a class name in the address bar will open the class or feature in a new tab of the editor.
+* Pressing the middle mouse button on a tab will now close that tab.
+* Added shortcuts for "Run workbench system" and "Run finalized system"
+
+===Changes===
+* The experimental mode available in 6.5 and earlier version has become the default mode. To have access to the default mode of 6.5, one has to use the compatible version. It can be accessed on Windows via the Start menu shortcut or by using "-compat" on the command line.
+
+===Bug fixes===
+* Fixed an issue when the error tooltip would keep flashing when the cursor is outside the EiffelStudio environment.
+* Fixed an issue while searching text in the implementers or descendants view it would not scroll to the found text.
+* Fixed an issue with the error List window which would come up blank on error if auto-hidden when EiffelStudio started.
+
+==Compiler==
+* Click [[Major changes between ISE Eiffel 6.5 and ISE Eiffel 6.6|here]]  for the compiler release notes.
+
+== AutoTest==
+
+==Debugger==
+* Click [[Release notes for EiffelStudio 6.6 related to the debugger|here]]  for the EiffelStudio debugger release notes.
+
+==EiffelBuild==
+* Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.
+
+==Libraries==
+
+===EiffelBase===
+* Added ability to traverse most containers in EiffelBase using the new <e>across</e> loop construct.
+* Added a new feature <e>trim</e> to the <e>RESIZABLE</e> class and its decendants to allow for minimizing the allocated storage.
+* Modified <e>ARRAYED_QUEUE</e> to avoid using an extra slot that did not keep any value and was used only for implementation purposes.
+* Added support for correct mismatch in the SED serialization cluster.
+* Fixed <e>ARRAY2</e> so that it can be used in void-safe mode too. Improved <e>ARRAY2</e> resizing efficiency.
+* Changed the display of REAL/DOUBLE fields to show REAL_32 or REAL_64.
+* Changed the display of NaN/-Infinity/Infinity for real numbers so that it is the same on all our supported platforms.
+
+===EiffelThread===
+* Made the <e>THREAD</e> class thread-safe which prevents using the same object to launch a new thread. Now there is a precondition <e>is_launchable</e> and a status report <e>is_last_launch_successful</e> to help finding out if a thread was really launched.
+
+===EiffelNet===
+* Fixed precondition violation in <e>{ARRAY}.force</e> when compiling EiffelNet in void-safe mode.
+* Changed internal of MEDIUM_POLLER to use HASH_TABLE, as a consequence the queries <e>read_command_list</e>, <e>write_command_list</e> and <e>exception_command_list</e> are now obsolete and should not be used.
+
+===EiffelVision2===
+* [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
+
+[[EiffelStudio release notes|Click here to check out what was new in other versions]]  
+
