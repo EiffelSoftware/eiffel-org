@@ -1,6 +1,7 @@
 [[Property:title|ET: Inheritance]]
 [[Property:weight|-7]]
 [[Property:uuid|c90e6ee3-b39d-48e5-2321-a34e12fd5327]]
+
 Inheritance is a powerful and attractive technique. A look at either the practice or literature shows, however, that it is not always well applied. Eiffel has made a particular effort to tame inheritance for the benefit of modelers and software developers. Many of the techniques are original with Eiffel. Paul Dubois has written (comp.lang.python Usenet newsgroup, 23 March 1997): there are two things that [Eiffel] got right that nobody else got right anywhere else: support for design by contract, and multiple inheritance. Everyone should understand these "correct answers" if only to understand how to work around the limitations in other languages.
 
 ==Basic inheritance structure==
@@ -23,7 +24,9 @@ feature
 
 This makes <code>D</code> an heir of <code>A</code>, <code>B</code> and any other class listed. Eiffel supports '''multiple''' inheritance: a class may have as many parents as it needs. Later sections ( [[ET: Inheritance#Multiple_inheritance_and_renaming|"Multiple inheritance and renaming"]]  and [[ET: Inheritance#Repeated_inheritance_and_selection|"Repeated inheritance and selection"]] ) will explain how to handle possible conflicts between parent features. 
 
+
 {{note|This discussion will rely on the terminology introduced in [[ET: The Static Picture: System Organization|The Static Picture: System Organization]]: descendants of a class are the class itself, its heirs, the heirs of its heirs and so on. Proper descendants exclude the class itself. The reverse notions are ancestors and proper ancestors. }}
+
 
 By default <code>D</code> will simply include all the original features of <code>A</code>, <code>B</code>, ..., to which it may add its own through its <code>feature</code> clauses if any. But the inheritance mechanism is more flexible, allowing <code>D</code> to adapt the inherited features in many ways. Each parent name -- <code>A</code>, <code>B</code>, ... in the example -- can be followed by a Feature Adaptation clause, with subclauses, all optional, introduced by keywords <code>rename</code>, <code>export</code>, <code>undefine</code>, <code>redefine</code> and <code>select</code>, enabling the author of <code>D</code> to make the best use of the inheritance mechanism by tuning the inherited features to the precise needs of <code>D</code>. This makes inheritance a principal tool in the Eiffel process, mentioned earlier, of carefully crafting each individual class, like a machine, for the benefit of its clients. The next sections review the various Feature Adaptation subclauses. 
 
@@ -90,7 +93,9 @@ The inheritance mechanism is relevant to both roles of classes: module and type.
 
 '''Polymorphic assignment''' supports this second role. In an assignment <code>x := y</code>, the types of <code>x</code> and <code>y</code> do not have, with inheritance, to be identical; the rule is that the type of <code>y</code> must simply '''conform''' to the type of <code>x</code>. A class <code>D</code> conforms to a class <code>A</code> if and only if it is a descendant of <code>A</code> (which includes the case in which <code>A</code> and <code>D</code> are the same class); if these classes are generic, conformance of <code>D</code> <code>[</code> <code>U</code> <code>]</code> to <code>C</code> <code>[</code> <code>T</code> <code>]</code> requires in addition that type <code>U</code> conform to type <code>T</code> (through the recursive application of the same rules). 
 
+
 {{note|In addition, it will be shown in the discussion of tuples ([[ET: Other Mechanisms#Tuple_types|"Tuple types"]]), that <code>TUPLE [X]</code> conforms to <code>TUPLE</code>, <code>TUPLE [X, Y]</code> to <code>TUPLE [X]</code> and so on. }}
+
 
 So with the inheritance structure that we have seen, the declarations
 <code>
@@ -108,7 +113,10 @@ which will assign to <code>acc</code> a reference attached (if not void) to a di
 Such an assignment, where the source and target types are different, is said to be polymorphic. An entity such as <code>acc</code>, which as a result of such assignments may become attached at run time to objects of types other than the one declared for it, is itself called a polymorphic entity. 
 
 For polymorphism to respect the reliability requirements of Eiffel, it must be controlled by the type system and enable static type checking. We certainly do not want an entity of type <code>ACCOUNT</code> to become attached to an object of type <code>DEPOSIT</code>. Hence the second typing rule: 
+
+
 {{rule|name=Type Conformance|text=An assignment <code>x := y</code>, or the use of y as actual argument corresponding to the formal argument x in a routine call, is only valid if the type of y conforms to the the type of x. }}
+
 
 The second case listed in the rule is a call such as <code>target.routine(..., y, ...)</code> where the routine declaration is of the form <code>routine (..., x: SOME_TYPE)</code>. The relationship between <code>y</code>, the actual argument in the call, and the corresponding formal argument <code>x</code>, is exactly the same as in an assignment <code>x := y</code>: not just the type rule, as expressed by Type Conformance (the type of <code>y</code> must conform to <code>SOME_TYPE</code>), but also the actual run-time effect which, as for assignments, will be either a reference attachment or, for expanded types, a copy. 
 
@@ -248,7 +256,9 @@ Although the above version of feature <code>count</code> is time-consuming -- it
 
 Function <code>count</code> illustrates one of the most important contributions of the method to reusability: the ability to define '''behavior classes''' that capture common behaviors (such as count) while leaving the details of the behaviors (such as <code>start</code>, <code>after</code>, <code>forth</code>) open to many variants. As noted earlier, traditional approaches to reusability provide closed reusable components. A component such as <code>LIST</code>, although equipped with directly usable behaviors such as count, is open to many variations, to be provided by proper descendants. 
 
+
 {{note|Some O-O languages support only the two extremes: fully effective classes, and fully deferred "interfaces", but not classes with a mix of effective and deferred features. This is an unacceptable limitation, negating the object-oriented method's support for a seamless, continuous spectrum from the most abstract to the most concrete. }}
+
 
 A class <code>B</code> inheriting from a deferred class <code>A</code> may provide implementations -- effective declarations -- for the features inherited in deferred form. In this case there is no need for a <code>redefine</code> subclause; the effective versions simply replace the inherited versions. The class is said to '''effect''' the corresponding features. If after this process there remain any deferred features, B is still considered deferred, even if it introduces no deferred features of its own, and must be declared as <code>class deferred</code>. 
 
@@ -344,7 +354,9 @@ Some deferred classes describe a structural property, useful to the description 
 
 For such classes it is again essential to permit effective features in a deferred class, and to include assertions. For example class <code>COMPARABLE</code> declares <code>infix "<"</code> as deferred, and expresses <code>>, >=</code> and <code><=</code> effectively in terms of it. 
 
+
 {{note|The type <code>like Current</code> will be explained in [[ET: Inheritance#Covariance, anchored declarations, and "catcalls"|"Covariance, anchored declarations, and "catcalls""]] ; you may understand it, in the following class, as equivalent to <code>COMPARABLE</code>. }}
+
 <code>
 note
     description: "Objects that can be compared according to a total preorder relation"
@@ -423,7 +435,9 @@ Here both <code>LIST</code> and <code>ARRAY</code> have features called <code>co
 
 Every feature of a class has a '''final name''' : for a feature introduced in the class itself ("immediate" feature) it is the name appearing in the declaration; for an inherited feature that is not renamed, it is the feature's name in the parent; for a renamed feature, it is the name resulting from the renaming. This definition yields a precise statement of the rule against in-class overloading: 
 
+
 {{rule|name=Final Name|text=Two different features of a class may not have the same final name. }}
+
 
 It is interesting to compare renaming and redefinition. The principal distinction is between features and feature names. Renaming keeps a feature, but changes its name. Redefinition keeps the name, but changes the feature. In some cases, it is of course appropriate to do both. 
 
@@ -437,7 +451,9 @@ A proper understanding of inheritance requires looking at the mechanism in the f
 
 The first rule is that invariants accumulate down an inheritance structure:
 
+
 {{rule|name=Invariant Accumulation|text=The invariants of all the parents of a class apply to the class itself. }}
+
 
 The invariant of a class is automatically considered to include -- in the sense of logical "and" -- the invariants of all its parents. This is a consequence of the view of inheritance as an "is" relation: if we may consider every instance of <code>B</code> as an instance of <code>A</code>, then every consistency constraint on instances of <code>A</code> must also apply to instances of <code>B</code>. 
 
@@ -473,7 +489,9 @@ Because it is impossible to check simply that an assertion is weaker or stronger
 </code>
 For a precondition, using <code>require else</code> with a new assertion will perform an <code>or</code>, which can only weaken the original; for a postcondition, <code>ensure then</code> will perform an <code>and</code>, which can only strengthen the original. Hence the rule: 
 
+
 {{rule|name=Assertion Redeclaration|text=In the redeclared version of a routine, it is not permitted to use a require or ensure clause. Instead you may: Introduce a new condition with require else, for or-ing with the original precondition. Introduce a new condition with ensure then, for and-ing with the original postcondition. In the absence of such a clause, the original assertions are retained. }}
+
 
 The last case -- retaining the original -- is frequent but by no means universal. 
 
@@ -623,7 +641,9 @@ If there are separate accounts for students' course work and for faculty, you ma
 
 The Eiffel rule enables, once again, the software developer to craft the resulting class so as to tune it to the exact requirements. Not surprisingly, it is based on names, in accordance with the Final Name rule (no in-class overloading):
 
+
 {{rule|name=Repeated Inheritance|text=<br/>A feature inherited multiply under one name will be shared: it is considered to be just one feature in the repeated descendant.<br/>A feature inherited multiply under different names will be replicated, yielding as many variants as names. }}
+
 
 So to tune the repeated descendant, feature by feature, for sharing and replication it suffices to use renaming. 
 
@@ -748,11 +768,15 @@ Note that if there is no savings account at all in the list the assignment attem
 
 Assignment attempt is useful in the cases cited -- access to external objects beyond the software's own control, and access to specific properties in a polymorphic data structure. The form of the instruction precisely serves these purposes; not being a general type comparison, but only a verification of a specific expected type, it does not carry the risk of encouraging developers to revert to multi-branch instruction structures, for which Eiffel provides the far preferable alternative of polymorphic, dynamically-bound feature calls. 
 
-{{note|As a consequence of the advent of [[Void-safe programming in Eiffel|void-safe Eiffel]], an elegant language construct has been added to Eiffel which can be used in place of the assignment attempt. The [[Void-safety: Background, definition, and tools#The attached syntax (object test)|attached syntax]] can be used to test for an attached object (object test), but it can also be used as to provide a convenient [[Creating a new void-safe project#As a replacement for assignment attempt|replacement for the assignment attempt]] which does not require the separate declaration of a local variable.}}
+
+{{note|As a consequence of the advent of [[Void-safe programming in Eiffel|void-safe Eiffel]], an elegant language construct has been added to Eiffel which can (and should) be used in place of the assignment attempt. The [[Void-safety: Background, definition, and tools#The attached syntax (object test)|attached syntax]] can be used to test for an attached object (object test), but it can also be used as to provide a convenient [[Creating a new void-safe project#As a replacement for assignment attempt|replacement for the assignment attempt]] which does not require the separate declaration of a local variable.}}
+
 
 ==Covariance, anchored declarations, and "catcalls"==
 
-The final property of Eiffel inheritance involves the rules for adapting not only the implementation of inherited features (through redeclaration of either kind, effecting and redefinition, as seen so far) and their contracts (through the Assertion Redeclaration rule), but also their types. More general than type is the notion of a feature's '''signature''', defined by the number of its arguments, their types, the indication of whether it has a result (that is to say, is a function or attribute rather than a procedure) and, if so, the type of the result. 
+The final properties of Eiffel inheritance involve the rules for adapting not only the implementation of inherited features (through redeclaration of either kind, effecting and redefinition, as seen so far) and their contracts (through the Assertion Redeclaration rule), but also their types. More general than type is the notion of a feature's '''signature''', defined by the number of its arguments, their types, the indication of whether it has a result (that is to say, is a function or attribute rather than a procedure) and, if so, the type of the result. 
+
+===Covariance===
 
 In many cases the signature of a redeclared feature remains the same as the original's. But in some cases you may want to adapt it to the new class. Assume for example that class <code>ACCOUNT</code> has features 
 <code>
@@ -773,7 +797,9 @@ We introduce an heir <code>BUSINESS_ACCOUNT</code> of <code>ACCOUNT</code> to re
 
 Clearly, we must redefine <code>owner</code> in class <code>BUSINESS_ACCOUNT</code> to yield a result of type <code>BUSINESS</code>; the same signature redefinition must be applied to the argument of <code>set_owner</code>. This case is typical of the general scheme of signature redefinition: in a descendant, you may need to redefine both results and arguments to types conforming to the originals. This is reflected by a language rule: 
 
+
 {{rule|name=Covariance|text=In a feature redeclaration, both the result type if the feature is a query (attribute or function) and the type of any argument if it is a routine (procedure or function) must conform to the original type as declared in the precursor version. }}
+
 
 The term "covariance" reflects the property that all types -- those of arguments and those of results -- vary together in the same direction as the inheritance structure. 
 
@@ -785,6 +811,8 @@ If a feature such as <code>set_owner</code> has to be redefined for more than it
             ... New routine body ...
         end
 </code>
+
+====Anchored Declarations====
 
 In other cases, however, the body will be exactly the same as in the precursor. Then explicit redefinition would be tedious, implying much text duplication. The mechanism of '''anchored redeclaration''' solves this problem. The original declaration of <code>set_owner</code> in <code>ACCOUNT</code> should be of the form 
 <code>
@@ -804,13 +832,13 @@ In the class in which it appears, <code>like</code> ''anchor'' means the same as
 
 The difference comes in proper descendants: if a type redefinition changes the type of ''anchor'', any entity declared <code>like</code> ''anchor'' will be considered to have been redefined too. 
 
-This means that anchored declaration are a form of of implicit covariant redeclaration. 
+This means that anchored declarations are a form of of implicit covariant redeclaration. 
 
 In the example, class <code>BUSINESS_ACCOUNT</code> only needs to redefine the type of <code>owner</code> (to <code>BUSINESS</code>). It doesn't have to redefine <code>set_owner</code> except if it needs to change its implementation or assertions. 
 
 It is possible to use <code>Current</code> as anchor; the declaration <code>like Current</code> denotes a type based on the current class (with the same generic parameters if any). This is in fact a common case; we saw in [[ET: Inheritance#Structural_property_classes|"Structural property classes"]] , that it applies in class <code>COMPARABLE</code> to features such as 
 <code>
-    infix "<" (other: like Current): BOOLEAN ...
+    is_less alias "<" (other: like Current): BOOLEAN ...
 </code>
 
 since we only want to compare two comparable elements of compatible types -- but not, for example, integer and strings, even if both types conform to <code>COMPARABLE</code>. (A "balancing rule" makes it possible, however, to mix the various arithmetic types, consistently with mathematical traditions, in arithmetic expressions such as <code>3 + 45.82</code> or boolean expressions such as <code>3 < 45.82</code>.) 
@@ -824,9 +852,72 @@ with the argument anchored to the current object.
 
 A final, more application-oriented example of anchoring to <code>Current</code> is the feature <code>merge</code> posited in an earlier example (in [[ET: The Dynamic Structure: Execution Model|"The Dynamic Structure: Execution Model"]] ) with the signature <code>merge (other: ACCOUNT)</code>. By using instead <code>merge (other: like Current)</code> we can ensure that in any descendant class -- <code>BUSINESS_ACCOUNT</code>, <code>SAVINGS_ACCOUNT</code>, <code>MINOR_ACCOUNT</code> ... -- an account will only be mergeable with another of a compatible type. 
 
-Covariance makes static type checking more delicate; mechanisms of '''system validity''' and '''catcalls''' address the problem, discussed in detail in the book [[Object-Oriented Software Construction, 2nd Edition]]  (see the bibliography). Catcalls are discussed briefly below.
+====Qualified Anchored Declarations====
+
+The anchored types shown above specify anchors which are either:
+* The name of a query of the class in which the anchored declaration appears 
+** as in the case of: <code>set_owner (h: like owner)</code> or 
+* <code>Current</code>
+** as in the case of: <code>is_less alias "<" (other: like Current): BOOLEAN</code>. 
+
+Declarations can also use '''qualified''' anchored types. Consider this possible feature of <code>ACCOUNT</code>:
+
+<code>
+    owner_name: like owner.name
+</code>
+
+Here the type of <code>owner_name</code> is determined as the type of the feature <code>name</code> as applied to the type of the feature <code>owner</code> of the current class. As you can imagine, for declarations like this to be valid, the feature names <code>name</code> and <code>owner</code> must be the names queries, i. e., the names of attributes or functions.
+
+This notion can be extended to declare the type through multiple levels of remoteness, so patterns like the following can be valid:
+
+<code>
+    f: like a.b.c.d
+</code>
+
+For example if a class used a list of items of type <code>ACCOUNT</code>, it might include a declaration for that list:
+
+<code>
+    all_accounts: LINKED_LIST [ACCOUNT]
+            -- All my accounts
+</code>
+
+This class could declare a feature with a qualified anchored type like this: 
+
+<code>
+    account_owner_name: like all_accounts.item.owner.name
+</code>
+
+A qualified anchored type can be qualified also by specifying a type for the qualifier:
+
+<code>
+    owner_name: like {HOLDER}.name
+</code>
+
+In this case, the type of <code>owner_name</code> is the same as the type of the <code>name</code> feature of type <code>HOLDER</code>.
+
+Anchored declarations serve as another way to make software more concise and more resilient in a changing world. Let's look at one last example of using a qualified anchored type:
+
+<code>
+    a: ARRAY [DATA]
+        ...
+    local
+        idx: like a.lower 
+    do
+        from
+            idx := a.lower
+        until
+            idx > a.upper
+
+                ...
+</code>
+
+Declaring the local entity <code>idx</code> as the qualified anchored type <code>like a.lower</code> puts this code (well, actually the producer of this code) in the enviable position of never having to worry about what type is used by class <code>ARRAY</code> for its feature <code>lower</code>. So, <code>{ARRAY}.lower</code> could be implemented as <code>INTEGER_32</code>, <code>NATURAL_64</code>, or some other similar type and this code would be fine, even if at some point that type changed.
 
 ===Catcalls===
+
+In our diversion about anchored declarations, we've gotten away from our discussion of covariance. Let's continue that now with a look at a side effect of covariance known as the '''catcall'''.
+
+Covariance makes static type checking more delicate; mechanisms of '''system validity''' and '''catcalls''' address the problem, discussed in detail in the book [[Object-Oriented Software Construction, 2nd Edition]]. 
 
 The capabilities of polymorphism combined with covariance provide for powerful and flexible modeling. Under certain conditions, though, this flexibility can lead to problems. 
 
@@ -906,11 +997,6 @@ Here there are two <code>inherit</code> clauses, one to specify conforming paren
 
 
 So, in this case, at runtime it is valid for a direct instance of <code>MY_HEIR_CLASS</code> to be attached to an entity of type <code>MY_CONFORMING_PARENT</code>, but not to an entity of type <code>MY_NON_CONFORMING_PARENT</code>. Accordingly, the compiler would reject any code in which an instance of <code>MY_HEIR_CLASS</code> could become attached to an entity of type <code>MY_NON_CONFORMING_PARENT</code>. Because the polymorphic attachment cannot be made, the possibility of a catcall is avoided.
-
-
-
-
-
 
 
 
