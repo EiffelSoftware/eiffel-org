@@ -39,7 +39,7 @@
 ==Libraries==
 
 ===EiffelBase===
-* Added ability to traverse most containers in EiffelBase using the new <e>across</e> loop construct.
+* Added ability to traverse most containers in EiffelBase using the new iteration (<e>across</e>) [[ET: Instructions#A closer look at the iteration form| form of the loop construct]].
 * Added a new feature <e>trim</e> to the <e>RESIZABLE</e> class and its decendants to allow for minimizing the allocated storage.
 * Modified <e>ARRAYED_QUEUE</e> to avoid using an extra slot that did not keep any value and was used only for implementation purposes.
 * Added support for correct mismatch in the SED serialization cluster.
