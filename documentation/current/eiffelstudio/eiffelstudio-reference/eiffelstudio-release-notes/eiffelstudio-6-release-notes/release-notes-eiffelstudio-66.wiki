@@ -25,6 +25,10 @@
 * Click [[Major changes between ISE Eiffel 6.5 and ISE Eiffel 6.6|here]]  for the compiler release notes.
 
 == AutoTest==
+* Changed AutoTest Tool to permanently store testing results and added ability to export results to a text file
+* Added tool for displaying the result details of a single test execution
+* Added tool for comparing the current testing results to a previously exported set of results, highlighting tests for which the last execution revealed a different result
+* Improved wizard/preferences dialog for creating and executing tests, also allowing the user to skip the wizard and create new tests from default settings
 
 ==Debugger==
 * Click [[Release notes for EiffelStudio 6.6 related to the debugger|here]]  for the EiffelStudio debugger release notes.
