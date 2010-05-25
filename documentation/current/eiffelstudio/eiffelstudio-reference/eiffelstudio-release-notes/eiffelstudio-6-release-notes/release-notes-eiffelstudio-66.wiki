@@ -17,18 +17,18 @@
 * The experimental mode available in 6.5 and earlier version has become the default mode. To have access to the default mode of 6.5, one has to use the compatible version. It can be accessed on Windows via the Start menu shortcut or by using "-compat" on the command line.
 
 ===Bug fixes===
-* Fixed an issue when the error tooltip would keep flashing when the cursor is outside the EiffelStudio environment.
+* Fixed an issue in which the error tooltip would keep flashing when the cursor is outside the EiffelStudio environment.
 * Fixed an issue while searching text in the implementers or descendants view it would not scroll to the found text.
-* Fixed an issue with the error List window which would come up blank on error if auto-hidden when EiffelStudio started.
+* Fixed an issue with the Error List pane in which the Error List would come up blank on error if it had been auto-hidden when EiffelStudio started.
 
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 6.5 and ISE Eiffel 6.6|here]]  for the compiler release notes.
 
 == AutoTest==
-* Changed AutoTest Tool to permanently store testing results and added ability to export results to a text file
-* Added tool for displaying the result details of a single test execution
-* Added tool for comparing the current testing results to a previously exported set of results, highlighting tests for which the last execution revealed a different result
-* Improved wizard/preferences dialog for creating and executing tests, also allowing the user to skip the wizard and create new tests from default settings
+* Changed AutoTest Tool to store testing results permanently, and added the ability to export results to a text file.
+* Added tool for displaying the result details of a single test execution.
+* Added tool for comparing the current testing results to a previously exported set of results, highlighting tests for which the latest execution revealed a different result.
+* Improved wizard/preferences dialog for creating and executing tests, also allowing the user to skip the wizard and create new tests from default settings.
 
 ==Debugger==
 * Click [[Release notes for EiffelStudio 6.6 related to the debugger|here]]  for the EiffelStudio debugger release notes.
@@ -48,7 +48,7 @@
 * Changed the display of NaN/-Infinity/Infinity for real numbers so that it is the same on all our supported platforms.
 
 ===EiffelThread===
-* Made the <e>THREAD</e> class thread-safe which prevents using the same object to launch a new thread. Now there is a precondition <e>is_launchable</e> and a status report <e>is_last_launch_successful</e> to help finding out if a thread was really launched.
+* Made the <e>THREAD</e> class thread-safe which prevents using the same object to launch a new thread. Now there is a precondition <e>is_launchable</e> and a status report <e>is_last_launch_successful</e> to help in determining whether a thread was actually launched.
 
 ===EiffelNet===
 * Fixed precondition violation in <e>{ARRAY}.force</e> when compiling EiffelNet in void-safe mode.
