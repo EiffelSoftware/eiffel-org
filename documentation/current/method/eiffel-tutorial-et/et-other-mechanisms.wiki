@@ -1,6 +1,7 @@
 [[Property:title|ET: Other Mechanisms]]
 [[Property:weight|-4]]
 [[Property:uuid|c0a01664-194c-4e84-0517-8e7c1ca61dec]]
+
 We now examine a few important mechanisms that complement the preceding picture: shared objects, constants, and lexical conventions. 
 
 ==Once routines and shared objects==
@@ -31,6 +32,66 @@ For the classes using it, <code>console</code>, although a function, looks very 
 
 The "[[ET: Hello World|Hello World]]" system at the beginning of this discussion used an output instruction of the form <code>io</code>. <code>put_string (some_string)</code>. This is another example of the general scheme illustrated by <code>console</code>. Feature <code>io</code>, declared in <code>ANY</code> and hence usable by all classes, is a once function that returns an object of type <code>STANDARD_FILES</code> (another Kernel Library class) providing access to basic input and output features, one of which is procedure <code>put_string</code>. Because basic input and output must all work on the same files, <code>io</code> should clearly be a <code>once</code> function, shared by all classes that need these mechanisms. 
 
+===Adjusting once semantics with "once keys"===
+
+Sometimes it is helpful to adjust the way that once routines work, and that is done by applying '''once keys'''. For example, in multithreaded mode, it is reasonable most often for once routines to be executed once per ''thread'', versus once per ''process''. Therefore, the default <code>once</code> syntax, as shown in the example above, would behave as once per thread in multithreaded mode. 
+
+Sometimes, however, it is useful in multithreaded mode to create an object which can be shared among threads. To do this, once per process is needed. To create effects like this which are outside the default behavior, we can use once "keys". In following example, a once key is used to specify that the once routine is executed only once per process:
+
+<code>
+    shared_object: SOME_TYPE
+            -- An object that can be shared among threads
+            -- without being reinitialized.
+        once ("PROCESS")
+            create Result.make (...)
+        end
+</code>
+
+Other valid once keys are "THREAD" and "OBJECT". Of course, "THREAD" ensures that the once routine executes only the first time it is called during the execution of a particular process thread. "OBJECT" is used when it is desirable to have a once routine executed on a once per object basis. 
+
+
+{| border="2"
+|+ '''How once keys affect once routine execution'''
+! Once key ... !! Routine executed the first time it is called ... 
+|-
+| PROCESS || During process execution 
+|-
+| THREAD || During each process thread execution 
+|-
+| OBJECT || By each instance  
+|}
+
+
+THREAD is the default once key if none is specified (which for single threaded systems will have the same effect as PROCESS).
+
+The concept of once keys is open ended, so additional keys may become supported in the future to allow even finer grained control of once routine behavior.
+
+===Once per object internal implementation warning ===
+
+{{warning|As of version 6.6, once per object is implemented using 2 or 3 implementation attributes (these are used to store whether the once routine has already called or not, the eventual exception if any, and the result value if any).<br/><br/>The implementation attributes are named starting with an underscore '_', and if you use the class <code>INTERNAL</code>, the implementation attributes will be included in the <code>field_count</code>, and available through the <code>INTERNAL</code> features. <br/>However this might change in the future, and the implementation attributes might be hidden, so you should not rely on them for your applications. <br/>One last technical detail is that for now a once per object is transient (i.e the associated implementation attributes are [[ET: The Dynamic Structure: Execution Model#Transient attributes|transient]]).<br/>}}
+
+
+===Once routines and exceptions===
+
+It is possible that during the execution that happens when a once routine is called for the first time, an exception may occur. If this happens, then the '''same exception will be raised on each subsequent''' call to the once routine. 
+
+===Syntax from previous versions===
+
+The syntax shown above is the current standard syntax. However in Eiffel code written for previous versions, you may run across once keys for multithreaded systems which are expressed in a different syntax. Specifically, the older syntax used a feature's <code>note</code> clause to specify a once key, as in the following example.
+
+<code>
+    shared_object: SOME_TYPE
+            -- Obsolete syntax
+            -- An object that can be shared among threads
+            -- without being reinitialized.
+        note
+            once_status: global
+        once 
+            create Result.make (...)
+        end
+</code>
+
+
 ==Constant attributes==
 
 The attributes studied earlier were variable: each represents a field present in each instance of the class and changeable by its routines. 
@@ -55,6 +116,7 @@ with special characters again using the <code>%</code> codes. It is also possibl
 </code>
 
 which is an expression of type <code>ARRAY [INTEGER]</code>. Manifest arrays and strings are not atomic, but denote instances of the Kernel Library classes <code>STRING</code> and <code>ARRAY</code>, as can be produced by once functions. 
+
 
 ==Obsolete features and classes==
 
@@ -86,6 +148,7 @@ The example above is a historical one, involving an early change of interface fo
 It is good discipline not to let obsolete elements linger around for too long. The next major new release, after a suitable grace period, should remove them. 
 
 The design flexibility afforded by the <code>obsolete</code> keyword is critical to ensure the harmonious long-term development of ambitious reusable software. 
+
 
 ==Creation variants==
 
@@ -136,6 +199,7 @@ One final twist is the mechanism for creating instances of formal generic parame
 
 to make <code>G</code> constrained by <code>T</code>, as we learned before, and specify that any actual generic parameter must have <code>cp</code> among its creation procedures. Then it's permitted to use <code>create x.cp</code>, with arguments if required by <code>cp</code>, since it is guaranteed to be safe. The mechanism is very general since you may use <code>ANY</code> for <code>T</code> and <code>default_create</code> for <code>cp</code>. The only requirement on <code>cp</code> is that it must be a procedure of <code>T</code>, not necessarily a creation procedure; this permits using the mechanism even if <code>T</code> is deferred, a common occurrence. It's only descendants of <code>T</code> that must make <code>cp</code> a creation procedure, by listing it in the <code>create</code> clause, if they want to serve as actual generic parameters for <code>C</code>. 
 
+
 ==Tuple types==
 
 The study of genericity described arrays. Another common kind of container objects bears some resemblance to arrays: sequences, or "tuples", of elements of specified types. The difference is that all elements of an array were of the same type, or a conforming one, whereas for tuples you will specify the types we want for each relevant element. A typical tuple type is of the form
@@ -166,5 +230,6 @@ Tuples are appropriate when these are the only operations you need, that is to s
 </code>
 
 As soon as you need a type with more specific features, you should define a class. 
+
 
 
