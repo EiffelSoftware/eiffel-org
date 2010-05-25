@@ -18,7 +18,7 @@ end
 * Now the compiler will report usage of is keyword as obsolete in transitional mode and will reject it in standard mode.
 
 ==Improvements==
-* Added support of transient attributes for .NET. Added queries in INTERNAL to find out the transient attributes. Extended the Eiffel serialization SED to support them.
+* Added support of [[ET: The Dynamic Structure: Execution Model#Transient attributes|transient attributes]] for .NET. Added queries in INTERNAL to find out the transient attributes. Extended the Eiffel serialization SED to support them.
 * Redone some of the multithreading internals of the Eiffel runtime to make it easier to add platforms and to ensure the same behavior on various platforms, namely that mutex should be recursive.
 * On Windows, the MUTEX class is now internally using a CRITICAL_SECTION object which is much more efficient especially on multiprocessors.
 
