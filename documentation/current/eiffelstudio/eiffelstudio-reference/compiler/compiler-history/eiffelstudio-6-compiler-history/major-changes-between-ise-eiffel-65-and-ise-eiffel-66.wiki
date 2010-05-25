@@ -4,8 +4,8 @@
 [[Property:uuid|4ff759ff-c389-f765-0252-2d844b69fa54]]
 ==What's new==
 {{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
-* Added support for new once syntax and once per object.
-* Added support for RAT/QAT.
+* Added support for [[ET: Other Mechanisms#Adjusting once semantics with "once keys"|new once syntax and once per object]].
+* Added support for [[ET: Inheritance#Qualified Anchored Declarations|RAT/QAT]].
 * Added a new option Total Order on REALs which let you have NaN equal to NaN and NaN being the smallest number of all. This option is disabled by default as it could break existing code. The rationale for this option is to have contracts work properly when manipulating the NaN value and not getting spurious contract violation.
 * Added the ability to version a class for storable. It is done via the note clause of a class, i.e. <e>note storable_version: tag</e>. When the storing and retrieving system have a different version a mismatch is triggered even if they look to have the same content.
 * Supported new variant of a check instruction that is not subject for assertion monitoring settings (in other words the check cannot be turned off) and can be used to introduce a new void safe scope of a read-only or object test local:
