@@ -301,35 +301,53 @@ The final instruction is connected with Design by Contract&#153;. The instructio
 
 This instruction serves to state properties that are expected to be satisfied at some stages of the computation -- other than the specific stages, such as routine entry and exit, already covered by the other assertion mechanisms such as preconditions, postconditions and invariants. A recommended use of <code>check</code> involves calling a routine with a precondition, where the call, for good reason, does not explicitly test for the precondition. Consider a routine of the form 
 <code>
-    r (ref: SOME_REFERENCE_TYPE)
+    r (a_count: INTEGER)
         require
-            not_void: ref /= Void
+            valid_count: a_count >= minimum_allowable
         do
-            ref.some_feature
             ...
         end
 </code>
 
-Because of the call to <code>some_feature</code>, the routine will only work if its precondition is satisfied on entry. To guarantee this precondition, the caller may protect it by the corresponding test, as in 
+This routine will only work if its precondition is satisfied on entry. To guarantee this precondition, the caller may protect it by the corresponding test, as in 
 <code>
-            if x /= Void then 
-                a.r (x) 
+            if my_count >= a.minimum_allowable then 
+                a.r (my_count) 
             end
 </code>
 
-but this is not the only possible scheme; for example if an <code>create x</code> appears shortly before the call we know <code>x</code> is not void and do not need the protection. It is a good idea in such cases to use a <code>check</code> instruction to document this property, if only to make sure that a reader of the code will realize that the omission of an explicit test (justified or not) was not a mistake. This is particularly appropriate if the justification for not testing the precondition is less obvious. For example <code>x</code> could have been obtained, somewhere else in the algorithm, as <code>clone (y)</code> for some <code>y</code> that you know is not void. You should document this knowledge by writing the call as 
+In effect, this says that if the value of <code>my_count</code> meets <code>r</code>'s precondition requirement, then call <code>r</code>, otherwise continue execution. This implies that there is something useful to be done in the case that the call to <code>r</code> could not be executed because the value of <code>my_count</code> did not meet the precondition.
+
+But suppose that due to previous processing, it is reasonably expected that <code>my_count</code> should always have a value that complies with <code>r</code>'s precondition. In other words, it would always be expected that the call to <code>r</code> should proceed without failure. In this case it might be a good idea to use a <code>check</code> to document this property, 
 <code>
             check
-                x_not_void: x /= Void
-                    -- Because x was obtained as a clone of y,
-                    -- and y is not void because [etc.]
+                my_count_is_large_enough: my_count >= a.minimum_allowable
+                    -- Should always be large enough because ...
             end
-            a.r (x)
 </code>
+if only to make sure that a reader of the code will realize that the omission of an explicit test was not a mistake. 
+
+In production (finalized) mode, when assertion monitoring is typically turned off, this instruction will have no effect. But it will be precious for a maintainer of the software who is trying to figure out what it does, and in the process to reconstruct the original developer's reasoning. (The maintainer might of course be the same person as the developer, six months later.) And if the rationale is wrong somewhere, turning assertion checking on will immediately uncover the bug. 
+
+There is, however, one form of <code>check</code> that continues to be monitored even when assertion monitoring is turned off. 
+<code>
+            check Assertion then
+                Compound
+            end
+</code>
+Here <code>Assertion</code> is a list of assertions as above, and <code>Compound</code> is a list of zero or more executable instructions. 
+
+This variant is used often when ensuring [[Void-safe programming in Eiffel|void-safety]]. It is used make certain that certain detachable entities are actually attached to objects when expected, and to create a new void-safe scope for accessing the objects. For example,
+<code>
+            check attached my_detachable as l_temp then
+                l_temp.do_something
+            end
+</code>
+In cases in which <code>my_detachable</code> is attached to an object (as is expected), the local entity l_temp will allow controlled access to the object during the scope of the <code>check</code> instruction. If a case occurs in which <code>my_detachable</code> is not attached to an object, then an exception is triggered. As noted above, for this variant of <code>check</code>, assertion monitoring is always in effect, even if it has been turned off for other cases. 
+
 
 {{recommended|An extra indentation of the <code>check</code> part to separate it from the algorithm proper; and inclusion of a comment listing the rationale behind the developer's decision not to check explicitly for the precondition. }}
 
 
-In production mode with assertion monitoring turned off, this instruction will have no effect. But it will be precious for a maintainer of the software who is trying to figure out what it does, and in the process to reconstruct the original developer's reasoning. (The maintainer might of course be the same person as the developer, six months later.) And if the rationale is wrong somewhere, turning assertion checking on will immediately uncover the bug. 
 
 
