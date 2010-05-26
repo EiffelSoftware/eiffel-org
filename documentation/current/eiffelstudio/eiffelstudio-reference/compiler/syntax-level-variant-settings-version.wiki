@@ -1,8 +1,6 @@
 [[Property:title|Syntax level variant settings by version]]
 [[Property:weight|-11]]
 [[Property:uuid|aa52a183-c616-4590-5e7e-f9b9e2a71f14]]
-{{Beta}}
-
 
 The Eiffel Software compiler provides a set of options, available in [[General Target Options|Project Settings]], which allows users to [[Setting the syntax variant|select a variant of the Eiffel language syntax]] that best suits their needs. The meanings of these options, and in fact the options themselves, are subject to change from one version to the next. Below you will find a table that defines the meaning of the syntax level variants for each version. 
 
