@@ -215,6 +215,7 @@ Because the '''attached syntax''' can test attached status and provide a local v
                 Result := l_result
             else
                 create Result.make_empty
+--			... Build Result with appropriate descriptive text for Current
                 descriptive_text_cache := Result
             end
         ensure
@@ -222,6 +223,11 @@ Because the '''attached syntax''' can test attached status and provide a local v
             result_not_empty: not Result.is_empty
             result_consistent: Result = descriptive_text
     end
+
+feature {NONE} -- Implementation
+
+    descriptive_text_cache: like descriptive_text
+
 </code>
 
 
