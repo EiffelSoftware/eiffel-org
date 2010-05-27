@@ -337,13 +337,15 @@ There is, however, one form of <code>check</code> that continues to be monitored
 </code>
 Here <code>Assertion</code> is a list of assertions as above, and <code>Compound</code> is a list of zero or more executable instructions. 
 
-This variant is used often when ensuring [[Void-safe programming in Eiffel|void-safety]]. It is used make certain that certain detachable entities are actually attached to objects when expected, and to create a new void-safe scope for accessing the objects. For example,
+This variant is used often when ensuring [[Void-safe programming in Eiffel|void-safety]]. It is used make certain that certain detachable entities are actually attached to objects when expected, and to create a new void-safe scope for accessing the objects. For example:
 <code>
             check attached my_detachable as l_temp then
                 l_temp.do_something
             end
 </code>
 In cases in which <code>my_detachable</code> is attached to an object (as is expected), the local entity l_temp will allow controlled access to the object during the scope of the <code>check</code> instruction. If a case occurs in which <code>my_detachable</code> is not attached to an object, then an exception is triggered. As noted above, for this variant of <code>check</code>, assertion monitoring is always in effect, even if it has been turned off for other cases. 
+
+So, the form <code>check ... then ... end</code> is somewhat similar to <code>if ... then ... end</code>. The difference is that the <code>if ... then ... end</code> allows the possibility that valid cases might occur in which the boolean expression is not true, and processing continues. The <code>check ... then ... end</code> does not allow such a possibility. The boolean expression is expected always to hold. In fact, if the expression is not true, then like other assertion violations, this is indicative of a bug, and will cause an exception to be raised.
 
 
 {{recommended|An extra indentation of the <code>check</code> part to separate it from the algorithm proper; and inclusion of a comment listing the rationale behind the developer's decision not to check explicitly for the precondition. }}
