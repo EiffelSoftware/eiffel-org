@@ -69,7 +69,7 @@ Here a check is made to ensure <code>x</code> is not void. Then as long as no as
 It is important to understand that in this example (and with other CAPs), <code>x</code> is allowed to be a local variable or formal argument only. That is, <code>x</code> may not be an attribute or general expression (with one exception which we will see [[#Stable attributes|below]]). Direct access to class attribute references cannot be allowed via a CAP due to the fact that they could be set to void by a routine call in some execution path invoked by the intervening instructions or possibly even different process thread. In a later [[Void-safety: Background, definition, and tools#Types as "attached" or "detachable"|section]], we well see that this is not quite such a limitations as it may appear at this point.
 
 
-{{note|You will find more useful information about CAPs in [[Void-safe programming in Eiffel#More about CAPs|More about CAPs]]. Learn how certain code patterns are determined to be CAPs in [[What makes a Certified Attachment Pattern]]. }}
+{{note|You will find more useful information about CAPs in [[Creating a new void-safe project#More about CAPs|More about CAPs]]. Learn how certain code patterns are determined to be CAPs in [[What makes a Certified Attachment Pattern]]. }}
 
 
 ===The ''attached syntax'' (object test)===
