@@ -163,7 +163,7 @@ So in this simple form, <code>attached x</code> can be used instead of <code>x /
 
 There is a code pattern for functions that exists in some Eiffel software to effect "once-per-object / lazy evaluation". 
 
-{{note|This is different from an Eiffel <code>once</code> routine, which is "once-per-thread" or "once-per-process" depending upon how it is configured. }}
+{{note|As of EiffelStudio version 6.6, the use of the attached syntax for effecting "once per object" is no longer necessary. V6.6 includes explicit support for <code>once</code> routines which can be adjusted by a [[ET: Other Mechanisms#Adjusting once semantics with "once keys"|once key]] to specify once per object.}}
 
 This "once-per-object" code pattern employs a cached value for some object which is not exported. When it is applied, the "once-per-object" function checks the attachment status of the cached value. If the cached value is void, then it is created and assigned to <code>Result</code>. If the cached value was found already to exist, then it is just assigned to <code>Result</code>. 
 
