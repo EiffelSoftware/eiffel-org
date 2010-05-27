@@ -90,7 +90,7 @@ So, a call using <code>make_filled</code> would look like this:
 Upon creation, each element of the array will reference the same object; an object of type <code>STRING</code> composed of one space character.
 
 
-{{note|Full void-safety on arrays of attached types requires a change to class <code>ARRAY</code> which can break existing code. During a transitional period, this and similar changes are available for testing and use in an "experimental" version of EiffelStudio. This version of EiffelStudio can be invoked by using the "-experiment" option from the command line, or by selecting it on Microsoft Windows by following the '''Start''' menu path to EiffelStudio. You are encouraged to try to compile your libraries and systems using experimental mode in order to prepare for the time when these changes are made permanent.}}
+{{note|Full void-safety on arrays of attached types requires a change to class <code>ARRAY</code> which can break existing code. During a transitional period, this and similar changes are available for testing and use in an "experimental" version of EiffelStudio. This version of EiffelStudio can be invoked by using the "-experiment" option from the command line, or by selecting it on Microsoft Windows by following the '''Start''' menu path to EiffelStudio. You are encouraged to try to compile your libraries and systems using experimental mode in order to prepare for the time when these changes are made permanent.<br/><br/>As of version 6.6, the normal mode of EiffelStudio becomes what had been accessible in earlier versions as "experimental".}}
 
 
 ==Using the ''attribute'' keyword carefully==
