@@ -2,10 +2,10 @@
 [[Property:weight|6]]
 [[Property:uuid|ca417e46-ad46-2d3f-e13e-a88366dc06b3]]
 The EiffelCOM Wizard can be used from the command line for example in batch scripts. The command line utility is <code>com_wizard.exe</code> and is located in <code>$ISE_EIFFEL\wizards\com</code>. Each command line option has both a long and a short name. The long names are all prefixed with <code>--</code> while the short names are all prefixed with <code>-</code>. Options that take an argument should have the argument directly following the option with a space or a <code>=</code> sign in between the option name and the argument as in: 
-<code>
+<code lang="text">
 --ace="mysystem.ecf"</code>
 this option is equivalent to: 
-<code>
+<code lang="text">
 -a "mysystem.ecf"</code>
 
 The list of options is the following: 
