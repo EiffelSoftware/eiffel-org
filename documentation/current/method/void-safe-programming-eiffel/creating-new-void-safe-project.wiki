@@ -276,9 +276,15 @@ As with the other examples of the '''attached syntax''', it is no longer necessa
 
 ===Use of <code>check</code> instructions===
 
+In void-safe mode, the compiler will accept code that it can prove will only apply features to attached references at runtime ... and you help this process along by using the tools of void-safety, like attached types and CAPs. On the other hand, the compiler will reject code that it cannot guarantee is void-safe. Sometimes this may cause you a problem. There may be subtle situations in which you feel quite certain that a section of code will be free of void calls at runtime, but the compiler doesn't see it the same way, and rejects your code. In cases like this, you can usually satisfy the compiler by using <code>check</code> instructions.
+
 Technically speaking, <code>check</code> instructions are not CAPs. But they are useful in cases in which an entity is always expected to be attached at a certain point in the code. In the following example, the attribute <code>my_detachable_any</code> is detachable. But at the particular point at which it is the source of the assignment to <code>l_result</code>, it is expected always to be attached. If it is not attached at the time of the assignment, and therefore <code>l_result</code> becomes void, then an exception should occur. The <code>check</code> instruction provides this behavior.
 
+The following sample shows the <code>check</code> instruction at work. There are reasons why this is not the best use use of <code>check</code> in this case, and we will discuss that next.
+
 <code>
+                -- A not-so-good example of using check.
+
     my_detachable_any: detachable ANY
             ...
     my_attached_any: ANY
@@ -293,13 +299,30 @@ Technically speaking, <code>check</code> instructions are not CAPs. But they are
         end
 </code>
 
-You might wonder about the use of a <code>check</code> instruction in the situation above. Specifically, the assertion in the <code>check</code> guarantees that <code>l_result</code> is attached at the time of its assignment to <code>Result</code>. If <code>my_detachable_any</code> had not been attached, then an exception would have occurred. 
+Here the assertion in the <code>check</code> guarantees that <code>l_result</code> is attached at the time of its assignment to <code>Result</code>. If <code>my_detachable_any</code> is ever not attached to an object, then an exception will be raised. 
 
-This would be fine in ''workbench'' code, but what happens if the code is ''finalized'' and assertions are discarded?
+So what's wrong with the sample above? It would be fine in ''workbench'' code, but what happens if the code is in ''finalized'' mode, in which assertions are typically discarded?
 
-The answer is that the <code>check</code> remains in force in finalized code, because it is necessary to prove void-safety.
+The answer is that the <code>check</code> in the sample above would no longer be effective, and the resulting executable would no longer be void-safe.
 
-{{note|As of version 6.4 this standard behavior is not yet implemented in EiffelStudio. That is, in version 6.4 it is still possible to disable run-time monitoring of <code>check</code> instructions. As a result, until the standard behavior is implemented, it is best not to discard <code>check</code> instruction monitoring, particularly in the case of void-safe checks.}}
+The solution to this problem is found in a different form of the <code>check</code> instruction. Consider the same example, but this time using <code>check ... then ... end</code>:
+
+<code>
+                -- A better way of using check.
+
+    my_detachable_any: detachable ANY
+            ...
+    my_attached_any: ANY
+        do
+            check attached my_detachable_any as l_result then
+                Result := l_result
+            end
+        end
+</code>
+
+Here, in the improved version of the example, the <code>check ... then ... end</code> is used along with the <code>attached</code> syntax. This streamlines the code a bit by eliminating the need to declare a separate local entity, while achieving the same effect as the previous example. If <code>my_detachable_any</code> is attached at runtime, then the temporary variable <code>l_result</code> is created and attached to the same object. Then the body of the <code>check ... then ... end</code> is executed. If <code>my_detachable_any</code> is not attached, an exception occurs.
+
+Another important benefit, one that solves the problem with the original example, comes from the way in which <code>check ... then ... end</code> is handled by the compiler. The <code>check ... then ... end</code> form '''is always monitored, even if assertion checking is turned off at all levels''', as is usually done in finalized code.
 
 ===Choosing CAPs versus the Attached Syntax===
 
