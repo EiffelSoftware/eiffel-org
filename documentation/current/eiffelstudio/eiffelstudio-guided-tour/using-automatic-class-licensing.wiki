@@ -98,7 +98,7 @@ The <code lang="text">license_name</code> term should be placed in the top <code
 
 In this case, EiffelStudio will search for the file `<code lang="text">OurLicense.lic</code>'. It will look first in the '''Eiffel user files license template directory''', then in the '''Eiffel Software license template directory'''.
 
-Look in the '''Eiffel Software license template directory''' and you will see several standard license files that are used by Eiffel Software, for example, <code lang="text">forum2.lic</code> and <code lang="text">eiffelsoftware</code>. Also included is <code lang="text">default.lic</code>, which we'll examine [[#The default license|later]].
+If you look in the '''Eiffel Software license template directory''' (or in the image of that directory shown above),  you will see several standard license files that are used by Eiffel Software, for example, <code lang="text">forum2.lic</code> and <code lang="text">eiffelsoftware</code>. Also included is <code lang="text">default.lic</code>, which we'll examine [[#The default license|later]].
 
 You should create your customized license text files in the '''Eiffel user files license template directory''', or in a local project directory as described below.
 
