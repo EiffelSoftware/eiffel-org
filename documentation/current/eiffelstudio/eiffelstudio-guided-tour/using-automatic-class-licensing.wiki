@@ -67,9 +67,21 @@ Notice that a variable is used for the <code>note</code> keyword (to support the
 
 Where you keep your license text files depends upon which method you use to have EiffelStudio retrieve the license text from the files. Generally, license text is retrieved from files in one of three places:
 
-:# Your project directory (the directory that contains your project configuration file, the "<code lang="text">.ecf</code>" file).
-:# The '''Eiffel Software license template directory''': <code lang="text">$ISE_EIFFEL/studio/templates/licenses</code>
-:# The '''Eiffel user files license template directory''': <code lang="text">$ISE_USER_FILES/studio/templates/licenses</code>
+===Your project directory=== 
+This is the directory that contains your project configuration file, the "<code lang="text">.ecf</code>" file).
+
+[[Image:Automatic class license project directory]]
+
+===The Eiffel Software license template directory===
+This directory is located at: <code lang="text">$ISE_EIFFEL/studio/templates/licenses</code>
+
+[[Image:Automatic class license Eiffel Software directory]]
+
+===The Eiffel user files license template directory===
+This directory is located at: <code lang="text">$ISE_USER_FILES/studio/templates/licenses</code>
+
+[[Image:Automatic class license Eiffel user files directory]]
+
 
 ==Methods of retrieval==
 
