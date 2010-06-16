@@ -15,6 +15,8 @@
 
 ===Changes===
 * The experimental mode available in 6.5 and earlier version has become the default mode. To have access to the default mode of 6.5, one has to use the compatible version. It can be accessed on Windows via the Start menu shortcut or by using "-compat" on the command line.
+* Gobo had its ECF removed and replaced by several corresponding to sub-libraries of the Gobo framework. This change was already present in 6.4 and 6.5 under the experimental mode. To upgrade, you need to adapt your project configuration file to use the right sub-library of the Gobo framework.
+* The libraries (formerly the experimental mode of 6.4 and 6.5) contains some breaking changes to the compatible libraries. Those breaking changes were already part of 6.4 and 6.5. It affects the following classes: ARRAY, ARRAYED_LIST, HASH_TABLE, and SPECIAL. It is possible to adjust your code so that a single version compiles against both sets of libraries. See below under EiffelBase how to adapt your code to those breaking changes.
 
 ===Bug fixes===
 * Fixed an issue in which the error tooltip would keep flashing when the cursor is outside the EiffelStudio environment.
@@ -46,6 +48,15 @@
 * Fixed <e>ARRAY2</e> so that it can be used in void-safe mode too. Improved <e>ARRAY2</e> resizing efficiency.
 * Changed the display of REAL/DOUBLE fields to show REAL_32 or REAL_64.
 * Changed the display of NaN/-Infinity/Infinity for real numbers so that it is the same on all our supported platforms.
+* Adaptation of ARRAY, ARRAYED_LIST, HASH_TABLE and SPECIAL from the 6.5 to 6.6:
+** {ARRAY}.make_from_special had its signature changed and only take a SPECIAL argument and the created array would have a range from 1 to the number of elements in the SPECIAL
+** ARRAY: Some preconditions have been added for void-safety. In non-void-safe mode they are equivalent to the previous ARRAY behavior.
+** {ARRAY}.auto_resize: a private routine has been removed.
+** {ARRAYED_LIST}.count and {ARRAYED_LIST}.area are not an attribute anymore
+** ARRAYED_LIST does not conform to ARRAY. One has to use {ARRAYED_LIST}.to_array to convert it to an ARRAY.
+** HASH_TABLE internals have been changed so that order of traversal will be different from what it used to be.
+** The non-void safe routine {SPECIAL}.make has been removed. Instead one has to use either {SPECIAL}.make_empty (which is not available in compatible mode) or {SPECIAL}.make_filled (which is available in both)
+** To reflect the change in SPECIAL, TO_SPECIAL was also modified and `make_area' was replaced by `make_empty_area'. Again to have compatible code between both mode use `make_filled_area' instead.
 
 ===EiffelThread===
 * Made the <e>THREAD</e> class thread-safe which prevents using the same object to launch a new thread. Now there is a precondition <e>is_launchable</e> and a status report <e>is_last_launch_successful</e> to help in determining whether a thread was actually launched.
