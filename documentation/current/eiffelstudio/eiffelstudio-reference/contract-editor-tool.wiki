@@ -1,0 +1,61 @@
+[[Property:title|Contract Editor tool]]
+[[Property:weight|-11]]
+[[Property:uuid|867bcb6b-1052-b28f-bd18-243532816dfd]]
+{{UnderConstruction}}
+
+
+
+[[Image:es ref contract editor 01]]
+
+
+=Overview=
+
+As a rule, in EiffelStudio, class text can only be edited in the Editing tool, and then only when the Basic Text view is selected. The Contract Editing tool is an exception to this.
+
+The Contract Editor tool gives you the ability to examine and edit class contracts in a context that is isolated from the full class text. In other words, when you use the Contract Editor tool, you see and edit the contracts without having to work around other elements of the software text such as implementation. For routines, you can edit pre- and postconditions, and for classes, you can edit class invariants. The tool provides views of inherited contracts as well as immediate ones. 
+
+Also included is a set of templates for creating common assertion patterns. By using these templates whenever possible, you add consistency to your class text.
+
+You can target the Contract Editor tool by picking a routine name or class name and dropping it into the tool. Within the Contract Editor tool window, a single contract element is shown. A contract element here means either a precondition or a postcondition for a routine, or a class invariant for a class. Each assertion clause for a particular contract element is editable individually. 
+
+The Contract Editor tool can be helpful during analysis and design phases of development, when class specification is a primary concern.
+
+
+=Invoking the Contract Editor tool=
+
+If the Contract Editor tool is not currently visible, it can be made visible by following the menu path:
+
+<code lang="text">
+View --> Tools --> Contract Editor
+</code>
+
+Once visible, the tool can be [[Customizing the tools layout and toolbars#Docking|docked]] to an appropriate location, if desired.
+
+
+=Toolbar=
+
+The Contract Editor toolbar contains the following items:
+
+: [[Image:16x16--general-save-icon]] ''Save modifications to the associated class.'' Becomes enabled when changes have been made to a contract. Clicking will cause changes to be saved.
+
+: [[Image:16x16--general-add-icon]] ''Add a new contract.'' Allows you to add a new contract assertion clause to the currently selected contract element (precondition, postcondition, or invariant). Clicking will provide a choice of creating from a template or creating a custom assertion clause. 
+
+: [[Image:metrics-tool--general-remove-icon]] ''Remove selected contract.'' Will delete the currently selected assertion clause from the contract element being edited.
+
+: [[Image:contract-editor-edit-icon]] ''Edit selected contract.'' Will place the currently selected assertion clause in edit mode. Clauses can also be edited by double-clicking the clause itself, or right-clicking on a selected clause and choosing "Edit".
+
+: [[Image:move-up-icon]] and [[Image:move-down-icon]] ''Move selected contract up (or down).'' Use to move the selected assertion clause up or down in relation to the other clauses for this contract element.
+
+: [[Image:refresh-icon]] ''Refresh the current contracts to include any unsaved, undetected editor changes.'' EiffelStudio updates the Contract Editor tool display whenever class text is saved. However, if you edit a class in the Editing tool and have not saved it, there will be a difference between the Editing tool's display and the Contract Editor tool's display for the edited code. Clicking this icon will update the Contract Editor tool to include unsaved changes from the Editing tool.
+
+: [[Image:contract-icon]] ''Select the type of contracts to edit.'' Use to select the contract element to edit. The name of the element (precondition, postcondition, or invariant) is listed to the right of the icon. If the Contract Editor tool is targeted to a routine, you can choose between Precondition and Postcondition by clicking this icon. If the tool is targeted to a class, then Invariant is selected and this icon is disabled in the toolbar.
+
+: [[Image:show-hide-contract-placeholders-icon]] ''Show/hide the hidden contract place holders for inherited contracts.'' In addition to the assertion clauses that are coded immediately on the target routine or class, the Contract Editor tool also shows any assertion clauses inherited from a class's proper ancestor classes. These clauses are labeled with the name of the class from which they are inherited. By default, any classes in the inheritance graph which do not contribute clauses to a contract element are not shown. Toggling this icon down will show placeholders for these classes that are in the graph but do not contribute assertion clauses. Toggling the icon up will re-hide the placeholders.
+
+: [[Image:feature-callers-icon]] or [[Image:class-descendents-icon]] ''Show the callers of the currently edited feature.'' The icon shown here is dependent upon whether the tool is targeted to a routine or class. If the tool is targeted to a routine, then the icon shown will be the feature callers icon ([[Image:feature-callers-icon]]). If the tool is targeted to a class, then the icon shown will be the class descendants icon ([[Image:class-descendents-icon]]). In either case, clicking the icon does not effect the display in the Contract Editor tool. Rather, the action is shown in either the Feature tool (in the case of routines) or the Class tool (in the case of classes). 
+ 
+
+=Editing contracts=
+
+You edit contracts one assertion clause at a time. 
+
