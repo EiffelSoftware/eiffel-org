@@ -16,7 +16,7 @@
 ===Changes===
 * The experimental mode available in 6.5 and earlier version has become the default mode. To have access to the default mode of 6.5, one has to use the compatible version. It can be accessed on Windows via the Start menu shortcut or by using "-compat" on the command line.
 * Gobo had its ECF removed and replaced by several corresponding to sub-libraries of the Gobo framework. This change was already present in 6.4 and 6.5 under the experimental mode. To upgrade, you need to adapt your project configuration file to use the right sub-library of the Gobo framework.
-* The libraries (formerly the experimental mode of 6.4 and 6.5) contains some breaking changes to the compatible libraries. Those breaking changes were already part of 6.4 and 6.5. It affects the following classes: ARRAY, ARRAYED_LIST, HASH_TABLE, and SPECIAL. It is possible to adjust your code so that a single version compiles against both sets of libraries. See below under EiffelBase how to adapt your code to those breaking changes.
+* The libraries (formerly the experimental mode of 6.4 and 6.5) contains some breaking changes to the compatible libraries. Those breaking changes were already part of 6.4 and 6.5. It affects the following classes: ARRAY, ARRAYED_LIST, HASH_TABLE, SPECIAL and TO_SPECIAL. It is possible to adjust your code so that a single version compiles against both sets of libraries. See below under EiffelBase how to adapt your code to those breaking changes.
 
 ===Bug fixes===
 * Fixed an issue in which the error tooltip would keep flashing when the cursor is outside the EiffelStudio environment.
