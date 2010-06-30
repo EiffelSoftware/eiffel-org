@@ -7,9 +7,14 @@ This chapter explains how to use the EiffelCOM wizard to create COM components a
 *  [[Accessing a COM component|Accessing a COM component.]]  
 
 
-{{seealso|<br/>
+{{Caution|EiffelCOM currently requires the use of the Microsoft C compiler (available with Visual Studio or the Microsoft Windows SDK). EiffelCOM will not work at this time with the MinGW C compiler.}}
+
+
+{{seealso| '''See Also''' <br/>
 [[EiffelCOM Wizard Introduction|Introduction]]  <br/>
 [[EiffelCOM Wizard Reference|EiffelCOM wizard reference]]  }}
+
+
 
 
 
