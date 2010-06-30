@@ -4,9 +4,10 @@
 [[Property:uuid|4ff759ff-c389-f765-0252-2d844b69fa54]]
 ==What's new==
 {{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
-* Added support for [[ET: Other Mechanisms#Adjusting once semantics with "once keys"|new once syntax and once per object]].
+* Added support for [[ET: Other Mechanisms#Adjusting once semantics with "once keys"|new once syntax and once per object]]. However support for once object is still experimental in this release.
 * Added support for [[ET: Inheritance#Qualified Anchored Declarations|RAT/QAT]], with the following limitations:
 ** Qualified anchored types that involve formal generics with multiple constraints are not supported.
+** When an attribute of type `like a.b.c' yields a formal generic parameter in the chain, then the creation of such attributes would not yield the proper type.
 ** Creation and object tests with the type depending on qualified anchored types that involve deferred intermediate types are not supported on .NET.
 * Added a new option Total Order on REALs which let you have NaN equal to NaN and NaN being the smallest number of all. This option is disabled by default as it could break existing code. The rationale for this option is to have contracts work properly when manipulating the NaN value and not getting spurious contract violation.
 * Added the ability to version a class for storable. It is done via the note clause of a class, i.e. <e>note storable_version: tag</e>. When the storing and retrieving system have a different version a mismatch is triggered even if they look to have the same content.

@@ -86,6 +86,55 @@ After editing the assertion clause itself, you can click OK. At this point the C
 At this point, the changes have not been saved to the class text. To save the changes click the Save icon ([[Image:16x16--general-save-icon]]) in the toolbar.
 
 
+=Adding assertion clauses=
+
+You can add a new clause to any contract assertion by clicking the "Add" button ([[Image:16x16--general-add-icon]]) on the toolbar. The button provides two methods of creation "Custom" and "From Template". 
+
+
+[[Image:es ref contract editor add 01|Add Custom or Add from Template]]
+
+
+Choosing "Add Custom..." produces a freeform dialog, much like the editing dialog show earlier in which you can edit an assertion clause from scratch:
+
+
+[[Image:es ref contract editor add 02|Add a custom assertion clause]]
+
+
+"Add from Template" provides a list of code templates for commonly used assertion types. Adding assertion clauses from templates when possible speeds up class specification and helps to avoid errors. Consider a newly coded routine:
+
+<code>
+    my_routine (a_string: STRING)
+            -- Do something with `a_string'.
+        do
+    		
+        end
+</code>
+
+Part of the specification of this routine might be a precondition that states that the argument must be attached (i.e., not <code>Void</code>), and not the empty string. This precondition can be added to the feature by adding two assertion clauses from templates. To specify that <code>a_string</code> must be attached, you would first choose the template "Attached Contract" which provides this dialog:
+
+
+[[Image:es ref add attached contract template 01|Attached contract]]
+
+
+This template focuses on the fact that some entity (expressed as <code>var</code> in the template) must be the object of an assertion clause that guarantees that the entity is attached. To have the template create such a clause for the argument <code>a_string</code> shown in the routine above, just replace  <code>var</code> with <code>a_string</code> in the top text box of the dialog. The resulting code is updated automatically:
+
+
+[[Image:es ref add attached contract template 02|Attached contract]]
+
+
+Adding a clause to specify that <code>a_string</code> must not be empty is done similarly, by selecting the "Not is empty" template. After adding these two precondition clauses, the routine now looks like this:
+
+<code>
+    my_routine (a_string: STRING)
+            -- My routine
+        require
+            a_string_attached: a_string /= Void
+            not_a_string_is_empty: not a_string.is_empty
+        do
+
+        end
+</code>
+
 
 
 
