@@ -4,7 +4,7 @@
 [[Property:uuid|96e01318-700b-da6e-42d1-14fee219daf5]]
 ==Introduction==
 
-In order to convert systems that employ EiffelVision 2 (Vision2) to void-safety, some adjustments may be needed depending on its usage.  This document describes the various usage scenarios of Vision2 that will need converting to adhere to void-safety.
+In order to convert systems that employ EiffelVision 2 (Vision2) to [[Void-safe Programming in Eiffel|void-safety]], some adjustments may be needed depending on its usage.  This document describes the various usage scenarios of Vision2 that will need converting to adhere to void-safety.
 
 ==Inheritance purely from an Interface Class==
 
