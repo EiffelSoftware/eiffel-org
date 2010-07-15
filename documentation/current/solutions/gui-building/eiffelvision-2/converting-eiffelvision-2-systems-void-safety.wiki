@@ -81,3 +81,7 @@ The following steps are needed during the conversion:
 * Remove `make', rename `initialize' to `make', make sure that any calls to Precursor do not override any settings set in 'initialize', the ordering may need to be changed in order to make the code void-safe so.  See EV_POPUP_WINDOW_IMP.make (Windows implementation) where the setting of 'user_can_resize' is performed after the Precursor call so that is doesn't get overriden.
 
 
+{{SeeAlso|[[Void-Safe Programming in Eiffel]]}}
+
+
+
