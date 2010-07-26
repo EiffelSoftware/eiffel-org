@@ -24,7 +24,7 @@ The following table lists format conversion codes.
 | day - numeric (padded with '0' to 2 figures)
 |- 
 | ddd
-| day - text (3 letters e.g "Mon", "Tue")
+| day - text (3 letters e.g "MON", "TUE")
 |- 
 | yyyy
 | year - numeric (4 figures)
@@ -39,7 +39,7 @@ The following table lists format conversion codes.
 | month - numeric (padded with '0' to 2 figures)
 |- 
 | mmm
-| month - text (3 letters e.g "Dec", "Jan")
+| month - text (3 letters e.g "DEC", "JAN")
 |- 
 | hh
 | hour - numeric (24 hour clock scale by default)
@@ -66,7 +66,7 @@ The following table lists format conversion codes.
 | fractional seconds - numeric (precise to <n> figures)
 |- 
 | ':', '/', '-' and ','
-| separators e.g. "03/Aug/97"
+| separators e.g. "03/AUG/97"
 |}
 These are some examples of output with their associated format code: 
 {| 
@@ -78,10 +78,10 @@ These are some examples of output with their associated format code:
 | 97/8/18
 |- 
 | mmm-dd-yy
-| Aug-18-97
+| AUG-18-97
 |- 
 | dd,mm,yyyy
-| 18,Aug,1997
+| 18,8,1997
 |- 
 | hh-mi-ss
 | 13-06-32
