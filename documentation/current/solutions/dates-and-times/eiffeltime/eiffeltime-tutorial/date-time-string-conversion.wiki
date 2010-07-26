@@ -89,18 +89,18 @@ These are some examples of output with their associated format code:
 | 3,2,2008
 |- 
 | hh-mi-ss
-| 13-06-32
+| 13-6-32
 |- 
 | hh12,mi,ss
-| 1,06,32 pm
+| 1,6,32
 |- 
-| hh12:mi:ff
-| 1:06:32.25 pm
+| hh12:[0]mi:[0]ss:ff2 am
+| 1:06:32.25 PM
 |- 
-| hh:mi:ff3
+| [0]hh:[0]mi:[0]ss.ff3
 | 13:06:32.248
 |- 
-| [0]mm/dd/yy hh12:mi:ff3
+| [0]mm/dd/yy hh12:mi:ss.ff3
 | 02/3/08 1:6:32.248
 |}
 
