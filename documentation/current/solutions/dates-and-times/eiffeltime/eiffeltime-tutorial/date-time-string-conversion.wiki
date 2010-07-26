@@ -65,9 +65,14 @@ The following table lists format conversion codes.
 | ff<n>
 | fractional seconds - numeric (precise to <n> figures)
 |- 
+| am
+| meridiem indicator. Includes "AM" for ante meridiem times (before noon) and "PM" for post meridiem times (after noon).
+|- 
 | ':', '/', '-' and ','
 | separators e.g. "03/FEB/08"
 |}
+
+
 These are some examples of output with their associated format code: 
 {| 
 |- 
