@@ -249,9 +249,15 @@ What do we know about the void-safety of <code>x</code> ?
 
 In the case of the <code>INTEGER</code> derivation above, we know <code>x</code> is safe because <code>INTEGER</code> is an expanded type. But often types like <code>EMPLOYEE</code> will be reference types which could be void at run time.
 
-So for a class like <code>C [G]</code> containing a declaration <code>x: G</code> :
-* <code>G</code> is considered detachable and any class will work for an actual generic parameter
-* Application of features to <code>x</code> must include verification of attachment (CAPs, attached syntax, etc)
+'''For a class like <code>C [G]</code>, <code>G</code> is considered detachable'''. As a result, because of the [[Void-safety: Background, definition, and tools#Rule for conformance|rule for conformance]], any class will work for an actual generic parameter. That means that both of the following are valid generic derivations:
+
+<code>
+    my_detachable_string_derivation: C [detachable STRING]
+
+    my_attached_string_derivation: C [attached STRING]
+</code>
+
+If <code>C</code> contains a declaration <code>x: G</code>, the application of features to <code>x</code> must include verification of attachment (CAPs, attached syntax, etc).
 
 Constrained genericity can be used to create generic classes in which the generic parameter represents an attached type. If class <code>C</code> had been defined as: 
 <code>
