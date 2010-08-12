@@ -12,6 +12,8 @@ No major improvements in 6.5 as this release was mostly focused on quality impro
 
 ==Changes==
 * All the void-safe project configuration files have been removed from the non-experimental version. The rationale is that the usage of ARRAY and SPECIAL would not be void-safe and you need to switch to the experimental version to ensure complete void-safety.
+* The command line compilation has been fixed to use the current working directory unless -project_path is specified (restoring pre-ecf behavior)
+* When an ecf file has been specified with -config, the previously compiled target is chosen as the first option in the compilable target list.
 
 ==Bug fixes==
 
