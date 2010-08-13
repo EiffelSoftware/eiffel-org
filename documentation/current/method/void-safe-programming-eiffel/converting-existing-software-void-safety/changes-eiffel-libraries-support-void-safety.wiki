@@ -1,0 +1,56 @@
+[[Property:title|Changes to Eiffel libraries in support of void-safety]]
+[[Property:link_title|Void-safe changes to Eiffel libraries]]
+[[Property:weight|0]]
+[[Property:uuid|dc993c0e-fbec-dc5a-82c8-fbfd9fa9bc3a]]
+{{Beta}}
+
+
+==Overview==
+
+During the adoption of void-safety, the software libraries provided by Eiffel Software have been converted to be void-safe. To a large extent the changes made to these libraries will have little or no adverse effect on your own existing software as you go through the process of void-safe conversion. However, there are a few changes to the library that we consider "breaking" changes, that is, important changes that might cause problems in existing systems. 
+
+{{note|Many of these changes were in effect in the "experimental" mode of versions 6.4 and 6.5. With the release of version 6.6, the "experimental" mode of previous versions became the "default" mode and, consequently, may have caused these changes to become more apparent to some users.}}
+ 
+
+==Important changes to library classes==
+
+===Class <code>ARRAY</code>===
+
+====New preconditions====
+
+Some additional preconditions are in force in ARRAY in void-safe mode. 
+
+In void-unsafe mode, the behavior is equivalent to that of previous versions.
+
+====Feature <code>make_from_special</code>====
+
+The signature of this routine has changed. 
+
+Current signature: <code>make_from_special (a: SPECIAL [G])</code> 
+
+Previous signature: <code>make_from_special (a: SPECIAL [G]; min_index, max_index: INTEGER)</code>
+
+Using the current version will create an array with a range from 1 to the number of elements in the argument `a'.
+
+====Feature <code>auto_resize</code>====
+
+This implementation (private) feature has been removed.
+
+===Class <code>ARRAYED_LIST</code>===
+
+====Relationship to ARRAY====
+
+Previously <code>ARRAYED_LIST</code> conformed to <code>ARRAY</code>. This is no longer the case. The feature <code>{ARRAYED_LIST}.to_array</code> can be used to produce an instance of <code>ARRAY</code> from an instance of <code>ARRAYED_LIST</code>.
+
+====Features <code>count</code> and <code>area</code>====
+
+Previously these two queries were attributes. They are now functions.
+
+===Class <code>HASH_TABLE</code>===
+
+The internal implementation has changed in ways that cause the order of traversal will differ from previous versions.
+
+===Class <code>SPECIAL</code>===
+
+
+
