@@ -1,5 +1,4 @@
-[[Property:title|Changes to Eiffel libraries in support of void-safety]]
-[[Property:link_title|Void-safe changes to Eiffel libraries]]
+[[Property:title|Void-safe changes to Eiffel libraries]]
 [[Property:weight|0]]
 [[Property:uuid|dc993c0e-fbec-dc5a-82c8-fbfd9fa9bc3a]]
 {{Beta}}
@@ -7,18 +6,20 @@
 
 ==Overview==
 
-During the adoption of void-safety, the software libraries provided by Eiffel Software have been converted to be void-safe. To a large extent the changes made to these libraries will have little or no adverse effect on your own existing software as you go through the process of void-safe conversion. However, there are a few changes to the library that we consider "breaking" changes, that is, important changes that might cause problems in existing systems. 
+During the adoption of void-safety, the software libraries provided by Eiffel Software have been converted to be void-safe. The bulk of the changes made to these libraries will have little or no adverse effect on your existing software as you go through the process of void-safe conversion. However, there are a few changes to the library that we consider "breaking" changes, that is, important changes that might cause problems in existing systems that use certain library classes. 
 
-{{note|Many of these changes were in effect in the "experimental" mode of versions 6.4 and 6.5. With the release of version 6.6, the "experimental" mode of previous versions became the "default" mode and, consequently, may have caused these changes to become more apparent to some users.}}
- 
+
+{{note|Many of these changes were in effect in the ''experimental'' mode of versions 6.4 and 6.5. With the release of version 6.6, the ''experimental'' mode of previous versions became the ''default'' mode and, consequently may have caused these changes to become more apparent to some users. A ''compatibility'' mode is available to ease transition. The ''compatibility'' mode is accessible using the <code>-compat</code> command line option or through the EiffelStudio choices provided through the Microsoft Windows ''Start'' button. }}
+
 
 ==Important changes to library classes==
+
 
 ===Class <code>ARRAY</code>===
 
 ====New preconditions====
 
-Some additional preconditions are in force in ARRAY in void-safe mode. 
+Some additional preconditions are in force in <code>ARRAY</code> in void-safe mode. 
 
 In void-unsafe mode, the behavior is equivalent to that of previous versions.
 
@@ -36,6 +37,7 @@ Using the current version will create an array with a range from 1 to the number
 
 This implementation (private) feature has been removed.
 
+
 ===Class <code>ARRAYED_LIST</code>===
 
 ====Relationship to ARRAY====
@@ -46,11 +48,34 @@ Previously <code>ARRAYED_LIST</code> conformed to <code>ARRAY</code>. This is no
 
 Previously these two queries were attributes. They are now functions.
 
+
 ===Class <code>HASH_TABLE</code>===
 
-The internal implementation has changed in ways that cause the order of traversal will differ from previous versions.
+The internal implementation has changed in ways that cause the order of traversal to differ from previous versions.
 
-===Class <code>SPECIAL</code>===
+
+===Classes <code>SPECIAL</code> and <code>TO_SPECIAL</code>===
+
+====Feature <code>{SPECIAL}.make</code>====
+
+This void-unsafe feature has been removed.
+
+In its place, the creation procedures <code>{SPECIAL}.make_filled</code> and <code>{SPECIAL}.make_empty</code> can be used.
+
+<code>{SPECIAL}.make_filled</code> is available in both ''default'' and ''compatible'' modes. Use this creation procedure if you want code that is compatible with both modes.
+
+<code>{SPECIAL}.make_empty</code> is available in ''default'' mode only.
+
+====Feature <code>{TO_SPECIAL}.make_area</code>====
+
+In order to reflect the above change to class <code>SPECIAL</code>, the <code>make_area</code> feature of <code>TO_SPECIAL</code> has been removed in favor of <code>{TO_SPECIAL}.make_filled_area</code> and <code>{TO_SPECIAL}.make_empty_area</code>.
+
+The availability of <code>{TO_SPECIAL}.make_filled_area</code> and <code>{TO_SPECIAL}.make_empty_area</code> corresponds to that noted above for the creation features of <code>SPECIAL</code>:
+
+<code>{TO_SPECIAL}.make_filled_area</code> is available in both ''default'' and ''compatible'' modes. Use <code>make_filled_area</code> for code that needs to compile in both modes.
+
+<code>{TO_SPECIAL}.make_empty_area</code> is available only in ''default'' mode.
+
 
 
 

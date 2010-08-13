@@ -1,7 +1,6 @@
 [[Property:title|Converting existing software to void-safety]]
 [[Property:weight|6]]
 [[Property:uuid|eb901272-d405-2277-005d-e37275b9baa4]]
-
 If you have been using Eiffel for a while, you may be maintaining systems which were developed before Eiffel became void-safe. If that's the case, then you will probably want to make those systems void-safe. 
 
 In this section we will use the experience of converting a set of simple (but not too simple) legacy Eiffel classes to show the types of issues that you may encounter, and how to deal with them. 
@@ -37,6 +36,10 @@ During the process of conversion of classes to void-safety, the compiler will po
 Also, as you sift through your existing software during the void-safe conversion, you may not get very far before you see things that you wish had been done differently. This occurs often during reviews of existing systems, not just because of the introduction of void-safety. 
 
 In the discussions that follow you will see these redesign opportunities arise, and the decisions that were made for these cases.
+
+==Be aware of changes to Eiffel libraries==
+
+The libraries distributed with EiffelStudio have been converted to support void-safety. Mostly the changes made will cause no problems for existing software. However a few changes have been identified as "breaking" changes. You may or may not encounter the effects of these changes, but you should be aware of how they could effect your software and what options you have for adapting to them. Breaking changes are described in the [[EiffelStudio release notes]] and in the page dedicated to [[Void-safe changes to Eiffel libraries]].
 
 =Conversion process=
 
@@ -326,7 +329,7 @@ To support the "empty array" design, <code>segment_start</code>'s postcondition 
 
 
 
-{{SeeAlso|[[Converting EiffelVision 2 Systems to Void Safety]]}}
+{{SeeAlso|<br/>[[Converting EiffelVision 2 Systems to Void Safety]]<br/>[[Void-safe changes to Eiffel libraries]]}}
 
 
 
