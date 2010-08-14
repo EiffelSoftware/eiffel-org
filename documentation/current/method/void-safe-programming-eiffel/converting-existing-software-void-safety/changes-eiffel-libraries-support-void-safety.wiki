@@ -76,6 +76,16 @@ The availability of <code>{TO_SPECIAL}.make_filled_area</code> and <code>{TO_SPE
 
 <code>{TO_SPECIAL}.make_empty_area</code> is available only in ''default'' mode.
 
+====Relationship of feature <code>{SPECIAL}.count</code> to <code>{SPECIAL}.capacity</code>====
+
+In previous versions, for a particular instance of <code>SPECIAL</code> the queries <code>count</code> and <code>capacity</code> yielded the same value.
+
+This is no longer always true. If an instance of <code>SPECIAL</code> is created with, for example, <code>make_empty (10)</code>, although the <code>capacity</code> will be 10, the <code>count</code> will be zero.
+
+However creating a <code>SPECIAL</code> using <code>make_filled</code> will produce an instance in which <code>count</code> and <code>capacity</code> are equal upon creation. So the behavior is similar to that of previous versions. Also, <code>make_filled</code> is available in both ''default'' and ''compatible'' modes. 
+
+If you are depending upon <code>count</code> and <code>capacity</code> having the same value, then use <code>make_filled</code> for creation. And then if you need resizing, use the "with_default" versions of the "resized" queries, specifically <code>resized_area_with_default</code> and <code>aliased_resized_area_with_default</code>.
+
 
 
 
