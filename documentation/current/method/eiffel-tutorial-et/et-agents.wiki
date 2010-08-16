@@ -165,29 +165,33 @@ These possibilities give even more flexibility to the mechanism because they mea
 
 you may write both
 <code>
-            your_account_list.do_all (agent deposit_one_grand)
-            your_integer_list.do_all (agent add_to_n)
+            your_account_list.do_all (agent {ACCOUNT}.deposit_one_grand)
+            your_integer_list.do_all (agent add_to_total)
 </code>
 
-even though the two procedures used in the agents have quite different forms. We are assuming here that the first one, in class <code>ACCOUNT</code>, is something like 
+even though the two procedures used in the agents have quite different forms. We are assuming here that the first one, a feature of class <code>ACCOUNT</code>, is something like 
 <code>
     deposit_one_grand
-            -- Add one thousand dollars to `balance' of account.
+            -- Deposit one thousand into `Current'.
         do 
-            balance := balance + 1000
+            deposit (1000)
         end
 </code>
 
-so that it doesn't take an argument: it is normally called on its target, as in <code>your_account.deposit_one_grand</code>. In contrast, the other routine has an argument: 
+The procedure <code>deposit_one_grand</code> takes no arguments. In the <code>do_all</code> example above, its target is open. The target will be, in turn, each instance of <code>ACCOUNT</code> in <code>your_account_list</code>. 
+
+In contrast, the other routine, assumed to be a feature of the calling class, does take an argument <code>x</code>: 
 <code>
-    add_to_n (x: INTEGER)
+    add_to_total (x: INTEGER)
             -- Add `x' to the value of `total'. 
         do
             total := total + x
         end
 </code>
 
-where <code>total</code> is an integer attribute of the enclosing class. Without the versatility of playing with open and closed arguments for both the original arguments and target, you would have to write separate iteration mechanisms for these two cases. Here you can use a single iteration routine of <code>LIST</code> and similar classes of EiffelBase, <code>do_all</code>, for both purposes: <br/>
+Here, <code>total</code> is assumed to be an integer attribute of the enclosing class. In the <code>do_all</code> example, each instance of <code>your_integer_list</code> will fill the argument <code>x</code> left open in <code>add_to_total</code>.
+
+Without the versatility of playing with open and closed arguments for both the original arguments and target, you would have to write separate iteration mechanisms for these two cases. Here you can use a single iteration routine of <code>LIST</code> and similar classes of EiffelBase, <code>do_all</code>, for both purposes: <br/>
 *  Depositing money on every account in a list of accounts.
 *  Adding all the integers in a list of integers.
 
