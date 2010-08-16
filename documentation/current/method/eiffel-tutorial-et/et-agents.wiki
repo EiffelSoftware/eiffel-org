@@ -196,6 +196,49 @@ Without the versatility of playing with open and closed arguments for both the o
 *  Adding all the integers in a list of integers.
 
 
+==Inline agents==
+
+In the agent discussion above, it has been assumed that there already exists some routine that we wish to represent with an agent. However, sometimes the only usage of such a routine could be as an agent ... that is, the routine does not make sense as a feature of the class in question. In these cases, we can use '''inline agents'''. With an inline agent we write the routine within the agent declaration. 
+
+If we consider the use of agents instead of class features in the two <code>do_all</code> examples in the previous section, the agents would be coded as follows:
+
+<code>
+            your_account_list.do_all 
+                (agent (a: ACCOUNT) 
+                    do 
+                        a.deposit (1000) 
+                    end)
+</code>
+
+and
+
+<code>
+            your_integer_list.do_all 
+                (agent (i: INTEGER) 
+                    do 
+                        total := total + i 
+                    end)
+</code>
+
+The syntax of the inline agent corresponds to the syntax of a routine. Immediately following the <code>agent</code> keyword are the formal arguments and in the case of functions the type for <code>Result</code>. Inline agents can have <code>local</code> entities, preconditions, and postconditions, just like any routine. 
+
+Inline agents do not have access to the local entities of the routine in which they are coded. So, if it is necessary to use the routine's local variables, they must be passed as arguments to the inline agent. 
+
+Here's an example of an inline agent which is a function. It is used in the context of a check to see if every element of <code>your_integer_list</code> is positive:
+
+<code>
+            your_integer_list.for_all
+                (agent (i: INTEGER): BOOLEAN
+                    do
+                        Result := (i > 0)
+                    ensure
+                        definition: Result = (i > 0)
+                    end)
+</code>
+
+Inline agents are interesting also as an implementation of the notion of [http://en.wikipedia.org/wiki/Closure_(computer_science) closures] in computer science. 
+
+
 Agents provide a welcome complement to the other mechanisms of Eiffel. They do not conflict with them but, when appropriate -- as in the examples sketched in this section -- provide clear and expressive programming schemes, superior to the alternatives.
 
 
