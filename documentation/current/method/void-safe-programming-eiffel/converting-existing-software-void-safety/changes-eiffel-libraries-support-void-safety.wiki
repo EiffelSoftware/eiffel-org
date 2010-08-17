@@ -1,9 +1,6 @@
 [[Property:title|Void-safe changes to Eiffel libraries]]
 [[Property:weight|0]]
 [[Property:uuid|dc993c0e-fbec-dc5a-82c8-fbfd9fa9bc3a]]
-{{Beta}}
-
-
 ==Overview==
 
 During the adoption of void-safety, the software libraries provided by Eiffel Software have been converted to be void-safe. The bulk of the changes made to these libraries will have little or no adverse effect on your existing software as you go through the process of void-safe conversion. However, there are a few changes to the library that we consider "breaking" changes, that is, important changes that might cause problems in existing systems that use certain library classes. 
