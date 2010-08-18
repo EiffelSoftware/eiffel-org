@@ -17,7 +17,7 @@ This tutorial will guide you through the use of AutoTest. A [[AutoTest|reference
 {{Recommended|At least on your first viewing of this tutorial, take the sections in the order in which they are presented. There are three different types of tests supported by AutoTest. Each type of test is discussed on its own page. But to avoid repetition, the pages for the second and third types of tests omit some of the detail in the first and assume a familiarity with the example.  }}
 
 
-{{Caution|At this time, AutoTest will work only for project targets in the classic Eiffel environment. This means that projects targeted to Microsoft .Net will not be able to use AutoTest.}}
+{{Caution|<br/> 1) At this time, AutoTest will work '''only''' for project targets in the '''classic Eiffel''' environment. This means that projects targeted to Microsoft .NET will not be able to use AutoTest.<br/> 2) Currently, the use of AutoTest should be '''restricted to projects built without void-safe settings'''.}}
 
 
 {{Recommended|During the transition to void-safe Eiffel, projects can be built using '''experimental''' mode. This mode is as stable as '''non-experimental''' mode, but includes some facilities that might break existing code in a few circumstances. However, since version 6.5, EiffelStudio itself is built in experimental mode, so '''we recommend that you use AutoTest only on projects also built using experimental mode'''. Experimental mode can be invoked by using the "-experiment" option from the command line, or on Microsoft Windows by following the '''Start''' menu path to EiffelStudio and selecting experimental mode. As of version 6.6, the mode that was '''experimental''' in previous versions, becomes the '''default''' mode.}}
