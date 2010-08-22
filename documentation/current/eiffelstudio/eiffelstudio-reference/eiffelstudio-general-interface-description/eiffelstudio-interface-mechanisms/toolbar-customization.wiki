@@ -28,14 +28,15 @@ To remove an icon, click on it in the right list and click on '''<- Remove'''.
 
 The order of the icons in the right list is the same as in the toolbar. If you want to move an icon in the list, select it and use '''Up''' and '''Down''' buttons. '''Up''' will move it to the top, i.e. to the left of the toolbar. '''Down''' will move it in the opposite direction. 
 
+
 {{tip|You can also pick-and-drop icons to organize them. }}
 
-Lastly, some icons can be displayed with an explanatory text. A menu at the bottom of the window will allow you to choose if the text should be displayed. The tables below present the list of these icons for both toolbars and what they look like with and without text.
 
 Once you made the changes you wanted, validate them by clicking on '''OK'''. You can also go back to the initial toolbar layout by clicking on '''Cancel'''. 
 
+
 {{seealso|<br/>
-[[Main toolbars|Toolbars Reference]]  }}
+[[Main toolbars|EiffelStudio toolbars]]  }}
 
 
 
