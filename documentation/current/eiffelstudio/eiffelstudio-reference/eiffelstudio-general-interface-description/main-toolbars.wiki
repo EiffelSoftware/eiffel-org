@@ -1,15 +1,37 @@
 [[Property:title|Main toolbars]]
 [[Property:weight|2]]
 [[Property:uuid|56116a68-5881-0393-63d3-dc2044dd4613]]
-At the top of a development window, two toolbars are displayed by default. They are separated by [[Main address bar|the address bar]] , which contains class and feature fields and buttons to select the current view. The standard toolbar is above the address bar, the project bar below it: 
-<center> [[Image:main-toolbars]]  </center>
+At the top of a development window, the toolbars are displayed by default. The four toolbars are:
+# '''Standard buttons''' toolbar
+# '''Project''' toolbar
+# '''Address''' toolbar
+# '''Refactoring''' toolbar
 
-You can hide toolbars (or the address bar) by unselecting them in the '''Toolbars''' sub-menu of the '''View''' menu or in the context menu that you can get by right-clicking in the empty space on the right of the bars. If you want them to be displayed again, just select them in the '''Toolbars''' sub-menu of the '''View''' menu. 
+You can choose which toolbars are displayed by right-clicking one of the toolbars, or by following the menu path:
 
-In the standard toolbar, you will find buttons to manage [[Browsing tools|tools]]  and windows or that are related to the [[EiffelStudio Editor]] . <br/>
+<code lang="text">
+View --> Toolbars
+</code>
+
+In the figure below, all four toolbars are visible.
 
 
-{{note|For both toolbars, it is possible to choose which buttons are displayed and which ones are not. See the [[Toolbar customization|Toolbars customization page]]  for more information. }}
+[[Image:standard-toolbars]] 
+
+
+The standard buttons toolbar and the project toolbar are docked next to each other on the same toolbar line. So the standard buttons toolbar is indicated here:
+
+[[Image:standard-buttons-toolbar]]
+
+
+and the project toolbar is indicated here:
+
+
+[[Image:project-toolbar]]
+
+
+
+{{note|For each toolbar, it is possible to choose which buttons are displayed and which ones are not. See the [[Toolbar customization|Toolbars customization page]]  for more information. Also, you can change the location of the toolbars by undocking and/or redocking them. See more at [[Customizing the tools layout and toolbars]].}}
 
 
 
