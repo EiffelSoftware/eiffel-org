@@ -441,10 +441,10 @@ As with assignment, there is also a form that works on objects rather than refer
 will return true when <code>x</code> and <code>y</code> are both non-void and attached to field-by-field identical objects. This can be true even when <code>x = y</code> is not, for example, in the figure, ''before'' the assignment, if the two objects shown are field-by-field equal.
 
 The expression <code>x.is_equal (y)</code> can be written alternatively, using the ''tilde'' ('~') character, in a notation similar in form to <code>x = y</code> . The expression:
-<code>
+
             x ~ y
-</code>
-will be true only in cases in which <code>x.is_equal (y)</code> is true.
+
+will be true only in cases in which <code>x</code> and <code>y</code> are the same type and <code>x.is_equal (y)</code> is true.
 
 A more general variant of <code>is_equal</code> is used under the form:
 <code>
@@ -452,7 +452,7 @@ A more general variant of <code>is_equal</code> is used under the form:
 </code>
 This is always defined, even if <code>x</code> is void, returning true whenever <code>is_equal</code> would but also if <code>x</code> and <code>y</code> are both void. (In contrast, <code>x.is_equal (y)</code> is not defined for void <code>x</code> and would, if evaluated, yield an exception as explained in [[ET: Design by Contract (tm), Assertions and Exceptions#Exception_handling|"Exception handling"]]  below.) 
 
-{{note|The <code>~</code> operator performs an object equality comparison, using the (possibly redefined) version of feature <code>is_equal</code> that is appropriate for the operand types. The operand types must be the same, or the result will be <code>False</code>. As such, the use of <code>~</code> is preferred to over the use of direct use of either <code>x.is_equal (y)</code> or <code>equal (x, y)</code>, which can be susceptible to [[ET: Inheritance#Catcalls|catcalls]].}}
+{{note|The ~ operator performs an object equality comparison, using the (possibly redefined) version of feature <code>is_equal</code> that is appropriate for the operand types. The operand types must be the same, or the result will be <code>False</code>. As such, the use of ~ is preferred to over the use of direct use of either <code>x.is_equal (y)</code> or <code>equal (x, y)</code>, which can be susceptible to [[ET: Inheritance#Catcalls|catcalls]].}}
 
 <code>Void</code> denotes a void reference. So you can make <code>x</code> void through the assignment 
 <code>
