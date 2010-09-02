@@ -1,0 +1,14 @@
+[[Property:title|Offline use of the Eiffel documentation]]
+[[Property:link_title|Download Documentation]]
+[[Property:weight|0]]
+[[Property:uuid|e5f003f6-c732-c648-fd67-91f6642130f0]]
+It is possible to download the books of the Eiffel online documentation for viewing offline with a web browser.
+
+To do this you use a [http://docs.eiffel.com/static/ web page] which has links to downloadable files which contain the documentation in different forms and quantities. 
+
+
+[[Image:static documentation page|Downloadable documentation]]
+
+
+The files are ".7z" files, meaning that they are compressed archives in [http://www.7-zip.org 7-zip] format. 
+
