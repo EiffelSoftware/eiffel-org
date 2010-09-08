@@ -1,0 +1,178 @@
+[[Property:title|Concurrent Eiffel with SCOOP]]
+[[Property:weight|1]]
+[[Property:uuid|151838da-80f0-5381-d557-5c5b7727647d]]
+{{beta}}
+
+==Concurrency==
+
+Concurrency in computation is a situation in which we can expect that a running computer system will have multiple computations executing simultaneously in a controlled fashion to achieve the goals of the system. The simultaneous executions can be handled by widely diverse computational vehicles: separate networked computer systems, separate processors in the same CPU, separate processor cores on a single chip, separate processor threads within a process, separate processes on the same CPU, etc. 
+
+Concurrent systems would not cause much trouble if the portions of the systems on different processors, processes, or threads were completely independent, that is, they shared no resources. But that is never the case. In a concurrent system, simultaneously executing software elements can and do share resources and communicate with each other. This is where the problems can arise; problems in the form of various synchronization issues such as [http://en.wikipedia.org/wiki/Race_condition#Computing race conditions], [http://en.wikipedia.org/wiki/Atomicity_(programming) atomicity] violations, and [http://en.wikipedia.org/wiki/Deadlock deadlocks].
+
+Concurrency control is a rich research area in computer science. Consequently, many schemes have been designed to control concurrent computation.
+
+Indeed, SCOOP is such a model for concurrent computation. SCOOP differs from many other research efforts. 
+
+First, it is a goal of SCOOP to abstract the notion of concurrency to a level above the tools and techniques that are currently available in the target concurrency environment. What this means is that if you were writing a system with multiple process threads, you could do that without SCOOP, using the tools that are currently used in multi-threaded programming, like semaphores and mutexes. Or you could write it in SCOOP using only the SCOOP mechanisms. Likewise with SCOOP, a system intended to run on multiple processors or multiple processor cores also could be written using only those same SCOOP mechanisms that you used for the multi-threaded system. 
+
+Second, the SCOOP model, as it is implemented in Eiffel, depends primarily upon Design by Contract with slightly changed contract semantics, and a single new keyword <code>separate</code> added to the Eiffel language. As you will see, the semantics of preconditions differ with concurrent execution versus sequential. Also, there are other underlying concepts and rules that need to be understood, but the point is that concurrent Eiffel using SCOOP will look a lot like sequential Eiffel. 
+
+Third, SCOOP uses the common act of argument passing to identify the necessity for locking.
+
+We will examine the details of how all this fits together and what it means to you as you begin to build concurrent software in Eiffel using SCOOP.
+
+==Object-oriented computation==
+
+Eiffel’s familiar model for object-oriented computation:
+
+
+<code>
+            x.f (a)
+</code>
+
+
+continues to be valid in SCOOP. But the way we understand the model differs slightly. In sequential Eiffel we would refer to this as a ’’feature call’’, with a client calling feature <code>f</code> on a supplier object (the call’s target) currently attached to the entity <code>x</code>, and possibly passing arguments represented by <code>a</code>. We might alternatively refer to <code>x.f (a)</code> as a ’’feature application’’; specifically the application of feature <code>f</code> to the object associated with <code>x</code>. This is fine in sequential Eiffel, but as you will see, in SCOOP we have to make a distinction between ’’feature call’’ and ’’feature application’’. The distinction will become clear as we discuss the notions of processors and separate calls. 
+
+==Processors==
+ 
+In the context of SCOOP, ''processor'' is an abstract notion.
+
+
+{{definition|Processor|}}
+
+
+{{info|Processors per object|}}
+
+
+In traditional Eiffel, although we realize that there is some processor which executes our systems, we don’t usually give it much thought. When we do, we generally regard it as a hardware entity on which our software can run. 
+
+The term ’’processor’’ (or, interchangeably, ’’handler’’) is vital to SCOOP and thought of in a slightly different way than in traditional Eiffel, i. e., not just as a hardware processor. In a concurrent system, there may be any number of ’’processors’’. Here the term is used in a more abstract sense than before. In SCOOP we think of a processor as any autonomous thread of control capable of applying features to objects. At the level of the SCOOP model, processors are not restricted to a particular type of hardware or software. So, if you were writing software for a hardware implementation with multiple processors, those real processors might correspond to the ’’processors’’ of SCOOP. But if you were writing a system using multiple process threads, then those threads might correspond to SCOOP ’’processors’’. 
+
+Multiple processors in SCOOP come into play when you declare that feature calls on a particular object may actually be applied by a different processor than the one on which the feature call was issued. Of course, this is the important distinction between feature call and feature application that was mentioned above. In SCOOP, the processor which does the feature application may be different from the one that does the feature call. So you can think of feature call as being the ’’logging’’ or ’’queuing’’ of a request to have a feature applied. 
+
+==Separate types and separate calls==
+
+
+{{definition|Separate type|}}
+
+
+{{definition|Separate call|}}
+
+
+The determining factor for the use of multiple processors is the use of ’’separate types” and ’’separate calls’’. In a running system, every object is handled by a processor, but in the case in which there are no separate types or separate calls in a system, then only one processor will be used during execution, i. e., all calls will be non-separate. 
+
+If an entity uses the keyword <code>separate</code> in its declaration, such as:
+
+
+<code>
+            my_x: separate X
+</code>
+
+
+it indicates that the application of features to an object attached to <code>my_x</code> may occur on a different processor than the one on which the feature call was made. Such calls, <code>my_x.f</code>, would be considered separate calls. Additionally, the type of <code>my_x</code> is the separate type <code>separate X</code>. 
+
+A feature call on <code>my_x</code>, say:
+
+
+<code>
+            my_x.f
+</code>
+
+
+would generally be considered a separate call, simply because it is a feature call on an object of a separate type, and therefore could be applied on a different processor. You will see now that separate calls are valid only in certain contexts. 
+
+==Access to shared resources==
+
+As mentioned above, the main issue with concurrent systems is the proper control of access to resources that can be shared among simultaneously executing processors. 
+
+Traditional solutions to the problem involve the use of “critical sections” of code. These are sections of code in which the shared resource is accessed. Only one processor is allowed to be executing the critical section at a time. So if one process wants to execute the critical section and another is already doing so, then the first must wait. Process synchronization schemes ensure this “mutual exclusion” of access to the critical section.
+
+Rather than using critical sections, SCOOP relies on the mechanism of argument passing to assure controlled access. As a result, there is a restriction placed on separate calls. 
+
+
+{{Rule|Separate argument|A separate call a_x.f (a) is valid only if a_x is an argument of the enclosing routine.}}
+
+
+So, according to this rule, for a separate call to be valid, the target of the call must be a formal argument of the routine in which the call occurs. 
+
+
+<code>
+    my_separate_attribute: separate SOME_TYPE
+
+                    ...
+    calling_routine
+            -- One routine
+        do
+            my_separate_attribute.some_feature   -- Invalid call: Feature call on separate attribute
+            enclosing_routine (my_separate_attribute) -- Separate attribute passed as argument
+        end
+
+    enclosing_routine (a_arg: separate SOME_TYPE)
+            -- Another routine
+        do
+            a_arg.some_feature    -- Valid call: Feature call on separate argument
+        end
+</code>
+
+
+In the code above, <code>my_separate_attribute</code> is a class attribute declared as a separate type. In the first line in <code>calling_routine</code> a direct feature call is made to apply <code>some_feature</code> to <code>my_separate_attribute</code>. This is an invalid separate call. The second line calls feature <code>enclosing_routine</code> and passes <code>my_separate_attribute</code> as an argument. <code>enclosing_routine</code> takes an argument of type <code>separate SOME_TYPE</code>. Within <code>enclosing_routine</code> it is valid to call <code>some_feature</code> on <code>a_arg</code>. 
+
+Valid targets for separate calls, like <code>a_arg</code> in <code>enclosing_routine</code> are said to be ’’controlled’’. 
+
+
+{{definition|Controlled expression|}}
+
+
+{{definition|Lock|Exclusive access to a processor and all the objects handled by that processor.}}
+
+
+The ’’control’’ mentioned above gives the SCOOP mechanisms a way to be able to gain a lock on processor for the object attached to <code>a_arg</code>. Only when all necessary locks are obtained is it possible for feature application to occur. 
+
+
+==Synchronous and asynchronous feature calls==
+
+As stated above, when we think of the execution of sequential Eiffel, we tend to equate feature call and feature application. That is, it is expected that for a sequence of two feature calls:
+
+
+<code>
+            x.f
+            y.g
+</code>
+
+
+that the feature application of <code>x.f</code> will complete before <code>y.g</code> begins.
+
+In concurrent Eiffel with SCOOP things are different. This is because a particular feature call, <code>x.f</code>, may occur one processor, and the subsequent feature application (of feature <code>f</code> to <code>x</code>) may occur on a different processor. 
+
+
+{{definition|Synchronous feature call| }}
+
+
+{{definition|Asynchronous feature call| }}
+
+
+===What makes a call synchronous or asynchronous?===
+
+First, every feature call is either a synchronous feature call or an asynchronous feature call. For a particular call, the following rules determine which it is:
+
+A feature call is synchronous in the following cases:
+# It is a non-separate call.
+# It is a separate call to a query.
+# It is a feature call which has at least one actual argument which is a separate argument of the enclosing routine.
+
+A feature call is asynchronous in the following case:
+# It is a separate call to a command.
+
+Let’s look a little closer at those cases determining synchronous calls. 
+
+Case 1 is the case of typical sequential Eiffel, where all calls are non-separate, and therefore synchronous. Of course, even in concurrent Eiffel, non-separate calls will likely occur, and these will be synchronous.
+
+Case 2 says that if a separate call is a query it must be synchronous. This is because even though the feature application will probably occur on a different processor, the instructions following the query will likely depend up on the result of the query, so they must wait until the feature application completes. This situation is known as ’’wait-by-necessity’’.
+
+Case 3 describes a situation which a call provides an actual argument which is a separate formal argument of the call’s enclosing routine. In this case, the enclosing routine has a lock on the processor for the separate argument. So, passing that separate argument to a second feature requires the lock to be passed as well. This is called ‘’lock passing’’. It requires that the call be synchronous, because the call has passed away necessary locks, so subsequent instructions can not continue before the locks passed are restored to their previous states.
+
+Now consider the only case, Case 1, determining asynchronous calls. 
+
+Separate calls to commands are asynchronous. This means that when a client executes an asynchronous feature call, it “logs” the need for its associated feature application. But then rather than waiting for the feature application to complete, the client routine continues execution of instructions beyond the asynchronous call. It is in this case that concurrent computation is achieved. The process of the client object is free to continue processing while the processor handling the target of the asynchronous feature call applies that feature.
+
+
