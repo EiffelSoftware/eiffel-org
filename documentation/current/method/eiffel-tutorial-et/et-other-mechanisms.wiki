@@ -125,7 +125,7 @@ This type of feature call is known as an '''object call''' because it applies th
             circumference := radius * 2.0 * {MATH_CONST}.Pi
 </code>
 
-In the sample above, the call to feature <code>{MATH_CONST}.Pi</code> is a non-object call. This case illustrates one of the primary uses of non-object calls. Because of non-object calls, constants do not have to be part of a shared object or features inherited by the classes that use them. 
+In the sample above, the call to feature <code>{MATH_CONST}.Pi</code> is a non-object call. This case illustrates one of the primary uses of non-object calls: constants. The library class <code>MATH_CONST</code> contains commonly used mathematical constants. Non-object calls make it possible to use the constants in <code>MATH_CONST</code> without having to create an instance of <code>MATH_CONST</code> or inherit from it.
 
 The other primary use is for external features. One example is when we use Microsoft .NET classes from Eiffel code and have to access mechanisms for which there is no direct analog in Eiffel. Microsoft .NET supports so-called "static" methods and enumeration types. To access these, we use non-object calls. In the example below, a non-object call is used to access the enumeration <code lang="text">CreateNew</code> from the .NET enumeration type <code lang="text">System.IO.FileMode</code>.
 
