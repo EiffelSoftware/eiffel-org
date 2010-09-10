@@ -5,6 +5,11 @@
 
 
 
+==Overview==
+
+SCOOP is ''Simple Concurrent Object-Oriented Programming''. SCOOP allows developers to create object-oriented software systems which will take advantage of multiple, concurrently active execution vehicles. Additionally, SCOOP programming is done at a level of abstraction above the specific details of these implementation vehicles. Read further to get a better idea of what all this means, but for now, the primary message should be: SCOOP is concurrent software development made easy. The basic SCOOP ideas were first published as early as 1993. Since that time, considerable research and development has refined the SCOOP into the model that is implemented in EiffelStudio today.
+
+
 ==Concurrency==
 
 Concurrency in computation is a situation in which we can expect that a running computer system will have multiple computations executing simultaneously in a controlled fashion to achieve the goals of the system. The simultaneous executions can be handled by widely diverse computational vehicles: separate networked computer systems, separate processors in the same CPU, separate processor cores on a single chip, separate processor threads within a process, separate processes on the same CPU, etc. 
@@ -46,14 +51,16 @@ In the context of SCOOP, ''processor'' is an abstract notion.
 {{definition|Processor|An autonomous thread of control capable of the sequential execution of instructions on one or more objects.}}
 
 
-{{info|At any given time, every runtime object is handled by exactly one processor. A single processor can handle any number of objects.}}
+{{info|
+<br/>A processor is an abstract notion. As such it does not imply any specific concurrency implementation.
+<br/>At any given time, every runtime object is handled by exactly one processor. A single processor can handle any number of objects.}}
 
 
 In traditional, sequential Eiffel, although we realize that there is some processor which executes our systems, we don’t usually give it much thought. When we do, we generally regard it as a hardware entity on which our software can run. 
 
 The term ''processor'' (or, interchangeably, ''handler'') is vital to SCOOP and thought of in a slightly different way than in traditional Eiffel, i. e., not just as a hardware processor. In a concurrent system, there may be any number of ''processors''. Here the term is used in a more abstract sense than before. In SCOOP we think of a processor as any autonomous thread of control capable of applying features to objects. At the level of the SCOOP model, processors are not restricted to a particular type of hardware or software. So, if you were writing software for a hardware implementation with multiple processors, those real processors might correspond to the ''processors'' of SCOOP. But if you were writing a system using multiple process threads, then those threads might correspond to SCOOP ''processors''. 
 
-Multiple processors in SCOOP come into play when you declare that feature calls on a particular object may actually be applied by a different processor than the one on which the feature call was issued. Of course, this is the important distinction between feature call and feature application that was mentioned above. In SCOOP, the processor which does the feature application may be different from the one that does the feature call. So you can think of feature call as being the ''logging'' or ''queuing'' of a request to have a feature applied. 
+Multiple processors in SCOOP come into play when feature calls on a particular object may actually be applied by a different processor than the one on which the feature call was issued. Of course, this is the important distinction between feature call and feature application that was mentioned above. In SCOOP, the processor which does the feature application may be different from the one that does the feature call. So you can think of feature call as being the ''logging'' or ''queuing'' of a request to have a feature applied. 
 
 ==Separate types and separate calls==
 
@@ -130,7 +137,7 @@ Valid targets for separate calls, like <code>a_arg</code> in <code>enclosing_rou
 {{definition|Controlled expression|An expression is controlled if it is attached and either:<br/>1) It is of a non-separate type<br/>2) It is of a separate type and it is handled by the same processor as one of the separate arguments to the enclosing routine.}}
 
 
-What the definition of ''controlled expression'' means is that such an expression is controlled with respect to the processor handling the context in which the expression is used (the current context) ... and that means that all objects necessary to the expression are under control of (locked by) the current processor and cannot be modified by other processors.  
+What the definition of ''controlled expression'' means is that such an expression is controlled with respect to the processor handling the context in which the expression is used (the current context) ... and that means that all objects necessary to the expression are under control of (locked for exclusive access by) the current processor and cannot be modified by other processors.  
 
 
 {{definition|Lock|Exclusive access to a processor and all the objects handled by that processor.}}
@@ -176,7 +183,7 @@ Let’s look a little closer at those cases determining synchronous calls.
 
 Case 1 is the case of typical sequential Eiffel, where all calls are non-separate, and therefore synchronous. Of course, even in concurrent Eiffel, non-separate calls will likely occur, and these will be synchronous.
 
-Case 2 says that if a separate call is a query it must be synchronous. This is because even though the feature application will probably occur on a different processor, the instructions following the query will likely depend up on the result of the query, so they must wait until the feature application completes. This situation is known as ''wait-by-necessity''.
+Case 2 says that if a separate call is a query it must be synchronous. This is because even though the feature application will probably occur on a different processor, the instructions following the query will likely depend up on the result of the query, so they must wait until the feature application completes. This situation is known as ''wait by necessity''.
 
 Case 3 describes a situation which a call provides an actual argument which is a separate formal argument of the call’s enclosing routine. In this case, the enclosing routine has a lock on the processor for the separate argument. So, passing that separate argument to a second feature requires the lock to be passed as well. This is called ''lock passing''. It requires that the call be synchronous, because the call has passed away necessary locks, so subsequent instructions can not continue before the locks passed are restored to their previous states.
 
@@ -188,6 +195,11 @@ It is in this case that concurrent computation is achieved. The process of the c
 
 
 ==Design by Contract==
+
+The backbone of the Eiffel Method is design by contract. Preconditions, postconditions, and class invariants are used in Eiffel for extending software interfaces into software specification. This is essentially the same in concurrent Eiffel with SCOOP as it is in traditional, sequential Eiffel. However, because of the concurrent nature of processing under SCOOP, the runtime semantics of the elements of Design by Contract are different for concurrent systems.
+
+
+
 
 
 
