@@ -194,9 +194,26 @@ Separate calls to commands are asynchronous. This means that when a client execu
 It is in this case that concurrent computation is achieved. The process of the client object is free to continue processing while the processor handling the target of the asynchronous feature call applies that feature.
 
 
-==Design by Contract==
+==Effects of SCOOP on Design by Contract==
 
 The backbone of the Eiffel Method is design by contract. Preconditions, postconditions, and class invariants are used in Eiffel for extending software interfaces into software specification. This is essentially the same in concurrent Eiffel with SCOOP as it is in traditional, sequential Eiffel. However, because of the concurrent nature of processing under SCOOP, the runtime semantics of the elements of Design by Contract are different for concurrent systems.
+
+
+===Preconditions===
+
+The role of the precondition is somewhat different in SCOOP than in sequential Eiffel. In non-concurrent Eiffel we view the precondition of a routine as defining a set of obligations on potential callers of the routine. That is, the set of conditions that must be true before correct execution of the routine can be expected. So, we could look at the precondition clauses in sequential Eiffel as '''correctness conditions'''. A typical example might be a square root routine that returns the square root of a passed argument value. A precondition clause, i. e., a correctness condition, for this routine will be that the argument must be non-negative. It is the responsibility of the caller to ensure that this property of the argument holds at the time of the feature call.
+
+In concurrent Eiffel, the same correctness conditions are still valid, but there is also another type of precondition called a '''wait condition'''. 
+
+
+
+
+===Postconditions===
+
+===Class invariants===
+
+
+
 
 
 
