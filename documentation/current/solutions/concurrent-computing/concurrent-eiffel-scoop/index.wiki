@@ -51,9 +51,9 @@ In the context of SCOOP, ''processor'' is an abstract notion.
 {{definition|Processor|An autonomous thread of control capable of the sequential execution of instructions on one or more objects.}}
 
 
-{{info|
-<br/>A processor is an abstract notion. As such it does not imply any specific concurrency implementation.
-<br/>At any given time, every runtime object is handled by exactly one processor. A single processor can handle any number of objects.}}
+{{info|About processors:
+<br/>1) Processor is an abstract notion. As such it does not imply any specific concurrency implementation.
+<br/>2) At any given time, every runtime object is handled by exactly one processor. A single processor can handle any number of objects.}}
 
 
 In traditional, sequential Eiffel, although we realize that there is some processor which executes our systems, we don’t usually give it much thought. When we do, we generally regard it as a hardware entity on which our software can run. 
@@ -203,7 +203,13 @@ The backbone of the Eiffel Method is design by contract. Preconditions, postcond
 
 The role of the precondition is somewhat different in SCOOP than in sequential Eiffel. In non-concurrent Eiffel we view the precondition of a routine as defining a set of obligations on potential callers of the routine. That is, the set of conditions that must be true before correct execution of the routine can be expected. So, we could look at the precondition clauses in sequential Eiffel as '''correctness conditions'''. A typical example might be a square root routine that returns the square root of a passed argument value. A precondition clause, i. e., a correctness condition, for this routine will be that the argument must be non-negative. It is the responsibility of the caller to ensure that this property of the argument holds at the time of the feature call.
 
-In concurrent Eiffel, the same correctness conditions are still valid, but there is also another type of precondition called a '''wait condition'''. 
+In concurrent Eiffel, the same correctness conditions are still valid, but there are cases in which we must view the clients role here a little differently. In the case of a precondition clause that depends upon a separate object, even if the client tests the condition ahead of the call, there is no assurance that action by some other concurrent processor may have invalidated the precondition clause between the time that the check was made and the time that the feature application takes place. So, the client cannot be held responsible establishing that this clause holds. This type of precondition clause is called an '''uncontrolled precondition clause'''. 
+
+{{definition|Controlled assertion (precondition or postcondition) clause| A precondition or postcondition clause for a feature “f” is controlled if, after substitution of actual arguments for formal arguments, it involves only calls on entities which are controlled in the context of routine in which “f” is called. Otherwise it is an '''uncontrolled assertion (precondition or postcondition) clause'''. }}
+
+Uncontrolled precondition clauses demand an adaptation of precondition semantics: 
+
+{{Info|A violation of a '''controlled precondition clause''' will cause an exception in the caller as soon as the violation is detected. A violation of an '''uncontrolled precondition clause''' does not result in an exception in the caller. Rather, the feature application waits to execute until such time as the precondition clause holds. }}
 
 
 
