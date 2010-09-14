@@ -194,7 +194,7 @@ Separate calls to commands are asynchronous. This means that when a client execu
 It is in this case that concurrent computation is achieved. The process of the client object is free to continue processing while the processor handling the target of the asynchronous feature call applies that feature.
 
 
-==Effects of SCOOP on Design by Contract==
+==Design by Contract and SCOOP==
 
 The backbone of the Eiffel Method is design by contract. Preconditions, postconditions, and class invariants are used in Eiffel for extending software interfaces into software specification. This is essentially the same in concurrent Eiffel with SCOOP as it is in traditional, sequential Eiffel. However, because of the concurrent nature of processing under SCOOP, the runtime semantics of the elements of Design by Contract are different for concurrent systems.
 
@@ -211,10 +211,13 @@ Uncontrolled precondition clauses demand an adaptation of precondition semantics
 
 {{Info|A violation of a '''controlled precondition clause''' will cause an exception in the caller as soon as the violation is detected. A violation of an '''uncontrolled precondition clause''' does not result in an exception in the caller. Rather, the feature application waits to execute until such time as the precondition clause holds. }}
 
-
+So, the client's responsibility is limited to those precondition clauses that are controlled.
 
 
 ===Postconditions===
+
+As with preconditions the effect of concurrent execution can make a difference in how postconditions are viewed. If a routine '"f"' has executed correctly, then the postcondition of '"f'" will hold at the time that it terminates ... this is true whether the call to "f" is separate or not. However in the case in which the call to "f" is separate, that is, the application of "f" occurs on a different processor from the routine that called "f", there is no synchronization between the application of "f" and the caller of "f". So, even though "f" has postcondition clauses that all hold at the completion of feature application, the caller of "f" is not in a position to depend on these conditions.
+
 
 ===Class invariants===
 
