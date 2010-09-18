@@ -205,21 +205,34 @@ The role of the precondition is somewhat different in SCOOP than in sequential E
 
 In concurrent Eiffel, the same correctness conditions are still valid, but there are cases in which we must view the clients role here a little differently. In the case of a precondition clause that depends upon a separate object, even if the client tests the condition ahead of the call, there is no assurance that action by some other concurrent processor may have invalidated the precondition clause between the time that the check was made and the time that the feature application takes place. So, the client cannot be held responsible establishing that this clause holds. This type of precondition clause is called an '''uncontrolled precondition clause'''. 
 
-{{definition|Controlled assertion (precondition or postcondition) clause| A precondition or postcondition clause for a feature “f” is controlled if, after substitution of actual arguments for formal arguments, it involves only calls on entities which are controlled in the context of routine in which “f” is called. Otherwise it is an '''uncontrolled assertion (precondition or postcondition) clause'''. }}
+{{definition|Controlled assertion (precondition or postcondition) clause| A precondition or postcondition clause for a feature <code>f</code> is controlled if, after substitution of actual arguments for formal arguments, <code>f</code> involves only calls on entities which are controlled in the context of routine in which <code>f</code> is called. Otherwise it is an '''uncontrolled assertion (precondition or postcondition) clause'''. }}
+
 
 Uncontrolled precondition clauses demand an adaptation of precondition semantics: 
 
 {{Info|A violation of a '''controlled precondition clause''' will cause an exception in the caller as soon as the violation is detected. A violation of an '''uncontrolled precondition clause''' does not result in an exception in the caller. Rather, the feature application waits to execute until such time as the precondition clause holds. }}
+
 
 So, the client's responsibility is limited to those precondition clauses that are controlled.
 
 
 ===Postconditions===
 
-As with preconditions the effect of concurrent execution can make a difference in how postconditions are viewed. If a routine '"f"' has executed correctly, then the postcondition of '"f'" will hold at the time that it terminates ... this is true whether the call to "f" is separate or not. However in the case in which the call to "f" is separate, that is, the application of "f" occurs on a different processor from the routine that called "f", there is no synchronization between the application of "f" and the caller of "f". So, even though "f" has postcondition clauses that all hold at the completion of feature application, the caller of "f" is not in a position to depend on these conditions.
+As with preconditions the effect of concurrent execution can make a difference in how postconditions are viewed. 
+
+If a routine has executed correctly, then the postcondition of the routine will hold at the time that it terminates ... this is true whether or not concurrency is involved. However, when a postcondition involves separate calls or entities are involved, clients must be cautious about how they depend upon the state guaranteed by postconditions. 
+
+Postcondition semantics are characterized as follows: 
+
+:If a called routine has a postcondition clause that is controlled, then a client can assume that clause holds, because no other client can affect it. However, a client cannot make the same assumption for uncontrolled postcondition clauses. Uncontrolled queries in postcondition clauses are evaluated by the processors of their targets. And this is done asynchronously. Wait by necessity does not apply. So, the case of uncontrolled queries in postcondition clauses is an exception to Case A2 in the section about [[#What makes a call synchronous or asynchronous?|synchronous and asynchronous calls,]] above.
 
 
 ===Class invariants===
+
+TThe '''separate argument rule''' above tells us that separate calls are valid only on targets which are formal arguments of their enclosing routines. Because class invariants are not routines and therefore have no arguments, separate calls are not allowed in class invariants. 
+
+The semantics of class invariants will be the same as in sequential Eiffel, precisely because invariants must include only non-spearate calls. To put it the terms of SCOOP, the class invariant ensuring the validity of any particular object will be evaluated entirely by the processor handling that object.
+
 
 
 
