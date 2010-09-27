@@ -1,7 +1,6 @@
 [[Property:title|ET: Inheritance]]
 [[Property:weight|-7]]
 [[Property:uuid|c90e6ee3-b39d-48e5-2321-a34e12fd5327]]
-
 Inheritance is a powerful and attractive technique. A look at either the practice or literature shows, however, that it is not always well applied. Eiffel has made a particular effort to tame inheritance for the benefit of modelers and software developers. Many of the techniques are original with Eiffel. Paul Dubois has written (comp.lang.python Usenet newsgroup, 23 March 1997): there are two things that [Eiffel] got right that nobody else got right anywhere else: support for design by contract, and multiple inheritance. Everyone should understand these "correct answers" if only to understand how to work around the limitations in other languages.
 
 ==Basic inheritance structure==
@@ -998,6 +997,8 @@ Here there are two <code>inherit</code> clauses, one to specify conforming paren
 
 So, in this case, at runtime it is valid for a direct instance of <code>MY_HEIR_CLASS</code> to be attached to an entity of type <code>MY_CONFORMING_PARENT</code>, but not to an entity of type <code>MY_NON_CONFORMING_PARENT</code>. Accordingly, the compiler would reject any code in which an instance of <code>MY_HEIR_CLASS</code> could become attached to an entity of type <code>MY_NON_CONFORMING_PARENT</code>. Because the polymorphic attachment cannot be made, the possibility of a catcall is avoided.
 
+
+{{note|As implemented, non-conforming inheritance mimics a copy/paste operation in which the features of the parent class are copied to the non-conforming heir class with no other inheritance linkage maintained. You should keep this fact in mind when using non-conforming inheritance. For example, <code>once</code> functions are replicated as unrelated features in the heir classes, so they are executed for each type.}}
 
 
 
