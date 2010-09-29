@@ -998,7 +998,7 @@ Here there are two <code>inherit</code> clauses, one to specify conforming paren
 So, in this case, at runtime it is valid for a direct instance of <code>MY_HEIR_CLASS</code> to be attached to an entity of type <code>MY_CONFORMING_PARENT</code>, but not to an entity of type <code>MY_NON_CONFORMING_PARENT</code>. Accordingly, the compiler would reject any code in which an instance of <code>MY_HEIR_CLASS</code> could become attached to an entity of type <code>MY_NON_CONFORMING_PARENT</code>. Because the polymorphic attachment cannot be made, the possibility of a catcall is avoided.
 
 
-{{note|As implemented, non-conforming inheritance mimics a copy/paste operation in which the features of the parent class are copied to the non-conforming heir class with no inheritance linkage maintained. You should keep this fact in mind when using non-conforming inheritance. For example, <code>once</code> functions are replicated as unrelated features in the heir classes, so they are executed for each type.}}
+{{note|As implemented, non-conforming inheritance mimics a copy/paste operation in which the features of the parent class are copied to the non-conforming heir class with no inheritance linkage maintained. You should keep this fact in mind when using non-conforming inheritance. In particular, <code>once</code> routines are replicated as unrelated features in the heir classes, so they share neither freshness status nor computed value (in the case of functions). Thus, a once function that comes from a non-conforming parent yields a result that is not related to the one returned by the parent's version.}}
 
 
 
