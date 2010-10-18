@@ -1,6 +1,10 @@
 [[Property:title|Supported C compilers]]
 [[Property:weight|-14]]
 [[Property:uuid|4d4a70fa-b6da-cecb-83e0-dcc18d6ed54a]]
+{{UpdateNeeded}}
+
+
+
 ==Unix/Linux Users:==
 
 EiffelStudio supports `gcc' on most platforms and the native`cc' compiler if it is an ANSI C compiler.
