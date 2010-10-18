@@ -11,21 +11,31 @@ EiffelStudio supports `gcc' on most platforms and the native`cc' compiler if it 
 
 
 
-==Microsoft Visual C++ Users==
+==Microsoft Windows Users==
+
+EiffelStudio supports Microsoft and MinGW compilers on Microsoft Windows.
+
+===Microsoft Visual C++ Users===
 
 EiffelStudio supports only version 6.0 and higher of the Microsoft Visual C++ environment. You can still use older versions of the Microsoft C++ environment (version 4.1, 4.2 or 5.0) as long as you have the latest Platform SDK from Microsoft, but this won't be supported by Eiffel Software.
 
 Normally it will automatically detect the location of the C compiler. In case it wouldn't, make sure that the Microsoft tools are correctly setup to run from the MS-DOS prompt. To do that you need to set the environment variable PATH, LIB and INCLUDE to the value specified in the file`vcvars32.bat' from the `bin' directory of the VC installation.
 
-==Borland C++ Users:==
+By default the installation program will set in the registry keys the ISE_C_COMPILER key to `msc'.
 
-EiffelStudio only supports version 5.5.1 of Borland C++ which is included in the installation of EiffelStudio. We do not support any other versions.
+===MinGW Users:===
 
-By default the installation program will set in the registry keys the ISE_C_COMPILER key to `bcb'.
+By default the installation program will set in the registry keys the ISE_C_COMPILER key to `mingw'.
+
+In versions as late as 6.6, there is a [[EiffelCOM Wizard Guided Tour|restriction]] that prevents the use of EiffelCOM with the MinGW compiler.
+
+===Changing your C compiler on Windows===
+
+You can do it in either of two different ways. 
+
+You can manually edit the registry key HKLM\Software\ISE\Eiffel''nn'' and change the value of the ISE_C_COMPILER string key to either `msc' or `mingw' depending upon the effect you desire.
+
+Alternatively, you can set the environment variable ISE_C_COMPILER to either `msc' or `mingw'.
 
 
-
-==Changing your C compiler on Windows==
-
-You can do it in two different ways. The first one is using the registry keys of the Windows
 
