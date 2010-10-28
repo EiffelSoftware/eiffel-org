@@ -15,7 +15,7 @@ Use the [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  
 
             create selection.make
             selection.set_query ("select * from CONTACTS where firstname = 'John'")
-            selection.execute
+            selection.execute_query
 </code>
 
 {{tip|Always check the database status for errors after your 'select' query. }}
