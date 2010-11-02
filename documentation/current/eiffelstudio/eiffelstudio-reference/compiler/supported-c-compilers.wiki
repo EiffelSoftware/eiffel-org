@@ -17,7 +17,7 @@ EiffelStudio supports Microsoft and MinGW compilers on Microsoft Windows.
 
 ===Microsoft Visual C++ Users===
 
-EiffelStudio supports only version 6.0 and higher of the Microsoft Visual C++ environment. You can still use older versions of the Microsoft C++ environment (version 4.1, 4.2 or 5.0) as long as you have the latest Platform SDK from Microsoft, but this won't be supported by Eiffel Software.
+EiffelStudio supports only version 14.0 and higher of the Microsoft Visual C++ environment (i.e. Visual Studio 2005 or higher).
 
 Normally it will automatically detect the location of the C compiler. In case it wouldn't, make sure that the Microsoft tools are correctly setup to run from the MS-DOS prompt. To do that you need to set the environment variable PATH, LIB and INCLUDE to the value specified in the file`vcvars32.bat' from the `bin' directory of the VC installation.
 
