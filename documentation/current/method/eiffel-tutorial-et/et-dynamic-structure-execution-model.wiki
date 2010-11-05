@@ -669,7 +669,7 @@ These attribute specializations are presented in the [[Void-safe programming in 
 
 Another special type of attribute supported by Eiffel Software's compiler is the '''transient attribute'''. When an instance of a class to which a transient attribute belongs is saved to persistent storage, the field for the transient attribute is not included. So, transient attributes are transient in the sense that they are part of the object at runtime, but not when the object is stored on disk. 
 
-This type of attribute has benefits when using the persistence mechanisms provided with EIffelStudio, like [http://eiffel.com/developers/learning_maps/Training/Maps/PersistenceCanPayOff/Serialization.html SED]. Because transient attributes are not stored, then they need not be accounted for upon retrieval. So, objects stored before changes to a class that only affect transient attributes will still be retrievable using the new class definition (whereas, if non-transient attributes were changed, a mismatch would occur during retrieval). 
+This type of attribute has benefits when using the persistence mechanisms provided with EiffelStudio, like [http://eiffel.com/developers/learning_maps/Training/Maps/PersistenceCanPayOff/Serialization.html SED]. Because transient attributes are not stored, then they need not be accounted for upon retrieval. So, objects stored before changes to a class that only affect transient attributes will still be retrievable using the new class definition (whereas, if non-transient attributes were changed, a mismatch would occur during retrieval). 
 
 An attribute is marked as transient by including a note option in its declaration:
 
