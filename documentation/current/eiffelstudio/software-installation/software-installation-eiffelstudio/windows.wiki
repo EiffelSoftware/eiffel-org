@@ -13,7 +13,7 @@
 | Windows 2000/XP/2003/Vista/Win7.
 |- 
 | '''C compiler'''
-| Microsoft Visual Studio 2005 or greater, or using gcc included in the EiffelStudio delivery (only for 32-bit)
+| Microsoft Visual Studio 2005 or greater, or using MinGW (gcc) included in the EiffelStudio delivery
 |- 
 | '''Memory'''
 | 512MB of RAM (1GB recommended).
