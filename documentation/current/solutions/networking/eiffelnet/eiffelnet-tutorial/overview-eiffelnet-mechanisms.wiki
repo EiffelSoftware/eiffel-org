@@ -67,6 +67,10 @@ In many cases, what you will want to send and receive is not just simple values 
 
 The basic mechanism enabling a system to send objects through EiffelNet is also the basic mechanism for storing objects into a file: class <code>STORABLE</code> from EiffelBase.
 
+
+{{note|Although this discussion uses the class <code>STORABLE</code>, it should be noted that this class will in the future be made obsolete by the classes in the Serialization (SED) subcluster of EiffelBase.}}
+
+
 As documented in [ [[Bibliography|2]] ], <code>STORABLE</code> provides features to store and retrieve complete object structures. There are three storage procedures, called under the respective forms
 <code>
 	struct1.basic_store (iom1)
