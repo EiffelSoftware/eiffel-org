@@ -176,7 +176,7 @@ Still, it's not too hard to understand the basics of initializing variables of a
 
 ===Self-initializing attributes===
 
-A self-initializing attribute is guaranteed to have a value when accessed at run time. Declarations of self-initializing attributes are characterized by the use of <code>attribute</code> keyword. The code that follows the <code>attribute</code> keyword is executed to initialize the attribute in the case that the attribute is accessed prior to being initialized in any other way. 
+A self-initializing attribute is guaranteed to have a value when accessed at run time. Declarations of self-initializing attributes are characterized by the use of the <code>attribute</code> keyword. The code that follows the <code>attribute</code> keyword is executed to initialize the attribute in the case that the attribute is accessed prior to being initialized in any other way. 
 
 So, self-initializing attributes are ordinary attributes, with the restriction that they are of both ''attached'' types and ''reference'' types (i.e., not expanded types or constants).  Self-initializing attributes still can be, and typically will be initialized in the traditional ways. The difference is that the code in the attribute part serves as a kind of safety net guaranteeing that a self-initializing attribute will never be void, even if it is accessed prior to being initialized by one of the traditional means.
 

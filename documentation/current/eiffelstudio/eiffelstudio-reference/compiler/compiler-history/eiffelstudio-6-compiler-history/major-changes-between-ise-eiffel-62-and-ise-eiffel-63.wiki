@@ -7,7 +7,7 @@
 {{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
 
 * Implemented proper runtime conformance for attached types, that is to say A [!ANY] will conform to A [!ANY] or A [?ANY], but A [?ANY] will only conform to A [?ANY]. 
-* Added support for the new <eiffel>attriibute</eiffel> keyword (support is  enabled when using the standard syntax option, i.e. the same option that allows you to use the <eiffel>note</eiffel> keyword.
+* Added support for the new <eiffel>attribute</eiffel> keyword (support is  enabled when using the standard syntax option, i.e. the same option that allows you to use the <eiffel>note</eiffel> keyword.
 
 ==Improvements==
 * Improved speed of compiler by about 10% overall.

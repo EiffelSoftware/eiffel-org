@@ -5,9 +5,6 @@
 ==What's new==
 
 {{seealso|See also: [[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
-* Support for new expanded semantics defined in ECMA-367.==What's new==
-
-{{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
 * Support for new expanded semantics defined in ECMA-367. The current limitations are: no copy semantics in the .NET code generation, and still no generic conformance.
 * Inline agents as defined in ECMA-367 with the limitation to only accept the do form.
 * Added possibility to define agents on attributes or externals.

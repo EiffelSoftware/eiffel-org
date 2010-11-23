@@ -8,12 +8,6 @@
 * Added support for multiple constraints in formal generic parameters.
 * The root class can now be a generic class, and thus one can now specify a root type.
 * The notion of creation readiness according to ECMA Eiffel standard (2nd edition, chapter 8.12.12) is implemented.
-* Added experimental option for full class checking. It can be enabled at the system, cluster or class level.==What's new==
-
-{{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
-* Added support for multiple constraints in formal generic parameters.
-* The root class can now be a generic class, and thus one can now specify a root type.
-* The notion of creation readiness according to ECMA Eiffel standard (2nd edition, chapter 8.12.12) is implemented.
 * Added experimental option for full class checking. It can be enabled at the system, cluster or class level. However not all our code has been compiled with this option so don't be surprised if you get errors in our libraries. The next release should fix all the remaining issues.
 * Integers can now also be specified with binary and octal representation.
 * Manifest characters can now also be specified with binary, octal and hexadecimal representation. Manifest characters can be specified up to 32 Bit.
