@@ -3,7 +3,8 @@
 [[Property:uuid|fa08d5aa-7ea4-e7bb-bb59-e4982a583976]]
 Metrics will be expressed in units, such as Line (numbers of source lines) or Feature (number of features).
 
-{{definition|Unit rule|The definition of any metric must specify an associated unit. }}
+{{rule|name=Unit rule|text=The definition of any metric must specify an associated unit. }}
+
 
 Different metrics may be marked with the same unit; for example metrics such as number of non-comment lines and number of comment lines may both be marked with the unit Line.
 
