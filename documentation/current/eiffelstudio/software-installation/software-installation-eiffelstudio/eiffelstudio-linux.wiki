@@ -43,6 +43,12 @@ The command should succeed and the version number of GTK+ should appear. If it i
 
 On some Linux distribution the Xtst library is required but not installed by default. You have to make sure it is installed by using the instruction of your Linux distribution.
 
+For example, on Debian based distribution you need to do:
+<code>
+sudo apt-get install libgtk2.0-dev
+sudo apt-get install libxtst-dev
+</code>
+
 ==Installing EiffelStudio from the Web==
 
 After downloading the installation package, you should manually extract its contents to your hard drive. For example, you can extract it into /usr/local using the following commands (assuming that you have permission to /usr/local and that the installation package was saved in /tmp/EiffelXX.tar.bz2, where XX stands for the EiffelStudio version):

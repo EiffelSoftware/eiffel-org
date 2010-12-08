@@ -61,7 +61,7 @@ This probably means that EiffelStudio was not properly installed using the '''se
 
 ==.NET Support==
 
-To enable .NET support in EiffelStudio, it is necessary to install the Microsoft .NET Framework prior to starting the installation of EiffelStudio. EiffelStudio currently supports versions 1.0 and 1.1 of the .NET Framework. Partial support for the .NET Framework 2.0 beta has been added in this version of EiffelStudio.
+To enable .NET support in EiffelStudio, it is necessary to install the Microsoft .NET Framework prior to starting the installation of EiffelStudio. EiffelStudio currently supports all the versions of the .NET Framework up to 4.0.
 
 ==What about Windows 95, 98 and Me?==
 
