@@ -8,7 +8,8 @@
 ===Improvements===
 * Allowed to filter C compiler warnings in the Error and Warning tool.
 * Accept license.lic and licence.lic as a way to perform automatic licensing during saving.
-* Added filter functionality to the "Add Library" dialog
+* Added filter functionality to the "Add Library" dialog.
+* Added a new XML (lite) library which is void-safe without Unicode support.
 
 ===Changes===
 
