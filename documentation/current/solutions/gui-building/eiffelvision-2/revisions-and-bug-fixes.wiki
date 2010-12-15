@@ -3,6 +3,21 @@
 [[Property:uuid|eb11a237-0c75-0427-452a-303d4f276b97]]
 This document contains details of modifications and bug fixes to the EiffelVision 2 library listed by the release version of EiffelStudio. All bug fixes and modifications are relative to the previously released version.
 
+==EiffelStudio 6.7==
+
+'''Improvements'''
+* Optimized integration with EiffelGraph library for improved projection speed and efficiency
+
+'''Bug fixes'''
+*'''Platform Independent'''
+** Fixed various catcalls at runtime.
+
+*'''Unix''''
+** Fixed an initialization issue due to recent changes in the GTK API.
+
+*'''Windows'''
+** Fixed an issue with EV_TREE, EV_LIST, EV_HEADER, EV_TOOL_BAR and EV_MULTI_COLUMN_LIST where setting a pebble on the control (not just the item) would allow pick and drop but the line drawn was restricted to the control.
+
 ==EiffelStudio 6.6==
 
 '''Improvements'''
