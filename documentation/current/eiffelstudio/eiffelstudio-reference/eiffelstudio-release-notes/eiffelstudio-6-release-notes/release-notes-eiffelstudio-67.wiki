@@ -6,8 +6,8 @@
 
 ===What's new===
 ===Improvements===
-* Allowed to filter C compiler warnings in the Error and Warning tool.
-* Accept license.lic and licence.lic as a way to perform automatic licensing during saving.
+* Allows filtering of C compiler warnings in the Error and Warning tool.
+* Accepts "license.lic" and "licence.lic" as a way to perform automatic licensing during saving.
 * Added filter functionality to the "Add Library" dialog.
 * Added a new XML (lite) library which is void-safe without Unicode support.
 
@@ -22,8 +22,6 @@
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 6.6 and ISE Eiffel 6.7|here]]  for the compiler release notes.
 
-== AutoTest==
-
 ==Debugger==
 * Click [[Release notes for EiffelStudio 6.7 related to the debugger|here]]  for the EiffelStudio debugger release notes.
 
@@ -34,13 +32,13 @@
 
 ===EiffelBase===
 * <e>ARRAY</e>:
-** Made <e>{ARRAY}.make</e> and <e>{ARRAY}.conservative_resize</e> obsolete as they are not void safe. Instead use <e>{ARRAY}.make_empty</e>, <e>{ARRAY}.make_filled</e> or <e>{ARRAY}.conservative_resize_with_default</e>.
+** Made <e>{ARRAY}.make</e> and <e>{ARRAY}.conservative_resize</e> obsolete as they are not void safe. Alternative recommendation is to use <e>{ARRAY}.make_empty</e>, <e>{ARRAY}.make_filled</e> or <e>{ARRAY}.conservative_resize_with_default</e>.
 ** Added <e>{ARRAY}.rebase</e> that would help creating an empty array with a given `lower'. 
-** Rewrote <e>BOUNDED_QUEUE</e> and <e>BOUNDED_STACK</e> to use the same implementation of <e>ARRAYED_QUEUE</e> and <e>ARRAYED_STACK</e>, the only difference is that `extendible' is defined to be False. The `correct_mismatch' feature has been updated to ensure retrieval.
+** <e>BOUNDED_QUEUE</e> and <e>BOUNDED_STACK</e> have been rewritten to use the same implementation of <e>ARRAYED_QUEUE</e> and <e>ARRAYED_STACK</e>, the only difference is that `extendible' is defined to be False. The `correct_mismatch' feature has been updated to ensure retrieval.
 * <e>FORMAT_DOUBLE</e>:
-** Fixed eweasel test#lib036 in <e>FORMAT_DOUBLE</e>where `pad_fraction' did not process properly when one decided to not show the trailing zeros and there were only zeros after the decimal point.
+** Fixed eweasel test#lib036 in <e>FORMAT_DOUBLE</e> where `pad_fraction' did not process properly when one decided to not show the trailing zeros and there were only zeros after the decimal point.
 ** Fixed the post-condition of <e>{FORMAT_DOUBLE}.pad_fraction</e> to reflect that the count is set to `decimals' but only when one shows the trailing zeros.
-* Added <e>WEAK_REFERENCE</e> to allow weak references in an Eiffel system. This supersedes the <e>IDENTIFIED</e> class which required to change your code to allow weak referencing. Currently the class is only implemented for classic Eiffel, it is not available when compiling for .NET. 
+* Added <e>WEAK_REFERENCE</e> to allow weak references in an Eiffel system. This supersedes the <e>IDENTIFIED</e> class which made it necessary to change one's code to allow weak referencing. Currently the class is only implemented for classic Eiffel; it is not available when compiling for .NET. 
 * Added new Eiffel tracing facility classes <e>TRACING_HANDLER</e> and <e>TRACING_SETTING</e> which let you capture some information about the current execution via callbacks.
 * Fixed eweasel test#list010 with twinning and deep_twinning of a <e>FIXED_LIST</e> that would reset `capacity' to `count'.
 * Added <e>{TYPE}.is_expanded</e> to find out if a type is expanded or not.

@@ -22,10 +22,14 @@
 * Fixed various issues related to once per object: test#once001, test#once002, test#once003, test#once004, test#once005, test#once006, test#once007, test#once008, test#once009, test#once010, test#once011, test#incr366, test#incr376, test#incr384.
 * Fixed various incrementality bugs: test#incr295 test#incr302 test#incr307 test#incr309 test#incr324 test#incr331 test#incr332 test#incr346 test#incr372 test#incr373 test#incr374. 
 * Fixed eweasel test#exec327 where evaluation an assertion the code being executed encounter the new check ... then ... end instruction it would reset some internal flags causing assertion within assertions to be checked when they should not.
+* Fixed eweasel test#valid243, test#svalid028, test#svalid029, test#tuple004, test#freez032 and test#multicon058. The issue was that when we performed the type checking of inherited routines using prefix/infix we were not using the new name of the prefix/infix operator but still the old one. Thus if it was renamed it would cause a spurious compilation error instead of accepting the code.
 
 ===Runtime/code generation issues===
 * When running an Eiffel system on Windows without assertion monitoring and you try to write a file that is not yet open, it will trigger an exception instead of silently exiting.
 * Fixed eweasel test#thread016 where we forget to protect arguments used for catcall checking.
+* Fixed building of shared libraries of CECIL system which failed on Windows.
+* Fixed eweasel test#ccomp085 where compiler ensures that the order of includes of an Eiffel external is respected at compile time.
+* Fixed eweasel test#exec326 by properly generating the REAL_32 values for {REAL_32}.min_value and {REAL_32}.max_value.
 
 ===Store/Retrieve issues===
 * Prevented the C storable to block all threads while waiting from data to be read in retrieved. Now we would wait for the storable type first before blocking all the other runtime threads. This fixes bug#16859.
