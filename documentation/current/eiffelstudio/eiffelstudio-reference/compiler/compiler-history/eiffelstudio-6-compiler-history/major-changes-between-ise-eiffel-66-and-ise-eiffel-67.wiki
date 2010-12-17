@@ -6,7 +6,7 @@
 {{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
 * EiffelStudio can use GCC on Windows for both 32-bit and 64-bit edition. We are using version 4.4.5 of gcc.
 * EiffelStudio can now parse UTF-8 source code. Unicode characters can be used in strings, comments and operators.
-* New tracing facility from Eiffel code. So far tracing was done at the runtime level by writing to the standard output. This new tracing facility let you execute some user defined Eiffel code at entry and exit of all routine calls. It can be used for logging purposes, or for test coverage.
+* New tracing facility for Eiffel code. Until now tracing was done at the runtime level by writing to the standard output. The new tracing facility lets you execute some user defined Eiffel code at entry and exit of all routine calls. It can be used for logging purposes, or for test coverage.
 
 ==Improvements==
 * Allowed for a qualified anchored type that has a standalone type qualifier to be used as a type of a once function *bug#16947, test#anchor050).
@@ -32,8 +32,8 @@
 * Fixed eweasel test#exec326 by properly generating the REAL_32 values for {REAL_32}.min_value and {REAL_32}.max_value.
 
 ===Store/Retrieve issues===
-* Prevented the C storable to block all threads while waiting from data to be read in retrieved. Now we would wait for the storable type first before blocking all the other runtime threads. This fixes bug#16859.
-* Fixed bug#16946 and eweasel test#store032 where a corruption could occur if an object is stored in a different thread than the main thread.
+* Prevented the C storable from blocking all threads while waiting from data to be read in <e>retrieved</e>. Now control waits for the storable type first before blocking all the other runtime threads. This fixes bug#16859.
+* Fixed bug#16946 and eweasel test#store032 where corruption could occur if an object is stored in a different thread than the main thread.
 
 
 
