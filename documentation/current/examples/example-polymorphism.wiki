@@ -1,0 +1,218 @@
+[[Property:title|Example: Polymorphism]]
+[[Property:weight|0]]
+[[Property:uuid|e4a9db32-c087-21b7-f0d6-4685f0ce249d]]
+==Description==
+
+Create a class POINT and its heir CIRCLE to demonstrate polymorphic attachment and dynamic binding.
+
+
+==Source==
+
+Problem description from [http://rosettacode.org/wiki/Polymorphism Rosetta Code]
+
+Solution varies from Rosetta Code description (e. g., feature <code>out</code> is redefined in this solution, versus feature <code>print</code>.)
+
+==Solution==
+
+<code>
+class
+    POINT
+inherit
+    ANY
+        redefine
+            out
+        end
+create
+    make, make_origin
+
+feature -- Initialization
+
+    make (a_x, a_y: INTEGER)
+            -- Create with values `a_x' and `a_y'
+        do
+            set_x (a_x)
+            set_y (a_y)
+        ensure
+            x_set: x = a_x
+            y_set: y = a_y
+        end
+
+    make_origin
+            -- Create at origin
+        do
+        ensure
+            x_set: x = 0
+            y_set: y = 0
+        end
+
+feature -- Access
+
+    x: INTEGER assign set_x
+            -- Horizontal axis coordinate
+
+    y: INTEGER assign set_y
+            -- Vertical axis coordinate
+
+feature -- Element change
+
+    set_x (a_x: INTEGER)
+            -- Set `x' coordinate to `a_x'
+        do
+            x := a_x
+        ensure
+            x_set: x = a_x
+        end
+
+    set_y (a_y: INTEGER)
+            -- Set `y' coordinate to `a_y'
+        do
+            y := a_y
+        ensure
+            y_set: y = a_y
+        end
+
+feature -- Output
+
+    out: STRING
+            -- Display as string
+        do
+            Result := "Point:   x = " + x.out + "   y = " + y.out
+        end
+end
+</code>
+
+
+<code>
+class
+    CIRCLE
+
+inherit
+    POINT
+        rename
+            make as point_make
+        redefine
+            make_origin,
+            out
+        end
+create
+    make, make_origin, make_from_point
+
+feature -- Initialization
+
+    make (a_x, a_y, a_r: INTEGER)
+            -- Create with values `a_x' and `a_y' and `a_r'
+        require
+            non_negative_radius_argument: a_r >= 0
+        do
+            point_make (a_x, a_y)
+            set_r (a_r)
+        ensure
+            x_set: x = a_x
+            y_set: y = a_y
+            r_set: r = a_r
+        end
+
+    make_origin
+            -- Create at origin with zero radius
+        do
+            Precursor
+        ensure then
+            r_set: r = 0
+        end
+
+    make_from_point (a_p: POINT; a_r: INTEGER)
+            -- Initialize from `a_r' with radius `a_r'.
+        require
+            non_negative_radius_argument: a_r >= 0
+        do
+            set_x (a_p.x)
+            set_y (a_p.y)
+            set_r (a_r)
+        ensure
+            x_set: x = a_p.x
+            y_set: y = a_p.y
+            r_set: r = a_r
+        end
+
+feature -- Access
+
+    r: INTEGER assign set_r
+            -- Radius
+
+feature -- Element change
+
+    set_r (a_r: INTEGER)
+            -- Set radius (`r') to `a_r'
+        require
+            non_negative_radius_argument: a_r >= 0
+        do
+            r := a_r
+        ensure
+            r_set: r = a_r
+        end
+
+feature -- Output
+
+    out: STRING
+            -- Display as string
+        do
+            Result := "Circle:  x = " + x.out + "   y = " + y.out + "   r = " + r.out
+        end
+
+invariant
+
+    non_negative_radius: r >= 0
+
+end
+</code>
+
+
+<code>
+class
+    APPLICATION
+
+create
+    make
+
+feature {NONE} -- Initialization
+
+    make
+            -- Run application.
+        local
+            my_point: POINT
+            my_circle: CIRCLE
+        do
+            create my_point.make_origin
+            print (my_point.out + "%N")
+
+            create {CIRCLE} my_point.make_origin
+            print (my_point.out + "%N")
+
+            create my_point.make (10, 15)
+            print (my_point.out + "%N")
+
+            create {CIRCLE} my_point.make (20, 25, 5)
+            print (my_point.out + "%N")
+
+            create my_circle.make (30, 35, 10)
+            print (my_circle.out + "%N")
+
+            create my_circle.make_from_point (my_point, 35)
+            print (my_circle.out + "%N")
+        end
+
+end
+</code>
+
+
+==Output==
+
+<code lang="text">
+Point:   x = 0   y = 0
+Circle:  x = 0   y = 0   r = 0
+Point:   x = 10   y = 15
+Circle:  x = 20   y = 25   r = 5
+Circle:  x = 30   y = 35   r = 10
+Circle:  x = 20   y = 25   r = 35
+</code>
+
