@@ -983,7 +983,11 @@ Likewise the compiler in EiffelStudio will produce warnings in cases in which ca
 
 So far, our experience with inheritance is that of "conforming" inheritance ... the most commonly used type of inheritance. Conforming inheritance is what allows a direct instance (in the '''catcall''' example above) of <code>COW</code> to be attached at runtime to an entity of type <code>ANIMAL</code>. This can be a powerful modeling capability, but it is this same polymorphism facilitated by conforming inheritance that puts us in the danger of using polymorphic '''catcalls'''. 
 
-In cases in which polymorphic attachment is not anticipated, the possibility of catcalls can be avoided by using '''non-conforming inheritance'''. Non-conforming inheritance is just a more restrictive form of inheritance. It allows features to be inherited from parent to heir, but it disallows polymorphic attachment of a direct instance of an heir to an entity based on a non-conforming parent.
+In cases in which polymorphic attachment is not anticipated, the possibility of catcalls can be avoided by using '''non-conforming inheritance'''. Non-conforming inheritance is just a more restrictive form of inheritance. 
+
+
+:'''Non-conforming inheritance allows features to be inherited from parent to heir, but it disallows polymorphic attachment of a direct instance of an heir to an entity based on a non-conforming parent.'''
+
 
 In order to use non-conforming inheritance for a particular parent, we use the marker <code>{NONE}</code> in the appropriate inheritance part of the class:
 

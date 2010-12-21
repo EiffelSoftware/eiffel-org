@@ -8,7 +8,7 @@ Create a class POINT and its heir CIRCLE to demonstrate polymorphic attachment a
 
 ==Source==
 
-Problem description from [http://rosettacode.org/wiki/Polymorphism Rosetta Code]
+Problem description from [http://rosettacode.org/wiki/Polymorphism Rosetta Code: Polymorphism]
 
 Solution varies from Rosetta Code description (e. g., feature <code>out</code> is redefined in this solution, versus feature <code>print</code>.)
 
