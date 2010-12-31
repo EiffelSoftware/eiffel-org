@@ -19,7 +19,7 @@ So, all preferences belong to a <eiffel>PREFERENCE_MANAGER</eiffel>. The manager
             has_preferences: preferences /= Void
             inserted_in_preferences: preferences.has_manager (namespace)
             has_namespace: namespace /= Void
-            namesapce_valid: not a_namespace.is_empty
+            namespace_valid: not a_namespace.is_empty
         end
 </code>
 
