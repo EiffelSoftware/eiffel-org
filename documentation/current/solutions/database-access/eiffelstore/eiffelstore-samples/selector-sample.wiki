@@ -17,17 +17,10 @@ To compile the example:
 
 ==Running==
 
-Before running this sample, one must do link a specific file to data.sql as follows: 
+In order to run this example, you must first create a file named <code>data.sql</code> from one of the files in the <code lang="text">select</code> example directory. You will see that the <code>data.sql</code> files in the example directory include the names of the available DBMS handles. This is because the SQL can differ from one DBMS to another. For example, you'll see <code>data.sql.oracle</code> and <code>data.sql.odbc</code>. If you are using the Oracle DBMS, you should rename or make a copy of <code>data.sql.oracle</code> as <code>data.sql</code> and move it to your execution directory before running the example.
 
-With Oracle: 
 
-''ln data.sql.oracle data.sql'' 
-
-With ODBC: 
-
-''ln data.sql.odbc data.sql'' 
-
-{{caution|The ''data.sql'' file must be available in the sample application current directory. If you run the sample from EiffelStudio, this directory should be the ''EIFGENs/target/W_CODE/'' directory of your project (where target is one of the installed DBMS). }}
+{{note|The <code>data.sql</code> file must be available in the sample application current directory. If you run the sample from EiffelStudio, this directory should be the ''EIFGENs/target/W_CODE/'' directory of your project (where target is one of the installed DBMS). }}
 
 This sample lets you interact with your database through a console. 
 
