@@ -26,5 +26,7 @@ However, breakpoints can be set in assertions (require and ensure). }}
 {{tip|You can relocate a breakpoint by '''Ctrl+RightClick''' on a breakpoint [[Image:bp-enabled-conditional-icon]] and '''Ctrl+RightClick''' on an empty breakpoint location  [[Image:bp-slot-icon]] }}
 
 
+{{tip|to go to the line corresponding to a specific breakpoint index, just use Ctrl+G, enter the index, and the corresponding line should appear selected}}
+
 
 

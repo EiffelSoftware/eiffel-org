@@ -13,6 +13,7 @@ To compile the example:
 * Choose ''cursors.ecf''
 * Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
 * Click '''OK'''. 
+* After the example compiles, select menu path "<code lang="text">Project -> Freeze...</code>" to freeze the project. This is necessary to include the compiled resource (.rc) file.
 
 ==Running==
 
