@@ -1,0 +1,43 @@
+[[Property:title|Tracing]]
+[[Property:weight|8]]
+[[Property:uuid|69b8b724-1820-6cae-211c-6edbce9a6a6b]]
+{{UnderConstruction}}
+
+
+The '''tracing facility''' allows you to see a structured log of the flow of control through your system, feature by feature. By default, execution traces are written to standard output. 
+
+You can enable tracing for a particular cluster by setting the '''Trace''' setting to '''True''' in your project settings for a particular cluster.
+
+To do this:
+* Open the [[Group Options|Project Settings]]  dialog. 
+* Under '''Clusters''' select the cluster you want to see traced. 
+* Set the value of '''Trace''' to '''True'''.
+* Click '''Apply''' or '''OK'''. 
+* You must [[Generating executables|recompile]]  your project for the changes to take effect. 
+
+This will cause a trace entry to be written to the console for any feature execution on a class in the cluster(s) you selected for tracing. To get a feel for this, look at the following trace outputs, built on the default Eiffel application ("Hello Eiffel World!).
+
+It is also possible to dynamically start and stop tracing. To do this:
+* Create an object of type [[ref:/libraries/base/reference/tracing_setting_chart|TRACING_SETTING]] . 
+* Call [[ref:libraries/base/reference/tracing_setting_flatshort|enable_tracing]]  on this object to start the trace. 
+* Call [[ref:libraries/base/reference/tracing_setting_flatshort|disable_tracing]]  on this object to stop the trace. 
+
+{{tip|To enable tracing on only part of a system, disable tracing at the very beginning of the program, enable it just before the part of the code that should be traced, and then disable it again after this section. The code below illustrates this tip. }}
+
+In the root feature:
+
+<code>
+        local
+            ts: TRACING_SETTING
+                -- Other local variables if necessary.
+        do
+            create ts.make
+            ps.disable_tracing
+                -- Program execution continues.
+            ps.enable_tracing
+        end</code>
+
+
+
+
+
