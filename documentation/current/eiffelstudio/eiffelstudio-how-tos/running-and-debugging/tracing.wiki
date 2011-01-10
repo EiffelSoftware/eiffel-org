@@ -1,12 +1,15 @@
 [[Property:title|Tracing]]
 [[Property:weight|8]]
-[[Property:uuid|69b8b724-1820-6cae-211c-6edbce9a6a6b]]
+[[Property:uuid|ecb9dd1e-52a9-25c4-b27b-4b5ec806b115]]
 {{UnderConstruction}}
 
+=Introduction=
 
 The '''tracing facility''' allows you to see a structured log of the flow of control through your system, feature by feature. By default, execution traces are written to standard output. 
 
-You can enable tracing for a particular cluster by setting the '''Trace''' setting to '''True''' in your project settings for a particular cluster.
+=The "Trace" project setting=
+
+You can make tracing usable for a particular cluster by setting the '''Trace''' setting to '''True''' in your project settings for a particular cluster.
 
 To do this:
 * Open the [[Group Options|Project Settings]]  dialog. 
@@ -17,12 +20,33 @@ To do this:
 
 This will cause a trace entry to be written to the console for any feature execution on a class in the cluster(s) you selected for tracing. To get a feel for this, look at the following trace outputs, built on the default Eiffel application ("Hello Eiffel World!).
 
-It is also possible to dynamically start and stop tracing. To do this:
+First, here's what the "Hello Eiffel World!" output looks like without using the tracing facility.
+
+
+[[Image:Tracing 01 off]]
+
+
+Next, here's the output when the '''Trace''' project setting is set to '''True''' on the root cluster.
+
+
+[[Image:Tracing 01 on]]
+
+
+Last, here's the output when '''Trace''' is '''True''' for both the root cluster and EiffelBase.
+
+
+[[Image:Tracing 01 with EiffelBase]]
+
+
+=Dynamic control=
+
+It is also possible to enable and disable the trace dynamically. To do this:
 * Create an object of type [[ref:/libraries/base/reference/tracing_setting_chart|TRACING_SETTING]] . 
 * Call [[ref:libraries/base/reference/tracing_setting_flatshort|enable_tracing]]  on this object to start the trace. 
 * Call [[ref:libraries/base/reference/tracing_setting_flatshort|disable_tracing]]  on this object to stop the trace. 
 
 {{tip|To enable tracing on only part of a system, disable tracing at the very beginning of the program, enable it just before the part of the code that should be traced, and then disable it again after this section. The code below illustrates this tip. }}
+
 
 In the root feature:
 
@@ -34,8 +58,25 @@ In the root feature:
             create ts.make
             ps.disable_tracing
                 -- Program execution continues.
-            ps.enable_tracing
-        end</code>
+                    ...
+        end
+</code>
+
+
+Then, in a feature in which tracing is desired:
+
+<code>
+        local
+            ts: TRACING_SETTING
+                -- Other local variables if necessary.
+        do
+            create ts.make
+            ps.enable_tracing    -- Enable trace
+                    -- Section needing trace.
+                ...
+            ps.disable_tracing    -- Disable trace
+        end
+</code>
 
 
 
