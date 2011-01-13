@@ -11,6 +11,10 @@
 
 The '''tracing facility''' allows you to see a structured log of the flow of control through your system, feature by feature. By default, execution traces are written to standard output. 
 
+
+{{note|The tracing facility is not supported on the Microsoft .NET platform.}}
+
+
 =The "Trace" project setting=
 
 You can make tracing usable for a particular cluster by setting the '''Trace''' setting to '''True''' in your project settings for a particular cluster.
