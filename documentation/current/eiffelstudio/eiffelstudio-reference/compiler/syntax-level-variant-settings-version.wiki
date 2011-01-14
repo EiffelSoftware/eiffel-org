@@ -28,18 +28,14 @@ The options are distinguished by how the compiler handles the processing of cert
 |}
 
 
-
-
 {| border="1" style="border-collapse: collapse; border-style: solid;"
 |+ '''Constructs affected by the ''syntax'' project setting'''
-! rowspan="2" style="valign: center;" | Release
-! colspan="4" | Setting value*
+! rowspan="2" style="text-align: center; valign: center;" | Release
+! colspan="4" style="text-align: center;" | Setting value*
 |-
 ! Obsolete !! Transitional !! Standard !! Provisional
-
-
 |-
-! rowspan="9" style="valign: center;" | [[Release notes for EiffelStudio 6.7 | 6.7]]
+! rowspan="9" style="valign: center; text-align: center;" | [[Release notes for EiffelStudio 6.7 | 6.7]]
 | style="color: gray;" | across
 | style="color: gray;" | across
 | style="color: gray;" | across
@@ -86,9 +82,8 @@ The options are distinguished by how the compiler handles the processing of cert
 | style="color: maroon;" | '''some'''
 |-
 | colspan="5" |
-
 |-
-! rowspan="9" style="valign: center;" | [[Release notes for EiffelStudio 6.6 | 6.6]]
+! rowspan="9" style="valign: center; text-align: center;" | [[Release notes for EiffelStudio 6.6 | 6.6]]
 | style="color: gray;" | across
 | style="color: gray;" | across
 | style="color: gray;" | across
@@ -133,8 +128,6 @@ The options are distinguished by how the compiler handles the processing of cert
 | style="color: gray;" | some
 | style="color: gray;" | some
 | style="color: maroon;" | '''some'''
-
-
 |}
 
 
