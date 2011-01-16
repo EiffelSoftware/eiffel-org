@@ -87,6 +87,73 @@ Then, in a feature in which tracing is desired:
 </code>
 
 
+=Using a trace handler=
+
+You can do more complex tracing tasks by using a trace handler. The deferred class <code>TRACE_HANDLER</code> contains a deferred feature <code>trace</code> which you can effect in a descendant of <code>TRACE_HANDLER</code>. Your effective version of <code>trace</code> will be called whenever a trace event occurs. <code>{TRACE_HANDLER}.trace</code> looks like this:
+
+<code>
+    trace (a_type_id: INTEGER; a_c_class_name, a_c_feature_name: POINTER; a_depth: INTEGER; a_is_entering: BOOLEAN)
+            -- Trigger a trace operation from a feature represented by `a_c_feature_name' defined in
+            -- class `a_c_class_name' and applied to an object of type `a_type_id' at a call depth `a_depth'.
+            -- If `a_is_entering' we are entering the routine, otherwise we are exiting it.			
+        require
+            a_type_id_non_negative: a_type_id >= 0
+            a_depth_non_negative: a_depth >= 0
+        deferred
+        end
+</code>
+
+You may notice in the specification for <code>trace</code> above that the arguments representing the class and feature names are of type <code>POINTER</code> (versus some variant of <code>STRING</code>). 
+
+To make this facility more approachable for common tasks, EiffelBase also contains another class, a deferred descendant of <code>TRACING_HANDLER</code>, called <code>STRING_TRACING_HANDLER</code> in which the <code>trace</code> feature's arguments for class and feature names are strings, and the argument for type is an instance of <code>TYPE</code> rather than an integer type id as in <code>TRACING_HANDLER</code>. <code>{STRING_TRACING_HANDLER}.trace</code> looks like this:
+
+<code>
+    trace (a_type: TYPE [detachable ANY]; a_class_name, a_feature_name: detachable STRING; a_depth: INTEGER; a_is_entering: BOOLEAN)
+            -- Trigger a trace operation from a feature represented by `a_feature_name' defined in
+            -- class `a_class_name' and applied to an object of type `a_type' at a call depth `a_depth'.
+            -- If `a_is_entering' we are entering the routine, otherwise we are exiting it.			
+        deferred
+        end
+</code>
+
+Suppose we wanted to write trace long entries in a private log file for the entry and exit of a number of routines during the run of a simple application. We could create a descendant of <code>STRING_TRACING_HANDLER</code> that looks like this: 
+
+<code>
+class
+    EXAMPLE_HANDLER
+inherit
+    STRING_TRACING_HANDLER
+
+feature
+
+    trace (a_type: TYPE [ANY]; a_class_name, a_feature_name: STRING_8; a_depth: INTEGER_32; a_is_entering: BOOLEAN)
+            -- <Precursor>
+        do
+            trace_log_file.put_string (create {STRING}.make_filled ('>', a_depth))
+            if a_is_entering then
+                trace_log_file.put_string (" Is entering " + "{" + a_class_name + "}." + a_feature_name + "%N")
+            else
+                trace_log_file.put_string (" Is leaving  " + "{" + a_class_name + "}." + a_feature_name + "%N")
+            end
+        end
+
+    trace_log_file: PLAIN_TEXT_FILE 
+            -- Log file
+        once
+            create Result.make_open_write ("my_log_file.txt")
+        end
+
+    close_log_file
+            -- Close log file
+        do
+            trace_log_file.close
+        end
+end
+</code>
+
+In <code>EXAMPLE_HANDLER</code> the procedure <code>trace</code> is effected to write the desired information to the <code>log_file</code>. 
+
+The application using <code>EXAMPLE_HANDLER</code> might look like this:
 
 
 
