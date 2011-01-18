@@ -19,6 +19,30 @@ Each documentation page has an associated '''Comments''' page. Any viewer can ad
 # '''Any material you add to this site becomes the property of Eiffel Software, and may be shared with the community.'''
 # Comments pages should ''not'' be used for product support questions, product feature requests, or bug reports. ''Comments of this sort will be deleted.'' For help with products join the [http://eiffel.com/developers/usergroup.html Eiffel Software User Group] and use the resources at the [http://community.eiffel.com Eiffel Community site]. 
 
+=====Comment lifecycle=====
+
+Although the procedure for how editors deal with comments is flexible, some general guidelines can be given:
+
+# For comments requesting action (e. g., fix a problem, add more information):
+## For those actions which can be accomplished immediately:
+### The comment will not be published.
+### The requested action will be fixed.
+### The original comment's subject line will be prepended with "FIXED".
+## For those actions which cannot be accomplished quickly or require special handling:
+### The comment will be published
+### A response to the comment will be made via "reply", and
+#### The original comment's subject line will be prepended with:
+##### FIXED, if and when the request can be satisfied.
+##### ANALYZED, otherwise, plus explanation of delayed or not acting on request.
+## For actions affecting docs.eiffel.com plus the Eiffel distribution:
+### Submit a problem report requesting feedback when problem is fixed so that docs.eiffel.com can be updated in kind.
+# For comments not requesting action, but adding relevant information related to the page:
+## The comment will be published.
+## If appropriate: 
+### The content of the comment will be integrated into the page.
+### The original comment's subject line prepended with FIXED.
+# Periodically, an audit will remove older comments marked as FIXED and ANALYZED.
+
 ===Contributors and Editors===
 
 If you are interested in a more active role in improving and developing EiffelStudio documentation, you can become:

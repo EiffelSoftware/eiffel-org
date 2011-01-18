@@ -153,7 +153,68 @@ end
 
 In <code>EXAMPLE_HANDLER</code> the procedure <code>trace</code> is effected to write the desired information to the <code>log_file</code>. 
 
-The application using <code>EXAMPLE_HANDLER</code> might look like this:
+Then we could use <code>EXAMPLE_HANDLER</code> in a class that might look like this:
+
+<code>
+class
+    APPLICATION
+
+create
+    make
+
+feature
+
+    make
+            -- Run application.
+        local
+            tracing_setting: TRACING_SETTING
+            tracing_handler: EXAMPLE_HANDLER
+        do
+            create tracing_setting
+            tracing_setting.enable_tracing
+            create tracing_handler
+            tracing_handler.activate
+
+            call_depth_one
+
+            tracing_handler.deactivate
+            tracing_handler.close_log_file
+            tracing_setting.disable_tracing
+    end
+
+    call_depth_one
+            -- Call depth one routine
+        do
+            call_depth_two
+        end
+
+    call_depth_two
+            -- Call depth two routine
+        do
+            call_depth_three
+        end
+
+    call_depth_three
+            -- Call depth three routine
+        do
+
+        end
+end
+</code>
+
+In <code>{APPLICATION}.make</code>, the instances of <code>TRACING_SETTING</code> and <code>EXAMPLE_HANDLER</code> are created. Tracing is enabled and the handler is activated. After the section of interest, the handler is deactivated, the log file closed, and tracing disabled.
+
+Now consider a system in which <code>{APPLICATION}.make</code> is the root, <code>APPLICATION</code> is the only class in the root cluster, and that the project setting '''Trace''' is true for the root cluster only. After running the system, the content of <code>my_log_file.txt</code> would be:
+
+<code lang="text">
+> Is entering {APPLICATION}.call_depth_one
+>> Is entering {APPLICATION}.call_depth_two
+>>> Is entering {APPLICATION}.call_depth_three
+>>> Is leaving  {APPLICATION}.call_depth_three
+>> Is leaving  {APPLICATION}.call_depth_two
+> Is leaving  {APPLICATION}.call_depth_one
+</code>
+
 
 
 
