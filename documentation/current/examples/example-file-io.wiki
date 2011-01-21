@@ -1,7 +1,6 @@
-[[Property:title|File IO]]
-[[Property:link_title|Example: File IO]]
+[[Property:title|Example: File IO]]
 [[Property:weight|0]]
-[[Property:uuid|c6dda104-bd09-a00d-58b5-0d536e95d0c1]]
+[[Property:uuid|b26aa8e3-5963-94ae-b523-642c8b79637b]]
 ==Description==
 
 Create a file "output.txt" containing the contents of "input.txt".
@@ -27,6 +26,7 @@ feature {NONE} -- Initialization
         do
             create input_file.make_open_read ("input.txt")
             create output_file.make_open_write ("output.txt")
+
             from
 
             until
@@ -36,6 +36,9 @@ feature {NONE} -- Initialization
                 output_file.put_string (input_file.last_string)
                 output_file.new_line
             end
+
+            input_file.close
+            output_file.close
         end
 
 feature -- Access
