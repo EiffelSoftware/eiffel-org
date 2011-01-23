@@ -28,13 +28,12 @@ feature {NONE} -- Initialization
             create output_file.make_open_write ("output.txt")
 
             from
-
+                input_file.read_character
             until
                 input_file.exhausted
             loop
-                input_file.read_line
-                output_file.put_string (input_file.last_string)
-                output_file.new_line
+                output_file.put (input_file.last_character)
+                input_file.read_character
             end
 
             input_file.close
