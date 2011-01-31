@@ -229,7 +229,7 @@ Postcondition semantics are characterized as follows:
 
 ===Class invariants===
 
-TThe '''separate argument rule''' above tells us that separate calls are valid only on targets which are formal arguments of their enclosing routines. Because class invariants are not routines and therefore have no arguments, separate calls are not allowed in class invariants. 
+The '''separate argument rule''' above tells us that separate calls are valid only on targets which are formal arguments of their enclosing routines. Because class invariants are not routines and therefore have no arguments, separate calls are not allowed in class invariants. 
 
 The semantics of class invariants will be the same as in sequential Eiffel, precisely because invariants must include only non-spearate calls. To put it the terms of SCOOP, the class invariant ensuring the validity of any particular object will be evaluated entirely by the processor handling that object.
 
