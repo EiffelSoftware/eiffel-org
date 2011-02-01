@@ -677,6 +677,7 @@ An attribute is marked as transient by including a note option in its declaratio
     transient_attribute: detachable STRING
         note 
            option: transient 
+        attribute
         end
 </code>
 
