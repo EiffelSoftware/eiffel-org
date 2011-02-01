@@ -669,7 +669,7 @@ These attribute specializations are presented in the [[Void-safe programming in 
 
 Another special type of attribute supported by Eiffel Software's compiler is the '''transient attribute'''. When an instance of a class to which a transient attribute belongs is saved to persistent storage, the field for the transient attribute is not included. So, transient attributes are transient in the sense that they are part of the object at runtime, but not when the object is stored on disk. 
 
-This type of attribute has benefits when using the persistence mechanisms provided with EiffelStudio, like [http://eiffel.com/developers/learning_maps/Training/Maps/PersistenceCanPayOff/Serialization.html SED]. Because transient attributes are not stored, then they need not be accounted for upon retrieval. So, objects stored before changes to a class that only affect transient attributes will still be retrievable using the new class definition (whereas, if non-transient attributes were changed, a mismatch would occur during retrieval). 
+This type of attribute has benefits when using the persistence mechanisms provided with EiffelStudio, like [http://eiffel.com/developers/learning_maps/Training/Maps/PersistenceCanPayOff/Serialization.html SED]. Because transient attributes are not stored, they need not be accounted for upon retrieval. So, objects stored before changes to a class that only affect transient attributes will still be retrievable using the new class definition (whereas, if non-transient attributes were changed, a mismatch would occur during retrieval). 
 
 An attribute is marked as transient by including a note option in its declaration:
 
@@ -690,7 +690,7 @@ Only certain attributes can be marked as transient. Specifically, if attribute '
 The EiffelBase class <code>INTERNAL</code> includes features which are used to distinguish object fields as either persistent or transient and to reveal how many transient fields an object has.
 
 
-{{note|As of version 6.5, support for transient attributes is limited to the C storable mechanism. In version 6.6, support will be added for the Eiffel storable mechanism (SED) on both classic and .Net system targets.}}
+{{note|Prior to version 6.6, support for transient attributes was limited to the C storable mechanism. In version 6.6, support was added for the Eiffel storable mechanism (SED) on both classic and .NET system targets.}}
 
 
 
