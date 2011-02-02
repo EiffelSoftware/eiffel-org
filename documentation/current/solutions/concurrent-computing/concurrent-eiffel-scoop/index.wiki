@@ -4,6 +4,9 @@
 {{beta}}
 
 
+{{ReviewRequested}}
+
+
 
 ==Overview==
 
@@ -156,7 +159,7 @@ As stated above, when we think of the execution of sequential Eiffel, we tend to
 
 that the feature application of <code>x.f</code> will complete before <code>y.g</code> begins.
 
-In concurrent Eiffel with SCOOP things are different. This is because a particular feature call, <code>x.f</code>, may occur one processor, and the consequent feature application (of feature <code>f</code> to <code>x</code>) may occur on a different processor. 
+In concurrent Eiffel with SCOOP things are different. This is because a particular feature call, <code>x.f</code>, may occur on one processor, and the consequent feature application (of feature <code>f</code> to <code>x</code>) may occur on a different processor. 
 
 
 {{definition|Synchronous feature call|A feature call in which the execution of the calling client does not proceed until the feature application has completed. }}

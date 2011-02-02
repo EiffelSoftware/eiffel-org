@@ -1,9 +1,13 @@
 [[Property:title|Single-element producer-consumer]]
 [[Property:weight|-15]]
 [[Property:uuid|25d3e585-0eb6-efa8-ada9-8ee596df5ada]]
-The single-element producer-consumer is a variant of the classic [http://en.wikipedia.org/wiki/Producer-consumer_problem producer-consumer] problem. A producer produces products, in this case integers, which are consumed by a consumer. The producer and consumer are managed by separate [[Concurrent Eiffel with SCOOP#Processors|processors]], so their access to 
+=Description=
 
-In this case only a single producer and single consumer are created and there is storage for only a single product. So, effectively in this example, the bounded buffer of the classic producer-consumer problem has a size of one and is not a shared resource. Rather, the single product element (in this case, an integer) is held by the producer and provided to the consumer upon request.
+The single-element producer-consumer is a variant of the classic [http://en.wikipedia.org/wiki/Producer-consumer_problem producer-consumer] problem. A producer produces products, in this case integers, which are consumed by a consumer. The producer and consumer are managed by separate [[Concurrent Eiffel with SCOOP#Processors|processors]], so any access they have to one another must be synchronized through scoop mechanisms.
+
+=Highlights=
+
+In the single-element producer-consumer only a single producer and single consumer are created, and there is only storage allowing for a single instance of the product. So, effectively in this example, the bounded buffer of the classic producer-consumer problem has a size of one and is not a shared resource. Rather, the single product element (in this case, an integer) is held by the producer and provided to the consumer upon request.
 
 The <code>PRODUCER</code> class interface exposes features <code>make_something</code> in which a product is produced and <code>get_something: INTEGER</code> which allows a consumer to retrieve the latest product, if one is available. Feature <code>has_something: BOOLEAN</code> is the indicator of whether an integer has been produced and is available for consumption.
 
