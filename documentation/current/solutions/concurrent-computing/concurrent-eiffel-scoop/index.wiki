@@ -134,6 +134,10 @@ So, according to this rule, for a separate call to be valid, the target of the c
 
 In the code above, <code>my_separate_attribute</code> is a class attribute declared as a separate type. In the first line in <code>calling_routine</code> a direct feature call is made to apply <code>some_feature</code> to <code>my_separate_attribute</code>. This is an invalid separate call. The second line calls feature <code>enclosing_routine</code> and passes <code>my_separate_attribute</code> as an argument. <code>enclosing_routine</code> takes an argument of type <code>separate SOME_TYPE</code>. Within <code>enclosing_routine</code> it is valid to call <code>some_feature</code> on <code>a_arg</code>. 
 
+
+{{SeeAlso|The <code>launch_producer</code> feature of the [[Producer-consumer|producer-consumer]] example, a feature which exists for the purpose of compliance with the separate argument rule.}}
+
+
 Valid targets for separate calls, like <code>a_arg</code> in <code>enclosing_routine</code> are said to be ''controlled''. 
 
 

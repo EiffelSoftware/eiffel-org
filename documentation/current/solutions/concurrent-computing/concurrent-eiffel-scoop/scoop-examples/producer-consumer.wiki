@@ -1,13 +1,35 @@
 [[Property:title|Producer-consumer]]
 [[Property:weight|-13]]
-[[Property:uuid|3e350c41-7c32-ead1-b707-e79da9100f38]]
+[[Property:uuid|03739be2-e0d5-f5f0-b405-0bb75c8fee0f]]
 =Description=
 
-The [http://en.wikipedia.org/wiki/Producer-consumer_problem producer-consumer] problem is a classic software concurrency problem. The problem features one or more "producers" and one or more "consumers". All producers and consumers must share access to a "buffer" into which producers insert the products they produce, and from which consumers take the products they consume. The buffer is "bounded", that is, it has a maximum capacity. 
+The [http://en.wikipedia.org/wiki/Producer-consumer_problem producer-consumer] problem is a classic software concurrency problem. The problem features one or more "producers" and one or more "consumers". All producers and consumers must share access to a "buffer" into which producers insert the products they produce, and from which consumers take the products they consume. The shared buffer is "bounded", that is, it has a maximum capacity. 
 
-So at any time, the buffer could be empty, precluding any consumer from withdrawing a product. Or the buffer could be full, which would mean that no producer could not produce a new product until a consumer had made space in the buffer.
+So at any time, the buffer could be empty, precluding any consumer from withdrawing a product. Or the buffer could be full, which would mean that no producer could produce a new product until a consumer had first consumed a product, making space in the buffer. To avoid concurrency related problems, producers and consumers can access the buffer only at times when no other producer or consumer is accessing it, and only when it is in the proper state for the particular type requesting access (i. e., not empty for consumers and not full for producers).
 
 =Highlights=
+
+The root class of the example creates the bounded product buffer and a number of producers and consumers, all given <code>separate</code> types. It requests the producers to create a number of products, and the consumers, in the aggregate, to consume that same number of products. 
+
+Notice that the root class uses a feature <code>launch_producer</code> (and a corresponding feature <code>launch_consumer</code>) for instructing the producers and consumers on how many products to handle. <code>launch_producer</code> looks like this:
+
+<code>
+    launch_producer (a_producer: separate PRODUCER)
+            -- Launch `a_producer'.
+        do
+            a_producer.produce (900)
+        end
+</code>
+
+It might occur to you that it would be easier, simpler, and clearer just to include this feature's single procedural line:
+
+<code>
+            a_producer.produce (900)
+</code>
+
+in place of the call to <code>launch_producer</code>, and dispense with the <code>launch_producer</code> feature entirely. But that is not possible in this case. 
+
+The reason is that <code>a_producer.produce (900)</code> is a [[Concurrent Eiffel with SCOOP#Separate types and separate calls|separate call]] (i. e., the object attached to <code>a_producer</code> is declared of a separate type), and according to the [[Concurrent Eiffel with SCOOP#Access to shared resources|separate argument rule]], calls on a separate object are valid only when applied to an argument of the enclosing routine. 
 
 
 
