@@ -1,0 +1,13 @@
+[[Property:title|Producer-consumer]]
+[[Property:weight|-13]]
+[[Property:uuid|3e350c41-7c32-ead1-b707-e79da9100f38]]
+=Description=
+
+The [http://en.wikipedia.org/wiki/Producer-consumer_problem producer-consumer] problem is a classic software concurrency problem. The problem features one or more "producers" and one or more "consumers". All producers and consumers must share access to a "buffer" into which producers insert the products they produce, and from which consumers take the products they consume. The buffer is "bounded", that is, it has a maximum capacity. 
+
+So at any time, the buffer could be empty, precluding any consumer from withdrawing a product. Or the buffer could be full, which would mean that no producer could not produce a new product until a consumer had made space in the buffer.
+
+=Highlights=
+
+
+
