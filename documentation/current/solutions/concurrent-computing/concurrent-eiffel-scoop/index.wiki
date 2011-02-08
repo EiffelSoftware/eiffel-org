@@ -134,6 +134,10 @@ So, according to this rule, for a separate call to be valid, the target of the c
 
 In the code above, <code>my_separate_attribute</code> is a class attribute declared as a separate type. In the first line in <code>calling_routine</code> a direct feature call is made to apply <code>some_feature</code> to <code>my_separate_attribute</code>. This is an invalid separate call. The second line calls feature <code>enclosing_routine</code> and passes <code>my_separate_attribute</code> as an argument. <code>enclosing_routine</code> takes an argument of type <code>separate SOME_TYPE</code>. Within <code>enclosing_routine</code> it is valid to call <code>some_feature</code> on <code>a_arg</code>. 
 
+
+{{SeeAlso|The <code>launch_producer</code> feature of the [[Producer-consumer|producer-consumer]] example, a feature which exists for the purpose of compliance with the separate argument rule.}}
+
+
 In <code>calling_routine</code> above, the call to <code>enclosing_routine</code> has a separate argument:
 
 <code>
@@ -146,10 +150,12 @@ Because the argument <code>my_separate_argument</code> is of a separate type, th
 {{Rule|name=Wait|text=A routine call with separate arguments will execute when all corresponding processors are available and hold them exclusively for the duration of the routine.}}
 
 
-{{SeeAlso|The <code>launch_producer</code> feature of the [[Producer-consumer|producer-consumer]] example, a feature which exists for the purpose of compliance with the separate argument rule.}}
+{{SeeAlso|The <code>{PHILOSOPHER}.eat</code> feature of the [[Dining philosophers|dining philosophers]] example. This feature has two separate arguments, and will wait to execute until the processors associated with both are available.}}
 
 
-Valid targets for separate calls, like <code>a_arg</code> in <code>enclosing_routine</code> are said to be ''controlled''. 
+===Controlled expressions===
+
+Valid targets for separate calls, like <code>a_arg</code> in <code>enclosing_routine</code> above are said to be ''controlled''. 
 
 
 {{definition|Controlled expression|An expression is controlled if it is attached and either:<br/>1) It is of a non-separate type<br/>2) It is of a separate type and it is handled by the same processor as one of the separate arguments to the enclosing routine.}}
