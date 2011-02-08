@@ -134,6 +134,17 @@ So, according to this rule, for a separate call to be valid, the target of the c
 
 In the code above, <code>my_separate_attribute</code> is a class attribute declared as a separate type. In the first line in <code>calling_routine</code> a direct feature call is made to apply <code>some_feature</code> to <code>my_separate_attribute</code>. This is an invalid separate call. The second line calls feature <code>enclosing_routine</code> and passes <code>my_separate_attribute</code> as an argument. <code>enclosing_routine</code> takes an argument of type <code>separate SOME_TYPE</code>. Within <code>enclosing_routine</code> it is valid to call <code>some_feature</code> on <code>a_arg</code>. 
 
+In <code>calling_routine</code> above, the call to <code>enclosing_routine</code> has a separate argument:
+
+<code>
+            enclosing_routine (my_separate_attribute) -- Separate attribute passed as argument
+</code>
+
+Because the argument <code>my_separate_argument</code> is of a separate type, then it is subject to be handled by a processor different from the one on which the call to <code>enclosing_routine</code> occurs. As a result, the execution of <code>enclosing_routine</code> will be delayed until the time that the processor which handles <code>my_separate_argument</code> is available for exclusive access. This type of delay is described by the ''Wait rule''.
+
+
+{{Rule|name=Wait|text=A routine call with separate arguments will execute when all corresponding processors are available and hold them exclusively for the duration of the routine.}}
+
 
 {{SeeAlso|The <code>launch_producer</code> feature of the [[Producer-consumer|producer-consumer]] example, a feature which exists for the purpose of compliance with the separate argument rule.}}
 

@@ -1,6 +1,7 @@
 [[Property:title|Dining philosophers]]
 [[Property:weight|-12]]
-[[Property:uuid|ec90654b-723a-ed0f-0325-09a8918bfe10]]
+[[Property:uuid|569f012e-7913-fbdf-7ad7-cd17d82e64aa]]
+{{UnderConstruction}}
 
 
 {{Beta}}
@@ -9,9 +10,11 @@
 
 =Description=
 
-In the [http://en.wikipedia.org/wiki/Dining_philosophers_problem dining philosopers] a number of philosophers (five, in our example) are seated around a circular table. On the table are five plates of food, one in front of each philosopher, and five forks, one between each adjacent pair of plates. So each philosopher has a plate in front of him and a fork to his left and a fork to his right.
+In the [http://en.wikipedia.org/wiki/Dining_philosophers_problem dining philosopers] a number of philosophers (five, in our example) are seated at a round table. On the table are five plates of food, one in front of each philosopher, and five forks, one between each adjacent pair of plates. So each philosopher has a plate in front of him and a fork to his left and a fork to his right.
 
-The philosophers spend all their time in either of only two states: they are thinking or they are eating. The philosophers may be brilliant thinkers, but apparently manual dexterity is not their strong suit. This is evidenced by the fact that while eating, any philosopher must pick up both of the forks positioned on either side of that philosopher's plate. So, while eating they must have possession of both forks, and while thinking, they have put down any forks that they had previously used. 
+The philosophers spend all their time in either of only two states: they are thinking or they are eating. The philosophers may be brilliant thinkers, but apparently manual dexterity is not their strong suit. This is evidenced by the fact that while eating, any philosopher must pick up both of the forks positioned next to his plate. So, while eating he must have possession of both forks, and while thinking, he has put down any forks that he had previously used. Therefore, any particular philosopher has the opportunity to eat only when the two philosophers on either side of him are thinking and have made their forks available. 
+
+Apart from any negative consequences of these questionable sanitary practices, the dining philosophers can, in improperly designed solutions, encounter problems related to concurrency. For example, if all philosophers were to pick up the fork to their right and then wait for the fork to their left to become available (or vice versa), they would achieve a ''deadlock''. A ''starvation'' situation might occur if, because of unfairness in the solution algorithm, one or more philosophers get stuck in thinking mode because they can never secure the two forks necessary to eat.
 
 
 =Highlights=
