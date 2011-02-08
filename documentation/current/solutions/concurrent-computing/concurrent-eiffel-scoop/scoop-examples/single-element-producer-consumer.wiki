@@ -1,6 +1,11 @@
 [[Property:title|Single-element producer-consumer]]
 [[Property:weight|-15]]
 [[Property:uuid|25d3e585-0eb6-efa8-ada9-8ee596df5ada]]
+
+{{Beta}}
+
+
+
 =Description=
 
 The single-element producer-consumer is a variant of the classic [http://en.wikipedia.org/wiki/Producer-consumer_problem producer-consumer] problem. A producer produces products, in this case integers, which are consumed by a consumer. The producer and consumer are managed by separate [[Concurrent Eiffel with SCOOP#Processors|processors]], so any access they have to one another must be synchronized through scoop mechanisms.
