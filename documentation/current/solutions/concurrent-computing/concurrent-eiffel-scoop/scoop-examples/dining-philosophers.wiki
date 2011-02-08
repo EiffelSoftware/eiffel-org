@@ -1,0 +1,22 @@
+[[Property:title|Dining philosophers]]
+[[Property:weight|-12]]
+[[Property:uuid|ec90654b-723a-ed0f-0325-09a8918bfe10]]
+
+
+{{Beta}}
+
+
+
+=Description=
+
+In the [http://en.wikipedia.org/wiki/Dining_philosophers_problem dining philosopers] a number of philosophers (five, in our example) are seated around a circular table. On the table are five plates of food, one in front of each philosopher, and five forks, one between each adjacent pair of plates. So each philosopher has a plate in front of him and a fork to his left and a fork to his right.
+
+The philosophers spend all their time in either of only two states: they are thinking or they are eating. The philosophers may be brilliant thinkers, but apparently manual dexterity is not their strong suit. This is evidenced by the fact that while eating, any philosopher must pick up both of the forks positioned on either side of that philosopher's plate. So, while eating they must have possession of both forks, and while thinking, they have put down any forks that they had previously used. 
+
+
+=Highlights=
+
+
+
+
+

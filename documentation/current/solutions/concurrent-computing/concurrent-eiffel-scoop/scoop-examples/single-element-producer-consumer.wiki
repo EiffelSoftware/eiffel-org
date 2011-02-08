@@ -1,7 +1,6 @@
 [[Property:title|Single-element producer-consumer]]
 [[Property:weight|-15]]
 [[Property:uuid|25d3e585-0eb6-efa8-ada9-8ee596df5ada]]
-
 {{Beta}}
 
 
@@ -19,6 +18,8 @@ The <code>PRODUCER</code> class interface exposes features <code>make_something<
 The <code>CONSUMER</code> class has a feature <code>take</code> that consumes a product from the producer (by calling <code>{PRODUCER}.get_something</code>), if a product exists. The precondition for <code>take</code> is based on <code>{PRODUCER}.has_something</code>. This is an [[Concurrent Eiffel with SCOOP#Design by Contract and SCOOP|uncontrolled precondition]], so instances of <code>CONSUMER</code> are not obliged to ensure that it holds before calling <code>take</code>. Rather, under SCOOP, this precondition will ensure that the application of <code>take</code> waits until the producer does have a product available for consumption.
 
 Likewise, there is an uncontrolled precondition on <code>{PRODUCER}.make_something</code> that allows the feature to be applied only when <code>has_something</code> does not hold.
+
+So the heart of the problem is the synchronization between producer and consumer. If there's already a product in storage, the producer cannot produce more and must wait. Only when the consumer consumes the current product can the producer produce again. On the other side, if there's a product currently in storage with the producer, then the consumer can consume that product. Otherwise, the consumer must wait until the producer produces a new product.
 
 The example's root class <code>APPLICATION</code> declares a <code>PRODUCER</code> and a <code>CONSUMER</code>, both <code>separate</code>. <code>APPLICATION</code> starts the example running by creating the producer and consumer, then by looping calls to the <code>{PRODUCER}.make_something</code> requesting it constantly to produce products. 
 
