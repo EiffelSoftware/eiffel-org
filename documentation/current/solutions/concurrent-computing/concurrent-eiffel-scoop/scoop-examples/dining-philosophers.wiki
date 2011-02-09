@@ -1,7 +1,6 @@
 [[Property:title|Dining philosophers]]
 [[Property:weight|-12]]
 [[Property:uuid|569f012e-7913-fbdf-7ad7-cd17d82e64aa]]
-
 {{Beta}}
 
 
@@ -51,7 +50,7 @@ and you're not wearing your SCOOP glasses, this could look a little odd to you. 
 
 However, with SCOOP in mind, we realize that the fork objects are shared resources to which exclusive access must be secured before a philosopher can eat. In this example, the fork object themselves don't really do anything except serve that purpose. (Take a look at the FORK class, and you'll see that it has no features.)
 
-In other concurrency problems, it is likely that shared resources would play a more active role than the forks of the dining philosophers, but here it's just not necessary.
+In real world concurrency problems, it is likely that shared resources would play a more active role than the forks of the dining philosophers, but here it's just not necessary.
 
 
 
