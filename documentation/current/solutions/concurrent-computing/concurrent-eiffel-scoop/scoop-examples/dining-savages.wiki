@@ -1,13 +1,16 @@
 [[Property:title|Dining savages]]
 [[Property:weight|-6]]
-[[Property:uuid|84358828-76b5-a972-6d8b-a38e3aeb3ca7]]
+[[Property:uuid|ecd618f3-14f4-1a06-7f9c-be57623a9889]]
+{{UnderConstruction}}
+
+
 {{Beta}}
 
 
 
 =Description=
 
-
+The problem of the dining savages (an obvious allusion to the classic dining philosophers) is based on the arguably tasteless analogy of a number of members of a primitive culture are sharing a meal from a single pot. The players are the "savages" themselves, a cook, and the pot. Each of the savages can freely take a serving from the pot so long as the pot is not empty. When the pot does become empty, the cook must be awakened to refill the pot, after which the feast continues. So, the savages can eat only when the pot is not empty, and the cook can fill the pot only when the pot is empty.
 
 
 =Highlights=
