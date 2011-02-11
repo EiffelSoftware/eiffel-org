@@ -10,10 +10,10 @@
 
 =Description=
 
-The problem of the dining savages (an obvious allusion to the classic dining philosophers) is based on the arguably tasteless analogy of a number of members of a primitive culture are sharing a meal from a single pot. The players are the "savages" themselves, a cook, and the pot. Each of the savages can freely take a serving from the pot so long as the pot is not empty. When the pot does become empty, the cook must be awakened to refill the pot, after which the feast continues. So, the savages can eat only when the pot is not empty, and the cook can fill the pot only when the pot is empty.
+The problem of the dining savages (an obvious allusion to the classic dining philosophers) is based on the arguably tasteless analogy of a number of members of a primitive culture, hereinafter called the "savages", are sharing a meal from a single pot. The players are the savages themselves, a cook, and the pot. The pot contains a certain number of servings of savage sustenance (the nature of which will be left to your imagination). Each of the savages can freely remove a serving from the pot so long as the pot is not empty. So before taking a serving, a savage must check to make sure the pot is not empty. In the case in which the pot is empty, the savage must wake up the cook to refill the pot, after which the feast continue. The savages, then, can eat only when the pot is not empty, and the cook can fill the pot only when the pot is empty.
 
 
 =Highlights=
 
-The primary shared resource here is the pot, represented by class <code>POT</code>. 
+The primary shared resource here is the pot, represented by class <code>POT</code>. <code>POT</code> has queries <code>is_empty</code> and <code>is_full</code> that can be used by savages and the cook. 
 
