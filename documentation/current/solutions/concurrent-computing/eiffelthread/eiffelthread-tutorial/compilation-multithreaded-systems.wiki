@@ -1,6 +1,9 @@
 [[Property:title|Compilation of multithreaded systems]]
 [[Property:weight|3]]
 [[Property:uuid|24e474b5-3cb7-16ff-365f-73be8e73bd56]]
+{{ReviewRequested}}
+
+
 ==Settings==
 * Set the Concurrency option to EiffelThread in the project settings under Advanced. 
 * Do not use a non-multi-threaded precompiled library. The corresponding multi-threaded libraries of base, WEL and Vision2 should be located in $ISE_EIFFEL/precomp/spec/$PLATFORM/ with the mt prefix. 
