@@ -27,11 +27,11 @@ The table below lists the available ''options'', the arguments they require, and
 | '''ARGUMENTS'''
 | '''EFFECT'''
 |- 
-| ''Operation options''
+| ''Compiling options''
 |- 
 | -melt
 | 
-| Normal compilation, except on an incremental recompilation where added/removed classes (of classes not in system) will be detected. This is the default option, if no other compilation or browsing option is specified. 
+| Normal compilation, except on an incremental recompilation where added/removed classes (of classes not in system) will be detected. This is the default option, if no other compiling or viewing option is specified. 
 |- 
 | -freeze
 | 
@@ -45,7 +45,7 @@ The table below lists the available ''options'', the arguments they require, and
 | 
 | Precompile a system, treating it as a library.
 |- 
-| ''Browsing options''
+| ''Viewing options''
 |- 
 | -ancestors
 | class_name
