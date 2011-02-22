@@ -158,7 +158,11 @@ The table below lists the available ''options'', the arguments they require, and
 | Print compiler version number.
 |}
 
-'''Note''': In the third column, to print means to produce the requested information on the default output of the '''ec''' command. <br/>
+
+{{note|In the third column, to print means to produce the requested information on the default output of the '''ec''' command.}}
+
+
+{{note|When using '''-finalize''', assertions will be discarded (unlike in EiffelStudio which asks first.) The assertion disposition specified in the project configuration file can be retained in finalization by combining the '''-keep''' option with '''-finalize'''.}}
 
 
 Some options can have modifiers that can affect their results. The modifiers are listed in the table below:
@@ -183,16 +187,6 @@ Some options can have modifiers that can affect their results. The modifiers are
 | Restrict callers to those that use given feature only as a target of a creation instruction.
 |}
 
-==Finalization==
-To produce a finalized system, you may use the command '''ec''' -finalize. The effect is the same as when you press the Finalize button in the graphical environment, except for two differences: 
-# All assertion checking will by default be turned off in the resulting finalized system. In the graphical environment, an interactive panel asks you whether you want to keep or discard assertions. Command '''ec''', however, was designed to be callable automatically from shell scripts or programs, and for that reason never asks for interactive user input (except under the loop option). To retain the assertion checking options specified in the configuration file, use the option -keep in connection with -finalize (the order of the two options is arbitrary). 
-# At the end of the Eiffel part of the compilation you are presented with the message: 
-<code lang="text">System recompiled.
-You must now run "finish_freezing" in:
-	"your_project_path"|EIFGENs|"target_name"|F_code</code>
-
-
-with | replaced by \ if your platform is Windows, / if it is Unix. To execute the C compilation and linking part of the finalization, change directory to ''your_project_path''|EIFGENs|''target_name''|F_code as indicated and execute '''finish_freezing'''. 
 
 ===Usage of finish_freezing===
 
