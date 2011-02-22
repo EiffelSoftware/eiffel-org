@@ -4,12 +4,19 @@
 [[Property:uuid|a6b6a676-8660-ce2d-6f37-03de7f23a78e]]
 ==Compiling and viewing==
 
-You may start ec through a command of the following form: 
+You may start ec through a command in one of the following forms: 
 :'''ec''' ''option'' ... [''class_name''][''feature_name'']
+:'''ec''' ''option'' ... [''class_file_name'' [-library ''library_name'']]
+
+In the first form:
 
 ''class_name'', if present, must be the name of a class of the system to which '''ec''' is applied. This system is identified by its configuration file; by default this is the file called Ace.ecf in the working directory, but you can select any other one through the -config ''file_name'' option. Similarly, the default project directory is the working directory, but you can select another through the -project_path ''directory_name'' option. 
 
 ''feature_name'', if present, must be the final name of a feature of the class called ''class_name''. <br/>
+
+In the second form:
+
+''class_file_name'', is the name of a file in the working directory which is assumed to contain the root class of a system to be compiled. The presence of a configuration file is not assumed, so this form can be used to compile a system from a root class and no configuration file. A configuration file will be built with default system and root cluster names based on the name of the root class. Other class files in the working directory will be used if necessary, as will EiffelBase, plus any library specified with the ''-library'' option.
 
 The table below lists the available ''options'', the arguments they require, and their effect: 
 
@@ -117,7 +124,11 @@ The table below lists the available ''options'', the arguments they require, and
 | -keep
 | 
 | Keep assertions in final mode. Useful with -finalize only.
-|- 
+|-
+| -library
+| library_name
+| Library is included in the compile when a ''class_file_name'' is given. 
+|-
 | -loop
 |  
 | Enter interactive mode. See below.

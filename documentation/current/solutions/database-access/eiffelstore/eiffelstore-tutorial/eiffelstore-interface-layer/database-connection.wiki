@@ -1,7 +1,7 @@
 [[Property:title|Database Connection]]
 [[Property:weight|0]]
 [[Property:uuid|2cf2cb7c-e28d-5d06-b03e-e2b17c1f6879]]
-* To connect to your database, you have to create a '''handle''': this handle actually links the interface classes with corresponding implementation classes mapped to your DBMS. This handle is implemented by the DATABASE_APPL class:
+* To connect to your database, you have to create a '''handle''': this handle actually links the interface classes with the corresponding implementation classes mapped to your DBMS. This handle is implemented by the DATABASE_APPL class:
 <code>
     database_appl: DATABASE_APPL [ODBC]
             -- Database handle.
@@ -20,7 +20,7 @@
 
 {{note|The generic parameter of <eiffel>DATABASE_APPL</eiffel> specifies the actual DBMS used. }}
 
-* Once your handle is created, you have to create a session manager which will allow you to manage your database, specifically to establish connection, disconnect and also handle errors. The class <eiffel>DB_CONTROL</eiffel> enables your application to plainly control the functioning and status of your database and to request any information about it.
+* Once your handle is created, you have to create a session manager which will allow you to manage your database; specifically, to establish a connection, disconnect and also handle errors. The class <eiffel>DB_CONTROL</eiffel> enables your application to control the functioning and status of your database and to request any information about it.
 <code>
     session_control: DB_CONTROL
             -- Session control.
