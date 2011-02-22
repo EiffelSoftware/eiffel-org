@@ -31,7 +31,7 @@ The table below lists the available ''options'', the arguments they require, and
 |- 
 | -melt
 | 
-| Normal compilation, except on an incremental recompilation where added/removed classes (of classes not in system) will be detected.
+| Normal compilation, except on an incremental recompilation where added/removed classes (of classes not in system) will be detected. This is the default option, if no other compilation or browsing option is specified. 
 |- 
 | -freeze
 | 
