@@ -166,13 +166,14 @@ The table below lists the available ''options'', the arguments they require, and
 
 
 Some options can have modifiers that can affect their results. The modifiers are listed in the table below:
-{| 
+{| border="1"
 |- 
 | <center>'''Option'''</center>
 | <center>'''Modifier'''</center>
 | <center>'''Effect'''</center>
 |- 
 | -callers
+! colspan="2" | 
 |- 
 | 
 | -show_all
