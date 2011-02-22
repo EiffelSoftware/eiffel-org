@@ -131,7 +131,7 @@ The table below lists the available ''options'', the arguments they require, and
 |-
 | -loop
 |  
-| Enter interactive mode. See below.
+| Enter interactive mode. See: [[Command line interactive mode]].
 |- 
 | -metadata_cache_path
 | directory_name
