@@ -187,9 +187,9 @@ Some options can have modifiers that can affect their results. The modifiers are
 To produce a finalized system, you may use the command '''ec''' -finalize. The effect is the same as when you press the Finalize button in the graphical environment, except for two differences: 
 # All assertion checking will by default be turned off in the resulting finalized system. In the graphical environment, an interactive panel asks you whether you want to keep or discard assertions. Command '''ec''', however, was designed to be callable automatically from shell scripts or programs, and for that reason never asks for interactive user input (except under the loop option). To retain the assertion checking options specified in the configuration file, use the option -keep in connection with -finalize (the order of the two options is arbitrary). 
 # At the end of the Eiffel part of the compilation you are presented with the message: 
-<code>System recompiled.
+<code lang="text">System recompiled.
 You must now run "finish_freezing" in:
-	''your_project_path''|EIFGENs|''target_name''|F_code</code>
+	"your_project_path"|EIFGENs|"target_name"|F_code</code>
 
 
 with | replaced by \ if your platform is Windows, / if it is Unix. To execute the C compilation and linking part of the finalization, change directory to ''your_project_path''|EIFGENs|''target_name''|F_code as indicated and execute '''finish_freezing'''. 
