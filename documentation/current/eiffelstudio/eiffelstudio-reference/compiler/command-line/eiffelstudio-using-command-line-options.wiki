@@ -23,7 +23,7 @@ The table below lists the available ''options'', the arguments they require, and
 
 {| border="1"
 |- 
-| '''OPTION'''
+| width="175pt" | '''OPTION'''
 | '''ARGUMENTS'''
 | '''EFFECT'''
 |- 
@@ -45,7 +45,7 @@ The table below lists the available ''options'', the arguments they require, and
 | 
 | Precompile a system, treating it as a library.
 |- 
-| ''Browsing operations''
+| ''Browsing options''
 |- 
 | -ancestors
 | class_name
