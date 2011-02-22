@@ -188,57 +188,6 @@ Some options can have modifiers that can affect their results. The modifiers are
 |}
 
 
-===Usage of finish_freezing===
-
-<code lang="text">
-finish_freezing [-location <directory>] [-generate_only] [-nproc <n>] [-low]
-[-x86] [-silent [-silent...]] [-library [-library...]] [-version] [-nologo]
-</code>
-
-OPTIONS:
-:Options should be prefixed with: '-' or '/'
-
-{| border="1"
-|-
-| '''OPTION'''
-| '''ARGUMENTS'''
-|-
-|-
-|  -location
-|  Alternative location to compile C code in. (Optional)
-<directory>: Location to compile C code in
-|-
-| -generate_only
-| Informs tool to only generate a Makefile. (Optional)
-|-
-| -nproc 
-| Maximum number of processors to use (Optional)
-<n>: Number of processors
-|-
-| -low
-| Executes finish freezing in low-execution priority mode. (Optional)
-|-
-| -x86
-| Generate 32bit lib DLLs for .NET projects. (Optional)
-|-
-| -silent
-| Suppresses confirmation dialog (Optional)
-|-
-| -library
-| Compiles the C code of an Eiffel library (Optional)
-|-
-| -?
-| Display usage information. (Optional)
-|-
-| -version
-| Displays version information. (Optional)
-|-
-| -nologo
-| Supresses copyright information. (Optional)
-|}
-
-
-
 {{seealso|<br/>
 [[Batch compilation|Batch compilation]]  }}
 
