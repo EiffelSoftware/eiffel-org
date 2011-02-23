@@ -1,10 +1,11 @@
-[[Property:title|EiffelStudio: Command line options]]
+[[Property:title|EiffelStudio: Using command line options]]
 [[Property:link_title|Using command line options]]
 [[Property:weight|1]]
 [[Property:uuid|a6b6a676-8660-ce2d-6f37-03de7f23a78e]]
 ==Compiling and viewing==
 
 The Eiffel Compiler line mode command '''ec''' has many options, as you can see from the tables below. It may be helpful to think of any one '''ec''' command as either a command to compile or a command to view software text. 
+
 
 ===Commands for compiling===
 
@@ -36,15 +37,20 @@ You can specify the name of a file which contains the root class of a system in 
     ec application.e
 </code>
 
-This command will compile a system with the class in <code>application.e</code> as its root. If there is no configuration file named <code>application.ecf</code>, then '''ec''' will create one. It will also use any classes in the current working directory and by default the library EiffelBase. You can add additional libraries to the by using the "-library" option and specifying either the short name of one of the EiffelStudio libraries or a path to a library configuration file. 
+This command will compile a system with the class in <code>application.e</code> as its root. If there is no configuration file named <code>application.ecf</code>, then '''ec''' will create one. It will also use any classes in the current working directory and by default the library EiffelBase. 
 
-To include EiffelTime in the compilation of <code>application.e</code>, you could use this command:
+
+{{tip|This "configuration-less" form of compilation is convenient to use for a quick compile. But you should understand that because it does create a configuration file with default names for the configuration file itself, the project, and the root cluster, using it against a root class file in a folder in which a configuration file with another name already exists could lead to confusion. }}
+
+
+You can add additional libraries to the by using the "-library" option and specifying either the short name of one of the EiffelStudio libraries or a path to a library configuration file. To include EiffelTime in the compilation of <code>application.e</code>, you could use this command:
 
 <code lang="text">
     ec application.e -library time
 </code>
 
 This immediately adds the EiffelTime library to the configuration file <code>application.ecf</code>, so if you compile again, it is not necessary to respecify the library. 
+
 
 ===Commands for viewing===
 
@@ -62,6 +68,11 @@ To save the output, add the "-file" option with a file name:
     ec -flat application -config application.ecf -file application_flat_form.txt
 </code>
 
+Feature-oriented options, like "-implementers", take a class name and feature name:
+
+<code>
+    ec -implementers application some_feature -config application.ecf
+</code>
 
 
 ===Command options===
@@ -136,7 +147,7 @@ The table below lists the available ''options'', the arguments they require, and
 | Print the Contract view (previously called short form) of the class.
 |- 
 | -suppliers
-| class_name, feature_name
+| class_name
 | Print all the suppliers of the class.
 |- 
 | ''Other options''
