@@ -1,10 +1,23 @@
 [[Property:title|Melting Ice Technology]]
 [[Property:weight|-15]]
 [[Property:uuid|17c5cf39-2bb3-67e4-11e3-2b6d021e5df1]]
-EiffelStudio relies on Melting Ice Technology, the proprietary compilation mechanism of Eiffel Software, which offers three forms of compilation:
-*  ''melting'' for making a few changes. The fastest of the mechanisms, typically taking a few seconds after small changes. Melting time is proportional to the size of the changed parts and affected classes, while the time needed to freeze or finalize is partly proportional to the size of the whole system. As long as you do not include new external C/C++ code, a C/C++ compiler is not required. However, execution speed is not optimal. The generated executable is debuggable. 
-*  ''freezing'' generates C code from the active system, and then compiles it into machine code; you must have a C/C++ compiler installed. You need to use this option if you add new agents or external C/C++ calls. Unless you add external code, you can re-freeze every couple of days. The rest of the time, you can melt your software to receive immediate feedback. The speed is still slower than when finalizing, but the generated executable is still debuggable. 
-*  ''finalizing'' delivers a production version (intermediate or final) of your software. It can be used to measure its performance in operational conditions. Finalization performs extensive time and space optimizations that enable Eiffel to match the efficiency of C/C++; it also creates a stand-alone C package that you can use for cross-platform development. Because of all the optimizations involved, finalizing takes the most time, and the generated executable is not debuggable. 
+=Types of compilation provided by Melting Ice=
+
+EiffelStudio relies on Melting Ice Technology, the proprietary compilation mechanism of Eiffel Software, which offers three forms of compilation: '''melting''', '''freezing''', and '''finalizing'''.
+
+==Melting==
+
+Melting is used for making a few changes during typical development activity. The fastest of the mechanisms, typically taking a few seconds after small changes. Melting time is proportional to the size of the changed parts and affected classes, while the time needed to freeze or finalize is partly proportional to the size of the whole system. As long as you do not include new external C/C++ code, a C/C++ compiler is not required. However, execution speed is not optimal. The generated executable is debuggable. 
+
+==Freezing==
+
+Freezing generates C code from the active system, and then compiles it into machine code; you must have a C/C++ compiler installed. You need to use this option if you add new agents or external C/C++ calls. Unless you add external code, you can re-freeze every couple of days. The rest of the time, you can melt your software to receive immediate feedback. The speed is still slower than when finalizing, but the generated executable is still debuggable. 
+
+==Finalizing==
+
+Finalizing delivers a production version (intermediate or final) of your software. It can be used to measure its performance in operational conditions. Finalization performs extensive time and space optimizations that enable Eiffel to match the efficiency of C/C++; it also creates a stand-alone C package that you can use for cross-platform development. Because of all the optimizations involved, finalizing takes the most time, and the generated executable is not debuggable. 
+
+=Additional detail=
 
 Melting and freezing generate an executable in the EIFGENs|target_name|W_code subdirectory of the project directory. The executable is composed of a standard executable file named after the system, and of a < ''system name''>.melted file, which is called the Eiffel update file. Although it is recommended to finalize the system when running it from outside EiffelStudio (since the performance is better), it is possible to launch a melted/frozen executable. However, the Eiffel update file is necessary, the executable alone will not run. 
 
