@@ -37,7 +37,7 @@ You can specify the name of a file which contains the root class of a system in 
     ec application.e
 </code>
 
-This command will compile a system with the class in <code>application.e</code> as its root. If there is no configuration file named <code>application.ecf</code>, then '''ec''' will create one. It will also use any classes in the current working directory and by default the library EiffelBase. 
+This command will compile a system with the class in <code>application.e</code> as its root. If there is no configuration file named <code>application.ecf</code> in the current directory, then '''ec''' will create one. It will also use any classes in the current working directory and by default the library EiffelBase. 
 
 
 {{tip|This "configuration-less" form of compilation is convenient to use for a quick compile. But you should understand that because it does create a configuration file with default names for the configuration file itself, the project, and the root cluster, using it against a root class file in a folder in which a configuration file with another name already exists could lead to confusion. }}
@@ -90,19 +90,19 @@ The table below lists the available ''options'', the arguments they require, and
 |- 
 | -melt
 | 
-| Normal compilation, except on an incremental recompilation where added/removed classes (of classes not in system) will be detected. This is the default option, if no other compiling or viewing option is specified. 
+| [[Melting Ice Technology#Melting|Melt]] compilation. This is the default option, if no other compiling or viewing option is specified. 
 |- 
 | -freeze
 | 
-| Freeze system.
+| [[Melting Ice Technology#Freezing|Freeze]] system.
 |- 
 | -finalize
 | 
-| Produce a finalized system. See note below.
+| [[Melting Ice Technology#Finalizing|Finalize]] system. See note below.
 |- 
 | -precompile
 | 
-| Precompile a system, treating it as a library.
+| [[Melting Ice Technology#Precompiling|Precompile]] system, treating it as a library.
 |- 
 | ''Viewing options''
 |- 
