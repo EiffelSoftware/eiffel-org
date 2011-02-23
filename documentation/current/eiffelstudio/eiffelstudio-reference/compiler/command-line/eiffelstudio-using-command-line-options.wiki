@@ -4,19 +4,67 @@
 [[Property:uuid|a6b6a676-8660-ce2d-6f37-03de7f23a78e]]
 ==Compiling and viewing==
 
-You may start ec through a command in one of the following forms: 
-:'''ec''' ''option'' ... [''class_name''][''feature_name'']
-:'''ec''' ''option'' ... [''class_file_name'' [-library ''library_name'']]
+The Eiffel Compiler line mode command '''ec''' has many options, as you can see from the tables below. It may be helpful to think of any one '''ec''' command as either a command to compile or a command to view software text. 
 
-In the first form:
+===Commands for compiling===
 
-''class_name'', if present, must be the name of a class of the system to which '''ec''' is applied. This system is identified by its configuration file; by default this is the file called Ace.ecf in the working directory, but you can select any other one through the -config ''file_name'' option. Similarly, the default project directory is the working directory, but you can select another through the -project_path ''directory_name'' option. 
+The simplest compiling command you can enter is:
 
-''feature_name'', if present, must be the final name of a feature of the class called ''class_name''. <br/>
+<code lang="text">
+    ec
+</code>
 
-In the second form:
+The command does not include any of the ''Compiling options'' shown below, so the default option "-melt" is used. The "-config" is omitted, so '''ec''' will try to find a configuration file named <code lang="text">Ace.ecf</code> in the current directory. 
 
-''class_file_name'', is the name of a file in the working directory which is assumed to contain the root class of a system to be compiled. The presence of a configuration file is not assumed, so this form can be used to compile a system from a root class and no configuration file. A configuration file will be built with default system and root cluster names based on the name of the root class. Other class files in the working directory will be used if necessary, as will EiffelBase, plus any library specified with the ''-library'' option.
+The command:
+
+<code lang="text">
+    ec -config my_config_file.ecf
+</code>
+
+melts the system having the configuration file in the current directory <code lang="text">my_config_file.ecf</code> .
+
+To freeze or finalize that system, you would just include the appropriate ''Compiling option'':
+
+<code lang="text">
+    ec -freeze -config my_config_file.ecf
+</code>
+
+You can specify the name of a file which contains the root class of a system in the current directory:
+
+<code lang="text">
+    ec application.e
+</code>
+
+This command will compile a system with the class in <code>application.e</code> as its root. If there is no configuration file named <code>application.ecf</code>, then '''ec''' will create one. It will also use any classes in the current working directory and by default the library EiffelBase. You can add additional libraries to the by using the "-library" option and specifying either the short name of one of the EiffelStudio libraries or a path to a library configuration file. 
+
+To include EiffelTime in the compilation of <code>application.e</code>, you could use this command:
+
+<code lang="text">
+    ec application.e -library time
+</code>
+
+This immediately adds the EiffelTime library to the configuration file <code>application.ecf</code>, so if you compile again, it is not necessary to respecify the library. 
+
+===Commands for viewing===
+
+By selecting certain options on the '''ec''' command, you can generate advanced views of your software much like those provided by EiffelStudio. In the table below you will see the set of ''Viewing options''. These options take arguments that are either a class name or a class name and feature name. The following examples will give you an idea of how to use the ''Viewing options''.
+
+To see the "flat" form of class <code>APPLICATION</code> in the example used above:
+
+<code>
+    ec -flat application -config application.ecf
+</code>
+
+To save the output, add the "-file" option with a file name:
+
+<code>
+    ec -flat application -config application.ecf -file application_flat_form.txt
+</code>
+
+
+
+===Command options===
 
 The table below lists the available ''options'', the arguments they require, and their effect: 
 
@@ -127,7 +175,7 @@ The table below lists the available ''options'', the arguments they require, and
 |-
 | -library
 | library_name
-| Library is included in the compile when a ''class_file_name'' is given. 
+| Library is included in the configuration when a file name for the root class is given. 
 |-
 | -loop
 |  
