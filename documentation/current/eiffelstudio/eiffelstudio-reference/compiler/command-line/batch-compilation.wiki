@@ -40,7 +40,7 @@ finish_freezing > c:\output_path\OUTPUT</code>
 It will go the directory where your project is located and compile your Eiffel code using the `<code>config.ecf</code>' file located in your project directory and compile automatically the C code. All outputs will be stored in the file `<code>c:\output_path/OUTPUT</code>'.
 
 {{seealso|<br/>
-[[EiffelStudio: Command line options|Command line compiler options]]  }}
+[[EiffelStudio: Using command line options|Using command line compiler options]]  }}
 
 
 
