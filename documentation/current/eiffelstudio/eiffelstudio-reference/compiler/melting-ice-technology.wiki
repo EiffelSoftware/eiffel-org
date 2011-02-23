@@ -17,6 +17,10 @@ Freezing generates C code from the active system, and then compiles it into mach
 
 Finalizing delivers a production version (intermediate or final) of your software. It can be used to measure its performance in operational conditions. Finalization performs extensive time and space optimizations that enable Eiffel to match the efficiency of C/C++; it also creates a stand-alone C package that you can use for cross-platform development. Because of all the optimizations involved, finalizing takes the most time, and the generated executable is not debuggable. 
 
+==Precompiling==
+
+Precompilation allows you to create a library in which the classes are already compiled, so when it is used, compile times are decreased. EiffelStudio comes with optional precompiled forms of commonly used libraries. For example, in the Microsoft Windows distribution you can opt for precompiled EiffelBase, or WEL + EiffelBase, or EiffelVision 2 + WEL + EiffelBase. As indicated by these options, the precompilation of a library must also include any other library upon which the target library depends. In other words, it would not be possible to precompile EiffelVision 2 without also including WEL and EiffelBase, too.
+
 =Additional detail=
 
 Melting and freezing generate an executable in the EIFGENs|target_name|W_code subdirectory of the project directory. The executable is composed of a standard executable file named after the system, and of a < ''system name''>.melted file, which is called the Eiffel update file. Although it is recommended to finalize the system when running it from outside EiffelStudio (since the performance is better), it is possible to launch a melted/frozen executable. However, the Eiffel update file is necessary, the executable alone will not run. 
