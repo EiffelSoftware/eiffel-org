@@ -218,7 +218,7 @@ The table below lists the available ''options'', the arguments they require, and
 |}
 
 
-{{note|In the third column, to print means to produce the requested information on the default output of the '''ec''' command.}}
+{{note|In the third column, to '''print''' means to produce the requested information on the default output of the '''ec''' command.}}
 
 
 {{note|When using '''-finalize''', assertions will be discarded (unlike in EiffelStudio which asks first.) The assertion disposition specified in the project configuration file can be retained in finalization by combining the '''-keep''' option with '''-finalize'''.}}
