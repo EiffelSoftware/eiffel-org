@@ -43,7 +43,7 @@ This command will compile a system with the class in <code>application.e</code> 
 {{tip|This "configuration-less" form of compilation is convenient to use for a quick compile. But you should understand that because it does create a configuration file with default names for the configuration file itself, the project, and the root cluster, using it against a root class file in a folder in which a configuration file with another name already exists could lead to confusion. }}
 
 
-You can add additional libraries to the by using the "-library" option and specifying either the short name of one of the EiffelStudio libraries or a path to a library configuration file. To include EiffelTime in the compilation of <code>application.e</code>, you could use this command:
+You can add additional libraries to the configuration by using the "-library" option and specifying either the short name of one of the EiffelStudio libraries or a path to a library configuration file. To include EiffelTime in the compilation of <code>application.e</code>, you could use this command:
 
 <code lang="text">
     ec application.e -library time
