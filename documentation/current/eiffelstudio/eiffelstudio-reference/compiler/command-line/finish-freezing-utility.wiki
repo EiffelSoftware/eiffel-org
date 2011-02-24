@@ -31,7 +31,7 @@ Options:
 |-
 | -generate_only
 |
-| Informs tool to only generate a Makefile.
+| Informs tool to generate only a Makefile.
 |-
 | -nproc
 | ''n''
