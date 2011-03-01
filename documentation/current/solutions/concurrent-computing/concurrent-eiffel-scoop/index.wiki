@@ -195,12 +195,12 @@ After an asynchronous feature call, the execution of the client proceeds immedia
 
 First, every feature call is either a synchronous feature call or an asynchronous feature call. For a particular call, the following rules determine which it is:
 
-A feature call is synchronous in the following cases:
+A feature call is '''synchronous''' in the following cases:
 # It is a non-separate call.
 # It is a separate call to a query.
 # It is a feature call which has at least one actual argument which is a separate argument of the enclosing routine.
 
-A feature call is asynchronous in the following case:
+A feature call is '''asynchronous''' in the following case:
 # It is a separate call to a command.
 
 Let’s look a little closer at those cases determining synchronous calls. 
