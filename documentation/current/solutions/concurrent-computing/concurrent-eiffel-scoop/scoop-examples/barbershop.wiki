@@ -41,7 +41,7 @@ One thing that you might find curious about this example is the feature <code>do
 
 Couldn't a function that always returns the exact same predictable result be safely made a procedure? Certainly it could. However, there is a SCOOP oriented reason for this routine being a function rather than a procedure. 
 
-<code>{BARBER}.do_hair_cut</code> is a function in order to become synchronous. Remember that a [[Concurrent Eiffel with SCOOP#Separate types and separate calls|separate call]] which is a query is always a [[Concurrent Eiffel with SCOOP#Synchronous and asynchronous feature calls|synchronous call. In the case of the customer, he needs to leave the shop only after his haircut is complete. Therefore, the query <code>do_hair_cut</code> will be synchronous and ensure that the haircut is complete before the customer leaves the shop.
+<code>{BARBER}.do_hair_cut</code> is a function in order to become synchronous. Remember that a [[Concurrent Eiffel with SCOOP#Separate types and separate calls|separate call]] which is a query is always a [[Concurrent Eiffel with SCOOP#Synchronous and asynchronous feature calls|synchronous call]]. In the case of the customer, he needs to leave the shop only after his haircut is complete. Therefore, the query <code>do_hair_cut</code> will be synchronous and ensure that the haircut is complete before the customer leaves the shop.
 
 
 
