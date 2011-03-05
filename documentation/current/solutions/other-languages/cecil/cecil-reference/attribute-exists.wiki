@@ -2,20 +2,19 @@
 [[Property:link_title|attribute_exists]]
 [[Property:weight|-15]]
 [[Property:uuid|7cdf93a7-6f63-869a-5443-b8908a086d18]]
-==SYNOPSYS==
-<code>
-'''#include "eif_cecil.h"'''
+==Overview==
+<code lang="C">
+#include "eif_cecil.h"
 
-'''EIF_BOOLEAN attribute_exists (EIF_REFERENCE''' ''object'', '''char *''' ''name''''')''';</code>
+EIF_BOOLEAN attribute_exists (EIF_REFERENCE object, char * name);
+</code>
 
-==DESCRIPTION==
-The '''attribute_exists()''' macro returns '''EIF_TRUE''' or '''EIF_FALSE''' when the attribute of name ''name'' exists in the Eiffel object (reference) ''ref'' '''. ''' 
-==RETURN VALUE==
-'''EIF_TRUE''' or '''EIF_FALSE'''. 
-==CONFORMANCE==
+==Description==
+The <code lang="C">attribute_exists()</code> macro returns <code lang="C">EIF_TRUE</code> when the attribute of name <code lang="C">name</code> exists in the Eiffel object (reference) <code lang="C">object</code> . 
+==Return value==
+<code lang="C">EIF_TRUE</code> or <code lang="C">EIF_FALSE</code>. 
+==Conformance==
 ISE Eiffel 4.5 and later. 
-==SEE ALSO==
-'''eif_attribute''' (1).  
-
+{{SeeAlso|<br/>[[Reference for `eif_attribute'.]]  }}
 
 
