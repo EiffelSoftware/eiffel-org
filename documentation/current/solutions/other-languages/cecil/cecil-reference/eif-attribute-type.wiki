@@ -28,9 +28,10 @@ Failing: <code lang="text">EIF_NO_TYPE</code>
 ==Conformance==
 ISE Eiffel 4.5 and later. 
 
-{{SeeAlso| <br/>[[Reference for `eif_protect']]<br/>
+{{SeeAlso| <br/>
+[[eif_protect]]<br/>
 [[attribute_exists]]<br/> 
 [[eif_procedure]]<br/> 
-[[Reference for `eif_reference_function']] }}
+[[eif_reference_function]] }}
 
 
