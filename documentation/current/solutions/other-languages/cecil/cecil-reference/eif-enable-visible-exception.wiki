@@ -1,23 +1,33 @@
 [[Property:title|eif_enable_visible_exception]]
 [[Property:weight|-4]]
 [[Property:uuid|97b5a74c-d7ad-abf4-9390-59266b67c7c7]]
-==SYNOPSYS==
-<code>
-'''#include "eif_cecil.h"
+==Synopsis==
+<code lang="text">
+#include "eif_cecil.h"
 
 void eif_enable_visible_exception ();
-void eif_disable_visible_exception ();'''</code>
+void eif_disable_visible_exception ();
+</code>
 
-==DESCRIPTION==
-The '''eif_enable_visble_exception()''' routine enables the visible exception, while '''eif_disable_visible_exception()'''disables it. These routines can be used for debugging purpose. A visible exception is raised when the user tries to access to an Eiffel attribute or a Eiffel routine address which is not visible. 
+==Description==
+The <code lang="text">eif_enable_visble_exception</code> routine enables the visible exception, while [[eif_disable_visible_exception]] disables it. These routines can be used for debugging purpose. A visible exception is raised when the user tries to access to an Eiffel attribute or a Eiffel routine address which is not visible. 
+
 The visible exception is disabled by default. 
 
-==CONFORMANCE==
+==Conformance==
+
 ISE Eiffel 4.5 and later. 
-==COMPATIBILITY==
+
+==Compatibility==
+
 In ISE Eiffel 4.3 and 4.4, the visible exception is enabled by default. 
-==SEE ALSO==
-'''eif_attribute'''(1) , '''eif_procedure'''(1), '''eif_reference_function'''(1). 
+
+
+{{SeeAlso| <br/>
+[[eif_attribute]] <br/>
+[[eif_procedure]] <br/>
+[[eif_reference_function]] }}
+
 
 
 
