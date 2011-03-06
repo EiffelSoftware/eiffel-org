@@ -1,5 +1,4 @@
-[[Property:title|Reference for `eif_adopt']]
-[[Property:link_title|eif_adopt]]
+[[Property:title|eif_adopt]]
 [[Property:weight|-13]]
 [[Property:uuid|dc8ef8a9-7082-2a27-4e45-8f1d4472dbda]]
 ==Synopsis==
@@ -20,7 +19,7 @@ ISE Eiffel 4.1 and later.
 
 
 {{SeeAlso| <br/>
-[[Reference for `eif_access']]<br/>
+[[eif_access]]<br/>
 [[Reference for `eif_protect']]<br/>
 [[Reference for `eif_wean']] }}
 
