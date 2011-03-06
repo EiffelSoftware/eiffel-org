@@ -2,34 +2,57 @@
 [[Property:link_title|eif_attribute]]
 [[Property:weight|-12]]
 [[Property:uuid|c843f272-8ac2-c30e-e71f-bd6c567e9de3]]
-==SYNOPSYS==
-<code>
-'''#include "eif_cecil.h"
+==Synopsis==
+<code lang="text">
+#include "eif_cecil.h"
 
-EIFFEL_TYPE eif_attribute (EIF_REFERENCE''' ''object''''', char *''' ''name''''', EIFFEL_TYPE, int *''' ''status'');</code>
+EIFFEL_TYPE eif_attribute (EIF_REFERENCE object, char * name, EIFFEL_TYPE, int * status);
+</code>
 
-==DESCRIPTION==
-The '''eif_attribute()''' macro returns the attribute of name ''name'', which is of type ''EIFFEL_TYPE''. 
-''EIFFEL_TYPE'' is the type of the Eiffel attribute. It can be: '''EIF_INTEGER''', '''EIF_CHARACTER''', '''EIF_BOOLEAN''', '''EIF_DOUBLE''', '''EIF_REAL''', or '''EIF_REFERENCE'''. 
+==Description==
+The <code lang="text">eif_attribute()</code> macro returns the attribute of name <code lang="text">name</code>, which is of type <code lang="text">EIFFEL_TYPE</code>. 
+<code lang="text">EIFFEL_TYPE</code> is the type of the Eiffel attribute. It can be one of the following: 
+# <code lang="text">EIF_INTEGER</code> 
+# <code lang="text">EIF_CHARACTER</code>
+# <code lang="text">EIF_BOOLEAN</code>
+# <code lang="text">EIF_DOUBLE</code>
+# <code lang="text">EIF_REAL</code>
+# <code lang="text">EIF_REFERENCE</code> 
 
-If ''status'' is NULL then no status is set. Otherwise the status of the call is put into ''*status''. Its value is one of the following: 
+If <code lang="text">status</code> is <code lang="text">NULL</code> then no status is set. Otherwise the status of the call is put into <code lang="text">*status</code>. Its value is one of the following: 
 
-If the visible exception is enabled, then a visible exception is raised upon failure ( '''EIF_NO_ATTRIBUTE''', '''EIF_CECIL_ERROR'''). 
+If the visible exception is enabled, then a visible exception is raised upon failure (<code lang="text">EIF_NO_ATTRIBUTE</code>, <code lang="text">EIF_CECIL_ERROR</code>). 
 
-==RETURN VALUE==
-Upon failure, it returns ( ''EIFFEL_TYPE'') 0, otherwise the attribute is returned. 
-==NOTES==
-If the return value is an '''EIF_REFERENCE''', you must protect it with '''eif_protect()'''. <br/>
-You cannot access a constant attribute, or the result of a once function with '''eif_attribute()'''. 
-==CONFORMANCE==
+==Return value==
+
+Successful: the Eiffel attribute.
+Failing: (<code lang="text">EIFFEL_TYPE</code>) 0
+
+==Notes==
+
+If the return value is an <code lang="text">EIF_REFERENCE</code>, you must protect it with <code lang="text">eif_protect()</code>.
+
+You cannot access a constant attribute, or the result of a once function with <code lang="text">eif_attribute()</code>. 
+
+==Conformance==
+
 ISE Eiffel 4.5 and later. 
-==COMPATIBILITY==
-'''eif_attribute (''' ''object'' ''',''' ''name'' ''',''' ''type'' ''',''' ''NULL'' ''')''' <br/>
-is equivalent to: <br/>
-'''eif_field (''' ''object'' ''',''' ''name'' ''',''' ''type'' ''')''' <br/>
-which is deprecated. 
-==SEE ALSO==
-'''eif_protect'''(1) , '''attribute_exists'''(1) , '''eif_procedure'''(1) , '''eif_reference_function'''(1). Markup created by 1. 0, November 15, 1999. 
 
+==Compatibility==
+<code lang="text">
+eif_attribute (object, name, type, NULL)
+</code>
+is equivalent to:
+<code lang="text">
+eif_field (object, name, type)
+</code>
+which is deprecated. 
+
+
+{{SeeAlso| <br/>
+[[Reference for `eif_protect']]<br/>
+[[Reference for `attribute_exists']]<br/>
+[[Reference for `eif_procedure']]<br/>
+[[Reference for `eif_reference_function']] }} 
 
 
