@@ -2,20 +2,28 @@
 [[Property:link_title|eif_access]]
 [[Property:weight|-14]]
 [[Property:uuid|2f74eeb4-2508-bf32-adf2-87959cfb2593]]
-==SYNOPSYS==
-<code>
-'''#include "eif_hector.h"
+==Synopsis==
+<code lang="text">
+#include "eif_hector.h"
 
-EIF_REFERENCE eif_access (EIF_OBJECT''' ''obj''''');'''</code>
+EIF_REFERENCE eif_access (EIF_OBJECT obj);
+</code>
 
-==DESCRIPTION==
-The '''eif_access()''' macro accesses the Eiffel object ''obj''. 
-==RETURN VALUE==
-It returns the Eiffel reference protected by ''obj'' and which can be passed to Eiffel routines. 
-==CONFORMANCE==
+==Description==
+The <code lang="text">eif_access()</code> macro accesses the Eiffel object <code lang="text">obj</code>. 
+
+==Return value==
+The Eiffel reference (<code lang="text">EIF_REFERENCE</code>) protected by <code lang="text">obj</code> which can be passed to Eiffel routines. 
+
+==Conformance==
 ISE Eiffel 4.1 and later. 
-==SEE ALSO==
-'''eif_wean'''(1) , '''eif_adopt'''(1), '''eif_protect'''(1). 
+
+
+{{SeeAlso| <br/>
+[[Reference for `eif_wean']]<br/>
+[[Reference for `eif_adopt']]<br/>
+[[Reference for `eif_protect']] }}
+
 
 
 
