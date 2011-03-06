@@ -15,6 +15,10 @@ The <code lang="C">attribute_exists()</code> macro returns <code lang="C">EIF_TR
 <code lang="C">EIF_TRUE</code> or <code lang="C">EIF_FALSE</code>. 
 ==Conformance==
 ISE Eiffel 4.5 and later. 
+
+
 {{SeeAlso|<br/>[[Reference for `eif_attribute'.]]  }}
+
+
 
 
