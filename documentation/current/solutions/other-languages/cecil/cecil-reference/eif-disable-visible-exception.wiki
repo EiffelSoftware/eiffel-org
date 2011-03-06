@@ -10,7 +10,7 @@ void eif_disable_visible_exception ();
 </code>
 
 ==Description==
-The <code lang="text">eif_enable_visble_exception</code> routine enables the visible exception, while [[eif_disable_visible_exception]] disables it. These routines can be used for debugging purpose. A visible exception is raised when the user tries to access to an Eiffel attribute or a Eiffel routine address which is not visible. 
+The [[eif_enable_visible_exception]] routine enables the visible exception, while [[eif_disable_visible_exception]] disables it. These routines can be used for debugging purpose. A visible exception is raised when the user tries to access to an Eiffel attribute or a Eiffel routine address which is not visible. 
 
 The visible exception is disabled by default. 
 
