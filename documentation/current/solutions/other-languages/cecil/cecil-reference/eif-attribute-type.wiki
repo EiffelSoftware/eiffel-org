@@ -2,20 +2,36 @@
 [[Property:link_title|eif_attribute_type]]
 [[Property:weight|-11]]
 [[Property:uuid|28b3840f-648f-dc4d-8c83-70532a5e8e63]]
-==SYNOPSYS==
-<code>
-'''#include "eif_cecil.h"
+==Synopsis==
+<code lang="text">
+#include "eif_cecil.h"
 
-int eif_attribute_type (char *''' ''attr''''', EIF_TYPE_ID''' ''tid''''');'''</code>
+int eif_attribute_type (char *attr, EIF_TYPE_ID tid);
+</code>
 
-==DESCRIPTION==
-The '''eif_attribute_type()''' function returns the type of the attribute ''attr'', from the Eiffel type, which type identifier is ''tid'' '''. ''' 
-==RETURN VALUE==
-Upon failure, it returns EIF_NO_TYPE. Otherwise, the return value can be one of the following: '''EIF_INTEGER_TYPE''', '''EIF_CHARACTER_TYPE''', '''EIF_BOOLEAN_TYPE''', '''EIF_DOUBLE_TYPE''', '''EIF_REAL_TYPE''', '''EIF_REFERENCE_TYPE''', '''EIF_EXPANDED_TYPE''', '''EIF_BIT_TYPE'''. 
-==CONFORMANCE==
+==Description==
+The <code lang="text">eif_attribute_type()</code> function returns the type of the attribute <code lang="text">attr</code>, from the Eiffel type, which type identifier is <code lang="text">tid</code>.
+
+==Return value==
+
+Sucessful: One of the following: 
+# <code lang="text">EIF_INTEGER_TYPE</code>
+# <code lang="text">EIF_CHARACTER_TYPE</code>
+# <code lang="text">EIF_BOOLEAN_TYPE</code>
+# <code lang="text">EIF_DOUBLE_TYPE</code>
+# <code lang="text">EIF_REAL_TYPE</code>
+# <code lang="text">EIF_REFERENCE_TYPE</code>
+# <code lang="text">EIF_EXPANDED_TYPE</code>
+# <code lang="text">EIF_BIT_TYPE</code> 
+
+Failing: <code lang="text">EIF_NO_TYPE</code>
+
+==Conformance==
 ISE Eiffel 4.5 and later. 
-==SEE ALSO==
-'''eif_protect'''(1) , '''attribute_exists'''(1) , '''eif_procedure'''(1) , '''eif_reference_function'''(1). 
 
+{{SeeAlso| <br/>[[Reference for `eif_protect']]<br/>
+[[Reference for `attribute_exists']]<br/> 
+[[Reference for `eif_procedure']]<br/> 
+[[Reference for `eif_reference_function']] }}
 
 

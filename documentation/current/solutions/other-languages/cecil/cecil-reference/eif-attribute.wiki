@@ -26,6 +26,7 @@ If the visible exception is enabled, then a visible exception is raised upon fai
 ==Return value==
 
 Successful: the Eiffel attribute.
+
 Failing: (<code lang="text">EIFFEL_TYPE</code>) 0
 
 ==Notes==
@@ -54,5 +55,7 @@ which is deprecated.
 [[Reference for `attribute_exists']]<br/>
 [[Reference for `eif_procedure']]<br/>
 [[Reference for `eif_reference_function']] }} 
+
+
 
 
