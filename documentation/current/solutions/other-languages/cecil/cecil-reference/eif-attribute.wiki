@@ -9,7 +9,7 @@ EIFFEL_TYPE eif_attribute (EIF_REFERENCE object, char * name, EIFFEL_TYPE, int *
 </code>
 
 ==Description==
-The <code lang="text">eif_attribute()</code> macro returns the attribute of name <code lang="text">name</code>, which is of type <code lang="text">EIFFEL_TYPE</code>. 
+The <code lang="text">eif_attribute</code> macro returns the attribute of name <code lang="text">name</code>, which is of type <code lang="text">EIFFEL_TYPE</code>. 
 <code lang="text">EIFFEL_TYPE</code> is the type of the Eiffel attribute. It can be one of the following: 
 # <code lang="text">EIF_INTEGER</code> 
 # <code lang="text">EIF_CHARACTER</code>
@@ -30,9 +30,9 @@ Failing: (<code lang="text">EIFFEL_TYPE</code>) 0
 
 ==Notes==
 
-If the return value is an <code lang="text">EIF_REFERENCE</code>, you must protect it with <code lang="text">eif_protect()</code>.
+If the return value is an <code lang="text">EIF_REFERENCE</code>, you must protect it with [[eif_protect]].
 
-You cannot access a constant attribute, or the result of a once function with <code lang="text">eif_attribute()</code>. 
+You cannot access a constant attribute, or the result of a once function with <code lang="text">eif_attribute</code>. 
 
 ==Conformance==
 

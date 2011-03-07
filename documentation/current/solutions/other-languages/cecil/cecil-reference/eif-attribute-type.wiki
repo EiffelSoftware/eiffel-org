@@ -9,7 +9,7 @@ int eif_attribute_type (char *attr, EIF_TYPE_ID tid);
 </code>
 
 ==Description==
-The <code lang="text">eif_attribute_type()</code> function returns the type of the attribute <code lang="text">attr</code>, from the Eiffel type, which type identifier is <code lang="text">tid</code>.
+The <code lang="text">eif_attribute_type</code> function returns the type of the attribute <code lang="text">attr</code>, from the Eiffel type, which type identifier is <code lang="text">tid</code>.
 
 ==Return value==
 
@@ -33,5 +33,7 @@ ISE Eiffel 4.5 and later.
 [[attribute_exists]]<br/> 
 [[eif_procedure]]<br/> 
 [[eif_reference_function]] }}
+
+
 
 

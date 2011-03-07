@@ -9,7 +9,7 @@ EIF_REFERENCE eif_access (EIF_OBJECT obj);
 </code>
 
 ==Description==
-The <code lang="text">eif_access()</code> macro accesses the Eiffel object <code lang="text">obj</code>. 
+The <code lang="text">eif_access</code> macro accesses the Eiffel object <code lang="text">obj</code>. 
 
 ==Return value==
 The Eiffel reference (<code lang="text">EIF_REFERENCE</code>) protected by <code lang="text">obj</code> which can be passed to Eiffel routines. 
