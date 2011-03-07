@@ -32,7 +32,7 @@ The rope is modeled in this example by class <code>ROPE</code>, and is the prima
 
 There are two more interesting features of <code>ROPE</code>, <code>directions</code> and <code>announce</code> which will be discussed below.
 
-The baboons (modeled by class <code>BABOON</code>), when they are created are determined at random to want to go either left or right. As each baboon is created by the root class of the example, it is launched into life. For the purposes of this example, the baboon life is short and consists of four steps:
+The baboons (modeled by class <code>BABOON</code>), as they are created, are determined at random to want to go either left or right. As each baboon is created by the root class of the example, it is launched into life. For the purposes of this example, the baboon life is short and consists of four steps:
 
 : 1) Announcing one's desired direction to the rope. Doing this involves the feature <code>{ROPE}.announce</code> that was mentioned above. The rope keeps a queue of these desired directions as announced by the baboons in its <code>directions</code> feature. It is by keeping this queue that the rope can make its decisions to change the direction of the flow of baboons. 
 
@@ -42,7 +42,9 @@ The baboons (modeled by class <code>BABOON</code>), when they are created are de
 
 : 4) Dismounting the rope. After crossing the canyon, the baboon gets off the rope ... and dies immediately after attaining what was apparently its only goal in life.
 
+Although it was mentioned above, it bears repeating that the rope is not just a shared resource, but an active and important player in this example. Indeed, it is the rope that controls the direction of the flow of baboons across the canyon, and ensures fairness. 
 
+When a baboon announces himself as a candidate for crossing the canyon in a particular direction, the rope queues this information. When the rope allows a baboon to mount and cross, the desired direction of the next baboon in the directions queue is queried. If the next baboon wants to go in a different direction, then the state of the rope is set to "changing", and no more baboons are allowed on the rope until the current stream finishes crossing. When the last baboon if that stream dismounts the rope, the direction of flow is changed and the "changing" state is repealed, allowing baboons wanting to cross in the opposite direction to have a go. 
 
 
 
