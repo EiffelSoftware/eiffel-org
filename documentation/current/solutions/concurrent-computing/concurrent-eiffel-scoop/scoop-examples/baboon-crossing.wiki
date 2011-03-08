@@ -15,7 +15,7 @@ The system may be workable, but it is certainly not perfect. You can easily imag
 
 # If two baboons meet in the middle of the rope, then all activity stops, and no other baboons can cross (deadlock). So, at any given time, all the baboons on the rope must be going the same direction.
 # The rope can hold only a certain number of baboons at a time. A baboon cannot be allowed on the rope if the rope is already at full capacity.
-# A continuous stream of baboons from one direction could prevent baboons wanting to go the opposite direction from ever being able to cross (starvation).  
+# A continuous stream of baboons from one direction could prevent baboons wanting to go the opposite direction from ever being able to cross (unfairness, starvation).  
 
 
 =Highlights=
