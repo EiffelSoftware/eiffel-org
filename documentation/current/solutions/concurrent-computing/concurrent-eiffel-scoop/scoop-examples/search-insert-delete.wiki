@@ -1,6 +1,6 @@
 [[Property:title|Search-insert-delete]]
 [[Property:weight|-9]]
-[[Property:uuid|0d7035db-2e00-602b-b7eb-78f0ad55b9a6]]
+[[Property:uuid|2c09ce66-f3be-1e31-eac8-f06ad3d6fc3a]]
 {{UnderConstruction}}
 
 
@@ -9,12 +9,41 @@
 
 =Description=
 
-
+The Search-insert-delete example involves a shared data structure that is being accessed concurrently by three types of independent actors. ''Searchers'' access the list without changing it. So, any number of concurrent searchers can be accessing the structure safely. ''Inserters'' have the ability to add new elements to the end of the structure. Only one inserter can access the structure at any given time, but can work concurrently with any number of searchers. Lastly, ''Deleters'' can remove items from any position in the structure. As such, any deleter demands exclusive access to the structure. So, while a deleter has access to the structure neither any other deleter, any inserter, nor any searcher is allowed access. 
 
 
 =Highlights=
 
+The primary actors are modeled by classes <code>SEARCHER</code>, <code>INSERTER</code>, and <code>DELETER</code>. Additionally, some common features are abstracted into a class <code>ACTOR</code> from which the effective actor classes inherit. Each actor lives only to access the data structure one time. The access looks similar in the different actor classes, and consists of executing a procedure to start the action, then waiting a random time interval, then executing a procedure to end the action. 
 
+The shared data structure is modeled by the class <code>SHARED_LIST</code>. Because the point of this example is to demonstrate the different allowable types of concurrent access by the different types of actors, it should be said that features that support that goal are all that you will find in this class. In other words, <code>SHARED_LIST</code> doesn't really maintain a data structure, it only provides the features necessary to coordinate safe concurrent access by searchers, inserters, and deleters. 
+
+<code>SHARED_LIST</code> provides features in three feature clauses, each explicitly exported one of the types of accessors. For example, the feature clause exported to clients of type <code>SEARCHER</code> includes the query <code>can_search</code> and the procedures <code>start_search</code> and <code>end_search</code>. The features available to inserters and deleters are nearly identical. Because of the different concurrency requirements of each type of actor though, the implementation for <code>can_search</code> and <code>can_delete</code> are different. Also different are the implementations for starting and ending actions for the various actor types. 
+
+<code>SHARED_LIST</code> keeps certain state attributes:
+
+<code>
+    searchers: INTEGER_32
+            -- How many searchers are there?
+
+    inserting: BOOLEAN
+            -- Is someone inserting?
+
+    deleting: BOOLEAN
+            -- Is someone deleting?
+</code>
+
+These are used in the <code>can_search</code>, <code>can_insert</code>, and <code>can_delete</code> queries, which are in turn used in the preconditions for the corresponding <code>start_xxxx</code> features. For example, <code>start_delete</code> is constrained by a precondition <code>can_delete</code>, which is implemented like this: 
+
+<code>
+    can_delete: BOOLEAN
+            -- Can delete?
+        do
+            Result := not deleting and not inserting and searchers = 0
+        end
+</code>
+
+For the deleter calling <code>{SHARED_LIST}.start_delete</code>, the precondition clause <code>can_delete</code> is an [[Concurrent Eiffel with SCOOP#Preconditions|uncontrolled precondition]]. This means that the deleter will wait until the <code>can_delete</code> becomes true before feature application of <code>start_delete</code> occurs.
 
 
 
