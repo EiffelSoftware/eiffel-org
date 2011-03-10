@@ -6,9 +6,6 @@
 This page documents all CECIL functions of the form eif_*_function where "*" is a supported type such as "integer", "bit", "character", "real", etc.
 
 
-{{note|All pages titled with those same patterns, (e. g., [[eif_reference_function]], [[eif_integer_function]]) will '''redirect''' to this page. }}
-
-
 ==Synopsis==
 <code lang="text">
 #include "eif_cecil.h"
