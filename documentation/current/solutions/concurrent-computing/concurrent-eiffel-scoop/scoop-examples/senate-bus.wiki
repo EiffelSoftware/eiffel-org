@@ -9,7 +9,7 @@
 
 =Description=
 
-According to Allen Downey in his text ''The Little Book of Semaphores,'' the Senate bus example was inspired by the [http://www.wellesley.edu/Transportation/senate.html Senate Bus at Wellesley College]. Passengers come to a bus stop to catch the Senate bus. The bus can hold 50 passengers. When the bus stops at the bus stop, the waiting passengers board. If the bus fills up, then any passengers who cannot board, must wait until the bus shows up again. Likewise, any passenger who arrives at the stop during the time the bus is boarding also must wait until the next cycle. 
+According to Allen Downey in his text ''[http://greenteapress.com/semaphores/ The Little Book of Semaphores],'' the Senate bus example was inspired by the [http://www.wellesley.edu/Transportation/senate.html Senate Bus at Wellesley College]. Passengers come to a bus stop to catch the Senate bus. The bus can hold 50 passengers. When the bus stops at the bus stop, the waiting passengers board. If the bus fills up, then any passengers who cannot board, must wait until the bus shows up again. Likewise, any passenger who arrives at the stop during the time the bus is boarding also must wait until the next cycle. 
 
 
 =Highlights=
