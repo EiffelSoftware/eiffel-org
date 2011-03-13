@@ -14,6 +14,10 @@ According to Allen Downey in his text ''[http://greenteapress.com/semaphores/ Th
 
 =Highlights=
 
+The root class for this example creates the bus stop, the bus, and the passengers all typed as separate. 
+
+The bus stop, modeled by class <code>STATION</code> has features that can be used by the bus and by passengers. Access to these
+features is restricted to the appropriate client classes through the clients part of the feature clause.  Clients of type <code>PASSENGER</code> can access <code>{STATION}.pass_enter</code>. A client of type <code>{BUS}</code> can access <code>{STATION}.bus_enter</code>, <code>{STATION}.pick_up</code>, and <code>{STATION}.leave</code>, as well as a status feature <code>{STATION}.bus_is_waiting</code> and two passenger queues <code>{STATION}.waiting_list</code> and <code>{STATION}.checked_in_list</code>.
 
 
 
