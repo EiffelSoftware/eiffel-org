@@ -215,7 +215,7 @@ Now consider the only case, Case 1, determining asynchronous calls.
 
 Separate calls to commands are asynchronous. This means that when a client executes an asynchronous feature call, it “logs” the need for its associated feature application. But then rather than waiting for the feature application to complete, the client routine continues execution of instructions beyond the asynchronous call. 
 
-It is in this case that concurrent computation is achieved. The process of the client object is free to continue processing while the processor handling the target of the asynchronous feature call applies that feature.
+It is in this case that concurrent computation is achieved. The processor of the client object is free to continue processing while the processor handling the target of the asynchronous feature call applies that feature.
 
 
 ==Design by Contract and SCOOP==

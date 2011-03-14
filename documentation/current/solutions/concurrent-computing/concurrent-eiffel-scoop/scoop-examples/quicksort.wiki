@@ -1,6 +1,6 @@
 [[Property:title|Quicksort]]
 [[Property:weight|-7]]
-[[Property:uuid|facf6973-e3c1-0a3f-b9e8-f55d1ca29a11]]
+[[Property:uuid|61632685-20ad-293b-44b6-907b15d0447a]]
 {{UnderConstruction}}
 
 
@@ -9,7 +9,9 @@
 
 =Description=
 
+The quicksort example is a concurrent implementation of the well-known [http://en.wikipedia.org/wiki/Quicksort quicksort] sorting algorithm developed by computer scientist [http://en.wikipedia.org/wiki/C._A._R._Hoare C. A. R. Hoare]. Quicksort uses a "divide and conquer" strategy to sort a structure. It applies a basic algorithm to the structure which leads to a natural division of the elements into to substructures. Then it applies the same algorithm to each of the substructures, and so on, until the whole structure is sorted. Because of the repetitive application of the same algorithm to evolving parts of the structure, the quicksort is often used in computer science classes to provide students with experience in [http://en.wikipedia.org/wiki/Recursion_(computer_science) recursive] computation. 
 
+In the SCOOP example, instead of recursive calls, substructures are handled by separate [[Concurrent Eiffel with SCOOP|SCOOP processors]] running concurrently.
 
 
 =Highlights=
