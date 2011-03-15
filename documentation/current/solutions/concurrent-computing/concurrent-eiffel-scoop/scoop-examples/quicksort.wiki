@@ -16,5 +16,11 @@ In the SCOOP example, instead of recursive calls, substructures are handled by s
 
 =Highlights=
 
+The quicksort example sorts a randomly generated container of integers. The set-up for this example is done in the root class. It is interactive in the sense that when you run the example, you get to to choose how many elements will be sorted (within certain limits) and you get to provide a seed for the random number generator which will be used to produce the unsorted structure.
+
+The quicksort algorithm is embodied in the class <code>QUICKSORTER</code>, specifically in its routine <code>sort</code>. Instances of <code>QUICKSORTER</code> declared as <code>separate</code> are spawned to sort substructures as the algorithm progresses.
+
+The structures acted upon by <code>QUICKSORTER</code> are instances of class <code>DATA</code>. <code>DATA</code> is a class designed specifically to support this example. 
+
 
 
