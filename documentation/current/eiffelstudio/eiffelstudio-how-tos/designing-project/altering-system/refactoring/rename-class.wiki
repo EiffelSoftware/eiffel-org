@@ -3,8 +3,8 @@
 [[Property:weight|3]]
 [[Property:uuid|e70f2760-389a-4c54-ed10-b731dc70e952]]
 # Start the '''Rename''' refactoring action by either:
-## Selecting '''Refactoring->Rename''' from the context menu associated with the class you want to rename.
-## Picking the class and drop it into the Rename hole ([[Image:refactor-rename-icon]]) on the [[Main toolbars|refactoring toolbar]].
+## Selecting '''Refactor->Rename''' from the context menu associated with the class you want to rename.
+## Picking the class and dropping it into the Rename hole ([[Image:refactor-rename-icon]]) on the [[Main toolbars|refactoring toolbar]].
 # After a compilation the '''Refactoring: Class Rename''' dialog appears. You can enter a new name. 
 # You can choose between these options: 
 #*  '''Compiled Classes''': only to the refactoring in compiled classes. 
