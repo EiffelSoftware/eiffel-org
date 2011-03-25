@@ -19,7 +19,7 @@ The <code>PRODUCER</code> class supports a procedure <code>produce</code> in whi
 
 The <code>CONSUMER</code> class works in a way that is largely the symmetrical opposite of <code>PRODUCER</code>. The consumer tries to <code>consume</code> the item from the <code>INVENTORY</code>. But this only possible if an item has been produced and is available. So <code>{CONSUMER}.consume</code> has a "wait" precondition based on the query <code>{INVENTORY}.has_item</code>.
 
-So the heart of the problem is the synchronization between producer and consumer sharing a single inventory. If there's already a product in inventory, the producer cannot produce more and must wait. Only when the consumer consumes the current product can the producer produce again. For the consumer's part, if there's a product currently in inventory, then the consumer can consume that product. Otherwise, the consumer must wait until the producer produces a new product. The synchronization is handled by the SCOOP mechanism of wait preconditions on the inventory.
+So the heart of the problem is the synchronization between producer and consumer sharing a single inventory. If there's already a product in inventory, the producer cannot produce more and must wait. Only when the consumer consumes the current product can the producer produce again. For the consumer's part, if there's a product currently in inventory, then the consumer can consume that product. Otherwise, the consumer must wait until the producer produces a new product. The synchronization is handled by the SCOOP mechanism of uncontrolled (wait) preconditions on the inventory.
 
 
 
