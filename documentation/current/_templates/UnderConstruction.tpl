@@ -1,1 +1,1 @@
-<center class="doc-tpl-box"><p style="text-align:center; width: 350px; border: 1px solid #FFB55F; padding: 5px; background-color: #FFEEBF; color: black;">[[Image:LogoConstruction|24px]] '''Under construction:''' [[Community#UnderConstruction|what it means]].</p></center>
+<center class="doc-tpl-box"><p style="text-align:center; width: 350px; border: 1px solid #FFB55F; padding: 2px; background-color: #FFEEBF; color: black;">[[Image:LogoConstruction|24px]] '''Under construction:''' [[Community#UnderConstruction|what it means]].</p></center>
