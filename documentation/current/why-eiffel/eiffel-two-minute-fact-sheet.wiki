@@ -45,7 +45,10 @@ Eiffel consists of:
 *Supports features not always available in competing technologies
 **Contracts and contract monitoring
 **Exception handling based on software specification (versus ad hoc try/catch)
-**Inheritance, including safe, controllable multiple and repeated inheritance
+**Void-safety: calls on void (null) references are prohibited at compile time
+**Inheritance
+***Includes multiple and repeated inheritance
+***Safe and fully controllable 
 **Genericity (generic classes), including constrained genericity
 *Widely recognized as simultaneously the simplest and most complete implementation of object-oriented concepts
 *Is clean, elegant, readable, easy to learn
