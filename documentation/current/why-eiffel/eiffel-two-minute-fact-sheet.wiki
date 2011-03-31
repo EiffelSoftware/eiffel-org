@@ -45,7 +45,7 @@ Eiffel consists of:
 *Supports features not always available in competing technologies
 **Contracts and contract monitoring
 **Exception handling based on software specification (versus ad hoc try/catch)
-**Void-safety: calls on void (null) references are prohibited at compile time
+**Void-safety: calls on void (null) references are eliminated at compile time
 **Inheritance
 ***Includes multiple and repeated inheritance
 ***Safe and fully controllable 

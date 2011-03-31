@@ -8,6 +8,25 @@
 
 EiffelRibbon is a library of classes with an associated tool which allows the integration of the Microsoft Windows "Ribbon" into graphical user interfaces programmed with [[EiffelVision 2]] and targeted to Microsoft Windows. The ribbon is part of a [http://msdn.microsoft.com/en-us/library/aa338198.aspx#office2007uifordevelopers_detaileddesignofthenewuisystem revamped user interface approach] introduced by Microsoft with the 2007 release of the Microsoft Office applications. So you've experienced the ribbon if you've used Microsoft Word, PowerPoint, or Excel from 2007 or later. 
 
+
+[[Image:EiffelRibbon window 01|A window with a ribbon]]
+
+Figure 1: A window with a ribbon.
+
+
+The EiffelRibbon library contains the classes that are used to implement the ribbon facilities. The classes in the EiffelRibbon library all have class names beginning "EV_", the default prefix for EiffelVision 2 classes. So the EiffelRibbon classes can be seen as an extension to the EiffelVision 2 library. If you've used EiffelVision 2 to create applications with graphical user interfaces, then the EiffelRibbon class won't look unfamiliar to you. However, unlike other EiffelVision 2 classes, the EiffelRibbon classes only work in applications targeted to Microsoft Windows.
+
+The EiffelRibbon design tool helps you configure a ribbon in much the same way that [[EiffelBuild|EiffelBuild]] (ES Builder) helps you layout a GUI application.
+
+=System requirements=
+
+To use the EiffelRibbon library and tools you must have:
+
+# Windows 7
+# The Microsoft C compiler provided with either:
+## Windows SDK 7.0 or greater
+## Visual Studio 2008 or greater
+
 =Current state of development=
 
 Initial distribution:
@@ -24,19 +43,15 @@ Initial distribution:
 * It is necessary to freeze the target system each time the EiffelRibbon code is regenerated. 
 * When using EV_RICH_TEXT within a ribbon, the EV_RICH_TEXT may not be refreshed right after the ribbon has been displayed.
 
-
-=System requirements=
-
-To use the EiffelRibbon library and tools you must have:
-
-# Windows 7
-# The Microsoft C compiler provided with either:
-## Windows SDK 7.0 or greater
-## Visual Studio 2008 or greater
-
 =The EiffelRibbon design tool=
 
 The EiffelRibbon design tool allows you to design a ribbon graphically, then generate the corresponding Eiffel classes necessary to implement your design. 
+
+
+[[Image:EiffelRibbon design tool 01|EiffelRibbon design tool]]
+
+Figure 2: An EiffelRibbon project open in the EiffelRibbon design tool.
+
 
 The interface of the design tool mimics that of [[EiffelBuild|EiffelBuild]]. That is, the interface contains three panes that have counterparts in EiffelBuild:
 
@@ -55,11 +70,6 @@ The typical usage of the design tool is much like the typical usage of EiffelBui
 * Use EiffelStudio to compile the generated code.
 
 
-=The EiffelRibbon class library=
-
-The EiffelRibbon class library contains a set of classes which make using ribbons in EiffelVision 2 applications possible.
-
-The classes in the EiffelRibbon library all have class names beginning "EV_", the default prefix for EiffelVision 2 classes. So the EiffelRibbon classes can be seen as an extension to the EiffelVision 2 library, although unlike other EiffelVision 2 classes, the ribbon classes only work in applications targeted to Microsoft Windows.
 
 
 
