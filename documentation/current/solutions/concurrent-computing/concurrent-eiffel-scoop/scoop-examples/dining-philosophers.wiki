@@ -11,18 +11,18 @@ In the [http://en.wikipedia.org/wiki/Dining_philosophers_problem dining philosop
 
 The philosophers spend all their time in either of only two states: they are thinking or they are eating. The philosophers may be brilliant thinkers, but apparently manual dexterity is not their strong suit. This is evidenced by the fact that in order to eat, any philosopher must be able to pick up both of the forks positioned next to his plate (which he can do, so long as the philosopher next to him is not currently eating). So, while eating he must have possession of both forks, and while thinking, he has put down any forks that he had previously used. Therefore, any particular philosopher has the opportunity to eat only when the two philosophers on either side of him are thinking and have made their forks available. 
 
-Apart from any negative consequences from these questionable sanitary practices, the dining philosophers can, in improperly designed solutions, encounter problems related to concurrency. For example, if all philosophers were to pick up the fork to their right and then wait for the fork to their left to become available (or vice versa), the philosophers would be caught in a [http://en.wikipedia.org/wiki/Deadlock deadlock]. If, because of a lack of fairness in the solution, some of the philosophers get stuck in thinking mode because they can never secure the two forks necessary to eat, then those philosophers so affected would suffer a condition known as [http://en.wikipedia.org/wiki/Resource_starvation resource starvation].
+Apart from any negative consequences from the questionable sanitary practices described above, the dining philosophers can, in improperly designed solutions, encounter problems related to concurrency. For example, if all philosophers were to pick up the fork to their right and then wait for the fork to their left to become available (or vice versa), the philosophers would be caught in a [http://en.wikipedia.org/wiki/Deadlock deadlock]. If, because of a lack of fairness in the solution, some of the philosophers get stuck in thinking mode because they can never secure the two forks necessary to eat, then those philosophers so affected would suffer a condition known as [http://en.wikipedia.org/wiki/Resource_starvation resource starvation].
 
 
 =Highlights=
 
-This example includes three classes relevant to the problem: <code>APPLICATION</code>, <code>PHILOSOPHER</code>, and <code>FORK</code>. Class <code>APPLICATION</code> sets the problem in motion by creating the forks and philosophers all typed as <code>separate</code>, and then applying the feature <code>live</code> to each philosopher after creation. 
+This example includes three classes relevant to the problem: <code>DINING_PHILOSOPHERS</code>, <code>PHILOSOPHER</code>, and <code>FORK</code>. Class <code>DINING_PHILOSOPHERS</code> sets the problem in motion by creating the forks and philosophers all typed as <code>separate</code>, and then applying the feature <code>live</code> to each philosopher after creation. 
 
 Class <code>PHILOSOPHER</code> models the philosophers. The totality of a philosopher's exciting activities is modeled by the feature <code>step</code>:
 
 <code>
     step
-            -- Perform a philosopher's tasks.
+            -- Perform tasks.
         do
             think
             eat (left_fork, right_fork)
@@ -48,7 +48,7 @@ Another interesting feature of this example is the feature <code>{PHILOSOPHER}.e
 
 and you're not wearing your SCOOP glasses, this could look a little odd to you. Here is a routine that takes two arguments <code>l</code> and <code>r</code> representing the left and right forks. But then, <code>l</code> and <code>r</code> are never used in body of the routine! 
 
-However, with SCOOP in mind, we realize that the fork objects are shared resources to which exclusive access must be secured before a philosopher can eat. In this example, the fork object themselves don't really do anything except serve that purpose. (Take a look at the FORK class, and you'll see that it has no features.)
+However, with SCOOP in mind, we realize that the fork objects are shared resources to which exclusive access must be secured before a philosopher can eat. In this example, the fork object themselves don't really do anything except serve that purpose. (Take a look at the <code>FORK</code> class, and you'll see that it has no features.)
 
 In real world concurrency problems, it is likely that shared resources would play a more active role than the forks of the dining philosophers, but here it's just not necessary.
 
