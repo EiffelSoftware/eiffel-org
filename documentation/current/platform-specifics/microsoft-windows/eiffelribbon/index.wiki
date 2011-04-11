@@ -16,6 +16,8 @@ Figure 1: A window with a ribbon.
 
 The EiffelRibbon library contains the classes that are used to implement the ribbon facilities. The classes in the EiffelRibbon library all have class names beginning "EV_", the default prefix for EiffelVision 2 classes. So the EiffelRibbon classes can be seen as an extension to the EiffelVision 2 library. If you've used EiffelVision 2 to create applications with graphical user interfaces, then the EiffelRibbon class won't look unfamiliar to you. However, unlike other EiffelVision 2 classes, the EiffelRibbon classes only work in applications targeted to Microsoft Windows.
 
+To gain a detailed understanding of the goals of Microsoft's Ribbon technology including some guidelines on designing effective ribbons, see [http://msdn.microsoft.com/en-us/library/cc872782.aspx the '''Ribbons''' page] on Microsoft's MSDN site. 
+
 The EiffelRibbon design tool helps you configure a ribbon in much the same way that [[EiffelBuild|EiffelBuild]] (ES Builder) helps you layout a GUI application.
 
 =System requirements=
