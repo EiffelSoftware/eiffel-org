@@ -197,27 +197,27 @@ First, every feature call is either a synchronous feature call or an asynchronou
 
 A feature call is '''synchronous''' in the following cases:
 
-:1  It is a non-separate call.
-:2  It is a separate call:
-::2.1  To a query, or
-::2.2  To a command which has at least one actual argument which is of a reference type and either
-:::2.2.1  A separate argument of the enclosing routine, or  
-:::2.2.2  <code>Current</code>.
+:S1  It is a non-separate call.
+:S2  It is a separate call:
+::S2.1  To a query, or
+::S2.2  To a command which has at least one actual argument which is of a reference type and either
+:::S2.2.1  A separate argument of the enclosing routine, or  
+:::S2.2.2  <code>Current</code>.
 
 A feature call is '''asynchronous''' in the following case:
-:1  It is a separate call to a command with no arguments, or arguments not meeting the criteria of 2.2 in the '''synchronous''' case above.
+:A1  It is a separate call to a command with no arguments, or arguments not meeting the criteria of S2.2 above.
 
 Let’s look a little closer at those cases determining synchronous calls. 
 
-Case 1 is the case of typical sequential Eiffel, where all calls are non-separate, and therefore synchronous. Of course, even in concurrent Eiffel, non-separate calls will occur, and these will be synchronous.
+Case 1 is the case of typical sequential Eiffel, where all calls are non-separate, and therefore synchronous. Of course, even in concurrent Eiffel with SCOOP, plenty of non-separate calls will occur, and these will be synchronous.
 
 Case 2.1 says that if a separate call is a query it must be synchronous. This is because even though the feature application will probably occur on a different processor, the instructions following the query will likely depend up on the result of the query, so they must wait until the feature application completes. This situation is known as ''wait by necessity''.
 
-Case 2.2 describes a situation which a call provides an actual argument which is <code>Current</code> or is a separate formal argument of the call’s enclosing routine. This is the case the client is calling a procedure and passing arguments which are controlled from the client's viewpoint. That is they are objects upon which the client has exclusive access in the enclosing routine. In this case, the client must provide the supplier's processor with the access to these objects. This is done through a mechanism called ''lock passing''. Because the client has passed its locks to the suppliers processor, it cannot continue execution until the called feature has been applied by the supplier processor, and the supplier processor has relinquished the locks back to the client. Therefore, this type of call must be synchronous.
+Case 2.2 describes a situation in which a call provides at least one actual argument that is <code>Current</code> or is a separate formal argument of the call’s enclosing routine. In this case the client is calling a procedure and passing arguments which are ''controlled'' by the client. That is, the actual arguments are objects upon which the client processor has exclusive access in the enclosing routine. In order for the supplier processor to be able to apply the feature (presumably accessing the argument objects in the process), the client must pass its exclusive access to these objects on to the supplier. This is done through a mechanism called ''lock passing''. Because the client has passed its locks to the supplier processor, it cannot continue execution until the called feature has been applied by the supplier processor, and the supplier processor has relinquished the locks back to the client. Therefore, this type of call must be synchronous.
 
 Now consider the only case, Case 1, determining asynchronous calls. 
 
-Separate calls to commands are asynchronous (except as in Case 2.2). This means that when a client executes an asynchronous feature call, it “logs” the need for its associated feature application. But then rather than waiting for the feature application to complete, the client routine continues execution of instructions beyond the asynchronous call. 
+Separate calls to commands are asynchronous (except as in case S2.2). This means that when a client executes an asynchronous feature call, it “logs” the need for its associated feature application. But then rather than waiting for the feature application to complete, the client routine continues execution of instructions beyond the asynchronous call. 
 
 It is in this case that concurrent computation is achieved. The processor of the client object is free to continue processing while the processor handling the target of the asynchronous feature call applies that feature.
 
@@ -252,7 +252,7 @@ If a routine has executed correctly, then the postcondition of the routine will 
 
 Postcondition semantics are characterized as follows: 
 
-:If a called routine has a postcondition clause that is controlled, then a client can assume that clause holds, because no other client can affect it. However, a client cannot make the same assumption for uncontrolled postcondition clauses. Uncontrolled queries in postcondition clauses are evaluated by the processors of their targets. And this is done asynchronously. Wait by necessity does not apply. So, the case of uncontrolled queries in postcondition clauses is an exception to Case A2 in the section about [[#What makes a call synchronous or asynchronous?|synchronous and asynchronous calls,]] above.
+:If a called routine has a postcondition clause that is controlled, then a client can assume that clause holds, because no other client can affect it. However, a client cannot make the same assumption for uncontrolled postcondition clauses. Uncontrolled queries in postcondition clauses are evaluated by the processors of their targets. And this is done asynchronously. Wait by necessity does not apply. So, the case of uncontrolled queries in postcondition clauses is an exception to case S2.1 in the section about [[#What makes a call synchronous or asynchronous?|synchronous and asynchronous calls]], above.
 
 
 ===Class invariants===
