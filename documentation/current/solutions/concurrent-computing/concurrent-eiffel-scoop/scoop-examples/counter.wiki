@@ -1,9 +1,18 @@
 [[Property:title|Counter]]
 [[Property:weight|-14]]
 [[Property:uuid|ef5e7a86-3c2d-6a55-07b5-395f30bf8f96]]
-
-
 {{UnderConstruction}}
+
+
+{{Beta}}
+
+
+=Description=
+
+Unlike many of the other examples, this one is not really a problem to be solved. Rather, the Counter example uses multiple instances of the simple class <code>COUNTER</code> to explore various concurrent scenarios. Each instance of <code>COUNTER</code> has a unique identifier, a current value, and a speed. A counter's speed is that time that it takes to perform a single increment. You will see that some of the tests start multiple counters at different speeds. Class <code>COUNTER</code> has a procedure <code>run</code> which takes an integer as an argument, and increments the counter that many times. The example's root class contains the code to create counter instances and run the various tests.
+
+=Highlights=
+
 
 
 
