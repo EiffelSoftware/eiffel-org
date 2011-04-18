@@ -9,9 +9,32 @@
 
 =Description=
 
-Unlike many of the other examples, this one is not really a problem to be solved. Rather, the Counter example uses multiple instances of the simple class <code>COUNTER</code> to explore various concurrent scenarios. Each instance of <code>COUNTER</code> has a unique identifier, a current value, and a speed. A counter's speed is that time that it takes to perform a single increment. You will see that some of the tests start multiple counters at different speeds. Class <code>COUNTER</code> has a procedure <code>run</code> which takes an integer as an argument, and increments the counter that many times. The example's root class contains the code to create counter instances and run the various tests.
+Unlike many of the other examples, this one is not really a problem to be solved. Rather, the Counter example uses multiple instances of the simple class <code>COUNTER</code> to explore various concurrent scenarios. Each instance of <code>COUNTER</code> has a unique identifier, a current value, and a speed. A counter's speed is that time that it takes to perform a single <code>increment</code>. You will see that some of the tests start multiple counters at different speeds. Class <code>COUNTER</code> has a procedure <code>run</code> which takes an integer as an argument, and increments the counter that many times. The example's root class contains the code to create counter instances and run the various tests.
 
 =Highlights=
+
+There are six tests that can be called from the root procedure: 
+
+<code>
+	make
+		-- Test counters.
+	do
+			print ("Counter application%N")
+				-- Leave one of the following lines uncommented to perform testing.
+
+			test_1 -- start just one counter
+--			test_2 -- start two counters
+--			test_3 -- start many counters
+--			test_4 -- start counter_1 twice
+--			test_5 -- start counter_1 with precondition
+--			test_6 -- start counter_1 separately and counter_2 non-separately
+	end
+</code>
+
+You can uncomment the test that you want to run and leave the rest commented. When you run the test, you can see you can watch the output in the console window as the test progresses.
+
+Have a look at the source code for each test before you run it, so that you can reconcile the output you see with your expectation of the execution.
+
 
 
 
