@@ -11,7 +11,7 @@
 
 The quicksort example is a concurrent implementation of the well-known [http://en.wikipedia.org/wiki/Quicksort quicksort] sorting algorithm developed by computer scientist [http://en.wikipedia.org/wiki/C._A._R._Hoare C. A. R. Hoare]. Quicksort uses a "divide and conquer" strategy to sort a structure. It applies a basic algorithm to the structure which leads to a division of the elements into to two substructures. Then it applies the same algorithm to each of the substructures, and so on, until the whole structure is sorted. Because of the repetitive application of the same algorithm to evolving parts of the structure, the quicksort is often used in computer science classes to provide students with experience in [http://en.wikipedia.org/wiki/Recursion_(computer_science) recursive] computation. 
 
-In the SCOOP example, instead of recursive calls, substructures are handled by separate [[Concurrent Eiffel with SCOOP|SCOOP processors]] running concurrently.
+In the SCOOP example, instead of recursive calls, substructures are handled (within limits) by separate [[Concurrent Eiffel with SCOOP|SCOOP processors]] running concurrently.
 
 
 =Highlights=
@@ -22,5 +22,6 @@ The quicksort algorithm is embodied in the class <code>QUICKSORTER</code>, prima
 
 The structures acted upon by <code>QUICKSORTER</code> are managed in instances of class <code>DATA</code>. <code>DATA</code> is a class designed specifically to support the quicksort example. 
 
+When the example runs, separate <code>QUICKSORTER</code> processes are used for the recursive sorts up until a certain depth of recursion is reached. The limit is defined by the <code>NATURAL</code> constant <code>max_recursion_depth</code>. 
 
 
