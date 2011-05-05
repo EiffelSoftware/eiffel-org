@@ -1,9 +1,18 @@
 [[Property:title|Observer pattern]]
 [[Property:weight|-4]]
 [[Property:uuid|72c53c25-6fa5-6787-0762-cfa3d1c814c5]]
-
-
 {{UnderConstruction}}
+
+=Description=
+
+The Observer pattern example should be considered to some degree a work in progress. During the development of SCOOP for EiffelStudio, Eiffel Software engineers began to think in terms of the impact that SCOOP might have on our own software. One area that emerged was the parsing of Eiffel software text during compilation. You know that Eiffel systems are composed of modules called classes. In a non-concurrent compilation process, the classes are parsed one after another. However, there is no reason why parsing cannot take place on multiple SCOOP processors. 
+
+You may remember seeing as you compile an Eiffel system, the different degrees of compilation counting down. Degree 5 is a phase of compilation that deals with parsing classes and creating an abstract syntax tree. The Observer pattern example tries to imagine concurrent Degree 5 parsing in the presence of SCOOP.
+
+You should understand that the example doesn't really parse code. Rather, it just tries to show what such a concurrent parser could look like, and the parsing step just involves a short wait to simulate the time that parsing would take.
+
+
+=Highlights=
 
 
 

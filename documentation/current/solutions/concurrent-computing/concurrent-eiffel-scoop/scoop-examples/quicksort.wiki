@@ -22,6 +22,6 @@ The quicksort algorithm is embodied in the class <code>QUICKSORTER</code>, prima
 
 The structures acted upon by <code>QUICKSORTER</code> are managed in instances of class <code>DATA</code>. <code>DATA</code> is a class designed specifically to support the quicksort example. 
 
-When the example runs, separate <code>QUICKSORTER</code> processes are used for the recursive sorts up until a certain depth of recursion is reached. The limit is defined by the <code>NATURAL</code> constant <code>max_recursion_depth</code>. 
+When the example runs, separate <code>QUICKSORTER</code> processes are used for the recursive sorts up until a certain depth of recursion is reached. The limit is defined by the <code>NATURAL</code> constant <code>{QUICKSORTER}.max_recursion_depth</code>. 
 
 
