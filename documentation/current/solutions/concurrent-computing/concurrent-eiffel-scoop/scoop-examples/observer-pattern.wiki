@@ -14,5 +14,11 @@ You should understand that the example doesn't really parse code. Rather, it jus
 
 =Highlights=
 
+The name of this example is Observer pattern, but it's not a classic example of the [http://en.wikipedia.org/wiki/Observer_pattern Observer design pattern] as commonly known. But it does have elements of the observer pattern that we will see.
+
+The important classes here are <code>DEGREE_5</code>, <code>EIFFEL_PARSER_POOL</code>, and <code>EIFFEL_PARSER</code>. <code>DEGREE_5</code> represents Eiffel compilation degree five, parsing of classes. In the example, <code>DEGREE_5</code> uses an instance of <code>EIFFEL_PARSER_POOL</code> to manage a pool of instances of <code>EIFFEL_PARSER</code> which actually do the parsing. The <code>EIFFEL_PARSER</code>s are declared <code>separate</code> so that they can work concurrently, parsing different files (of course, remember that in this example the parsing is just simulated). 
+
+When <code>DEGREE_5</code> creates the <code>EIFFEL_PARSER_POOL</code>, it provides a maximum number of parsers to be held in the pool and a function agent which the pool can use to create a new parser instance. Then when <code>DEGREE_5</code> asks the pool to parse a file, it provides references to the file itself and two procedure agents: one for pre-parse processing and one for post-parse processing. 
+
 
 

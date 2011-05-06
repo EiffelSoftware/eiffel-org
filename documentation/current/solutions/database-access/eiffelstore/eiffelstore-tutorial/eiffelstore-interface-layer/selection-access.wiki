@@ -100,8 +100,7 @@ A DB_RESULT object merely carries data retrieved from the database. You have to 
 
                 ...
 
-            create tuple
-            tuple.copy (selection.cursor)
+            create tuple.make_from_cursor (selection.cursor)
             if tuple.count >= 2 and then tuple.column_name (2).is_equal ("Firstname") then
                 io.putstring (tuple.item (2).out)
             end
