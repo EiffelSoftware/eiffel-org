@@ -20,5 +20,12 @@ The important classes here are <code>DEGREE_5</code>, <code>EIFFEL_PARSER_POOL</
 
 When <code>DEGREE_5</code> creates the <code>EIFFEL_PARSER_POOL</code>, it provides a maximum number of parsers to be held in the pool and a function agent which the pool can use to create a new parser instance. Then when <code>DEGREE_5</code> asks the pool to parse a file, it provides references to the file itself and two procedure agents: one for pre-parse processing and one for post-parse processing. 
 
+The pre-parse processing gives the <code>EIFFEL_PARSER_POOL</code> an agent that can be used to set up a parser before asking it to parse a file. 
+
+When an <code>EIFFEL_PARSER</code> finishes with a file, it calls the agent for post-parse processing. In this way, it notifies the instance of <code>DEGREE_5</code> that it is done with that file. 
+
+So, it is here that elements of the observer pattern are shown. In more typical observer pattern examples, there is one observed object an a set of one or more observers. But here, there is one observer, the instance of <code>DEGREE_5</code>, and many observable objects, the parsers. Also, instead of making calls directly to the observer, the observed objects apply the agents that have been provided by the observer. 
+
+
 
 
