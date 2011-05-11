@@ -3,6 +3,24 @@
 [[Property:uuid|eb11a237-0c75-0427-452a-303d4f276b97]]
 This document contains details of modifications and bug fixes to the EiffelVision 2 library listed by the release version of EiffelStudio. All bug fixes and modifications are relative to the previously released version.
 
+==EiffelStudio 6.8==
+'''Improvements'''
+* Allowed setting the test of a combo box that has been disabled.
+* Resize actions are now called after a container has completed its resizing.
+* On Windows, increased the splitter size to make it more visible and easier to grab.
+* The API now accepts READABLE_STRING_GENERAL as input for strings, which let you accept immutable strings without conversions.
+* Extended types supported by EiffelStore, especially STRING_32 for Unicode string types.
+* Improved memory management in EiffelStore, ODBC implementation.
+
+'''Bug fixes'''
+*'''Platform Independent'''
+** Fixed incorrect drawing of connector line for root tree nodes in an EV_GRID.
+
+*'''Windows'''
+** Improved resizing on Windows with deeply nested windows that would not properly resize.
+** Use the proper default font to follow the current active theme.
+** Fixed a bug where terminating a pick and drop and moving your mouse quickly could result in a drop to a different widget than the one where pick and drop was terminated via the right click.
+
 ==EiffelStudio 6.7==
 
 '''Improvements'''
