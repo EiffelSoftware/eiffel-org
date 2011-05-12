@@ -1,15 +1,23 @@
 [[Property:title|Major changes between ISE Eiffel 6.7 and ISE Eiffel 6.8]]
 [[Property:link_title|6.8]]
 [[Property:weight|-15]]
-[[Property:uuid|9d06aeec-a75e-3b39-b19a-c6b19fe9f6b8]]
+[[Property:uuid|4ae502ce-5832-c323-4c3a-d1b0d1243735]]
 ==What's new==
 {{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
 
 ==Improvements==
+* Improved keyboard navigation in the Info tool.
+* Extended types supported by EiffelStore, especially STRING_32 for Unicode string types.
+* Improved memory management in EiffelStore, ODBC implementation. 
+* Set file name of current class to the Save File As dialog.
 
 ==Changes==
 
 ==Bug fixes==
+* Various bug fixies in EiffelStore.
+* Fixed the bug in the Info tool when deleting an EIS entry, selecting No did not actually cancel the deletion.
+* Fixed bug#17374: Feature call on void target in {EB_CLASS_INFO_ANALYZER}.stone_in_click_ast in EiffelStudio
+* Fixed bug#17299: Locale preference lost the second time opening ES.
 
 ===Language issues===
 
