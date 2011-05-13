@@ -1,15 +1,19 @@
 [[Property:title|Release notes for EiffelStudio 6.8]]
 [[Property:link_title|6.8]]
 [[Property:weight|-15]]
-[[Property:uuid|de57f53e-16e7-79d8-cf68-e35e4be88ea8]]
+[[Property:uuid|5b3df521-34a8-27a2-4261-830973a62673]]
 ==Graphical environment==
 
 ===What's new===
 ===Improvements===
+* Improved dialog that adds a new class to the system: changed button label to be more explicit about its action, removed detachable status when it is not used, removed unnecessary frame boxes, simplified code that opens the dialog.
+* Avoided class counter increment in automatically generated class name if class addition is cancelled.
 
 ===Changes===
 
 ===Bug fixes===
+* Corrected output of the iteration form of a loop in clickable views.
+* Fixed feature call on void target when reopening a project with diagram tool that contains cluster legend.
 
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 6.7 and ISE Eiffel 6.8|here]]  for the compiler release notes.
@@ -23,6 +27,8 @@
 ==Libraries==
 
 ===EiffelBase===
+* Minimized interface of <e>ITERATION_CURSOR</e> to simplify crafting cursors for iteration form of a loop on non-container classes, for example, on externally-driven input like files, sockets, etc.
+
 ===EiffelVision2===
 * [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
 
