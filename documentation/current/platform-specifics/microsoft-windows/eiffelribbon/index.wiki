@@ -31,7 +31,7 @@ To use the EiffelRibbon library and tools you must have:
 
 =The EiffelRibbon design tool=
 
-The EiffelRibbon design tool allows you to design a ribbon graphically, then generate the corresponding Eiffel classes necessary to implement your design. 
+The EiffelRibbon design tool allows you to design a ribbon graphically, then generate the ribbon markup file and the Eiffel classes necessary to implement your design. 
 
 
 [[Image:EiffelRibbon design tool 01|EiffelRibbon design tool]]
