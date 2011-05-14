@@ -1,0 +1,25 @@
+[[Property:title|SCOOP practical matters]]
+[[Property:weight|-1]]
+[[Property:uuid|87f78898-2bbb-b134-0128-e55401a61a05]]
+{{UnderConstruction}}
+
+
+=Introduction=
+
+''SCOOP practical matters'' is a collection of advice for using SCOOP effectively. Here you will find practical information that supplements the rules and definitions of the basic [[Concurrent Eiffel with SCOOP|SCOOP model]], or that is unique to the implementation of SCOOP in EiffelStudio.
+
+=SCOOP project settings=
+
+SCOOP adds only a single keyword to the Eiffel language: <code>separate</code>. In single- (or mono-) threaded Eiffel, the <code>separate</code> keyword is ignored, and the SCOOP-specific validity rules are not applied.
+
+In order to make SCOOP processing possible, you must enable the proper project settings. Actually, there's really just one mandatory setting: '''Concurrency''', and the value you need is '''SCOOP''', as shown in the section of the Project Settings dialog below. Still, in addition to the Concurrency project setting, remember that it is recommended that for new projects you use enable [[Creating a new void-safe project#Project settings for void-safe projects|the settings that guarantee void-safety]].
+
+
+
+[[Image: SCOOP project setting]]
+
+
+
+
+
+
