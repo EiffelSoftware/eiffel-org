@@ -6,13 +6,17 @@
 
 ===What's new===
 ===Improvements===
-* Improved dialog that adds a new class to the system: changed button label to be more explicit about its action, removed detachable status when it is not used, removed unnecessary frame boxes, simplified code that opens the dialog.
+* Improved dialog that adds a new class to the system: 
+** Changed button label to be more explicit about its action
+** Removed detachable status when it is not used 
+** Removed unnecessary frame boxes
+** Simplified code that opens the dialog.
 * Avoided class counter increment in automatically generated class name if class addition is cancelled.
 
 ===Changes===
 
 ===Bug fixes===
-* Corrected output of the iteration form of a loop in clickable views.
+* Corrected output of the iteration (<code>across</code>) form of the [[ET: Instructions#Loop|loop construct]] in clickable views.
 * Fixed feature call on void target when reopening a project with diagram tool that contains cluster legend.
 
 ==Compiler==
