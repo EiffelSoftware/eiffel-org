@@ -3,6 +3,10 @@
 [[Property:uuid|72c53c25-6fa5-6787-0762-cfa3d1c814c5]]
 {{UnderConstruction}}
 
+
+{{beta}}
+
+
 =Description=
 
 The Observer pattern example should be considered a work in progress. During the development of SCOOP for EiffelStudio, Eiffel Software engineers began to think in terms of the impact that SCOOP might have on our own software. One area that emerged was the parsing of Eiffel software text during compilation. You know that Eiffel systems are composed of modules called classes. In a non-concurrent compilation process, the classes are parsed one after another. However, there is no reason why parsing could not take place on multiple, concurrently executing SCOOP processors. 
