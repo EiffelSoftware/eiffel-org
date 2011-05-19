@@ -7,10 +7,6 @@
 {{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
 
 ==Improvements==
-* Improved keyboard navigation in the Info tool.
-* Extended types supported by EiffelStore, especially STRING_32 for Unicode string types.
-* Improved memory management in EiffelStore, ODBC implementation. 
-* Set file name of current class to the Save File As dialog.
 * Made ECF parser more tolerant by converting errors into warnings when the current namespace is unknown.
 * Improved error reporting by including attachment status indicator in type information so that one can easily see the difference between attached and detachable types when they come from the classes with different default attachment settings.
 
@@ -18,8 +14,6 @@
 * Made feature <e>{ITERATION_CURSOR}.start</e> optional when processing an iteration form of a loop.
 
 ==Bug fixes==
-* Various bug fixes in EiffelStore.
-* Fixed a bug in the Info tool: when deleting an EIS entry, selecting "No" did not actually cancel the deletion.
 * Fixed bug#17374: Feature call on void target in {EB_CLASS_INFO_ANALYZER}.stone_in_click_ast in EiffelStudio.
 * Fixed bug#17299: Locale preference lost the second time opening EiffelStudio.
 * Fixed a crash that occurs when there is an error inside a check instruction.
