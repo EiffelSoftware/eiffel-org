@@ -11,13 +11,16 @@
 ** Removed detachable status when it is not used 
 ** Removed unnecessary frame boxes
 ** Simplified code that opens the dialog.
+* Improved keyboard navigation in the Info tool.
 * Avoided class counter increment in automatically generated class name if class addition is cancelled.
+* Set file name of current class to the Save File As dialog.
 
 ===Changes===
 
 ===Bug fixes===
 * Corrected output of the iteration (<code>across</code>) form of the [[ET: Instructions#Loop|loop construct]] in clickable views.
 * Fixed feature call on void target when reopening a project with diagram tool that contains cluster legend.
+* Fixed a bug in the Info tool: when deleting an EIS entry, selecting "No" did not actually cancel the deletion.
 
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 6.7 and ISE Eiffel 6.8|here]]  for the compiler release notes.
@@ -35,6 +38,12 @@
 
 ===EiffelVision2===
 * [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
+
+===EiffelStore===
+* Various bug fixes.
+* Extended types supported by EiffelStore, especially STRING_32 for Unicode string types.
+* Improved memory management in EiffelStore, ODBC implementation. 
+
 
 [[EiffelStudio release notes|Click here to check out what was new in other versions]]  
 
