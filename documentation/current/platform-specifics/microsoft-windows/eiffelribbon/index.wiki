@@ -9,7 +9,7 @@
 EiffelRibbon is a library of classes with an associated tool which allows the integration of the Microsoft Windows "Ribbon" into graphical user interfaces programmed with [[EiffelVision 2]] and targeted to Microsoft Windows. The ribbon is part of a [http://msdn.microsoft.com/en-us/library/aa338198.aspx#office2007uifordevelopers_detaileddesignofthenewuisystem revamped user interface approach] introduced by Microsoft with the 2007 release of the Microsoft Office applications. So you've experienced the ribbon if you've used Microsoft Word, PowerPoint, or Excel from 2007 or later. 
 
 
-{{note|''Although EiffelRibbon classes work with EiffelVision 2 which is multi-platform, systems using EiffelRibbon can be targeted only to the Micrsoft Windows platform.''}}
+{{note|''Although EiffelRibbon classes work with EiffelVision 2 which is multi-platform, systems using EiffelRibbon can be targeted only to the Microsoft Windows platform.''}}
 
 
 [[Image:EiffelRibbon window 01|A window with a ribbon]]
