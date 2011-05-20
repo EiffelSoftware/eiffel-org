@@ -73,7 +73,7 @@ Initial distribution:
 * Not all elements shown in the Type selector can actually be used in a design. For the unusable elements, pick-and-drop is disabled.
 * Resizing policy is not yet supported.
 * It is necessary to freeze the target system each time the EiffelRibbon code is regenerated. 
-* When using EV_RICH_TEXT within a ribbon, the EV_RICH_TEXT may not be refreshed right after the ribbon has been displayed.
+* When using <code>EV_RICH_TEXT</code> within a ribbon, the <code>EV_RICH_TEXT</code> may not be refreshed right after the ribbon has been displayed.
 
 
 
