@@ -20,7 +20,7 @@ You can do that either:
 * by calling <eiffel>{RT_DEBUGGER}.rt_workbench_wait_for_debugger (a_port_number: INTEGER)</eiffel> from the program itself
 
 Then from EiffelStudio, follow the menu path <code>Execution->Attach Debuggee</code> and provide the same port number.
-(note that you can add the associated command to the execution tool bar).
+(Note that you can add the associated command to the execution tool bar.)
 
 At this point EiffelStudio is able to debug the application just as if the application had been launched by EiffelStudio.
 
