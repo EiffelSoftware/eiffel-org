@@ -8,7 +8,7 @@ The implementation of SCOOP within EiffelStudio varies from the definition as it
 
 Some of the differences stem from the reality that SCOOP systems could be optimized for performance, including maximizing concurrency. For example, even though the SCOOP rules state that a separate call to a query is synchronous, i. e., the calling processor waits until the query completes before proceeding, if a static analysis can show that the wait is not necessary to the proper functioning of the remainder of the calling routine, then the call to the query can be done asynchronously. 
 
-In other ways, the EiffelStudio implementation may not measure up to the full SCOOP definition. Certain elements that are defined in the SCOOP descriptions may not yet be present, or only partially implemented in the EiffelStudio implementation.  
+In other ways, particularly for early versions, the EiffelStudio implementation may not cover all the goals of SCOOP as declared in the various publications. Certain elements that are defined in the SCOOP descriptions may not yet be present, or only partially implemented in the EiffelStudio implementation.  
 
 The differences between the EiffelStudio implementation of SCOOP and current and previous definitions of the SCOOP model are shown below.
 
