@@ -150,7 +150,9 @@ Because the argument <code>my_separate_argument</code> is of a separate type, th
 {{Rule|name=Wait|text=A routine call with separate arguments will execute when all corresponding processors are available and hold them exclusively for the duration of the routine.}}
 
 
-{{SeeAlso|The <code>{PHILOSOPHER}.eat</code> feature of the [[Dining philosophers|dining philosophers]] example. This feature has two separate arguments, and will wait to execute until the processors associated with both are available.}}
+{{SeeAlso|<br/>
+1) The <code>{PHILOSOPHER}.eat</code> feature of the [[Dining philosophers|dining philosophers]] example. This feature has two separate arguments, and will wait to execute until the processors associated with both are available.<br/>
+2) [[SCOOP Implementation#The Wait Rule|How the ''Wait rule'' is implemented]] in EiffelStudio. }}
 
 
 ===Controlled expressions===
