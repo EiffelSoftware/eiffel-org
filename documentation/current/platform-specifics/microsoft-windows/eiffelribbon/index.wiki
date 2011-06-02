@@ -23,7 +23,8 @@ To gain a detailed understanding of the goals of Microsoft's Ribbon technology i
 
 The EiffelRibbon design tool helps you configure a ribbon in much the same way that [[EiffelBuild|EiffelBuild]] (ES Builder) helps you layout a GUI application.
 
-=System requirements=
+
+==System requirements==
 
 To use the EiffelRibbon library and tools you must have:
 
@@ -32,7 +33,8 @@ To use the EiffelRibbon library and tools you must have:
 ## Windows SDK 7.0 or greater
 ## Visual Studio 2008 or greater
 
-=The EiffelRibbon design tool=
+
+==The EiffelRibbon design tool==
 
 The EiffelRibbon design tool allows you to design a ribbon graphically, then generate the ribbon markup file and the Eiffel classes necessary to implement your design. 
 
@@ -59,7 +61,7 @@ The typical usage of the design tool is much like the typical usage of EiffelBui
 * Use EiffelStudio to compile the generated code.
 
 
-=Current state of development=
+==Current state of development==
 
 Initial distribution:
 :The EiffelRibbon library is not usable directly. The EiffelRibbon design tool allows you to design a ribbon and will generate code that relies on the EiffelRibbon library.
