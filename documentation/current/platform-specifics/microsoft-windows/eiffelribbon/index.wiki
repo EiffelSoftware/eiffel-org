@@ -94,7 +94,13 @@ So, here again, if you are familiar with EiffelVision 2, then EiffelRibbon shoul
 
 When you build an application with the EiffelRibbon tool, it generates classes for you. These classes are often clients or heirs to classes in the EiffelRibbon library. The classes generated for the objects on your ribbon should look familiar to you as well. For example, as with EiffelBuild, for each ribbon object, say a button, there will be a class ending with the suffix "<code>_IMP</code>" which will get regenerated each time you request the EiffelRibbon tool to generate classes. Also generated is an heir to that class with a name that does not include the suffix. This class you are free to edit, as it will not be regenerated. It is in these editable classes that you provide the action sequences for your ribbon objects' behaviors.
 
-The class shown in the Edit pane of Figure 3 is part of a generated class <code>BUTTON_CHANGE_SMALL_IMAGE</code>, representing a ribbon button, from one of the EiffelRibbon examples. <code>BUTTON_CHANGE_SMALL_IMAGE</code> is a heir to <code>BUTTON_CHANGE_SMALL_IMAGE_IMP</code>. You can see that in the redefined version of <code>create_interface_objects</code> code has been added to add an agent to the <code>select_actions</code> for the ribbon button. In this case, it's an inline agent that will toggle the associated image back and forth between two different images.
+The class shown in the Edit pane of EiffelStudio in Figure 3 is a portion of a generated class <code>BUTTON_CHANGE_SMALL_IMAGE</code>, representing a ribbon button, from one of the EiffelRibbon examples. <code>BUTTON_CHANGE_SMALL_IMAGE</code> is a heir to <code>BUTTON_CHANGE_SMALL_IMAGE_IMP</code>. You can see that in the redefined version of <code>create_interface_objects</code> code has been added to add an agent to the <code>select_actions</code> for the ribbon button. In this case, it's an inline agent that will toggle the associated image back and forth between two different images.
+
+
+[[Image:EiffelRibbon application 01|An EiffelRibbon application in EiffelStudio.]]
+
+Figure 3.
+
 
  
 

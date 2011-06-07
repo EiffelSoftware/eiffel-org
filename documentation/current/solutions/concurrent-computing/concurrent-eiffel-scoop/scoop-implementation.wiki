@@ -13,7 +13,31 @@ In other ways, particularly for early versions, the EiffelStudio implementation 
 The differences between the EiffelStudio implementation of SCOOP and current and previous definitions of the SCOOP model are shown below.
 
 
-=The Wait Rule=
+=Known restrictions=
+
+==Separate anchored types==
+
+Applicable to version 6.8, prior to revision number 86657. 
+
+Separate status for anchored types is not supported properly. So declarations of the form:
+
+<code>
+            my_entity: separate like my_query
+</code>
+ 
+and
+
+<code>
+            my_entity: separate like Current
+</code>
+
+should be used only if you are using revision 86657 or later. 
+
+
+
+=Implementation dependent behavior=
+
+==The Wait Rule==
 
 The [[Concurrent Eiffel with SCOOP#Access to shared resources|Wait Rule]] says: ''A routine call with separate arguments will execute when all corresponding processors are available and hold them exclusively for the duration of the routine.''
 
