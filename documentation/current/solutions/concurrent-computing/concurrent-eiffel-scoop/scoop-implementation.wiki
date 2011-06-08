@@ -33,6 +33,13 @@ and
 
 should be used only if you are using revision 86657 or later. 
 
+Also, if you use an anchored declaration such as:
+
+<code>
+            my_entity: like my_query
+</code>
+
+and the type of <code>my_query</code> is <code>separate</code>, you should make sure you are using revision 86657 or later.
 
 
 =Implementation dependent behavior=
