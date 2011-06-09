@@ -15,6 +15,10 @@ The differences between the EiffelStudio implementation of SCOOP and current and
 
 =Known limitations=
 
+==Supported concurrency mechanisms==
+
+Although the SCOOP model can support virtually any underlying concurrency mechanism, the initial SCOOP implementation supports only process threads as SCOOP [[Concurrent Eiffel with SCOOP#Processors|processors]].
+
 ==Separate anchored types==
 
 Applicable to version 6.8, prior to revision number 86657. 
