@@ -63,6 +63,10 @@ In traditional, sequential Eiffel, although we realize that there is some proces
 
 The term ''processor'' (or, interchangeably, ''handler'') is vital to SCOOP and thought of in a slightly different way than in traditional Eiffel, i. e., not just as a hardware processor. In a concurrent system, there may be any number of ''processors''. Here the term is used in a more abstract sense than before. In SCOOP we think of a processor as any autonomous thread of control capable of applying features to objects. At the level of the SCOOP model, processors are not restricted to a particular type of hardware or software. So, if you were writing software for a hardware implementation with multiple processors, those real processors might correspond to the ''processors'' of SCOOP. But if you were writing a system using multiple process threads, then those threads might correspond to SCOOP ''processors''. 
 
+
+{{note|In the initial SCOOP implementation in EiffelStudio version 6.8, process threads are the only supported concurrency mechanism. }}
+
+
 Multiple processors in SCOOP come into play when feature calls on a particular object may actually be applied by a different processor than the one on which the feature call was issued. Of course, this is the important distinction between feature call and feature application that was mentioned above. In SCOOP, the processor which does the feature application may be different from the one that does the feature call. So you can think of feature call as being the ''logging'' or ''queuing'' of a request to have a feature applied. 
 
 ==Separate types and separate calls==
