@@ -27,7 +27,7 @@ In a future version, garbage collection will determine when a particular SCOOP p
 
 ==Separate anchored types==
 
-Applicable to version 6.8, prior to revision number 86657. 
+Applicable prior to revision number 86657: 
 
 Separate status for anchored types is not supported properly. So declarations of the form:
 
