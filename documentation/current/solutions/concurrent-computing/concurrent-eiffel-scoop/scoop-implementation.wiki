@@ -21,7 +21,7 @@ Although the SCOOP model can support virtually any underlying concurrency mechan
 
 ==SCOOP processor termination==
 
-In version 6.8, a SCOOP processor, once created, does not terminate until the entire SCOOP application that created it terminates. This occurs when all processors in the application become idle, that is, when there are no more calls logged on any processor and no calls are in the process of being applied. 
+In version 6.8, a SCOOP processor, once created does not terminate until the entire SCOOP application that created it terminates. This occurs when all processors in the application become idle, that is, when there are no more calls logged on any processor and no calls are in the process of being applied. 
 
 In a future version, garbage collection will determine when a particular SCOOP processor may terminate.
 
