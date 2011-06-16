@@ -15,7 +15,7 @@
 
 ==Compilation==
 
-Just launch the compilation: the Eiffel compiler will generate and link the multi-threaded executable. If the project was already compiled, clean the project and recompile it from scratch.
+Just launch the compilation: the Eiffel compiler will generate and link the multi-threaded executable. If the project was already compiled, [[Clean compile|clean the project and recompile it from scratch]].
 
 ==External C files==
 

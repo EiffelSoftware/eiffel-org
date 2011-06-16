@@ -1,0 +1,14 @@
+[[Property:title|Clean compile]]
+[[Property:weight|8]]
+[[Property:uuid|095a89c1-6043-3184-bedc-a42e10ee183d]]
+Doing a '''clean compile''', sometimes called a '''compile from scratch''' is occasionally necessary as you develop systems. For example, if you change certain project settings or add, remove, or change a precompiled library, you will have to do a clean compile.
+
+The process first involves cleaning, that is, removing any of the previously generated intermediate compile information (the EIFGENs folder). Cleaning is followed by a fresh compile which regenerates the EIFGENs anew. 
+
+You can only do a clean compile by closing EiffelStudio on your project, then restarting it and requesting the clean compile when EiffelStudio reopens. 
+
+So, for example, if you need to change precompiled libraries, you would open project settings, remove the old precompiled library, and add the new one. Then you would quit EiffelStudio and restart it. When the EiffelStudio dialog appears, select your project and '''Action: Compile''' and check the '''Clean''' box, as shown in the figure below. When you click '''Open''' EiffelStudio will do a clean compile of your project.
+
+
+[[Image:clean compile dialog]]
+
