@@ -47,7 +47,7 @@ The libraries distributed with EiffelStudio have been converted to support void-
 
 First make sure your project will compile correctly under the configuration of EiffelStudio that you intend to use to convert to void-safe.
 
-Then set the project setting '''Full Class Checking''' to '''True'''. Do a ''clean'' compile of your system. To do this shut down EiffelStudio, and restart it. When the project selection dialog appears, select your project, then next to '''Action:''' select '''Compile''' in the drop-down, and check '''Clean'''.
+Then set the project setting '''Full Class Checking''' to '''True'''. Do a ''[[Clean compile|clean compile]]'' of your system. 
 
 Full class checking will analyze your classes to make sure that in cases of inheritance, features of the parent classes are rechecked for validity in the heirs.
 
