@@ -20,6 +20,6 @@ In order to enable SCOOP processing in your project, you use the project setting
 
 
 
-
+{{note|The '''Concurrency''' setting requires a [[Clean compile|clean compile]] to be done in order for a change of value to take effect. }}
 
 
