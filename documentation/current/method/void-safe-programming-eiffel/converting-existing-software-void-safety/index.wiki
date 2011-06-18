@@ -89,7 +89,7 @@ You will see a check box on the dialog that you can uncheck if you want to see a
 [[Image:VoidSafeAddLibraryDialog]]
   
 
-Now do a clean compile.
+Now do a [[Clean compile|clean compile]].
 
 If you've replaced a precompiled library that you have not already built, EiffelStudio will offer to build it for you on the fly:
 
