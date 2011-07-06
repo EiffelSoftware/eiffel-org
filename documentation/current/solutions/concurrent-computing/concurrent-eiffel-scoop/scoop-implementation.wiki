@@ -59,6 +59,10 @@ Also, if you use an anchored declaration such as:
 
 and the type of <code>my_query</code> is <code>separate</code>, you should make sure you are using revision 86657 or later.
 
+==Agents targeted to objects of separate types==
+
+In version 6.8, agents targeted on separate objects are not supported.
+
 
 =Implementation dependent behavior=
 
