@@ -247,7 +247,10 @@ Uncontrolled precondition clauses demand an adaptation of precondition semantics
 {{Info|A violation of a '''controlled precondition clause''' will cause an exception in the caller as soon as the violation is detected. A violation of an '''uncontrolled precondition clause''' does not result in an exception in the caller. Rather, the feature application waits to execute until such time as the precondition clause holds. }}
 
 
-So, the client's responsibility is limited to those precondition clauses that are controlled.
+So, the client's responsibility is limited to those precondition clauses that are controlled. Uncontrolled precondition clauses become '''wait conditions'''.
+
+
+{{SeeAlso|The <code>{PRODUCER}.store</code> feature in the [[Producer-consumer|producer-consumer]] example. When called by <code>{PRODUCER}.produce</code> it becomes a '''wait condition'''.}}
 
 
 ===Postconditions===
