@@ -1,7 +1,6 @@
 [[Property:title|Producer-consumer]]
 [[Property:weight|-13]]
 [[Property:uuid|03739be2-e0d5-f5f0-b405-0bb75c8fee0f]]
-
 {{Beta}}
 
 
@@ -15,6 +14,8 @@ So at any time, the buffer could be empty, precluding any consumer from withdraw
 =Highlights=
 
 The root class of the example creates the bounded product buffer and a number of producers and consumers, all given <code>separate</code> types. It requests the producers to create a number of products, and the consumers, in the aggregate, to consume that same number of products. 
+
+==Separate argument rule==
 
 Notice that the root class uses a feature <code>launch_producer</code> (and a corresponding feature <code>launch_consumer</code>) for instructing the producers and consumers on how many products to handle. <code>launch_producer</code> looks like this:
 
