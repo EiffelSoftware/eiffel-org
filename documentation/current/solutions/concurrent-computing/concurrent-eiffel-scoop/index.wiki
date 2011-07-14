@@ -164,7 +164,7 @@ Because the argument <code>my_separate_argument</code> is of a separate type, th
 Valid targets for separate calls, like <code>a_arg</code> in <code>enclosing_routine</code> above are said to be ''controlled''. 
 
 
-{{definition|Controlled expression|An expression is controlled if it is attached and either:<br/>1) It is of a non-separate type<br/>2) It is of a separate type and it is handled by the same processor as one of the separate arguments to the enclosing routine.}}
+{{definition|Controlled expression|An expression is '''controlled''' if it is attached and either:<br/>1) It is of a non-separate type<br/>2) It is of a separate type and it is handled by the same processor as one of the separate arguments to the enclosing routine.<br/>Otherwise it is '''uncontrolled'''.}}
 
 
 What the definition of ''controlled expression'' means is that such an expression is controlled with respect to the processor handling the context in which the expression is used (the current context) ... and that means that all objects necessary to the expression are under control of (locked for exclusive access by) the current processor and cannot be modified by other processors.  
