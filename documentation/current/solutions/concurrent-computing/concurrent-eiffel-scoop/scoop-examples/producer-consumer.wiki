@@ -37,5 +37,36 @@ in place of the call to <code>launch_producer</code>, and dispense with the <cod
 
 The reason is that <code>a_producer.produce (900)</code> is a [[Concurrent Eiffel with SCOOP#Separate types and separate calls|separate call]] (i. e., the object attached to <code>a_producer</code> is declared of a separate type), and according to the [[Concurrent Eiffel with SCOOP#Access to shared resources|separate argument rule]], calls on a separate object are valid only when applied to an argument of the enclosing routine. 
 
+==Wait condition==
+
+This example also shows an [[Concurrent Eiffel with SCOOP#Preconditions|uncontrolled precondition]] serving as a "wait condition". In the class <code>PRODUCER</code> we see the buffer declared as a class attribute with a <code>separate</code> type:
+
+<code>
+    buffer: separate BOUNDED_BUFFER [INTEGER]
+            -- Shared product buffer.
+</code>
+
+The feature <code>store</code> contains a precondition which ensures that the shared buffer is not full when <code>store</code> gets applied:
+
+<code>
+     store (a_buffer: separate BOUNDED_BUFFER [INTEGER]; an_element: INTEGER)
+            -- Store `an_element' into `a_buffer'.
+        require
+            not a_buffer.is_full
+        do
+            a_buffer.put (an_element)
+        ensure
+            not a_buffer.is_empty
+            a_buffer.count = old a_buffer.count + 1
+        end
+</code>
+
+The <code>store</code> routine is called by the routine <code>produce</code>, passing a reference to the <code>separate</code> attribute <code>buffer</code> like this:
+
+<code>
+                store (buffer, l_element)
+</code>
+
+Because <code>buffer</code> is considered uncontrolled in the context of <code>produce</code>, then the precondition for <code>store</code> becomes a wait condition, rather than a correctness condition. This means that if the buffer is full, then the application of the feature <code>store</code> will wait until some consumer removes an product from the buffer. The removal of a product makes the precondition hold again, and the application of <code>store</code> can proceed.
 
 
