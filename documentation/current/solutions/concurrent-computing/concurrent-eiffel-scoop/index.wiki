@@ -242,6 +242,8 @@ In concurrent Eiffel, the same correctness conditions are still valid, but there
 {{definition|Controlled/uncontrolled assertion''' (precondition or postcondition) '''clause| A precondition or postcondition clause for a feature <code>f</code> is controlled if, after substitution of actual arguments for formal arguments, <code>f</code> involves only calls on entities which are controlled in the context of the routine which is the caller of <code>f</code>. <br/><br/>Otherwise it is an '''uncontrolled assertion''' (precondition or postcondition) '''clause'''. }}
 
 
+So, the determination of whether a particular precondition or postcondition clause is controlled or uncontrolled depends upon the context of the calling routine. That means that a particular clause on feature <code>f</code> might be considered controlled when <code>f</code> is called by one caller, but uncontrolled when called by a different caller.
+
 Uncontrolled precondition clauses demand an adaptation of precondition semantics: 
 
 {{Info|A violation of a '''controlled precondition clause''' will cause an exception in the caller as soon as the violation is detected. A violation of an '''uncontrolled precondition clause''' does not result in an exception in the caller. Rather, the feature application waits to execute until such time as the precondition clause holds. }}
