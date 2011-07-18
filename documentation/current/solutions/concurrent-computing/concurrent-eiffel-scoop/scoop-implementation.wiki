@@ -122,6 +122,9 @@ Then you could use that procedure to output <code>my_separate_string</code>:
 </code>
 
 
+{{note|If you use the above solutions verbatim, you may have to set the Syntax setting to Provisional in your project settings to enable the iteration form of the loop construct. }}
+
+
 =Implementation dependent behavior=
 
 
