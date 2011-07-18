@@ -67,7 +67,7 @@ In version 6.8, agents targeted on separate objects are not supported.
 
 =Workarounds=
 
-The first implementation of SCOOP, some things that we do commonly in sequential Eiffel become somewhat awkward in SCOOP. Although not strictly limitations in the implementation of SCOOP principles, in order to make SCOOP programming easier, these are areas that should be improved in future releases. In the meantime, there are workarounds for some of these situations.
+The first implementation of SCOOP, some things that we do commonly in sequential Eiffel become less fluid in the presence of SCOOP. Although not strictly limitations in the implementation of SCOOP principles, in order to make SCOOP programming easier, these are areas that should be improved in future releases. In the meantime, there are workarounds for some of these situations.
 
 
 ==Printing a <code>separate STRING</code> ==
@@ -78,17 +78,17 @@ Suppose you have declared a class attribute of type <code>separate STRING</code>
     my_separate_string: separate STRING = "Hello Eiffel World!"
 </code>
 
-and you want to output that string using <code>Io.put_string</code>. The solution you might use from sequential Eiffel would be:
+and you want to output that string using <code>io.put_string</code>. The solution you might use from sequential Eiffel would be:
 
 <code>
-            Io.put_string (my_separate_string)
+            io.put_string (my_separate_string)
 </code>
 
-But the statement above results in a compile error because the argument type (<code>separate STRING</code>) in not compatible with the type (<code>STRING</code>) that <code>put_string</code> is expecting.
+But the statement above results in a compile error because the argument type (<code>separate STRING</code>) is not compatible with the type (<code>STRING</code>) that <code>put_string</code> is expecting.
 
 Possible workarounds are to produce a non-separate version of the string which would be printable, or to print the string character-by-character. Both involve looping through the string. 
 
-To convert objects of type <code>STRING</code> from those of type <code>separate STRING</code>, you could construct a function:
+To construct equivalent objects of type <code>STRING</code> from those of type <code>separate STRING</code>, you could write a function:
 
 <code>
     non_separate_string (a_sep_str: separate STRING): STRING
@@ -102,7 +102,7 @@ To convert objects of type <code>STRING</code> from those of type <code>separate
 Then you could print <code>my_separate_string</code> this way:
 
 <code>
-            Io.put_string (non_separate_string (my_separate_string))
+            io.put_string (non_separate_string (my_separate_string))
 </code>
 
 The other alternate is to create a procedure that will print an object of type <code>separate STRING</code>:
@@ -111,7 +111,7 @@ The other alternate is to create a procedure that will print an object of type <
     print_separate_string (a_sep_str: separate STRING)
             -- Print `a_sep_str' on standard output.
         do
-            across (1 |..| a_sep_str.count) as ic loop Io.put_character (a_sep_str [ic.item]) end
+            across (1 |..| a_sep_str.count) as ic loop io.put_character (a_sep_str [ic.item]) end
         end
 </code>
 
