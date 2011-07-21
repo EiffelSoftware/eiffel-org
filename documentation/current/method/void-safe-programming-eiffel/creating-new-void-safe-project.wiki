@@ -95,7 +95,7 @@ Upon creation, each element of the array will reference the same object; an obje
 
 ==Using the ''attribute'' keyword carefully==
 
-The keyword <code>attribute</code> should be used with some care. You might be tempted to think that it would be convenient or add an extra element of safety to use self-initializing attributes widely. And in a way, you would be correct. But you should also understand that there is a price to pay for using self-initializing attributes and stable attributes. It is that upon every access, an evaluation of the state of the attribute must be made. So, as a general rule, you should avoid using self-initializing attributes only for the purpose of lazy initialization.
+The keyword <code>attribute</code> should be used with some care. You might be tempted to think that it would be convenient or add an extra element of safety to use [[Void-safety: Background, definition, and tools#Self-initializing attributes|self-initializing attributes]] widely. And in a way, you would be correct. But you should also understand that there is a price to pay for using self-initializing attributes and stable attributes. It is that upon every access, an evaluation of the state of the attribute must be made. So, as a general rule, you should avoid using self-initializing attributes only for the purpose of lazy initialization.
 
 
 ==More about the ''attached syntax''==

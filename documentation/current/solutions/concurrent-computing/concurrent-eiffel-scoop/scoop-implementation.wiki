@@ -93,9 +93,18 @@ To construct equivalent objects of type <code>STRING</code> from those of type <
 <code>
     non_separate_string (a_sep_str: separate STRING): STRING
             -- Non-separate copy of `a_sep_str'
+        local
+            i: INTEGER
         do
             create Result.make_empty
-            across (1 |..| a_sep_str.count) as ic loop Result.append_character (a_sep_str [ic.item]) end
+            from
+                i := 1
+            until
+                i > a_sep_str.count
+            loop
+                Result.append_character (a_sep_str [i])
+                i := i + 1
+            end
         end
 </code>
 
@@ -110,8 +119,17 @@ The other alternate is to create a procedure that will print an object of type <
 <code>
     print_separate_string (a_sep_str: separate STRING)
             -- Print `a_sep_str' on standard output.
+        local
+            i: INTEGER
         do
-            across (1 |..| a_sep_str.count) as ic loop io.put_character (a_sep_str [ic.item]) end
+            from
+                i := 1
+            until
+                i > a_sep_str.count
+            loop
+                io.put_character (a_sep_str [i])
+                i := i + 1
+            end
         end
 </code>
 
@@ -120,9 +138,6 @@ Then you could use that procedure to output <code>my_separate_string</code>:
 <code>
             print_separate_string (my_separate_string)
 </code>
-
-
-{{note|If you use the above solutions verbatim, you may have to set the Syntax setting to Provisional in your project settings to enable the iteration form of the loop construct. }}
 
 
 =Implementation dependent behavior=
