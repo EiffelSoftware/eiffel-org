@@ -1,7 +1,6 @@
 [[Property:title|Concurrent Eiffel with SCOOP]]
 [[Property:weight|1]]
 [[Property:uuid|151838da-80f0-5381-d557-5c5b7727647d]]
-
 ==Overview==
 
 SCOOP is ''Simple Concurrent Object-Oriented Programming''. SCOOP allows developers to create object-oriented software systems which will take advantage of multiple, concurrently active execution vehicles. Additionally, SCOOP programming is done at a level of abstraction above the specific details of these implementation vehicles. Read further to get a better idea of what all this means, but for now, the primary message should be: SCOOP is concurrent software development made easy. The basic SCOOP ideas were first published as early as 1993. Since that time, considerable research and development has refined the SCOOP into the model that is implemented in EiffelStudio today.
@@ -263,6 +262,10 @@ Postcondition semantics are characterized as follows:
 ===Class invariants===
 
 The '''separate argument rule''' above tells us that separate calls are valid only on targets which are formal arguments of their enclosing routines. Because class invariants are not routines and therefore have no arguments, separate calls are not allowed in class invariants. 
+
+
+{{Info|Technically, it should be possible in a class invariant to code an inline agent that gets passed arguments of separate types, then execute separate calls within the inline agent. But generally, it can be assumed that class invariants contain no separate calls. }}
+
 
 The semantics of class invariants will be the same as in sequential Eiffel, precisely because invariants must include only non-spearate calls. To put it the terms of SCOOP, the class invariant ensuring the validity of any particular object will be evaluated entirely by the processor handling that object.
 
