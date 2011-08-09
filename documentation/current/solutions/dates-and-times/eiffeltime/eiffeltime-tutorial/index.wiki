@@ -17,6 +17,7 @@ As you read this documentation you will notice other concepts that are used in v
 You will read more about these and other EiffelTime concepts in the detailed pages that follow.
 
 
-One more thing you should know about EiffelTime is that the cluster contains subclusters which allow the library to support either classic or .NET targets, and provide default formatting of dates and times in either English, French, or German style formats. This means that if you just add the ''time'' cluster to your project as a cluster with the default recursive directory searching, you will get configuration errors stating that multiple classes were found with the same name. So in the EiffelStudio project settings, you need to specify the subclusters that best fit your application's needs.
+{{note|When you use [[EiffelStudio: Project settings window|project settings]] to [[adding a library|add]] the EiffelTime library, you will see that there are library choices for different default formatting. The default EiffelTime library uses English formatting by default. However, you can choose the option that uses German or French default formatting by selecting the library whose name contains "german" or "french". }}
+
  
 
