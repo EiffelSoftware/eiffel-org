@@ -135,13 +135,13 @@ Click <code>BASE</code> to see details of the EiffelBase library where (under Ei
 
 [[Image:index-46]]
 
-This indicates the relations of the cluster to others in the hierarchy, and its list of classes. Again you could click any class name but instead note the mention <code>(diagram)</code> next to the cluster name near the top. Remember that when generating the documentation we elected to generate everything, diagrams included. Hadn't we checked the corresponding check box, the <code>(diagram)</code> link wouldn't be there. Click it now to get the generated diagrams: 
+This indicates the relations of the cluster to others in the hierarchy, and its list of classes. Again you could click any class name but instead note the link <code>(diagram)</code> next to the cluster name near the top. Remember that when generating the documentation we elected to generate everything, diagrams included. Hadn't we checked the corresponding check box, the <code>(diagram)</code> link wouldn't be there. Click it now to get the diagram that has been generated for <code>BASE</code>: 
 
 [[Image:index-47]] 
 
 The output is a diagram showing graphically the classes of the cluster and their inheritance relations. All EiffelStudio-generated HTML diagrams use the PNG graphics format ( <span>Portable Network Graphics</span> ), supported by all recent browsers. 
 
-The class bubbles in a diagram are all hyperlinks. To see the HTML documentation for our old friend the class <code>LIST</code> -- which you could also obtain by clicking its name on one of the preceding diagrams, or typing it in the <code>Go to</code> field -- just click its bubble: 
+The class bubbles in a diagram are all hyperlinks. To see the HTML documentation for our old friend the class <code>LIST</code> you could just click its bubble. But because this diagram includes the whole library and is automatically generated, you'd have to look around a bit for the <code>LIST</code> bubble. Go ahead and do that if you wish, or just type the class name <code>LIST</code> into the <code>Go to</code> field and press return: 
 
 [[Image:index-48]]
 
