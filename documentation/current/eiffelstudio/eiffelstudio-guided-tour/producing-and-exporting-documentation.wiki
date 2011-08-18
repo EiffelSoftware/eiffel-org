@@ -67,7 +67,7 @@ Eiffel classes, as you know, may start with an <code>note</code> entry that enab
 
 You may have noted that the purpose of Eiffel's <code>note</code> clauses is, conceptually, similar to that of '''metatags''' in HTML. Metatags carry information which Web page visitors do not normally see in the browser; this information is available, however, to search engines and other tools that explore and classify Web pages. So it seems quite appropriate to generate metatags from <code>note</code> entries. 
 
-The dialog illustrated in the last figure lets you select the entries you wish to transform into metatags. It appears only if you have selected an HTML filter. It lists all the <code>note</code> tags found anywhere in the system; those on the right will be retained for metatags. Initially the <code>Exclude</code> list on the left contains three tags conventionally used -- at Eiffel Software and other Eiffel sites -- for interfacing with configuration management tools, and hence of internal interest only. 
+The dialog illustrated in the last figure lets you select the entries you wish to transform into metatags. It appears only if you have selected an HTML filter. It lists all the <code>note</code> tags found anywhere in the system; those that are checked will be retained for metatags. Initially unchecked are three tags ("date", "revision", and "status") conventionally used -- at Eiffel Software and other Eiffel sites -- for interfacing with configuration management tools, and hence of internal interest only. 
 
 There is no need to change the default selection, so just click <code>Next</code>. 
 
