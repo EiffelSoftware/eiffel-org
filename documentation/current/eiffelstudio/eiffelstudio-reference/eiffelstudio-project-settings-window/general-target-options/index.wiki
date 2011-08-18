@@ -43,7 +43,7 @@ It is also possible to add conditions to a file rule (set of include and exclude
 
 [[Image:condition-dialog|Condition dialog]]  
 
-Conditioning possibilities are platform (e.g. only Windows or everything but windows), kind of build, .NET generation, dynamic runtime, multithreaded, version of compiler and version of msil clr. It is also possible to specify custom conditions where a user defined variable has to have a certain value.
+Conditioning possibilities are platform (e.g. only Windows or everything but windows), kind of build, .NET generation, dynamic runtime, multithreaded, version of compiler and version of msil clr. It is also possible to specify custom conditions where a [[variables|user defined variable]] has to have a certain value.
 
 Further options are
 * Profiling: turn on the Eiffel profiler during the application execution (C code generation mode only). The results can be seen at the end of the execution in the profiler window.

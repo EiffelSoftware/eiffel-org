@@ -1,7 +1,6 @@
 [[Property:title|Producing and Exporting Documentation]]
 [[Property:weight|-7]]
 [[Property:uuid|ca43a3c2-9e1a-a69f-81cf-55d0b12294ea]]
-
 Software development is, most of the time, cooperative work. You must tell the rest of the team what you're up to, and find out what they can offer you. Bring in distributed development -- increasingly common these days, with some people working at headquarters, others at home, others traveling, an offshore team half a world away <span>...</span> -- and the problem becomes even more critical. 
 
 EiffelStudio provides unique facilities to make such distributed development possible in a safe, effective, harmonious way. Some of the key criteria are:
@@ -52,11 +51,11 @@ Let's select the most obviously attractive of the predefined filters: HTML with 
 
 [[Image:index-38]]
 
-This is to let you decide which clusters of your system the documentation will include. Initially all clusters/libraries appear in the <code>Include</code> list on the right; but you might want to exclude some standard libraries or other clusters from the documentation. 
+In this pane you select which parts of your system you want to be included in the documentation. By default, all library and cluster names are checked. You should uncheck any that you do not want included. 
 
-To move a cluster from the right column to the left one, click it to select it, and click the left arrow button; for the reverse, use the right arrow.
+Note that each library or cluster name must be checked or unchecked individually. For example, unchecking "base" will not automatically deselect "elks" and "ise" which appear under "base". 
 
-You can play with moving a couple of clusters back and forth, but for this Tour we'll want to generate everything, including EiffelBase, so make sure that in the end all clusters appear in the right column, as on the last figure. Then click <code>Next</code>. 
+For this Tour we'll want to generate everything, including EiffelBase, so make sure that in the end all library and cluster names are checked, as in the figure. Then click <code>Next</code>. 
 
 ==Generating Metatags from Note entries==
 
