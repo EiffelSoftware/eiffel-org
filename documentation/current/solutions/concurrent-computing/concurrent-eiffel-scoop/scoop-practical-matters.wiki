@@ -23,7 +23,7 @@ In order to enable SCOOP processing in your project, you use the project setting
 {{note|The '''Concurrency''' setting requires a [[Clean compile|clean compile]] to be done in order for a change of value to take effect. }}
 
 
-==Using the new project wizard==
+==A SCOOP project from the new project wizard==
 
 If you create a project using the EiffelStudio new project wizard (for example, selecting "Basic application" from the choices under "Create project" when EiffelStudio opens,) the created project will have neither void-safety nor SCOOP enabled. [This is true in EiffelStudio version 6.8, but may change in future versions.] So, to enable void-safety and SCOOP in such a default project, you'll have to do some work on the project settings.
 
@@ -33,7 +33,7 @@ As mentioned above, you'll need to make the [[Creating a new void-safe project#P
 
 ===Libraries and precompiled libraries===
 
-Notice in the note in [[Creating a new void-safe project#Project settings for void-safe projects|that section of the documentation]], that for a period of transition, you should select the "'libraryname'-safe.ecf" version of libraries for void-safe projects. There is no special SCOOP version of libraries, so if you are not using a precompiled library, then selecting "base-safe.ecf" should be sufficient. 
+Notice in the note in [[Creating a new void-safe project#Project settings for void-safe projects|that section of the documentation]], that for a period of transition, you should select the "''libraryname''-safe.ecf" version of libraries for void-safe projects. There is no special SCOOP version of libraries, so if you are not using a precompiled library, then selecting "base-safe.ecf" should be sufficient. 
 
 However, there is a special version of the precompiled EiffelBase library for SCOOP. So, if you are using precompiled EiffelBase, you should remove the precompile that the wizard included, and add the precompile "precomp_base-scoop-safe.ecf".
 
@@ -43,7 +43,7 @@ Then, you'll have to select "SCOOP" as a value for the "Concurrency" setting.
 
 ===Clean compile===
 
-Changing the "Concurrency" setting, the "Void safety" setting, and precompiled libraries each would cause you to have to do a [[Clean compile|clean compile]] of your system in order to become effective. 
+Changing the "Concurrency" setting, the "Void safety" setting, and precompiled libraries each would cause you to have to do a [[Clean compile|clean compile]] of your system in order to become effective. So, next you should do a clean compile. At this point, your project should be void-safe and SCOOP enabled.
 
 
 
