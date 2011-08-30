@@ -6,7 +6,11 @@ In the Eiffel language, there are certain words that are considered "reserved". 
 
 The reserved words listed in the ISO/ECMA standard are shown below with a brief explanation of their meanings. Links are given where appropriate to the syntax definitions and to descriptions in the online documentation. Occasionally, references to the June 2006 standard document are used and are recognizable as clause numbers in parentheses, i.e., three integers separated by dots, for example: (8.14.1)
 
-Remember that the set of reserved words supported by the Eiffel Software implementation may vary somewhat from those specified in the current standard. See the [[Differences between standard ECMA-367 and Eiffel Software implementation|"differences" chapter of the online documentation]] for information on these variances.
+
+{{info|The list below includes all the Eiffel reserved words. Some of these words are considered ''language keywords'' while others are not. The distinction is that language keywords are reserved words that are used only as syntactical markers, and have no inherent semantic value. Examples are the keywords <code>do</code> and <code>end</code>. Non-keyword reserved words are those that do carry semantic value, such as <code>True</code> and <code>Current</code>.}}
+
+
+{{note|The set of reserved words supported by the Eiffel Software implementation may vary somewhat from those specified in the current standard. See the [[Differences between standard ECMA-367 and Eiffel Software implementation|"differences" chapter of the online documentation]] for information on these variances.}}
  
 
 ==Reserved words==
