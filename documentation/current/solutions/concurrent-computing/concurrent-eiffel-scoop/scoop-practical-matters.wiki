@@ -35,7 +35,7 @@ As mentioned above, you'll need to enable the [[Creating a new void-safe project
 
 Notice in the note in [[Creating a new void-safe project#Project settings for void-safe projects|that section of the documentation]], that for a period of transition, you should select the "''libraryname''-safe.ecf" version of libraries for void-safe projects. There is no special SCOOP version of libraries, so if you are not using a precompiled library, then selecting "base-safe.ecf" should be sufficient. 
 
-However, there is a special version of the precompiled EiffelBase library for SCOOP. So, if you are using precompiled EiffelBase, you should remove the precompile that the wizard included, and add the precompile "precomp_base-scoop-safe.ecf".
+However, there is a special version of the precompiled EiffelBase library for SCOOP. So, if you are using precompiled EiffelBase, you should remove the precompile that the wizard included, and add the precompile with file name "base-scoop-safe.ecf".
 
 ===The SCOOP setting===
 
