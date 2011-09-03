@@ -25,7 +25,7 @@ In order to enable SCOOP processing in your project, you use the project setting
 
 ==A SCOOP project from the new project wizard==
 
-If you create a project using the EiffelStudio new project wizard (for example, selecting "Basic application" from the choices under "Create project" when EiffelStudio opens,) the created project will have neither void-safety nor SCOOP enabled. [This is true in EiffelStudio version 6.8, but may change in future versions.] So, to enable void-safety and SCOOP in such a default project, you'll have to do some work on the project settings.
+If you create a project using the EiffelStudio new project wizard (for example, selecting "Basic application" from the choices under "Create project" when EiffelStudio opens), the created project will have neither void-safety nor SCOOP enabled. [This is true in EiffelStudio version 6.8, but may change in future versions.] So, to enable void-safety and SCOOP in such a default project, you'll have to do some work on the project settings.
 
 ===Void-safety settings===
 
