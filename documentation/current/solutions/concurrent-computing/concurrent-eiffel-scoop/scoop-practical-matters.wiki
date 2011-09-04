@@ -41,7 +41,7 @@ However, there is a special version of the precompiled EiffelBase library for SC
 {{note|When you use a precompiled library, the ''Concurrency'' setting for that library trumps whatever ''Concurrency'' value you have set for the project. So, if you use the "base-safe.ecf" precompiled library, your project will not be SCOOP-enabled regardless of the setting of ''Concurrency'' in the Target. Likewise, using the "base-scoop-safe.ecf" precompiled library always produces a SCOOP-enabled project, even if the Target ''Concurrency'' setting is ''No concurrency''.}}
 
 
-===The SCOOP setting===
+===The SCOOP Concurrency setting===
 
 Then, you should select ''SCOOP'' as a value for the ''Concurrency'' setting for your project.
 
