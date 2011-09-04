@@ -187,6 +187,7 @@ In concurrent Eiffel with SCOOP things are different. This is because a particul
 
 {{definition|Asynchronous feature call|A feature call which causes the “logging” of a request by a client for the associated feature application to be executed by the supplier’s processor. }}
 
+
 After an asynchronous feature call, the execution of the client proceeds immediately, possibly in parallel with the application of the feature on some other processor. We'll revisit this point after a look at what it takes for a call to be synchronous or asynchronous.
 
 
