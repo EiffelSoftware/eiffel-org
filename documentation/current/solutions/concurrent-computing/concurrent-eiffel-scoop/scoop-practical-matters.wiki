@@ -12,7 +12,7 @@
 
 SCOOP adds only a single keyword to the Eiffel language: <code>separate</code>. In any case in which SCOOP is not enabled, the <code>separate</code> keyword is ignored, and the SCOOP-specific validity rules are not applied.
 
-In order to enable SCOOP processing in your project, you use the project settings. Actually, there's just one mandatory setting: '''Concurrency''', and the value you need is '''SCOOP''', as shown in the section of the Project Settings dialog below. Still, in addition to the Concurrency project setting, remember that it is recommended that for new projects you use [[Creating a new void-safe project#Project settings for void-safe projects|the settings that guarantee void-safety]].
+In order to enable SCOOP processing in your project, you use the project settings. Actually, there's just one mandatory setting: ''Concurrency'', and the value you need is ''SCOOP'', as shown in the section of the Project Settings dialog below. Still, in addition to the ''Concurrency'' project setting, remember that it is recommended that for new projects you use [[Creating a new void-safe project#Project settings for void-safe projects|the settings that guarantee void-safety]].
 
 
 
@@ -20,7 +20,7 @@ In order to enable SCOOP processing in your project, you use the project setting
 
 
 
-{{note|The '''Concurrency''' setting requires a [[Clean compile|clean compile]] to be done in order for a change of value to take effect. }}
+{{note|The ''Concurrency'' setting requires a [[Clean compile|clean compile]] to be done in order for a change of value to take effect. }}
 
 
 ==A SCOOP project from the new project wizard==
@@ -37,13 +37,17 @@ Notice in the note in [[Creating a new void-safe project#Project settings for vo
 
 However, there is a special version of the precompiled EiffelBase library for SCOOP. So, if you are using precompiled EiffelBase, you should remove the precompile that the wizard included, and add the precompile with file name "base-scoop-safe.ecf".
 
+
+{{note|When you use a precompiled library, the ''Concurrency'' setting for that library trumps whatever ''Concurrency'' value you have set for the project. So, if you use the "base-safe.ecf" precompiled library, your project will not be SCOOP-enabled regardless of the setting of ''Concurrency'' in the Target. Likewise, using the "base-scoop-safe.ecf" precompiled library always produces a SCOOP-enabled project, even if the Target ''Concurrency'' setting is ''No concurrency''.}}
+
+
 ===The SCOOP setting===
 
-Then, you'll have to select "SCOOP" as a value for the "Concurrency" setting.
+Then, you should select ''SCOOP'' as a value for the ''Concurrency'' setting for your project.
 
 ===Clean compile===
 
-Changing the "Concurrency" setting, the "Void safety" setting, and precompiled libraries each would cause you to have to do a [[Clean compile|clean compile]] of your system in order to become effective. So, next you should do a clean compile. At this point, your project should be void-safe and SCOOP enabled.
+Changing the ''Concurrency'' setting, the ''Void safety'' setting, and precompiled libraries each would cause you to have to do a [[Clean compile|clean compile]] of your system in order to become effective. So, next you should do a clean compile. At this point, your project should be void-safe and SCOOP enabled.
 
 
 
