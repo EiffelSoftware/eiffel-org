@@ -5,6 +5,33 @@
 
 Eiffel has a remarkably small set of instructions. The basic computational instructions have been seen: creation, assignment, assignment attempt, procedure call, retry. They are complemented by control structures: conditional, multi-branch, loop, as well as debug and check. 
 
+===Assignment and attachment===
+
+As noted above we have already introduced assignment. But let's take another look at the assignment in the context of the more abstract concept of '''attachment'''. Attachment can occur with reference types by assignment such as:
+<code>
+            x := y
+</code>
+In this assignment, <code>x</code> is the target of the assignment and <code>y</code> is the source. The object associated with <code>y</code> becomes ''attached'' to the entity <code>x</code>.
+
+Attachment also occurs when actual arguments are substituted for formal arguments in a call to a routine.
+<code>
+            f (w)
+</code>
+In the call to <code>f</code> above, the object associated with the actual argument <code>w</code> will be ''attached'' to the formal argument for the duration of the execution of <code>f</code>. So, in this case, <code>w</code> can be viewed as the source of the attachment and the formal argument of <code>f</code> is the source. 
+
+We learned in the section on [[ET: Inheritance#polymorphism|polymorphism]], that the type of the source of an assignment must conform to the type of the assignment's target. 
+
+The rule that governs validity of assignments expands upon this and is generalized to apply to all attachments.
+
+
+{{Rule|name=Assignment|text=An assignment is valid if and only if the type of its source expression is '''compatible''' with the type of its target entity. }}
+
+
+The phrase "'''compatible with'''" in this rule means that either it "'''conforms to'''" or "'''converts to'''". 
+
+We saw conformance defined in the section on [[ET: Inheritance#polymorphism|polymorphism]]. [[ET:Other Mechanisms#convertibility|Convertibility]] is explained in the section on [[ET:Other Mechanisms#convertibility|Other Mechanisms]].
+
+
 ===Conditional===
 
 A conditional instruction has the form 
