@@ -29,7 +29,7 @@ The rule that governs validity of assignments expands upon this and is generaliz
 
 The phrase "'''compatible with'''" in this rule means that either it "'''conforms to'''" or "'''converts to'''". 
 
-We saw conformance defined in the section on [[ET: Inheritance#polymorphism|polymorphism]]. [[ET:Other Mechanisms#convertibility|Convertibility]] is explained in the section on [[ET:Other Mechanisms#convertibility|Other Mechanisms]].
+We saw conformance defined in the section on [[ET: Inheritance#polymorphism|polymorphism]]. [[ET: Other Mechanisms#Convertibility|Convertibility]] is explained in the section on [[ET: Other Mechanisms#Convertibility|Other Mechanisms]].
 
 
 ===Conditional===

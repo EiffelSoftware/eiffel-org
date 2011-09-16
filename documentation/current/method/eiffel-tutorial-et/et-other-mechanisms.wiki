@@ -136,6 +136,11 @@ The other primary use is for external features. One example is when we use Micro
 The validity of a non-object call is restricted in ways that mirror these primary uses. That is, any feature called in a non-object call must be either a constant attribute or an external feature. See the [[ECMA Standard 367|ISO/ECMA Eiffel standard document]] for additional details.
 
 
+==Convertibility==
+
+It is useful at times to designate the instances of one type can be created through conversion of instance of some other type. This can be done through an Eiffel mechanism called '''convertibility'''. 
+
+
 ==Tuple types==
 
 The study of genericity described arrays. Another common kind of container objects bears some resemblance to arrays: sequences, or "tuples", of elements of specified types. The difference is that all elements of an array were of the same type, or a conforming one, whereas for tuples you will specify the types we want for each relevant element. A typical tuple type is of the form
