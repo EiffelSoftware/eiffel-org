@@ -138,8 +138,6 @@ The validity of a non-object call is restricted in ways that mirror these primar
 
 ==Convertibility==
 
-{{underconstruction}}
-
 It is useful at times to designate the instances of one type can be created through conversion of instance of some other type. This can be done through an Eiffel mechanism called '''convertibility'''. 
 
 {{Definition|Convertibility: converts to, converts from|<br/>
@@ -170,11 +168,73 @@ Let's look at an example that may already be familiar to you.
 
 In the snippet above, we have attributes declared of type <code>STRING</code> and <code>SYSTEM_STRING</code>.
 
-We know that if we have a attribute of type <code>STRING</code> that we can make a direct assignment of a .Net type of string (that is, the .Net type <code>System.String</code> which we see as class SYSTEM_STRING) to our STRING attribute.
+We know that if we have a attribute of type <code>STRING</code> that we can make a direct assignment of a .Net type of string (that is, the .Net type <code>System.String</code> which we see as class <code>SYSTEM_STRING</code>) to our <code>STRING</code> attribute.
 
-We know also that SYSTEM_STRING does not conform to STRING, so according to the definition of compatibility, this must happen by conversion.
+We know also that <code>SYSTEM_STRING</code> does not conform to <code>STRING</code>, so according to the definition of [[ET: Instructions#Assignment and attachment|compatibility]], this must happen through conversion.
 
-It is possible because SYSTEM_STRING converts to STRING.
+Therefore <code>SYSTEM_STRING</code> converts to <code>STRING</code>. And according to the definition above this means that either: 
+
+# Class <code>SYSTEM_STRING</code> has a conversion query listing <code>STRING</code> as a conversion type, or
+# Class <code>STRING</code> has a conversion procedure listing <code>SYSTEM_STRING</code> as a conversion type
+
+In this case <code>STRING</code> has a conversion procedure for objects of type <code>SYSTEM_STRING</code>. Conversion procedures are always [[ET: The Dynamic Structure: Execution Model#Creating and initializing objects|creation procedures]]. So they appear in both the <code>create</code> and the <code>convert</code> parts of the class. 
+
+<code>
+    class STRING
+          …
+    create
+        make_from_cil
+          …
+    convert
+        make_from_cil ({SYSTEM_STRING})
+          …
+</code>
+
+We won't show the implementation of the conversion procedure, but as you can imagine, it initializes its target with the content of its argument.
+
+Because of convertibility, this code:
+
+<code>
+            my_string := my_system_string
+</code>
+
+is equivalent to:
+
+<code>
+            create my_string.make_from_cil (my_system_string)
+</code>
+
+So, we've seen how <code>SYSTEM_STRING</code> converts to <code>STRING</code>. But, in the context of our example, we could also do this:
+
+<code>
+            my_system_string := my_string
+</code>
+
+Which means that <code>STRING</code> converts to <code>SYSTEM_STRING</code>. The <code>convert</code> part of class <code>STRING</code> also has a conversion query listing <code>SYSTEM_STRING</code> as a conversion type: 
+
+<code>
+    class STRING
+          …
+    create
+        make_from_cil
+          …
+    convert
+        make_from_cil ({SYSTEM_STRING})
+        to_cil: {SYSTEM_STRING}
+          …
+</code>
+
+Because of convertibility, this code:
+
+<code>
+            my_system_string := my_string
+</code>
+
+is equivalent to:
+
+<code>
+            my_system_string := my_string.to_cil
+</code>
 
 
 ==Tuple types==
