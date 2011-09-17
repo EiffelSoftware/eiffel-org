@@ -138,7 +138,43 @@ The validity of a non-object call is restricted in ways that mirror these primar
 
 ==Convertibility==
 
+{{underconstruction}}
+
 It is useful at times to designate the instances of one type can be created through conversion of instance of some other type. This can be done through an Eiffel mechanism called '''convertibility'''. 
+
+{{Definition|Convertibility: converts to, converts from|<br/>
+<br/>
+A type U based on a class CU ''converts'' to a type T based on a class CT (and T ''converts from'' U) if either<br/>
+<br/>
+    CT has a ''conversion procedure'' using U as a conversion type, or <br/>
+<br/>
+    CU has a ''conversion query'' listing T as a conversion type,<br/>
+<br/>
+but not both.}}
+
+Before we get into an example of convertibility, let's list some of its underlying principles:
+# Conversion Principle: No type may both ''conform'' and ''convert'' to another.
+# Conversion Asymmetry Principle: No type may convert to another through both a ''conversion procedure'' and a ''conversion query''.
+# Conversion Non-transitivity Principle: That V converts to U and U converts to T does not imply that V converts to T.
+
+Let's look at an example that may already be familiar to you. 
+
+<code>
+    my_string: STRING
+    my_system_string: SYSTEM_STRING
+
+        …
+
+            my_string := my_system_string
+</code>
+
+In the snippet above, we have attributes declared of type <code>STRING</code> and <code>SYSTEM_STRING</code>.
+
+We know that if we have a attribute of type <code>STRING</code> that we can make a direct assignment of a .Net type of string (that is, the .Net type <code>System.String</code> which we see as class SYSTEM_STRING) to our STRING attribute.
+
+We know also that SYSTEM_STRING does not conform to STRING, so according to the definition of compatibility, this must happen by conversion.
+
+It is possible because SYSTEM_STRING converts to STRING.
 
 
 ==Tuple types==
