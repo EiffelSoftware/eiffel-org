@@ -13,13 +13,15 @@ As noted above we have already introduced assignment. But let's take another loo
 </code>
 In this assignment, <code>x</code> is the target of the assignment and <code>y</code> is the source. The object associated with <code>y</code> becomes ''attached'' to the entity <code>x</code>.
 
-Attachment also occurs when actual arguments are substituted for formal arguments in a call to a routine.
+Attachment also occurs in other contexts. For example, when actual arguments are substituted for formal arguments in a call to a routine.
 <code>
             f (w)
 </code>
-In the call to <code>f</code> above, the object associated with the actual argument <code>w</code> will be ''attached'' to the formal argument for the duration of the execution of <code>f</code>. So, in this case, <code>w</code> can be viewed as the source of the attachment and the formal argument of <code>f</code> is the source. 
+In the call to <code>f</code> above, the object associated with the actual argument <code>w</code> will be ''attached'' to the formal argument for the duration of the execution of <code>f</code>. So, in this case, <code>w</code> can be viewed as the source of the attachment and the formal argument of <code>f</code> is the target. 
 
-We learned in the section on [[ET: Inheritance#polymorphism|polymorphism]], that the type of the source of an assignment must conform to the type of the assignment's target. 
+Other situations in which attachment occurs include [[ET: The Dynamic Structure: Execution Model#Creating and initializing objects|creation instructions]], attachment of [[Void-safety: Background, definition, and tools#The attached syntax (object test)|object test local variables]], and the attachment of local iteration cursors in the iteration form of the [[ET: Instructions#Loop|loop construct]].
+
+We learned in the section on [[ET: Inheritance#Polymorphism|polymorphism]], that the type of the source of an assignment must conform to the type of the assignment's target. 
 
 The rule that governs validity of assignments expands upon this and is generalized to apply to all attachments.
 
@@ -29,7 +31,7 @@ The rule that governs validity of assignments expands upon this and is generaliz
 
 The phrase "'''compatible with'''" in this rule means that either it "'''conforms to'''" or "'''converts to'''". 
 
-We saw conformance defined in the section on [[ET: Inheritance#polymorphism|Polymorphism]]. [[ET: Other Mechanisms#Convertibility|Convertibility]] is explained in the section on [[ET: Other Mechanisms#Convertibility|Other Mechanisms]].
+We saw conformance defined in the section on [[ET: Inheritance#Polymorphism|Polymorphism]]. [[ET: Other Mechanisms#Convertibility|Convertibility]] is explained in the section on [[ET: Other Mechanisms#Convertibility|Other Mechanisms]].
 
 
 ===Conditional===
