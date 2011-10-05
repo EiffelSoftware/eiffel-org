@@ -7,6 +7,91 @@
 The Eiffel Compiler line mode command '''ec''' has many options, as you can see from the tables below. It may be helpful to think of any one '''ec''' command as either a command to compile or a command to view software text. 
 
 
+==Getting help==
+
+You can get details of the usage and options of the '''ec''' command by executing the command with the '''-help''' option.
+
+<code lang="text">
+    ec -help
+</code>
+
+The usage and options display gives you information about which options are valid in a particular command context. Use this display along with the table below to choose the options that meet your needs.
+
+Usage and options of the command line compiler vary from version to version in order to accommodate new and changed features. Here is an example of the command line help from version 6.7 of EiffelStudio:
+
+<code lang="text">
+ Usage:
+	ec [-help | [-compat | -experiment] | -version | -full
+	-batch | -clean | -verbose | -use_settings |
+	-freeze | -finalize [-keep] | -precompile [-finalize [-keep]] | -c_compile |
+	-loop | -debug | -quick_melt | -melt | -clients [-filter filtername] class |
+	-suppliers [-filter filtername] class |
+	-flatshort [-filter filtername] [-all | -all_and_parents | class] |
+	-flat [-filter filtername] [-all | -all_and_parents | class] |
+	-short [-filter filtername] [-all | -all_and_parents | class] | 
+	-filter filtername [-all | class] |
+	-descendants [-filter filtername] class |
+	-ancestors [-filter filtername] class |
+	-aversions [-filter filtername] class feature |
+	-dversions [-filter filtername] class feature |
+	-implementers [-filter filtername] class feature |
+	-callers [-filter filtername] [-show_all] [-assigners | -creators] class feature |
+	-callees [-filter filtername] [-show_all] [-assignees | -creators] class feature |
+	[-config config.ecf | -target target |
+	(obsolete) -ace Ace | (obsolete) -project Project_file_name] |
+	[class_file.e [-library library_name]] |
+	-stop | -no_library |
+	-project_path Project_directory_path | -file File |
+	-gc_stats]
+
+Options:
+	default (no option): quick melt the system.
+
+	-ace: specify the Ace file (obsolete).
+	-ancestors: show the ancestors of a class.
+	-aversions: show the ancestor versions of a feature.
+	-batch: launch the compilation without user request.
+	-c_compile: launch C compilation if needed.
+	-callees: show the callees of a feature.
+	-callers: show the callers of a feature.
+	-class_file.e: specify a class file for single file compilation.
+	-clean: delete existing project if any and perform a fresh compilation.
+	-clients: show the clients of a class.
+	-compat: enable pre-attached type compatibility.
+	-config: specify the configuration (ECF) file.
+	-descendants: show the descendants of a class.
+	-dversions: show the descendant versions of a feature.
+	-experiment: enable experimental functionalities.
+	-file: save the output to a file.
+	-filter: show a filtered form (troff, ...) of the class text.
+	-finalize: finalize the system (discard assertions by default).
+	-flat: show the flat form of a class.
+	-flatshort: show the flat-short form of a class.
+	-freeze: freeze the system.
+	-full: with full class checking regardless of ECF settings.
+	-gc_stats: Show GC statistics.
+	-gui: start the graphical environment.
+	-help: show this help message.
+	-implementers: show the classes implementing a feature.
+	-library: specify a library for single file compilation.
+	-loop: run ec as a command loop.
+	-melt: melt the system.
+	-no_library: do not convert clusters into libraries.
+	-options: debug the system as a command loop.
+	-overwrite_old_project: overwrite any existing old project.
+	-precompile: precompile the system.
+	-project: specify the project file to load (obsolete).
+	-project_path: specify the compilation directory.
+	-quick_melt: quick melt the system.
+	-short: show the short form of a class.
+	-stop: stop on error.
+	-suppliers: show the suppliers of a class.
+	-target: specify the target.
+	-use_settings: use settings for project location.
+	-version: show compiler version number.
+</code>
+
+
 ==Commands for compiling==
 
 The simplest compiling command you can enter is:
