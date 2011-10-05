@@ -259,7 +259,7 @@ The table below lists the available ''options'', the arguments they require, and
 |- 
 | -filter
 | filter_file_name
-| Print text as processed by the filter.
+| Print text as processed by the [[Appendix: Writing Documentation Filters with EFF, the Eiffel Filter Format|filter]] defined in the file named ''filter_file_name''. 
 |- 
 | -help
 | 
