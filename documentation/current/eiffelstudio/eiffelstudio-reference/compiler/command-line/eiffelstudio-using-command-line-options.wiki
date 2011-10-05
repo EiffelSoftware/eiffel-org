@@ -143,20 +143,31 @@ By selecting certain options on the '''ec''' command, you can generate advanced 
 
 To see the "flat" form of class <code>APPLICATION</code> in the example used above:
 
-<code>
+<code lang="text">
     ec -flat application -config application.ecf
 </code>
 
 To save the output, add the "-file" option with a file name:
 
-<code>
+<code lang="text">
     ec -flat application -config application.ecf -file application_flat_form.txt
 </code>
 
 Feature-oriented options, like "-implementers", take a class name and feature name:
 
-<code>
+<code lang="text">
     ec -implementers application some_feature -config application.ecf
+</code>
+
+
+===Commands for generating documentation===
+
+You can use a variations of the viewing commands to generate documentation much like [[Producing and Exporting Documentation|you can from EiffelStudio]].
+
+The following command will produce the Chart, Relations, and Text documentation for the "application" system in stylesheet html format in the "Documentation" subfolder of the project folder.
+
+<code lang="text">
+    ec -filter html-stylesheet -all -config application.ecf
 </code>
 
 
@@ -259,7 +270,7 @@ The table below lists the available ''options'', the arguments they require, and
 |- 
 | -filter
 | filter_file_name
-| Print text as processed by the [[Appendix: Writing Documentation Filters with EFF, the Eiffel Filter Format|filter]] defined in the file named ''filter_file_name''. 
+| Print text as processed by the [[Appendix: Writing Documentation Filters with EFF, the Eiffel Filter Format|filter]] defined in the file named "''filter_file_name''.fil"  
 |- 
 | -help
 | 
@@ -292,6 +303,10 @@ The table below lists the available ''options'', the arguments they require, and
 | -stop
 | 
 | Stop on errors. (Default: no.)
+|- 
+| -target
+| target_name
+| Act on the system target named ''target_name''.
 |- 
 | -use_settings
 | 
