@@ -138,11 +138,14 @@ The validity of a non-object call is restricted in ways that mirror these primar
 
 ==Convertibility==
 
-It is useful at times to designate the instances of one type can be created through conversion of instance of some other type. This can be done through an Eiffel mechanism called '''convertibility'''. 
+It is useful at times to designate that instances of one type can be created through the controlled conversion of instances of some other type. This can be done through an Eiffel mechanism called '''convertibility'''. 
+
+Convertibility is useful when refactoring, moving from one design to another, or, as you will see in the example, accommodating external technologies over which we have no control.
+
 
 {{Definition|Convertibility: converts to, converts from|<br/>
 <br/>
-A type U based on a class CU ''converts'' to a type T based on a class CT (and T ''converts from'' U) if either<br/>
+A type U based on a class CU '''converts to''' a type T based on a class CT (and T '''converts from''' U) if either<br/>
 <br/>
     CT has a ''conversion procedure'' using U as a conversion type, or <br/>
 <br/>
@@ -150,16 +153,17 @@ A type U based on a class CU ''converts'' to a type T based on a class CT (and T
 <br/>
 but not both.}}
 
+
 Before we get into an example of convertibility, let's list some of its underlying principles:
 # Conversion Principle: No type may both ''conform'' and ''convert'' to another.
 # Conversion Asymmetry Principle: No type may convert to another through both a ''conversion procedure'' and a ''conversion query''.
 # Conversion Non-transitivity Principle: That V converts to U and U converts to T does not imply that V converts to T.
 
-Let's look at an example that may already be familiar to you. 
+Let's look at an example with which you may already be familiar. 
 
 <code>
-    my_string: STRING_8
-    my_system_string: SYSTEM_STRING
+    my_string: STRING_8                   -- Native Eiffel string
+    my_system_string: SYSTEM_STRING       -- Native Microsoft .Net string
 
         …
 
@@ -235,6 +239,8 @@ is equivalent to:
 <code>
             my_system_string := my_string.to_cil
 </code>
+
+You should bear in mind that assignments are not the only situation in which conversions take place. Convertibility works for other types of attachments as well. For example, if a routine calls for an argument of type <code>SYSTEM_STRING</code>, and you supply an actual argument of type <code>STRING_8</code>, this constitutes an attachment, and the conversion from <code>STRING</code> to <code>SYSTEM_STRING</code> will occur. 
 
 
 ==Tuple types==

@@ -7,7 +7,7 @@
 The Eiffel Compiler line mode command '''ec''' has many options, as you can see from the tables below. It may be helpful to think of any one '''ec''' command as either a command to compile or a command to view software text. 
 
 
-===Commands for compiling===
+==Commands for compiling==
 
 The simplest compiling command you can enter is:
 
@@ -52,7 +52,7 @@ You can add additional libraries to the configuration by using the "-library" op
 This immediately adds the EiffelTime library to the configuration file <code>application.ecf</code>, so if you compile again, it is not necessary to respecify the library. 
 
 
-===Commands for viewing===
+==Commands for viewing==
 
 By selecting certain options on the '''ec''' command, you can generate advanced views of your software much like those provided by EiffelStudio. In the table below you will see the set of ''Viewing options''. These options take arguments that are either a class name or a class name and feature name. The following examples will give you an idea of how to use the ''Viewing options''.
 
@@ -75,7 +75,7 @@ Feature-oriented options, like "-implementers", take a class name and feature na
 </code>
 
 
-===Command options===
+==Command options==
 
 The table below lists the available ''options'', the arguments they require, and their effect: 
 
