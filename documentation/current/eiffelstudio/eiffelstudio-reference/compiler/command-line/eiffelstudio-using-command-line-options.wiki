@@ -162,15 +162,15 @@ Feature-oriented options, like "-implementers", take a class name and feature na
 
 ===Commands for generating documentation===
 
-You can use variations of the viewing commands to generate documentation much like [[Producing and Exporting Documentation|you can from EiffelStudio]].
+You can use variations of the viewing commands to generate documentation for your Eiffel system much like [[Producing and Exporting Documentation|you can from EiffelStudio]].
 
-The following command will produce the Chart, Relations, and Text documentation for the "application" system in html-stylesheet format in the "Documentation" subfolder of the project folder.
+The following command will produce the ''Chart'', ''Relations'', and ''Text'' documentation for the "application" system in html-stylesheet format in the "Documentation" subfolder of the project folder.
 
 <code lang="text">
     ec -filter html-stylesheet -all -config application.ecf
 </code>
 
-To produce a view other than text, use its option in the command. The following generates Chart, Relations, and Flat Short form:
+To produce documentation for a view other than ''Text'', use its option in the command. The following generates ''Chart'', ''Relations'', and ''Flat Short'' documentation:
 
 <code lang="text">
     ec -flatshort -filter html-stylesheet -all -config application.ecf
