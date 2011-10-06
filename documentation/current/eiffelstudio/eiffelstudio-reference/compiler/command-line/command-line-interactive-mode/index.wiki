@@ -1,7 +1,7 @@
 [[Property:title|Command line interactive mode]]
 [[Property:weight|3]]
 [[Property:uuid|3a0acea6-c6d1-c7b9-c2f9-88021cad26b6]]
-If you need to use '''ec''' to execute a number of successive operations on a system, you do not need to restart the command each time; instead you may use the -loop option, which will interactively prompt you for successive operations. 
+If you need to use '''ec''' to execute a number of successive operations on a system, you do not need to restart the command each time; instead you may use the '''-loop''' option, which will interactively prompt you for successive operations. 
 If you launch '''ec''' with this option, you will get the interactive version's Main Menu: 
 <code>
 ==== ISE EiffelStudio - Interactive Batch Version (v5.5.0926 Enterprise Edition) ===
