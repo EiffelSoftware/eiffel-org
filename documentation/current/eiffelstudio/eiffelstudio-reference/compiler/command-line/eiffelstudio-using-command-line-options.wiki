@@ -162,12 +162,18 @@ Feature-oriented options, like "-implementers", take a class name and feature na
 
 ===Commands for generating documentation===
 
-You can use a variations of the viewing commands to generate documentation much like [[Producing and Exporting Documentation|you can from EiffelStudio]].
+You can use variations of the viewing commands to generate documentation much like [[Producing and Exporting Documentation|you can from EiffelStudio]].
 
-The following command will produce the Chart, Relations, and Text documentation for the "application" system in stylesheet html format in the "Documentation" subfolder of the project folder.
+The following command will produce the Chart, Relations, and Text documentation for the "application" system in html-stylesheet format in the "Documentation" subfolder of the project folder.
 
 <code lang="text">
     ec -filter html-stylesheet -all -config application.ecf
+</code>
+
+To produce a view other than text, use its option in the command. The following generates Chart, Relations, and Flat Short form:
+
+<code lang="text">
+    ec -flatshort -filter html-stylesheet -all -config application.ecf
 </code>
 
 
@@ -321,7 +327,7 @@ The table below lists the available ''options'', the arguments they require, and
 {{note|In the third column, to '''print''' means to produce the requested information on the default output of the '''ec''' command.}}
 
 
-{{note|When using '''-finalize''', assertions will be discarded (unlike in EiffelStudio which asks first.) The assertion disposition specified in the project configuration file can be retained in finalization by combining the '''-keep''' option with '''-finalize'''.}}
+{{note|When using '''-finalize''', assertions will be discarded (unlike in EiffelStudio which asks first). The assertion disposition specified in the project configuration file can be retained in finalization by combining the '''-keep''' option with '''-finalize'''.}}
 
 
 Some options can have modifiers that can affect their results. The modifiers are listed in the table below:
