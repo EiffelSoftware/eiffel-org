@@ -206,6 +206,14 @@ The table below lists the available ''options'', the arguments they require, and
 | 
 | [[Melting Ice Technology#Precompiling|Precompile]] system, treating it as a library.
 |- 
+| -compat
+| 
+| Compile using facilities that are [[Eiffel compatibility options#EiffelStudio and Eiffel compiler options|compatible with older versions]] of Eiffel.
+|- 
+| -experiment
+| 
+| Compile using facilities that are [[Eiffel compatibility options#EiffelStudio and Eiffel compiler options|compatible with an upcoming version]] of Eiffel.
+|- 
 | ''Viewing options''
 |- 
 | -ancestors
