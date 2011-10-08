@@ -326,6 +326,10 @@ The table below lists the available ''options'', the arguments they require, and
 | 
 | Use the project global settings to retrieve the project location for the last compilation of this project.
 |- 
+| -verbose
+| 
+| Display detail progress report during compile.
+|- 
 | -version
 | 
 | Print compiler version number.
