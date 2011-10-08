@@ -35,6 +35,52 @@ The options are distinguished by how the compiler handles the processing of cert
 |-
 ! Obsolete !! Transitional !! Standard !! Provisional
 |-
+! rowspan="9" style="valign: center; text-align: center;" | [[Release notes for EiffelStudio 7.0 | 7.0]]
+| style="color: gray;" | across
+| style="color: maroon;" | '''across'''
+| style="color: navy;" | '''across'''
+| style="color: navy;" | '''across'''
+|-
+| style="color: maroon;" | '''assign'''
+| style="color: maroon;" | '''assign'''
+| style="color: navy;" | '''assign'''
+| style="color: navy;" | '''assign'''
+|-
+| style="color: gray;" | attached
+| style="color: maroon;" | '''attached'''
+| style="color: navy;" | '''attached'''
+| style="color: navy;" | '''attached'''
+|-
+| style="color: gray;" | attribute
+| style="color: maroon;" | '''attribute'''
+| style="color: navy;" | '''attribute'''
+| style="color: navy;" | '''attribute'''
+|-
+| style="color: gray;" | detachable
+| style="color: maroon;" | '''detachable'''
+| style="color: navy;" | '''detachable'''
+| style="color: navy;" | '''detachable'''
+|-
+| style="color: navy;" | '''indexing'''
+| style="color: blue;" | '''indexing'''
+| style="color: black;" | indexing
+| style="color: black;" | indexing
+|-
+| style="color: navy;" | '''is'''
+| style="color: blue;" | '''is'''
+| style="color: black;" | is
+| style="color: black;" | is
+|-
+| style="color: gray;" | note
+| style="color: navy;" | '''note'''
+| style="color: navy;" | '''note'''
+| style="color: navy;" | '''note'''
+|-
+| style="color: gray;" | some
+| style="color: maroon;" | '''some'''
+| style="color: navy;" | '''some'''
+| style="color: navy;" | '''some'''
+|-
 ! rowspan="9" style="valign: center; text-align: center;" | [[Release notes for EiffelStudio 6.8 | 6.8]], [[Release notes for EiffelStudio 6.7 | 6.7]], [[Release notes for EiffelStudio 6.6 | 6.6]]
 | style="color: gray;" | across
 | style="color: gray;" | across
