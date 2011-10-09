@@ -206,6 +206,10 @@ The table below lists the available ''options'', the arguments they require, and
 | 
 | [[Melting Ice Technology#Precompiling|Precompile]] system, treating it as a library.
 |- 
+| -full
+| 
+| Full class checking. Rechecks features of the parent classes for validity in heirs. See example in [[Converting existing software to void-safety#Enable full class checking|Converting existing software to void-safety]]. NOTE: Full class checking increases compile times, which may be noticeable in large systems.
+|- 
 | -compat
 | 
 | Compile using facilities that are [[Eiffel compatibility options#EiffelStudio and Eiffel compiler options|compatible with older versions]] of Eiffel.
