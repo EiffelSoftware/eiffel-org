@@ -1,0 +1,14 @@
+[[Property:title|Mixing void-safe and void-unsafe software]]
+[[Property:weight|3]]
+[[Property:uuid|3446f214-3c77-ef41-98eb-92942298630c]]
+{{underconstruction}}
+
+
+=Introduction=
+
+Under some circumstances it is possible and even helpful to mix void-safe and void-unsafe libraries. During conversion, for example, it can be helpful to compile and test a void-unsafe system with void-safe versions of the libraries it depends upon. 
+
+=Rules for mixing void-safety modes=
+
+
+
