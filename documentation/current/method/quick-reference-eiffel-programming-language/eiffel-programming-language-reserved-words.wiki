@@ -281,7 +281,7 @@ Introduces a [[ET: Other Mechanisms#Multi-branch|multi-branch]] instruction.
 
 ===invariant===
 
-Used to introduce an invariant assertion as a [[ET: Design by Contract (tm), Assertions and Exceptions#Class invariants|class invariant]] or [[ET: Other Mechanisms#Loop|loop invariant]].
+Used to introduce an invariant assertion as a [[ET: Design by Contract (tm), Assertions and Exceptions#Class invariants|class invariant]] or [[ET: Instructions#Loop|loop invariant]].
 
 :[[Eiffel language syntax#Assertions|Assertions syntax.]]
 
@@ -477,7 +477,7 @@ Used in [[ET: Other Mechanisms#Loop|loop]] initialization.
 
 ===variant===
 
-Introduces a [[ET: Other Mechanisms#Loop|loop variant]].
+Introduces a [[ET: Instructions#Loop|loop variant]].
 
 :[[Eiffel language syntax#Variants|Syntax.]]
 
