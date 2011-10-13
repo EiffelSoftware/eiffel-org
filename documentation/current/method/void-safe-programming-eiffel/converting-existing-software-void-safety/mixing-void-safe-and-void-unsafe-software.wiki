@@ -12,7 +12,7 @@ Under some circumstances it is possible and even helpful to mix void-safe and vo
 
 =Rule for mixing void-safety modes=
 
-The rule for using void-safe and void-unsafe software together are fairly simple. 
+The rule for using void-safe and void-unsafe software together is fairly simple. 
 
 
 {{Rule|name=Mixing void-safe and void-unsafe software|text=<br/>
@@ -20,7 +20,7 @@ The rule for using void-safe and void-unsafe software together are fairly simple
 2) A class that is void-safe may depend only upon other classes that are void-safe.}}
 
 
-This means that if the root class of system is void-safe, then every other class in the system must also be void-safe.  
+This means that if the root class of a system is void-safe, then every other class in the system must also be void-safe.  
 
 However, if you are converting a system to void-safety, it's likely that your root class and the classes in the closely related clusters will be void-unsafe. The rule allows you to mix the void-safe versions of the Eiffel Software library classes from the EiffelStudio distribution with your void-unsafe system during conversion.
 
