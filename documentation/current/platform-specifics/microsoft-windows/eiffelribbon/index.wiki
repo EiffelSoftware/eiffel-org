@@ -6,7 +6,7 @@
 
 =Introduction=
 
-EiffelRibbon is a library of classes with an associated tool which allows the integration of the Microsoft Windows "Ribbon" into graphical user interfaces programmed with [[EiffelVision 2]] and targeted to Microsoft Windows. The ribbon is part of a [http://msdn.microsoft.com/en-us/library/aa338198.aspx#office2007uifordevelopers_detaileddesignofthenewuisystem revamped user interface approach] introduced by Microsoft with the 2007 release of the Microsoft Office applications. So you've experienced the ribbon if you've used Microsoft Word, PowerPoint, or Excel from 2007 or later. 
+EiffelRibbon is a library of classes with an associated [[EiffelRibbon Design Tool|tool]] which allows the integration of the Microsoft Windows "Ribbon" into graphical user interfaces programmed with [[EiffelVision 2]] and targeted to Microsoft Windows. The ribbon is part of a [http://msdn.microsoft.com/en-us/library/aa338198.aspx#office2007uifordevelopers_detaileddesignofthenewuisystem revamped user interface approach] introduced by Microsoft with the 2007 release of the Microsoft Office applications. So you've experienced the ribbon if you've used Microsoft Word, PowerPoint, or Excel from 2007 or later. 
 
 
 {{note|''Although EiffelRibbon classes work with EiffelVision 2 which is multi-platform, systems using EiffelRibbon can be targeted only to the Microsoft Windows platform.''}}
@@ -21,7 +21,7 @@ The EiffelRibbon library contains the classes that are used to implement the rib
 
 To gain a detailed understanding of the goals of Microsoft's Ribbon technology including some guidelines on designing effective ribbons, see [http://msdn.microsoft.com/en-us/library/cc872782.aspx the '''Ribbons''' page] on Microsoft's MSDN site. 
 
-The EiffelRibbon design tool helps you configure a ribbon in much the same way that [[EiffelBuild|EiffelBuild]] (ES Builder) helps you layout a GUI application.
+The [[EiffelRibbon Design Tool|EiffelRibbon design tool]] helps you configure a ribbon in much the same way that [[EiffelBuild|EiffelBuild]] (ES Builder) helps you layout a GUI application.
 
 
 ==System requirements==
@@ -32,33 +32,6 @@ To use the EiffelRibbon library and tools you must have:
 # The Microsoft C compiler provided with either:
 ## Windows SDK 7.0 or greater
 ## Visual Studio 2008 or greater
-
-
-==The EiffelRibbon design tool==
-
-The EiffelRibbon design tool allows you to design a ribbon graphically, then generate the ribbon markup file and the Eiffel classes necessary to implement your design. 
-
-
-[[Image:EiffelRibbon design tool 01|EiffelRibbon design tool]]
-
-Figure 2: An EiffelRibbon project open in the EiffelRibbon design tool.
-
-
-The interface of the design tool mimics that of [[EiffelBuild|EiffelBuild]]. That is, the interface contains three panes that have counterparts in EiffelBuild:
-
-# Type selector: A list of all the elements available for use in a ribbon.
-# Layout constructor: A structured view of the organization of the elements used in a particular ribbon design.
-# Object editor: The properties of the ribbon element which is currently selected in the Layout constructor.
-
-So, if you've used EiffelBuild, the the EiffelRibbon design tool should seem quite familiar to you. 
-
-The typical usage of the design tool is much like the typical usage of EiffelBuild. 
-
-* Create a new project ( <code lang="text">File -> New Project...</code> ) and choose a location for your EiffelRibbon project.
-* Configure the ribbon by adding elements, name the elements, and choose icons for buttons.
-* Save the project.
-* Generate the code.
-* Use EiffelStudio to compile the generated code.
 
 
 ==Current state of development==
@@ -86,12 +59,12 @@ So, here again, if you are familiar with EiffelVision 2, then EiffelRibbon shoul
 
 When you build an application with the EiffelRibbon tool, it generates classes for you. These classes are often clients or heirs to classes in the EiffelRibbon library. The classes generated for the objects on your ribbon should look familiar to you as well. For example, as with EiffelBuild, for each ribbon object, say a button, there will be a class ending with the suffix "<code>_IMP</code>" which will get regenerated each time you request the EiffelRibbon tool to generate classes. Also generated is an heir to that class with a name that does not include the suffix. This class you are free to edit, as it will not be regenerated. It is in these editable classes that you provide the action sequences for your ribbon objects' behaviors.
 
-The class shown in the Edit pane of EiffelStudio in Figure 3 is a portion of a generated class <code>BUTTON_CHANGE_SMALL_IMAGE</code>, representing a ribbon button, from one of the EiffelRibbon examples. <code>BUTTON_CHANGE_SMALL_IMAGE</code> is a heir to <code>BUTTON_CHANGE_SMALL_IMAGE_IMP</code>. You can see that in the redefined version of <code>create_interface_objects</code> code has been added to add an agent to the <code>select_actions</code> for the ribbon button. In this case, it's an inline agent that will toggle the associated image back and forth between two different images.
+The class shown in the Edit pane of EiffelStudio in Figure 2 is a portion of a generated class <code>BUTTON_CHANGE_SMALL_IMAGE</code>, representing a ribbon button, from one of the EiffelRibbon examples. <code>BUTTON_CHANGE_SMALL_IMAGE</code> is a heir to <code>BUTTON_CHANGE_SMALL_IMAGE_IMP</code>. You can see that in the redefined version of <code>create_interface_objects</code> code has been added to add an agent to the <code>select_actions</code> for the ribbon button. In this case, it's an inline agent that will toggle the associated image back and forth between two different images.
 
 
 [[Image:EiffelRibbon application 01|An EiffelRibbon application in EiffelStudio.]]
 
-Figure 3.
+Figure 2.
 
 
  

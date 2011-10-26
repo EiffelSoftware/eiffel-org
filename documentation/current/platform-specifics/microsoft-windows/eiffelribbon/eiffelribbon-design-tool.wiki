@@ -1,0 +1,31 @@
+[[Property:title|EiffelRibbon Design Tool]]
+[[Property:weight|0]]
+[[Property:uuid|0fe37d4f-3f5b-0ceb-e97e-69ae3f9960ad]]
+=Overview=
+
+The EiffelRibbon design tool allows you to design a ribbon graphically, then generate the ribbon markup file and the Eiffel classes necessary to implement your design. 
+
+
+[[Image:EiffelRibbon design tool 01|EiffelRibbon design tool]]
+
+Figure 1: An EiffelRibbon project open in the EiffelRibbon design tool.
+
+
+The interface of the design tool mimics that of [[EiffelBuild|EiffelBuild]]. That is, the interface contains three panes that have counterparts in EiffelBuild:
+
+# Type selector: A list of all the elements available for use in a ribbon.
+# Layout constructor: A structured view of the organization of the elements used in a particular ribbon design.
+# Object editor: The properties of the ribbon element which is currently selected in the Layout constructor.
+
+So, if you've used EiffelBuild, the the EiffelRibbon design tool should seem quite familiar to you. 
+
+The typical usage of the design tool is much like the typical usage of EiffelBuild. 
+
+* Create a new project ( <code lang="text">File -> New Project...</code> ) and choose a location for your EiffelRibbon project.
+* Configure the ribbon by adding elements, name the elements, and choose icons for buttons.
+* Save the project.
+* Generate the code.
+* Use EiffelStudio to compile the generated code.
+
+
+
