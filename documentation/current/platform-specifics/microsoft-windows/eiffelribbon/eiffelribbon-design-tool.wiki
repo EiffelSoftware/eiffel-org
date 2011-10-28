@@ -19,6 +19,8 @@ The interface of the design tool mimics that of [[EiffelBuild|EiffelBuild]]. Tha
 
 So, if you've used EiffelBuild, the the EiffelRibbon design tool should seem quite familiar to you. 
 
+=Usage=
+
 The typical usage of the design tool is much like the typical usage of EiffelBuild. 
 
 * Create a new project ( <code lang="text">File -> New Project...</code> ) and choose a location for your EiffelRibbon project.
@@ -26,6 +28,8 @@ The typical usage of the design tool is much like the typical usage of EiffelBui
 * Save the project.
 * Generate the code.
 * Use EiffelStudio to compile the generated code.
+
+
 
 
 

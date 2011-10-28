@@ -24,6 +24,29 @@ To gain a detailed understanding of the goals of Microsoft's Ribbon technology i
 The [[EiffelRibbon Design Tool|EiffelRibbon design tool]] helps you configure a ribbon in much the same way that [[EiffelBuild|EiffelBuild]] (ES Builder) helps you layout a GUI application.
 
 
+=The EiffelRibbon Library=
+
+The EiffelRibbon library contains the classes necessary to add ribbons to EiffelVision 2 applications. As stated above, you won't really need to use the library directly. Rather, you use the EiffelRibbon tool to build an application that uses the library classes.
+
+Still you may find it interesting to browse the classes in the library. You'll see that as in the EiffelVision 2 library, many of the classes are there to provide support for the various elements that can be used in an application. Most of the class names for EiffelRibbon-specific elements begin with the prefix "<code>EV_RIBBON</code>". Some examples are: <code>EV_RIBBON_BUTTON</code>, <code>EV_RIBBON_DROP_DOWN_GALLERY</code>, and <code>EV_RIBBON_COMBO_BOX_ITEM</code>. Again, similar to EiffelVision 2, the class <code>EV_RIBBON_COMBO_BOX_ITEM</code> models an item for a <code>EV_RIBBON_COMBO_BOX</code>.
+
+So, here again, if you are familiar with EiffelVision 2, then EiffelRibbon should not seem very foreign to you.
+
+
+=EiffelRibbon Applications=
+
+When you build an application with the [[EiffelRibbon Design Tool|EiffelRibbon tool]], it generates classes for you. These classes are often clients or heirs to classes in the EiffelRibbon library. The classes generated for the objects on your ribbon should look familiar to you as well. For example, as with EiffelBuild, for each ribbon object, say a button, there will be a class ending with the suffix "<code>_IMP</code>" which will get regenerated each time you request the EiffelRibbon tool to generate classes. Also generated is an heir to that class with a name that does not include the suffix. This class you are free to edit, as it will not be regenerated. It is in these editable classes that you provide the action sequences for your ribbon objects' behaviors.
+
+The class shown in the Edit pane of EiffelStudio in Figure 2 is a portion of a generated class <code>BUTTON_CHANGE_SMALL_IMAGE</code>, representing a ribbon button, from one of the EiffelRibbon examples. <code>BUTTON_CHANGE_SMALL_IMAGE</code> is a heir to <code>BUTTON_CHANGE_SMALL_IMAGE_IMP</code>. You can see that in the redefined version of <code>create_interface_objects</code> code has been added to add an agent to the <code>select_actions</code> for the ribbon button. In this case, it's an inline agent that will toggle the associated image back and forth between two different images.
+
+
+[[Image:EiffelRibbon application 01|An EiffelRibbon application in EiffelStudio.]]
+
+Figure 2.
+
+
+=Usage notes=
+
 ==System requirements==
 
 To use the EiffelRibbon library and tools you must have:
@@ -45,28 +68,5 @@ Initial distribution:
 Initial distribution:
 * Resizing policy is not yet supported.
 * When working in Application Mode, it is necessary to freeze the target system each time the EiffelRibbon code is regenerated. This is not necessary in DLL Mode.
-
-=The EiffelRibbon Library=
-
-The EiffelRibbon library contains the classes necessary to add ribbons to EiffelVision 2 applications. As stated above, you won't really need to use the library directly. Rather, you use the EiffelRibbon tool to build an application that uses the library classes.
-
-Still you may find it interesting to browse the classes in the library. You'll see that as in the EiffelVision 2 library, many of the classes are there to provide support for the various elements that can be used in an application. Most of the class names for EiffelRibbon-specific elements begin with the prefix "<code>EV_RIBBON</code>". Some examples are: <code>EV_RIBBON_BUTTON</code>, <code>EV_RIBBON_DROP_DOWN_GALLERY</code>, and <code>EV_RIBBON_COMBO_BOX_ITEM</code>. Again, similar to EiffelVision 2, the class <code>EV_RIBBON_COMBO_BOX_ITEM</code> models an item for a <code>EV_RIBBON_COMBO_BOX</code>.
-
-So, here again, if you are familiar with EiffelVision 2, then EiffelRibbon should not seem very foreign to you.
-
-
-=EiffelRibbon Applications=
-
-When you build an application with the EiffelRibbon tool, it generates classes for you. These classes are often clients or heirs to classes in the EiffelRibbon library. The classes generated for the objects on your ribbon should look familiar to you as well. For example, as with EiffelBuild, for each ribbon object, say a button, there will be a class ending with the suffix "<code>_IMP</code>" which will get regenerated each time you request the EiffelRibbon tool to generate classes. Also generated is an heir to that class with a name that does not include the suffix. This class you are free to edit, as it will not be regenerated. It is in these editable classes that you provide the action sequences for your ribbon objects' behaviors.
-
-The class shown in the Edit pane of EiffelStudio in Figure 2 is a portion of a generated class <code>BUTTON_CHANGE_SMALL_IMAGE</code>, representing a ribbon button, from one of the EiffelRibbon examples. <code>BUTTON_CHANGE_SMALL_IMAGE</code> is a heir to <code>BUTTON_CHANGE_SMALL_IMAGE_IMP</code>. You can see that in the redefined version of <code>create_interface_objects</code> code has been added to add an agent to the <code>select_actions</code> for the ribbon button. In this case, it's an inline agent that will toggle the associated image back and forth between two different images.
-
-
-[[Image:EiffelRibbon application 01|An EiffelRibbon application in EiffelStudio.]]
-
-Figure 2.
-
-
- 
 
 
