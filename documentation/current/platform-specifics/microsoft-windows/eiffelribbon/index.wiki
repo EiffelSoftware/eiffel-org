@@ -46,12 +46,13 @@ Figure 2.
 
 ==Project '''modes'''==
 
-EiffelRibbon projects can be built in one of two different project '''modes'''. The project mode is selected from the '''Project''' menu of the EiffelRibbon design tool. 
+EiffelRibbon projects can be built in one of two different '''project modes'''. The project mode is selected from the '''Project''' menu of the EiffelRibbon design tool. 
 
-The default mode, called '''DLL mode''', is the most all encompassing project mode. It has the advantage that the full capabilities of EiffelRibbon are accessible.
+The default mode, called '''DLL mode''', is the most all encompassing project mode. It has the advantage that the full capabilities of EiffelRibbon are accessible. In DLL mode, a separate DLL is created to contain the generated code for each ribbon created for the project. 
 
-The alternative to DLL mode is '''Application mode'''.
+The alternative to DLL mode is '''Application mode'''. Application mode allows almost all the capabilities of DLL mode, but includes all ribbon code in the project's executable image (.exe). For this reason, it is necessary to re-freeze the project after changes when using Application mode. Re-freezing is not necessary in DLL mode.
 
+Both modes allow multiple ribbons to be created for multiple windows. However certain restrictions apply in Application mode that do not apply in DLL mode. In DLL mode, different DLL's are created for each ribbon. These DLL's are separate and do not share data. However, in Application mode, all ribbons share the same help button and quick access toolbar. In DLL mode, the help button and quick access toolbar can be different for each ribbon. 
 
 =Usage notes=
 
