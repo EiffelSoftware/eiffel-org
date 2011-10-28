@@ -44,6 +44,14 @@ The class shown in the Edit pane of EiffelStudio in Figure 2 is a portion of a g
 
 Figure 2.
 
+==Project '''modes'''==
+
+EiffelRibbon projects can be built in one of two different project '''modes'''. The project mode is selected from the '''Project''' menu of the EiffelRibbon design tool. 
+
+The default mode, called '''DLL mode''', is the most all encompassing project mode. It has the advantage that the full capabilities of EiffelRibbon are accessible.
+
+The alternative to DLL mode is '''Application mode'''.
+
 
 =Usage notes=
 
