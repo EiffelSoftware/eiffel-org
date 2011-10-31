@@ -29,6 +29,19 @@ The typical usage of the design tool is much like the typical usage of EiffelBui
 * Generate the code.
 * Use EiffelStudio to compile the generated code.
 
+==Size definitions==
+
+An important aspect of Microsoft's ribbon technology is called '''adaptive layout'''. When the ribbon is resized by a user at runtime, adaptive layout makes corresponding changes to the size, format, organization and scale of the ribbon controls within each group based on size definition templates associated with the group. The ribbon framework provides a significant number of such templates (simply called '''size definitions'''), as shown in Figure 2 below. Size definitions are usually assigned names based on the number and type of controls included in the group. 
+
+
+
+Figure 2. Choosing a size definition for a ribbon control group.
+
+
+In addition to using the size definitions provided, it is possible to create your own custom size definitions. You do this with the '''Size Definition Editor'''. At the lower left of Figure 1 above you can see the tab representing the Size Definition Editor. When you expand the tab, the editor becomes visible, as in Figure 3, below.
+
+
+
 
 
 
