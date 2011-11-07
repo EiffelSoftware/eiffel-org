@@ -31,7 +31,7 @@ The typical usage of the design tool is much like the typical usage of EiffelBui
 
 ==Size definitions==
 
-An important aspect of Microsoft's ribbon technology is called '''adaptive layout'''. When the ribbon is resized by a user at runtime, adaptive layout makes corresponding changes to the size, format, organization and scale of the ribbon controls within each group based on size definition templates associated with the group. The ribbon framework provides a significant number of such templates (simply called '''size definitions'''), as shown in Figure 2 below. Size definitions are usually assigned names based on the number and type of controls included in the group. 
+An important aspect of Microsoft's ribbon technology is called '''[http://msdn.microsoft.com/en-us/library/windows/desktop/dd316927(v=vs.85).aspx adaptive layout]'''. When the ribbon is resized by a user at runtime, adaptive layout makes corresponding changes to the size, format, organization and scale of the ribbon controls within each group based on size definition templates associated with the group. The ribbon framework provides a significant number of such templates (simply called '''size definitions'''), as shown in Figure 2 below. Size definitions are usually assigned names based on the number and type of controls included in the group. For example, the size definition ''"ThreeButtonsAndOneCheckBox"'' is a size definition for three buttons plus one checkbox.
 
 
 [[Image: EiffelRibbon Choose Size Definition]]
