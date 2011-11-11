@@ -52,7 +52,7 @@ The default mode, called '''DLL mode''', is the most all encompassing project mo
 
 The alternative to DLL mode is '''Application mode'''. Application mode allows almost all the capabilities of DLL mode, but includes all ribbon code in the project's executable image (.exe). For this reason, it is necessary to re-freeze the project after changes when using Application mode. Re-freezing is not necessary in DLL mode.
 
-Both modes allow multiple ribbons to be created for multiple windows. However certain restrictions apply in Application mode that do not apply in DLL mode. In DLL mode, different DLL's are created for each ribbon. These DLL's are separate and do not share data. However, in Application mode, all ribbons share the same help button and quick access toolbar. In DLL mode, the help button and quick access toolbar can be different for each ribbon. 
+Both modes allow multiple ribbons to be created for multiple windows. However certain restrictions apply in Application mode that do not apply in DLL mode. In DLL mode, different DLL's are created for each ribbon. These DLL's are separate and do not share data. However, in Application mode, a number of ribbon facilities, including the help button, the quick access toolbar, and the mini toolbar, are shared among all the ribbons defined. In DLL mode, these facilities are not shared and as such can be different for each ribbon. 
 
 =Usage notes=
 
