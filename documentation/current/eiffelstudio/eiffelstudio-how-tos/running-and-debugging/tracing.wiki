@@ -67,6 +67,9 @@ In the root feature:
             ps.disable_tracing
                 -- Program execution continues.
                     ...
+
+                -- Restore tracing before exiting for proper cleanup.
+             ps.enable_tracing
         end
 </code>
 
@@ -86,6 +89,7 @@ Then, in a feature in which tracing is desired:
         end
 </code>
 
+{{warning| Enabling/disabling tracing as shown above has to be done within the same routine otherwise the computed depth would be inaccurate and this would cause some unpredictable results.}}
 
 =Using a trace handler=
 
@@ -112,7 +116,9 @@ To make this facility more approachable for common tasks, EiffelBase also contai
             -- Trigger a trace operation from a feature represented by `a_feature_name' defined in
             -- class `a_class_name' and applied to an object of type `a_type' at a call depth `a_depth'.
             -- If `a_is_entering' we are entering the routine, otherwise we are exiting it.			
-        deferred
+        require
+            a_depth_non_negative: a_depth >= 0
+         deferred
         end
 </code>
 
