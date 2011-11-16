@@ -63,9 +63,14 @@ Once a custom size definition has been designed, it can be named, saved, and use
 Figure 5. The Size Definition Editor naming field and '''Save''' button.
 
 
+When you generate code which uses a custom size definition, the EiffelRibbon Design Tool generates the (XML) representation for your size definition and then invoke the Microsoft Ribbon Framework's User Interface Command Compiler (UICC.exe) to validate the generated size definition code. This process can result in [http://msdn.microsoft.com/en-us/library/windows/desktop/dd316918(v=VS.85).aspx certain types of errors]. 
+
+User Interface Command Compiler errors will appear in the Ouput pane of the EiffelRibbon Design Tool.
+
+
 ==Scaling policy==
 
-The notion of adaptive layout includes the ability to specify preferred sizes for elements of a group and a scaling policy that can influence how the group reacts to resizing. More detail on size definition and scaling policy is available in Microsoft's '''[http://msdn.microsoft.com/en-us/library/windows/desktop/dd316927(v=vs.85).aspx ribbon documentation]'''. 
+The notion of adaptive layout includes the ability to specify preferred sizes for elements of a group and a scaling policy that can influence how the group reacts to resizing. More detail on size definition and scaling policy is available in Microsoft's [http://msdn.microsoft.com/en-us/library/windows/desktop/dd316927(v=vs.85).aspx ribbon documentation]. 
 
 The EiffelRibbon tool allows you to specify ideal sizes and scale policy for a groups elements through the '''Ideal sizes''' radio buttons and the '''Scale''' checkboxes, as shown in Figure 6 below.
 

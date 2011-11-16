@@ -14,7 +14,7 @@ The '''tracing facility''' allows you to see a structured log of the flow of con
 You can make tracing usable for a particular cluster by setting the '''Trace''' setting to '''True''' in your project settings for a particular cluster.
 
 To do this:
-* Open the [[Group Options|Project Settings]]  dialog. 
+* Open the [[Group Options|Project Settings]] dialog. 
 * Under '''Clusters''' select the cluster you want to see traced. 
 * Set the value of '''Trace''' to '''True'''.
 * Click '''Apply''' or '''OK'''. 
