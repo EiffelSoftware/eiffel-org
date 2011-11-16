@@ -3,14 +3,33 @@
 [[Property:uuid|eb11a237-0c75-0427-452a-303d4f276b97]]
 This document contains details of modifications and bug fixes to the EiffelVision 2 library listed by the release version of EiffelStudio. All bug fixes and modifications are relative to the previously released version.
 
+==EiffelStudio 7.0==
+'''Improvements'''
+
+* Added multi-monitor functionality to EV_SCREEN
+* Optimized communication between worker thread and gui thread in {EV_APPLICATION}.do_once_on_idle.
+
+
+'''Bug fixes'''
+*'''Platform Independent'''
+
+* Fixed rendering of activate button in dialogs when theming is enabled.
+
+* Improved multi-monitor handling for EV_GRID item activation popups.
+
+
+*'''Windows'''
+
+*'''GTK'''
+
+* Fixed bug in `set_item_size' for EV_FIXED and EV_VIEWPORT where sometimes item would not shrink if set when displayed.
+
 ==EiffelStudio 6.8==
 '''Improvements'''
-* Allowed setting the test of a combo box that has been disabled.
+* Allowed setting the text of a combo box that has been disabled.
 * Resize actions are now called after a container has completed its resizing.
 * On Windows, increased the splitter size to make it more visible and easier to grab.
 * The API now accepts READABLE_STRING_GENERAL as input for strings, which let you accept immutable strings without conversions.
-* Extended types supported by EiffelStore, especially STRING_32 for Unicode string types.
-* Improved memory management in EiffelStore, ODBC implementation.
 
 '''Bug fixes'''
 *'''Platform Independent'''
