@@ -5,24 +5,18 @@ This document contains details of modifications and bug fixes to the EiffelVisio
 
 ==EiffelStudio 7.0==
 '''Improvements'''
-
 * Added multi-monitor functionality to EV_SCREEN
 * Optimized communication between worker thread and gui thread in {EV_APPLICATION}.do_once_on_idle.
 
-
 '''Bug fixes'''
 *'''Platform Independent'''
-
-* Fixed rendering of activate button in dialogs when theming is enabled.
-
-* Improved multi-monitor handling for EV_GRID item activation popups.
-
+** Improved multi-monitor handling for EV_GRID item activation popups.
 
 *'''Windows'''
+** Fixed rendering of activate button in dialogs when theming is enabled.
 
 *'''GTK'''
-
-* Fixed bug in `set_item_size' for EV_FIXED and EV_VIEWPORT where sometimes item would not shrink if set when displayed.
+** Fixed bug in `set_item_size' for EV_FIXED and EV_VIEWPORT where sometimes item would not shrink if set when displayed.
 
 ==EiffelStudio 6.8==
 '''Improvements'''

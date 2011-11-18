@@ -29,9 +29,15 @@ The typical usage of the design tool is much like the typical usage of EiffelBui
 * Generate the code.
 * Use EiffelStudio to compile the generated code.
 
-==Size definitions==
+==Size definitions and scaling policies==
 
-An important aspect of Microsoft's ribbon technology is called '''[http://msdn.microsoft.com/en-us/library/windows/desktop/dd316927(v=vs.85).aspx adaptive layout]'''. When the ribbon is resized by a user at runtime, adaptive layout makes corresponding changes to the size, format, organization and scale of the ribbon controls within each group based on size definition templates associated with the group. The ribbon framework provides a significant number of such templates (simply called '''size definitions'''), as shown in Figure 2 below. Size definitions are usually assigned names based on the number and type of controls included in the group. For example, the size definition ''"ThreeButtonsAndOneCheckBox"'' is a size definition for three buttons plus one checkbox.
+An important aspect of Microsoft's ribbon technology is called '''[http://msdn.microsoft.com/en-us/library/windows/desktop/dd316927(v=vs.85).aspx adaptive layout]'''. When the ribbon is resized by a user at runtime, adaptive layout makes corresponding changes to the size, format, organization and scale of the ribbon controls within each group based on size definition templates and scaling policies associated with the group. Size definitions are patterns for the use of a certain number of ribbon controls such as buttons. For a particular group of controls in an instance of ribbon, you can associate a size definition which will control the layout of the controls. At runtime, when the window hosting the ribbon is resized, a scaling policy, also associated with the group, will control how the controls in the group are reorganized in response to the resizing. When a group is selected in the EiffelRibbon tool, the group's size definition and scaling policy can be selected. 
+
+{{note|Not all size definitions support all scaling policy choices. So it is important to know which scaling policies are supported by a size definition that you wish to associate with a group before you set the scaling policy for the group.}}
+
+===Size definitions===
+
+The ribbon framework provides a significant number of size definition templates (simply called '''size definitions'''), as shown in Figure 2 below. Size definitions are usually assigned names based on the number and type of controls included in the group. For example, the size definition ''"ThreeButtonsAndOneCheckBox"'' is a size definition for three buttons plus one checkbox.
 
 
 [[Image: EiffelRibbon Choose Size Definition]]
@@ -68,7 +74,7 @@ When you generate code which uses a custom size definition, the EiffelRibbon Des
 User Interface Command Compiler errors will appear in the Ouput pane of the EiffelRibbon Design Tool.
 
 
-==Scaling policy==
+===Scaling policy===
 
 The notion of adaptive layout includes the ability to specify preferred sizes for elements of a group and a scaling policy that can influence how the group reacts to resizing. More detail on size definition and scaling policy is available in Microsoft's [http://msdn.microsoft.com/en-us/library/windows/desktop/dd316927(v=vs.85).aspx ribbon documentation]. 
 
