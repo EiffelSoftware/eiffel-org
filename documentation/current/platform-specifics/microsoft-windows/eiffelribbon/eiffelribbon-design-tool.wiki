@@ -58,7 +58,7 @@ Use the Size Definition Editor to create custom size definitions for your ribbon
 
 [[Image: Size Definition Editor 02|Button placeholders]]
 
-Figure 4. Two button placeholders in a custom size definition; one selected, small, and with label hidden, the other unselected, large with label visible.
+Figure 4. Three button placeholders in a custom size definition; one is large, and two are small. The text is visible in all cases. This is the arrangement used for the "medium" configuration in the scaling policy figures.
 
 
 Once a custom size definition has been designed, it can be named, saved, and used in a ribbon design.
