@@ -58,7 +58,7 @@ Use the Size Definition Editor to create custom size definitions for your ribbon
 
 [[Image: Size Definition Editor 02|Button placeholders]]
 
-Figure 4. Three button placeholders in a custom size definition; one is large, and two are small. The text is visible in all cases. This is the arrangement used for the "medium" configuration in the scaling policy figures.
+Figure 4. Three button placeholders in a custom size definition; one is large, and two are small. The text is visible in all cases. This is the arrangement used for the "medium" configuration for the ''ThreeButtonCustom'' size definition used in the scaling policy figures in the next section.
 
 
 Once a custom size definition has been designed, it can be named, saved, and used in a ribbon design.
@@ -85,6 +85,49 @@ The EiffelRibbon tool allows you to specify ideal sizes and scale policy for a g
 
 Figure 6. A group definition showing its size definition and the scaling policy elements "Ideal sizes" and "Scale".
 
+
+In Figure 6, none of the Scale checkboxes is checked. This means that no scaling policy is in effect for the group ''group_context_popups''. So in a running application, a window with this ribbon might be rendered as shown in Figure 7:
+
+
+[[Image: EiffelRibbon scaling policy 01]]
+
+Figure 7. A ribbon with no scaling policy, but with enough room to display all groups.
+
+
+If the user resized the window to a narrower form, the buttons in the ''group_context_popups'' group would become occluded because scaling is not in effect. This is shown in Figure 8.
+
+
+[[Image: EiffelRibbon scaling policy 01a]]
+
+Figure 8. After resizing, some buttons of the group are no longer visible.
+
+
+If all of the ''Scale'' checkboxes that are supported by the size definition are checked in the EiffelRibbon tool for the group ''group_context_popups'' as shown in Figure 9, then scaling is enabled. 
+
+
+[[Image: EiffelRibbon scaling policy 02|Scale checkboxes enable scaling policy.]]
+
+Figure 9. All supported scales are enabled for ''group_context_popups''.
+
+
+In the running application again, the initial rendering looks the same as in Figure 7 (its ''Large'' configuration). But if the window is resized to a narrower form with scaling policy enabled, it will go through the various configurations supported by the size definition: ''Medium'', ''Small'', then ''Popup''. The different configurations for this particular ribbon and size definition are shown in Figures 10 through 12.
+
+
+[[Image: EiffelRibbon scaling policy 03|Medium configuration]]
+
+Figure 10. Scaling policy at medium configuration (see Figure 4 above).
+
+
+
+[[Image: EiffelRibbon scaling policy 04|Small configuration]]
+
+Figure 11. Scaling policy at small configuration.
+
+
+
+[[Image: EiffelRibbon scaling policy 05|Popup configuration]]
+
+Figure 12. Scaling policy at popup configuration.
 
 
 
