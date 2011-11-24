@@ -7,13 +7,19 @@
 ==Graphical environment==
 
 ===What's new===
+* EiffelRibbon: a Windows specific library and tool to add a ribbon to your EiffelVision2 applications.
+* Debian packages available for downloads
+* Added external contributions: Decimal library, Json parser, arbitrary precision mathematics, encryption (SHA1, MD5, x509, ...)
+* Added previews of libraries: sqlite3, regular expression, ...
 
 ===Improvements===
+* Better integration to the latest Linux Desktop environments: Unity from Ubuntu and KDE 4.0.
+* SCOOP speed improvements.
 
 ===Changes===
 
 ===Bug fixes===
-
+* Various bug fixes.
 
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 6.8 and ISE Eiffel 7.0|here]] for the compiler release notes.
@@ -27,11 +33,20 @@
 ==Libraries==
 
 ===EiffelBase===
+* Improved speed of `replace_substring_all' when replacing a smaller string by a larger one.
+* Improved speed of HASH_TABLE lookups.
 
 ===EiffelVision2===
 * [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
 
 ===EiffelStore===
+* Added support for INTEGER_xx and NATURAL_xx datatypes.
+* Added support for transactions in the MySQL handle.
+* Various speed improvements for SQL queries
+* Added support for multiple database connections
+* Added support for immutable and unicode strings
+* Added support for GUID type
+* Added support of DECIMAL type.
 
 
 [[EiffelStudio release notes|Click here to check out what was new in other versions]]  
