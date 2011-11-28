@@ -40,10 +40,23 @@ make (...)
 ==Bug fixes==
 
 ===Language issues===
+* Considered <e>like Current</e> as attached regardless of [[Void-safety: Background, definition, and tools#Types as "attached" or "detachable"|attached-by-default]] option. 
+* Prohibited assignment of <e>Void</e> to a variable of a reference formal generic type that has no <e>detachable</e> mark.
+* Supported attachment marks on the type <e>NONE</e>, including implicit setting via [[Void-safety: Background, definition, and tools#Types as "attached" or "detachable"|attached-by-default]] option.
+* Corrected processing of self-initializing attributes to follow the standard rules.
 
 ===Compiler issues===
+* Included location information in VTCT error and VTCM warning reports.
+* Fixed several recompilation issues.
+* Fixed several cases that could lead to a compiler crash.
+* Corrected checks for attachment status of variables to include not only a body of a loop, but also its invariant, variant and exit condition when a variable may be detached in the loop body.
+* Taken into account attachment status of <e>like Current</e> when checking for conformance.
+* Taken separateness status into account when checking for formal generic type equality and conformance as well as when substituting actual generics.
+* Made custom conditions in ECF case-insensitive to be in line with the processing of custom variables.
+* Changed context of inherited assertion evaluation to use the one of the inherited assertion so that the types are evaluated correctly (this in particular affects qualified anchored types that involve formal generics that are no longer present in a descendant class).
 
 ===Runtime/code generation issues===
+* Fixed several issues with separate feature calls.
 
 ===Store/Retrieve issues===
 
