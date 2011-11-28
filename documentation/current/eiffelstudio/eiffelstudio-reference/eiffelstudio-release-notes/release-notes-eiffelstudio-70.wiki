@@ -6,7 +6,7 @@
 
 ===What's new===
 * EiffelRibbon: a Windows specific library and tool to add a ribbon to your EiffelVision2 applications.
-* Debian packages available for downloads
+* Debian packages available for downloads.
 * Added external contributions: Decimal library, Json parser, arbitrary precision mathematics, encryption (SHA1, MD5, x509, ...)
 * Added previews of libraries: sqlite3, regular expression, ...
 * Added a command line option "-tests" to run all associated Autotest tests from the command line
@@ -22,7 +22,7 @@
 
 ===Bug fixes===
 * Fixed a display issue of Unicode characters when reporting an error. (bug#17661).
-* Fixed a pick and drop issue where it could be confused (e.g. select ARRAY in editor, switch to clickable format, try to pick various elements, it would always pick BOOLEAN instead) (bug#17666)
+* Fixed a pick and drop issue where it could be confused (e.g. select <e>ARRAY</e> in editor, switch to clickable format, try to pick various elements, it would always pick <e>BOOLEAN</e> instead) (bug#17666)
 * Fixed issue with pick and drop of a feature from an override class whose position is further away than the original class would not scroll to this feature (bug#17406).
 * Fixed some issues of window positioning when using EiffelStudio with multiple monitors.
 * Fixed a case where you could have 2 editor panes open on the same class.
@@ -39,18 +39,18 @@
 ==Libraries==
 
 ===EiffelBase===
-* Prevented creation of instances of PROCEDURE, FUNCTION, and PREDICATE using a creation instruction. An agent has to be created via the agent expression provided at the language level.
+* Prevented creation of instances of <e>PROCEDURE</e>, <e>FUNCTION</e>, and <e>PREDICATE</e> using a creation instruction. An agent has to be created via the agent expression provided at the language level.
 * Fixed a potential reporting of version mismatch when there is a mismatch but actually no version changes.
-* Added TABLE_ITERATOR and TABLE_ITERATION_CURSOR to provide a common way for TABLE like datastructure to iterate over using the new across loop.
+* Added <e>TABLE_ITERATOR</e> and <e>TABLE_ITERATION_CURSOR</e> to provide a common way for <e>TABLE</e> like datastructure to iterate over using the new across loop.
 * Improved speed of `replace_substring_all' when replacing a smaller string by a larger one.
-* Added support for string searches of a STRING_32 string (previously it was limited to STRING_8).
+* Added support for string searches of a <e>STRING_32</e> string (previously it was limited to <e>STRING_8</e>).
 * Fixed {IMMUTABLE_STRING_XX}.shared_substring which would not be properly processed by many string operations (e.g. item, item_code, code, ...)
 * Changed the behavior of {STRING_XX}.twin to create a new string where the capacity is set to the count of the twined strings and not to its capacity. In scenarios where a large buffer is used but a frequent twin is used it has a big impact on speed and memory usage.
-* Fixed an issue with {FILE}.read_to_string which would not change the hash_code of the string given as argument.
+* Fixed an issue with <e>{FILE}.read_to_string</e> which would not change the hash_code of the string given as argument.
 * Improved speed of <e>HASH_TABLE</e> lookups.
 * Added <e>{POINTER}.is_default_pointer</e>.
 * Excluded class <e>BIT_REF</e> from the default setup. In order to use type <e>BIT</e> one has to define a variable <code>USE_BIT</code>.
-* Made <e>{LINKED_STACK}.duplicate</e> void-safe, made a postcondition in {INTERVAL}.intersection void-safe.
+* Made <e>{LINKED_STACK}.duplicate</e> void-safe, made a postcondition in <e>{INTERVAL}.intersection</e> void-safe.
 
 ===EiffelVision2===
 * [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
