@@ -28,7 +28,7 @@ Of course this is not an issue with instances of expanded types, because these i
 
 So, references are necessary, but we want them to be trouble free. 
 
-=Void-safe software=
+==Void-safe software==
 
 Void-safe software, then, is software in which the compiler can give assurance, through a static analysis of the code, that at run time whenever a feature is applied to a reference, that the reference in question will have an object attached. This means that the feature call
 <code>
@@ -42,7 +42,7 @@ is valid only if we are assured that <code>x</code> will be attached to an objec
 
 Once we have committed ourselves to this validity rule, we must have a strategy for complying with the rule.
 
-==Elements of the void-safe strategy==
+=Elements of the void-safe strategy=
 
 Here are the tools of void-safe trade. They will each be addressed in more detail throughout the documentation that follows. As you look at these elements it helps to try to think about things from the compiler's viewpoint ... after all, it is the compiler that we expect to give us the guarantee that our code is indeed void-safe. 
 
