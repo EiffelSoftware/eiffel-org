@@ -9,6 +9,7 @@
 * Debian packages available for downloads
 * Added external contributions: Decimal library, Json parser, arbitrary precision mathematics, encryption (SHA1, MD5, x509, ...)
 * Added previews of libraries: sqlite3, regular expression, ...
+* Added a command line option "-tests" to run all associated Autotest tests from the command line
 
 ===Improvements===
 * Better integration to the latest Linux Desktop environments: Unity from Ubuntu and KDE 4.0.
@@ -47,7 +48,8 @@
 * Changed the behavior of {STRING_XX}.twin to create a new string where the capacity is set to the count of the twined strings and not to its capacity. In scenarios where a large buffer is used but a frequent twin is used it has a big impact on speed and memory usage.
 * Fixed an issue with {FILE}.read_to_string which would not change the hash_code of the string given as argument.
 * Improved speed of HASH_TABLE lookups.
-* Added {POINTER}.is_default_pointer
+* Added <e>{POINTER}.is_default_pointer</e>.
+* Excluded class <e>BIT_REF</e> from the default setup. In order to use type <e>BIT</e> one has to define a variable <code>USE_BIT</code>.
 
 ===EiffelVision2===
 * [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
