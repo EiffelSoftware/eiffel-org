@@ -2,8 +2,6 @@
 [[Property:link_title|7.0]]
 [[Property:weight|13]]
 [[Property:uuid|302c6dc1-3ed0-cc25-0ec8-851ead074caf]]
-{{UnderConstruction}}
-
 ==Graphical environment==
 
 ===What's new===
@@ -15,11 +13,18 @@
 ===Improvements===
 * Better integration to the latest Linux Desktop environments: Unity from Ubuntu and KDE 4.0.
 * SCOOP speed improvements.
+* Added support for .NET 4.0 runtime.
 
 ===Changes===
+* BIT type is now obsolete.
+* Location of precompiled libraries has been mode to a user specific directory that can be referenced via the $ISE_PRECOMP variable in your project configurations. This addresses some permission issues depending on how and under which user EiffelStudio was installed.
 
 ===Bug fixes===
-* Various bug fixes.
+* Fixed a display issue of Unicode characters when reporting an error. (bug#17661).
+* Fixed a pick and drop issue where it could be confused (e.g. select ARRAY in editor, switch to clickable format, try to pick various elements, it would always pick BOOLEAN instead) (bug#17666)
+* Fixed issue with pick and drop of a feature from an override class whose position is further away than the original class would not scroll to this feature (bug#17406).
+* Fixed some issues of window positioning when using EiffelStudio with multiple monitors.
+* Fixed a case where you could have 2 editor panes open on the same class.
 
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 6.8 and ISE Eiffel 7.0|here]] for the compiler release notes.
@@ -33,8 +38,16 @@
 ==Libraries==
 
 ===EiffelBase===
+* Prevented creation of instances of PROCEDURE, FUNCTION, and PREDICATE using a creation instruction. An agent has to be created via the agent expression provided at the language level.
+* Fixed a potential reporting of version mismatch when there is a mismatch but actually no version changes.
+* Added TABLE_ITERATOR and TABLE_ITERATION_CURSOR to provide a common way for TABLE like datastructure to iterate over using the new across loop.
 * Improved speed of `replace_substring_all' when replacing a smaller string by a larger one.
+* Added support for string searches of a STRING_32 string (previously it was limited to STRING_8).
+* Fixed {IMMUTABLE_STRING_XX}.shared_substring which would not be properly processed by many string operations (e.g. item, item_code, code, ...)
+* Changed the behavior of {STRING_XX}.twin to create a new string where the capacity is set to the count of the twined strings and not to its capacity. In scenarios where a large buffer is used but a frequent twin is used it has a big impact on speed and memory usage.
+* Fixed an issue with {FILE}.read_to_string which would not change the hash_code of the string given as argument.
 * Improved speed of HASH_TABLE lookups.
+* Added {POINTER}.is_default_pointer
 
 ===EiffelVision2===
 * [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
