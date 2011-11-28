@@ -47,7 +47,7 @@
 * Fixed {IMMUTABLE_STRING_XX}.shared_substring which would not be properly processed by many string operations (e.g. item, item_code, code, ...)
 * Changed the behavior of {STRING_XX}.twin to create a new string where the capacity is set to the count of the twined strings and not to its capacity. In scenarios where a large buffer is used but a frequent twin is used it has a big impact on speed and memory usage.
 * Fixed an issue with {FILE}.read_to_string which would not change the hash_code of the string given as argument.
-* Improved speed of HASH_TABLE lookups.
+* Improved speed of <e>HASH_TABLE</e> lookups.
 * Added <e>{POINTER}.is_default_pointer</e>.
 * Excluded class <e>BIT_REF</e> from the default setup. In order to use type <e>BIT</e> one has to define a variable <code>USE_BIT</code>.
 
@@ -63,6 +63,8 @@
 * Added support for GUID type
 * Added support of DECIMAL type.
 
+===Argument parser===
+* Made feature <e>{ARGUMENT_BASE_PARSER}.copyright</e> deferred.
 
 [[EiffelStudio release notes|Click here to check out what was new in other versions]]  
 
