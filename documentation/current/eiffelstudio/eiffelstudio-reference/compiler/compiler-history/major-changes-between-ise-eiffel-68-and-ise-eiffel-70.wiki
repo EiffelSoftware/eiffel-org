@@ -34,15 +34,15 @@ make (...)
 * Replaced keyword completion for <e>indexing</e> with keyword completion for <e>note</e>.
 
 ==Changes==
-* Changed default options: default [[Setting the syntax variant|syntax]] is set to [[Syntax level variant settings by version|standard]], [[Void-safety: Background, definition, and tools#Types as "attached" or "detachable"|attached-by-default]] is set to '''true''' unless specified otherwise.
-* Moved [[Void-safety: Background, definition, and tools#Types as "attached" or "detachable"|attached-by-default]] option to [[Advanced Options|Advanced]] section.
+* Changed default options: default [[Setting the syntax variant|syntax variant]] is set to [[Syntax level variant settings by version|standard]], [[Creating a new void-safe project#The "Are types attached by default?" setting|attached-by-default]] is set to '''true''' unless specified otherwise.
+* Moved [[Creating a new void-safe project#The "Are types attached by default?" setting|attached-by-default]] option to [[Advanced Options|Advanced]] section.
 
 ==Bug fixes==
 
 ===Language issues===
-* Considered <e>like Current</e> as attached regardless of [[Void-safety: Background, definition, and tools#Types as "attached" or "detachable"|attached-by-default]] option. 
+* Considered <e>like Current</e> as attached regardless of [[Creating a new void-safe project#The "Are types attached by default?" setting|attached-by-default]] option. 
 * Prohibited assignment of <e>Void</e> to a variable of a reference formal generic type that has no <e>detachable</e> mark.
-* Supported attachment marks on the type <e>NONE</e>, including implicit setting via [[Void-safety: Background, definition, and tools#Types as "attached" or "detachable"|attached-by-default]] option.
+* Supported attachment marks on the type <e>NONE</e>, including implicit setting via [[Creating a new void-safe project#The "Are types attached by default?" setting|attached-by-default]] option.
 * Corrected processing of self-initializing attributes to follow the standard rules.
 
 ===Compiler issues===
