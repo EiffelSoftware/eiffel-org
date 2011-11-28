@@ -37,6 +37,10 @@ In a new project, ideally all of your declarations would be of attached types. B
 
 So, for a new void-safe project, it is recommended that a value of '''True''' is used. 
 
+
+{{SeeAlso| [[Void-safety: Background, definition, and tools#Types as "attached" or "detachable"|Types as "attached" or "detachable"]].}}
+
+
 ===The ''"Full class checking"'' setting===
 
 This setting instructs the compiler to recheck inherited features in descendant classes. 
