@@ -50,6 +50,7 @@
 * Improved speed of <e>HASH_TABLE</e> lookups.
 * Added <e>{POINTER}.is_default_pointer</e>.
 * Excluded class <e>BIT_REF</e> from the default setup. In order to use type <e>BIT</e> one has to define a variable <code>USE_BIT</code>.
+* Made <e>{LINKED_STACK}.duplicate</e> void-safe, made a postcondition in {INTERVAL}.intersection void-safe.
 
 ===EiffelVision2===
 * [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
