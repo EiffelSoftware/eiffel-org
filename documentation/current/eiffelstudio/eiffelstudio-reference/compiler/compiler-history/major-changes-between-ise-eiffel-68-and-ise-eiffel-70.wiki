@@ -46,7 +46,7 @@ make (...)
 * Corrected processing of self-initializing attributes to follow the standard rules.
 
 ===Compiler issues===
-* Included location information in VTCT error and VTCM warning reports.
+* Included location information in <code>VTCT</code> error and <code>VTCM</code> warning reports.
 * Fixed several recompilation issues.
 * Fixed several cases that could lead to a compiler crash.
 * Corrected checks for attachment status of variables to include not only a body of a loop, but also its invariant, variant and exit condition when a variable may be detached in the loop body.
