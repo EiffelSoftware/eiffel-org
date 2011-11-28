@@ -34,6 +34,8 @@ make (...)
 * Replaced keyword completion for <e>indexing</e> with keyword completion for <e>note</e>.
 
 ==Changes==
+* Changed default options: default [[Setting the syntax variant|syntax]] is set to [[Syntax level variant settings by version|standard]], [[Void-safety: Background, definition, and tools#Types as "attached" or "detachable"|attached-by-default]] is set to '''true''' unless specified otherwise.
+* Moved [[Void-safety: Background, definition, and tools#Types as "attached" or "detachable"|attached-by-default]] option to [[Advanced Options|Advanced]] section.
 
 ==Bug fixes==
 
