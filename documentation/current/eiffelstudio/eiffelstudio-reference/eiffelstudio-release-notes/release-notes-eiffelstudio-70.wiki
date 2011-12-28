@@ -5,7 +5,7 @@
 ==Graphical environment==
 
 ===What's new===
-* EiffelRibbon: a Windows specific library and tool to add a ribbon to your EiffelVision2 applications.
+* [[EiffelRibbon]]: a Windows specific library and tool to add a ribbon to your EiffelVision2 applications.
 * Debian packages available for downloads.
 * Added external contributions: Decimal library, Json parser, arbitrary precision mathematics, encryption (SHA1, MD5, x509, ...).
 * Added previews of libraries: sqlite3, regular expression, ...
