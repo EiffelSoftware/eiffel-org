@@ -5,7 +5,7 @@ This is where you can configure the groups of your project. A group is a contain
 * Cluster: represents a directory or directory structure on the disk with class files in it
 * Override cluster: similar to cluster but overrides classes in other clusters with the same name, can only appear in an application, never in a library
 * Library: a configuration of a library is included, all classes in clusters are accessible
-* Precompile: a precompile is similar to a library, but the contents of the library have already been compiled and therefore compilation is a lot faster, there can only be one precompile group
+* Precompile: a precompile is similar to a library, but the contents of the library have already been compiled and therefore compilation is faster. There can be only one precompile per project.
 * Assembly: classes in an assembly (.NET code generation mode only)
 
 To add a new group, choose the corresponding add group button or context menu entry and enter a name and location or choose from a list (for assemblies and libraries).
@@ -17,8 +17,8 @@ To add a new group, choose the corresponding add group button or context menu en
 * Description: an optional description of the group
 * Read Only: in a read only group, classes cannot be modified
 * Location: directory for clusters, assembly file for assemblies and ecf file for libraries and precompiles
-* Profiling: turn on the Eiffel profiler during the application execution (C code generation mode only). The results can be seen at the end of the execution in the profiler window.
-* Trace: display on the console all the features that are called during the system execution (C generation mode only).
+* [[Profiling]]: turn on the Eiffel profiler during the application execution (C code generation mode only). The results can be seen at the end of the execution in the profiler window.
+* [[Tracing|Trace]]: display on the console all the features that are called during the system execution (C generation mode only).
 * .NET Namespace: specify the namespace for this group (.NET code generation mode only)
 * Assertions: [[Assertion Options|assertion level]]  for this group
 * Warning: [[Warning Options|warnings]]  for this group
@@ -66,11 +66,11 @@ It is possible to specify which other groups will be searched if a class cannot 
 <span id="visible"></span> 
 ==Visible classes==
 
-If a feature should be reachable from CECIL and may not be used it must be made visible because otherwise it will be removed by the dead code optimizer. To do this you have to make the class visible. In addition it is also possible to rename a class or a feature. In most cases we make a class completely visible and do not need renaming.
+If a feature needs to be reachable from CECIL, but is not called anywhere in the Eiffel code, then it must be made ''visible'', because otherwise it will be removed by the dead code optimizer. This is done by using the '''Visible Classes''' option. In addition it is also possible (but rarely necessary) to rename a class or a feature. In most cases it suffices to make a class completely visible and renaming is unnecessary.
 
 [[Image:visible-dialog|Visible dialog]]  
 
-To make a class visible, just enter the class name and press ''Add class''. Optionally it is possible to specify a different name under which it is accessible. After a class has been added, it is possible to restrict the access to certain features only. To do this, enter the name of the feature (and optionally a renamed name), select the class it belongs to and click on ''Add feature''. 
+To make a class visible, enter the class name and press ''Add class''. Optionally it is possible to specify a different name under which it is accessible. After a class has been added, it is possible to restrict the access to certain features only. To do this, enter the name of the feature (and optionally a renamed name), select the class it belongs to and click on ''Add feature''. 
 
 
 
