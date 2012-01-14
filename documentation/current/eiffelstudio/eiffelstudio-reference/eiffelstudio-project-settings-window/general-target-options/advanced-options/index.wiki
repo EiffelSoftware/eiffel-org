@@ -6,6 +6,7 @@
 {{Caution|Turn this option on only if you have advanced knowledge of the garbage collector internals, because using this syntax in some situations could lead to bugs that are very hard to trace. }} 
 *  Automatic Backup: generate a backup of the class and configuration files during recompilation? 
 * Check VAPE: Enforce <code> VAPE </code> validity constraint: lets you disable type checking for <code> VAPE </code> errors in preconditions, which correspond to insufficiently exported features used in preconditions (ETL 2nd edition page 122). 
+* Check for Void target: Should "Feature call on Void target" exceptions be raised?
 * Console Application: has no effect on Unix systems. It lets Windows users choose between creating a console application or a GUI application (in which case a console will be created if needed, instead of using the console the program was launched from).
 * Dead Code Removal: should unused code be removed? (C code generation mode only)
 * Dynamic Runtime: makes the generated executable use a shared library version of the runtime on both Windows (DLL) and Unix platforms (.so) that supports shared libraries.(C code generation mode only)
@@ -14,10 +15,9 @@
 * Enforce unique class names: enforce all class names to be system wide unique?
 * Exception Trace: makes it possible to see a complete exception trace in a finalized application. Because it is adding some code to remember where the application was during the crash it can slow down the performance of your application by a factor of 5% to 30% depending of your platform. (C code generation mode only)
 * Inlining, Inlining Size: enables inlining on Eiffel features that can be inlined, i.e. whose size is less or equal to the specified size in the combo box. The size value given in parameter corresponds to the number of instructions as seen by the Eiffel compiler (for example a := b.f corresponds to 2 instructions). The inlining is very powerful since it can inline a function in all your Eiffel code, without scope limitation as found in C or C++ compilers. (C code generation mode only)
-* Multithreaded: generates a multithreaded application. This option cannot be changed during the development of your project and has to be set correctly at the first compilation of your system. (C code generation mode only)
-* Old Verbatim Strings: Use the old format for verbatim strings
 * Platform: override platform value used for checking conditions, useful for cross compilation
 * Shared Library Definition: lets you specify a `file_name.def' as the file where the Eiffel compiler will look when it tries to generate the exported functions of the shared library you are developing (C code generation mode only). To have more information concerning definition files, see the [[Dynamic library generation]] . 
+* Total Order on REALs: Allow a total order on REAL data types? Allows NaN (Not a Number) equal NaN, and NaN to be the smallest number of all. 
 * Library Root: Absolute path to use as base for relative paths. If this is not defined, the path to the configuration file will be used.
 
 ==.NET Options==
