@@ -6,6 +6,9 @@
 SCOOP is ''Simple Concurrent Object-Oriented Programming''. SCOOP allows developers to create object-oriented software systems which will take advantage of multiple, concurrently active execution vehicles. Additionally, SCOOP programming is done at a level of abstraction above the specific details of these implementation vehicles. Read further to get a better idea of what all this means, but for now, the primary message should be: SCOOP is concurrent software development made easy. The basic SCOOP ideas were first published as early as 1993. Since that time, considerable research and development has refined the SCOOP into the model that is implemented in EiffelStudio today.
 
 
+{{Note|As you begin to use SCOOP, be sure to read the sections of the documentation on [[SCOOP practical matters]] and consider compiling and working with some of the many [[SCOOP examples]].}}
+
+
 ==Concurrency==
 
 Concurrency in computation is a situation in which we can expect that a running computer system will have multiple computations executing simultaneously in a controlled fashion to achieve the goals of the system. The simultaneous executions can be handled by widely diverse computational vehicles: separate networked computer systems, separate processors in the same CPU, separate processor cores on a single chip, separate processor threads within a process, separate processes on the same CPU, etc. 
