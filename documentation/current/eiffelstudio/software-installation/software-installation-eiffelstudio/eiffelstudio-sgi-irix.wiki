@@ -47,7 +47,7 @@ After downloading the installation package, you should manually extract its cont
 cd /usr/local
 tar xvfj /tmp/EiffelXX.tar.bz2</code>
 
-This will install EiffelStudio files into /usr/local/EiffelXX. Once this is done, jump to the [[EiffelStudio for SGI Irix|Setting up EiffelStudio]]  section in order to complete the installation of EiffelStudio.
+This will install EiffelStudio files into /usr/local/EiffelXX. Once this is done, jump to the [[#Setting up EiffelStudio|Setting up EiffelStudio]] section in order to complete the installation of EiffelStudio.
 
 ==Installing EiffelStudio from a CD-ROM==
 
@@ -55,7 +55,7 @@ Insert the CD into your CD-ROM drive. You should manually extract its contents t
 <code>cd /usr/local
 cp -r /mnt/cdrom/EiffelXX .</code>
 
-This will install the EiffelStudio files into /usr/local/EiffelXX. To complete the installation of EiffelStudio, jump to the next section, [[EiffelStudio for SGI Irix|Setting up EiffelStudio]] .
+This will install the EiffelStudio files into /usr/local/EiffelXX. To complete the installation of EiffelStudio, jump to the next section, [[#Setting up EiffelStudio|Setting up EiffelStudio]].
 <span id="setting_up"></span> 
 ==Setting up EiffelStudio==
 
@@ -78,11 +78,11 @@ setenv ISE_PLATFORM irix-mips
 set path = ($path $ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin)</code>
 
 
-If you are using the Enterprise edition, please follow the instructions of the next section, [[EiffelStudio for SGI Irix|Registering the Enterprise Edition]] , otherwise jump to the [[EiffelStudio for SGI Irix|Using EiffelStudio]]  section at the end of this document.
+If you are using the Enterprise edition, please follow the instructions of the next section, [[#Registering the Enterprise Edition|Registering the Enterprise Edition]], otherwise jump to the [[#Using EiffelStudio|Using EiffelStudio]] section at the end of this document.
 <span id="registering"></span> 
 ==Registering the Enterprise Edition==
 
-This step assumes you have followed the instructions in the [[EiffelStudio for SGI Irix|Setting up EiffelStudio]]  section. Perform the following commands to start the registration process:
+This step assumes you have followed the instructions in the [[#Setting up EiffelStudio|Setting up EiffelStudio]] section. Perform the following commands to start the registration process:
 <code>cd $ISE_EIFFEL
 ./register</code>
 
@@ -108,7 +108,7 @@ You may receive the following dialog when launching EiffelStudio:
 
 This probably means that the '''register''' program was not launched or did not succeed in storing data to the following file $'''ISE_EIFFEL'''/install/limand/.ec_license. To solve this, rerun the '''register''' program with a user account that has permissions to write at $'''ISE_EIFFEL'''/install/limand and enter your '''Username''' and '''CD Key'''.
 
-Once this is done, you can jump to the next section, [[EiffelStudio for SGI Irix|Using EiffelStudio]] .
+Once this is done, you can jump to the next section, [[#Using EiffelStudio|Using EiffelStudio]].
 <span id="using"></span> 
 ==Using EiffelStudio==
 
@@ -118,7 +118,7 @@ Most of the examples require that you have a precompiled version of EiffelBase. 
 
 ===Starting EiffelStudio===
 
-Now everything should be properly installed and you should be able to run the compiler. Launch '''estudio''' for the interactive graphical user interface of the compiler, or launch '''ec''' for the command line interface. If you are a new user to EiffelStudio, we recommend that you follow [[EiffelStudio: A Guided Tour|the guided tour]] .
+Now everything should be properly installed and you should be able to run the compiler. Launch '''estudio''' for the interactive graphical user interface of the compiler, or launch '''ec''' for the command line interface. If you are a new user to EiffelStudio, we recommend that you follow [[EiffelStudio: A Guided Tour|the guided tour]].
 
 ===EiffelStudio Appearance===
 
