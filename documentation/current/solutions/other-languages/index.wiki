@@ -9,5 +9,5 @@ With EiffelStudio you can encapsulate routines written in C , C++ and Java. This
 It is also possible to make Eiffel routines available to be called by these languages. So, you can augment existing systems written in other languages with extensions built with Eiffel.
 
 ===Microsoft COM and .NET===
-In addition to C, C++, and Java, you may find it valuable to use Eiffel with other technologies like Microsoft COM and the multiple languages of Microsoft .NET. You will find information about interacting with these technologies in our documentation specific to [[Windows|support for Microsoft Windows]].
+In addition to C, C++, and Java, you may find it valuable to use Eiffel with other technologies like Microsoft COM and the multiple languages of Microsoft .NET. You will find information about interacting with these technologies in our documentation specific to [[Microsoft Windows|support for Microsoft Windows]].
 
