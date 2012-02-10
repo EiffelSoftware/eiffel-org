@@ -35,11 +35,14 @@ A metric can be computed over a scope. This scope is defined using a '''domain''
 </div>
 
 ==Metric tool interface==
-*  [[Metric Evaluation Panel|Metric Evaluation panel]]  
-*  [[Detailed Result Panel|Detailed Result panel]]  
-*  [[Metric Definition Panel|Metric Definition panel]]  
-*  [[Metric History Panel|Metric History panel]]  
-*  [[Metric Archive Panel|Metric Archive panel]]  
+
+The following links will take you out of the Guided Tour and into the EiffelStudio Reference:
+
+*  EiffelStudio reference: [[Metric Evaluation Panel|Metric Evaluation panel]]  
+*  EiffelStudio reference: [[Detailed Result Panel|Detailed Result panel]]  
+*  EiffelStudio reference: [[Metric Definition Panel|Metric Definition panel]]  
+*  EiffelStudio reference: [[Metric History Panel|Metric History panel]]  
+*  EiffelStudio reference: [[Metric Archive Panel|Metric Archive panel]]  
 
 
 {{SeeAlso| The EiffelStudio Reference section on the [[Metrics Tool]] for more comprehensive discussion and precise definitions of terminology.}}
