@@ -2,9 +2,6 @@
 [[Property:link_title|7.0]]
 [[Property:weight|13]]
 [[Property:uuid|0211321e-969d-04a4-66ee-2a6069836845]]
-{{UnderConstruction}}
-
-
 ==What's new==
 * Supported development of incomplete void-safe classes (so called "design mode") by avoiding reporting void-safety errors for unreachable code, e.g. for the code after a call to a feature that never returns normally, say, to <e>{EXCEPTIONS}.die</e>. As a result it became possible to declare a creation procedure that does not initialize attached attributes properly (because the corresponding effective classes are not available yet), for example:
 <e>
