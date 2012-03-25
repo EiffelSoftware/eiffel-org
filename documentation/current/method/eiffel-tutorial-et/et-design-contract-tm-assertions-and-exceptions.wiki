@@ -38,7 +38,7 @@ In addition to preconditions and postconditions, contract clauses include '''cla
 
 ==Expressing assertions==
 
-Eiffel provides syntax for expressing preconditions (<code>require</code>), postconditions (<code>ensure</code>) and class invariants (<code>invariant</code>), as well as other assertion constructs studied later (see [[ET: Other Mechanisms#Instructions|"Instructions"]] ): loop invariants and variants, check instructions. 
+Eiffel provides syntax for expressing preconditions (<code>require</code>), postconditions (<code>ensure</code>) and class invariants (<code>invariant</code>), as well as other assertion constructs studied later (see "[[ET: Instructions|Instructions]]" ): loop invariants and variants, check instructions. 
 
 Here is a partial update of class <code>ACCOUNT</code> with more assertions: 
 <code>
@@ -135,7 +135,7 @@ Note in this respect that guaranteeing a precondition does not necessarily mean,
 
 possibly with an <code>else</code> part. But if the context of the call, in the client's code, implies that <code>n</code> is positive -- perhaps because some preceding call set it to the sum of two squares -- then there is no need for an <code>if</code> or similar construct. 
 
-{{note|In such a case, a <code>check</code> instruction as introduced later ( [[ET: Other Mechanisms#Instructions|"Instructions"]] ) is recommended if the reason for omitting the test is non-trivial. }}
+{{note|In such a case, a <code>check</code> instruction as introduced later ( "[[ET: Instructions|Instructions]]" ) is recommended if the reason for omitting the test is non-trivial. }}
 
 ==Using contracts for built-in reliability==
 
