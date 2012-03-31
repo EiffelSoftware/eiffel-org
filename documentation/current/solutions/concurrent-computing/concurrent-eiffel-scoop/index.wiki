@@ -255,10 +255,6 @@ As with preconditions the effect of concurrent execution can make a difference i
 
 If a routine has executed correctly, then the postcondition of the routine will hold at the time that it terminates ... this is true whether or not concurrency is involved. However, when a postcondition involves separate calls or entities are involved, clients must be cautious about how they depend upon the state guaranteed by postconditions. 
 
-Postcondition semantics are characterized as follows: 
-
-:If a called routine has a postcondition clause that is controlled, then a client can assume that clause holds, because no other client can affect it. However, a client cannot make the same assumption for uncontrolled postcondition clauses. Uncontrolled queries in postcondition clauses are evaluated by the processors of their targets. And this is done asynchronously. Wait by necessity does not apply. So, the case of uncontrolled queries in postcondition clauses is an exception to case S2.1 in the section about [[#What makes a call synchronous or asynchronous?|synchronous and asynchronous calls]], above.
-
 
 ===Class invariants===
 
