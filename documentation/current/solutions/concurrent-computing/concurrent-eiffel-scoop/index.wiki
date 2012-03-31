@@ -253,7 +253,7 @@ So, the client's responsibility is limited to those precondition clauses that ar
 
 As with preconditions the effect of concurrent execution can make a difference in how postconditions are viewed. 
 
-If a routine has executed correctly, then the postcondition of the routine will hold at the time that it terminates ... this is true whether or not concurrency is involved. However, when a postcondition involves separate calls or entities are involved, clients must be cautious about how they depend upon the state guaranteed by postconditions. 
+If a routine has executed correctly, then the postcondition of the routine will hold at the time that it terminates ... this is true whether or not concurrency is involved. However, when a postcondition involves separate calls or entities, clients must be cautious about how they depend upon the state guaranteed by postconditions. 
 
 
 ===Class invariants===
