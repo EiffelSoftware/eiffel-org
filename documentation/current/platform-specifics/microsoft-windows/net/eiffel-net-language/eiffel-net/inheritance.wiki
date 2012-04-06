@@ -332,7 +332,7 @@ No. There is a language facility called the '''object test''' which will come to
                 print (l_rect.width)
             end
 </code>
-In this code, the entity <code>l_rect</code> is a fresh local entity produced during the object test. So, the code can be read: if at this point, <code>my_polygon</code> is attached to an instance of type <code>RECTANGLE</code>, then attach that instance to a fresh local entity named <code>l_rect</code>, then apply <code>{RECTANGLE}.width</code> to <code>l_rect</code> and print the result.
+In this code, the entity <code>l_rect</code> is a fresh local entity produced during the object test. So, the code can be read: if at this point, <code>my_polygon</code> is attached to an instance of type <code>RECTANGLE</code>, then attach that instance to a fresh local entity named <code>l_rect</code>, then apply <code>width</code> to <code>l_rect</code> and print the result.
 
 
 :'''Note:''' The object test replaces the functionality of an obsolete mechanism called assignment attempt. Assignment attempt used the syntax '''<code>?=</code>''' in the context of assignment versus the '''<code>:=</code>''' of normal assignment.

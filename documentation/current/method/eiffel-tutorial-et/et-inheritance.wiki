@@ -730,6 +730,8 @@ Unconstrained genericity, as in <code>C [G]</code>, is defined as equivalent to 
 
 ==Assignment attempt==
 
+{{Caution|As of version 7.1, the assignment attempt has been marked as obsolete. Use the object test (described below) instead. This documentation will remain during a period of transition, but will be removed at some point in the future. }}
+
 The Type Conformance rule ( [[ET: Inheritance#Polymorphism|"Polymorphism"]] ) ensures type safety by requiring all assignments to be from a more specific source to a more general target. 
 
 Sometimes you can't be sure of the source object's type. This happens for example when the object comes from the outside -- a file, a database, a network. The persistence storage mechanism( [[ET: The Dynamic Structure: Execution Model#Deep_operations_and_persistence|"Deep operations and persistence"]] ) includes, along with the procedure <code>store</code> seen there, the reverse operation, a function <code>retrieved</code> which yields an object structure retrieved from a file or network, to which it was sent using <code>store</code>. But <code>retrieved</code> as declared in the corresponding class <code>STORABLE</code> of EiffelBase can only return the most general type, <code>ANY</code>; it is not possible to know its exact type until execution time, since the corresponding objects are not under the control of the retrieving system, and might even have been corrupted by some external agent. 
