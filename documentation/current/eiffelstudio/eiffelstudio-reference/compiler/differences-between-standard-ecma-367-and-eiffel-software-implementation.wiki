@@ -156,11 +156,11 @@
 | Yes
 | Yes, except for TYPED_POINTER that is converted to POINTER before reattachment
 |- 
-| Reverse assignment
+| Reverse assignment (assignment attempt)
 | <code>x</code> <code>?=</code> <code>y</code>
 | Yes
 | No
-| Yes
+| Yes. Marked as obsolete (V7.1).
 |}
 
 ==Feature calls==
