@@ -104,7 +104,7 @@ The keyword <code>attribute</code> should be used with some care. You might be t
 
 The complete attached syntax is:
 <code>
-		attached {SOME_CLASS} exp as l_exp
+		attached {SOME_TYPE} exp as l_exp
 </code>
 In this section, we will see more ways in which to use this versatile language facility.
 
