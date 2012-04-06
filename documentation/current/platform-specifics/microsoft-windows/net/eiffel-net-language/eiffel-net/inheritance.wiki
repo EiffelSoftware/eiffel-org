@@ -304,7 +304,7 @@ Static typing tells us at compile time that it is safe to apply <code>perimeter<
 
 Dynamic binding tells us that when we apply <code>perimeter</code>, we know that the most appropriate version of the feature will get applied at runtime. 
 
-===Assignment Attempt===
+===Object Test===
 
 Now let's add another situation. Consider the code below:
 <code>
@@ -324,31 +324,18 @@ But in the case above, the guarantee cannot be made. <code>my_polygon</code> is 
 
 Does this mean that we can never do <code>RECTANGLE</code> things with this instance again, once we have attached it to <code>my_polygon</code>? 
 
-No. There is a language facility called the "assignment attempt" which will come to our rescue. The assignment attempt will allow us safely to attach our instance back to an entity typed as <code>RECTANGLE</code>. After doing so, we are free use <code>RECTANGLE</code> features. 
+No. There is a language facility called the '''object test''' which will come to our rescue. The object test will allow us safely to attach our instance back to an entity typed as <code>RECTANGLE</code>. After doing so, we are free use <code>RECTANGLE</code> features. 
 <code>
             my_polygon := my_rectangle
             print (my_polygon.perimeter)
-            another_rectangle ?= my_polygon
-            print (another_rectangle.width)
-</code>
-
-The assignment attempt uses the syntax "?=", versus the ":=" of assignment.
-
-This is significant ... as is the name assignment attempt. The reason is that it is possible in some context that <code>my_polygon</code> will be attached to something other than a rectangle when we do this: 
-<code>
-            another_rectangle ?= my_polygon
-</code>
-
-If it were true that <code>my_polygon</code> were attached to an instance of say <code>TRIANGLE</code> when the assignment attempt above was executed, then <code>another_rectangle</code> would be left as a <code>Void</code> reference. As a consequence, it is prudent to check to see if the attachment has actually been made before trying to apply features. Applying a feature to a <code>Void</code> reference will cause an exception. Almost always, assignment attempt will be used in the following manner: 
-<code>
-            my_polygon := my_rectangle
-            print (my_polygon.perimeter)
-            another_rectangle ?= my_polygon
-            if another_rectangle /= Void then	-- Make sure assignment happened
-                print (another_rectangle.width)
+            if attached {RECTANGLE} my_polygon as l_rect then
+                print (l_rect.width)
             end
 </code>
+In this code, the entity <code>l_rect</code> is a fresh local entity produced during the object test. So, the code can be read: if at this point, <code>my_polygon</code> is attached to an instance of type <code>RECTANGLE</code>, then attach that instance to a fresh local entity named <code>l_rect</code>, then apply <code>{RECTANGLE}.width</code> to <code>l_rect</code> and print the result.
 
+
+:'''Note:''' The object test replaces the functionality of an obsolete mechanism called assignment attempt. Assignment attempt used the syntax '''<code>?=</code>''' in the context of assignment versus the '''<code>:=</code>''' of normal assignment.
 
 
 
