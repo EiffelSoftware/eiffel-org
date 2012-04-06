@@ -60,12 +60,10 @@ Another problem is that to do any <code>CAT</code> things with an item in the li
             my_cats.item.purr	-- Is invalid
 </code>
 
-This is because "item" is type <code>ANY</code> and although it may be currently attached to an instance of <code>CAT</code>, the static typing system cannot guarantee that. So you must use assignment attempt as we saw in the polymorphism example in [[Inheritance|Inheritance]] . 
+This is because "item" is type <code>ANY</code> and although it may be currently attached to an instance of <code>CAT</code>, the static typing system cannot guarantee that. So you must use an object test as we saw in the polymorphism example in [[Inheritance|Inheritance]] . 
 <code>
-    some_cat: CAT
             ...
-            some_cat ?= my_cats.item
-            if some_cat /= Void then
+            if attached my_cats.item as some_cat then
                 some_cat.purr
             end
 </code>
