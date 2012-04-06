@@ -730,7 +730,7 @@ Unconstrained genericity, as in <code>C [G]</code>, is defined as equivalent to 
 
 ==Assignment attempt==
 
-{{Caution|As of version 7.1, the assignment attempt has been marked as obsolete. Use the object test (described below) instead. This documentation will remain during a period of transition, but will be removed at some point in the future. }}
+{{Caution|As of version 7.1, the assignment attempt has been marked as obsolete. Use the object test (described [[ET: Inheritance#Object test|below]] in a variant of this same discussion) instead. This documentation will remain during a period of transition, but will be removed at some point in the future. }}
 
 The Type Conformance rule ( [[ET: Inheritance#Polymorphism|"Polymorphism"]] ) ensures type safety by requiring all assignments to be from a more specific source to a more general target. 
 
@@ -783,7 +783,50 @@ Note that if there is no savings account at all in the list the assignment attem
 Assignment attempt is useful in the cases cited -- access to external objects beyond the software's own control, and access to specific properties in a polymorphic data structure. The form of the instruction precisely serves these purposes; not being a general type comparison, but only a verification of a specific expected type, it does not carry the risk of encouraging developers to revert to multi-branch instruction structures, for which Eiffel provides the far preferable alternative of polymorphic, dynamically-bound feature calls. 
 
 
-{{note|As a consequence of the advent of [[Void-safe programming in Eiffel|void-safe Eiffel]], an elegant language construct has been added to Eiffel which can (and should) be used in place of the assignment attempt. The [[Void-safety: Background, definition, and tools#The attached syntax (object test)|attached syntax]] can be used to test for an attached object (object test), but it can also be used as to provide a convenient [[Creating a new void-safe project#As a replacement for assignment attempt|replacement for the assignment attempt]] which does not require the separate declaration of a local variable.}}
+==Object test==
+
+The Type Conformance rule ( [[ET: Inheritance#Polymorphism|"Polymorphism"]] ) ensures type safety by requiring all assignments to be from a more specific source to a more general target. 
+
+Sometimes you can't be sure of the source object's type. This happens for example when the object comes from the outside -- a file, a database, a network. The persistence storage mechanism( [[ET: The Dynamic Structure: Execution Model#Deep_operations_and_persistence|"Deep operations and persistence"]] ) includes, along with the procedure <code>store</code> seen there, the reverse operation, a function <code>retrieved</code> which yields an object structure retrieved from a file or network, to which it was sent using <code>store</code>. But <code>retrieved</code> as declared in the corresponding class <code>STORABLE</code> of EiffelBase can only return the most general type, <code>ANY</code>; it is not possible to know its exact type until execution time, since the corresponding objects are not under the control of the retrieving system, and might even have been corrupted by some external agent. 
+
+In such cases you cannot trust the declared type but must check it against the type of an actual run-time object. Eiffel introduces for this purpose the '''object test''' operation, using a form of the [[Void-safety: Background, definition, and tools#The attached syntax (object test)|attached syntax]]. The complete attached syntax is:
+<code>
+            attached {SOME_TYPE} exp as l_exp
+</code>
+
+and is a boolean-valued expression. So we can use the attached syntax as an object test. A typical object structure retrieval will be of the form
+<code>
+            if attached retrieved as l_temp then
+--             We got what we expected
+--             Proceed with normal computation, typically involving calls of the form l_temp.some_feature
+            else
+--             We did not get what we expected"
+            end
+</code>
+
+The expression `<code>attached retrieved as l_temp</code>' tests <code>retrieved</code> for voidness. If <code>retrieved</code> is not void, that is, <code>retrieved</code> is currently attached to an object, then a fresh local entity <code>l_temp</code> is created, the object is attached to <code>l_temp</code>, and the value of the expression is <code>True</code>. If <code>retrieved</code> is void, then the value of the expression is <code>False</code>.
+
+
+As another application, assume we have a <code>LIST [ACCOUNT]</code> and class <code>SAVINGS_ACCOUNT</code>, a descendant of <code>ACCOUNT</code>, has a feature <code>interest_rate</code> which was not in <code>ACCOUNT</code>. We want to find the maximum interest rate for savings accounts in the list. Object test easily solves the problem: 
+<code>
+        do
+            from account_list.start until account_list.after loop
+                if attached {SAVINGS_ACCOUNT} account_list.item as l_s and then l_s.interest_rate > Result then
+                    -- Using and then (rather than and) guarantees
+                    -- that l_s.interest_rate is not evaluated
+                    -- if `attached {SAVINGS_ACCOUNT} account_list.item as l_s' is False.
+                    Result := l_s.interest_rate
+                end
+                account_list.forth
+            end
+        end
+</code>
+
+Note that if there is no savings account at all in the list the assignment attempt will always yield void, so that the result of the function will be 0, the default initialization. 
+
+The object test is useful also in building void-safe software systems. 
+
+{{SeeAlso|[[Creating a new void-safe project#More about the attached syntax|More about the attached syntax]] in the section on [[Void-safe programming in Eiffel]]. }}
 
 
 ==Covariance, anchored declarations, and "catcalls"==
