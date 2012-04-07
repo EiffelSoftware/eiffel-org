@@ -44,11 +44,17 @@ Whenever the server needs to exchange objects with one of the clients, it obtain
 
 Procedure <eiffel>accept</eiffel> ensures synchronization with the client. When communication is established, <eiffel>accept</eiffel> creates a new socket which will be accessible through attribute <eiffel>accepted</eiffel>, whose value is here assigned to the local entity <eiffel>soc2</eiffel>. To receive objects, the server will use operations of the form introduced earlier ( [[An overview of EiffelNet Mechanisms|An overview of EiffelNet, sending and receiving object structures]] ): 
 <code>
-            struct ?= soc2.retrieved</code>
+            if attached {SOME_EXPECTED_TYPE} soc2.retrieved as l_temp then
+--             soc2.retrieved was attached to an object of the expected type. Now that object is attached to `l_temp'
+--             Proceed with normal computation, typically involving calls of the form l_temp.some_feature
+            else
+--             soc2.retrieved was not attached to an object of the expected type.
+            end
+</code>
 
 applying to <eiffel>soc2</eiffel>, not <eiffel>soc1</eiffel>; this makes <eiffel>soc1</eiffel> available to accept connections with other clients, a fundamental feature of client-server mechanisms. 
 
-The operation <eiffel>soc2</eiffel>. <eiffel>close</eiffel> which terminates the above sequence closes the new socket. In principle this is not necessary, since garbage collection should eventually reclaim the socket object, and the <eiffel>dispose</eiffel> procedure of the corresponding socket class includes a call to <eiffel>close</eiffel>. But the risk exists that you run out of sockets before garbage collection reclaims all currently opened sockets, so it is preferable to include the <eiffel>close</eiffel> calls explicitly. 
+The operation <eiffel>soc2.close</eiffel> which terminates the above sequence closes the new socket. In principle this is not necessary, since garbage collection should eventually reclaim the socket object, and the <eiffel>dispose</eiffel> procedure of the corresponding socket class includes a call to <eiffel>close</eiffel>. But the risk exists that you run out of sockets before garbage collection reclaims all currently opened sockets, so it is preferable to include the <eiffel>close</eiffel> calls explicitly. 
 
 At the end of the processing it is necessary to close the original socket <eiffel>soc1</eiffel> but also to unlink it. The feature <eiffel>cleanup</eiffel> from class <eiffel>SOCKET</eiffel> takes care of both closing and unlinking. 
 
@@ -67,12 +73,11 @@ creation
 	
 feature
 	
-    soc1, soc2: UNIX_STREAM_SOCKET
-	
     make
             -- Accept communication with client and exchange messages
         local 
             count: INTEGER
+            soc1: detachable UNIX_STREAM_SOCKET
         do 
             create soc1.make_server ("/tmp/here") 
             from 
@@ -81,34 +86,36 @@ feature
             until 
                 count = 3
             loop 
-                process -- See below
+                process (soc1) -- See below
                 count := count + 1
             end 
             soc1.cleanup
         rescue 
-            soc1.cleanup
+            if soc1 /= Void then
+                soc1.cleanup
+            end
         end
 	
-    process
+    process (soc1: UNIX_STREAM_SOCKET)
             -- Receive a message, extend it, and send it back
-        local 
-            our_new_list: OUR_MESSAGE
         do
             soc1.accept
-            soc2 ?= soc1.accepted
-            our_new_list ?= retrieved (soc2) 
-            from 
-                our_new_list.start
-            until 
-                our_new_list.after
-            loop 
-                io.putstring (our_new_list.item) 
-                io.new_line
-                our_new_list.forth
-            end 
-            our_new_list.extend ("%N I'm back.%N") 
-            our_new_list.independent_store (soc2) 
-            soc2.close
+            if attached soc1.accepted as l_soc2 then
+                if attached {OUR_MESSAGE} retrieved (l_soc2) as l_our_new_list then 
+                    from 
+                        l_our_new_list.start
+                    until 
+                        l_our_new_list.after
+                    loop 
+                        io.putstring (l_our_new_list.item) 
+                        io.new_line
+                        l_our_new_list.forth
+                    end 
+                    l_our_new_list.extend ("%N I'm back.%N") 
+                    l_our_new_list.independent_store (l_soc2) 
+                end
+                soc2.close
+            end
         end
 	
 end
@@ -129,39 +136,44 @@ creation
 	
 feature
 	
-    soc1: UNIX_STREAM_SOCKET
-	
     make
             -- Establish communication with server, and exchange messages
+        local
+            soc1: detachable UNIX_STREAM_SOCKET
         do 
             create soc1.make_client ("/tmp/here") 
             soc1.connect
-            process -- See below
+            process (soc1) -- See below
             soc1.cleanup
         rescue 
-            soc1.cleanup
+            if soc1 /= Void then
+                soc1.cleanup
+            end
         end
 	
-    process
+    process (soc1: UNIX_STREAM_SOCKET)
             -- Build a message to server, receive answer, build
             -- modified message from that answer, and print it.
         local 
-            our_list, our_new_list: OUR_MESSAGE
+            our_list: OUR_MESSAGE
         do 
             create our_list.make
-            our_list.extend("This"); our_list.extend (" is") 
-            our_list.extend (" our"); our_list.extend (" test") 
+            our_list.extend("This")
+            our_list.extend (" is") 
+            our_list.extend (" our")
+            our_list.extend (" test") 
             our_list.independent_store (soc1) 
-            our_new_list ?= soc1.retrieved
-            from 
-                our_new_list.start
-            until 
-                our_new_list.after
-            loop 
-                io.putstring (our_new_list.item) 
-                our_new_list.forth
-            end 
-            io.new_line
+            if attached {OUR_MESSAGE} our_list.retrieved (soc1) as l_our_new_list then
+                from 
+                    l_our_new_list.start
+                until 
+                    l_our_new_list.after
+                loop 
+                    io.putstring (l_our_new_list.item) 
+                    l_our_new_list.forth
+                end 
+                io.new_line
+            end
         end
 	
 end
