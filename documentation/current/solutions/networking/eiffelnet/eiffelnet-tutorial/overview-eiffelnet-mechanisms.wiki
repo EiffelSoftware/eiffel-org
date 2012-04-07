@@ -1,7 +1,6 @@
 [[Property:title|An overview of EiffelNet Mechanisms]]
 [[Property:weight|2]]
 [[Property:uuid|08d7ca19-65e3-7f35-fbce-a50d0aedf626]]
-
 {{UpdateNeeded}}
 
 
@@ -103,9 +102,15 @@ The penalty for using more general representations is that the data representati
 
 The scheme for accessing an object structure produced by one of these three procedures is the following, used in a descendant of class <code>STORABLE</code>:
 <code>
-            struct2 ?= retrieved (iom2)</code>
+            if attached {SOME_EXPECTED_TYPE} retrieved (iom2) as l_temp then
+--              Retrieved object is of expected type and now attached to `l_temp'
+--              Proceed with normal processing, typically involving calls of the form `l_temp.some_feature'
+            else
+--              Retrieved was not attached to an object of SOME_EXPECTED_TYPE
+            end
+</code>
 
-Here ''iom2'' must be of a type conforming to <code>IO_MEDIUM</code>. The assignment attempt ?= checks that the root object of the structure produced by the corresponding call to one of the ''_store'' procedures is of a type that conforms to the type of ''struct2''; if not, the assignment will assign to ''struct2'' a void reference. 
+Here ''iom2'' must be of a type conforming to <code>IO_MEDIUM</code>. The [[ET: Inheritance#Object test|object test]] using the "attached" syntax checks that the root object of the structure produced by the corresponding call to one of the ''_store'' procedures is of a type that conforms to the expected type.
 
 Although there are three separate storage procedures, there is only one retrieval routine, ''retrieved''; the algorithm for ''retrieved ''is able to figure out, from the format of the retrieved objects, whether they were produced in the basic, general or independent mode. 
 
