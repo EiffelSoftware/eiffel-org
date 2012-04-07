@@ -388,10 +388,6 @@ The storable mechanism allows you to retrieve the old version of the object only
 <code>
 correct_mismatch
             -- Attempt to correct object mismatch during retrieve using `mismatch_information'.
-    local
-        array_content: ARRAY [G]
-        array_keys: ARRAY [H]
-        array_marks: ARRAY [BOOLEAN]
     do
             -- In version 5.1 and earlier, `content', `keys' and `deleted_marks'
             -- were of base class ARRAY. In 5.2 we changed it to be a SPECIAL for
@@ -399,21 +395,18 @@ correct_mismatch
             -- need to convert those ARRAY instances into SPECIAL instances.
 
                 -- Convert `content' from ARRAY to SPECIAL
-            array_content ?= mismatch_information.item ("content")
-            if array_content /= Void then
-                content := array_content.area
+            if attached {ARRAY [G]} mismatch_information.item ("content") as l_temp then
+                content := l_temp.area
             end
 
                 -- Convert `keys' from ARRAY to SPECIAL
-            array_keys ?= mismatch_information.item ("keys")
-            if array_keys /= Void then
-                keys := array_keys.area
+            if attached {ARRAY [H]} mismatch_information.item ("keys") as l_temp then
+                keys := l_temp.area
             end
 
                 -- Convert `deleted_marks' from ARRAY to SPECIAL
-            array_marks ?= mismatch_information.item ("deleted_marks")
-            if array_marks /= Void then
-                deleted_marks := array_marks.area
+            if attached {ARRAY [BOOLEAN]} mismatch_information.item ("deleted_marks") as l_temp then
+                deleted_marks := l_temp.area
             end
 
             if content = Void or keys = Void or deleted_marks = Void then
