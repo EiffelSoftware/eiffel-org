@@ -362,12 +362,19 @@ subsequent execution of the same system. If you need to store objects from a cer
 
 ==Retrieval==
 
-You only need to be aware of the difference between basic and general store at storage time. The stored structure will always be available through feature retrieved; this feature will figure out, from the format of the stored structure, whether it was stored by <eiffel>basic_store</eiffel> or <eiffel>general_store</eiffel>, and will decode it accordingly. <br/>
-Feature <eiffel>retrieved</eiffel> returns a result of type [[ref:/libraries/base/reference/storable_chart|STORABLE]]  and is typically used through an assignment attempt of the form 
-<code>x ?= retrieved (my_descriptor)</code>
+You only need to be aware of the difference between basic and general store at storage time. The stored structure will always be available through feature retrieved; this feature will figure out, from the format of the stored structure, whether it was stored by <eiffel>basic_store</eiffel>, <eiffel>general_store</eiffel>, or <eiffel>independent_store</eiffel> and will decode it accordingly. <br/>
+Feature <eiffel>retrieved</eiffel> returns a result of type [[ref:/libraries/base/reference/any_chart|ANY]]  and is typically used through an object test of the form 
+<code>
+            if attached {SOME_EXPECTED_TYPE} retrieved (my_descriptor) as l_temp then 
+--              Retrieved result is of expected type
+--              Proceed with processing of result, typically with calls of the form `l_temp.some_feature'
+            else
+--              Result was not of expected type
+            end
+</code>
 <br/>
 
-The assignment attempt is necessary because <eiffel>retrieved</eiffel> returns a result of type [[ref:/libraries/base/reference/storable_chart|STORABLE]]  whereas the type of <code>x</code> will be based on a proper descendant of [[ref:/libraries/base/reference/storable_chart|STORABLE]] . If the structure in the file has been corrupted and <eiffel>retrieved</eiffel> is unable to do its job, it will trigger an exception. The code for that exception in class [[ref:/libraries/base/reference/exceptions_chart|EXCEPTIONS]]  (which inherits it from EXCEP_CONST and is discussed in the next section, together with the notion of exception code) is <eiffel>Retrieve_exception</eiffel>. 
+The object test is necessary because <eiffel>retrieved</eiffel> returns a result of type [[ref:/libraries/base/reference/any_chart|ANY]]  whereas the type of <code>x</code> will be based on a proper descendant of [[ref:/libraries/base/reference/any_chart|ANY]] . If the structure in the file has been corrupted and <eiffel>retrieved</eiffel> is unable to do its job, it will trigger an exception. The code for that exception in class [[ref:/libraries/base/reference/exceptions_chart|EXCEPTIONS]]  (which inherits it from EXCEP_CONST and is discussed in the next section, together with the notion of exception code) is <eiffel>Retrieve_exception</eiffel>. 
 
 ==Recoverable storable==
 
