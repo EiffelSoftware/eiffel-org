@@ -11,7 +11,7 @@
 
 In the baboon crossing problem, a number of baboons are located on the edges of a deep canyon. There are baboons on both sides and, as you have probably guessed, some of the baboons on the left side want to get to the right side, and vice versa. Fortunately, a large rope has been stretched across the abyss allowing baboons to cross by brachiation: hanging from the rope and swinging hand-over-hand to the other side. 
 
-The system may be workable, but it is certainly not perfect. You can easily imagine the problems:
+The baboon crossing policy must be compatible with the constraints of the situation:
 
 # If two baboons meet in the middle of the rope, then all activity stops, and no other baboons can cross (deadlock). So, at any given time, all the baboons on the rope must be going the same direction.
 # The rope can hold only a certain number of baboons at a time. A baboon cannot be allowed on the rope if the rope is already at full capacity.
