@@ -9,7 +9,7 @@
 
 =Description=
 
-The baboon crossing problem is based on a situation in which a number of baboons are located on the edge of a deep canyon. There are baboons on both sides of the canyon and, as you have probably already guessed, some of the baboons on the left side of the canyon want to get to the right side, and vice versa. Fortunately, a large rope has been stretched across the abyss allowing the baboons to cross by brachiation, that is, by hanging from the rope and swinging hand-over-hand to the other side. 
+In the baboon crossing problem, a number of baboons are located on the edges of a deep canyon. There are baboons on both sides and, as you have probably guessed, some of the baboons on the left side want to get to the right side, and vice versa. Fortunately, a large rope has been stretched across the abyss allowing baboons to cross by brachiation: hanging from the rope and swinging hand-over-hand to the other side. 
 
 The system may be workable, but it is certainly not perfect. You can easily imagine the problems:
 
