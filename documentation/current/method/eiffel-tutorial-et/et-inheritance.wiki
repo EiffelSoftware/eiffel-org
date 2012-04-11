@@ -147,7 +147,7 @@ the procedure call <code>accounts.extend</code> ( <code>acc</code>), because it 
 
 Such polymorphic data structures combine the flexibility and safety of genericity and inheritance. You can make them more or less general by choosing for the actual generic parameter, here <code>ACCOUNT</code>, a type higher or lower in the inheritance hierarchy. Static typing is again essential here, prohibiting for example a mistaken insertion of the form <code>accounts.extend (dep)</code> where <code>dep</code> is of type <code>DEPOSIT</code>, which does not conform to <code>ACCOUNT</code>. 
 
-At the higher (most abstract) end of the spectrum, you can produce an unrestrictedly polymorphic data structure <code>general_list: LIST [ANY]</code> which makes the call <code>general_list.extend (x)</code> valid for any <code>x</code>. The price to pay is that retrieving an element from such a structure will yield an object on which the only known applicable operations are the most general ones, valid for all types: assignment, copy, twin, equality comparison and others from <code>ANY</code>. Assignment attempt, studied below, will make it possible to apply more specific operations after checking dynamically that a retrieved object is of the appropriate type. 
+At the higher (most abstract) end of the spectrum, you can produce an unrestrictedly polymorphic data structure <code>general_list: LIST [ANY]</code> which makes the call <code>general_list.extend (x)</code> valid for any <code>x</code>. The price to pay is that retrieving an element from such a structure will yield an object on which the only known applicable operations are the most general ones, valid for all types: assignment, copy, twin, equality comparison and others from <code>ANY</code>. The [[#Object test|object test]], studied below, will make it possible to apply more specific operations after checking dynamically that a retrieved object is of the appropriate type. 
 
 ==Dynamic binding==
 
@@ -822,9 +822,9 @@ As another application, assume we have a <code>LIST [ACCOUNT]</code> and class <
         end
 </code>
 
-Note that if there is no savings account at all in the list the assignment attempt will always yield void, so that the result of the function will be 0, the default initialization. 
+Note that if there is no savings account at all in the list the object test will never be satisfied, so that the result of the function will be 0, the default initialization. 
 
-The object test is useful also in building void-safe software systems. 
+The object test is useful also in building [[Void-safe programming in Eiffel|void-safe software systems]]. 
 
 {{SeeAlso|[[Creating a new void-safe project#More about the attached syntax|More about the attached syntax]] in the section on [[Void-safe programming in Eiffel]]. }}
 
