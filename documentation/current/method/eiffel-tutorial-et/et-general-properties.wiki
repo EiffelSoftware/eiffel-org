@@ -20,7 +20,7 @@ Here is an overview of the facilities supported by Eiffel: <br/>
 *  ''Polymorphism''. An entity (variable, argument etc.) can become attached to objects of many different types. 
 *  ''Dynamic binding''. Calling a feature on an object always triggers the version of the feature specifically adapted to that object, even in the presence of polymorphism and redefinition. 
 *  ''Static typing''. A compiler can check statically that all type combinations will be valid, so that no run-time situation will occur in which an attempt will be made to apply an inexistent feature to an object. 
-*  ''Assignment attempt'' ("type narrowing"). It is possible to check at run time whether the type of an object conforms to a certain expectation, for example if the object comes from a database or a network. 
+*  ''Object test'' ("type narrowing"). It is possible to check at run time whether the type of an object conforms to a certain expectation, for example if the object comes from a database or a network. 
 *  ''Multiple inheritance''. A class can inherit from any number of others. 
 *  ''Feature renaming''. To remove name clashes under multiple inheritance, or to give locally better names, a class can give a new name to an inherited feature. 
 *  ''Repeated inheritance'': ''sharing and replication''. If, as a result of multiple inheritance, a class inherits from another through two or more paths, the class author can specify, for each repeatedly inherited feature, that it yields either one feature (sharing) or two (replication). 
@@ -39,7 +39,7 @@ It is also useful, as in any design, to list some of what is '''not''' present i
 *  ''No union types'' (or record type with variants), which force the explicit enumeration of all variants; in contrast, inheritance is an open mechanism which permits the addition of variants at any time without changing existing code. 
 *  ''No in-class overloading'', which by assigning the same name to different features within a single context, causes confusions, errors, and conflicts with object-oriented mechanisms such as dynamic binding. (Dynamic binding itself is a powerful form of inter-class overloading, without any of these dangers.) 
 *  ''No goto instructions'' or similar control structures (break, exit, multiple-exit loops) which break the simplicity of the control flow and make it harder or impossible to reason about the software (in particular through loop invariants and variants). 
-*  ''No exceptions to the type rules''. To be credible, a type system must not allow unchecked "casts" converting from a type to another. (Safe cast-like operations are available through assignment attempt.) 
+*  ''No exceptions to the type rules''. To be credible, a type system must not allow unchecked "casts" converting from a type to another. (Safe cast-like operations are available through object test.) 
 *  ''No side-effect expression operators'' confusing computation and modification. 
 *  ''No low-level pointers, no pointer arithmetic'', a well-known source of bugs. (There is however a type ''POINTER'', used for interfacing Eiffel with C and other languages.) 
 
