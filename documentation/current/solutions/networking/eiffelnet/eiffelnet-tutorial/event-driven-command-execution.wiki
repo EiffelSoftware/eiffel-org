@@ -14,7 +14,7 @@ In EiffelNet the possible events associated with a socket will be of three kind:
 
 ===9.2 Command classes===
 
-The example uses three command classes: <code>DATAGRAM_READER</code>, used by both clients and servers, and specialized versions of a datagram writer for clients, <code>CLIENT_DATAGRAM_WRITER</code>, and servers, <code>SERVER_DATAGRAM_WRITER</code>. These classes model operations that must be triggered in the case of a read event and a write event.
+The example uses three command classes: <code>DATAGRAM_READER</code>, used by both clients and servers, and specialized versions of a datagram writer: one for clients, <code>CLIENT_DATAGRAM_WRITER</code>, and one for servers, <code>SERVER_DATAGRAM_WRITER</code>. These classes model operations that must be triggered in the case of a read event and a write event.
 
 Here is the common reader command:
 <code>
