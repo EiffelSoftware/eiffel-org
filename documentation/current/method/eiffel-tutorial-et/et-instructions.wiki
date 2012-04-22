@@ -3,7 +3,7 @@
 [[Property:uuid|628bf3db-728f-0b3c-bdbb-fe52deaae5b7]]
 ==Instructions==
 
-Eiffel has a remarkably small set of instructions. The basic computational instructions have been seen: creation, assignment, assignment attempt, procedure call, retry. They are complemented by control structures: conditional, multi-branch, loop, as well as debug and check. 
+Eiffel has a remarkably small set of instructions. The basic computational instructions have been seen: creation, assignment, procedure call, retry. They are complemented by control structures: conditional, multi-branch, loop, as well as debug and check. 
 
 ===Assignment and attachment===
 
