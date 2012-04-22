@@ -10,7 +10,7 @@ In the preceding examples each participant in a communication had to get ready t
 
 The commands are objects, instances of a general-purpose class <code>COMMAND</code> or its proper descendants. Class <code>COMMAND</code> has, among its features, a procedure <eiffel>execute</eiffel> which executes the current command; some commands are undoable and have an <eiffel>undo</eiffel> procedure. 
 
-In EiffelNet the possible events associated with a socket will be of three kind: a read event; a write event; or a special event (out of bounds operation). The command classes will be descendants of [[ref:/libraries/net/reference/poll_command_chart|POLL_COMMAND]] , an heir of <code>COMMAND</code>.
+In EiffelNet the possible events associated with a socket will be of three kind: a read event; a write event; or a special event (out of bounds operation). The command classes will be descendants of [[ref:/libraries/net/reference/poll_command_chart|POLL_COMMAND]], an heir of <code>COMMAND</code>.
 
 ===9.2 Command classes===
 
@@ -143,7 +143,7 @@ end
 
 Procedure <eiffel>make</eiffel> creates three objects: a socket, which it associates with a specific port; a poller; and a read command (an instance of SERVER_DATAGRAM_READER), which it attaches to the socket. It then enters the read command into the poller, and does the same thing with a write command. It sets up the poller to accept read commands only and then executes the poller; this will enable the server to get the read event triggered by the client's write command (as it appears below in the text of class <code>POLLING_CLIENT</code>). Then the server reverses the poller's set-up to write-only, and calls <eiffel>execute</eiffel> again. 
 
-The procedures <eiffel>make_read_only</eiffel> and <eiffel>make_write_only</eiffel> are creation procedures, so that it is possible in a single instruction to create a poller and set it up for read-only or write-only, as in '''create''' ''poller''l. <eiffel>make_read_only</eiffel>. For clarity, however, the above class and the next separate calls to these procedures from the creation of the poller, which uses <eiffel>make</eiffel> as creation procedure. 
+The procedures <eiffel>make_read_only</eiffel> and <eiffel>make_write_only</eiffel> are creation procedures, so that it is possible in a single instruction to create a poller and set it up for read-only or write-only, as in <eiffel>create poller.make_read_only</eiffel>. For clarity, however, the above class and the next separate calls to these procedures from the creation of the poller, which uses <eiffel>make</eiffel> as creation procedure. 
 
 The client follows the same scheme, reversing the order of read and write operations:
 <code>
