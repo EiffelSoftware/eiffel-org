@@ -14,12 +14,12 @@ In EiffelNet the possible events associated with a socket will be of three kind:
 
 ===9.2 Command classes===
 
-The example uses four command classes: <code>CLIENT_DATAGRAM_READER</code>, <code>CLIENT_DATAGRAM_WRITER</code> and their counterpart for servers, representing operations that must be triggered in the case of a read event and a write event.
+The example uses three command classes: <code>DATAGRAM_READER</code>, used by both clients and servers, and specialized versions of a datagram writer for clients, <code>CLIENT_DATAGRAM_WRITER</code>, and servers, <code>SERVER_DATAGRAM_WRITER</code>. These classes model operations that must be triggered in the case of a read event and a write event.
 
-Here is the reader command for clients:
+Here is the common reader command:
 <code>
-class
-    CLIENT_DATAGRAM_READER
+class 
+    DATAGRAM_READER
 
 inherit
 
@@ -29,39 +29,37 @@ inherit
         end
 
 create
+
     make
 
 feature
 
     active_medium: NETWORK_DATAGRAM_SOCKET
 
-    execute
-            -- Obtain a packet of ten characters and print them.
+    execute (arg: ANY)
         local
-            rec_pack: DATAGRAM_PACKET
+            rec_pack: PACKET
+            datagram: DATAGRAM_PACKET
             i: INTEGER
         do
             rec_pack := active_medium.received (10, 0)
-            io.putint (rec_pack.packet_number)
+            create datagram.make_from_managed_pointer (rec_pack.data)
+            io.putint (datagram.packet_number)
             io.new_line
-            from
-                i := 0
-            until
-                i > 9
-            loop
-                io.putchar (rec_pack.element (i))
+            from i := 0 until i > 9 loop
+                io.putchar (datagram.element (i))
                 i := i + 1
             end
             io.new_line
         end
 
-end
+end -- class DATAGRAM_READER
 
 </code>
 
 The <eiffel>execute</eiffel> procedure reads a packet of ten characters and prints these characters. Its counterpart in the writing command will produce these ten packets:
 <code>
-class
+class 
     CLIENT_DATAGRAM_WRITER
 
 inherit
@@ -71,35 +69,30 @@ inherit
             active_medium
         end
 
-    BASIC_ROUTINES
-
 create
+
     make
 
 feature
 
     active_medium: NETWORK_DATAGRAM_SOCKET
 
-    execute
-            -- Make a packet with characters 'a' to 'k' in successive positions.
+    execute (arg: ANY)
         local
             sen_pack: DATAGRAM_PACKET
-            ccode: INTEGER
+            char: CHARACTER
         do
+                -- Make packet with characters `a' to `j' in successive positions
             create sen_pack.make (10)
-            from
-                ccode := charcode ('a')
-            until
-                ccode > charcode ('k')
-            loop
-                sen_pack.put_element (charconv (ccode), ccode -- charcode ('a'))
-                ccode := ccode + 1
+            from char := 'a' until char > 'j' loop
+                sen_pack.put_element (char, char |-| 'a')
+                char := char.next
             end
             sen_pack.set_packet_number (1)
-            active_medium.send (sen_pack, Void, 0)
+            active_medium.send (sen_pack, 0)
         end
 
-end
+end -- class CLIENT_DATAGRAM_WRITER
 </code>
 
 ===9.3 The server and the client===
@@ -110,71 +103,84 @@ The abstraction needed for this purpose is provided by class <code>MEDIUM_POLLER
 
 Here is the server built with this mechanism:
 <code>
-class
-
+class 
     POLLING_SERVER
 
 create
+
     make
 
 feature
 
-    make
-            -- Create read and write commands, attach them to a poller,
-            -- set up the poller for execution.
+    make (argv: ARRAY [STRING])
         local
-            soc: NETWORK_DATAGRAM_SOCKET
-            poller: MEDIUM_POLLER
-            readcomm: SERVER_DATAGRAM_READER
+            soc: detachable NETWORK_DATAGRAM_SOCKET
+            ps: MEDIUM_POLLER
+            readcomm: DATAGRAM_READER
             writecomm: SERVER_DATAGRAM_WRITER
         do
-            create soc.make_server_by_port (6530)
-            create poller.make
-            create readcomm.make (soc); poller.put_read_command (readcomm)
-            create writecomm.make (soc); poller.put_write_command (writecomm)
-            poller.make_read_only; poller.execute (15, 20000)
-            poller.make_write_only; poller.execute (15, 20000)
-            soc.close
+            if argv.count /= 2 then
+                io.error.putstring ("Usage: ")
+                io.error.putstring (argv.item (0))
+                io.error.putstring (" portnumber%N")
+	    else
+                create soc.make_bound (argv.item (1).to_integer)
+                create ps.make_read_only
+                create readcomm.make (soc)
+                ps.put_read_command (readcomm)
+                create writecomm.make (soc)
+                ps.put_write_command (writecomm)
+                ps.execute (15, 20000)
+                ps.make_write_only
+                ps.execute (15, 20000)
+                soc.close
+            end
+        rescue
+            if soc /= Void and then not soc.is_closed then
+                soc.close
+            end
         end
 
-end
+end -- POLLING_SERVER
 </code>
 
 
-Procedure <eiffel>make</eiffel> creates three objects: a socket, which it associates with a specific port; a poller; and a read command (an instance of SERVER_DATAGRAM_READER), which it attaches to the socket. It then enters the read command into the poller, and does the same thing with a write command. It sets up the poller to accept read commands only and then executes the poller; this will enable the server to get the read event triggered by the client's write command (as it appears below in the text of class <code>POLLING_CLIENT</code>). Then the server reverses the poller's set-up to write-only, and calls <eiffel>execute</eiffel> again. 
-
-The procedures <eiffel>make_read_only</eiffel> and <eiffel>make_write_only</eiffel> are creation procedures, so that it is possible in a single instruction to create a poller and set it up for read-only or write-only, as in <eiffel>create poller.make_read_only</eiffel>. For clarity, however, the above class and the next separate calls to these procedures from the creation of the poller, which uses <eiffel>make</eiffel> as creation procedure. 
+Procedure <eiffel>make</eiffel> creates three objects: a socket, which it associates with a specific port; a poller; and a read command (an instance of DATAGRAM_READER), which it attaches to the socket. It then enters the read command into the poller, and does the same thing with a write command. It sets up the poller to accept read commands only and then executes the poller; this will enable the server to get the read event triggered by the client's write command (as it appears below in the text of class <code>POLLING_CLIENT</code>). Then the server reverses the poller's set-up to write-only, and calls <eiffel>execute</eiffel> again. 
 
 The client follows the same scheme, reversing the order of read and write operations:
 <code>
-class
+class 
     POLLING_CLIENT
 
 create
+
     make
 
 feature
 
-    make
-            -- Create read and write commands, attach them to a poller,
-            -- set up the poller for execution.
+    make (argv: ARRAY [STRING])
         local
-            soc: NETWORK_DATAGRAM_SOCKET
-            poller: MEDIUM_POLLER
+            soc: detachable NETWORK_DATAGRAM_SOCKET
+            ps: MEDIUM_POLLER
             readcomm: DATAGRAM_READER
-            writecomm: DATAGRAM_WRITER
+            writecomm: CLIENT_DATAGRAM_WRITER
         do
-            create soc.make_client_by_port (6530, "serverhost")
-            create poller.make
-            create readcomm.make (soc)
-            poller.put_read_command (readcomm)
-            create writecomm.make (soc)
-            poller.put_write_command (writecomm)
-            poller.make_write_only
-            poller.execute (15, 20000)
-            poller.make_read_only
-            poller.execute (15, 20000)
-            soc.close
+            if argv.count /= 3 then
+                io.error.putstring ("Usage: ")
+                io.error.putstring (argv.item (0))
+                io.error.putstring (" hostname portnumber%N")
+            else
+                create soc.make_targeted (argv.item (1), argv.item (2).to_integer)
+                create ps.make_write_only
+                create readcomm.make (soc)
+                ps.put_read_command (readcomm)
+                create writecomm.make (soc)
+                ps.put_write_command (writecomm)
+                ps.execute (15, 20000)
+                ps.make_read_only
+                ps.execute (15, 20000)
+                soc.close
+            end
         rescue
             if soc /= Void and then not soc.is_closed then
                 soc.close
