@@ -207,7 +207,7 @@ creation
 	
 feature
 	
-    soc1, soc2: NETWORK_STREAM_SOCKET
+    soc1: detachable NETWORK_STREAM_SOCKET
 	
     make
             -- Accept communication with client and exchange messages.
@@ -235,7 +235,7 @@ creation
 	
 feature
 	
-    soc1: NETWORK_STREAM_SOCKET
+    soc1: detachable NETWORK_STREAM_SOCKET
 	
     make
         do 
