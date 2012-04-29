@@ -26,7 +26,7 @@ Familiarity with the basic concepts of client-server computing will also be help
 
 ===Organization of this manual===
 
-[[Clients and servers]] discusses the notion of client and server. [[An overview of EiffelNet Mechanisms]] presents an overview of EiffelNet's facilities. [[The predefined level]] describes the predefined level: a set of high-level classes that provide a complete framework, covering the most common uses and limiting the developer's work to the strict minimum. The sections titled [[Introduction to the examples]] through [[A more complex example]] describe the facilities in detail through a set of increasingly ambitious examples (whose texts may all be found in the directory '''$ISE_EIFFEL/examples/net''' of the Eiffel distribution). The final section is a short [[Bibliography]]. 
+[[Clients and servers]] discusses the notion of client and server. [[An overview of EiffelNet Mechanisms]] presents an overview of EiffelNet's facilities. The sections titled [[Introduction to the examples]] through [[A more complex example]] describe the facilities in detail through a set of increasingly ambitious examples (whose texts may all be found in the directory '''$ISE_EIFFEL/examples/net''' of the Eiffel distribution). The final section is a short [[Bibliography]]. 
 
 
 
