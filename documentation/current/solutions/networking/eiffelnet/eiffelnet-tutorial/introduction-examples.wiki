@@ -7,6 +7,33 @@ The examples start with the most simple uses involving high-level classes coveri
 
 All the examples discussed here appear in the directory ''$ISE_EIFFEL/examples/net'' of the Eiffel distribution. 
 
+===Object structures===
+
+As noted above, it is possible with sockets, as any other <code>IO_MEDIUM</code>, to send and receive simple objects such as integers. But for this first example we are already more ambitious and want to exchange entire linked lists of strings. The structures that we will exchange are described by the following class:
+<code>
+class 
+    OUR_MESSAGE
+
+inherit
+
+    LINKED_LIST [STRING]
+
+    STORABLE
+        undefine
+            is_equal, copy
+        end
+
+create
+
+    make
+
+end
+</code>
+
+Note that to make use of the storage and retrieval facilities the objects to be exchanged must be instances of a class which, as here, is a descendant of <code>STORABLE</code>.
+
+
+
 {{caution|On Windows, the examples `advanced' and the `same_mach' are nonfunctional. This is because these examples use code specific to Unix Operating systems. }}
 
 
