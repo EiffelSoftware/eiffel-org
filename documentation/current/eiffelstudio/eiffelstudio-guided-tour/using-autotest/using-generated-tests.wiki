@@ -16,6 +16,10 @@ So for the time being, unlike manual and extracted tests, you should not make ge
 
 ==Creating generated tests==
 
+
+{{UpdateNeeded}}
+
+
 If you've been through the discussion of the creation of [[Create a manual test|manual]] and [[Using extracted tests|extracted]] tests, then it should come as no surprise to learn that you use the '''New Eiffel test wizard''' to create generated tests. And much of this process will seem familiar now. 
 
 In the first pane, choose the radio button labeled '''Generated tests'''. Then click '''Next'''. 
