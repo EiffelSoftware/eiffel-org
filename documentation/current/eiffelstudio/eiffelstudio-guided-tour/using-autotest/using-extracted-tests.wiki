@@ -12,6 +12,10 @@ Extracted tests are intended to supplement the suite of manual tests that you ha
 
 ==Creating an extracted test==
 
+
+{{UpdateNeeded}}
+
+
 Let's use the same test system we used for manual tests to demonstrate the creation of an extracted test. The example will be slightly contrived because it will find a problem that certainly we would already have discovered had we written a comprehensive set of manual tests against the <code>BANK_ACCOUNT</code> class. Still, the simplicity should help keep things clear.
 
 If you remember, the root class for the example application contained no instructions, just a root procedure with no instructions and a declaration <code>my_account</code> of type <code>BANK_ACCOUNT</code>:
