@@ -233,6 +233,22 @@
 | Yes, by option ''void_safety''
 |}
 
+==[[Concurrent Eiffel with SCOOP|SCOOP]]==
+{| 
+|- 
+| <center>'''Feature'''</center>
+| width="160pt"| <center>'''Example'''</center>
+| <center>'''ETL2'''</center>
+| <center>'''ECMA-367'''</center>
+| <center>'''EiffelStudio'''</center>
+|- 
+| Separate declaration
+|  <code> a: separate ANY </code>
+| No
+| No. <code>separate</code> reserved but not used
+| Yes. Object attached to <code>a</code> may be handled by different SCOOP processor.
+|}
+
 ==Expressions==
 {| 
 |- 
