@@ -427,7 +427,9 @@ Used in an [[Eiffel language syntax#Inheritance parts|inheritance part]] of a [[
 
 ===separate===
 
-Reserved for future use.
+Reserved for future use. 
+
+{{Note|Used in EiffelStudio implementations version 6.8 and later to support [[Concurrent Eiffel with SCOOP]].}}
 
 
 ===then===
