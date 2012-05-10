@@ -4,6 +4,9 @@
 {{UpdateNeeded}}
 
 
+{{UnderConstruction}}
+
+
 ==A system to test==
 
 For developing our manual test, let's use a simple system that contains a class modeling bank accounts. Here are two classes that will make up our system. The first, <code>APPLICATION</code> will be the root class of our system. <code>APPLICATION</code> really only serves to declare an attribute of type <code>BANK_ACCOUNT</code>, which is the class we will write a test against. <code>APPLICATION</code> looks like this:
@@ -97,9 +100,13 @@ Depending upon your version and platform, the AutoTest interface should look abo
 
 ==Creating a new test==
 
-To begin the process of creating a new test, click the Create New Tests button ( [[Image:create new tests]] ) on the interface's tool bar. 
+To begin the process of creating a new test, click the Create New Test button ( [[Image:create new tests]] ) on the interface's tool bar. When you click this button, by default AutoTest will set you up to create a new Manual test. To choose a different test type, click the small triangle to the right of the Create New Test button and you'll be presented with a drop-down menu of choices:
 
-This will launch the New Eiffel Test Wizard which guides you through the test creation process.
+
+[[Image: AutoTest create new test|Create new test drop-down menu]]
+
+
+For now, let's select Create Manual Test.
 
 If this is the first time you've used the testing tool for this project, it is likely that you will be presented with a dialog box asking if you want to add the testing library classes to your project and recompile:
 
@@ -109,17 +116,32 @@ If this is the first time you've used the testing tool for this project, it is l
 You want EiffelStudio to do this before launching the wizard so, click "Yes". In a moment your system will have recompiled with the testing library classes available. Remember that you won't need to interact much with the testing classes, but AutoTest uses them, so they need to be available. As long as the testing classes stay available, you should not see this dialog again for the current project.
 
 
-==The New Eiffel Test Wizard==
+==The Manual Test Pane==
 
-After the compile completes, then the first pane of the New Eiffel Test Wizard appears. It should look like this:
-
-
-[[Image:AutoTest new test wizard 01 01]]
+After the compile completes, then the first pane of the New Eiffel Test Wizard appears. It's the Manual Test pane and should look like this:
 
 
-As you can see, there is a radio button for each of the three types of tests that were discussed in [[Testing: Background and basics]]. The buttons for '''Manual''' and '''Generated''' tests are enabled. The button for '''Extracted''' tests is not sensitive because the extraction of tests is only valid during the time in which a system is actually running. That's okay, we were going to choose '''Manual''' anyway.
+[[Image:AutoTest Manual Test pane]]
 
-If we select '''Manual''' and click '''Next''', then second pane of the wizard appears:
+
+Here we will name our test. Let's say that we plan to write this test against the feature <code>{BANK_ACCOUNT}.deposit</code>. We'll give this test the name <code>test_deposit_01</code>. The name uses an ad hoc naming convention for tests. You can use this, or develop your own. The prefix <code>test_</code> comes before the feature name it will test, and the suffix <code>_01</code> follows, so that we have a framework for adding more tests against <code>deposit</code>. Again, you can choose any naming scheme that makes sense to you. You may want to try to describe the test in its name. For example, <code>test_deposit_very_large_amount</code>.
+
+We're ready to click '''Next''', but before we do, let's look at the check boxes on this wizard pane. The two check boxes labeled '''Redefine `on_prepare'''' and '''Redefine `on_clean'''' have to do with the way that tests are run. 
+
+AutoTest runs each test as a three step process:
+# Preparation
+# Execution
+# Clean up
+
+There are features in class <code>EQA_TEST_SET</code> named <code>prepare</code> and <code>clean</code> which accomplish steps 1 and 3 above. These features are <code>frozen</code>, therefore you cannot redefine them in a test class (i.e., a descendant of <code>EQA_TEST_SET</code>) However the class does provide features that can be redefined so that you can include custom behavior before and/or after the execution of a test. These features are <code>on_prepare</code> and <code>on_clean</code>. So if you check one of these boxes, then the test class that is built for you will include a redefined feature ready for you to implement. In this simple example, we'll leave both boxes unchecked. 
+
+
+{{note|The check box labeled '''System level test''' is displayed here as not sensitive. This box is reserved for future system level testing capability in AutoTest, so for versions including 7.0, you can ignore it. }}
+
+
+So, now let's click '''Next''', to go to the next wizard pane.
+
+
 
 
 [[Image:AutoTest new test wizard 02M 01]]
@@ -141,17 +163,6 @@ As with test class names, there is an emerging convention for the name of a test
 [[Image:AutoTest new test wizard 02M 02]]
 
 
-We're ready to click '''Next''', but before we do, let's look at the check boxes on this wizard pane. The two check boxes labeled '''Redefine `on_prepare'''' and '''Redefine `on_clean'''' have to do with the way that tests are run. 
-
-AutoTest runs each test as a three step process:
-# Preparation
-# Execution
-# Clean up
-
-There are features in class <code>EQA_TEST_SET</code> named <code>prepare</code> and <code>clean</code> which accomplish steps 1 and 3 above. These features are <code>frozen</code>, therefore you cannot redefine them in a test class (i.e., a descendant of <code>EQA_TEST_SET</code>) However the class does provide features that can be redefined so that you can include custom behavior before and/or after the execution of a test. These features are <code>on_prepare</code> and <code>on_clean</code>. So if you check one of these boxes, then the test class that is built for you will include a redefined feature ready for you to implement. In this simple example, we'll leave both boxes unchecked. 
-
-
-{{note|The check box labeled '''System level test''' is displayed here as not sensitive. This box is reserved for future system level testing capability in AutoTest, so for versions including 6.5, you can ignore it. }}
 
 
 After clicking '''Next''', we see the third pane of the wizard. In this pane, we will describe our manual test routine. It looks like this:
