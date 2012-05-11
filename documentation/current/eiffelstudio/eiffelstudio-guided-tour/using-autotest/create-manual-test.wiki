@@ -139,12 +139,38 @@ There are features in class <code>EQA_TEST_SET</code> named <code>prepare</code>
 {{note|The check box labeled '''System level test''' is displayed here as not sensitive. This box is reserved for future system level testing capability in AutoTest, so for versions including 7.0, you can ignore it. }}
 
 
-So, now let's click '''Next''', to go to the next wizard pane.
+Another thing to notice before we click '''Next''', is that at this point we could click '''Launch'''. '''Launch''' will immediately try to create the test with the information it has available. The idea is that if you are creating several similar tests, you can change the test routine name and leave the rest of the information as you had entered it on a previous test. This keeps you from having to traverse the wizard panes entering the same information repeatedly. 
+
+But in our case, we need to use the subsequent wizard panes, so let's click '''Next''', to go to the next one.
 
 
+==The Tags Pane==
 
 
-[[Image:AutoTest new test wizard 02M 01]]
+[[Image:AutoTest Tags pane empty|Tags pane]]
+
+
+With this pane, you identify tags for your test that allow you to manage your test set more easily in the future. Read more in [[#About Tags|About Tags]] below. 
+
+For this test, we will include only a tag that identifies the class and feature covered by the test. To do this we click '''Add tag for covered class/feature'''. When we do, we are presented with a dialog in which we can choose a class and feature. 
+
+
+[[Image:Autotest test coverage tag dialog|Dialog for coverage tag]]
+
+
+We'll choose class <code>BANK_ACCOUNT</code> and feature <code>deposit</code>, click '''OK'''.
+
+Now you should see the coverage tag in the list of '''Tags used in new test'''. 
+
+
+[[Image: AutoTest Tags pane|Tags pane]]
+
+
+That takes care of adding our coverage tag, so let's click '''Next''' to go to the next wizard pane, the '''General''' pane.
+
+
+[[Image: AutoTest General pane]]
+
 
 
 We will use this wizard pane to name our test class and let AutoTest know where we want the test class to reside. You can give a test class any name you wish, as long as it doesn't conflict with another class name in your system. If you try to type in a class name that already exists, the wizard will let you know right away by changing the text color to red. There is a convention that has arisen around test class names. If possible make the test class name the name of the target class, prefixed with <code>TEST_</code>. So in our case, we want to build a test against a feature of the <code>BANK_ACCOUNT</code> class, so we will name our test class <code>TEST_BANK_ACCOUNT</code>.
