@@ -12,10 +12,6 @@ Extracted tests are intended to supplement the suite of manual tests that you ha
 
 ==Creating an extracted test==
 
-
-{{UpdateNeeded}}
-
-
 Let's use the same test system we used for manual tests to demonstrate the creation of an extracted test. The example will be slightly contrived because it will find a problem that certainly we would already have discovered had we written a comprehensive set of manual tests against the <code>BANK_ACCOUNT</code> class. Still, the simplicity should help keep things clear.
 
 If you remember, the root class for the example application was not very interesting, just a root procedure with a single instruction and a declaration <code>my_account</code> of type <code>BANK_ACCOUNT</code>:
@@ -65,32 +61,34 @@ There is an error in the specification for <code>withdraw</code>. In the postcon
 
 Certainly we will fix this, but AutoTest gives us the opportunity to extract a test based on this particular failure. So, let's do that.
 
-So, we go to the AutoTest interface and click the ''Create new tests'' button to request the ''New Eiffel Test Wizard''. Because we are paused in the debugger, the test wizard appears with the '''Extract tests''' radio button already checked:
+So, we go to the AutoTest tool and click triangle next to ''Create new tests'' button and select the '''Extract tests from debugger''' from the drop-down menu. Because we are paused in the debugger, the drop-down menu appears with the '''Extract tests from debugger''' choice enabled this time:
 
 
-[[Image:AutoTest new test wizard 01E 01]]
+[[Image:AutoTest create new test 02]]
 
 
-When we click next, we are presented with the same ''New test class'' pane that we saw with manual tests. We can give the test class a name. <code>TEST_BANK_ACCOUNT_EXTRACTED_WITHDRAW_01</code> should be fairly descriptive. And we'll select the '''tests''' cluster.
-
-When we click next, we are presented with a wizard pane that shows a depiction of the current call stack and asks us for which feature(s) on the stack we want to create the test:
+When we select '''Extract tests from debugger''', we are presented with the New Eiffel Test Wizard's '''Test Extraction''' pane. This wizard pane shows a depiction of the current call stack and asks us for which feature(s) on the stack we want to create the test:
 
 
-[[Image:AutoTest new test wizard 03E 01]]
+[[Image:AutoTest test extraction pane|Test extraction pane]]
 
 
-The choice for <code>withdraw</code> is the selection we want, so we just click next. AutoTest creates the new test and returns us to the debugger, where our system is still on hold. We can stop execution and compile to include the new test.
+The choice for <code>withdraw</code> is the selection we want. We can deselect the stack frame for <code>make</code> if it is pre-selected. If we click '''Next''' at this point we would be taken to the '''Tags''' pane, and from there to the '''General''' pane. But we really don't need to do this. AutoTest will sense that we are extracting a test for <code>{BANK_ACCOUNT}.withdraw</code> and tag the test properly. It will use the same test class name from the '''General''' pane, but add a numerical suffix. So, all we need to do now is to click '''Launch''' from the '''Text Extraction''' pane.
 
-Now we see the new test class and test in AutoTest's interface windows. 
+AutoTest creates the new test and returns us to the debugger, where our system is still on hold. We can stop execution and compile to include the new test.
+
+Now we see the new test class and test in the AutoTest tool windows. 
 
 
 ==Run the tests, fix a problem, run the tests==
 
-We run our tests and we see that the test on <code>withdraw</code> is still failing:
+We run our tests using '''Run all''', and we see that the test on <code>withdraw</code> is still failing:
 
-[[Image:AutoTest interface after run 04]]
 
-If we fix the error in the postcondition in <code>withdraw</code> and re-execute the test, we find that it is successful.
+[[Image:AutoTest tool after run]]
+
+
+If we fix the error in the postcondition in <code>withdraw</code>, recompile, and then re-execute the test, we find that it is successful.
 
 
 ==A closer look at an extracted test==
