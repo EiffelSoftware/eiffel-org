@@ -26,6 +26,7 @@ feature {NONE} -- Initialization
     make
             -- Run application.
         do
+            create my_account
         end
 
     my_account: BANK_ACCOUNT
