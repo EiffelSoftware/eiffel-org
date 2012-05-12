@@ -35,43 +35,34 @@ When we execute our test <code>{TEST_BANK_ACCOUNT}.test_deposit_01</code>, we kn
 This behavior can be helpful to us as testers. A failing test indicates that there is something amiss in the target routine. The routine has not completed in a state that satisfies its postcondition and class invariant, or is dealing with an unresolved exception from some routine that it has called. An unresolved test result indicates that something is amiss in our test. Something went wrong in the setup or cleanup of the test or perhaps the test called a target routine from a state that did not satisfy the target routine's precondition.
 
 
-==Refreshing the test suite==
+==The AutoTest tool==
 
-In the last section, we created a manual test. The AutoTest tool shows us a log of that action in the Creation tab of the lower pane. So, now the tool should look something like this:
+In the last section, we created a manual test. The AutoTest tool shows us the new test in the '''Tests''' column. So, now the tool should look something like this:
 
-[[Image:AutoTest tool Creation and Refresh 01]]
 
-To make the new test visible in the upper pane, we refresh the test suite by clicking the refresh button ( [[Image:refresh-icon]] ) indicated by the cursor in the screenshot above. 
-
-{{tip|You can force the test suite to be refreshed automatically after each compile by clicking the triangle to the right of the refresh button and checking the '''Refresh after compilation''' option in the list. }}
+[[Image:AutoTest tool with test]]
 
 
 ==Test execution==
 
-After refreshing the test suite, the new test becomes visible in the top pane of the AutoTest tool. 
-
-
-[[Image:AutoTest interface 01]]
-
-
-Here you see under "Tests" the project cluster <code>accounts</code>, the test cluster <code>tests</code>, the test class <code>TEST_BANK_ACCOUNT</code>, and the test <code>test_deposit_01</code>. 
+You see under "Tests" the project cluster <code>accounts</code>, the test cluster <code>tests</code>, the test class <code>TEST_BANK_ACCOUNT</code>, and the test <code>test_deposit_01</code>. You might have to expand some of the elements to see everything as shown above.
 
 You see that the '''Status''' of <code>test_deposit</code> is "not tested", and that the '''Last executed''' date is empty.
 
-To execute tests we use the "Run" button ( [[Image:debug-run-icon]] ) on the interface toolbar. The Run button will run all tests by default. However, there is a list of run options that you can access by clicking the black triangle just to the right of Run. You can choose to run all tests, only those with failing status, a filtered set of tests, or only those tests that you have selected in the tree below. We'll cover filtering a little later. For now, life is simple, we have only one test so just clicking the Run button should execute it. 
+To execute tests we use the "Run" button ( [[Image:debug-run-icon]] ) on the interface toolbar. By default, the Run button will run all tests matching the tags in the '''Filter''' box. However, there is a list of run options that you can access by clicking the black triangle just to the right of Run. You can choose to run all tests, only those with failing status, a filtered set of tests, or only those tests that you have selected in the tree below. We'll cover filtering a little later. For now, life is simple, we have only one test so just selecting '''Run all''' should execute it. 
 
 ==Examining test results==
 
 The test runs in background and the AutoTest interface now looks like this:
 
 
-[[Image:AutoTest interface after run 01]]
+[[Image:AutoTest tool with failed test]]
 
 
 It's pretty clear that our test has failed. Its status is now marked with the Failing icon ( [[Image:general-error-icon]] ) and in the box below the '''Execution''' tab we see that the status also includes a tag: <code>balance_increased</code>. More detail is provided in the Testing pane of the Outputs tool, as shown below.
 
 
-[[Image:AutoTest Testing pane after run 01]]
+[[Image:AutoTest Outputs tool after run 01]]
 
 
 We see that <code>balance_increased</code> is a postcondition tag on the target routine <code>{BANK_ACCOUNT}.deposit</code>. Upon examination of the code:
@@ -98,10 +89,10 @@ we realize that there is no implementation here. So we add the code to implement
             ...
 </code>
 
-After compiling, we execute the test again, and view the result:
+After compiling, we can execute the test again. We could do this by selecting '''Run all''' as we did last time, or by selecting '''Run failing'''. Once the test executes we see now that it was successful:
 
 
-[[Image:AutoTest interface after run 03]]
+[[Image:AutoTest tool with passed test]]
 
 
 This time we see that the test is successful, as indicated by the Success icon ( [[Image:general-tick-icon]] ) in the Status column. 
