@@ -7,7 +7,7 @@ Generated tests fill a different role from either extracted or manual tests. The
 #For any routine, what argument values are valid 
 #For the execution of any routine, what resulting states are acceptable
 
-The first bit of knowledge comes from the ''preconditions'' of target routines. The second comes from ''postconditions'' of target routines and the ''invariants'' of target classes. Armed with this knowledge, we should be able to generate a series of invocations target routines using random argument values, and evaluate the results. This is what is done by an internal facility of AutoTest that builds generated tests (this facility is often also referred to itself as AutoTest). After many of these randomly generated invocations, the AutoTest attempts to synthesize the results of these feature calls into new test classes. The tests in these new test classes contain the calls leading up and including calls that fail. AutoTest will attempt to create only one test from each unique type of failure, so that your test directory doesn't get loaded with lots of duplicates.
+The first bit of knowledge comes from the ''preconditions'' of target routines. The second comes from ''postconditions'' of target routines and the ''invariants'' of target classes. Armed with this knowledge, we should be able to generate a series of invocations of target routines using random argument values, and evaluate the results. This is what is done by an internal facility of AutoTest that builds generated tests (this facility is often also referred to itself as AutoTest). After many of these randomly generated invocations, AutoTest attempts to synthesize the results of these feature calls into new test classes. The tests in these new test classes contain the calls leading up and including calls that fail. AutoTest will attempt to create only one test from each unique type of failure, so that your test directory doesn't get loaded with lots of duplicates.
 
 You may look at a generated test class and think that it seems to be very long and to contain lots of stuff that you doubt is relevant. This is a fair assessment. The processes that AutoTest uses to build and minimize generated tests are constantly being improved. But for now, generated tests, although useful, retain a certain amount of that randomness that was used in their creation. 
 
@@ -20,9 +20,12 @@ So for the time being, unlike manual and extracted tests, you should not make ge
 {{UpdateNeeded}}
 
 
+{{UnderConstruction}}
+
+
 If you've been through the discussion of the creation of [[Create a manual test|manual]] and [[Using extracted tests|extracted]] tests, then it should come as no surprise to learn that you use the '''New Eiffel test wizard''' to create generated tests. And much of this process will seem familiar now. 
 
-In the first pane, choose the radio button labeled '''Generated tests'''. Then click '''Next'''. 
+In the drop-down menu for the '''Create new test''' button, choose the item '''Generate tests for custom types'''. 
 
 The second pane is the now familiar pane that asks you to provide a class name for the new test class and designate a cluster for it. In the case of generated tests, the class name you enter is actually a prefix, that will have a sequential number appended to it. This means that for the <code>BANK_ACCOUNT</code> example, if we might choose a test class name like <code>TEST_BANK_ACCOUNT_GENERATED</code>, the first test class with that prefix would be named <code>TEST_BANK_ACCOUNT_GENERATED_001</code>:
 
