@@ -7,7 +7,7 @@ Generated tests fill a different role from either extracted or manual tests. The
 #For any routine, what argument values are valid 
 #For the execution of any routine, what resulting states are acceptable
 
-The first bit of knowledge comes from the ''preconditions'' of target routines. The second comes from ''postconditions'' of target routines and the ''invariants'' of target classes. Armed with this knowledge, we should be able to generate a series of invocations of target routines using random argument values, and evaluate the results. This is what is done by an internal facility of AutoTest that builds generated tests (this facility is often also referred to itself as AutoTest). After many of these randomly generated invocations, AutoTest attempts to synthesize the results of these feature calls into new test classes. The tests in these new test classes contain the calls leading up and including calls that fail. AutoTest will attempt to create only one test from each unique type of failure, so that your test directory doesn't get loaded with lots of duplicates.
+The first bit of knowledge comes from the ''preconditions'' of target routines. The second comes from ''postconditions'' of target routines and the ''invariants'' of target classes. Armed with this knowledge, we should be able to generate a series of invocations of target routines using random argument values, and evaluate the results. This is what is done by an internal facility of AutoTest that builds generated tests (this facility is often also referred to itself as AutoTest). After many of these randomly generated invocations, AutoTest attempts to synthesize the results of these feature calls into new test classes. The tests in these new test classes contain the calls leading up and including calls that fail. AutoTest will attempt to create only one test from each unique type of failure, so that your test directory doesn't get loaded with lots of duplicate tests.
 
 You may look at a generated test class and think that it seems to be very long and to contain lots of stuff that you doubt is relevant. This is a fair assessment. The processes that AutoTest uses to build and minimize generated tests are constantly being improved. But for now, generated tests, although useful, retain a certain amount of that randomness that was used in their creation. 
 
@@ -27,21 +27,19 @@ If you've been through the discussion of the creation of [[Create a manual test|
 
 In the drop-down menu for the '''Create new test''' button, choose the item '''Generate tests for custom types'''. 
 
-The second pane is the now familiar pane that asks you to provide a class name for the new test class and designate a cluster for it. In the case of generated tests, the class name you enter is actually a prefix, that will have a sequential number appended to it. This means that for the <code>BANK_ACCOUNT</code> example, if we might choose a test class name like <code>TEST_BANK_ACCOUNT_GENERATED</code>, the first test class with that prefix would be named <code>TEST_BANK_ACCOUNT_GENERATED_001</code>:
+
+[[Image:AutoTest create new test]]
 
 
-[[Image:AutoTest new test wizard 02S 01]]
+At this point, you'll see the '''Test Generation''' wizard pane. This pane allows you to specify which classes you want to generate tests for. You can also adjust the values of certain parameters used in the test generation.
+
+Let's type the class name <code>BANK_ACCOUNT</code> into the box labeled '''Class or type name''' and click the "'''+'''" button to added it to the list. Of course you can remove an item from the list by selecting it and clicking "'''-'''".
 
 
-In the third pane, you are asked to configure certain options for the generation of generated tests: 
+[[Image:AutoTest Test Generation pane]]
 
 
-[[Image:AutoTest new test wizard 03S 01]]
-
-
-This is where you declare target class(es) for the generated tests. You type a class name into the box labeled '''Class or type name''' and click the "'''+'''" button to added it to the list. Of course you can remove an item from the list by selecting it and clicking "'''-'''".
-
-On the right side of the pane you can configure certain options for the test generation process.
+The rest of the pane is used to configure certain options for the test generation process.
 
 '''Cutoff (minutes)''' lets you specify a number of minutes for AutoTest to run random invocations of the routines in your target class(es).
 
@@ -51,9 +49,13 @@ On the right side of the pane you can configure certain options for the test gen
 
 '''Random number generation seed''' provides a way for you to control the seeding of the random number generator used by AutoTest. When the value is '''0''', as shown here, the seed is created from the system clock. This is adequate in most cases, but this option is provided because there might be some cases in which you would want to try to reproduce a previous test generation run. And to do that, you would have to set the seed to the same value for multiple runs.
 
-The two check boxes '''Use slicing for minimization''' and '''Use ddmin for minimization''' allow you to select the approach that you want to use for minimizing the size of generated tests. Generally, the default value here is adequate. '''Slicing''' and '''ddmin''' are two different ways of doing minimization. Tests are generated after running many randomly generated calls to routines in your target class. Tests are generated for calls that fail. So, there may have been many randomized calls leading up to the failed call. Minimization helps to eliminate the majority of the unrelated randomly generated calls, leaving the test code as short as possible. You will notice that minimization processing is memory and processor intensive. 
+The two check boxes '''Slice minimization''' and '''DDmin for minimization''' allow you to select the approach that you want to use for minimizing the size of generated tests. Generally, the default value here is adequate. '''Slicing''' and '''ddmin''' are two different ways of doing minimization. Tests are generated after running many randomly generated calls to routines in your target class. Tests are generated for calls that fail. So, there may have been many randomized calls leading up to the failed call. Minimization helps to eliminate the majority of the unrelated randomly generated calls, leaving the test code as short as possible. You will notice that minimization processing is memory and processor intensive. 
 
-The last check box, '''Create HTML output''' give you the option of having AutoTest record the results of a test generation run in a set of files that you can review with a web browser. 
+The last check box, '''HTML statistics''' gives you the option of having AutoTest record the results of a test generation run in a set of files that you can review with a web browser. 
+
+We can allow all these to remain their default values, with one exception. Let's check the '''HTML statistics''' box. 
+
+
 
 During the test generation you can watch the random invocations of your class's routines being logged in the Testing pane of the Outputs tool. When the generation completes, AutoTest directs you to the location of the results:
 
