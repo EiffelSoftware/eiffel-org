@@ -1,0 +1,45 @@
+[[Property:title|Release notes for EiffelStudio 7.1]]
+[[Property:link_title|7.1]]
+[[Property:weight|12]]
+[[Property:uuid|551e30c1-395c-27cb-e81f-d57204e68cc5]]
+==Graphical environment==
+
+===What's new===
+* New SCOOP processor garbage collection which now lets you create more than 1500 processors during one execution. There is still a limit on the number of concurrent processors you might have.
+
+===Improvements===
+* Better copy/paste of code to avoid useless reformatting after copying and pasting a block of text.
+* Better formatting of Eiffel source code when using the pretty printer.
+* Better performance of SCOOP runtime for certain types of concurrent calls.
+* Printing in postscript mode now allowed on Unix (previously, printing always defaulted to RTF).
+
+===Changes===
+
+===Bug fixes===
+* Fixed issue with automatically generated tests which included tests that should have been excluded because they represented invalid tests (e.g. precondition failures). 
+* Fixed issue where EiffelStudio would fail while trying to generate tests for a generic type whose generic derivation doesn't exist in the system.
+* Fixed a failure of EiffelStudio when trying to display the help of a compiler error.
+
+==Compiler==
+* Click [[Major changes between ISE Eiffel 7.0 and ISE Eiffel 7.1|here]] for the compiler release notes.
+
+==Debugger==
+* Click [[Release notes for EiffelStudio 7.1 related to the debugger|here]]  for the EiffelStudio debugger release notes.
+
+==EiffelBuild==
+* Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.
+
+==Libraries==
+
+===EiffelBase===
+
+===EiffelThread===
+* Breaking change in class THREAD, descendants should now call {THREAD}.make in order to initialize threads properly.
+
+===EiffelVision2===
+* [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]]
+
+===EiffelStore===
+
+[[EiffelStudio release notes|Click here to check out what was new in other versions]]  
+
