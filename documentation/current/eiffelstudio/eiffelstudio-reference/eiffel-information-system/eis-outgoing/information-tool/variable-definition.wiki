@@ -2,17 +2,20 @@
 [[Property:weight|3]]
 [[Property:uuid|7705ab33-a505-7711-a106-5fedd2e1040e]]
 EIS supports following types of variables which can be used in '''Source''' of annotation list. 
-*  EiffelStudio installation built in variables 
+*  EiffelStudio installation built-in variables 
 **  ISE_WIKI = http://dev.eiffel.com 
 **  EIFFELROOM = http://www.eiffelroom.com 
 
-*  Context related built in variables. These variables can be used in specific context. For instance, '''feature_name''' refers to the name of the feature with which an annotation is associated. 
+*  Other EiffelStudio built-in variables
+**  system_path = The path of the system being annotated
+
+*  Context related built-in variables. These variables can be used in specific context. For instance, '''feature_name''' refers to the name of the feature with which an annotation is associated. 
 **  feature_name 
 **  class_name 
 **  group_name 
 **  target_name 
 
-{{note|This kind of variable is only valid in a annotation that is associated with a component to which the variable name refers. For example, '''feature_name''' has no effect if used in a '''target''' component.}}
+{{note|A context related built-in variable is only valid in a annotation that is associated with a component to which the variable name refers. For example, '''feature_name''' has no effect if used in a '''target''' component.}}
 
 *  Individual system or library preference variables. This kind of variable is defined in your Project Settings. Manage these variables by following this path in the System tree on the left of the Project Setting dialog:
 <code lang="text">
