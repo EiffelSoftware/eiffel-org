@@ -11,7 +11,6 @@
 * Added support for specifying C compiler flags and linker flags.
 * Preview of GTK3 support which includes a HTML5 back-end for EiffelVision applications.
 * Added support for EIFFEL_LIBRARY environment variable, if set and ISE_LIBRARY is not set by the current user, the former will be used to locate libraries.
-* Added `use_postscript' preference.
 * Info tool:
 ** Added a new Add button and Go To button. Rearranged the position of Delete button.
 ** Added a new built-in variable SYSTEM_PATH that refers to the location of system in which current entry is written.
@@ -31,7 +30,7 @@
 * Better copy/paste of code to avoid useless reformatting after copying and pasting a block of text. The smart behavior is available via Ctrl+V or Shift+Ins. If the new behavior is not adequate, Ctrl+Shift+V will paste as is.
 * Better formatting of Eiffel source code when using the pretty printer.
 * Better performance of SCOOP runtime for certain types of concurrent calls.
-* Printing in postscript mode now allowed on Unix (previously, printing always defaulted to RTF).
+* Printing in postscript mode now allowed on Unix (previously, printing always defaulted to RTF); added `use_postscript' preference.
 * Take into account mice with high resolution wheels.
 * Avoid flashing when completion window is updated at each keystroke.
 * Avoided resizing the grid all the time in Info tool when grid items are recreated for sorting, or other operations.
