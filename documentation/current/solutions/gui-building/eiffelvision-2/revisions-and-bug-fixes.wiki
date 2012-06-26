@@ -3,6 +3,27 @@
 [[Property:uuid|eb11a237-0c75-0427-452a-303d4f276b97]]
 This document contains details of modifications and bug fixes to the EiffelVision 2 library listed by the release version of EiffelStudio. All bug fixes and modifications are relative to the previously released version.
 
+==EiffelStudio 7.1==
+'''New'''
+* Added GTK3 support with HTML5 backend
+
+'''Improvements'''
+* Added a hint facility for the height of the drop down in a combo box. Currently the hint is only followed on Windows.
+* Better keyboard navigation of grids.
+* Improved keyboard activation/settings for certain type of grid items.
+
+'''Bug fixes'''
+*'''Platform Independent'''
+
+*'''Windows'''
+** Added support for high resolution wheel mice.
+** Fixed a potential crash when using an EV_FIXED if resizing causes some redraw operations.
+** Fixed an issue where the pick and drop lines would disappear after performing an Alt+Tab to switch between applications.
+** Made sure colors are not shared between a widget and the original color object used to set the color of the widget.
+
+*'''GTK'''
+** Made sure that if you do not have text in a EV_TEXTABLE descendants that if they have some pixmaps, that the pixmap is nicely centered (fixes bug#18082).
+
 ==EiffelStudio 7.0==
 '''Improvements'''
 * Added multi-monitor functionality to EV_SCREEN
@@ -859,10 +880,4 @@ The following list details some of the breaking changes, and how to fix them:
 
 *  '''Gtk''' 
 **  Gtk version of Studio released (including EiffelVision 2), so no fixes from 5.0
-
-
-
-
-
-
 

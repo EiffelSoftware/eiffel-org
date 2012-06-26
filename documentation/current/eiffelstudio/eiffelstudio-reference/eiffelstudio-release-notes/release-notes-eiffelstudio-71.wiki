@@ -6,19 +6,31 @@
 
 ===What's new===
 * New SCOOP processor garbage collection which now lets you create more than 1500 processors during one execution. There is still a limit on the number of concurrent processors you might have.
+* Added the Eiffel Web Framework contribution to build web applications or services in Eiffel.
+* Added inclusion of EiffelBase2 as a contribution.
+* Added support for specifying C compiler flags and linker flags.
+* Preview of GTK3 support which includes a HTML5 back-end for EiffelVision applications.
+* Added support for EIFFEL_LIBRARY environment variable, if set and ISE_LIBRARY is not set by the current user, the former will be used to locate libraries.
 
 ===Improvements===
-* Better copy/paste of code to avoid useless reformatting after copying and pasting a block of text.
+* Better copy/paste of code to avoid useless reformatting after copying and pasting a block of text. The smart behavior is available via Ctrl+V or Shift+Ins. If the new behavior is not adequate, Ctrl+Shift+V will paste as is.
 * Better formatting of Eiffel source code when using the pretty printer.
 * Better performance of SCOOP runtime for certain types of concurrent calls.
 * Printing in postscript mode now allowed on Unix (previously, printing always defaulted to RTF).
+* Take into account mice with high resolution wheels.
+* Avoid flashing when completion window is updated at each keystroke.
 
 ===Changes===
+* Removed addition of .NET targets in our project configuration templates to make it easier on new users to compile a project out of the box.
 
 ===Bug fixes===
+* Fixed support of non-ASCII keyboard characters on Unix platforms.
 * Fixed issue with automatically generated tests which included tests that should have been excluded because they represented invalid tests (e.g. precondition failures). 
 * Fixed issue where EiffelStudio would fail while trying to generate tests for a generic type whose generic derivation doesn't exist in the system.
+* Fixed a runtime issue when testing automatically generated tests for a void-safe program, they would always fail instead of passing (when they should be passing).
 * Fixed a failure of EiffelStudio when trying to display the help of a compiler error.
+* Fixed disappearance of dashed pick and drop lines on Windows.
+* Fixed an issue where trying to perform a diff inside the console tool would crash EiffelStudio.
 
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 7.0 and ISE Eiffel 7.1|here]] for the compiler release notes.
@@ -32,14 +44,47 @@
 ==Libraries==
 
 ===EiffelBase===
+* Fixed a bug with {ARRAY}.force when the new lower index is less than the old lower index - count.
+* Fixed a bug with {ARRAY}.force where if the items had to move, we forget to reset the newly allocated area.
+* Corrected precondition of {ARRAY}.force that did not allow storing elements at existing indexes.
+* Added {PLATFORM}.is_scoop_capable to find out if a system is compiled using a SCOOP capable runtime.
+* Added ability to create a local string using a separate string.
+* Moved most of the queries of strings descendants (e.g. is_readl, is_integer, ...) to READABLE_STRING_GENERAL to make it easier to handle all the various kinds of strings.
+* Added {HASH_TABLE}.disjoint to find out if 2 tables have some common elements or not based on the key comparison criteria.
+* Made explicit that the `area' is shared between an ARRAY and an ARRAYED_LIST created via conversion.
+* Fixed improper implementation of `copy' for UNIX_FILE_INFO and BOOL_STRING which caused for the former a sharing of some FILE specific information.
+* Fixed {STRING_32}.left_adjust that did not work properly when the string contained only white spaces. 
+* Fixed an issue with {FILE}.exists on Windows 32-bit when files are larger than 2GB. It only occurs with the latest version of the Microsoft C++ compiler (VS2010 or later).
+
+===EiffelStore===
+* Added support for XML data in ODBC
+* Fixed an issue with retrieving blob of null-size.
+* Added ability to connect to several databases at once for the same database handle.
+* Added ability to connect to an ODBC database using a connection string.
+* Improved support for MySQL.
+* Added query to find out how many rows have been affected by the last query.
+* Made sure that errors are properly propagated when calling {DATABASE_MANAGER}.execute_query_without_commit.
 
 ===EiffelThread===
 * Breaking change in class THREAD, descendants should now call {THREAD}.make in order to initialize threads properly.
+* Fixed a memory corruption issue when many threads are exiting at once, or that a child thread exits immediately after its parent but the parent is not yet finished in its termination.
+
+===EiffelTime===
+* Fixed improper parsing of 2 digit hours.
 
 ===EiffelVision2===
 * [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]]
 
-===EiffelStore===
+===Web Browser Library===
+* Fixed a C compilation issue when finalizing a project using this library.
+
+===WEL===
+* Added ability to print to a specific printer or the default printer without having to show the printer dialog.
+* Added support for loading EMF files through WEL_GDIP_METAFILE.
+* Fixed an issue with WEL_DISK_SPACE that was not working in 64-bit mode. The fix implies a breaking change in that now we return a NATURAL_64 instead of an INTEGER_32.
+* Added SCOOP support.
+
+
 
 [[EiffelStudio release notes|Click here to check out what was new in other versions]]  
 
