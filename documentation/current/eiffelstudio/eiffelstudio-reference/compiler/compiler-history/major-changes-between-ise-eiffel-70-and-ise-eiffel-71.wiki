@@ -5,10 +5,13 @@
 ==What's new==
 
 ==Improvements==
+* Report invalid Unicode code point for STRING_8 manifeset.
 
 ==Changes==
+* Breaking change of generating Unicode code point for STRING_8 manifest written in UTF-8 source code. (Written UTF-8 bytes was generated)
 
 ==Bug fixes==
+* Fixed bug that the compiler accepted invalid typed character. i.e. {BOOLEAN} 'c'
 
 ===Language issues===
 
