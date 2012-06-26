@@ -13,7 +13,7 @@ To specify a link between Eiffel and external information, you include such an a
 
 The primary components of an annotation are: 
 #  The '''EIS''' marker. 
-#  The '''[[Protocols|protocol]]''', which indicates the type of external information, and making it possible for EIS to determine the associated external tool. If the '''protocol''' is omitted, its value defaults to "Raw URL".
+#  The '''[[Protocols|protocol]]''', which indicates the type of external information, and making it possible for EIS to determine the associated external tool. If the '''protocol''' is omitted, its value defaults to "URI".
 #  The '''source'''. This is the location of the external information, for example a URL, or a file name. 
 
 ==Syntax for Annotations==
@@ -26,14 +26,14 @@ Additionally, a special type of annotation called an '''Automatic annotation''' 
 
 The following example illustrates the form of an EIS annotation written in Eiffel source code. The annotation appears in the <code>note</code> part of a class or feature definition:
 <code lang="text">
-EIS: "name=Project Requirement", "src=$(PROJ)/docs/requirements.pdf", "protocol=PDF", "nameddest=4.1", "tag=requirement"
+EIS: "name=Project Requirement", "src=$(system_path)/docs/requirements.pdf", "protocol=PDF", "nameddest=4.1", "tag=requirement"
 </code>
 
 The '''EIS marker''' is the label '''EIS:''' (this label is called the ''Note_name'' in the ISO/ECMA Eiffel Standard syntax). The '''EIS marker''' tells the Eiffel Information System that this particular ''Note_entry'' is of interest to EIS. 
 
 The '''name''' property assigns a name to this annotation. The name will be visible in the [[Information Tool]].
 
-In this example, the '''source''' name (src) includes the string '''$(PROJ)''', a reference to a [[Variable Definition|variable]], '''PROJ''', which the user has defined for the the project location. 
+In this example, the '''source''' name (src) includes the string '''$(system_path)''', a reference to a [[Variable Definition|variable]], '''system_path''', which is a predefined variable for the the project location. 
 
 The '''protocol''' is '''PDF'''. 
 
@@ -45,7 +45,7 @@ The following is an example of an annotation  Eiffel configuration (.ecf) file:
 
 <code lang="text">
 <note> 
-    <EIS protocol="pdf" name="Project Requirement" src="$(PROJ)/docs/requirements.pdf" nameddest="4.1"/>
+    <EIS protocol="pdf" name="Project Requirement" src="$(system_path)/docs/requirements.pdf" nameddest="4.1"/>
 </note>
 </code>
 
@@ -54,7 +54,6 @@ Eiffel configuration files have XML definitions, so this is just an XML version 
 
 {{seealso|<br/>
 [[Variable Definition|Variable Definition]]  }}
-
 
 
 
