@@ -1,9 +1,10 @@
 [[Property:title|Browsing Information]]
 [[Property:weight|0]]
 [[Property:uuid|2260eabd-cbc9-c385-6295-96474249953f]]
-[[Image:information tool v64]]  
+[[Image:information tool v71|1000px]]  
 
 Figure 1: The Information Tool
+
 
 ==Information Tree==
 
@@ -15,31 +16,35 @@ You can navigate to the following types of nodes in the information tree:
 *  Library
 *  Class
 *  Feature
-*  Targets without tags
-*  Listed tag
+*  Items without tags
 
 ==Annotation List==
 
 The annotation list appears on the right of the tool window.
 
 The following columns are available in the list:
-*  '''Location''' - the development object where that piece of annotation belongs to. Typical locations are target, cluster, class and feature.
-*  '''Name''' - the name of the annotation.
-*  '''[[Protocols|Protocol]]''' - the type of the Source. 
+*  '''Target''' - the development object where that piece of annotation belongs to. Typical locations are target, cluster, class and feature.
 *  '''Source''' - the address of the resource, typically a URL or file path. Variables can be used.
+*  '''Parameters''' - additional information relevant to certain protocols, for example, a page number in a PDF document.
+*  '''[[Protocols|Protocol]]''' - the type of the Source. 
+*  '''Name''' - the name of the annotation.
 *  '''Tags''' - terms or phrases used to categorize annotations. Tags are separated by '''","'''
 *  '''Override''' - checkbox is checked if an implicit, automatically generated annotation is being overridden by the annotation in this list entry. If this list entry is itself an implicit annotation, this column shows the automatic annotation [[Image: automatic annotation icon]] icon. Override is defined only for  annotations on classes.
-*  '''Others''' - other related attributes. Attributes are separated by '''","''' 
-
-{{note|EIS ignores any attributes in '''Others''' which are not used by the '''protocol'''. }}
 
 
-{{tip| Clicking on title of each column sorts that column. }}
+
+
+{{note|EIS ignores any parameters in '''Parameters''' which are not used by the '''protocol''' specified in the entry. }}
+
+
+{{tip| Clicking on title of each column sorts the list based on the values in that column. }}
 
 
 ==Opening Resources==
 
-The resources associated with a particular annotation can be opened by double-clicking on the annotation in the Information Tool list. Alternatively, you can use the arrow keys to highlight the annotation in the Information Tool list and then press enter. EIS opens the resource associated with the annotation using the external tool for the resource's protocol. So, for example, Raw URL resources will be opened in the default web browser.
+The most straightforward way of opening a resource is to select the annotation containing the resource and click the "Go to" button on the status bar below the annotation list.
+
+The resource associated with a particular annotation can also be opened by double-clicking on the annotation in the Information Tool list. Alternatively, you can use the arrow keys to highlight the annotation in the Information Tool list and then press enter. EIS opens the resource associated with the annotation using the external tool for the resource's protocol. So, for example, URI resources will be opened in the default web browser.
 
 While using EiffelStudio, pressing '''F1''' while the cursor is in the editor pane will access annotations associated with the Eiffel object that is currently shown in the editor pane. If only one annotation is available, then its resource is automatically opened by EIS. If more than one annotation is available, the '''Select help document''' dialog box (see Figure 2) appears providing the name and type of the available resources. You can use the dialog to choose which resources you wish to display.
 
@@ -56,7 +61,6 @@ Sweeping annotation information will update the Information Tool with current da
 *  '''Manual''' - Clicking the ''manual sweeping'' button [[Image:manual sweeping icon]] on the bottom toolbar triggers an immediate manual sweep.
 
 The progress bar in the bottom of the tool indicates the progress of a currently executing sweep..
-
 
 
 
