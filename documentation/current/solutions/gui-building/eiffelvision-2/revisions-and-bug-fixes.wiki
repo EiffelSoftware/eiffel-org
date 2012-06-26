@@ -5,15 +5,18 @@ This document contains details of modifications and bug fixes to the EiffelVisio
 
 ==EiffelStudio 7.1==
 '''New'''
-* Added GTK3 support with HTML5 backend
+* Added experimental GTK3 support with HTML5 backend
+* Added SCOOP compatibility
 
 '''Improvements'''
 * Added a hint facility for the height of the drop down in a combo box. Currently the hint is only followed on Windows.
-* Better keyboard navigation of grids.
+* Better keyboard navigation of grids including tab handling of activatable grid items.
 * Improved keyboard activation/settings for certain type of grid items.
+* Improved latency of asynchronous agents calling through do_once_on_idle when adding from another thread.
 
 '''Bug fixes'''
 *'''Platform Independent'''
+** Fixed problems when keyboard navigating around EV_GRID's when hidden columns are present.
 
 *'''Windows'''
 ** Added support for high resolution wheel mice.
@@ -23,6 +26,7 @@ This document contains details of modifications and bug fixes to the EiffelVisio
 
 *'''GTK'''
 ** Made sure that if you do not have text in a EV_TEXTABLE descendants that if they have some pixmaps, that the pixmap is nicely centered (fixes bug#18082).
+** Fixed internationalization handling for keyboard input.
 
 ==EiffelStudio 7.0==
 '''Improvements'''

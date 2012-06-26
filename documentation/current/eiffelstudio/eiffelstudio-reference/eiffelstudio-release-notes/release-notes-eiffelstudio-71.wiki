@@ -11,6 +11,21 @@
 * Added support for specifying C compiler flags and linker flags.
 * Preview of GTK3 support which includes a HTML5 back-end for EiffelVision applications.
 * Added support for EIFFEL_LIBRARY environment variable, if set and ISE_LIBRARY is not set by the current user, the former will be used to locate libraries.
+* Added `use_postscript' preference.
+* Info tool:
+** Added a new Add button and Go To button. Rearranged the position of Delete button.
+** Added a new built-in variable SYSTEM_PATH that refers to the location of system in which current entry is written.
+** Added new contextual menu "Info" and sub menus Add Info to and Copy URI from.
+** Implemented "DOC" protocol, supporting "bookmark" parameter, as long as Word is installed and available.
+** Synchronize stones into Into Tool when clicking "Synchronize Context Tool"
+** Improved acceptance of stones in the tool.
+** Remember selected item when the tree is rebuilt (for recompilation and so on)
+** Added a button to choose a file from a dialog for "Source".
+** Added a dropdown list of choices for protocols.
+** Changed names and sequence of columns as following: Target Source Parameters Protocol Name Tags Override
+** Drew signs on icons to show there is information related to a tree node.
+** In addition to "Unnamed" as default name, put "URI" as default protocol and http://www.yourwebsite.com as default Source when creating a new entry.
+** Added completion list for available variables in Source.
 
 ===Improvements===
 * Better copy/paste of code to avoid useless reformatting after copying and pasting a block of text. The smart behavior is available via Ctrl+V or Shift+Ins. If the new behavior is not adequate, Ctrl+Shift+V will paste as is.
@@ -19,6 +34,8 @@
 * Printing in postscript mode now allowed on Unix (previously, printing always defaulted to RTF).
 * Take into account mice with high resolution wheels.
 * Avoid flashing when completion window is updated at each keystroke.
+* Avoided resizing the grid all the time in Info tool when grid items are recreated for sorting, or other operations.
+* Avoided adding empty attributes in code like EIS: "name=" when editing EIS entries.
 
 ===Changes===
 * Removed addition of .NET targets in our project configuration templates to make it easier on new users to compile a project out of the box.
@@ -31,6 +48,7 @@
 * Fixed a failure of EiffelStudio when trying to display the help of a compiler error.
 * Fixed disappearance of dashed pick and drop lines on Windows.
 * Fixed an issue where trying to perform a diff inside the console tool would crash EiffelStudio.
+* Fixed a bug in EIS tool, when target was changed from class to feature or back, the column "Override" was not updated correctly.
 
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 7.0 and ISE Eiffel 7.1|here]] for the compiler release notes.
@@ -64,6 +82,9 @@
 * Improved support for MySQL.
 * Added query to find out how many rows have been affected by the last query.
 * Made sure that errors are properly propagated when calling {DATABASE_MANAGER}.execute_query_without_commit.
+* Properly handled {DB_CHANGE}.reset
+* Improved SQL string escaping. Fixed bug escaping ''' for ODBC.
+* Added a way to enable multi-statements execution for MySQL.
 
 ===EiffelThread===
 * Breaking change in class THREAD, descendants should now call {THREAD}.make in order to initialize threads properly.
