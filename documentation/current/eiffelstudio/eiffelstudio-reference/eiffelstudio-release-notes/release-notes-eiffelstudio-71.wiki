@@ -33,8 +33,8 @@
 * Printing in postscript mode now allowed on Unix (previously, printing always defaulted to RTF); added `use_postscript' preference.
 * Take into account mice with high resolution wheels.
 * Avoid flashing when completion window is updated at each keystroke.
-* Avoided resizing the grid all the time in Info tool when grid items are recreated for sorting, or other operations.
-* Avoided adding empty attributes in code like EIS: "name=" when editing EIS entries.
+* Avoid resizing the grid all the time in Info tool when grid items are recreated for sorting, or other operations.
+* Avoid adding empty attributes in code like EIS: "name=" when editing EIS entries.
 
 ===Changes===
 * Removed addition of .NET targets in our project configuration templates to make it easier on new users to compile a project out of the box.
@@ -61,33 +61,33 @@
 ==Libraries==
 
 ===EiffelBase===
-* Fixed a bug with {ARRAY}.force when the new lower index is less than the old lower index - count.
-* Fixed a bug with {ARRAY}.force where if the items had to move, we forget to reset the newly allocated area.
-* Corrected precondition of {ARRAY}.force that did not allow storing elements at existing indexes.
-* Added {PLATFORM}.is_scoop_capable to find out if a system is compiled using a SCOOP capable runtime.
+* Fixed a bug with <code>{ARRAY}.force</code> when the new lower index is less than the old lower index - count.
+* Fixed a bug with <code>{ARRAY}.force</code> where if the items had to move, the newly allocated area was not reset.
+* Corrected precondition of <code>{ARRAY}.force</code> that did not allow storing elements at existing indexes.
+* Added <code>{PLATFORM}.is_scoop_capable</code> to find out if a system is compiled using a SCOOP capable runtime.
 * Added ability to create a local string using a separate string.
-* Moved most of the queries of strings descendants (e.g. is_readl, is_integer, ...) to READABLE_STRING_GENERAL to make it easier to handle all the various kinds of strings.
-* Added {HASH_TABLE}.disjoint to find out if 2 tables have some common elements or not based on the key comparison criteria.
-* Made explicit that the `area' is shared between an ARRAY and an ARRAYED_LIST created via conversion.
-* Fixed improper implementation of `copy' for UNIX_FILE_INFO and BOOL_STRING which caused for the former a sharing of some FILE specific information.
-* Fixed {STRING_32}.left_adjust that did not work properly when the string contained only white spaces. 
-* Fixed an issue with {FILE}.exists on Windows 32-bit when files are larger than 2GB. It only occurs with the latest version of the Microsoft C++ compiler (VS2010 or later).
+* Moved most of the queries of strings descendants (e.g. <code>is_real</code>, <code>is_integer</code>, ...) to class <code>READABLE_STRING_GENERAL</code> to make it easier to handle all the various kinds of strings.
+* Added <code>{HASH_TABLE}.disjoint</code> to find out if 2 tables have some common elements or not based on the key comparison criteria.
+* Made explicit that the `<code>area</code>' is shared between an <code>ARRAY</code> and an <code>ARRAYED_LIST</code> created via conversion.
+* Fixed improper implementation of `<code>copy</code>' for <code>UNIX_FILE_INFO</code> and <code>BOOL_STRING</code> which caused for the former a sharing of some <code>FILE</code> specific information.
+* Fixed <code>{STRING_32}.left_adjust</code> that did not work properly when the string contained only white spaces. 
+* Fixed an issue with <code>{FILE}.exists</code> on Windows 32-bit when files are larger than 2GB. It only occurs with the latest version of the Microsoft C++ compiler (VS2010 or later).
 
 ===EiffelStore===
-* Added support for XML data in ODBC
+* Added support for XML data in ODBC.
 * Fixed an issue with retrieving blob of null-size.
 * Added ability to connect to several databases at once for the same database handle.
 * Added ability to connect to an ODBC database using a connection string.
 * Improved support for MySQL.
 * Added query to find out how many rows have been affected by the last query.
-* Made sure that errors are properly propagated when calling {DATABASE_MANAGER}.execute_query_without_commit.
-* Properly handled {DB_CHANGE}.reset
+* Made sure that errors are properly propagated when calling <code>{DATABASE_MANAGER}.execute_query_without_commit</code>.
+* Properly handled <code>{DB_CHANGE}.reset</code>.
 * Improved SQL string escaping. Fixed bug escaping ''' for ODBC.
-* Added a way to enable multi-statements execution for MySQL.
+* Added capability to enable multi-statements execution for MySQL.
 
 ===EiffelThread===
-* Breaking change in class THREAD, descendants should now call {THREAD}.make in order to initialize threads properly.
-* Fixed a memory corruption issue when many threads are exiting at once, or that a child thread exits immediately after its parent but the parent is not yet finished in its termination.
+* Breaking change in class <code>THREAD</code>, descendants should now call <code>{THREAD}.make</code> in order to initialize threads properly.
+* Fixed a memory corruption issue occurring when many threads are exiting at once, or that a child thread exits immediately after its parent but the parent is not yet finished in its termination.
 
 ===EiffelTime===
 * Fixed improper parsing of 2 digit hours.
@@ -100,8 +100,8 @@
 
 ===WEL===
 * Added ability to print to a specific printer or the default printer without having to show the printer dialog.
-* Added support for loading EMF files through WEL_GDIP_METAFILE.
-* Fixed an issue with WEL_DISK_SPACE that was not working in 64-bit mode. The fix implies a breaking change in that now we return a NATURAL_64 instead of an INTEGER_32.
+* Added support for loading EMF files through <code>WEL_GDIP_METAFILE</code>.
+* Fixed an issue with <code>WEL_DISK_SPACE</code> that was not working in 64-bit mode. The fix implies a breaking change in that now a <code>NATURAL_64</code> is returned instead of an <code>INTEGER_32</code>.
 * Added SCOOP support.
 
 
