@@ -85,7 +85,7 @@
 * Added capability to enable multi-statements execution for MySQL.
 
 ===EiffelThread===
-* Breaking change in class <code>THREAD</code>, descendants should now call <code>{THREAD}.make</code> in order to initialize threads properly.
+* Breaking change in class <code>THREAD</code>, descendants should now call <code>{THREAD}.make</code> in order to initialize threads properly. This change was required to have a project using SCOOP be able to use libraries that are only aware of multithreading.
 * Fixed a memory corruption issue occurring when many threads are exiting at once, or that a child thread exits immediately after its parent but the parent is not yet finished in its termination.
 
 ===EiffelTime===
