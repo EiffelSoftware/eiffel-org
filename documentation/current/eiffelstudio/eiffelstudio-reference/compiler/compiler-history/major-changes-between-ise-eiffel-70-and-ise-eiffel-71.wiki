@@ -3,22 +3,36 @@
 [[Property:weight|12]]
 [[Property:uuid|4b7325ad-4c9c-d6f8-3a25-7d2a4d709fcb]]
 ==What's new==
+* New SCOOP processor GC which lets you create as many processors as you want as long as they are no more than 1500 concurrent processors (or less depending on your available memory).
 
 ==Improvements==
-* Report invalid Unicode code point for STRING_8 manifeset.
+* Report invalid Unicode code point for STRING_8 manifest.
+* Ensured you can switch C compilers after compiling with one on Windows.
+* Speed up C compilation with Visual Studio by using `#pragma once' on our header files (bug#17092). 
+* Speed up execution of expanded comparison using ~ when types are known to be different at compile time.
 
 ==Changes==
 * Breaking change of generating Unicode code point for STRING_8 manifest written in UTF-8 source code. (Written UTF-8 bytes was generated)
+* In the `on-demand' void-safety mode, the compiler will not report a VD88 error when you are using a non-void safe library. This should help migrating existing code to full void-safety.
+* Removed support for type qualifier for strings used in obsolete messages.
+* Removed type qualifiers from manifest constants to follow the changes in the language rules that now prevent from using them in constant attribute declarations.
+* VWEQ warnings will only be triggered for immediate code, not inherited code.
 
 ==Bug fixes==
-* Fixed bug that the compiler accepted invalid typed character. i.e. {BOOLEAN} 'c'
 
 ===Language issues===
+* Fixed bug that the compiler accepted invalid typed character. i.e. {BOOLEAN} 'c'.
+* Made sure that typed manifest strings are using a proper string type, not just any type (bug#18045).
+* Ensured all attributes are set when an unqualified agent is created (bug#18067).
 
 ===Compiler issues===
+* Fixed various issues where compiler did not properly report errors for mal-formed Eiffel Configuration Files.
+* Fixed formatting of VFAV(2) error reporting (bug#18050).
+* Fixed duplicated report of VFAC(1) error (bug#18047).
+* Made sure one can perform the C compilation using the 32-bit version of the compiler on a 64-bit machine.
+* Fixed compilation of EiffelBase using the new replication mode (test#replication008 and test#replication009).
 
 ===Runtime/code generation issues===
 
 ===Store/Retrieve issues===
-
 

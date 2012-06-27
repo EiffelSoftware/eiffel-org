@@ -7,7 +7,6 @@
 ===What's new===
 * New SCOOP processor garbage collection which now lets you create more than 1500 processors during one execution. There is still a limit on the number of concurrent processors you might have.
 * Added the Eiffel Web Framework contribution to build web applications or services in Eiffel.
-* Added inclusion of EiffelBase2 as a contribution.
 * Added support for specifying C compiler flags and linker flags.
 * Preview of GTK3 support which includes a HTML5 back-end for EiffelVision applications.
 * Added support for EIFFEL_LIBRARY environment variable, if set and ISE_LIBRARY is not set by the current user, the former will be used to locate libraries.
