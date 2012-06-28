@@ -42,7 +42,7 @@ The following columns are available in the list:
 
 ==Opening Resources==
 
-The most straightforward way of opening a resource is to select the annotation containing the resource and click the "Go to" button on the status bar below the annotation list.
+The most straightforward way of opening a resource from the Information tool is to select the annotation containing the resource and click the "Go to" button on the status bar below the annotation list.
 
 The resource associated with a particular annotation can also be opened by double-clicking on the annotation in the Information Tool list. Alternatively, you can use the arrow keys to highlight the annotation in the Information Tool list and then press enter. EIS opens the resource associated with the annotation using the external tool for the resource's protocol. So, for example, URI resources will be opened in the default web browser.
 
