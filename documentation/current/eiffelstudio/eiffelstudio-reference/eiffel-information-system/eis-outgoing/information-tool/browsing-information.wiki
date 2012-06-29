@@ -10,6 +10,8 @@ Figure 1: The Information Tool
 
 On the left of the tool window is the information tree. The tree displays all locations which contain annotations, as well as a subtree of tags by which annotations can be organized. Clicking or pressing enter on a node of the tree displays the list of annotations associated with that node. In Figure 1, the node APPLICATION, a class, has been selected, and its annotations are listed on the right.
 
+A node in the information tree that has annotations will be decorated with the small "i" icon, as you see in the case of APPLICATION.
+
 You can navigate to the following types of nodes in the information tree:
 *  Target
 *  Cluster
