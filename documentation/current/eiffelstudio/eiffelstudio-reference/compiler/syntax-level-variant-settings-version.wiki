@@ -35,7 +35,7 @@ The options are distinguished by how the compiler handles the processing of cert
 |-
 ! Obsolete !! Transitional !! Standard !! Provisional
 |-
-! rowspan="9" style="valign: center; text-align: center;" | [[Release notes for EiffelStudio 7.0 | 7.0]]
+! rowspan="9" style="valign: center; text-align: center;" | [[Release notes for EiffelStudio 7.0 | 7.0]], [[Release notes for EiffelStudio 7.1 | 7.1]]
 | style="color: gray;" | across
 | style="color: maroon;" | '''across'''
 | style="color: navy;" | '''across'''
@@ -130,6 +130,5 @@ The options are distinguished by how the compiler handles the processing of cert
 
 
 <nowiki>*</nowiki> A general explanation of what each variant setting means can be found in the section on [[Setting the syntax variant|setting the syntax variant.]]
-
 
 

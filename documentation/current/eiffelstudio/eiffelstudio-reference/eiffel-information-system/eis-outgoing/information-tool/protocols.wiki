@@ -12,7 +12,8 @@ EIS supports following protocols:
 * DOC: Represents a Microsoft Word document. 
 ** '''bookmark''' - Name of a Microsoft Word document bookmark.
 
-The list of currently supported protocols is always available in a drop-down menu associated with entries in the '''Protocol''' column of the Information tool's annotation list.
+The list of currently supported protocols is always available in a drop-down menu associated with entries in the '''Protocol''' column of the [[Browsing information|Information tool]]'s annotation list.
+
 
 {{note|The status of supported protocols described above is as of EiffelStudio version 7.1. }}
 
