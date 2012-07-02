@@ -10,7 +10,7 @@ Figure 1: The Information Tool
 
 On the left of the tool window is the information tree. The tree displays all locations which contain annotations, as well as a subtree of tags by which annotations can be organized. Clicking or pressing enter on a node of the tree displays the list of annotations associated with that node. In Figure 1, the node APPLICATION, a class, has been selected, and its annotations are listed on the right.
 
-A node in the information tree that has annotations will be decorated with the small "i" icon, as you see in the case of APPLICATION.
+A node in the information tree that has annotations will be decorated with the small "i" icon [[Image:EIS information icon]], as you see in the case of APPLICATION.
 
 You can navigate to the following types of nodes in the information tree:
 *  Target
@@ -62,7 +62,12 @@ Sweeping annotation information will update the Information Tool with current da
 *  '''Automatic''' - EIS automatically sweeps information at times when Information tool is visible. On the bottom toolbar, clicking the ''automatic sweeping'' toggle button [[Image:automatic sweeping icon]] to the ''down'' position activates automatic sweeping. Clicking the button back to the ''up'' position disables automatic sweeping.
 *  '''Manual''' - Clicking the ''manual sweeping'' button [[Image:manual sweeping icon]] on the bottom toolbar triggers an immediate manual sweep.
 
-The progress bar in the bottom of the tool indicates the progress of a currently executing sweep..
+The progress bar in the bottom of the tool indicates the progress of a currently executing sweep.
+
+
+==Using Pick-and-Drop with the Information tool==
+
+You can use pick-and-drop with the information tool. If you drop a pebble on the information tree, the annotation list, the "Locate currently edited class/cluster" icon [[Image:EIS locate class or cluster icon]] on the mini-toolbar, or the Info tab [[Image:EIS info tab]], the Information tool will find and display any annotations associated with the dropped pebble. If you drop a pebble on the "Add" button [[Image:EIS add button]] a new entry will be created for the object represented by the pebble. Lastly, dropping a pebble representing a target or cluster on the "Edit EIS auto-node generation property" button [[Image: automatic annotation icon]] will display the automatic node generation dialog for the target or cluster associated with the pebble.
 
 
 
