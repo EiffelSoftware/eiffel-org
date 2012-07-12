@@ -42,7 +42,6 @@ with blanks are considered as different (test#syntax045).
 * Made sure one can perform the C compilation using the 32-bit version of the compiler on a 64-bit machine.
 * Fixed compilation of EiffelBase using the new replication mode (test#replication008 and test#replication009).
 * Improved VTAT error description (bug#16875).
-* Fixed a compiler failure when the expression of an <e>across</e> loop is not valid (bug#17239, test#term198).
 * Fixed a compiler failure when the F_code or W_code sub-directories are deleted after an initial compilation.
 
 ===SCOOP issues===
