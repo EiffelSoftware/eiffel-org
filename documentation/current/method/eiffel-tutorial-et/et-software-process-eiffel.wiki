@@ -15,6 +15,8 @@ Unlike earlier approaches, the Eiffel model assumes that the system is divided i
 
 The Eiffel techniques developed below, in particular information hiding and Design by Contract, make the concurrent engineering process possible by letting the clusters rely on each other through clearly defined interfaces, strictly limiting the amount of knowledge that one must acquire to use the cluster, and permitting separate testing. When the inevitable surprises of a project happen, the project leader can take advantage of the model's flexibility, advancing or delaying various clusters and steps through dynamic reallocation of resources. 
 
+==The Single Product Principle==
+
 Each of the individual cluster life cycles is based on a continuous progression of activities, from the more abstract to the more implementation-oriented:
 
 
@@ -24,6 +26,8 @@ Each of the individual cluster life cycles is based on a continuous progression 
 You may view this picture as describing a process of accretion (as with a stalactite), where each steps enriches the results of the previous one. Unlike traditional views, which emphasize the multiplicity of software products -- analysis document, global and detailed design documents, program, maintenance reports... --, the principle is here to treat the software as a '''single product''' which will be repeatedly refined, extended and improved. The Eiffel language supports this view by providing high-level notations that can be used throughout the lifecycle, from the most general and software-independent activities of system modeling to the most exacting details of implementation tuned for optimal run-time performance. 
 
 These properties make Eiffel span the scope of both "object-oriented methods", with their associated notations such as UML and supporting CASE tools (whereas most such solutions do not yield an executable result), and "programming languages" (whereas most such languages are not suitable for design and analysis). 
+
+Additionally, within the EiffelStudio development environment, the concept of '''single product''' is extended to documents external to the software itself, by the [[Eiffel Information System|Eiffel Information System (EIS)]] which allows the linking elements of the software text to portions of external documents and vice versa.
 
 ==Seamlessness and reversibility==
 
