@@ -18,9 +18,10 @@ If the expression has an error, or if the evaluation raised an exception, you ca
 
 {{caution|Eiffel ''agents'' (for example: <code>agent my_function</code>) are not supported is not supported. }}
 
+{{caution|The evaluation ignores void-safety checking, a side effect is that expression "{FOO}" is interpreted as "{detachable FOO}" even if your application is void-safe. Thus keep this in mind when your expression implies TYPE objects. }}
+
 
 {{caution|Currently, for classic Eiffel systems, evaluating <code>Precursor</code> will result the current feature's result (not the precursor). }}
-
 
 
 
