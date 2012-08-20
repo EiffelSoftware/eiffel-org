@@ -10,7 +10,7 @@
 
 =SCOOP project settings=
 
-SCOOP adds only a single keyword to the Eiffel language: <code>separate</code>. In any case in which SCOOP is not enabled, the <code>separate</code> keyword is ignored, and the SCOOP-specific validity rules are not applied.
+SCOOP adds only a single keyword to the Eiffel programming language: <code>separate</code>. In any case in which SCOOP is not enabled, the <code>separate</code> keyword is ignored, and the SCOOP-specific validity rules are not applied.
 
 In order to enable SCOOP processing in your project, you use the project settings. Actually, there's just one mandatory setting: ''Concurrency'', and the value you need is ''SCOOP'', as shown in the section of the Project Settings dialog below. Still, in addition to the ''Concurrency'' project setting, remember that it is recommended that for new projects you use [[Creating a new void-safe project#Project settings for void-safe projects|the settings that guarantee void-safety]].
 
