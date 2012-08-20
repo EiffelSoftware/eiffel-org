@@ -52,7 +52,7 @@ Any class that does not explicitly inherit from another is considered to inherit
 
 Classes are the only form of module in Eiffel. As will be explained in more detail, they also provide the basis for the only form of type. This module-type identification is at the heart of object technology and of the fundamental simplicity of the Eiffel method. 
 
-Above classes, you will find the concept of cluster. A cluster is a group of related classes. Clusters are a property of the method, enabling managers to organize the development into teams. As we have already seen (in [[ET: The Software Process in Eiffel|The Software Process in Eiffel]] ) they also play a central role in the lifecycle model. Clusters are an organizational concept, not a form of module, and do not require an Eiffel language construct. 
+Above classes, you will find the concept of cluster. A cluster is a group of related classes. Clusters are a property of the method, enabling managers to organize the development into teams. As we have already seen (in [[ET: The Software Process in Eiffel|The Software Process in Eiffel]] ) they also play a central role in the lifecycle model. Clusters are an organizational concept, not a form of module, and do not require an Eiffel programming language construct. 
 
 ==External software==
 
@@ -69,7 +69,7 @@ to indicate that it is actually an encapsulation of a C function whose original 
 
 Similar syntax exists to interface with C++ classes. EiffelStudio includes a tool called Legacy++ which will automatically produce, from a C++ class, an Eiffel class that encapsulates its facilities, making them available to the rest of the Eiffel software as bona fide Eiffel features. 
 
-These mechanisms illustrate one of the roles of Eiffel: as an system architecturing and software composition tool, used at the highest level to produce systems with robust, flexible structures ready for extendibility, reusability and maintainability. In these structures not everything must be written in the Eiffel language: existing software elements and library components can play their part, with the structuring capabilities of Eiffel (classes, information hiding, inheritance, clusters, contracts and other techniques seen in this presentation) serving as the overall wrapping mechanism. 
+These mechanisms illustrate one of the roles of Eiffel: as an system architecturing and software composition tool, used at the highest level to produce systems with robust, flexible structures ready for extendibility, reusability and maintainability. In these structures not everything must be written in the Eiffel programming language: existing software elements and library components can play their part, with the structuring capabilities of Eiffel (classes, information hiding, inheritance, clusters, contracts and other techniques seen in this presentation) serving as the overall wrapping mechanism. 
 
 
 
