@@ -34,7 +34,7 @@ Not doing it could generate dead-lock during the execution of a multithreaded sy
 ti: TUPLE [INTEGER]
 
 td := ti</code>
-The warning will help you correct code using this pattern, because in the next release this will be rejected in order to conform to the Eiffel language specification. 
+The warning will help you correct code using this pattern, because in the next release this will be rejected in order to conform to the Eiffel programming language specification. 
 * Now we do not generate by default the .NET attribute <eiffel>ComVisibleAttribute</eiffel> with a False value. If needed it has to be done through the new compiler functionality to add custom attributes on assembly.
 * Changed indexing clause tag for specifying custom attributes for .NET systems. Now `attribute' is replaced by `metadata'. Now you can have: 
 ** metadata: generated for both interface and implementation classes 
