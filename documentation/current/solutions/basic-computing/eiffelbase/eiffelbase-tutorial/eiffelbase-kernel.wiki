@@ -250,7 +250,7 @@ Other features under consideration include:
 
 ==What have we gained?==
 
-First we have solved the only case in the Eiffel language in which an expression has no precisely defined type: polymorphic manifest arrays. We don't have manifest arrays any more, but manifest tuples, with a precisely defined type. No incompatibility is introduced thanks to rule CONF2. The original syntax for manifest arrays, Result := <<e1, e2, ..., en>>, will continue to be supported. <br/>
+First we have solved the only case in the Eiffel programming language in which an expression has no precisely defined type: polymorphic manifest arrays. We don't have manifest arrays any more, but manifest tuples, with a precisely defined type. No incompatibility is introduced thanks to rule CONF2. The original syntax for manifest arrays, Result := <<e1, e2, ..., en>>, will continue to be supported. <br/>
 Second, we can define functions that return multiple results. This is a quite significant increase in expressive power. No common language has that. (You have to go to Lisp and functional languages.) Just define TUPLE [...] as the result type; in the function, you will write things like 
 
 Result := [e1, e2, ..., en] 
