@@ -46,7 +46,7 @@ The Eiffel-Web application has the possibility to send a selection of different 
 
 ===Debugging facilities===
 
-Design by Contract is one of the greatest strengths of the Eiffel language. When you usually run your application from EiffelStudio, you are notified when an assertion is violated and the tool offers different options in order to be able to find out its sources (feature and class tools, object inspectors, etc). However this cannot be applied to an EiffelWeb application, since it has to be run on the server. <br/>
+Design by Contract is one of the greatest strengths of the Eiffel programming language. When you usually run your application from EiffelStudio, you are notified when an assertion is violated and the tool offers different options in order to be able to find out its sources (feature and class tools, object inspectors, etc). However this cannot be applied to an EiffelWeb application, since it has to be run on the server. <br/>
 Therefore, EiffelWeb provides its own facilities for debugging. To test your classes at run-time, all you need to do is to set the Boolean feature <eiffel>is_debug_mode</eiffel> to <code>True</code> in your root class (which should inherit from <eiffel>CGI_INTERFACE</eiffel>). When your application crashes (because of an assertion or a bug), the exception trace will be displayed on the screen. 
 
 
