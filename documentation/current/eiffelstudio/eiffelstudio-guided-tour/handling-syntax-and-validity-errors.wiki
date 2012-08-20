@@ -29,7 +29,7 @@ The error shows up in the [[Error List Tool|Error List tool]]. You can expand th
 
 To correct the error, just bring the mouse back to its location, remove the spurious <code>nt</code>, and click Save again; also click Compile to make sure that the project is recompiled up-to-date. 
 
-You may wonder why the syntax error messages are not a little more verbose than just <code>Syntax error</code>. The reason is merely that Eiffel's syntax, being simple and regular, does not require sophisticated error messages; syntax errors usually result from trivial oversights. If you make a syntax error and the reason is not immediately clear, check the syntax summary in the [[Quick reference to Eiffel the language]] or the [[ECMA Standard 367|ISO/ECMA Eiffel Standard]]. 
+You may wonder why the syntax error messages are not a little more verbose than just <code>Syntax error</code>. The reason is merely that Eiffel's syntax, being simple and regular, does not require sophisticated error messages; syntax errors usually result from trivial oversights. If you make a syntax error and the reason is not immediately clear, check the syntax summary in the [[Quick reference to the Eiffel programming language]] or the [[ECMA Standard 367|ISO/ECMA Eiffel Standard]]. 
 
 
 ==A validity error==
