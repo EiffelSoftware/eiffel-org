@@ -1,5 +1,4 @@
-[[Property:title|Eiffel language reserved words]]
-[[Property:link_title|Eiffel programming language reserved words]]
+[[Property:title|Eiffel programming language reserved words]]
 [[Property:weight|1]]
 [[Property:uuid|047ce062-45de-f25c-f356-ee8ec0fc2d1d]]
 In the Eiffel language, there are certain words that are considered "reserved". These words have specific meanings recognized by the compiler. As such, it is invalid to attempt to use a reserved word as an ordinary language identifier.
