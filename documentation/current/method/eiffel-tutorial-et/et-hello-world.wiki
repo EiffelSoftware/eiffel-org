@@ -61,7 +61,7 @@ The body of the feature is introduced by the <code>do</code> keyword and termina
 *  <code>put_string</code> outputs a string, passed as argument, here <code>"Hello World"</code>. 
 *  <code>put_new_line</code> terminates the line. 
 
-Rather than using a call to <code>put_new_line</code>, the first version of the class simply includes a new-line character, denoted as <code>%N</code> (the percent sign is used to introduce codes for [[Eiffel language syntax#Special characters|special characters]]), at the end of the string. Either technique is acceptable. 
+Rather than using a call to <code>put_new_line</code>, the first version of the class simply includes a new-line character, denoted as <code>%N</code> (the percent sign is used to introduce codes for [[Eiffel programming language syntax#Special characters|special characters]]), at the end of the string. Either technique is acceptable. 
 
 You may have noticed another difference between the two versions. The first version uses a call to <code>print</code> where the second uses <code>io.put_string</code> . Here too, the effect is identical and either technique is acceptable. In the next section, you will begin to see how things like <code>io</code> and <code>print</code> become available for use in a class like <code>HELLO</code>.
 
