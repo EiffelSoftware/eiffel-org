@@ -44,7 +44,7 @@ A third source of examples is the [[Examples]] book in the documentation pages.
 
 =Eiffel Programming Language Syntax=
 
-The documentation site includes a summary of the [[Quick reference to Eiffel the language|syntax of Eiffel]] the language. This summary is intended to reflect the state of the current official [[ECMA Standard 367|ISO/ECMA Eiffel standard document]]. 
+The documentation site includes a summary of the [[Quick reference to the Eiffel programming language|syntax of Eiffel]] the language. This summary is intended to reflect the state of the current official [[ECMA Standard 367|ISO/ECMA Eiffel standard document]]. 
 
 However, usually you will find that there are differences in the syntax supported by EiffelStudio's compiler and that defined in the current standard. The differences between the standard and the EiffelStudio implementation are summarized in the [[EiffelStudio release notes]] and in a [[Differences between standard ECMA-367 and Eiffel Software implementation|documentation page]] that is specific to that purpose.
 
