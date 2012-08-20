@@ -1,7 +1,7 @@
 [[Property:title|Learning Eiffel]]
 [[Property:weight|1]]
 [[Property:uuid|a30e29fe-841d-4634-ded2-88ae1754e5fd]]
-If you are new to Eiffel and are interested in learning the technology, you might consider some of the following resources. Remember that Eiffel, unlike other programming languages, is not just a programming language. Instead, it is a full life-cycle framework for software development. As a consequence, learning Eiffel implies learning the Eiffel Method and the Eiffel Language. Additionally, the Eiffel development environment EiffelStudio is specifically designed to support the method and language. So having an understanding of the method and language helps you to appreciate the capabilities and behavior of EiffelStudio.
+If you are new to Eiffel and are interested in learning the technology, you might consider some of the following resources. Remember that Eiffel, unlike other programming languages, is not just a programming language. Instead, it is a full life-cycle framework for software development. As a consequence, learning Eiffel implies learning the Eiffel Method and the Eiffel programming Language. Additionally, the Eiffel development environment EiffelStudio is specifically designed to support the method and language. So having an understanding of the method and language helps you to appreciate the capabilities and behavior of EiffelStudio.
 
 
 =Online presentations=
@@ -10,11 +10,11 @@ Your first stop in getting acquainted with Eiffel might be the collection of [ht
 
 =Online documentation set=
 
-The [http://docs.eiffel.com docs.eiffel.com] site contains the online documentation for the Eiffel method, tools, and language. Within the documentation set are tutorials to help you learn about the Eiffel language and tools.
+The [http://docs.eiffel.com docs.eiffel.com] site contains the online documentation for the Eiffel method, tools, and language. Within the documentation set are tutorials to help you learn about the Eiffel programming language and tools.
 
 ==The Eiffel Tutorial==
 
-A [[An Eiffel Tutorial (ET)|tutorial]] that covers the Eiffel Method and much of the Eiffel language.
+A [[An Eiffel Tutorial (ET)|tutorial]] that covers the Eiffel Method and much of the Eiffel programming language.
 
 ==The EiffelStudio Guided Tour==
 
@@ -42,7 +42,7 @@ In the EiffelStudio distribution you will find a subdirectory "<code>examples</c
 
 A third source of examples is the [[Examples]] book in the documentation pages. 
 
-=Eiffel Language Syntax=
+=Eiffel Programming Language Syntax=
 
 The documentation site includes a summary of the [[Quick reference to Eiffel the language|syntax of Eiffel]] the language. This summary is intended to reflect the state of the current official [[ECMA Standard 367|ISO/ECMA Eiffel standard document]]. 
 
