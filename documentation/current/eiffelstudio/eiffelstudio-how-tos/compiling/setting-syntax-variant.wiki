@@ -1,7 +1,7 @@
 [[Property:title|Setting the syntax variant]]
 [[Property:weight|3]]
 [[Property:uuid|e265de3f-ea49-3062-ff0c-f1c296748d3e]]
-The specification of Eiffel the language has remained largely static over its life, arguably due to its sound initial design. Still, on occasion there will be significant value in evolving Eiffel and adapting it to new challenges. To accommodate this evolution, the Eiffel Software compiler provides a set of compilation variants which offer a balance of syntax support. This starts with compatibility with previously valid syntax, moves through the latest standard, and forward to language features which are currently supported but not yet etched into the standard. 
+The specification of the Eiffel programming language has remained largely static over its life, arguably due to its sound initial design. Still, on occasion there will be significant value in evolving Eiffel and adapting it to new challenges. To accommodate this evolution, the Eiffel Software compiler provides a set of compilation variants which offer a balance of syntax support. This starts with compatibility with previously valid syntax, moves through the latest standard, and forward to language features which are currently supported but not yet etched into the standard. 
 
 EiffelStudio project settings supports four of these syntax compilation variants:
 
