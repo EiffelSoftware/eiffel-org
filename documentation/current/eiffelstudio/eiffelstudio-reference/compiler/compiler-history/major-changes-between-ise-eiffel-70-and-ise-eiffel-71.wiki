@@ -22,8 +22,7 @@
 * Removed type qualifiers from manifest constants to follow the changes in the language rules that now prevent from using them in constant attribute declarations.
 * VWEQ warnings will only be triggered for immediate code, not inherited code.
 * The assignment attempt operator <e>?=</e> is now triggering an obsolete syntax warning.
-* Changed expected content of verbatim strings to take into acccount that empty lines and empty lines
-with blanks are considered as different (test#syntax045).
+* Changed expected content of verbatim strings to take into account that empty lines and empty lines with blanks are considered as different (test#syntax045).
 * Default projects are now console applications by default.
 
 ==Bug fixes==
