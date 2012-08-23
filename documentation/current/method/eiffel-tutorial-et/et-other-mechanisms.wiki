@@ -3,30 +3,85 @@
 [[Property:uuid|c0a01664-194c-4e84-0517-8e7c1ca61dec]]
 We now examine a few important mechanisms that complement the preceding picture. 
 
+
+==Manifest constants==
+
+Sometimes we want to provide in software text a self-denoting value of a particular type. In Eiffel this is what we call a '''manifest constant'''. For example, if we are searching an indexed structure, we might have an integer variable that we would want to initialize to reference the first item in the structure: 
+
+<code>
+                my_index := 1
+</code>
+
+In this case we used a manifest constant, <code>1</code>, to provide an initial value for <code>my_index</code>. In particular, this is a manifest integer. 
+
+Eiffel also supports [[Eiffel Programming Language Syntax#Manifest constants|manifest constants]] for real (and double) numbers (ex: <code>3.1415</code>), boolean values (ex: <code>True</code>, <code>False</code>), and characters (ex: <code>'A'</code>, with [[Eiffel programming language syntax#Special characters|special characters]] expressed using a percent sign as in <code>'%N'</code> for new line, <code>'%B'</code> for backspace, <code>'%"'</code> for double quote, and <code>'%U'</code> for null). 
+
+Manifest constants are also available for strings, using double quotes as in: <code>"Hello world!"</code>. As with character constants, special characters are denoted using the <code>%</code> codes.
+
+===Verbatim strings===
+
+There may be a need for a manifest string that represents a multi-line formatted string. In Eiffel we call this type of manifest string a '''verbatim string''', and there is a special syntax for specifying verbatim strings in Eiffel code. Verbatim strings are either '''aligned''' or '''non-aligned'''. Aligned verbatim strings will automatically be adjust so that their leftmost line contains no "white space" to the left of the first text character. For non-aligned verbatim strings, the white space is left untouched. You use a slightly different way of specifying each type of string. For example, this aligned verbatim string:
+
+<code>
+    my_aligned_string: STRING =
+    "[
+      Thrice hail the still unconquered King of Song!
+          For all adore and love the Master Art
+          That reareth his throne in temple of the heart;
+   And smiteth chords of passion full and strong
+      Till music sweet allures the sorrowing throng!
+    ]"
+</code>
+
+will print like this:
+
+<code lang="text">
+   Thrice hail the still unconquered King of Song!
+       For all adore and love the Master Art
+       That reareth his throne in temple of the heart;
+And smiteth chords of passion full and strong
+   Till music sweet allures the sorrowing throng!
+</code>
+
+The same string, declared as a non-aligned verbatim string:
+
+<code>
+    my_non_aligned_string: STRING =
+    "{
+      Thrice hail the still unconquered King of Song!
+          For all adore and love the Master Art
+          That reareth his throne in temple of the heart;
+   And smiteth chords of passion full and strong
+      Till music sweet allures the sorrowing throng!
+    }"
+</code>
+
+will print like this:
+
+<code lang="text">
+      Thrice hail the still unconquered King of Song!
+          For all adore and love the Master Art
+          That reareth his throne in temple of the heart;
+   And smiteth chords of passion full and strong
+      Till music sweet allures the sorrowing throng!
+</code>
+
+The difference in declaration is that the aligned verbatim string uses as its "opener" the double-quote plus bracket combination, " <code>"[</code> ", and the bracket plus double quote, " <code>]"</code> ", as its "closer". The non-aligned verbatim string uses braces, " <code>{</code> " and " <code>}</code> " instead of the bracket.
+
+
+
 ==Constant attributes==
 
 The attributes studied earlier were variable: each represents a field present in each instance of the class and changeable by its routines. 
 
-It is also possible to declare constant attributes, as in
+It is also possible to declare '''constant attributes''', as in
 <code>
     Solar_system_planet_count: INTEGER = 9
 </code>
 
 These will have the same value for every instance and hence do not need to occupy any space in objects at execution time. (In other approaches similar needs would be addressed by symbolic constants, as in Pascal or Ada, or macros, as in C.)
 
-What comes after the <code>=</code> is a manifest constant: a self-denoting value of the appropriate type. Manifest constants are available for integers, reals (also used for doubles), booleans ( <code>True</code> and <code>False</code>), characters (in single quotes, as <code>'A'</code>, with [[Eiffel programming language syntax#Special characters|special characters]] expressed using a percent sign as in <code>'%N'</code> for new line, <code>'%B'</code> for backspace, <code>'%"'</code> for double quote, and <code>'%U'</code> for null). 
-
-Manifest constants are also available for strings, using double quotes as in
-<code>
-    User_friendly_error_message: STRING = "Go get a life !"
-</code>
-
-with special characters again using the <code>%</code> codes. It is also possible to declare manifest arrays using double angle brackets: 
-<code>
-                <<1, 2, 3, 5, 7, 11, 13, 17, 19>>
-</code>
-
-which is an expression of type <code>ARRAY [INTEGER]</code>. Manifest arrays and strings are not atomic, but denote instances of the Kernel Library classes <code>STRING</code> and <code>ARRAY</code>, as can be produced by once functions. 
+What comes after the <code>=</code> is a manifest constant. So you can declare a constant attribute for any type for which there is a manifest constant.
 
 
 ==Obsolete features and classes==
@@ -273,6 +328,4 @@ Tuples are appropriate when these are the only operations you need, that is to s
 </code>
 
 As soon as you need a type with more specific features, you should define a class. 
-
-
 
