@@ -583,7 +583,7 @@ feature
 	
 </code>
 
-Again what counts, to determine if there is an invalid name clash, is the final name of the features. In this example to of the joined features were originally called <code>f</code>; the one from <code>A</code> was called <code>g</code>, but in <code>D</code> it is renamed as <code>f</code>, so without the undefinition it would cause an invalid name clash. 
+Again what counts, to determine if there is an invalid name clash, is the final name of the features. In this example, two of the joined features were originally called <code>f</code>; the one from <code>A</code> was called <code>g</code>, but in <code>D</code> it is renamed as <code>f</code>, so without the undefinition it would cause an invalid name clash. 
 
 Feature joining is the most common application of uneffecting. In some non-joining cases, however, it may be useful to forget the original implementation of a feature and let it start a new life devoid of any burden from the past. 
 

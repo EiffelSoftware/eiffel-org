@@ -20,7 +20,7 @@ Manifest constants are also available for strings, using double quotes as in: <c
 
 ===Verbatim strings===
 
-There may be a need for a manifest string that represents a multi-line formatted string. In Eiffel we call this type of manifest string a '''verbatim string''', and there is a special syntax for specifying verbatim strings in Eiffel code. Verbatim strings are either '''aligned''' or '''non-aligned'''. Aligned verbatim strings will automatically be adjust so that their leftmost line contains no "white space" to the left of the first text character. For non-aligned verbatim strings, the white space is left untouched. You use a slightly different way of specifying each type of string. For example, this aligned verbatim string:
+You may occasionally have a need for a manifest string that represents a multi-line formatted string. In Eiffel we call this type of manifest string a '''verbatim string''', and there is a special syntax for specifying verbatim strings in Eiffel code. Verbatim strings are either '''aligned''' or '''non-aligned'''. Aligned verbatim strings will automatically be adjusted so that their leftmost line (the line with text characters closest to the left margin) contains no "white space" to the left of the first text character. For non-aligned verbatim strings, the white space is left untouched. You use a slightly different way of specifying each type of string. For example, this aligned verbatim string:
 
 <code>
     my_aligned_string: STRING =
@@ -68,6 +68,18 @@ will print like this:
 
 The difference in declaration is that the aligned verbatim string uses as its "opener" the double-quote plus bracket combination, " <code>"[</code> ", and the bracket plus double quote, " <code>]"</code> ", as its "closer". The non-aligned verbatim string uses braces, " <code>{</code> " and " <code>}</code> " instead of the bracket.
 
+The syntax for specifying verbatim strings allows an option for the situation in which the specified string might conflict with the "closer". You can include a simple string between the double quote and the bracket on each end of the verbatim string to guarantee uniqueness. Here's our aligned verbatim string with the simple string " <code>*?</code> " inserted in the opener and closer:
+
+<code>
+    my_aligned_string: STRING =
+    "*?[
+      Thrice hail the still unconquered King of Song!
+          For all adore and love the Master Art
+          That reareth his throne in temple of the heart;
+   And smiteth chords of passion full and strong
+      Till music sweet allures the sorrowing throng!
+    ]*?"
+</code>
 
 
 ==Constant attributes==
