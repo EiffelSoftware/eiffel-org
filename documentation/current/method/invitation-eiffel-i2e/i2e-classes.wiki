@@ -102,10 +102,9 @@ In Eiffel's object-oriented programming style any operation is relative to a cer
 
 If you need to denote the current object explicitly, you may use the special entity <code>Current</code>. For example the unqualified occurrences of <code>add</code> appearing in the class text above are equivalent to <code>Current</code>. <code>add</code>. 
 
-In some cases, infix or prefix notation will be more convenient than dot notation. For example, if a class <code>VECTOR</code> offers an addition routine, most people will feel more comfortable with calls of the form <code>v + w</code> than with the dot-notation call <code>v.plus (w)</code>. To make this possible it suffices to give the routine a name of the form <code>infix</code> "+" rather than <code>plus</code>; internally, however, the operation is still a normal routine call. Prefix operators are similarly available. 
+In some cases, infix or prefix notation will be more convenient than dot notation. For example, if a class <code>VECTOR</code> offers an addition routine, most people will feel more comfortable with calls of the form <code>v + w</code> than with the dot-notation call <code>v.plus (w)</code>. To make this possible it suffices to give the routine a "<code>+</code>" alias. The operation is still a normal routine call which can be invoked with either the infix form or the dot-notation. 
 
 The above simple example has shown the basic structuring mechanism of the language: the class. A class describes objects accessible to clients through an official interface comprising some of the class features. Features are implemented as attributes or routines; the implementation of exported features may rely on other, secret ones. 
-
 
 
 
