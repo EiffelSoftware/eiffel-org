@@ -30,7 +30,7 @@ This would be in place of
             a_button.set_text ("Click Me")
 </code>
 
-{{note|When a widget is created no extra initialization has to be performed. '''The only exception is for a window where you have to call show in order for it to be displayed on screen'''. }}
+{{note|When a widget is created no extra initialization has to be performed. '''The only exception is with windows, for which it is necessary to call <code> show </code> in order for the windows to be displayed on screen'''. }}
 
 ==Sizing==
 
