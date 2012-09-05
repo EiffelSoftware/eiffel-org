@@ -205,7 +205,7 @@ The validity of a non-object call is restricted in ways that mirror these primar
 
 ==Convertibility==
 
-It is useful at times to designate that instances of one type can be created through the controlled conversion of instances of some other type. This can be done through an Eiffel mechanism called '''convertibility'''. 
+It is useful at times to designate that instances of one type can be created through the controlled conversion of instances of some other type. This can be done through a safe Eiffel type conversion mechanism called '''convertibility'''. 
 
 Convertibility is useful when refactoring, moving from one design to another, or, as you will see in the example, accommodating external technologies over which we have no control.
 
