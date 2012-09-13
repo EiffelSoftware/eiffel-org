@@ -7,3 +7,26 @@ The material in this book is designed to help you apply the EiffelStudio interac
 
 EiffelStudio is specifically crafted to make it easier for developers to create high quality software systems using the Eiffel method and language. EiffelStudio is continually improving, with new features and capabilities added in every new release. 
 
+
+{| border="1"
+|+'''EiffelStudio'''
+|-
+| valign="top"|
+[[Image:es gt a development window 01|thumb|center|220px|[[Starting To Browse|Development Window]] ]]
+| valign="top"|
+[[Image:es gt class tool 01|thumb|center|220px|[[Viewing Classes|The Class tool]] ]]
+| valign="top"|
+[[Image:es gt docking in progress 01|thumb|center|220px|[[Customizing the tools layout and toolbars|Customizing the layout with docking]] ]]
+| valign="top"|
+[[Image:es gt debug breakpoint reached 01|thumb|center|220px|[[Debugging and Run-time Monitoring|Debugging and runtime monitoring]] ]]
+|-
+| valign="top"|
+[[Image:AutoTest tool with failed test|thumb|center|160px|[[Using AutoTest|Automated testing]] ]]
+| valign="top"|
+[[Image:es gt testroot is client of heir|thumb|center|220px|[[Graphics-based Design|Graphics-based design]] ]]
+| valign="top"|
+[[Image:Metrics tool Metrics evaluation pane|thumb|center|220px|[[Computing Project Metrics|Computing project metrics]] ]]
+|}
+
+
+
