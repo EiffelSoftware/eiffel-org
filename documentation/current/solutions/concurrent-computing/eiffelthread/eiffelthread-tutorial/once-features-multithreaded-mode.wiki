@@ -13,7 +13,7 @@ Then the once feature is not initialized once per process but once per thread. Y
 
 By default, once features are once per thread. This means that when a once feature is called in a thread, the Eiffel run-time will check whether it has been already computed in this thread. If not, the once feature will be initialized and computed. This corresponds to the most commonly desired behavior for once features in multithreaded mode: most of the time, a once called in a thread is not likely to share its result with other threads. 
 
-This is only the default, however: you may at times need to use "once per process" versus "once per thread". Objects created "once per process" in multithreading mode can be shared among threads. You can use a [[ET: Other Mechanisms#Adjusting once semantics with "once keys"|'''once key''']] to indicate the mode you wish to use.
+This is only the default, however: you may at times need to use "once per process" versus "once per thread". Objects created "once per process" in multithreading mode can be shared among threads. You can use a [[ET: Once routines and shared objects#Adjusting once semantics with "once keys"|'''once key''']] to indicate the mode you wish to use.
 
 ==Specifying once per thread or once per process ==
 
@@ -75,13 +75,13 @@ The syntax shown above is the current standard syntax. However in Eiffel code wr
 
 ==Using once per object in a multithreaded system==
 
-It is possible to use a once key to specify a once function that is executed [[ET: Other mechanisms#Adjusting once semantics with "once keys"|once per object]]. However, in a multithreaded system, it is important to understand that no automatic synchronization of access occurs in this case. So the following caution is given.
+It is possible to use a once key to specify a once function that is executed [[ET: Once routines and shared objects#Adjusting once semantics with "once keys"|once per object]]. However, in a multithreaded system, it is important to understand that no automatic synchronization of access occurs in this case. So the following caution is given.
 
 
 {{caution|You should understand that in a multithreaded system, you must synchronize access to the result of a function executed once per object in the same way that you would synchronize access to class attributes. }}
 
 
 
-{{SeeAlso|The Eiffel Tutorial section on [[ET: Other Mechanisms#Once routines and shared objects|once functions]] .}}
+{{SeeAlso|The Eiffel Tutorial section on [[ET: Once routines and shared objects]] .}}
 
 
