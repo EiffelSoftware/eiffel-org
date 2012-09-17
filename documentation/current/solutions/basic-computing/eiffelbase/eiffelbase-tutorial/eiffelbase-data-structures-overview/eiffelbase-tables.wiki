@@ -24,9 +24,9 @@ Thanks to the hashing mechanism we will indeed be able to store suitable objects
 With good implementations, however, it is possible to use hash tables with a performance that is not much worse than that of arrays and, most importantly, may be treated as if the time for a put, an item or a remove were constant. This will mean that you can consider operations such as
 <code>
             h.put (x, k)
-            h := a.item (k)</code>
+            x := h.item (k)</code>
 
-where <eiffel>h</eiffel> is a hash-table and <eiffel>k</eiffel> is a key (for example a string) as conceptually equivalentto the array operations mentioned above. <br/>
+where <eiffel>h</eiffel> is a hash-table and <eiffel>k</eiffel> is a key (for example a string) as conceptually equivalent to the array operations mentioned above. <br/>
 The quality of a hashed implementation will depend both on the data structure that will store the objects, and on the choice of hashing function. Class [[ref:libraries/base/reference/hash_table_chart|HASH_TABLE]]  attempts to address the first concern; for the second, client developers will be responsible for choosing the proper hashing function, although Base provides a few predefined functions, in particular for class [[ref:/libraries/base/reference/string_8_chart|STRING]] . 
 
 ==When hash tables are appropriate==
