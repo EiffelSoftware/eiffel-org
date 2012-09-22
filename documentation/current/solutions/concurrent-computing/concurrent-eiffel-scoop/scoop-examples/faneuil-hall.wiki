@@ -1,12 +1,11 @@
 [[Property:title|Faneuil Hall]]
 [[Property:weight|-5]]
 [[Property:uuid|93132084-5eb9-c7d9-d58c-7b5c3f7508f8]]
-
 =Description=
 
 The Faneuil Hall example is one of several examples that comes to us from Allen Downey's book ''[http://greenteapress.com/semaphores/ The Little Book of Semaphores]''. Downey credits Grant Hutchins as the originator of the example. [http://en.wikipedia.org/wiki/Faneuil_Hall Faneuil Hall] itself is an historic building in Boston which dates from 1742 an has served as a public meeting and market place. 
 
-The scenario in the Faneuil Hall example involves a number of immigrants waiting to have their naturalizations confirmed by a judge and receive their certificates of citizenship. Immigrants enter the building wait in line to check in, then they wait. Meanwhile, a number of spectators can also enter the building. Once the judge enters the Hall, no one else may enter the hall. Spectators may leave, but immigrants may not. Once all the immigrants have checked in, their naturalization can be confirmed by the judge. Once confirmed, the immigrants can pick up their certificates. At some point after the confirmation, the judge leaves the Hall. At that point, spectators can enter again, and immigrants can leave as soon as they have picked up their certificates.
+The scenario in the Faneuil Hall example involves a number of immigrants waiting to have their naturalizations confirmed by a judge and receive their certificates of citizenship. Immigrants entering the Hall wait in line to check in, then they wait to take their oaths and receive their certificates of citizenship. Meanwhile, a number of spectators can also enter the building. Once the judge enters the Hall, no one else may enter the hall. Spectators may leave, but immigrants may not. Once the immigrants in the Hall have checked in, their naturalization can be confirmed by the judge. Once confirmed, the immigrants can pick up their certificates. At some point after the confirmation, the judge leaves the Hall. At that point, spectators can enter again, and immigrants can leave as soon as they have picked up their certificates.
 
 
 =Highlights=
