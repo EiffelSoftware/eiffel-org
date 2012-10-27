@@ -18,13 +18,6 @@ The differences between the EiffelStudio implementation of SCOOP and current and
 Although the SCOOP model can support virtually any underlying concurrency mechanism, the initial SCOOP implementation in EiffelStudio version 6.8 supports only one executable, using multiple process threads as SCOOP [[Concurrent Eiffel with SCOOP#Processors|processors]].
 
 
-==SCOOP processor termination==
-
-In version 6.8, a SCOOP processor, once created does not terminate until the entire SCOOP application that created it terminates. This occurs when all processors in the application become idle, that is, when there are no more calls logged on any processor and no calls are in the process of being applied. 
-
-In a future version, garbage collection will determine when a particular SCOOP processor may terminate.
-
-
 ==Maximum number of SCOOP processors==
 
 In the initial release, the allowable maximum number of SCOOP processors per system is 1024.
