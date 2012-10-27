@@ -1,7 +1,6 @@
 [[Property:title|SCOOP implementation]]
 [[Property:weight|2]]
 [[Property:uuid|eeb07907-e036-f3d6-5297-a7c44cfd1900]]
-
 The implementation of SCOOP within EiffelStudio varies from the definition as it has been presented in publications during the model's evolution. 
 
 Some of the differences stem from the reality that SCOOP systems could be optimized for performance, including maximizing concurrency. For example, even though the SCOOP rules state that a separate call to a query is synchronous, i. e., the calling processor waits until the query completes before proceeding, if a static analysis can show that the wait is not necessary to the proper functioning of the remainder of the calling routine, then the call to the query can be done asynchronously. 
@@ -28,7 +27,7 @@ In a future version, garbage collection will determine when a particular SCOOP p
 
 ==Maximum number of SCOOP processors==
 
-In the initial release, the allowable maximum number of SCOOP processors per system is 1536.
+In the initial release, the allowable maximum number of SCOOP processors per system is 1024.
 
 
 ==Separate anchored types==
