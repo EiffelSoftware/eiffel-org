@@ -730,7 +730,7 @@ Unconstrained genericity, as in <code>C [G]</code>, is defined as equivalent to 
 
 ==Assignment attempt==
 
-{{Caution|As of version 7.1, the assignment attempt has been marked as obsolete. Use the object test (described [[ET: Inheritance#Object test|below]] in a variant of this same discussion) instead. This documentation will remain during a period of transition, but will be removed at some point in the future. }}
+{{Caution|As of version 7.1, the assignment attempt has been marked as obsolete. Use the object test (described [[ET: Inheritance#Object test|below]] in a variant of this same discussion) instead. The documentation for the assignment attempt will remain during a period of transition, but will be removed at some point in the future. }}
 
 The Type Conformance rule ( [[ET: Inheritance#Polymorphism|"Polymorphism"]] ) ensures type safety by requiring all assignments to be from a more specific source to a more general target. 
 
