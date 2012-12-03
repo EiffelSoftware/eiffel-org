@@ -10,7 +10,7 @@ The scenario in the Faneuil Hall example involves a number of immigrants waiting
 
 =Highlights=
 
-The primary actors here are the immigrants, the judge, and the spectators, model by classes <code>IMMIGRANT</code>, <code>JUDGE</code>, and <code>SPECTATOR</code>, respectively. In addition to the actor classes, there is a class <code>HALL</code> that represents Faneuil Hall itself, and a root class that sets everything up and starts the processing. There is only one judge, but there is a maximum numbers of immigrants and spectators. The specific number of immigrants and spectators varies at random from one execution to the next. You can experiment with larger or smaller maximum numbers for immigrants and spectators by changing the values for the constants <code>{FANEUIL_HALL}.Max_immigrants</code> and <code>{FANEUIL_HALL}.Max_spectators</code>.
+The primary actors here are the immigrants, the judge, and the spectators, model by classes <code>IMMIGRANT</code>, <code>JUDGE</code>, and <code>SPECTATOR</code>, respectively. In addition to the actor classes, there is a class <code>HALL</code> that represents Faneuil Hall itself, and a root class that sets everything up and starts the processing. There is only one judge. But there can be many immigrants and spectators. Their numbers are limited to certain maximums specified by constants in the root class. The specific number of immigrants and spectators varies at random from one execution to the next. You can experiment with larger or smaller maximum numbers for immigrants and spectators by changing the values for the constants <code>{FANEUIL_HALL}.Max_immigrants</code> and <code>{FANEUIL_HALL}.Max_spectators</code>.
 
 Although not really considered an actor here, the class <code>HALL</code> plays a critical role in synchronizing the concurrent actions of the immigrants, spectators, and the judge. <code>HALL</code> includes many status queries which, when used in preconditions in features of the other actors, constitute [[Concurrent Eiffel with SCOOP#Preconditions|uncontrolled precondition clauses]] which when false will cause the calling processor to wait until the condition becomes true. For example, consider the following status query from class <code>HALL</code>:
 
@@ -37,7 +37,7 @@ This query is used by the <code>JUDGE</code> when preparing to sit and administe
 
 The judge will take his place only when all the immigrants present have checked in and are ready to take the oath.
 
-Another thing to note about this example is that immigrants and spectators obey slightly different rules when coming and going in the hall. Neither immigrants nor spectators may enter the hall if the judge is in the hall. Immigrants may not leave until the judge has left, but spectators can leave at anytime. So when you compare the <code>leave</code> features of the two classes you'll see a wait condition on <code>{IMMIGRANT}.leave</code> that is not present on <code>{SPECTATOR}.leave</code>.
+Another thing to note about this example is that immigrants and spectators obey slightly different rules when coming and going in the hall. Neither immigrants nor spectators may enter the hall if the judge is in the hall. Immigrants may not leave until the judge has left, but spectators may leave at anytime. So when you compare the <code>leave</code> features of the two classes you'll see a precondition that serves as a wait condition on <code>{IMMIGRANT}.leave</code> that is not present on <code>{SPECTATOR}.leave</code>.
 
 
 
