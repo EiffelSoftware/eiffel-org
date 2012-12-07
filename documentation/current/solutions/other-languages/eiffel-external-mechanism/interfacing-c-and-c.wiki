@@ -4,5 +4,21 @@
 {{UnderConstruction}}
 
 
+Interfacing with C and C++ are similar enough that both can be covered together. There are two basic mechanisms available. The first and simpler of the two uses an existing routine and is available only to C externals. Using this approach you simply specify the '''signature''' of an existing C function along with where the function can be found. The second mechanism allows you to write C or C++ code inline. The second option is always recognizable by the presence of the word "'''inline'''" in the external specification. Again, the '''inline''' option is the only one allowed for C++ externals.
+
+==Using an existing C function==
+
+Here is an example of an external targeting an existing C function. In this case it's the <code>floor</code> function from the C library.
+
+<code>
+    floor (v: DOUBLE): DOUBLE
+            -- Floor of `v'
+        external
+            "C signature (double): double use <math.h>"
+        end
+</code>
+
+The Eiffel external function <code>floor</code> now gives Eiffel code access to the C library function of the same name. 
+
 
 
