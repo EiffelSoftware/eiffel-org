@@ -20,13 +20,19 @@ Here is an example of an external targeting an existing C function. In this case
 
 The Eiffel external function <code>floor</code> now gives Eiffel code access to the C library function of the same name. 
 
-Here <code>external</code> is an Eiffel keyword that introduces the external specification that appears in the quoted string that follows. Within the quoted string we find first the registered language designator, in this case "C", followed by the function's signature, followed by the location in which the C function can be found. The terms "signature" and "use" within the quoted string are technically not Eiffel language keywords, but are keywords used in the specification of externals. There is one other similar keyword "inline" which can be used, but we will address it later.
+Here <code>external</code> is an Eiffel keyword that introduces the external specification that appears in the quoted string that follows. (The quoted string is actually an Eiffel [[ET: Other mechanisms|manifest string]], so it could actually be a simple quoted string or a [[ET: Other mechanisms|verbatim string]].) Within the quoted string we find first the registered language designator, in this case "C", followed by the function's signature, followed by the location in which the C function can be found. The terms "signature" and "use" within the quoted string are technically not Eiffel language keywords, but are keywords used in the specification of externals. There is one other similar keyword "inline" which can be used, but we will address it later.
 
 The "signature" consists of the types of the arguments to C function as well as the function's return type. The argument types are separated by commas in a list enclosed in parentheses. A colon precedes the function type. In cases in which the target function takes no arguments, it is not necessary to include a set of empty parentheses in the signature. However, for compatibility purposes, the empty parentheses are allowed.
 
-The "use" part denotes provides a file name or list of file names. File names can be either "user" file names or "system" file names. In the case of our example, a system file name "<code><math.h></code>" is used. System files are those that should be found by the system with no additional information. System file names are enclosed in angle brackets. User file names are included in a quoted string.
+The "use" part denotes provides a file name or list of file names. File names can be either "user" file names or "system" file names. In the case of our example, a system file name "<code><math.h></code>" is used. System files are those that should be found by the system with no additional information. System file names are enclosed in angle brackets. User file names are included in a quoted string. User file names will be passed as written to the operating system. Remember that when coding a user file name, that because it already occurs within a quoted string, you must use the percent sign to code the quotation marks inside a quoted string, for example:
 
-In the example above, the Eiffel function has the same name as the C function it targets. But that may not always be the case. It's possible that the C function name might conflict with a name already established in your class, or might conflict with Eiffel naming conventions. Suppose you wanted to call the Eiffel routine <code>my_floor</code> instead of <code>floor</code>. You could use the <code>alias</code> part of the external specification to state that the actual C function name differs from the Eiffel name, as shown below. 
+<code>
+        "C signature (double): double use %"my_c_header.h%""
+</code>
+
+Alternatively, you could code the external as a verbatim string. This would make the percent signs unnecessary.
+
+In the <code>floor</code> example above, the Eiffel function has the same name as the C function it targets. But that may not always be the case. It's possible that the C function name might conflict with a name already established in your class, or might conflict with Eiffel naming conventions. Suppose you wanted to call the Eiffel routine <code>my_floor</code> instead of <code>floor</code>. You could use the <code>alias</code> part of the external specification to state that the actual C function name differs from the Eiffel name, as shown below. 
 
 <code>
     my_floor (v: DOUBLE): DOUBLE
@@ -37,6 +43,4 @@ In the example above, the Eiffel function has the same name as the C function it
             "floor"
         end
 </code>
-
-
 
