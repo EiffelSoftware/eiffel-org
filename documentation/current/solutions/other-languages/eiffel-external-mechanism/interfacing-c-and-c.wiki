@@ -54,13 +54,70 @@ In addition to using an existing C function, you can, for both C and C++, create
             -- Floor of `v'
         external
             "C inline use <math.h>"
-
         alias
             "return floor($v)"
         end
 </code>
 
 In the <code>alias</code> part you see a line of C code calling the library function <code>floor</code> and returning the result. The argument to the call to <code>floor</code> needs to be the argument to the Eiffel function <code>my_floor</code>. To do this in the inline C code, the dollar sign ('$') precedes the argument name "v". So, the convention in inline externals is to use the dollar sign in C or C++ code to reference an argument of the Eiffel function. 
+
+The example below is a C++ example that involves more complex processing in the <code>alias</code> part. 
+
+<code>
+    c_height (a_framework: POINTER): INTEGER
+                -- Get ribbon height
+        require
+            a_framework_exists: a_framework /= default_pointer
+        external
+            "C++ inline use <common.h>"
+        alias
+            "{
+                UINT32 val;
+                HRESULT hr = S_OK;
+
+                IUIRibbon* pRibbon = NULL;
+                if (SUCCEEDED(((IUIFramework *) $a_framework)->GetView(0, IID_IUIRIBBON, (void **) &pRibbon))) {
+                    hr = pRibbon->GetHeight(&val);
+                    pRibbon->Release();
+                }
+                return (EIF_INTEGER) val;
+            }"
+        end
+</code>
+
+
+==Rules for C and C++ externals==
+
+===C external validity===
+
+A C external is valid if it satisfies the following conditions:
+
+# It specifies either an external signature or an inline routine.
+# If it specifies an inline routine, then
+## The C text of the routine follows the <code>alias</code> keyword.
+## For any occurrence, within the C text, of an identifier following a dollar sign ('$'), the identifier must be the name of an argument of the external routine.
+
+
+===C++ external validity===
+
+A C++ external is valid if it satisfies the following conditions:
+
+# It specifies an inline routine with the C++ text of the routine occurring after the <code>alias</code> keyword.
+# For any occurrence, within the C++ text, of an identifier following a dollar sign ('$'), the identifier must be the name of an argument of the external routine.
+
+
+===External file name validity===
+
+An external file name appearing after the "use" is valid if it satisfies the following conditions:
+
+# It denotes a file when interpreted according to the conventions of the underlying operating system.
+# The file is accessible for reading.
+# The file contains content valid in the target language.
+
+The first condition means that user file names must conform to the path and file names of the target environment. Such file names will be passed on to the operating system as they appear. And for system file names, those enclosed in angle brackets, this means that they must be found where the operating system would expect such system files to reside.
+
+Some parts of the validity of external file names may not be able to be determined by an Eiffel compiler and thus ultimately depend upon the evaluation of an external compiler. For example, the Eiffel compiler might not be able to determine whether a particular C file contains valid content. 
+
 
 
 
