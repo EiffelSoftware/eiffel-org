@@ -76,57 +76,22 @@ and you want to output that string using <code>io.put_string</code>. The solutio
 
 But the statement above results in a compile error because the argument type (<code>separate STRING</code>) is not compatible with the type (<code>STRING</code>) that <code>put_string</code> is expecting.
 
-Possible workarounds are to produce a non-separate version of the string which would be printable, or to print the string character-by-character. Both involve looping through the string. 
+In order to make printing of the content of separate instances of <code>STRING</code>, a creation procedure, <code>make_from_separate</code>, is available in the string classes which allows initialization of a non-separate instance of <code>STRING</code> from a separate <code>STRING</code>.  
 
-To construct equivalent objects of type <code>STRING</code> from those of type <code>separate STRING</code>, you could write a function:
+So, to print <code>my_separate_string</code>, you could create a non-separate instance of <code>STRING</code>, then print the non-separate instance, as shown below.
 
 <code>
-    non_separate_string (a_sep_str: separate STRING): STRING
-            -- Non-separate copy of `a_sep_str'
-        local
-            i: INTEGER
-        do
-            create Result.make_empty
-            from
-                i := 1
-            until
-                i > a_sep_str.count
-            loop
-                Result.append_character (a_sep_str [i])
-                i := i + 1
-            end
-        end
+    local
+        l_temp: STRING
+                ...
+            create l_temp.make_from_separate (my_separate_string)
+            io.put_string (l_temp)
 </code>
 
-Then you could print <code>my_separate_string</code> this way:
+Or use a creation expression and avoid declaring the local variable:
 
 <code>
-            io.put_string (non_separate_string (my_separate_string))
-</code>
-
-The other alternate is to create a procedure that will print an object of type <code>separate STRING</code>:
-
-<code>
-    print_separate_string (a_sep_str: separate STRING)
-            -- Print `a_sep_str' on standard output.
-        local
-            i: INTEGER
-        do
-            from
-                i := 1
-            until
-                i > a_sep_str.count
-            loop
-                io.put_character (a_sep_str [i])
-                i := i + 1
-            end
-        end
-</code>
-
-Then you could use that procedure to output <code>my_separate_string</code>:
-
-<code>
-            print_separate_string (my_separate_string)
+            io.put_string (create {STRING}.make_from_separate (l_temp))
 </code>
 
 
@@ -138,7 +103,6 @@ Then you could use that procedure to output <code>my_separate_string</code>:
 The [[Concurrent Eiffel with SCOOP#Access to shared resources|Wait Rule]] says: ''A routine call with separate arguments will execute when all corresponding processors are available and hold them exclusively for the duration of the routine.''
 
 In the EiffelStudio implementation, a routine will not necessarily wait for all processors associated with its separate arguments to be available before it ''begins'' execution. The waiting on processors occurs in a "lazy" manner. Execution will only wait on the availability of one of the processors when it actually needs to use the argument associated with that processor. This means that if there are several instructions ahead of the first instruction that references a separate argument, then those several instructions will be executed immediately. Only at the point at which the separate argument's processor is needed will the routine pause and wait for the availability of the processor.
-
 
 
 
