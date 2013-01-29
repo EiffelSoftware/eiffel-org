@@ -91,7 +91,7 @@ So, to print <code>my_separate_string</code>, you could create a non-separate in
 Or use a creation expression and avoid declaring the local variable:
 
 <code>
-            io.put_string (create {STRING}.make_from_separate (l_temp))
+            io.put_string (create {STRING}.make_from_separate (my_separate_string))
 </code>
 
 
