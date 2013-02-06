@@ -18,7 +18,7 @@ N/A
 N/A
 
 ===Compiler issues===
-* Fixed bug#18309: Refreezing system with no changes causes all C compilations to be redone
+* Fixed bug#18309: Refreezing system with no changes causes all C compilations to be redone.
 * Fixed eweasel test#valid278 and test#term188 (bug#18281 and bug#1984) by ensuring that the type used in the objectless call is full valid.
 
 ===SCOOP issues===
@@ -27,7 +27,7 @@ N/A
 ===Runtime/code generation issues===
 * Fixed bug#18299 and eweasel test#exec351 where copying nested expanded would cause a memory corruption.
 * Fixed eweasel test#thread024 where mutltithreaded projects could crash during a GC cycle.
-* Fixed an issue with EIF_INITIALIZE_AUX_THREAD that would not work properly in workbench mode because it forgot to initialize the interpreter side by calling `xinitint'.
+* Fixed an issue with <e>EIF_INITIALIZE_AUX_THREAD</e> that would not work properly in workbench mode because it forgot to initialize the interpreter side by calling `<e>xinitint</e>'.
 * Fixed a bug during debugging that causes a GC corruption due to the insertion of expanded objects located on the stack in the hector stack which is not allowed.
 
 
