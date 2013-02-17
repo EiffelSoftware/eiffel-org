@@ -60,16 +60,6 @@ feature -- Element change
     ... Other features ...
 
 end -- class SAVINGS_ACCOUNT
-
-
-
-
-
-
-
-
-
-
 </code>
 
 Without the <code>redefine</code> subclause, the declaration of <code>deposit</code> would be invalid, yielding two features of the same name, the inherited one and the new one. The subclause makes this valid by specifying that the new declaration will override the old one. 
@@ -201,7 +191,8 @@ At the level of the deferred class <code>LIST</code>, some features such as <cod
 note
     description: "[
         Sequential finite lists, without a commitment
-        to a representation."
+        to a representation.
+    ]"
 
 deferred class
     LIST [G]
