@@ -227,7 +227,7 @@ As the example of <code>extend</code> shows, a deferred feature, although it has
 
 Deferred classes do not have to be fully deferred. They may contain some effective features along with their deferred ones. Here, for example, we may express <code>count</code> as a function: 
 <code>
-    count: INTEGER
+count: INTEGER
             -- Number of items in list
     do
         from 
