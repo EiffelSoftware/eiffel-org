@@ -110,11 +110,8 @@ This probably means that the '''register''' program was not launched or did not 
 
 Once this is done, you can jump to the next section, [[#Using EiffelStudio|Using EiffelStudio]].
 <span id="using"></span> 
+
 ==Using EiffelStudio==
-
-===Setting up the examples===
-
-Most of the examples require that you have a precompiled version of EiffelBase. To build it, simply run the script $'''ISE_EIFFEL'''/make_install after having completed all of the above steps. This script also prompts you to precompile EiffelVision which is not required to compile the examples and you can safely skip this step if you do not intend to use a precompiled of EiffelVision.
 
 ===Starting EiffelStudio===
 
