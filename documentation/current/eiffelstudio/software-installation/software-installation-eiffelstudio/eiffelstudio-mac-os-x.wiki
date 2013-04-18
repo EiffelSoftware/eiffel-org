@@ -8,10 +8,10 @@
 {| 
 |- 
 | '''Computer/Processor'''
-| x86
+| x86-64
 |- 
 | '''Operating System'''
-| Mac OS X 10.5 (Leopard) or above
+| Mac OS X 10.8 or above
 |- 
 | '''C compiler'''
 | gcc included in XCode
@@ -38,11 +38,12 @@
 
 ==Prerequisites==
 
-Before installing EiffelStudio, it is necessary to install X11 for Mac OS X and the X11 SDK. They are available with the OS X CD. For more details check the Apple web site at: 
-* [http://www.apple.com/macosx/features/x11/ http://www.apple.com/macosx/features/x11/] 
+*You will need to install '''Xcode''' from the App Store. (On old versions of OS X, Xcode was on your OSX-Installation disk, or you downloaded it from Apple's developer web site.) After installing Xcode, make sure to install the command line tools by going to the Xcode preferences and under '''Downloads''' install the '''Command Line Tools''' components.
 
-You also need to install the latest Apple Developer Tools (XCode) available as part of Mac OS X (Tiger or above)
-
+*You also need to install X11:
+** On OS X 10.8 (Mountain Lion): install it from http://xquartz.macosforge.org.
+** On OS X 10.5, 10.6 and 10.7: nothing to be done.
+** ON OS X 10.4 and older: install it from your OS X installation disk.
 
 ==Installing the Free Edition==
 
@@ -75,7 +76,6 @@ This probably means that the '''register''' program was not launched or did not 
 ==Starting EiffelStudio==
 
 Now everything should be properly installed and you should be able to run the compiler. You can now launch EiffelStudio from the Finder under '''/Developer/Applications/EiffelXX/'''. If you are a new user to EiffelStudio, we recommend that you follow [[EiffelStudio: A Guided Tour|the guided tour]] .
-
 
 
 
