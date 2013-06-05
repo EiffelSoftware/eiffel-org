@@ -9,6 +9,7 @@ If you launch '''ec''' with this option, you will get the interactive version's 
     (I) Compile : compile or run the system.
     (F) Feature : feature formats and information.
     (S) System : Config and cluster details.
+    (T) Testing      : manage and run tests.
     (P) Profile : information about a profiled run.
     (D) Documentation: create documents from the system.
 
@@ -21,6 +22,5 @@ The revision number in the first line may be different in your case to indicate 
 * commands in the first group are specific to each menu
 * commands in the second group H (Help) to repeat the list of choices, Y (Yank) to save the output of the last command to a file that you will be prompted to name, and Q (Quit) to quit appear in all menus, and will be complemented in the Item Menus below by the M (Main) command which returns to the main menu.
 By typing one of the letters shown in the Main Menu's first group, you can go to one of the Item Menus: [[Class menu|Class]], [[Compile (and run) menu|Compile]], [[Feature menu|Feature]], [[System menu|System]], [[Profile menu|Profile]], and [[Documentation menu|Documentation]]. [[Compile (and run) menu|Compile]] enables you to compile a system and execute the result; the next three enable you to obtain information about your project. [[Profile menu|Profile]]  will enable you to exploit profiling information. Finally, [[Documentation menu|Documentation]] will enable you to generate HTML documentation about your project. 
-
 
 
