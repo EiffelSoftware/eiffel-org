@@ -15,7 +15,7 @@ The result is that we must consider certain questions:
 
 # How is void-safety defined?
 # What are the specific elements of the mechanism for void-safety?
-## How do these relate to Eiffel before void-safety?
+# How do these relate to Eiffel before void-safety?
 # What do I need to know to produce standard Eiffel software?
 # What do I need to know to convert my existing systems to be standard?
 
