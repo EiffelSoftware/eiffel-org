@@ -88,7 +88,7 @@ The attributes studied earlier were variable: each represents a field present in
 
 It is also possible to declare '''constant attributes''', as in
 <code>
-    Solar_system_planet_count: INTEGER = 9
+    Solar_system_planet_count: INTEGER = 8
 </code>
 
 These will have the same value for every instance and hence do not need to occupy any space in objects at execution time. (In other approaches similar needs would be addressed by symbolic constants, as in Pascal or Ada, or macros, as in C.)
