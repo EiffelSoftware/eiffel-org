@@ -353,7 +353,7 @@ Some deferred classes describe a structural property, useful to the description 
 
 <code>NUMERIC</code> describes objects on which arithmetic operations <code>+, -, *, /</code> are available, with the properties of a ring (associativity, distributivity, zero elements etc.). Kernel Library classes such as <code>INTEGER</code> and <code>REAL</code> -- but not, for example, <code>STRING</code> -- are descendants of <code>NUMERIC</code>. An application that defines a class <code>MATRIX</code> may also make it a descendant of <code>NUMERIC</code>. 
 
-<code>COMPARABLE</code> describes objects on which comparison operations <code><, <=, >, >=</code> are available, with the properties of a total preorder (transitivity, irreflexivity). Kernel Library classes such as <code>CHARACTER</code>, <code>STRING</code> and <code>INTEGER</code> -- but not our <code>MATRIX</code> example -- are descendants of <code>NUMERIC</code>. 
+<code>COMPARABLE</code> describes objects on which comparison operations <code><, <=, >, >=</code> are available, with the properties of a total preorder (transitivity, irreflexivity). Kernel Library classes such as <code>CHARACTER</code>, <code>STRING</code> and <code>INTEGER</code> -- but not our <code>MATRIX</code> example -- are descendants of <code>COMPARABLE</code>. 
 
 For such classes it is again essential to permit effective features in a deferred class, and to include assertions. For example class <code>COMPARABLE</code> declares <code>infix "<"</code> as deferred, and expresses <code>>, >=</code> and <code><=</code> effectively in terms of it. 
 
