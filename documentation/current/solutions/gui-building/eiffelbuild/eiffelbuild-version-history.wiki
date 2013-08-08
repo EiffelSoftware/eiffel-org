@@ -1,6 +1,10 @@
 [[Property:title|EiffelBuild Version History]]
 [[Property:weight|2]]
 [[Property:uuid|8cc0540e-8ee7-c005-0534-a2ed62f41c96]]
+== 7.3 Release ==
+* Fixed a crash which could occur when generating a project.
+* Fixed a crash when saving a project if it contained a pixmap with no path specified.
+
 ==7.2, 7.1 and 7.0 Release==
 No changes.
 
