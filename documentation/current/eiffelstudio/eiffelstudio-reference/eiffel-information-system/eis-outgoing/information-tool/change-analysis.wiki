@@ -1,0 +1,25 @@
+[[Property:title|Change Analysis]]
+[[Property:weight|0]]
+[[Property:uuid|a503cf13-6374-9932-5ee2-a69b363e6701]]
+Within EiffelStudio 7.3, there will be new functions in Infomation tool to track changes on target or external resouce side, and potentially affected items on either side are listed.
+* New functions are:
+** List of elements of current system that would be affected by external resource changes. (External resource is limited to local files.)
+** List of external resources that might be affected by changes of current system. (No limit of the type of external resources)
+** Change acknowledgement.
+
+Typical work flow to demo affected external resources caused by current system change:
+# Open a class, add an Information entry with an external source in the class.
+# Start working on that class, save it at as you normally do on regular basis.
+# Open Info tool, go to Affected source item in the left tree.
+# Check the list of external resouces that might be affected by last changes, as shown in the sceen cast bellow.
+# Acknowledge the changes if you find that the external resources do not need a change for last changes of current system.
+
+Typical work flow to demo affected items in the system caused by external resource change:
+# Open a class, add an Information entry with an external document (limited to local files in 7.3) in the class.
+# Start working on that document, save it at as you normally do on regular basis.
+# Open Info tool, go to Affected target in the left tree.
+# Check the list of targets that might be affected by last changes of the document. (You may need to click on the "sweep the system now." button to get a full list if auto-sweeping is not enabled.)
+# Acknowledge the changes if you find that current system does not need a change for last changes of the document.
+
+[[Image:Information_Tool_change_analysis.PNG]]
+
