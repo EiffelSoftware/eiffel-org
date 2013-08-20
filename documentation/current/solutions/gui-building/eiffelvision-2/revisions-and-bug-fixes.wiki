@@ -5,7 +5,7 @@ This document contains details of modifications and bug fixes to the EiffelVisio
 
 ==EiffelStudio 7.3==
 '''Improvements'''
-* Added {EV_PIXEL_BUFFER}.stretched which gives you a stretched version of an EV_PIXEL_BUFFER. The quality of the stretch image is much better than of the previous implementatio of EV_PIXMAP for Windows. On Unix it is the same quality as EV_PIXMAP.
+* Added {EV_PIXEL_BUFFER}.stretched which gives you a stretched version of an EV_PIXEL_BUFFER. The quality of the stretched image is much better than the previous implementation of EV_PIXMAP for Windows. On Unix it is the same quality as EV_PIXMAP.
 * Improved stretching of EV_PIXMAP on Windows by using the Color on Color stretching mode of the Win32 API StretchBlt.
 
 
@@ -15,7 +15,7 @@ This document contains details of modifications and bug fixes to the EiffelVisio
 ** Fixed {EV_GRID_COLUMN}.required_width_of_item_span to only take into account visible item.
 
 *'''Windows'''
-** Fixed a resizing bug when you have a vertical/horizontal box with a minimum size set, if one of the item has a minimum size larger than its parent, then in some circumstances the child will be shrinked beyond its minimum size causing some visual glitches.
+** Fixed a resizing bug when you have a vertical/horizontal box with a minimum size set. If one of the items has a minimum size larger than its parent, then in some circumstances the child will be shrunk beyond its minimum size causing some visual glitches.
 
 ==EiffelStudio 7.1==
  	

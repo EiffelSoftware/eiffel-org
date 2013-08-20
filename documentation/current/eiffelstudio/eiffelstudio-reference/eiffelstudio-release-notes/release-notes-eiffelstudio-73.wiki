@@ -6,7 +6,7 @@
 
 ===What's new===
 * A [[change analysis]] for documents in the [[Eiffel Information System]] where one can be notified of which documents to update when a class is modified, and conversely whenever a document is modified which classes might need updating.
-* EiffelStudio will now show you contracts of a feature when completing code, letting you quickly find out the proper way to call it
+* EiffelStudio will now show you the contracts of a feature when completing code, letting you quickly find out the proper way to call it.
 * When debugging, moving the mouse pointer over an expression will cause the debugger to evaluate the expression and display its computation result in a tooltip.
 
 ===Improvements===
@@ -16,7 +16,7 @@
 * In [[AutoTest]], tests will be executed under the location of the Eiffel configuration file (ECF) and not in the Testing subdirectory of the EIFGENs directory.
 
 ===Bug fixes===
-* Fixed a memory corruption that would occur when you have multiple errors during a compilation and you are opening each error in its own tab editor, after opening 4 or 5 tabs, EiffelStudio could become unstable. 
+* Fixed a memory corruption that would occur when you have multiple errors during a compilation and you are opening each error in its own tab editor: after opening 4 or 5 tabs, EiffelStudio could become unstable. 
 * Fixed a crash after saving a diagram as a PNG file.
 
 ==Compiler==
@@ -34,7 +34,7 @@
 * Updated <e>TUPLE</e> and depending classes to separate entities.
 * Updated <e>ROUTINE</e> and descendants to be usable for agents with separate targets.
 * Fixed a comparison bug with <e>EQUALITY_TUPLE</e> which actually would only compare the last elements.
-* Made <e>INTERNAL</e> obsolete, it is now replaced by two set of classes: a static introspection class and a dynamic one. The class that lets you examine the static content is <e>REFLECTOR</e>; most references of <e>INTERNAL</e> can easily be replaced by <e>REFLECTOR</e>. To inspect objects, you have a new set of classes starting with <e>REFLECTED_OBJECT</e>. This let you inspect objects with copy semantics without actually causing a copy each time you access it, unlike what was happening before with <e>INTERNAL</e>.
+* Made <e>INTERNAL</e> obsolete. It is now replaced by two sets of classes: a static introspection class and a dynamic one. The class that lets you examine the static content is <e>REFLECTOR</e>; most references to <e>INTERNAL</e> can easily be replaced by <e>REFLECTOR</e>. To inspect objects, you have a new set of classes starting with <e>REFLECTED_OBJECT</e>. This lets you inspect objects with copy semantics without actually causing a copy each time you access it, unlike what was happening before with <e>INTERNAL</e>.
 * Fixed a reallocation bug in <e>SED_MEMORY_READER_WRITER</e> where if you retrieve a large chunk, we would not allocate enough memory.
 * Added ability to store/retrieve expanded objects and objects with copy semantics with SED.
 * Storables made using SED from version 6.6 or earlier of EiffelStudio not using the `is_for_fast_retrieval' setting won't be recoverable.
@@ -49,7 +49,7 @@
 ===WEL===
 * Fixed a 64-bit truncation bug in the message dispatcher of WEL.
 * Fixed a memory corruption that would occur when loading a 32-bit BMP image as a background image of a container in a 16-bit or lower display.
-* Fixed an issue with <e>WEL_CHOOSE_FOLDER_DIALOG</e> where <e>set_starting_path</e> had no effect
+* Fixed an issue with <e>WEL_CHOOSE_FOLDER_DIALOG</e> where <e>set_starting_path</e> had no effect.
 
 [[EiffelStudio release notes|Click here to check out what was new in other versions]]
 

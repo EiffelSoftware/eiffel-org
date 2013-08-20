@@ -94,6 +94,8 @@ A simple string -- specimen of Simple_string -- is a [[#Strings|String]] consist
 | } || %> || Closing brace
 |}
 
+* %/123/  represents the character with code 123 in decimal.
+
 ===Line wrapping parts===
 
 A sequence of characters consisting of the following, in order:
