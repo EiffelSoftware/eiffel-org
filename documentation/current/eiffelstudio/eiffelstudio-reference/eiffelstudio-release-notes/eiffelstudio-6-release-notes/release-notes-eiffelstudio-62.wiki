@@ -27,7 +27,18 @@
 * Click [[Major changes between ISE Eiffel 6.1 and ISE Eiffel 6.2|here]]  for the compiler release notes.
 
 ==Debugger==
-* Click [[Release notes for EiffelStudio 6.2 related to the debugger|here]]  for the EiffelStudio debugger release notes.
+===Graphical environment===
+* New breakpoint editor, which centralizes in a unique dialog the parameters of the breakpoint.
+* Added tag support for breakpoints.
+* Added new "When hits.." actions (such as enable/disable breakpoints, start/stop execution recording, and others...).
+* Better breakpoints tool, to see, sort or filter the breakpoints
+* Enhanced execution record and replay mechanism. This allows to record the execution, and replay the recording in EiffelStudio and see/browse the recorded values, and the calls executed.
+* Better dialog to change the layout of the Objects tool grid. It is possible to easily change the order of 'Current, arguments, locals, ...'.
+* Added a toggle button, to ignore or not the breakpoints.
+* Added dropdown menu on the "[Start]" button to have quicker access to useful features.
+
+===Debugger engine===
+* Watch tool: added support for "create .." expression.
 
 ==EiffelBuild==
 * Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.

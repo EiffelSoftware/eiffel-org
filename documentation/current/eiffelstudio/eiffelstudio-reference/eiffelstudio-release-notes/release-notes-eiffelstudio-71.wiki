@@ -52,7 +52,11 @@
 * Click [[Major changes between ISE Eiffel 7.0 and ISE Eiffel 7.1|here]] for the compiler release notes.
 
 ==Debugger==
-* Click [[Release notes for EiffelStudio 7.1 related to the debugger|here]]  for the EiffelStudio debugger release notes.
+===Graphical environment===
+* Improved speed for multiple rows selection in watch tool.
+* Disable "ignore breakpoints" when launching debug session from "autotest" tool, or from execution parameters dialog.
+* Fixed a "Call on Void target" due to missing dynamic type information (Grid item crash in debugger).
+* Allowed evaluation of expressions which would not be valid if void-safety rules were applied (for example using a local that is detachable but the expression does not tell if at the evaluation time the local is attached or not).
 
 ==EiffelBuild==
 * Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.

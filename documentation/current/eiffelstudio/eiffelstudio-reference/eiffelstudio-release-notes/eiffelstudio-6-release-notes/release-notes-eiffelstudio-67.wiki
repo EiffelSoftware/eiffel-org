@@ -23,7 +23,16 @@
 * Click [[Major changes between ISE Eiffel 6.6 and ISE Eiffel 6.7|here]]  for the compiler release notes.
 
 ==Debugger==
-* Click [[Release notes for EiffelStudio 6.7 related to the debugger|here]]  for the EiffelStudio debugger release notes.
+===Graphical environment===
+* More compact "Execution" (debugger) menu
+* Now changing the catcall detection from the exception handling dialog has immediate impact (previously the user had to interrupt and continue the execution to see the impact)
+* It is now possible to open the exception dialog to visualize the CAT call warning exception at the debugger level.
+* Minor change, now  Ctrl+Alt+C (or +Ins) will copy into clipboard the '''selected stacks''' '''without''' the (stack) values and Ctrl+C (or +Ins) will copy into clipboard the '''selected stacks''' '''with''' stack values (local and arguments)
+
+===Debugger engine===
+*Now handle correctly manifest string and string_32 in debugger (expression evaluation)
+*Improved stepping in MT debugging session. Now the debugger stays in the same thread (instead of jumping from a thread to another without any coherence).
+*Fixed void-safety issue, when trying to evaluate `Result' in watch tool (previously, it was reporting VEVI ...)
 
 ==EiffelBuild==
 * Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.

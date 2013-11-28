@@ -26,7 +26,14 @@
 * Click [[Major changes between ISE Eiffel 6.7 and ISE Eiffel 6.8|here]]  for the compiler release notes.
 
 ==Debugger==
-* Click [[Release notes for EiffelStudio 6.8 related to the debugger|here]]  for the EiffelStudio debugger release notes.
+===Graphical environment===
+* It is now possible to [[Detach application|detach the debugger]] from the application (without killing the application).
+* It is now possible to [[Attach application|attach the debugger]] to associated eiffel application launched outside EiffelStudio 
+** The application has to be launched in a specific way to wait for the debugger, that is, either
+*** by setting <code>ISE_DBG_PORTNUM</code> environment variable to a specific port number, or
+*** by calling <code>{RT_DEBUGGER}.rt_workbench_wait_for_debugger</code> (a_port_number) from the program itself
+** Then with EiffelStudio, menu <code>Execution->Attach Debuggee</code> and provide the same port number.
+** At this point EiffelStudio is able to debug the application
 
 ==EiffelBuild==
 * Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.

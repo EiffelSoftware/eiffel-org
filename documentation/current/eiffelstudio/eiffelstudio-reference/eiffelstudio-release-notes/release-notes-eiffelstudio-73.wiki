@@ -23,7 +23,8 @@
 * Click [[Major changes between ISE Eiffel 7.2 and ISE Eiffel 7.3|here]] for the compiler release notes.
 
 ==Debugger==
-* Click [[Release notes for EiffelStudio 7.3 related to the debugger|here]]  for the EiffelStudio debugger release notes.
+===Graphical environment===
+* Added ability to evaluate expressions by simply hovering over the feature tool while debugging.
 
 ==EiffelBuild==
 * Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.

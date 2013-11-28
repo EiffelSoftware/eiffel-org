@@ -3,6 +3,22 @@
 [[Property:uuid|eb11a237-0c75-0427-452a-303d4f276b97]]
 This document contains details of modifications and bug fixes to the EiffelVision 2 library listed by the release version of EiffelStudio. All bug fixes and modifications are relative to the previously released version
 
+==EiffelStudio 13.11==
+'''Improvements'''
+* Added support for GTK3.
+
+'''Bug fixes'''
+*'''Platform Independent'''
+** Fixed a drawing issue in EV_GRID causing some invalid drawing
+** Fixed a crash with retrieving a RTF file containing a color or a font whose index is not starting at 1, or that it is referring to a non-defined index.
+** Fixed a bug introduced at rev#90517 with `new_line_string' that became TN instead of %N.
+** Fixed a bug retrieving font in a font table to allow spaces between the components of a font entry in the table. 
+** Added code protection to find out about paragraphs as we would get an out of bound acess if the last character was a %N. This solved the case where copy/pasting some text from Word would save incorrectly, and thus the RTF being created was invalid and was losing some formatting info.
+
+*'''Windows'''
+** Fixed bug#18612: unsetting column text on addition of a new column we set with an empty text when there is no previous column text set, this prevents a side effect of unsetting a text mask on the wel list view control which doesn't seem to like being reset back when a new column is replacing it when the text mask actually is set.
+** Fixed a crash when selecting text in a EV_RICH_TEXT widget.
+
 ==EiffelStudio 7.3==
 '''Improvements'''
 * Added {EV_PIXEL_BUFFER}.stretched which gives you a stretched version of an EV_PIXEL_BUFFER. The quality of the stretched image is much better than the previous implementation of EV_PIXMAP for Windows. On Unix it is the same quality as EV_PIXMAP.

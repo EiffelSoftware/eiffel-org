@@ -36,7 +36,33 @@
 * Click [[Major changes between ISE Eiffel 5.5 and ISE Eiffel 5.6|here]]  for the compiler release notes.
 
 ==Debugger==
-* Click [[Release notes for EiffelStudio 5.6 related to the debugger|here]]  for the EiffelStudio's debugger release notes.
+===Graphical environment===
+* The stack, objects and evaluator tools now use a grid display instead of simply a tree view
+* A mixed multicolumn list and tree view display which display item only when shown, this make debugger much faster to display values
+* The evaluator tool renamed as "watch tool" has more features than previously, such as browsing the objects value directly in the tool, moving up and down the expression, dopped objects as them self, ....
+* The new watch tool can be used instead of the objects view to display current, and dropped objects (and of course expressions).
+* You can close and create new watch tools
+* Each tool has its hexdecimal/decimal format switch command.
+* Most of the debugging tools are now inside a notebook, and are dockable outside this notebook
+* Various minor bug fixes and improvements regarding the interface
+
+===Debugger engine===
+* Fixed a memory leak with the `estudio' process when conditional breakpoints are enabled.
+* Improved speed of execution when conditional breakpoints are enabled (about 20 times faster).
+* Fixed a bug where after killing a debugged process, the debugger could not be launched anymore.
+* Improved speed regarding STRING and SPECIAL manipulation in the debugger
+* Dotnet: fixed memory/handle leak when debugging dotnet system
+* Dotnet: fixed memory corruption while debugging dotnet system
+* Dotnet: EiffelStudio do not hang (100% CPU) anymore during dotnet debugging.
+* Dotnet: make EiffelStudio much more stable while debugging dotnet system.
+* Dotnet: fixed various issues which occurred on killing debugged application
+* Dotnet: improved support for dotnet v2.0.x debugging
+* Dotnet: fixed expression evaluation on pure dotnet object
+* Evaluation: fixed remaining error status on expression (sometimes when an expression has an error, changing the expression to a valid expression was not reseting the error status)
+* Evaluation: improved error message reporting for expression evaluation
+* Evaluation: improved the stability and the result validity of expression
+* Breakpoint: fixed some issues related to setting, removing breakpoints, and remaining hidden breakpoints
+* Breakpoint: now the debugger stops on a condition breakpoint when the condition's result is True, but also if the expression is not supported, or if it raises an exception
 
 ==EiffelBuild==
 * Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.

@@ -36,7 +36,29 @@
 * Click [[Major changes between ISE Eiffel 5.7 and ISE Eiffel 6.0|here]]  for the compiler release notes.
 
 ==Debugger==
-* Click [[Release notes for EiffelStudio 6.0 related to the debugger|here]]  for the EiffelStudio's debugger release notes.
+===Graphical environment===
+* Added auto expressions on watch tools, it suffices to toggle the auto button in any of the watch tool's toolbar.
+* Enhanced breakpoint mechanism by adding print message, hit count (condition), and provide '''Is True''' and '''Has Changed''' condition.
+* Improved the debugging options dialog with the ability to define the environment variables passed down to the debugged application.
+* Added some configuration of the Objects tool grid. It is now possible to change the order of 'Current, arguments, locals, ...'.
+* Added start workbench and finalized system on Debugging option dialogs.
+* Added a new way to look at objects with the object viewer.
+* Added a <code>rescue</code> clause indicator in call stack tool's grid.
+* One can decide to stay in debugging mode even when compiling.
+* Added possibility to continue on conditional breakpoint evaluation failure.
+* Removed useless ''Attributes'' row in debugger's objects tree.
+* The once routines node now shows states of once procedures in addition of the state of once functions.
+* Improved cosmetic of debugger's exception handling dialog.
+
+===Debugger engine===
+* Added support for creation of instance of class (including generic).
+* Added support for manifest TUPLE, and manifest ARRAY.
+* Added support for static routine evaluation.
+* Added ability to disable/restore assertion checking during debugging.
+* Added evaluation of instructions with the debugger (i.e: procedure call).
+* Fixed bug#12934 where the debugger would cause a memory corruption in a running multithreaded program.
+* Fixed bug#12750 where the stack overflow detection was not working on Linux.
+* Fixed bug#11755 where empty strings with a large capacity were slow to be displayed.
 
 ==EiffelBuild==
 * Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.

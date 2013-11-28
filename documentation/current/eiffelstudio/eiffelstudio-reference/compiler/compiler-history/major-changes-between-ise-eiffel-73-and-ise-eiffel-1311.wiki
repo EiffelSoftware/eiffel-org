@@ -1,0 +1,39 @@
+[[Property:title|Major changes between ISE Eiffel 7.3 and ISE Eiffel 13.11]]
+[[Property:link_title|13.11]]
+[[Property:weight|9]]
+[[Property:uuid|e32947f4-928c-816e-1dbd-4aa53030e8c7]]
+==What's new==
+* Supported parenthesis aliases that allow treating feature calls with arguments on entities that take no arguments to look as regular feature calls. This is mostly useful to make calls on agent objects, e.g. instead of <e>my_agent.call (x)</e> it may be possible to use <e>my_agent (x)</e>. Unlike bracket alias, parenthesis alias can be used with both queries and commands, but as with bracket alias, the corresponding feature should have at least one argument.
+* Supported new rules to handle actual arguments in a feature call that wrap last arguments into a tuple when:
+** the number of actual arguments exceeds the number of formal arguments
+** the number of actual arguments is equal to the number of formal arguments, but the last actual argument is not type-compatible with the last formal argument unless wrapped in a tuple.
+: This is mostly useful to make calls on agent objects avoiding explicit manifest tuple notation. For example, <e>my_agent.call ([123, "abc", value])</e> can be written as <e>my_agent.call (123, "abc", value)</e>, or, when combined with parenthesis alias, as <e>my_agent (123, "abc", value)</e>.
+* Supported conditional expressions that allow using different expressions to compute a value depending on some condition: <e>if x < y and x < z then x elseif y < z then y else z end</e>.
+* ECF redirection support to provide a way to create redirection from a .ECF to another.
+
+==Improvements==
+* Added support for Sun C compiler on Linux for RHEL, OL and Ubuntu 8.04. Other Linux distributions are not supported.
+* Speed up SCOOP by an average of 35% up to 500% on some benchmarks.
+
+==Changes==
+
+==Bug fixes==
+
+===Language issues===
+* Fixed bug#18643 (test#attach107, test#attach102) - Fixed a bug that may lead to unreported VEVI errors for attributes not properly set by a creation procedure when compiled in complete void safety mode (rev#92835).
+* Fixed bug#18266 (test#svalid031) - Fixed a bug that caused reporting a non-existent error for a renamed feature with a bracket alias.
+* Fixed bug#18282 (test#multicon062) - Fixed a bug that caused incorrect error report for features with a bracket alias specified in multiple formal generic constraints.
+
+===Compiler issues===
+* Fixed a crash when converting old Ace files to new ECF format. (bug#18642 and bug#18628, rev#92820)
+* Fixed bug#15591 (test#attach106), bug#17302 (test#valid270) - Fixed an erroneous reporting of VUOT for object test locals when right-hand side of a binary expression using these locals has a validity error (rev#92769).
+* Fixed test#attach108 - Corrected computation of scopes of read-only variables used in implicative expressions with conjuctions.
+
+===SCOOP issues===
+* Fixed a crash when a separate detachable argument is Void (test#scoop035),
+
+===Runtime/code generation issues===
+
+===Store/Retrieve issues===
+
+

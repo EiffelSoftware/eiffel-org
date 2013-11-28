@@ -31,7 +31,18 @@
 * Click [[Major changes between ISE Eiffel 6.2 and ISE Eiffel 6.3|here]]  for the compiler release notes.
 
 ==Debugger==
-* Click [[Release notes for EiffelStudio 6.3 related to the debugger|here]]  for the EiffelStudio debugger release notes.
+===Graphical environment===
+*Watch tool:
+** Changed the shortcut to move up/down expression (Shift+Alt+Up|Down). This can be changed in preferences.
+** Multiple expressions can be moved up/down at the same time (instead of just one)
+** Added export to/import from a file the expressions'  text
+** Pasting multi-lines text into the "..." expression cell, will create one expression per line.
+*Interface: various bug fixes
+
+===Debugger engine===
+* added support for self initialized attributes 
+* fixed major issue of the dotnet debugger on Win32 (and potentially on win64 too)
+* fixed retrieving of stack value when invariant is violated (now a _invariant stack will appear in the call stack to help debugging) 
 
 ==EiffelBuild==
 * Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.

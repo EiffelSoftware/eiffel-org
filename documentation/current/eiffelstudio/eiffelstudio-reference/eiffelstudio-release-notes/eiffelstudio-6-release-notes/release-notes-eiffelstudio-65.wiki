@@ -39,7 +39,22 @@ No changes in this release.
 * Improved bottom part of AutoTest tool by only having two tabs displaying test execution and test creation results.
 
 ==Debugger==
-* Click [[Release notes for EiffelStudio 6.5 related to the debugger|here]]  for the EiffelStudio debugger release notes.
+===Graphical environment===
+* To move a breakpoint, you can Ctrl+RightClick on the related breakpoint icon, and Ctrl+Drop on the wanted breakpoint location.
+* Better support for attributes pick and drop into the watch tool
+* The debugger will display as text/string all descendants of READABLE_STRING_8/32 (instead of just STRING_8/32). Including IMMUTABLE_STRING_...
+* You can toggle the status of a breakpoint easily using shortcuts:
+**F9: toggle between enabled/not-set.
+**Shift+F9: toggle between enabled/disabled.
+**Ctrl+F9: open the breakpoint dialog for editing. 
+
+===Debugger engine===
+* Fixed several issues related to object test locals (especially in the expression)
+* Fixed a major memory leak related to condition evaluation
+* Fixed evaluation of is_equal, equal, =, ~ in expression (watch tool).
+* It is now possible to unset an environment variable, or unset all variables, in the execution parameters dialog (see [[Execution profiles|doc]]) 
+* Improved support for expanded objects (especially SPECIAL of expanded)
+* Fixed memory leak related to condition breakpoints, and improved the condition breakpoints performance.
 
 ==EiffelBuild==
 * Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.

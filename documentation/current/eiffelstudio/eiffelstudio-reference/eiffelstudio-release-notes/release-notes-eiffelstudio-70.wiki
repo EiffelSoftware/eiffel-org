@@ -31,7 +31,20 @@
 * Click [[Major changes between ISE Eiffel 6.8 and ISE Eiffel 7.0|here]] for the compiler release notes.
 
 ==Debugger==
-* Click [[Release notes for EiffelStudio 7.0 related to the debugger|here]]  for the EiffelStudio debugger release notes.
+=== .NET debugging ===
+* It is now possible to use the EiffelStudio debugger to debug Eiffel applications targeted to Microsoft .Net 4.0. 
+{{caution|Currently, to debug Eiffel targeted to Microsoft .Net 4.0, it is necessary to set the preference "debugger.dotnet.keep_stepping_info_dotnet_feature" to "False" in order to avoid problems when using the debugger's "Step into" command.}}
+
+===Graphical environment===
+* Fixed a problem with missing tool content when an assertion violation was ignored.
+* Instances of classes <code>IMMUTABLE_STRING_*</code> are now correctly displayed in the debugger's tools.
+* Added a toolbar button for the "Attach" command.
+* The exception trace is now included when watch evaluation fails due to an internal error.
+* Fixed various issues in which the debugger is unable to retrieve information about an object, especially from the current object.
+* Fixed various watch evaluation issues involving argument variables.
+
+===Developer changes===
+* The <code>{DB_BREAKABLE_POINT_INFO}.text</code> is no longer truncated, allowing the retention of the full line of Eiffel code.
 
 ==EiffelBuild==
 * Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.

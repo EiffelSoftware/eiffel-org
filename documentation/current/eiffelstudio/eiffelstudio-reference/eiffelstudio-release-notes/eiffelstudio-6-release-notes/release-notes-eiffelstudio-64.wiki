@@ -38,7 +38,14 @@
 * Click [[Major changes between ISE Eiffel 6.3 and ISE Eiffel 6.4|here]]  for the compiler release notes.
 
 ==Debugger==
-* Click [[Release notes for EiffelStudio 6.4 related to the debugger|here]]  for the EiffelStudio debugger release notes.
+===Graphical environment===
+* Fixed various execution cursor issues in feature tool (especially with loop variant, and also inherited assertions) when debugging.
+* EiffelStudio now remembers the breakpoints and profiles even after recompiling from scratch.
+
+===Debugger engine===
+* Added support for object test locals.
+* Support void-safe expression evaluation.
+* Fixed evaluation of is_equal, equal, =, ~ in expression (watch tool).
 
 ==EiffelBuild==
 * Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.

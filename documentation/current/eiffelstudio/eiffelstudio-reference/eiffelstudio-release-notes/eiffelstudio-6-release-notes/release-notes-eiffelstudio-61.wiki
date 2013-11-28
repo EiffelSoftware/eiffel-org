@@ -28,7 +28,15 @@
 * Click [[Major changes between ISE Eiffel 6.0 and ISE Eiffel 6.1|here]]  for the compiler release notes.
 
 ==Debugger==
-* Click [[Release notes for EiffelStudio 6.1 related to the debugger|here]]  for the EiffelStudio debugger release notes.
+===Graphical environment===
+* Added debuggee object storage. This allow to store and retrieve debuggee's object.
+* Added basic execution replay mechanism. This allows to record the execution, and replay the recording in EiffelStudio and see/browse the recorded values.
+* Rename "debugging" into "execution" in EiffelStudio's message and title.
+* Better dialog to change the layout of the Objects tool grid. It is possible to easily change the order of 'Current, arguments, locals, ...'.
+
+===Debugger engine===
+* Added support for creation of SPECIAL instances.
+* Added support for creation of TYPE instances. (i.e: {FOO} will return a instance of TYPE [FOO])
 
 ==EiffelBuild==
 * Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.

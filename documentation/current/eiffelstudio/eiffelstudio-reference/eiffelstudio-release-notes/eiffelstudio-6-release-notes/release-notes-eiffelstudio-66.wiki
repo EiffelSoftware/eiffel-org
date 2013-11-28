@@ -33,7 +33,21 @@
 * Improved wizard/preferences dialog for creating and executing tests, also allowing the user to skip the wizard and create new tests from default settings.
 
 ==Debugger==
-* Click [[Release notes for EiffelStudio 6.6 related to the debugger|here]]  for the EiffelStudio debugger release notes.
+===Graphical environment===
+* Now, only one breakpoint dialog is opened on the same breakpoint (avoid conflict).
+* Moving a breakpoint within the same routine is now done using Drag & Dropping the breakable slot icon (red bullet).
+* Object Viewer selector no longer auto-selects  XML Viewer when the string looks like XML content.
+* Added a context menu entry to "unset" an environment variable in the "Execution parameters" tool.
+* Fixed issue with remaining popup window for grid's cell.
+* Fixed regression "Keep Assertions Checking" settings for expression evaluation.
+* Added an option in the "Edit Expression" dialog to show the "full error message" (i.e: include the exception trace) when an exception occurs during expression evaluation. By default, now only the short description is shown (to improve performance), but the full error message is available upon request.
+* Added the capability of copying to the clipboard the text representation of selected call stack elements (from the call stack tool) using Ctrl+C or Ctrl+Ins (this also includes representations of local+arguments)
+
+===Debugger engine===
+* Fixed an issue in which EiffelStudio could hang when inspecting threads other than the current stopped one on platforms where thread identifiers are larger than 32-bit (e.g. Linux).
+* Fixed issue related to setting conditional breakpoint resulting in unconditional breakpoint.
+* Fixed issue in which execution is stopped in melted invariant.
+* Added support for new [[ET: Other Mechanisms#Adjusting once semantics with "once keys"|once per object]].
 
 ==EiffelBuild==
 * Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.

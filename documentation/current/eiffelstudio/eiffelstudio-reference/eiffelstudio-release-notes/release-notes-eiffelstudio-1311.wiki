@@ -5,18 +5,30 @@
 ==Graphical environment==
 
 ===What's new===
+* Eiffel Information System links and other type of links are now clickable in the editor.
+* Editor shows both the Unix style or Windows style for new lines.
 
 ===Improvements===
+* Improved debug tooltip for nested feature call evaluation.
+* Improved completion window/tooltip positioning with respect to monitor coordinates and multiple displays.
+* Improved command line behavior of running tests to automatically perform the necessary compilation steps to test compiled system.
+* Completion and pick and drops will now work more reliably reliably after many edits.
 
 ===Changes===
 
 ===Bug fixes===
+* Fixed "Evaluator Died" error when running tests in AutoTest when using certain combinations of root class and creation procedure.
+* Fixed bug#18563: Supported renaming of features used in qualified anchored types when refactoring code.
+* Fixed bug#16960: Fixed an exception when showing an inherited class invariant with qualified anchored types.
+* Fixed bug#18606: When completing some code you can see that the entries are shifting by one pixel. It is only visible via remote desktop or when desktop composition is disabled.
+* Fixed bug#18614: Moving text containing Unicode characters in the editor will loose the Unicode characters.
+* Fixed bug#18611: Preventing an EiffelStudio hang when browsing ECF in the group tool when ECF refers to each other recursively.
+* Fixed bug#18679: Clicking locate button in the Eiffel Information System tool when editor is empty would crash EiffelStudio.
 
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 7.3 and ISE Eiffel 13.11|here]] for the compiler release notes.
 
 ==Debugger==
-* Click [[Release notes for EiffelStudio 13.11 related to the debugger|here]]  for the EiffelStudio debugger release notes.
 
 ==EiffelBuild==
 * Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.
@@ -27,6 +39,9 @@
 ===EiffelStore===
 ===EiffelVision2===
 * [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]]
+
+===Eiffel Editor ===
+* Stop translating %R%N into %N on input, we now keep the original text to ensure positioning information can be easily converted by code reading text files.
 
 ===WEL===
 
