@@ -7,13 +7,15 @@
 * Supported new rules to handle actual arguments in a feature call that wrap last arguments into a tuple when:
 ** the number of actual arguments exceeds the number of formal arguments
 ** the number of actual arguments is equal to the number of formal arguments, but the last actual argument is not type-compatible with the last formal argument unless wrapped in a tuple.
-: This is mostly useful to make calls on agent objects avoiding explicit manifest tuple notation. For example, <e>my_agent.call ([123, "abc", value])</e> can be written as <e>my_agent.call (123, "abc", value)</e>, or, when combined with parenthesis alias, as <e>my_agent (123, "abc", value)</e>.
+:: This is mostly useful to make calls on agent objects avoiding explicit manifest tuple notation. For example, <e>my_agent.call ([123, "abc", value])</e> can be written as <e>my_agent.call (123, "abc", value)</e>, or, when combined with parenthesis alias, as <e>my_agent (123, "abc", value)</e>.
 * Supported conditional expressions that allow using different expressions to compute a value depending on some condition: <e>if x < y and x < z then x elseif y < z then y else z end</e>.
 * ECF redirection support to provide a way to create redirection from a .ECF to another.
+* Added VD89 warnings to highlight library dependency cycles.
 
 ==Improvements==
 * Added support for Sun C compiler on Linux for RHEL, OL and Ubuntu 8.04. Other Linux distributions are not supported.
-* Speed up SCOOP by an average of 35% up to 500% on some benchmarks.
+* Speed up SCOOP by an average of 35% up to 500% on some benchmarks:
+** Added various optimizations to reduce massive latency over call logging and waiting due to overhead from operating system synchronization primitives and scoop call cleanup. Improved lock passing client supplier synchronization speed by a factor of 60 due to removing latency from condition variable use.
 
 ==Changes==
 
@@ -31,6 +33,8 @@
 
 ===SCOOP issues===
 * Fixed a crash when a separate detachable argument is Void (test#scoop035),
+* Fixed lock passing creation of separate processor from non root processors.
+* Fixed uncontrolled detection to iterate parent request chains. Prior to this a new chain would be created even though the processor was controlled in a parent routine, leading to inevitable deadlock.
 
 ===Runtime/code generation issues===
 
