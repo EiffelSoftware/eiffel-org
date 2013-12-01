@@ -9,7 +9,7 @@ This document contains details of modifications and bug fixes to the EiffelVisio
 
 '''Bug fixes'''
 *'''Platform Independent'''
-** Fixed a drawing issue in EV_GRID causing some invalid drawing
+** Fixed a drawing issue in EV_GRID causing some invalid drawing.
 ** Fixed a crash with retrieving a RTF file containing a color or a font whose index is not starting at 1, or that it is referring to a non-defined index.
 ** Fixed a bug introduced at rev#90517 with `new_line_string' that became TN instead of %N.
 ** Fixed a bug retrieving font in a font table to allow spaces between the components of a font entry in the table. 
