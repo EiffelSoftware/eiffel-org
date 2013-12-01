@@ -3,7 +3,7 @@
 [[Property:weight|9]]
 [[Property:uuid|e32947f4-928c-816e-1dbd-4aa53030e8c7]]
 ==What's new==
-* Supported parenthesis aliases that allow treating feature calls with arguments on entities that take no arguments to look as regular feature calls. This is mostly useful to make calls on agent objects, e.g. instead of <e>my_agent.call (x)</e> it may be possible to use <e>my_agent (x)</e>. Unlike bracket alias, parenthesis alias can be used with both queries and commands, but as with bracket alias, the corresponding feature should have at least one argument.
+* Supported parenthesis aliases that allow treating feature calls with arguments on entities that take no arguments to look like regular feature calls. This is mostly useful to make calls on agent objects, e.g. instead of <e>my_agent.call (x)</e> it may be possible to use <e>my_agent (x)</e>. Unlike bracket alias, parenthesis alias can be used with both queries and commands, but as with bracket alias, the corresponding feature should have at least one argument.
 * Supported new rules to handle actual arguments in a feature call that wrap last arguments into a tuple when:
 ** the number of actual arguments exceeds the number of formal arguments
 ** the number of actual arguments is equal to the number of formal arguments, but the last actual argument is not type-compatible with the last formal argument unless wrapped in a tuple.
@@ -32,7 +32,7 @@
 * Fixed test#attach108 - Corrected computation of scopes of read-only variables used in implicative expressions with conjuctions.
 
 ===SCOOP issues===
-* Fixed a crash when a separate detachable argument is Void (test#scoop035),
+* Fixed a crash when a separate detachable argument is Void (test#scoop035).
 * Fixed lock passing creation of separate processor from non root processors.
 * Fixed uncontrolled detection to iterate parent request chains. Prior to this a new chain would be created even though the processor was controlled in a parent routine, leading to inevitable deadlock.
 
