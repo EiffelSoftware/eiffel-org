@@ -16,7 +16,7 @@
 * Improved completion window/tooltip positioning with respect to monitor coordinates and multiple displays.
 * Improved command line behavior of running tests to automatically perform the necessary compilation steps to test compiled system.
 * Completion and pick and drops will now work more reliably reliably after many edits.
-* Added void-safe version of Gobo, only arguments, test, tools and XML are not yet void-safe.
+* Added void-safe version of Gobo. Only arguments, test, tools and XML are not yet void-safe.
 
 ===Changes===
 * When a Unicode character as an ASCII equivalent we will not silently convert it to the ASCII equivalent.
@@ -26,7 +26,7 @@
 * Fixed bug#18563: Supported renaming of features used in qualified anchored types when refactoring code.
 * Fixed bug#16960: Fixed an exception when showing an inherited class invariant with qualified anchored types.
 * Fixed bug#18606: When completing some code you can see that the entries are shifting by one pixel. It is only visible via remote desktop or when desktop composition is disabled.
-* Fixed bug#18614: Moving text containing Unicode characters in the editor will loose the Unicode characters.
+* Fixed bug#18614: Moving text containing Unicode characters in the editor will lose the Unicode characters.
 * Fixed bug#18611: Preventing an EiffelStudio hang when browsing ECF in the group tool when ECF refers to each other recursively.
 * Fixed bug#18679: Clicking locate button in the Eiffel Information System tool when editor is empty would crash EiffelStudio.
 
