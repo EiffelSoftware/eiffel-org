@@ -19,6 +19,7 @@
 * Added void-safe version of Gobo. Only arguments, test, tools and XML are not yet void-safe.
 
 ===Changes===
+* We have changed our versioning scheme: we will use as the major revision the last 2 digits of the current year, here 13, and as minor the month of the release, here 11. Next release will therefore be 14.05.
 * When a Unicode character as an ASCII equivalent we will not silently convert it to the ASCII equivalent.
 
 ===Bug fixes===
