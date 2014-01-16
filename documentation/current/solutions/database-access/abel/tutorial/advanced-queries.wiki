@@ -1,0 +1,151 @@
+[[Property:title|Advanced Queries]]
+[[Property:weight|-9]]
+[[Property:uuid|a630a4bb-6b25-54ef-085b-7e18050a21a2]]
+==The query mechanism==
+
+As you already know from [[Basic Operations]], queries to a database are done by creating a <e>PS_QUERY[G]</e> object 
+and executing it against a <e>PS_TRANSACTION</e> or <e>PS_REPOSITORY</e>.
+The actual value of the generic parameter <e>G</e> determines the type of the objects that will be returned.
+By default objects of a subtype of <e>G</e> will also be included in the result set.
+
+ABEL will by default load an object completely, meaning all objects that can be reached by following references will be loaded as well (see also [[Dealing with References]]).
+
+==Criteria==
+
+You can filter your query results by setting criteria in the query object, using feature <e>set_criterion</e> in <e>PS_QUERY</e>.
+There are two types of criteria: predefined and agent criteria.
+
+===Predefined Criteria===
+When using a predefined criterion you pick an attribute name, an operator and a value. 
+During a read operation, ABEL checks the attribute value of the freshly retrieved object against the value set in the criterion, and filters away objects that don't satisfy the criterion.
+
+Most of the supported operators are pretty self-describing (see class <e>PS_CRITERION_FACTORY</e> below).
+An exception could be the '''like''' operator, which does pattern-matching on strings.
+You can provide the '''like''' operator with a pattern as a value. The pattern can contain the wildcard characters '''*''' and '''?'''.
+The asterisk stands for any number (including zero) of undefined characters, and the question mark means exactly one undefined character.
+
+You can only use attributes that are strings or numbers, but not every type of attribute supports every other operator. 
+Valid combinations for each type are:
+
+* Strings: =, like
+* Any numeric value: =, <, <=, >, >=
+* Booleans: =
+
+Note that for performance reasons it is usually better to use predefined criteria, because they can be compiled to SQL and hence the result can be filtered in the database.
+
+===Agent Criteria===
+An agent criterion will filter the objects according to the result of an agent applied to them.
+
+The criterion is initialized with an agent of type <e>PREDICATE [ANY, TUPLE [ANY]]</e>. 
+There should be either an open target or a single open argument, and the type of the objects in the query result should conform to the agent's open operand.
+
+==Creating criteria objects==
+The criteria instances are best created using the <e>PS_CRITERION_FACTORY</e> class.
+
+The main features of the class are the following: 
+
+<code>
+class
+	PS_CRITERION_FACTORY
+create
+	default_create
+
+feature -- Creating a criterion
+
+	new_criterion alias "()" (tuple: TUPLE [ANY]): PS_CRITERION
+		-- Creates a new criterion according to a `tuple'
+		-- containing either a single PREDICATE or three 
+		-- values of type [STRING, STRING, ANY].
+
+	new_agent (a_predicate: PREDICATE [ANY, TUPLE [ANY]]): PS_CRITERION
+		-- Creates an agent criterion.
+
+	new_predefined (object_attribute: STRING; operator: STRING; value: ANY): PS_CRITERION
+		-- Creates a predefined criterion.
+
+feature -- Operators
+
+	equals: STRING = "="
+
+	greater: STRING = ">"
+
+	greater_equal: STRING = ">="
+
+	less: STRING = "<"
+
+	less_equal: STRING = "<="
+
+	like_string: STRING = "like"
+
+end
+</code>
+
+Assuming you have an object <e>factory: PS_CRITERION_FACTORY</e>, to create a new criterion you have two possibilities:
+
+* The "traditional" way
+** <e> factory.new_agent (agent an_agent) </e>
+** <e> factory.new_predefined (an_attr_name, an_operator, a_val) </e>
+* The "syntactic sugar" way
+** <e> factory (an_attr_name, an_operator, a_value) </e>
+** <e> factory (agent an_agent) </e>
+  
+<code>
+	create_criteria_traditional : PS_CRITERION
+		-- Create a new criteria using the traditional approach.
+		do
+			-- for predefined criteria
+			Result:= factory.new_predefined ("age", factory.less, 5)
+
+			-- for agent criteria
+			Result := factory.new_agent (agent age_more_than (?, 5))
+		end
+
+	create_criteria_parenthesis : PS_CRITERION
+		-- Create a new criteria using parenthesis alias.
+		do
+			-- for predefined criteria
+			Result:= factory ("age", factory.less, 5)
+
+			-- for agent criteria
+			Result := factory (agent age_more_than (?, 5))
+		end			
+
+	age_more_than (person: PERSON; age: INTEGER): BOOLEAN
+		-- An example agent
+		do
+			Result:= person.age > age
+		end
+
+</code>
+
+===Combining criteria===
+
+You can combine multiple criterion objects by using the standard Eiffel logical operators. 
+For example, if you want to search for a person called "Albo Bitossi" with <e>age <= 20</e>, you can just create a criterion object for each of the constraints and combine them:  
+
+<code>
+	composite_search_criterion : PS_CRITERION
+		-- Combining criterion objects.
+		local
+			first_name_criterion: PS_CRITERION
+			last_name_criterion: PS_CRITERION
+			age_criterion: PS_CRITERION
+		do
+			first_name_criterion:= factory ("first_name", factory.equals, "Albo")
+
+			last_name_criterion := factory ("last_name", factory.equals, "Bitossi")
+
+			age_criterion := factory (agent age_more_than (?, 20))
+			
+			Result := first_name_criterion and last_name_criterion and not age_criterion
+
+			-- Shorter version: 
+			Result := factory ("first_name", "=", "Albo") 
+				and factory ("last_name", "=", "Bitossi") 
+				and not factory (agent age_more_than (?, 20))
+		end
+</code>
+
+ABEL supports the three standard logical operators <e>and</e>, <e>or</e> and <e>not</e>. 
+The precedence rules are the same as in Eiffel, which means that <e>not</e> is stronger than <e>and</e>, which in turn is stronger than <e>or</e>.
+
