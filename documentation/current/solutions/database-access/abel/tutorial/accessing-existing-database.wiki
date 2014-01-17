@@ -87,6 +87,7 @@ end
 
 Because we're using an existing MySQL database, we need to choose the <e>PS_MYSQL_RELATIONAL_REPOSITORY_FACTORY</e> for initialization.
 
+<code>
 class
 	TUTORIAL
 
@@ -115,6 +116,7 @@ feature {NONE} -- Initialization
 		end
 
 end
+</code>
 
 That's it. You're now ready to read and write table records using the repository.
 
