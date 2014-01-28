@@ -26,5 +26,5 @@ The Eiffel solution relies on a combination of language mechanisms:
 <li>The "Object Test" instruction lets programmers treat  void values in a special way.
 </ul>
 
-The White Paper describes the theoretical and practical challenges of ensuring void safety and presents the Eiffel mechanism.
+The White Paper (see the link below) describes the theoretical and practical challenges of ensuring void safety and presents the Eiffel mechanism.
 
