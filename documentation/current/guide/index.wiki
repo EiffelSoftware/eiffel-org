@@ -141,6 +141,7 @@ There is no better place to gain an in-depth understanding of the Eiffel softwar
 Eiffel has been standardized under ISO and ECMA. The comprehensive description of the standard Eiffel programming language is presented in [http://www.ecma-international.org/publications/standards/Ecma-367.htm Standard ECMA-367].
 
 
+
 ----
 
 ===Contribute to Eiffel===
@@ -154,4 +155,27 @@ You can help Eiffel by contributing your time, expertise, and products. Here are
 ====[http://eiffelstudio.origo.ethz.ch/ EiffelStudio on Origo]====
 
 :[http://eiffelstudio.origo.ethz.ch/ EiffelStudio on Origo] contains blogs and forums focusing on Eiffel and EiffelStudio topics.
+
+
+
+
+
+----
+
+==[[Glossary of Object Technology]]==
+
+----
+
+
+This is a relatively comprehensive glossary of terms used in Object-Oriented Analysis, Design, and programming, but are not specific to the Eiffel Language, since object-oriented principles can be applied to any programming language.  It contains all the terms from the glossary in [[Object-Oriented Software Construction, 2nd Edition]], plus others used in this website, added for clarity and ease of reference.
+
+This glossary is useful all by itself, since a review of it can serve as a refresher (in case you have been away from Object Technology for a while).  It is used in this website to assist the reader by providing easy links to technical terms that are used throughout the website.
+
+Additionally, it is possible to link to terms in this glossary from other websites by using links that look like this:
+
+:<nowiki>http://docs.eiffel.com/book/guide/glossary-object-technology#Attribute.</nowiki>
+
+Note that the anchor (the part after the "#") has to be spelled and capitalized exactly like the term on the page.  (Use underscore characters to replace spaces.)
+
+----
 
