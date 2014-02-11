@@ -218,7 +218,7 @@ The unrestricted form of ''[[#Inheritance|inheritance]]'', whereby a class may h
 Antonym of ''[[#Separate|separate]]''.
 
 ==Novariance==
-The policy allowing prohibiting any feature ''[[#Redeclaration|redeclaration]]'' from changing the ''[[#Signature (of a feature)|signature]]''. See also: ''[[#Contravariance|contravariance]]'', ''[[#Covariance|covariance]]''.
+The policy prohibiting any feature ''[[#Redeclaration|redeclaration]]'' from changing the ''[[#Signature (of a feature)|signature]]''. See also: ''[[#Contravariance|contravariance]]'', ''[[#Covariance|covariance]]''.
 
 ==Object==
 A run-time data structure made of zero or more values, called ''[[#Field|fields]]'', and serving as the computer representation of an ''[[#Abstract object|abstract object]]''. Every object is an ''[[#Instance (of a class)|instance]]'' of some class.
