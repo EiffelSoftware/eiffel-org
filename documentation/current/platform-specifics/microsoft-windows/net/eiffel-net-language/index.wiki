@@ -4,9 +4,9 @@
 This section focuses on defining Eiffel for .NET. The key requirement for Eiffel for .NET is the exclusive use of the common language runtime with a minimum Eiffel-specific runtime. The second requirement is to generate IL code that is CLS compliant, meaning that other CLS compliant languages/compilers/tools will be able to reuse .NET components written in Eiffel for .NET. The last requirement is to generate verifiable IL code. 
 
 Because not all Eiffel functionalities are present in .NET, the task of the Eiffel compiler is made more complicated since it has to emulate those mechanisms instead of reusing what .NET provides. For example the common language runtime of .NET does not support:
-* [[Glossary of Object Technology#Multiple inheritance|multiple inheritance]]
-* [[Glossary of Object Technology#Genericity|genericity]]
-* [[Glossary of Object Technology#Covariance|covariance]]
+* [[uuid:b8c10baa-4f50-adfe-a6f8-9cb56a8f1917#Multiple inheritance|multiple inheritance]]
+* [[uuid:b8c10baa-4f50-adfe-a6f8-9cb56a8f1917#Genericity|genericity]]
+* [[uuid:b8c10baa-4f50-adfe-a6f8-9cb56a8f1917#Covariance|covariance]]
 * agents
 
 We will see:
