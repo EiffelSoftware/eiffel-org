@@ -162,7 +162,7 @@ You can help Eiffel by contributing your time, expertise, and products. Here are
 
 ----
 
-==[[Glossary of Object Technology]]==
+==[[uuid:b8c10baa-4f50-adfe-a6f8-9cb56a8f1917|Glossary of Object Technology]]==
 
 ----
 
@@ -173,7 +173,11 @@ This glossary is useful all by itself, since a review of it can serve as a refre
 
 Additionally, it is possible to link to terms in this glossary from other websites by using links that look like this:
 
-:<nowiki>http://docs.eiffel.com/book/guide/glossary-object-technology#Attribute.</nowiki>
+:<nowiki>http://docs.eiffel.com/book/guide/glossary-object-technology#Attribute</nowiki>
+
+or a version that will survive the page being moved:
+
+:<nowiki>http://docs.eiffel.com/isedoc/uuid/b8c10baa-4f50-adfe-a6f8-9cb56a8f1917#Attribute</nowiki>
 
 Note that the anchor (the part after the "#") has to be spelled and capitalized exactly like the term on the page.  (Use underscore characters to replace spaces.)
 
