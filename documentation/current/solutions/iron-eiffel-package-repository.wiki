@@ -32,7 +32,7 @@ For those systems where the location of the library matters (e.g. for backups), 
 
 ==Origin of the Name IRON==
  
-The name Eiffel was chosen to reflect the elegance and soundness of constructing large, complex software systems, with '''simple, individual components, each of which is a unit by itself and has its own existence, and can be tested for integrity as a separate unit, but its role in the larger scheme of things is to be used as a "building block"''' for constructing high-integrity software systems.  The picture on the front of the book ''[[uuid:496983ef-b86e-772e-16b9-39b37ef80e37|Object-Oriented Software Construction, 2nd Edition]]'' illustrates this.
+The name Eiffel was chosen to reflect the elegance and soundness of constructing large, complex software systems, with '''simple, individual components, each of which is a unit by itself and has its own existence, and can be tested for integrity as a separate unit, but its role in the larger scheme of things is to be used as a "building block"''' for constructing high-integrity software systems.  The picture on the front of the book ''[[uuid:496983ef-b86e-772e-16b9-39b37ef80e37|Object&#8209;Oriented&nbsp;Software&nbsp;Construction,&nbsp;2nd&nbsp;Edition]]'' illustrates this.
  
 This of course is intentionally meant as a direct parallel to the famous structure built by the architect and civil engineer Alexandre Gustave Eiffel.  This structure was constructed with '''simple, individual components, each of which was a unit by itself and had its own existence and integrity as a separate unit, but its role in the larger scheme of things was to be used as a "building block"''' for constructing a high-integrity structure:  the Eiffel Tower.
  
