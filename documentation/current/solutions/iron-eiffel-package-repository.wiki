@@ -6,9 +6,7 @@
 
 ==Purpose==
 
-Complex Eiffel software systems are built using libraries of Eiffel software components.  Often, many such libraries are used.  Each one contains a set of completed, reusable software components that make building complex systems more efficient.  Like the Standard C library that is installed with virtually all C compilers, some frequently used libraries are automatically installed with EiffelStudio, such as EiffelBase, EiffelVision2, EiffelTime, EiffelThread, EiffelNet, EiffelWeb, etc.  These form the fundamental building blocks that are used in the construction of most software systems.  However, as is typical for the software industry, many Eiffel software systems perform their work in specialty areas that involve higher mathematics, navigation, GPS, scientific applications, laser printers, automotive industry, unique databases, etc.  In such cases, additional specialized libraries of Eiffel components are used.  As the Eiffel community grows and more and more such libraries become available, some of those libraries will be shared in the public domain.
- 
-The purpose of IRON is to be a popular facility for using and sharing libraries of quality Eiffel components.  It automates many of the tasks involved with maintaining such libraries, and provides a consistent method of doing so with minimal effort.
+The purpose of IRON is to be an easy-to-use facility for using and sharing libraries of quality Eiffel components.  It automates many of the tasks involved with maintaining such libraries, and provides a consistent method of doing so with minimal effort.
 
 ===Empowering Teams of Developers===
 
