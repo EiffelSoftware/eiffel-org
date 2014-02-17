@@ -43,6 +43,7 @@ As a parallel to this, "IRON", as a name, was chosen to reflect the fact that th
 
 Certainly the IRON repository is a repository of Eiffel libraries.  However, sometimes libraries are used together, or cross reference one another, and thus are appropriate to be delivered together as a unit.  Sometimes libraries also need to include other types of files, such as external .C files that may need to be compiled on the local platform to make .LIB or .OBJ files available to the linker (.a or .o on Unix and Linux systems), scripts or executables that need to be run as part of the installation process (e.g. to generate other files required by the library, install environment variables, generate source code from LEX files), or tool kits that are part of, or needed by, the library.   Since the IRON repository permits programmers to install software components in “units”, and since sometimes those units can contain more than one library, as well as other types of files, a new term was required to convey this concept:  package.
 
+
 {{Definition|package|a downloadable unit of software from an IRON repository that contains one or more Eiffel libraries and their related files.}}
 
 
