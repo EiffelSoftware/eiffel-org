@@ -339,7 +339,7 @@ After adding such a package to the library, it is recommended that you go to the
 
 It is also '''''strongly''''' encouraged to include (or provide a link to) documentation that orients the user to its use, and answers basic questions such as:  What is the package? What motivated you to create it?  What problem(s) does it address?  Under what circumstances can the package be productively used?  Under what circumstances should it ''not'' be used (if applicable)?  And some basic examples of its use.  If the package is complex, it can be very helpful to include a well-commented  application that demonstrates intended reuse of the package in software.
 
-Important note:  having clear documentation that enables end users to easily learn how to use your package is a VITAL link in the ability to reuse software components as is so aptly described in ''[[uuid:496983ef-b86e-772e-16b9-39b37ef80e37|Object-Oriented Software Construction, 2nd Edition]]'', in the Modular Understandability criterion:
+Important note:  having clear documentation that enables end users to easily learn how to use your package is a VITAL link in the ability to reuse software components as is so aptly described in ''[[uuid:496983ef-b86e-772e-16b9-39b37ef80e37|Object&#8209;Oriented&nbsp;Software&nbsp;Construction,&nbsp;2nd&nbsp;Edition]]'', in the Modular Understandability criterion:
 
 :'''''“A method favors Modular Understandability if it helps produce software in which a human reader can understand each module without having to know the others, or, at worst, by having to examine only a few of the others.”'''''
 
