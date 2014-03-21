@@ -1,14 +1,14 @@
 [[Property:title|COM]]
 [[Property:weight|0]]
 [[Property:uuid|993f5778-97c1-e113-31d7-61ae81c559fb]]
-Microsoft COM is a platform-independent, distributed, system for creating binary software components that can interact. COM is the foundation technology for Microsoft's OLE (compound documents) and ActiveX (Internet-enabled components) technologies.
+Microsoft COM (Component Object Model) is a platform-independent, distributed, system for creating binary software components that can interact. COM is the foundation technology for Microsoft's OLE (compound documents) and ActiveX (Internet-enabled components) technologies.
 <!--break-->
-{{definition|Automation|Automation enables software packages to expose their unique features to scripting tools and other applications. Automation uses the Component Object Model (COM), but may be implemented independently from other OLE features, such as in-place activation.}}
+{{definition|Automation|Automation is a Microsoft Windows Platform term that means, when an application provides it, that that application exposes its unique features to scripting tools and other applications. Automation uses the Component Object Model (COM).}}
 
 :See also [http://msdn.microsoft.com/en-us/library/windows/desktop/ms221375%28v=vs.85%29.aspx Automation].
 
 
-There is a host of technologies and capabilities that are available to your Eiffel applications on the Microsoft Windows platform through COM interfaces.  For instance, a number of Microsoft products (e.g. Microsoft Word, Excel, Visio, Outlook, etc.) can be enhanced or even controlled by other software through a COM interface.  It is not complicated to, for example, have your Eiffel application open Excel, open a worksheet, evaluate its contents, and make extensive changes, or in-depth queries into its contents, either on the screen or invisibly.  At this writing, all Microsoft Office products offer extensive COM interfaces for such purposes.
+There is a host of technologies and capabilities that are available to your Eiffel applications on the Microsoft Windows platform through COM interfaces.  For instance, a number of Microsoft products (e.g. Microsoft Word, Excel, Visio, Outlook, etc.) can be enhanced or controlled by other software through Automation via a COM interface.  It is not complicated to, for example, have your Eiffel application open Excel, open a worksheet, evaluate its contents, and make extensive changes, or in-depth queries into its contents, either on the screen or invisibly.  At this writing, all Microsoft Office products offer extensive COM interfaces for such purposes.
 
 In addition, Eiffel supports the capability of making Eiffel applications into COM-compliant COM objects, thus exposing callable COM interfaces to other software for similar purposes.
 
