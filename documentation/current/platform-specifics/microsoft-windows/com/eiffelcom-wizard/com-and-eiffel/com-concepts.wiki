@@ -1,17 +1,30 @@
-[[Property:title|Generalities]]
+[[Property:title|Fundamental Concepts]]
 [[Property:link_title|COM Concepts]]
 [[Property:weight|1]]
 [[Property:uuid|9cb19fc1-3d26-5752-6232-ea23f2668c32]]
-COM is a binary standard that describes how a component can communicate with the outside world. The component communicates through well-defined interfaces. Each interface is a specification of a group of properties and methods. Importantly, the interface does not contain the implementation of the properties and methods, only their specifications (signatures). The actual implementation lies in the [[Coclass|'''coclass''']]. There can be different implementations of a same interface in different coclasses. Finally, each coclass can be instantiated using a class object or class factory. These three notions will be discussed further in the forthcoming paragraphs. 
+This page defines some concepts that are fundamental to the entire technology of COM.
+<!--break-->
+==The COM Standard==
+COM is a standard that describes how a binary component can communicate with the outside world.
+
+==Interfaces==
+The component communicates through well-defined interfaces. Each interface is a specification of a group of properties and methods. It is important that the interface does not contain the implementation of the properties and methods, only their specifications (signatures).
+
+==Coclasses==
+The actual implementation lies in the [[Coclass|'''coclass''']]. There can be different implementations of the same interface in different coclasses.
+
+==Class Objects or Class Factories==
+Finally, each coclass can be instantiated using a class object or class factory.
+
+
+These three notions will be discussed further in the forthcoming paragraphs. 
+
 {{seealso|<br/>
 [[EiffelCOM Library| EiffelCOM library]]  <br/>
-[[EiffelCOM: Introduction| Introduction]]  <br/>
-[[COM Interfaces| COM Interfaces]]  <br/>
-[[Coclass| Coclasses]]  <br/>
+[[EiffelCOM: Introduction|Introduction]]  <br/>
+[[COM Interfaces|COM Interfaces]]  <br/>
+[[Coclass|Coclasses]]  <br/>
 [[The Component Location| Component Location]]  <br/>
-[[Access Type| Access Type]]  <br/>
-[[Deeper into COM| Deeper into COM]]  }}
-
-
-
+[[Access Type|Access Type]]  <br/>
+[[Deeper into COM|Deeper into COM]]  }}
 
