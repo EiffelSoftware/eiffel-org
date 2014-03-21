@@ -77,7 +77,7 @@ So, fix any problems that arise out of turning on full class checking.
 The second step in conversion of existing software is to change the values of the other void-safe related project settings and use the void-safe configurations for any delivered libraries and precompilations.
 
 In the project settings for the target in which you are working:
-# Set '''Void safe''' to either '''Complete void safety''' or '''On demand void safety'''. 
+# Set '''Void-safe''' to either '''Complete''', '''Initialization''' or '''Conformance'''. 
 # Set '''Are types attached by default?''' to '''True'''. 
 
 {{note|Remember that during a transitional period starting with V6.4, there will be multiple versions of the configuration files for Eiffel libraries and precompiles. For example, base.ecf (void-unsafe) and base-safe.ecf (void-safe). It is expected that in the future there will only be one configuration file (e.g., base.ecf) that will work with both void-safe and void-unsafe client software. }}
@@ -97,7 +97,7 @@ If you've replaced a precompiled library that you have not already built, Eiffel
 [[Image:VoidSafePrecompileOffer]]
 
 
-Now you should see error messages representing any situation in your project in which the compiler determines that it cannot guarantee void safety.
+Now you should see error messages representing any situation in your project in which the compiler determines that it cannot guarantee void-safety.
 
 This is what our legacy system produced:
 
@@ -329,7 +329,7 @@ To support the "empty array" design, <code>segment_start</code>'s postcondition 
 
 
 
-{{SeeAlso|<br/>[[Converting EiffelVision 2 Systems to Void Safety]]<br/>[[Void-safe changes to Eiffel libraries]]}}
+{{SeeAlso|<br/>[[Converting EiffelVision 2 Systems to Void-Safety]]<br/>[[Void-safe changes to Eiffel libraries]]}}
 
 
 

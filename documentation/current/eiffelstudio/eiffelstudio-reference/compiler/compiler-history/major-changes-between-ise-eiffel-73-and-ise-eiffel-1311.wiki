@@ -22,7 +22,7 @@
 ==Bug fixes==
 
 ===Language issues===
-* Fixed bug#18643 (test#attach107, test#attach102) - Fixed a bug that may lead to unreported VEVI errors for attributes not properly set by a creation procedure when compiled in complete void safety mode (rev#92835).
+* Fixed bug#18643 (test#attach107, test#attach102) - Fixed a bug that may lead to unreported VEVI errors for attributes not properly set by a creation procedure when compiled in complete void-safety mode (rev#92835).
 * Fixed bug#18266 (test#svalid031) - Fixed a bug that caused reporting a non-existent error for a renamed feature with a bracket alias.
 * Fixed bug#18282 (test#multicon062) - Fixed a bug that caused incorrect error report for features with a bracket alias specified in multiple formal generic constraints.
 

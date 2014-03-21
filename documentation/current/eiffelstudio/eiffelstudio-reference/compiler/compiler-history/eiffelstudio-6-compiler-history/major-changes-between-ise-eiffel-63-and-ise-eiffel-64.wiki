@@ -41,7 +41,7 @@ a: detachable MY_TYPE note option: stable attribute end
 ===Compiler issues===
 * Incremented ECF XML schema version to reflect the recent changes.
 * Replaced ECF schema attribute syntax_level of an integer type with syntax of a string type that contains one of the three possible values.
-* Replaced ECF schema attribute is_void_safe of a boolean type with void_safety of a string type that contains one of the three possible values ('''none''': no void safety checks; '''all''':all void safety checks; '''initialization''': on-demand void safety checks, i.e. only for entities that are attached).
+* Replaced ECF schema attribute is_void_safe of a boolean type with void_safety of a string type that contains one of the three possible values ('''none''': no void-safety checks; '''all''':all void-safety checks; '''initialization''': on-demand void-safety checks, i.e. only for entities that are attached).
 * Fixed eweasel test#syntax042 and test#syntax047 as well as bug#15514 that allowed invalid characters in new C external specification. Removed generation of error when trying the old syntax, the syntax error will be based in the new syntax now.
 * Fixed eweasel test#agent004 and test#agent010 by ensuring the result type of the agent is properly instantiated in the agent target type context.
 * Fixed missing reporting of VEVI error for attributes initialized from a creation procedure by calling a once routine because the latter is not guaranteed to be executed on subsequent calls. 

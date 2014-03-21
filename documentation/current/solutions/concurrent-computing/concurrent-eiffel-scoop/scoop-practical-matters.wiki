@@ -44,7 +44,7 @@ Then, you should select ''SCOOP'' as a value for the ''Concurrency'' setting for
 
 ===Clean compile===
 
-Changing the ''Concurrency'' setting, the ''Void safety'' setting, and precompiled libraries each would cause you to have to do a [[Clean compile|clean compile]] of your system in order to become effective. So, next you should do a clean compile. At this point, your project should be void-safe and SCOOP enabled.
+Changing the ''Concurrency'' setting, the ''Void-safety'' setting, and precompiled libraries each would cause you to have to do a [[Clean compile|clean compile]] of your system in order to become effective. So, next you should do a clean compile. At this point, your project should be void-safe and SCOOP enabled.
 
 
 

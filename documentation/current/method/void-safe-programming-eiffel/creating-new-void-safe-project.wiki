@@ -12,11 +12,13 @@ There are three project settings that are related to void-safety. These settings
 The '''Void-safe''' setting determines whether and how the Eiffel compiler checks your project against the void-safe related validity rules. 
 
 This is the essential void-safe project setting. It can assume one of three values:
-# '''No void safety''': No checking against any of the void-safety validity rules.
-# '''On demand void safety''': Validity rules are selectively checked. Attachment status (VJAR/VBAR and related) is taken into account when performing conformance checks, but initialization rule (VEVI) and the target rule (VUTA) are checked only for attached entities and attached call targets -- i.e., detachable cases are not checked. 
-# '''Complete void safety''': Complete checking against all void-safety validity rules.
+# '''No''': No checking against any of the void-safety validity rules. Attachment marks '''attached''' and '''detachable''' are simply ignored.
+# '''Conformance''': The attachment marks are not ignored for type conformance checks (with respect to VJAR/VBAR and related validity rules).
+# '''Initialization''': Validity rules are selectively checked. The initialization rule (VEVI) and the target rule (VUTA) are checked only for attached entities and attached call targets -- i.e., detachable cases are not checked. 
+# '''Transitional''': It is an obsolete level which is for users who have already migrated their code to void-safety using an old version of the compiler which did not implement all the void-safety validity rules (especially with agent initialization).
+# '''Complete''': Complete checking against all void-safety validity rules.
 
-So, for a new void-safe project, you would want to set this option to either '''Complete void safety''' or '''On demand void safety'''.
+So, for a new void-safe project, you would want to set this option first to '''Conformance''', then '''Initialization'''' and finally to '''Complete'''. This will let you migrate your code progressively without much changes at each steps.
 
 ===The ''"Are types attached by default?"'' setting===
 
@@ -37,20 +39,20 @@ In a new project, ideally all of your declarations would be of attached types. B
 
 So, for a new void-safe project, it is recommended that a value of '''True''' is used. 
 
+{{Warning|As of EiffelStudio 14.05, this setting will always be True by default and future releases of EiffelStudio will not let you change this.}}
+
 
 {{SeeAlso| [[Void-safety: Background, definition, and tools#Types as "attached" or "detachable"|Types as "attached" or "detachable"]].}}
 
 
 ===The ''"Full class checking"'' setting===
 
-This setting instructs the compiler to recheck inherited features in descendant classes. 
-
-'''Full class checking''' should always be set to '''True''' when compiling void-safe code.
+This setting instructs the compiler to recheck inherited features in descendant classes. This setting is True and cannot be changed for projects with some void-safety level enabled.
 
 
 ==Void-safe libraries==
 
-As of EiffelStudio version 6.4, the majority of the libraries distributed with EiffelStudio are void-safe. 
+As of EiffelStudio version 13.11, all libraries distributed with EiffelStudio are void-safe except the EiffelCOM library.
 
 {{note|During a period of transition, there will be different Eiffel configuration files (.ecf's) for void-unsafe and void-safe projects (for example, base.ecf and base-safe.ecf). If you have set the '''Void-safe''' setting to check for void-safety, then when you add a library to your project in EiffelStudio, you will see only the void-safe configurations by default. After the transition period, it is expected that there will be only one version of each of the configuration files for each library. The single configuration files will serve both void-unsafe and void-safe projects. }}
 

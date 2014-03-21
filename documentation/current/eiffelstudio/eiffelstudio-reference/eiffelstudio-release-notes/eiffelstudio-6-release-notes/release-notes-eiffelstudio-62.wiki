@@ -51,7 +51,7 @@
 * Added <eiffel>deep_physical_size</eiffel> in <eiffel>INTERNAL</eiffel> to compute the size of an object and all its dependencies.
 * Improved speed of <eiffel>read_stream</eiffel> in <eiffel>FILE</eiffel> so that it used underlying `fread' once rather than calling `getc' for each requested character. Our benchmarks show that you can save up to 2s for 1000 calls.
 * Added an assigner routine for <eiffel>item</eiffel> in <eiffel>ARRAY2</eiffel>. This might break descendant classes of <eiffel>ARRAY2</eiffel> redefining <eiffel>item</eiffel>.
-* Updated code toward Void safety.
+* Updated code toward Void-safety.
 
 ===EiffelNet===
 * Fixed bug in {<eiffel>SOCKET</eiffel>}.<eiffel>read_stream</eiffel> where if there was a socket error, then it would cause a precondition violation in <eiffel>C_STRING</eiffel>.

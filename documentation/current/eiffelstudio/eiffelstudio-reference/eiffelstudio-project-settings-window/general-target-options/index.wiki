@@ -50,7 +50,7 @@ Further options are
 * [[Tracing|Trace]]: display on the console all the features that are called during the system execution (C generation mode only).
 * .NET Namespace: specify the namespace for this target (.NET code generation mode only)
 * Line generation: generate some extra information that will enable a .NET debugger or a C debugger to step through the Eiffel code rather than MSIL code or C code.
-* Full Class Checking, Void safety, Are types attached by default?: These settings are generally associated with increasing the safety of compiled code, particularly [[Creating a new void-safe project#Project settings for void-safe projects|void-safety]].
+* Full Class Checking, Void-safety, Are types attached by default?: These settings are generally associated with increasing the safety of compiled code, particularly [[Creating a new void-safe project#Project settings for void-safe projects|void-safety]].
 * Cat call detection: Attempts to identify at compile time the possibility of the system making a [[ET: Inheritance#Catcalls|catcall]].
 * Syntax: Allows you to select the [[Setting the syntax variant|syntax variant]] used by the compiler when compiling this target.
 * Concurrency: Controls the level of concurrency support for this target. ''No concurrency'' means mono-threaded; ''EiffelThread'' means concurrent threads using the [[EiffelThread Tutorial|EiffelThread]] library. ''SCOOP'' means concurrency based on the [[Concurrent Eiffel with SCOOP|SCOOP]] rules.
