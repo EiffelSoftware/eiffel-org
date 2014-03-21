@@ -17,7 +17,7 @@ The actual implementation lies in the [[Coclass|'''coclass''']]. There can be di
 Finally, each coclass can be instantiated using a class object or class factory.
 
 
-These three notions will be discussed further in the forthcoming paragraphs. 
+These three notions will be discussed further in the upcoming sections.
 
 {{seealso|<br/>
 [[EiffelCOM Library| EiffelCOM library]]  <br/>
