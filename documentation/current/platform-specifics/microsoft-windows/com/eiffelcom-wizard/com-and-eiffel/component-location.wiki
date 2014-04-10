@@ -3,8 +3,7 @@
 [[Property:uuid|083c0120-2eda-9353-ceae-f63e7f407341]]
 <div> 
 ==Types of Components==
-Certainly you've heard of ActiveX, DirectX, OCX, COM+, ADO+, ASP, and other Microsoft technologies. These are all technologies that use the COM standard. This paragraph will focus on categorizing COM components according to their own properties as well as the context in which they are used. The categorization will define how the EiffelCOM wizard should be used to wrap or create a component. 
-The first criterion that defines the type of component is its origin: will the component be loaded in the client process (in-process) or will the component be a remote server for a distributed application (out-of-process)? In the former case, the component is compiled as a Dynamic Link Libraries (DLL) while in the latter case it is a standard executable. 
+Certainly you've heard of ActiveX, DirectX, OCX, COM+, ADO+, ASP, and other Microsoft technologies. These are all technologies that use the COM standard. This section focuses on categorizing COM components according to their properties as well as the context in which they are used. The categorization will define how the EiffelCOM wizard should be used to wrap or create a component.  The first criterion that defines the type of component is its location at run time:  will the component be loaded in the client process (in-process) or will the component be a remote server for a distributed application (out-of-process)? In the former case, the component is compiled as a Dynamic Link Libraries (DLL) while in the latter case it is a standard executable. 
 
 ==In-process Components==
 
