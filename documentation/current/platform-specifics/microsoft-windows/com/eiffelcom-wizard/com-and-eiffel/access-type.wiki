@@ -5,7 +5,7 @@ Regardless of its location, a COM components can be accessed either through OLE 
 
 ==Automation==
 
-Accessing a COM component through Automation means using a well-known interface to access to a group of methods and properties. This interface is called '''IDispatch''', and it includes the method <eiffel>invoke</eiffel> that allows calling a method, setting or getting a property on the Automation server. 
+Accessing a COM component through Automation means using a well-known interface called '''IDispatch''' to access to a group of methods and properties. This interface includes the method <eiffel>invoke</eiffel> that allows calling a method, setting or getting a property on the Automation server. 
 
 One advantage of this approach is that the interface has a known virtual table layout. As a result, Windows can include a built-in marshaler for that interface (See [[Deeper into COM]]  for information on marshalers). The supported types (known as Automation types) and their Eiffel equivalents are listed in the following table: 
 
@@ -58,7 +58,7 @@ float
 REAL
 
 |  
-2 bytes real
+4-byte real value
 
 |- 
 |  
