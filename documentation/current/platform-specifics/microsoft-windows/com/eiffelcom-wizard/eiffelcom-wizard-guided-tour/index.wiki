@@ -4,7 +4,7 @@
 This section provides a working example of how to use the EiffelCOM wizard to create COM components and to access existing COM components. <br/>
 *  [[Creating a New COM Component|Creating a New COM Component]] . 
 *  [[Creating a new component from an Eiffel project|Creating a new component from an Eiffel Project.]]  
-*  [[Accessing a COM component|Accessing a COM component.]]  
+*  [[Accessing a COM Component|Accessing a COM Component.]]  
 
 
 {{Caution|EiffelCOM currently requires the use of the Microsoft C compiler (available with Visual Studio or the Microsoft Windows SDK). EiffelCOM will not work at this time with the MinGW C compiler.}}
