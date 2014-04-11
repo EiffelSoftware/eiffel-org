@@ -13,7 +13,7 @@ There are some rules that the facade class must follow for the COM wizard to be 
 *  The facade class should not contain any public attribute, only routines can be exported to COM clients. 
 *  The facade class must belong to a successfully compiled Eiffel project. 
 
-{{seealso|[[How the EiffelCOM Wizard works|How the EiffelCOM Wizard Works]] , [[Generated Files|Generated Files]] , [[Class Hierarchy|Class Hierarchy]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Accessing a COM component|Accessing a COM Component]] , [[Reusing a COM Component|Reusing a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
+{{seealso|[[How the EiffelCOM Wizard works|How the EiffelCOM Wizard Works]] , [[Generated Files|Generated Files]] , [[Class Hierarchy|Class Hierarchy]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Accessing a COM Component|Accessing a COM Component]] , [[Reusing a COM Component|Reusing a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
 
 
 
