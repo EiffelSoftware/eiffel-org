@@ -43,7 +43,7 @@ regsvr32 string_manipulator_idl.dll</code>
 Once registered, follow the steps described in [[Accessing a COM Component|Accessing a COM Component]]  to build the component's client. 
 {{seealso|<br/>
 [[Creating a new component from an Eiffel project|Creating a new component from an Eiffel Project]]  <br/>
-[[Accessing a COM component|Accessing a COM component.]]  }}
+[[Accessing a COM Component|Accessing a COM Component.]]  }}
 
 
 
