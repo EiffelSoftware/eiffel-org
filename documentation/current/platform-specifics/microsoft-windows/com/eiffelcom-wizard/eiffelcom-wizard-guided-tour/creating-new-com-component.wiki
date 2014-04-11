@@ -1,5 +1,4 @@
-[[Property:title|Creating a new COM component]]
-[[Property:link_title|Creating a New COM Component]]
+[[Property:title|Creating a New COM Component]]
 [[Property:weight|0]]
 [[Property:uuid|f8298b7d-c1a4-c8cc-1821-066f90e7e6e0]]
 This first tutorial describes creating a COM component from a COM definition file that is either an IDL file or a Type Library. The tutorial focuses on creating an in-process (DLL) component, called <eiffel>StringManipulator</eiffel>. The component exposes one interface <eiffel>IString</eiffel> that includes the functions <eiffel>ReplaceSubstring</eiffel> and <eiffel>PruneAll</eiffel> corresponding respectively to the features [[ref:libraries/base/reference/string_8_chart|<eiffel>replace_substring</eiffel>]] and [[ref:libraries/base/reference/string_8_chart|<eiffel>prune_all</eiffel>]] of the class [[ref:libraries/base/reference/string_8_chart|<eiffel>STRING</eiffel>]] from the EiffelBase library. <eiffel>IString</eiffel> also exposes the property <eiffel>String</eiffel> which represents the manipulated string. The property can be set or read.
