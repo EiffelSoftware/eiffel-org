@@ -11,7 +11,7 @@ This first tutorial describes creating a COM component from a COM definition fil
 #  Make sure '''Generate and use marshaller DLL''' is not checked. 
 #  Click '''Next'''. 
 #  In '''Component Type''', choose ''In-process (*.dll)''. 
-#  In '''Generation Options''', click the browse button and select the directory where the project should be created (which we will later referred to as the ''destination folder''). Choose ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\generated\component'' where ''$ISE_EIFFEL'' represents the path to the EiffelStudio installation directory. 
+#  In '''Generation Options''', click the browse button and select the directory where the project should be created (which we will later refer to as the ''destination folder''). Choose ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\generated\component'' where ''$ISE_EIFFEL'' represents the path to the EiffelStudio installation directory. 
 #  Make sure both '''Compile C code''' and '''Compile Eiffel code''' are checked. 
 #  Make sure '''Clean destination folder prior to generation''' is selected. 
 #  Click '''Generate'''. 
