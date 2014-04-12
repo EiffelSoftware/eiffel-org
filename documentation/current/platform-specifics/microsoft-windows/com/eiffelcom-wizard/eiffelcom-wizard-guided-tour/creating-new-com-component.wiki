@@ -20,7 +20,7 @@ This first tutorial describes creating a COM component from a COM definition fil
 {{note|Because Eiffel as a language has evolved somewhat since the '''EiffelCOM Wizard''' was last released, you will need to go into the project file under the "Server" subdirectory (string_manipulator_idl.ecf, preferrably from within EiffelStudio) and change the following settings for this example to compile:  Select "Target" in the navigator pane, then change the "Void safety" setting to "No", and "Syntax" to "Transitional syntax".  Click '''OK''' in the Project Settings dialog box.  Now you can finish the compile from within EiffelStudio.  Note that there will be a few warnings about obsolete calls.  These can be ignored for now.}}
 
 
-==A First Look at the Generated Code==
+==First Look at the Generated Code==
 
 At the end of the processing the '''EiffelStudio''' button becomes enabled. Click on it. This will automatically start EiffelStudio with the generated project so you can navigate more easily through the created Eiffel classes. You can save the processing output by clicking the '''Save''' button. 
 
