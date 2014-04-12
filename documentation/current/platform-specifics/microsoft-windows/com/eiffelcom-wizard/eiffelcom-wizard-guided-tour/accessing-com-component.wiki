@@ -16,11 +16,26 @@ This third tutorial describes how to access a COM component. It will build a cli
 #  Click '''Generate'''. 
 #  Wait until the wizard is done. 
 
-{{note|Because Eiffel as a language has evolved somewhat since the '''EiffelCOM Wizard''' was last released, you will need to go into the project file under the "Client" subdirectory (string_manipulator_idl_client.ecf, preferrably from within EiffelStudio) and change the following settings for this example to compile:  Select "Target" in the navigator pane, then change the "Void safety" setting to "No", and "Syntax" to "Transitional syntax".  Click '''OK''' in the Project Settings dialog box.  Now you can finish the compile from within EiffelStudio.  Note that there will be a few warnings about obsolete calls.  These can be ignored for now.}}
+{{note|Because Eiffel as a language has evolved somewhat since the '''EiffelCOM Wizard''' was last released, the compile will fail on the last (Eiffel) portion of the compile.  However, in this case, it is not sufficient to simply launch EiffelStudio, change the configuration, and finish the compile.  The reason is that the EiffelCOM Wizard WOULD HAVE built a pre-compiled library from the C and Eiffel files just generated, and this is important because later steps in this Guided Tour depend upon that library to be there.  Thus, to navigate this, you will need to:
+
+#  Let the EiffelCOM Wizard compilation proceed until it fails due to a Eiffel syntax error.  Leave the EiffelCOM Wizard running.  We will need it below.
+#  Click the EiffelStudio button to launch EiffelStudio on the project file that was generated above.
+#  On the first window that will be presented, UNCHECK the "Compile" checkbox.  Then click '''OK'''.
+#  Once EiffelStudio is open, click the ''Change Project Settings'' toolbar button, and navigate to ''Target: default'' in the navigation pane.
+#  Set the "Void safety" setting to "No", and set the "Syntax" setting to "Transitional syntax".
+#  Click '''OK''' in the Project Settings dialog box.
+#  DO NOT COMPILE, but exit EiffelStudio.
+#  In Windows Explorer, navigate to the ...\string_manipulator\generated\client\Client\  folder.  Copy the .ECF file (string_manipulator_idl_client.ecf) outside the project directory temporarily (for example, to the ...\string_manipulator\generated\client\  folder.  This .ECF file has the settings that will permit the EiffelCOM Wizard compilation to succeed.
+#  Navigate to the folder where you made a copy of the above .ECF file, and in Windows Explorer, while the .ECF file is selected, from the Edit menu, select ''Copy'' (or hit Ctrl-C on the keyboard to make a copy of the file on the Windows clipboard).
+#  In Windows Explorer, navigate back to the ...\string_manipulator\generated\client\Client\  folder, but don't do anything yet.
+#  Quickly execute the following 2 steps:  in the EiffelCOM Wizard, click the '''Generate''' button.  After about 2 seconds, after the files have been generated and the C/C++ compilations have started, return to the Windows Explorer window in the ...\string_manipulator\generated\client\Client\  folder, and hit Ctrl-V on the keyboard to PASTE the saved .ECF file into the folder.  When it prompts you to replace the file (in Windows 7, this will be a "Copy and Replace" choice), pick that one to overwrite the .ECF file that was just generated.
+#  Watch the EiffelCOM Wizard Output window as it completes successfully.
+#  With Windows Explorer, navigate to the ...\string_manipulator\generated\client\Client\EIFGENs\default\W_code\msc\  folder and confirm there is a file there named <code>precomp.lib</code> .
+
+Now you are ready to continue with the Guided Tour.
 
 
-
-==A First Look at the Generated Code==
+==First Look at the Generated Code==
 At the end of the processing the '''EiffelStudio''' button becomes enabled. Click on it. This will automatically start EiffelStudio with the generated project so you can more easily navigate through the created Eiffel classes.
 
 {{note|When accessing a COM component the EiffelCOM Wizard will generate a precompiled library which includes all the generated classes. This allows for easy browsing of the generated classes, however a precompilation project is read-only, so you need to start another EiffelStudio to reuse the generated classes. The interesting classes are all related to the coclass proxy <eiffel>STRING_MANIPULATOR_PROXY</eiffel>. The proxy is the Eiffel class that gives access to the component. Each feature on the proxy calls the corresponding interface function on the component. You can use the EiffelStudio opened by the wizard to browse through the generated classes and study the class hierarchy.}}
