@@ -27,7 +27,7 @@ At the end of the processing the '''EiffelStudio''' button becomes enabled. Clic
 The deferred class <eiffel>STRING_MANIPULATOR_COCLASS</eiffel> represents the component and exposes all its functionality. It inherits from <eiffel>ISTRING_INTERFACE</eiffel> which corresponds to the '''IString''' interface and has one heir <eiffel>STRING_MANIPULATOR_COCLASS_IMP</eiffel> which implements all the deferred features. The default implementation in the heir is empty. 
 
 ==Implementing the Component==
-To do something more interesting than merely returning an error to the client, edit the implementation of the <eiffel>STRING_MANIPULATOR_COCLASS_IMP</eiffel> class. There is an implementation of the class in ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\server''\. Copy this file over to ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\generated\component\server\component'' and freeze the project. Voila!, you have your first EiffelCOM component up and running.
+To do something more interesting than merely returning an error to the client, edit the implementation of the <eiffel>STRING_MANIPULATOR_COCLASS_IMP</eiffel> class. There is an implementation of the class in ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\server''\. Copy this file over to ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\generated\component\server\component'' and freeze the project.  Voila!  You have your first EiffelCOM component up and running.
 
 ==Running the Component==
 The component needs to be registered prior to being loaded. Register an out-of-process component using the following syntax: 
