@@ -21,7 +21,7 @@ Note that because Eiffel as a language has evolved somewhat since the '''EiffelC
 
 #  Let the EiffelCOM Wizard compilation proceed until it fails due to a Eiffel syntax error.  Leave the EiffelCOM Wizard running.  We will need it below.
 #  Click the EiffelStudio button to launch EiffelStudio on the project file that was generated above.
-#  On the first window that will be presented, UNCHECK the "Compile" checkbox.  Then click '''OK'''.
+#  The first window presented is the "Choose Your Directory" dialog box.  UNCHECK the "Compile project" checkbox.  Then click '''OK'''.
 #  Once EiffelStudio is open, click the ''Change Project Settings'' toolbar button, and navigate to ''Target: default'' in the navigation pane.
 #  Set the "Void safety" setting to "No", and set the "Syntax" setting to "Transitional syntax".
 #  Click '''OK''' in the Project Settings dialog box.
