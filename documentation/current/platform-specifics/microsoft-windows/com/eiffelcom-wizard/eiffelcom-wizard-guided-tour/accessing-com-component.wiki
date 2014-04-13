@@ -16,7 +16,8 @@ This third tutorial describes how to access a COM component. It will build a cli
 #  Click '''Generate'''. 
 #  Wait until the wizard is done. 
 
-{{note|Because Eiffel as a language has evolved somewhat since the '''EiffelCOM Wizard''' was last released, the compile will fail on the last (Eiffel) portion of the compile.  However, in this case, it is not sufficient to simply launch EiffelStudio, change the configuration, and finish the compile.  The reason is that the EiffelCOM Wizard WOULD HAVE built a pre-compiled library from the C and Eiffel files just generated, and this is important because later steps in this Guided Tour depend upon that library to be there.  Thus, to navigate this, you will need to:
+==Temporary Work-Around==
+Note that because Eiffel as a language has evolved somewhat since the '''EiffelCOM Wizard''' was last released, the compile will fail on the last (Eiffel) portion of the compile.  However, in this case, it is not sufficient to simply launch EiffelStudio, change the configuration, and finish the compile.  The reason is that the EiffelCOM Wizard WOULD HAVE built a pre-compiled library from the C and Eiffel files just generated, and this is important because later steps in this Guided Tour depend upon that library to be there.  Thus, to navigate this, you will need to execute the steps below.
 
 #  Let the EiffelCOM Wizard compilation proceed until it fails due to a Eiffel syntax error.  Leave the EiffelCOM Wizard running.  We will need it below.
 #  Click the EiffelStudio button to launch EiffelStudio on the project file that was generated above.
@@ -25,11 +26,11 @@ This third tutorial describes how to access a COM component. It will build a cli
 #  Set the "Void safety" setting to "No", and set the "Syntax" setting to "Transitional syntax".
 #  Click '''OK''' in the Project Settings dialog box.
 #  DO NOT COMPILE, but exit EiffelStudio.
-#  In Windows Explorer, navigate to the ...\string_manipulator\generated\client\Client\  folder.  Copy the .ECF file (string_manipulator_idl_client.ecf) outside the project directory temporarily (for example, to the ...\string_manipulator\generated\client\  folder.  This .ECF file has the settings that will permit the EiffelCOM Wizard compilation to succeed.
-#  Navigate to the folder where you made a copy of the above .ECF file, and in Windows Explorer, while the .ECF file is selected, from the Edit menu, select ''Copy'' (or hit Ctrl-C on the keyboard to make a copy of the file on the Windows clipboard).
+#  Copy the .ECF file just modified to a safe location.  In Windows Explorer, navigate to the ...\string_manipulator\generated\client\Client\  folder.  Copy the .ECF file (string_manipulator_idl_client.ecf) outside the project directory temporarily (for example, to the ...\string_manipulator\generated\client\  folder.  This .ECF file has the settings that will permit the EiffelCOM Wizard compilation to succeed.
+#  Place this safe copy of the modified .ECF file on the clipboard, ready to copy.  Navigate to the folder where you made a copy of the above .ECF file, and in Windows Explorer, while the .ECF file is selected, from the Edit menu, select ''Copy'' (or hit Ctrl-C on the keyboard to make a copy of the file on the Windows clipboard).
 #  In Windows Explorer, navigate back to the ...\string_manipulator\generated\client\Client\  folder, but don't do anything yet.
-#  Quickly execute the following 2 steps:  in the EiffelCOM Wizard, click the '''Generate''' button.  After about 2 seconds, after the files have been generated and the C/C++ compilations have started, return to the Windows Explorer window in the ...\string_manipulator\generated\client\Client\  folder, and hit Ctrl-V on the keyboard to PASTE the saved .ECF file into the folder.  When it prompts you to replace the file (in Windows 7, this will be a "Copy and Replace" choice), pick that one to overwrite the .ECF file that was just generated.
-#  Watch the EiffelCOM Wizard Output window as it completes successfully.
+#  Quickly execute the following 2 steps:  A) in the EiffelCOM Wizard, click the '''Generate''' button.  B) After about 2 seconds, after the files have been generated and the C/C++ compilations have started, return to the Windows Explorer window in the ...\string_manipulator\generated\client\Client\  folder, and hit Ctrl-V on the keyboard to PASTE the saved .ECF file into the folder.  Confirm when it prompts you whether to replace the .ECF file that was just generated (in Windows 7, this will be a "Copy and Replace" choice).
+#  Watch the EiffelCOM Wizard Output window as it completes successfully this time.
 #  With Windows Explorer, navigate to the ...\string_manipulator\generated\client\Client\EIFGENs\default\W_code\msc\  folder and confirm there is a file there named <code>precomp.lib</code> .
 
 Now you are ready to continue with the Guided Tour.
