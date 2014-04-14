@@ -10,24 +10,31 @@ IRON provides an easy-to-use facility for using and sharing libraries of quality
 
 ===Empowering Teams of Developers===
 
-One area that teams of developers sometimes struggle with is how to share the same Eiffel Configuration File (.ECF file --  which has a function similar to a "solution" file in a Microsoft Visual Studio project), while having libraries installed in different places on the different computers used by the team.  Prior to IRON, the traditional solution was to use environment variables.  For example, when a library could be installed in different places on different team members’ computers, an environment variable would be created for it (on each system using the .ECF file).  And then, the environment variable is included in the .ECF file like this:
+To configure Eiffel projects, programmers write "ECFs" (Eiffel Configuration Files -- Microsoft Visual Studio users can think of "solution files").
+
+One application of ECFs is to support libraries installed in different places on the different computers used by the team.  Prior to IRON, the solution was to use environment variables.  A typical style is this ECF extract:
 
 :<library name="presentation" location="$FSD_EIFFEL\presentation\presentation.ecf"/>
 :<library name="awts" location="$LIBRARIES\Eiffel\AWTS\library\awts_library.ecf"/>
 :<library name="cot" location="$LIB_COT\cot.ecf"/>
-:etc.
 
-After a few projects have been undertaken, and maintenance continues on the prior projects, the number of these variables start to add up quickly.  A dozen or more such variables per system was not uncommon.  And while it permitted individual programmers to manage the location of the libraries on their own systems, it quickly became unwieldy to coordinate among a team of programmers.
+As projects grow and multiply, the number of these variables adds up quickly.  A dozen or more such environment variables per system is (prior to IRON) not uncommon. Coordinating their use and evolution among a team of programmers can become a challenge.
 
-IRON has made it possible to simplify this scenario significantly.  Simply move commonly-used libraries onto an IRON server and place the path to their respective .ECF files in your project .ECF files and voila!  The paths to the above libraries then becomes something like this instead:
+IRON has made it possible to simplify this scenario dramatically.  For any commonly used library, it suffices to:
+* Install the library on an IRON server.
+* For any program that uses the library, include in the project's ECF a reference to the library's location <i>in the server</i>, rather than its physical location.
+
+That's all!  In the above example, the paths to the libraries, in the project, then become something like:
 
 :<nowiki>http://iron.eiffel.com/13.11/crystal_clear_research/lib/presentation/presentation.ecf</nowiki>
 :<nowiki>http://iron.eiffel.com/13.11/crystal_clear_research/lib/awts/awts.ecf</nowiki>
 :<nowiki>http://iron.eiffel.com/13.11/crystal_clear_research/lib/cot/cot.ecf</nowiki>
 
-And the need for a cumbersome set of environment variables disappears!
+There is no more need for a set of environment variables.
 
-For those systems where the location of the library matters (e.g. for backups), the ISE_IRON_PATH environment variable can be established before the IRON packages are installed.  For others, they just install the package.  IRON and EiffelStudio take care of the remaining details.  And all developers on a project simply share the same .ECF file with no further worry about where the libraries are.
+IRON and EiffelStudio take care of the remaining details.  And all developers on a project simply share the same .ECF file with no further worry about where the libraries are.
+
+In some cases, for example for backups, the physical location of the library may matter. Then it suffices to use a single environment variable: ISE_IRON_PATH.  
 
 
 ==Origin of the Name IRON==
@@ -60,7 +67,7 @@ The IRON facility consists of three parts:
 * Within EiffelStudio and the Eiffel compiler, is the ability to read and use IRON references from the Eiffel Configuration File (.ECF).  (This integration will be expanded in future EiffelStudio releases.)
 
 
-==How to Use==
+==How to Use IRON==
 
 
 1.
