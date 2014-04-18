@@ -1,11 +1,11 @@
 [[Property:title|Interfaces]]
 [[Property:weight|0]]
 [[Property:uuid|7f65c561-cac3-6870-5d1c-6f73beeed872]]
-COM interfaces have several facets. First, an interface is a deferred, or an abstract, class. This means that an interface is a specification of a type. Second, an interface pointer represents a COM object, which is callable by a client application. An object can expose several interfaces, or represent several types. 
-
+COM interfaces have several facets. First, an interface is a deferred class ("abstract class" in C++ terms). This means that an interface is a specification of a type. Second, an interface pointer represents a COM object, which is callable by a client application. An object can expose several interfaces, or represent several types.
+<!--break-->
 ==ECOM_INTERFACE==
 
-For each interface listed in a type library, the EiffelCOM wizard generates a deferred class and two effective classes: a proxy of an interface pointer, or a client side class, and a stub of an interface pointer, or a server side class. The deferred interface class inherits from [[ref:libraries/com/reference/ecom_interface_chart|<eiffel>ECOM_INTERFACE</eiffel>]] and has a deferred feature per each interface function. Both effective classes, or implemented interfaces, inherit from the deferred class and implement its functions. The functions of the interface proxy calls the underlying C layer, which in turn calls the COM component while the functions of the interface stub implement the component functionality. 
+For each interface listed in a type library, the EiffelCOM wizard generates a deferred class and two effective classes: a proxy of an interface pointer, or a client side class, and a stub of an interface pointer, or a server side class. The deferred interface class inherits from [[ref:libraries/com/reference/ecom_interface_chart|<eiffel>ECOM_INTERFACE</eiffel>]] and has one deferred feature for each interface function. Both effective classes, or implemented interfaces, inherit from the deferred class and implement its functions. The functions of the interface proxy calls the underlying C layer, which in turn calls the COM component while the functions of the interface stub implement the component functionality. 
 
 [[ref:libraries/com/reference/ecom_interface_chart|ECOM_INTERFACE]]  holds a pointer to the underlying COM interface. 
 
@@ -19,8 +19,5 @@ which queries a COM component internally. Every interface proxy class inherits f
 
 ==ECOM_STUB==
 
-[[ref:libraries/com/reference/ecom_stub_chart|ECOM_STUB]] inherits from [[ref:libraries/com/reference/ecom_interface_chart|ECOM_INTERFACE]], and exposes the feature [[ref:libraries/com/reference/ecom_stub_chart|<code>create_item</code>]] which allows creating the underlying COM object. 
-
-
-
+[[ref:libraries/com/reference/ecom_stub_chart|ECOM_STUB]] inherits from [[ref:libraries/com/reference/ecom_interface_chart|ECOM_INTERFACE]], and exposes the feature [[ref:libraries/com/reference/ecom_stub_chart|<code>create_item</code>]] which allows creating the underlying COM object.
 
