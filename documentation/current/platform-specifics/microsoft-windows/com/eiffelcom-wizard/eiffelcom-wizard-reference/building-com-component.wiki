@@ -1,8 +1,8 @@
 [[Property:title|Building a COM Component]]
 [[Property:weight|5]]
 [[Property:uuid|eb299741-4570-c2f1-011a-69da3043c6eb]]
-The EiffelCOM wizard allows for the development of both in-process (DLLs) and out-of-process (EXEs) COM components in Eiffel. 
-
+When building a COM component, the EiffelCOM wizard allows for the development of both in-process (DLLs) and out-of-process (EXEs) COM components in Eiffel.
+<!--break-->
 ==Using the Generated Code==
 
 If the project consists of adding a COM interface to an existing Eiffel project then the wizard will generate (and optionally compile) everything required to implement the COM component. No extra work is required. 
@@ -15,6 +15,7 @@ Unlike the code generated to access an existing component, the code generated to
 
 The architecture of the generated code is similar to the one used by the code generated to access an existing component: classes corresponding to the component's coclasses inherit from classes corresponding to the component's interfaces and implement all the deferred features. There is however a major difference: the classes corresponding to the component's coclasses should '''not''' be inherited from. Instead their implementation should be completed. Putting the implementation in a heir class would cause a runtime failure since the EiffelCOM generated code will instantiate the class corresponding to the component's coclass when being called rather than any descendant that would actually contain the implementation. The classes corresponding to the component's coclasses are all suffixed with <eiffel>_COCLASS_IMP</eiffel>. 
 
+
 ==Component's GUI==
 
 In the case of an out-of-process server, the component might need a Graphical User Interface. There are two different scenarios in which the component can be activated: either its user launched it explicitly (e.g. by double clicking the executable icon) or it was launched by the COM runtime to satisfy a client request. In some cases it might be required for the component to have a different behavior in these two cases (for example the GUI could only be necessary when the component was launched explicitly by the user but should be hidden when launched by the COM runtime). The generated registration class for an out-of-process server includes the feature: 
@@ -23,9 +24,11 @@ In the case of an out-of-process server, the component might need a Graphical Us
 
 This feature is a <code>once</code> function that can return the class corresponding to the component window. By default, this window is displayed only if COM does not start the component. When COM loads an out-of-process component, it appends the command line parameter "-embedding" to the executable. The generated registration class looks for this option and if it is part of the process argument list then it sets the default window appearance to hidden. Of course this default implementation may be modified if needed. 
 
+
 ==Exceptions==
 
 The COM standard specifies that each COM routine should return a status code to the client. The status code is encoded in a <eiffel>HRESULT</eiffel> value. Such behavior goes against the Command Query Separation Principle in Eiffel. The EiffelCOM generated system should use exceptions instead of returning <eiffel>HRESULT</eiffel> values to the client. By default the EiffelCOM runtime will always return <eiffel>S_OK</eiffel> meaning that the routine succeeded. To notify the client of a problem (e.g. invalid argument value), the EiffelCOM component should raise the corresponding exception from class <eiffel>ECOM_EXCEPTION</eiffel> using the feature <eiffel>trigger</eiffel> from the same class. The EiffelCOM runtime will catch the exception and send the corresponding <eiffel>HRESULT</eiffel> back to the client. Here is what the Eiffel code for a COM component should look like: 
+
 <code>
 note
     description: "Eiffel coclass server example"
@@ -62,10 +65,9 @@ feature {NONE} -- Implementation
 		
 end -- class ECOM_SERVER_COCLASS_IMP</code>
 
-This class inherits from the generated Eiffel coclass and from <eiffel>ECOM_EXCEPTION</eiffel>. It redefines the feature <eiffel>coclass_feature</eiffel> from the generated coclass. This feature is part of the interface functions that can be called by clients of the component. Its implementation uses the feature<eiffel>trigger</eiffel> from <eiffel>ECOM_EXCEPTION</eiffel> to raise exceptions in case the feature cannot be executed normally (invalid argument). The EiffelCOM runtime catches the exception and maps it into an <eiffel>HRESULT</eiffel> that is sent back to the client. 
+
+This class inherits from the generated Eiffel coclass and from <eiffel>ECOM_EXCEPTION</eiffel>. It implements the deferred feature <eiffel>coclass_feature</eiffel> from the generated coclass. This feature is part of the interface functions that can be called by clients of the component. Its implementation uses the feature <eiffel>trigger</eiffel> from <eiffel>ECOM_EXCEPTION</eiffel> to raise exceptions in case the feature cannot be executed normally (invalid argument). The EiffelCOM runtime catches the exception and maps it into an <eiffel>HRESULT</eiffel> that is sent back to the client. 
+
 
 {{seealso|[[How the EiffelCOM Wizard works|How the EiffelCOM Wizard Works]] , [[Generated Files|Generated Files]] , [[Class Hierarchy|Class Hierarchy]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Reusing a COM Component|Accessing a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
-
-
-
 
