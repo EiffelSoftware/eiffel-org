@@ -81,6 +81,6 @@ Boolean properties have a different convention. Instead of one set-routine, it h
 
 For flexibility, EiffelVision 2 is built using the bridge pattern. This means that every platform-dependent component of the library consist of two classes, plus an implementation class for each platform (currently two). One is the <eiffel>interface</eiffel>. All the features of interfaces do nothing except delegate the call to the implementation object which is coupled to it. This object has the static type of the implementation-interface with the name of the interface class, with an "<eiffel>_I</eiffel>" suffix. The implementation classes (with an "<eiffel>_IMP</eiffel>" suffix) then inherit from this implementation-interface class to implement platform-specific features. At run time, these platform-specific implementation objects (instantiated from the "<eiffel>_IMP</eiffel>" classes) are then polymorphically attached to the to the "<eiffel>_I</eiffel>"-typed attributes (typically named "implementation") to provide the platform-specific services.
 
-
+{{SeeAlso| The book titled ''Design Patterns: Elements of Reusable Object-Oriented Software'' by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides, contains a complete description of the Bridge Pattern.}}
 
 
