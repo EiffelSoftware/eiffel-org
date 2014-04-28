@@ -8,7 +8,7 @@ EiffelVision 2 has played a major role at Eiffel Software and provided numerous 
 
 ==Scope==
 
-The EiffelVision 2 library addresses all the major needs of developers of systems supporting modern graphical interfaces. EiffelVision 2 runs on Microsoft Windows and all major variations of Unix (including Linux). All versions are fully source-compatible; with only a recompile, applications will run on every supported platform with the native look-and-feel. 
+The EiffelVision 2 library addresses all the major needs of developers of systems supporting modern graphical interfaces. EiffelVision 2 runs on Microsoft Windows and all major variations of Unix (including Linux). All versions are fully source-compatible:  with only a recompile, applications will run on every supported platform with the native look-and-feel. 
 
 EiffelVision 2 provides an effective way of building advanced graphical applications using user interface standards and toolkits (such as Microsoft Windows and GTK) without having to learn the details of the toolkits. Instead, you can use EiffelVision 2 to work entirely in terms of high level abstractions representing windows, buttons, labels, graphical figures, menus, etc., and apply clearly understandable operations to the corresponding objects. 
 
