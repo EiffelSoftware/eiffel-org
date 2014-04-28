@@ -4,6 +4,9 @@
 [[Property:uuid|17d54aa0-3d7f-4993-2ad6-423bd0cedd44]]
 {{ReviewRequested}}
 
+'''This documentation has to be updated for 14.05 which brings nice addition'''
+
+
 ==Purpose==
 
 IRON provides an easy-to-use facility for using and sharing libraries of quality Eiffel components, automating many of the tasks involved.
@@ -21,7 +24,7 @@ One application of ECFs is to support libraries installed in different places on
 As projects grow and multiply, the number of these variables adds up quickly.  A dozen or more such environment variables per system is (prior to IRON) not uncommon. Coordinating their use and evolution among a team of programmers can become a challenge.
 
 IRON has made it possible to simplify this scenario dramatically.  For any commonly used library, it suffices to:
-* Install the library on an IRON server.
+* Install the library from an IRON server.
 
 * For any program that uses the library, include in the project's ECF a reference to the library's location <i>in the server</i>, rather than its physical location.
 
