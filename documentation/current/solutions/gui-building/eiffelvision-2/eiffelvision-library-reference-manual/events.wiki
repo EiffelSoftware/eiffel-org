@@ -1,25 +1,21 @@
 [[Property:title|Events]]
 [[Property:weight|4]]
 [[Property:uuid|fc32d1b5-72d6-2955-18fd-bce988ed8323]]
-This cluster contains classes for event handling within EiffelVision 2.
+An event is considered to be an external action that occurs during a program's execution. Correctly dealing with events is vital part of developing an EiffelVision 2 application. For example, if a user clicks on a button, you will want to respond to this event by calling a routine that deals with the request. EiffelVision 2 contains action sequences for all kinds of widget events. To view the kind of events available to every widget, click [[ref:libraries/vision2/reference/ev_widget_action_sequences_chart|here]].  The Events cluster contains classes for event handling within EiffelVision 2.
 
-==What is an event?==
 
-An event is considered to be an external action that occurs during a program's execution. Correctly dealing with events is an important part of developing a EiffelVision 2 application. For example, if a user clicks on a button, you will want to respond to this event by calling a routine that deals with the request. EiffelVision 2 contains action sequences for all kinds of widget events. To view the kind of events available to every widget, click [[ref:libraries/vision2/reference/ev_widget_action_sequences_chart|here]] . 
+==How Do I Connect to an Event?==
 
-==How do I connect to an event?==
+Every widget and item has an action sequence associated with it that relates to some kind of event. For example an [[ref:libraries/vision2/reference/ev_button_chart|EV_BUTTON]]  has a <code>select_actions</code> action sequence. This gets fired when the user selects (clicks) the button. To have a procedure called on this event, you need to create an agent based on this procedure, and then add this to the action sequence (via extend). For a more detailed description of agents and their uses click [[ET: Agents|here]] . 
 
-Every widget and item has an action sequence associated with it that relates to some kind of event. For example an [[ref:libraries/vision2/reference/ev_button_chart|EV_BUTTON]]  has a select_actions action sequence. This gets fired when the user clicks/selects the button. To have a procedure called on this event, you need to create an agent based on this procedure, and then add this to the action sequence (via extend). For a more detailed description of agents and their uses click [[ET: Agents|here]] . 
-
-An example of adding an agent to an action_sequence is as follows. 
+An example of adding an agent to an action_sequence:
 <code>
-            button.select_actions.extend (agent print ("Button Clicked!%N")) 
+            my_button.select_actions.extend (agent print ("Button Clicked!%N")) 
 </code>
 
-All EiffelVision 2 action sequences inherit [[ref:libraries/vision2/reference/ev_action_sequence_chart|EV_ACTION_SEQUENCE]]  and when it is called, all of the agents held within are fired, thus calling all of the procedures represented by the agents. The signature of any agent that you place in an action sequence must conform to those of the action sequences actual generic parameter. 
+All EiffelVision 2 action sequences inherit from [[ref:libraries/vision2/reference/ev_action_sequence_chart|EV_ACTION_SEQUENCE]]  and when it is called, all of the agents held within are fired, thus calling all of the procedures represented by the agents. The signature of any agent that you place in an action sequence must conform to those of the action sequence's actual generic parameter(s).
 
-When you want an agent to be called from a certain action sequence and the signatures do not match, you may use [[ref:libraries/vision2/reference/ev_action_sequence_chart|force_extend]] . This will call your agent but has no guarantees on the arguments passed to your procedure. 
-
+When you want an agent to be called from a certain action sequence and the signatures do not match, you may use [[ref:libraries/vision2/reference/ev_action_sequence_chart|force_extend]] . This will call your agent but there are no guarantees as to the arguments passed to your procedure. 
 
 
 
