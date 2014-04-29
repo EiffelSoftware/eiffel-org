@@ -32,7 +32,7 @@ The lower tier serves for the implementation of the upper tier, but can also be 
 
 As stated before, the library has undergone some drastic changes since the previous release. Names have been changed to improve consistency. Contracts have been added wherever possible.  The following is a summary of the other re-engineered aspects of the library: 
 * Taking full advantage of the '''agent''' mechanism of Eiffel, [[uuid:fc32d1b5-72d6-2955-18fd-bce988ed8323|events]]  are now triggered through '''action sequences''' (lists of actions) that will be executed in order. This system does not require separate classes to be written for each event, however the command pattern can still be used if desired. 
-* The [[EiffelVision Pick and Drop|Pick-and-Drop]]  mechanism now relies on the Eiffel type system. A '''stone''' (some transportable object) is now any Eiffel class and can always be dropped on a widget that accepts the type (or a more general type) of that stone. 
+* The [[EiffelVision Pick and Drop|Pick-and-Drop]]  mechanism now relies on the Eiffel type system. A '''pebble''' (some transportable object) is now any Eiffel class and can always be dropped on a widget that accepts the type (or a more general type) of that pebble. 
 *  [[Containers|containers]]  ( [[Widgets|widgets]]  that contain other [[Widgets|widgets]] ) are now derived from [[EiffelBase]]  classes. For example you can now insert [[Widgets|widgets]]  in any position and iterate over them. 
 
 
