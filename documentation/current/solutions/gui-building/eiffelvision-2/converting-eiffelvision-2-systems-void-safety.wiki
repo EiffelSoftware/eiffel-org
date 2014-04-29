@@ -3,11 +3,11 @@
 [[Property:uuid|96e01318-700b-da6e-42d1-14fee219daf5]]
 ==Introduction==
 
-In order to convert systems that employ EiffelVision 2 (Vision2) to [[Void-safe Programming in Eiffel|void-safety]], some adjustments may be needed depending on its usage.  This document describes the various usage scenarios of Vision2 that will need converting to adhere to void-safety.
+In order to convert systems that employ EiffelVision 2 (Vision2) to [[Void-safe Programming in Eiffel|void-safety]], some adjustments may be needed depending on its usage.  This page describes the various usage scenarios of Vision2 that will need to be converted in order to adhere to void-safety.
+<!--break-->
+==Inheritance Purely from an Interface Class==
 
-==Inheritance purely from an Interface Class==
-
-If you have classes that inherit from a Vision2 interface class such as EV_DRAWING_AREA, the first change that has to be made is to alter 'initialize' so that any types that are attached (ie: types that remain non-void throughout the lifetime of its housing parent object) are instantiated via 'create_interface_objects', this needs to be redefined if the type from Vision2 is instantiable, if not then it may need to be made effective (such as inheritance directly from EV_ANY).  It is important that any attached types in the interface class are instantiated in `create_interface_objects' and these objects are initialized via 'initialize'.  Attached types should not be instantiated in `initialize' due to the bridge pattern implementation and initialization of these types in `create_interface_objects' MUST be performed via 'initialize', otherwise unexpected behavior may occur as the bridge pattern has not been fully set up at this point in time.
+If you have classes that inherit from a Vision2 interface class such as EV_DRAWING_AREA, the first change that has to be made is to alter <eiffel>`initialize'</eiffel> so that any types that are attached (i.e. types that remain non-void throughout the lifetime of its container [parent object]) are instantiated via <eiffel>`create_interface_objects'</eiffel>.  This feature needs to be redefined if the type from Vision2 is instantiable.  If not, then it may need to be made effective (such as when the class inherits directly from EV_ANY).  It is important that any attached types in the interface class are instantiated in <eiffel>`create_interface_objects'</eiffel> and these objects are initialized via <eiffel>`initialize'</eiffel>.  Attached types should not be instantiated in <eiffel>`initialize'</eiffel> due to the Bridge Pattern implementation, and initialization of these types in <eiffel>`create_interface_objects'</eiffel> MUST be performed in <eiffel>`initialize'</eiffel>, otherwise unexpected behavior may occur as the Bridge Pattern has not been fully set up at this point in time.
 
 Example from EV_TIMEOUT
 <code>
@@ -24,14 +24,14 @@ Example from EV_TIMEOUT
       end
 </code>
 
-==Inheritance from an Implementation Interface Class with associating interface class==
 
-If you have an existing, custom platform dependent implementation, there are a few more changes needed than what was required for the interface class.
+==Inheritance from an Implementation Interface Class with Associating Interface Class==
 
-For the interface class changes, now the interface object is passed to the implementation after creation, via `assign_interface', this means that `make' no longer takes an argument (see `create_implementation' above).  This also means that to adhere to void-safety all of the types are now created and initialized via the creation routine of the implementation object.
+If you have an existing, custom platform-dependent implementation, a few more changes will be needed above and beyond those required for the interface class.
 
+For interface class changes, now the interface object is passed to the implementation after creation, via <eiffel>`assign_interface'</eiffel>.  This means that <eiffel>`make'</eiffel> no longer takes an argument (see <eiffel>`create_implementation'</eiffel> above).  This also means that to adhere to void-safety all of the types are now created and initialized via the creation routine of the implementation object.
 
-An example from the conversion of Windows implementation of EV_BUTTON_IMP.
+An example from the conversion of the Windows implementation of EV_BUTTON_IMP:
 
 <code>
    make (an_interface: like interface) 
@@ -75,12 +75,10 @@ would become:
 
 The following steps are needed during the conversion:
 
-* The attribute 'interface' needs to be made a stable attribute, the converted 'interface' attribute shows the syntax for doing so.
-* Copy any initialization of the widget from 'make' to 'initialize' excluding `base_make' setup.  Any initialization code that relies on `interface' would have to be rewritten so that this gets passed to new creation routine that in turn calls the original `make'.  See EV_PRINT_PROJECTOR_IMP on Windows `make_with_context' for an example of this.
-* Remove `make', rename `initialize' to `make', make sure that any calls to Precursor do not override any settings set in 'initialize', the ordering may need to be changed in order to make the code void-safe so.  See EV_POPUP_WINDOW_IMP.make (Windows implementation) where the setting of 'user_can_resize' is performed after the Precursor call so that is doesn't get overriden.
+* The attribute <eiffel>`interface'</eiffel> needs to be made a stable attribute.  The converted <eiffel>`interface'</eiffel> attribute shows the syntax for doing so.
+* Copy any initialization of the widget from <eiffel>`make'</eiffel> to <eiffel>`initialize'</eiffel> excluding <eiffel>`base_make'</eiffel> setup.  Any initialization code that relies on <eiffel>`interface'</eiffel> would have to be rewritten so that <eiffel>`interface'</eiffel> gets passed to the new creation routine, which in turn calls the original <eiffel>`make'</eiffel>.  See <eiffel>EV_PRINT_PROJECTOR_IMP</eiffel> on Windows <eiffel>`make_with_context'</eiffel> for an example of this.
+* Remove <eiffel>`make'</eiffel>, rename <eiffel>`initialize'</eiffel> to <eiffel>`make'</eiffel>, and make sure that any calls to Precursor do not override any settings set in <eiffel>`initialize'</eiffel>.  The ordering may need to be changed in order to make the code void-safe.  See <eiffel>EV_POPUP_WINDOW_IMP.make</eiffel> (Windows implementation) where the setting of <eiffel>`user_can_resize'</eiffel> is performed after the Precursor call so that is doesn't get overriden.
 
 
 {{SeeAlso|[[Void-Safe Programming in Eiffel]]}}
-
-
 
