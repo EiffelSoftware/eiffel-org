@@ -76,7 +76,9 @@ would become:
 The following steps are needed during the conversion:
 
 * The attribute <eiffel>`interface'</eiffel> needs to be made a stable attribute.  The converted <eiffel>`interface'</eiffel> attribute shows the syntax for doing so.
+
 * Copy any initialization of the widget from <eiffel>`make'</eiffel> to <eiffel>`initialize'</eiffel> excluding <eiffel>`base_make'</eiffel> setup.  Any initialization code that relies on <eiffel>`interface'</eiffel> would have to be rewritten so that <eiffel>`interface'</eiffel> gets passed to the new creation routine, which in turn calls the original <eiffel>`make'</eiffel>.  See <eiffel>EV_PRINT_PROJECTOR_IMP</eiffel> on Windows <eiffel>`make_with_context'</eiffel> for an example of this.
+
 * Remove <eiffel>`make'</eiffel>, rename <eiffel>`initialize'</eiffel> to <eiffel>`make'</eiffel>, and make sure that any calls to Precursor do not override any settings set in <eiffel>`initialize'</eiffel>.  The ordering may need to be changed in order to make the code void-safe.  See <eiffel>EV_POPUP_WINDOW_IMP.make</eiffel> (Windows implementation) where the setting of <eiffel>`user_can_resize'</eiffel> is performed after the Precursor call so that is doesn't get overriden.
 
 
