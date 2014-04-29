@@ -1,17 +1,17 @@
 [[Property:title|Primitives]]
 [[Property:weight|0]]
 [[Property:uuid|09d70dd5-2e30-7615-88ac-4babe4eb7aa6]]
-All EiffelVision 2 primitives inherit [[ref:libraries/vision2/reference/ev_primitive_chart|EV_PRIMITIVE]] . 
+A primitive is an EiffelVision 2 widget that may not contain other widgets. Primitives may be placed in [[Containers|containers]], but a primitive [[Widgets|widget ]] may not contain any child widgets. Some examples of primitives are [[ref:libraries/vision2/reference/ev_button_chart|EV_BUTTON]]  and [[ref:libraries/vision2/reference/ev_label_chart|EV_LABEL]]. All EiffelVision 2 primitives inherit from [[ref:libraries/vision2/reference/ev_primitive_chart|EV_PRIMITIVE]].
 
-==What is a primitive?==
-A primitive is a EiffelVision 2 widget that may not contain other widgets. Primitives may be placed in [[Containers|containers]] , but a [[Widgets|widget ]] may not contain any child widgets. Some examples of primitives are [[ref:libraries/vision2/reference/ev_button_chart|EV_BUTTON]]  and [[ref:libraries/vision2/reference/ev_label_chart|EV_LABEL]] . 
-==Features of a primitive==
 
-All primitives inherit from [[ref:libraries/vision2/reference/ev_tooltipable_chart|EV_TOOLTIPABLE]]  and therefore can have tooltips assigned to them. They all inherit many features from [[ref:libraries/vision2/reference/ev_widget_chart|EV_WIDGET]] . Each descendent of [[ref:libraries/vision2/reference/ev_primitive_chart|EV_PRIMITIVE]]  will typically have many available features, specific to their type. For example, [[ref:libraries/vision2/reference/ev_separator_chart|EV_SEPARATOR]]  has no extra features, but [[ref:libraries/vision2/reference/ev_label_chart|EV_LABEL]]  has features for modifying the current font and also the text to be displayed. 
+==Features of a Primitive==
 
-==Widgets as item holders==
+All primitives inherit from [[ref:libraries/vision2/reference/ev_tooltipable_chart|EV_TOOLTIPABLE]]  and therefore may have tooltips assigned to them. They all inherit many features from [[ref:libraries/vision2/reference/ev_widget_chart|EV_WIDGET]]. Each descendent of [[ref:libraries/vision2/reference/ev_primitive_chart|EV_PRIMITIVE]]  will typically have many features specific to its type. For example, [[ref:libraries/vision2/reference/ev_separator_chart|EV_SEPARATOR]]  has no extra features, but [[ref:libraries/vision2/reference/ev_label_chart|EV_LABEL]]  has features for modifying the current font and text to be displayed. 
 
-Although no primitive can contain another widget, certain primitives may contain one or more [[Items|items]] . One example of this is an [[ref:libraries/vision2/reference/ev_list_chart| EV_LIST]]  containing [[ref:libraries/vision2/reference/ev_list_item_chart|EV_LIST_ITEM]] s. 
+
+==Widgets as Item Holders==
+
+Although no primitive can contain another widget, certain primitives may contain one or more [[Items|items]]. One example of this is an [[ref:libraries/vision2/reference/ev_list_chart| EV_LIST]]  containing [[ref:libraries/vision2/reference/ev_list_item_chart|EV_LIST_ITEM]]s. 
 
 
 
