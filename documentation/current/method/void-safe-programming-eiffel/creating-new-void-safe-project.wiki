@@ -258,6 +258,7 @@ As we traverse the list we would use assignment attempt to try to attach each <c
                     print (l_my_rectangle.diagonal)
                     print ("%N")
                 end
+                my_polygons.forth
             end
 </code>
 The '''attached syntax''' allows us to check both attached status and type, and provides us with a fresh local variable when appropriate:
@@ -271,6 +272,7 @@ The '''attached syntax''' allows us to check both attached status and type, and 
                     print (l_my_rectangle.diagonal)
                     print ("%N")
                 end
+                my_polygons.forth
             end
 </code>
 As with the other examples of the '''attached syntax''', it is no longer necessary to make a declaration for the local variable, in this case <code>l_my_rectangle</code>.
