@@ -85,7 +85,7 @@ In EiffelVision 2, to launch an application means to pass control to the underly
 ==Building Your Application Skeleton==
 
 Now that you have a basic application skeleton set up, you can now:
-*  [[Widgets|Create widgets and setting their properties.]]  
+*  [[Widgets|Create widgets and set their properties.]]  
 *  [[Containers|Add containers (that control widget layout) to your window(s), then place your created widgets in those containers.]]  
 *  [[Events|Add code to respond to user actions with agents and action sequences.]]  
 
