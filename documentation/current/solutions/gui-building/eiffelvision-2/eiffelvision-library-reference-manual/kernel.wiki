@@ -25,8 +25,8 @@ class
 inherit
     EV_APPLICATION
 
-    create
-        make
+create
+    make
 
 feature
 
