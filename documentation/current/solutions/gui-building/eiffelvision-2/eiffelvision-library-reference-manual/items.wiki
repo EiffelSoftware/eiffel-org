@@ -1,22 +1,19 @@
 [[Property:title|Items]]
 [[Property:weight|3]]
 [[Property:uuid|3143511c-28bd-cc5c-c710-700796778982]]
-All EiffelVision 2 items inherit [[ref:libraries/vision2/reference/ev_item_chart|EV_ITEM]] .
+An EiffelVision 2 "item" is an object that is used to display information inside certain primitives. For example, [[ref:libraries/vision2/reference/ev_list_chart|EV_LIST]]  may hold items of type [[ref:libraries/vision2/reference/ev_list_item_chart|EV_LIST_ITEM]].  All EiffelVision 2 items are descendants of [[ref:libraries/vision2/reference/ev_item_chart|EV_ITEM]], which in turn is a descendant of [[ref:libraries/vision2/reference/ev_pixmapable_chart|EV_PIXMAPABLE]], which means that an item can display a [[ref:libraries/vision2/reference/ev_pixmap_chart|EV_PIXMAP]] object.
 
-==What is an item?==
 
-A Vision2 item is an object that is used to display information within certain primitives. For example, [[ref:libraries/vision2/reference/ev_list_chart|EV_LIST]]  may hold items of type [[ref:libraries/vision2/reference/ev_list_item_chart|EV_LIST_ITEM]] . All Vision2 items are descendants of [[ref:libraries/vision2/reference/ev_pixmapable_chart|EV_PIXMAPABLE]]  meaning they can display an [[ref:libraries/vision2/reference/ev_pixmap_chart|EV_PIXMAP]] . 
+==Item Holders==
 
-==Item holders==
-
-Below is a structure showing the Vision2 components and the items that they accept. All the items types available in Vision2 are included: 
+Below is a structure showing some of the EiffelVision 2 item-containing components and the items that they accept: 
 * [[ref:libraries/vision2/reference/ev_list_chart|EV_LIST]]  accepts items of type: 
 ** [[ref:libraries/vision2/reference/ev_list_item_chart|EV_LIST_ITEM]] 
 
 *  [[ref:libraries/vision2/reference/ev_combo_box_chart|EV_COMBO_BOX]]  accepts items of type: 
 ** [[ref:libraries/vision2/reference/ev_list_item_chart|EV_LIST_ITEM]] 
 
-* [[ref:libraries/vision2/reference/ev_window_chart|EV_WINDOW]]  accepts items of type (Use set_menu_bar): 
+* [[ref:libraries/vision2/reference/ev_window_chart|EV_WINDOW]]  accepts items of type (use <code>set_menu_bar</code>): 
 ** [[ref:libraries/vision2/reference/ev_menu_bar_chart|EV_MENU_BAR]]  accepts items of type: 
 *** [[ref:libraries/vision2/reference/ev_menu_chart|EV_MENU]]  accepts items of type: 
 **** [[ref:libraries/vision2/reference/ev_menu_chart|EV_MENU]] 
@@ -38,7 +35,6 @@ Below is a structure showing the Vision2 components and the items that they acce
 ** [[ref:libraries/vision2/reference/ev_dynamic_tree_item_chart|EV_DYNAMIC_TREE_ITEM]]  accepts items of type: 
 *** [[ref:libraries/vision2/reference/ev_dynamic_tree_item_chart|EV_DYNAMIC_TREE_ITEM]] 
 *** [[ref:libraries/vision2/reference/ev_tree_item_chart|EV_TREE_ITEM]] 
-
 ** [[ref:libraries/vision2/reference/ev_tree_item_chart|EV_TREE_ITEM]]  accepts items of type: 
 *** [[ref:libraries/vision2/reference/ev_dynamic_tree_item_chart|EV_DYNAMIC_TREE_ITEM]] 
 *** [[ref:libraries/vision2/reference/ev_tree_item_chart|EV_TREE_ITEM]] 
