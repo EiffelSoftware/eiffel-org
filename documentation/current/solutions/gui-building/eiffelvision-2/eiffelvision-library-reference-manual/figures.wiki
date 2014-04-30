@@ -1,6 +1,9 @@
 [[Property:title|Figures]]
 [[Property:weight|7]]
 [[Property:uuid|c12fee6e-5e99-ae59-8ac5-f57abb4c1878]]
+{{ReviewRequested}}
+
+
 The EiffelVision 2 figure cluster can be considered a high-level way of drawing on an [[ref:libraries/vision2/reference/ev_drawable_chart|EV_DRAWABLE]]  descendant. Here are some advantages:
 * The model (tree of figures) is separated from the graphical representation by using projectors that take a "world" (i.e. entire set) of figures and project it onto any device, not just a drawing area.
 * Instead of drawing with static API's like <code>draw_line</code>, real figure objects are used that remember their locations, rotation and scaling internally, and can later be moved, color changed, rotated and/or scaled without limit, individually, or as an entire relative branch in the tree of figures.
