@@ -37,7 +37,7 @@ A simple example of this is demonstrated here:
 
 Because <eiffel>print</eiffel> takes an argument of type [[ref:/libraries/base/reference/string_8_chart|STRING_8]], button2 becomes a valid drop-target for the pebble contained by button1. Right clicking the mouse pointer over the '''source''' will start the transport, and right clicking with the mouse pointer over a valid '''target''' will complete the transport. The transport can be canceled anytime with a simple left click, just as you would do in EiffelStudio. 
 
-{{note|When a transport completes, the '''pebble''' that was transported is passed as an argument to all features in the '''targets''' drop_actions whose argument type matches the '''pebble'''. <br><br>}}
+{{note|Any type of object can be used as the '''pebble'''.  When a transport completes, the '''pebble''' that was transported is passed as an argument to all agents in the '''target's''' <code>drop_actions</code> list to which the '''pebble''' [[uuid:b8c10baa-4f50-adfe-a6f8-9cb56a8f1917#Conformance|conforms]]. <br><br>}}
 
 
 ==Three Different Modes of Transport==
