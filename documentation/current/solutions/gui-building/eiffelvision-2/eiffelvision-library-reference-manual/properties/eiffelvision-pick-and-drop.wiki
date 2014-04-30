@@ -43,11 +43,11 @@ Because <eiffel>print</eiffel> takes an argument of type [[ref:/libraries/base/r
 ==Three Different Modes of Transport==
 
 There are three different modes of transport available for pick and drop. They are listed below with details of their use: 
-* Pick and Drop mode. <br/>
+* Pick and Drop Mode. <br/>
 ::This is the default mode for pick and drop, but can be set by calling <eiffel>set_pick_and_drop_mode</eiffel> on the '''source''' object. Right clicking on a '''source''' starts the transport and right clicking on a valid '''target''' completes the transport. During execution, a band is drawn from the screen position where the pick started to the current mouse position. Pressing the left mouse button or the escape key during execution will end the transport. 
-* Drag and drop mode <br/>
+* Drag and Drop Mode <br/>
 ::This mode can be set by calling <eiffel>set_drag_and_drop_mode</eiffel> on the '''source''' object. Left clicking on a '''source''' starts the transport and releasing the left mouse button over a valid '''target''' completes the transport. During execution, a band is drawn from the screen position where the pick started to the current mouse position. Releasing the left mouse button or pressing the escape key during execution will end the transport. 
-* Target menu mode <br/>
+* Target Menu Mode <br/>
 ::This mode can be set by calling <eiffel>set_target_menu_mode</eiffel> on the '''source''' object. Right clicking on a '''source''' brings up a menu of all the valid drop '''targets''' in the system. Selecting one of these targets completes the transport. 
 
 
