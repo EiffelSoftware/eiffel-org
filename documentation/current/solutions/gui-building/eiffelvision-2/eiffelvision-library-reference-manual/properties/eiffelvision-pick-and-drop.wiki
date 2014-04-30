@@ -3,9 +3,18 @@
 [[Property:uuid|309203de-6536-fe26-4f73-cb1f4a450e6f]]
 Pick-and-Drop is a unique user-interface action that permits a user to request an action be performed on a specified object.  It is a more-ergonomic alternative to the typical drag-and-drop or "select-and-click" user operations found in most modern graphical user interfaces.  Users of EiffelStudio have come to value Pick-and-Drop as both intuitive, and easier on the wrist and fingers with long-term use.
 
-Pick-and-Drop uses the metaphor of '''pebbles and holes'''.  The typical method of doing a pick-and-drop is that the end user selects the object to receive an action with a single click-and-release of the right mouse button.  At that point, the mouse arrow turns into a "pebble" connected to the "point of picking" via a visible "band".  This "pebble" is often an icon representing the type of object that was "picked".  The "pebble" may then be dropped into any compatible "hole" (drop target—a widget configured to accept "pebbles" of this type).  Such "receiving" widgets are often tool-bar buttons or editing areas, but can be any widget that inherits from EV_PICK_AND_DROPABLE and is properly configured.  The user then can either "drop the pebble into the hole" with a second click-and-release of the right mouse button (on the receiving object), or may cancel the operation by single-clicking the left mouse button.
+Pick-and-Drop uses the metaphor of '''pebbles and holes'''.  The typical method of doing a pick-and-drop is that the end user selects the object to receive an action with a single right-click of the mouse.  At that point, the mouse arrow turns into a "pebble" connected to the "point of picking" via a visible "band".  This "pebble" is often a symbol representing the type of object that was "picked".  In the case of the screen-shot below, it is a blue ellipse:  the "pebble" symbol for a class.
+
+[[Image:EiffelStudio during class pick and drop2|thumbnail|360px|center|EiffelStudio During Class Pick-and-Drop]]
+
+
+The "pebble" may then be dropped into any compatible "hole" (drop target—a widget configured to accept "pebbles" of this type).  Such "receiving" widgets are often tool-bar buttons or editing areas (or in the case of the screen-shot above, the editor "tab" bar), but can be any widget that inherits from [[ref:libraries/vision2/reference/ev_pick_and_dropable_chart|EV_PICK_AND_DROPABLE]] and is properly configured.  The user then can either "drop the pebble into the hole" with a second right-click (on the receiving object), or may cancel the operation by single-clicking the left mouse button.
+
+[[Image:EiffelStudio after class pick and drop2|thumbnail|360px|center|EiffelStudio After Class Pick-and-Drop]]
+
 
 {{note|See [[uuid:a3789781-153b-7f4d-bb94-4bdf8923fb56|Retargeting Through Pick-and-Drop]] to see how EiffelStudio uses the Pick-and-Drop user interface.<br><br>}}
+
 
 Because the Pick-and-Drop operation has been so popular, classes have been added to the EiffelVision 2 library to make implementing this user interface very easy.
 
