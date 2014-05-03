@@ -537,6 +537,7 @@ External ::= <code>external</code> External_language [External_name] <br/>
 External_language ::= Unregistered_language | [[#Registered languages|Registered_language]] <br/>
 Unregistered_language ::= [[#Manifest strings|Manifest_string]] <br/>
 External_name ::= <code>alias</code> [[#Manifest strings|Manifest_string]]<br/>
+{{note|If the `inline' keyword is used in the Registered_language part, then External_name part is the inline code on the specified language.}}
 <br/>
 <br/>
 ===Registered languages ===
@@ -561,15 +562,15 @@ External_system_file ::= "<"[[#Simple strings|Simple_string]] ">"<br/>
 ===C externals ===
 C_external ::= ’' " ' <code>C</code>  <br/>
 ’[<code>inline</code>] <br/>
-[External_signature] [External_file_use] <br/>
+[ [[#External signatures |External_signature]] ] [ [[#External file use |External_file_use]] ] <br/>
 ' " '<br/>
 <br/>
 <br/>
 ===C++ externals ===
 C++_external ::= ' " '  <code>C++</code>  <br/>
 <code>inline</code> <br/>
-[External_signature] <br/>
-[External_file_use] <br/>
+[ [[#External signatures |External_signature]] ] <br/>
+[ [[#External file use |External_file_use]] ] <br/>
 ' " '<br/>
 <br/>
 <br/>
@@ -578,8 +579,7 @@ DLL_external ::= ' " ' <code>dll</code> <br/>
 [<code>windows</code>] <br/>
 DLL_identifier <br/>
 [DLL_index] <br/>
-[External_signature] <br/>
-[External_file_use] <br/>
+[ [[#External signatures |External_signature]] ] [ [[#External file use |External_file_use]] ] <br/>
 ' " ' <br/>
 DLL_identifier ::= [[#Simple strings|Simple_string]] <br/>
 DLL_index ::= [[#Integers|Integer]]<br/>
