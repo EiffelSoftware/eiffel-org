@@ -562,7 +562,8 @@ External_system_file ::= "<"[[#Simple strings|Simple_string]] ">"<br/>
 ===C externals ===
 C_external ::= ’' " ' <code>C</code>  <br/>
 ’[<code>inline</code>] <br/>
-[ [[#External signatures |External_signature]] ] [ [[#External file use |External_file_use]] ] <br/>
+[ [[#External signatures |External_signature]] ]<br/>
+[ [[#External file use |External_file_use]] ] <br/>
 ' " '<br/>
 <br/>
 <br/>
@@ -579,7 +580,8 @@ DLL_external ::= ' " ' <code>dll</code> <br/>
 [<code>windows</code>] <br/>
 DLL_identifier <br/>
 [DLL_index] <br/>
-[ [[#External signatures |External_signature]] ] [ [[#External file use |External_file_use]] ] <br/>
+[ [[#External signatures |External_signature]] ]<br/>
+[ [[#External file use |External_file_use]] ] <br/>
 ' " ' <br/>
 DLL_identifier ::= [[#Simple strings|Simple_string]] <br/>
 DLL_index ::= [[#Integers|Integer]]<br/>
