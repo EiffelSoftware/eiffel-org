@@ -560,8 +560,8 @@ External_system_file ::= "<"[[#Simple strings|Simple_string]] ">"<br/>
 <br/>
 <br/>
 ===C externals ===
-C_external ::= ’' " ' <code>C</code>  <br/>
-’[<code>inline</code>] <br/>
+C_external ::= ' " ' <code>C</code>  <br/>
+[<code>inline</code>] <br/>
 [ [[#External signatures |External_signature]] ]<br/>
 [ [[#External file use |External_file_use]] ] <br/>
 ' " '<br/>
