@@ -568,21 +568,12 @@ C_external ::= ' " ' <code>C</code>  <br/>
 <br/>
 <br/>
 ===C++ externals ===
-C++_external ::= ' " '  <code>C++</code>  <br/>
-<code>inline</code> <br/>
-[ [[#External signatures |External_signature]] ] <br/>
-[ [[#External file use |External_file_use]] ] <br/>
-' " '<br/>
+C++_external ::= ' " '  <code>C++</code> <code>inline</code> [ [[#External signatures |External_signature]] ] [ [[#External file use |External_file_use]] ] ' " '<br/>
 <br/>
 <br/>
 ===DLL externals ===
-DLL_external ::= ' " ' <code>dll</code> <br/>
-[<code>windows</code>] <br/>
-DLL_identifier <br/>
-[DLL_index] <br/>
-[ [[#External signatures |External_signature]] ]<br/>
-[ [[#External file use |External_file_use]] ] <br/>
-' " ' <br/>
+DLL_external ::= ' " ' <code>dll</code> [<code>windows</code>] DLL_identifier [DLL_index] [ [[#External signatures |External_signature]] ]
+[ [[#External file use |External_file_use]] ] ' " ' <br/>
 DLL_identifier ::= [[#Simple strings|Simple_string]] <br/>
 DLL_index ::= [[#Integers|Integer]]<br/>
 <br/>
