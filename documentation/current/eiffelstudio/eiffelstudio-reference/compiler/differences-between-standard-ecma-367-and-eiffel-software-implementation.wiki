@@ -347,17 +347,17 @@ y := "{
 | Access to software written in C
 | Basic syntax for any external software
 | Registered sub-language
-|  See details for [[C externals|C externals]]  
+|  See details for [[C externals|C externals]].
 |- 
 | Access to software written in C++
 | Basic syntax for any external software
 | Registered sub-language
-|  See details for [[C++ Externals|C++ externals]]  
+|  See details for [[C++ Externals|C++ externals]].
 |- 
 | Access to dynamically loaded libraries (DLLs)
 | Basic syntax for any external software
 | Registered sub-language
-| No
+| See details for [[uuid:4ad177dd-13ec-c237-99b3-efc9851995a5|Interfacing with DLLs]].
 |- 
 | Other external software
 | Basic syntax for any external software
