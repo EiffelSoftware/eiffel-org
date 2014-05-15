@@ -24,6 +24,6 @@ Calling conventions define 1) how arguments are placed on the stack, and 2) whic
 
 {{note|Most OS services provided by the Win32 API use the __stdcall calling convention.}}
 
-{{warning|Getting '''dll32''' and '''dllwin32''' reversed will cause your application to crash, because the call stack will be corrupted. For more information please read your C compiler documentation. }}
+{{warning|Getting '''dll32''' and '''dllwin32''' reversed will cause your application's call stack to be corrupted.  This will cause your application to malfunction, can cause it to crash, and can potentially crash your whole system. So getting this right is crucial to smooth implementation of external DLL calls.  For more information please consult your C compiler documentation.}}
 
 
