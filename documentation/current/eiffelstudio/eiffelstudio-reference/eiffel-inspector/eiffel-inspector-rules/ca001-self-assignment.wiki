@@ -3,11 +3,7 @@
 [[Property:weight|0]]
 [[Property:uuid|d98b7fb8-37a1-05b3-a58f-baacefd5dce6]]
 __NOTOC__
-=Description=
-Assigning a variable to itself is a meaningless instruction due to a typing error. Most probably, one of the two variable names was misspelled. One example among many others: the programmer wanted to assign a local variable to a class attribute and used one of the variable names twice.
-
-=Details=
-{|
+:{|
 |-
 | '''Scope'''
 | Instruction
@@ -24,6 +20,9 @@ Assigning a variable to itself is a meaningless instruction due to a typing erro
 | '''Score'''
 |  70
 |}
+
+=Description=
+Assigning a variable to itself is a meaningless instruction due to a typing error. Most probably, one of the two variable names was misspelled. One example among many others: the programmer wanted to assign a local variable to a class attribute and used one of the variable names twice.
 
 =Example=
 <e>a := a
