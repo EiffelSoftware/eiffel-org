@@ -3,6 +3,31 @@
 [[Property:uuid|eb11a237-0c75-0427-452a-303d4f276b97]]
 This document contains details of modifications and bug fixes to the EiffelVision 2 library listed by the release version of EiffelStudio. All bug fixes and modifications are relative to the previously released version
 
+==EiffelStudio 14.05==
+'''Improvements'''
+* Made it possible to query <e>{EV_TEXT_COMPONENT}.start_selection</e> and <e>{EV_TEXT_COMPONENT}.end_selection</e> even if there is no selection. In that case they return the same value which is the caret position.
+* Created a set of classes to make it easier to develop AutoTest tests for code based on Vision2.
+
+'''Changes'''
+* Made <e>{EV_TEXT_COMPONENT}.selection_start</e> and <e>{EV_TEXT_COMPONENT}.selection_end</e> obsolete because '''selection_end''' was returning a character position and not a caret position which is counter-intuitive since '''set_selection''' is using caret positions. Introduced '''start_selection''' and '''end_selection''' instead that return the selection start and end in caret positions.
+
+
+'''Bug fixes'''
+*'''Platform Independent'''
+** Fixed a bug that would allow pick and drop on disabled items because code allowed to be dropped on.
+
+*'''GTK''':
+** Fixed issue where if a menu entry is of the form '''my_entry''', then only '''myentry''' will appear ( bug#18716).
+** Fixed a bug in <e>{EV_TEXT}.selected_text</e> where if the text contained non-ASCII character, then it will just return the UTF-8 sequence of those Unicode characters instead of the Unicode characters.
+** Fixed <e>{EV_DRAWABLE}.draw_sub_pixel_buffer</e> and <e>{EV_PIXEL_BUFFER}.sub_pixel_buffer</e> when the rectangle provided is larger than the image it would cause a crash.
+** Fixed a precondition violation in the implementation of <e>{EV_PIXEL_BUFFER}.get_pixel</e>.
+
+*'''Windows''':
+** Fixed contract violations when closing/destroying a dialog.
+** Fixed contract violation when wiping out a notebook.
+** Fixed various issues on Windows with <e>EV_TEXTABLE</e> components when the text contains Unicode characters that generate a surrogate pair in UTF-16, the Windows API always refers to UTF-16 code units while at the Eiffel level we still refer to character position.
+** Fixed a by one error when mapping a caret position to the actual caret position of the underlying Windows implementation which has %R%N and not just %N.
+
 ==EiffelStudio 13.11==
 '''Improvements'''
 * Added support for GTK3.

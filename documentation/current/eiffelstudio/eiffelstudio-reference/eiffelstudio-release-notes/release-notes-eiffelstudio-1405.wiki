@@ -1,0 +1,95 @@
+[[Property:title|Release notes for EiffelStudio 14.05]]
+[[Property:link_title|14.05]]
+[[Property:weight|8]]
+[[Property:uuid|f82eb6d2-c4ee-7243-7295-80dcdc584db7]]
+==Graphical environment==
+
+===What's new===
+* ''' [[Eiffel Inspector]]''': A static analysis tool to help you maintain a high code quality. Currently there are 35 rules that can detect coding style, performance, or runtime issues.
+* '''Automatic Fixing''': EiffelStudio can fix some class of errors automatically. Currently we fix unused local variables and missing types to the declaration of local variables.
+* Added support for SSL to EiffelNet.
+
+===Improvements===
+* Made sure to show the groups content very early in the compilation process.
+* Reduced size of project file in EIFGENs directory to speed up loading and saving of Eiffel projects after each compilation.
+* Better handling of multiple monitor to ensure EiffelStudio is opened on the same screen as it was at last launch.
+* AutoTest: Made it possible to run test cases outside of the AutoTest framework by simply calling them from a normal class.
+* compile_all: Made it easier to compile a project for the various platforms we support. This is done by using the new '''-platform''' option where a platform name can be either ''unix'', ''windows'', ''macintosh'', or ''vxworks''. If you suffix the platform name with '''!''' it will only compile projects that are sets for this platform. If a project specify a platform and the '''-platform''' has been set and is different, the project will be ignored.
+
+===Changes===
+* Support for .ACE and .EPR files have been dropped from EiffelStudio. A tool '''ace2ecf''' is now available to convert .ACE to .ECF if needed.
+* AutoTest: EiffelStudio will never saved generated test classes in the EIFGENs directory, user will have to specify a directory. This is to avoid losing tests after deleting an EIFGENs directory.
+* New created projects are set to the complete void-safety level.
+
+===Bug fixes===
+* Fixed slow formatting of classes/features after editing the corresponding class.
+* Made sure to show the feature comment when showing the contracts during code completion.
+* Fixed improper display of conditions in task and external nodes of the Eiffel Project Settings dialog.
+* Fixed an issue with preferences where setting them to a value, you will never be able to set it back to its default value.
+* Fixed an editor issue where saving a class would force a refresh of the editor instead of just saving.
+* Fixed an editor where copy/pasting code containing new lines with some leading tabs, the cursor would be improperly positioned after pasting.
+* Fixed crash when searching for a feature while the editor hasn't finished loading (bug#18792, bug#18501, and bug#17626)
+* Fixed wrong newline characters on Windows when creating a new class from our templates.
+* Fixed the "Evaluator Died" error when running AutoTest on Unix systems (bug#18078).
+* Prevented a crash when trying to run AutoTest and no executable is present (e.g. case of compiling a project as a library instead of as an application) (bug#18838).
+* Fixed crash when you start running a test that was just renamed it (bug#18686).
+
+==Compiler==
+* Click [[Major changes between ISE Eiffel 13.11 and ISE Eiffel 14.05|here]] for the compiler release notes.
+
+==Debugger==
+N/A
+
+==EiffelBuild==
+* Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.
+
+==Libraries==
+===General===
+Most libraries do now compile in the highest level of void-safety except the following ones:
+* docking
+* editor
+* edk
+* graph
+* memory_analyzer
+
+===Arguments ===
+* Changed the default display of help by showing first the option arguments and then the non-switched arguments.
+
+===Base===
+* Added <e>{READABLE_STRING_GENERAL}.is_whitespace</e> and <e>{READABLE_STRING_GENERAL}.is_substring_whitespace</e>.
+* Added <e>epsilon</e> and <e>machine_epsilon</e> queries as requested by users in REAL_32 and REAL_64.
+* Added missing <e>min_value</e> and <e>max_value</e> from the .NET version of REAL_32 and REAL_64.
+* Removed obsolete feature <e>{TUPLE}.make</e>.
+* Fixed <e>{FILE_UTILITIES}.files_end_with</e> to respect the depth level specified in argument.
+* Fixed issues with the handling of the Unicode escape character. If the escaped UTF-32 string contains the escape sequence and it is trying to escape something that could fit the UTF-16 or UTF-8 encoding, then we store the content as is. This is to avoid the case for UTF-16 where if you have: '''?61''' it would yield '''a''' after round-tripping. Now if the UTF-16 or UTF-8, contains the escape character, the resulting string would have it twice, which again preventing proper roundtriping.
+
+===Regexp===
+* Renamed CHARACTER_SET and BYTE_CODE into PCRE_CHARACTER_SET and PCRE_BYTE_CODE to avoid name conflicts with libraries that have the same class names.
+
+===Ribbon===
+* Added ability to assign hot keys to ribbon elements.
+
+===Store===
+* Improved the behavior of storing binary data by not imposing the user to convert its binary stream to hexadecimal in the case of stored procedures and prepared statements. This is a breaking change as now it will store whatever you provide as is. For traditional SQL statements it remains the same and binary data needs to be converted.
+* Better handling of conversion of REAL_32 and REAL_64 to decimal when the associated column is a decimal.
+* Removed precondition <e>is_allocatable</e>, <e>descriptor_available</e>, or <e>descriptor_is_available</e> to many EiffelStore routines. If a descriptor cannot be allocated, the execution of the routine will fail and an error code and message will be reported.
+* Fixed issue with ODBC when storing large strings when using a prepared statement or a stored procedure, only the first 4000 bytes would be stored.
+* Fixed issue with ODBC when storing a string into a binary column of the database which would fail with a mismatch.
+* Fixed issue when the length of a table or column name is more than 50 characters.
+* Fixed issue with ODBC where a large ASCII data would have their first byte missing.
+* Added support for handling NULL values in a database using ODBC when using a mapping in DB_SELECTION, DB_DYN_SELECTION, DB_CHANGE or DB_DYN_CHANGE.
+
+===Vision2===
+* [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]]
+
+===WEL===
+* Optimized performance of <e>WEL_RICH_EDIT_BUFFER_SAVER</e>.
+* Fixed issue in <e>{WEL_STRING}.set_string_with_newline_conversion</e> with Unicode characters above the 65535 range, the result of the conversion to UTF-16 requires more space and when you have to replace %N into %R%N we forgot to resize the content before inserting the %R%N characters.
+* Fixed issue in <e>{WEL_STRING}.set_string_with_newline_conversion</e> where if the input string had only one character after the last %N, that character would be discarded. That is to say "%Na" would yield "%R%N" instead of "%R%Na" (bug#18783).
+* Fixed incorrect signatures for the wrapping of PostMessage, GetCurrentProcessId and GetWindowThreadProcessID which do not return a pointer but an integer type.
+
+===XML===
+* Fixed XML parser when the input file is exactly the same size as the xml file input stream chunk size (default 4096 bytes).
+
+[[EiffelStudio release notes|Click here to check out what was new in other versions]]
+
