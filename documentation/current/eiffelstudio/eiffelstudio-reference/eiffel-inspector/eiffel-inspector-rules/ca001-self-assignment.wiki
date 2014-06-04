@@ -7,14 +7,27 @@ __NOTOC__
 Assigning a variable to itself is a meaningless instruction due to a typing error. Most probably, one of the two variable names was misspelled. One example among many others: the programmer wanted to assign a local variable to a class attribute and used one of the variable names twice.
 
 =Details=
-*Scope: Instruction
-*Enabled: Yes
-*Severity: Warning
-*Applicability: All
-*Score: 70
+{|
+|-
+| '''Scope'''
+| Instruction
+|-
+| '''Enabled'''
+| Yes
+|-
+| '''Severity'''
+| Warning
+|-
+| '''Applicability'''
+| All
+|-
+| '''Score'''
+|  70
+|}
 
 =Example=
-<e>a := a</e>
+<e>a := a
+</e>
 
 =Suggested Fix=
 Replace source or target with proper expression.
