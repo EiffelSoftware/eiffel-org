@@ -4,11 +4,11 @@
 ==Kernel classes==
 {| class="doctable"
 |- 
-| <center>'''Feature'''</center>
-| <center>'''Example'''</center>
-| <center>'''ETL2'''</center>
-| <center>'''ECMA-367'''</center>
-| <center>'''EiffelStudio'''</center>
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
 |- 
 | Fictitious class for tuples
 | <eiffel>TUPLE</eiffel>
@@ -18,13 +18,13 @@
 |}
 
 ==Features==
-{| 
+{| class="doctable"
 |- 
-| <center>'''Feature'''</center>
-| <center>'''Example'''</center>
-| <center>'''ETL2'''</center>
-| <center>'''ECMA-367'''</center>
-| <center>'''EiffelStudio'''</center>
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
 |- 
 | Prefix and infix feature names
 | <code>infix "+"</code>
@@ -36,7 +36,8 @@
 | <code>add alias "+"</code>
 | No
 | Yes
-| Yes, except for new rules for free operator names
+| Yes, except for new rules
+for free operator names
 |- 
 | Assigner command
 | <code>item  alias "[]" (index: INTEGER): G assign put</code>
@@ -46,13 +47,13 @@
 |}
 
 ==Design by Contract==
-{| 
+{| class="doctable"
 |- 
-| <center>'''Feature'''</center>
-| <center>'''Example'''</center>
-| <center>'''ETL2'''</center>
-| <center>'''ECMA-367'''</center>
-| <center>'''EiffelStudio'''</center>
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
 |- 
 | Only postcondition clauses
 | <eiffel>ensure only a, b</eiffel>
@@ -62,13 +63,13 @@
 |}
 
 ==Genericity==
-{| 
+{| class="doctable"
 |- 
-| <center>'''Feature'''</center>
-| <center>'''Example'''</center>
-| <center>'''ETL2'''</center>
-| <center>'''ECMA-367'''</center>
-| <center>'''EiffelStudio'''</center>
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
 |- 
 | Mutually recursive constraints
 |  <code>A [H, G -> H]</code><br/>
@@ -93,15 +94,16 @@
 |}
 
 ==Creating objects==
-{| 
+{| class="doctable"
 |- 
-| <center>'''Feature'''</center>
-| <center>'''Example'''</center>
-| <center>'''ETL2'''</center>
-| <center>'''ECMA-367'''</center>
-| <center>'''EiffelStudio'''</center>
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
 |- 
-| Implicit creation procedure (version of <code>ANY.default_create</code>)
+| Implicit creation procedure (version of
+<code>ANY.default_create</code>)
 |  <code>class A feature ... end</code><br/>
 <code>-- The following instructions are equivalent:</code><br/>
 <code>create {A} a</code><br/>
@@ -142,19 +144,25 @@
 |}
 
 ==Attachment==
-{| 
+{| class="doctable"
 |- 
-| <center>'''Feature'''</center>
-| <center>'''Example'''</center>
-| <center>'''ETL2'''</center>
-| <center>'''ECMA-367'''</center>
-| <center>'''EiffelStudio'''</center>
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
 |- 
-| Preserving expandedness status when attaching expanded object to reference entity
+| Preserving expandedness status
+when attaching expanded object
+to reference entity
 | <code>x</code> <code>:=</code> <code>y</code>
-| No, object is copied to new object of the corresponding reference type
+| No, object is copied to new
+object of the corresponding
+reference type
 | Yes
-| Yes, except for TYPED_POINTER that is converted to POINTER before reattachment
+| Yes, except for TYPED_POINTER
+that is converted to POINTER before
+reattachment
 |- 
 | Reverse assignment (assignment attempt)
 | <code>x</code> <code>?=</code> <code>y</code>
@@ -164,13 +172,13 @@
 |}
 
 ==Feature calls==
-{| 
+{| class="doctable"
 |- 
-| <center>'''Feature'''</center>
-| <center>'''Example'''</center>
-| <center>'''ETL2'''</center>
-| <center>'''ECMA-367'''</center>
-| <center>'''EiffelStudio'''</center>
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
 |- 
 | Precursor call
 | <code>Precursor</code>
@@ -198,13 +206,13 @@
 |}
 
 ==Void-safety==
-{| 
+{| class="doctable"
 |- 
-| <center>'''Feature'''</center>
-| <center>'''Example'''</center>
-| <center>'''ETL2'''</center>
-| <center>'''ECMA-367'''</center>
-| <center>'''EiffelStudio'''</center>
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
 |- 
 | Attachment marks
 |  <code>a: attached ANY</code> <br/>
@@ -234,13 +242,13 @@
 |}
 
 ==[[Concurrent Eiffel with SCOOP|SCOOP]]==
-{| 
+{| class="doctable"
 |- 
-| <center>'''Feature'''</center>
-| width="160pt"| <center>'''Example'''</center>
-| <center>'''ETL2'''</center>
-| <center>'''ECMA-367'''</center>
-| <center>'''EiffelStudio'''</center>
+! <center>'''Feature'''</center>
+! width="160pt"| <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
 |- 
 | Separate declaration
 |  <code> a: separate ANY </code>
@@ -250,13 +258,13 @@
 |}
 
 ==Expressions==
-{| 
+{| class="doctable"
 |- 
-| <center>'''Feature'''</center>
-| <center>'''Example'''</center>
-| <center>'''ETL2'''</center>
-| <center>'''ECMA-367'''</center>
-| <center>'''EiffelStudio'''</center>
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
 |- 
 | Bracket expression
 | <code>y := x [i]</code>
@@ -296,13 +304,13 @@
 |}
 
 ==Constants==
-{| 
+{| class="doctable"
 |- 
-| <center>'''Feature'''</center>
-| <center>'''Example'''</center>
-| <center>'''ETL2'''</center>
-| <center>'''ECMA-367'''</center>
-| <center>'''EiffelStudio'''</center>
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
 |- 
 | Verbatim string
 |  
@@ -337,12 +345,12 @@ y := "{
 |}
 
 ==Interfacing with external software==
-{| 
+{| class="doctable"
 |- 
-| <center>'''Feature'''</center>
-| <center>'''ETL2'''</center>
-| <center>'''ECMA-367'''</center>
-| <center>'''EiffelStudio'''</center>
+! <center>'''Feature'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
 |- 
 | Access to software written in C
 | Basic syntax for any external software
