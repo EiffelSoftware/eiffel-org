@@ -1,1 +1,8 @@
-<p style="margin-left: 10px; margin-right: 50px; border: 1px solid #0a427d; padding: 10px; background-color: #eef7fb; color: black;">[[Image:LogoInformation|24px]] '''See Also: '''{{{1}}}</p>
+<div style="margin:10px; border: 1px solid #0a427d; padding: 5px; background-color: #eef7fb; color: black;">
+<table>
+	<tr>
+		<td style="vertical-align:top;">[[Image:LogoInformation|24px]]</td>
+		<td>'''See Also: '''{{{1}}}</td>
+	</tr>
+</table>
+</div>

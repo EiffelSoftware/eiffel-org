@@ -10,8 +10,8 @@ Assigning a variable to itself is a meaningless instruction due to a typing erro
 | '''Scope'''
 | Instruction
 |-
-| '''Enabled'''
-| Yes
+| '''Status'''
+| Enabled
 |-
 | '''Severity'''
 | Warning
@@ -23,12 +23,15 @@ Assigning a variable to itself is a meaningless instruction due to a typing erro
 |  70
 |}
 
-=Example=
+
+=Example of violation=
 <e>a := a
 </e>
 
-=Suggested Fix=
-Replace source or target with proper expression.
+=Recommendation=
+Replace left or right side with something else than the other element.
+
+In the example, replace one of the '''<e>a</e>''' by something else.
 
 {{SeeAlso | [[CA071 - Self-comparison]]}}
 

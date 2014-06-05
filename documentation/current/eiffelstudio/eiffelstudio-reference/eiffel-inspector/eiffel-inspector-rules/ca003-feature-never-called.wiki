@@ -1,0 +1,33 @@
+[[Property:title|CA003 - Feature never called]]
+[[Property:link_title|CA003]]
+[[Property:weight|0]]
+[[Property:uuid|21e52517-beb3-9843-8c39-dd0c8e11e945]]
+__NOTOC__
+=Description=
+There is no use for a feature that is never called by any class (including the one where it is defined).
+:{| class="doctable"
+|-
+| '''Scope'''
+| System
+|-
+| '''Status'''
+| Disabled
+|-
+| '''Severity'''
+| Warning
+|-
+| '''Applicability'''
+| Non-library
+|-
+| '''Score'''
+|  40
+|}
+
+
+=Example of violation=
+A feature defined in the system but never called.
+
+=Recommendation=
+Remove feature from the system.
+
+
