@@ -30,8 +30,10 @@ There are rather exceptional but sometimes useful class designs in which the ext
 =Example of violation=
 <e>
 height: INTEGER
+		-- Height in pixel of Current.
 
 width: INTEGER
+		-- Width in pixel of Current.
 	do
 		height := height + 10
 		Result := 100 - height
@@ -40,12 +42,14 @@ width: INTEGER
 =Recommendation=
 Ensures that no query changes the state of the current object.
 
-In the example, one could replace the call to <e>width</e> by a call to <e>update_width</e> followed by a call to <e>width</e> where <e>update_width</e> would be:
+In the example, one could replace the routine <e>width</e> by an attribute and calling <e>update_width</e> before querying <e>width</e> where <e>update_width</e> would be:
 <e>update_width
+		-- Update `height' and `width' with ....
 	do
 		height := height + 10
 		width := 100 - height
 	end</e>
 
+Or you can remove the line <e>height := height + 10</e> from the body of <e>width</e>.
 
 
