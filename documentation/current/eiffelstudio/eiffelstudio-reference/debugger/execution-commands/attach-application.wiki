@@ -7,17 +7,19 @@ However for specific needs (such as server development), you might want to start
 
 Requirements:
 * The application should be compiled in workbench mode. 
-* EiffelStudio should be open on the project which was used to compile the application.
+* EiffelStudio should be opened on the project used to compile the application.
 
 How to make it work?
-* On the application side, at some point you will need to provide a port number, and at that point the application will wait for the debugger.
+* The application execution will wait for the debugger to connect on a specific port number (given by the user).
 
-To speciffy the port number you have two possibilities:
-* setting the <code>ISE_DBG_PORTNUM</code> environment variable to a specific port number. When the environment variable is set, the application after starting will immediately put itself in a mode where it will wait for EiffelStudio to attach the process
-* calling <eiffel>{RT_DEBUGGER}.rt_workbench_wait_for_debugger (a_port_number: INTEGER)</eiffel> from the program itself. In this case, the program will put itself in a mode where it will wait for EiffelStudio to attach the process when you call this routine.
+There are 2 ways to provide this port number:
+* setting the <code>ISE_DBG_PORTNUM</code> environment variable to a specific port number. When this environment variable is set, the application, right after starting, will immediately wait for EiffelStudio to attach the process
+* calling <eiffel>{RT_DEBUGGER}.rt_workbench_wait_for_debugger (a_port_number: INTEGER)</eiffel> from the application code. In this case, when this routine is executed, the program will wait for EiffelStudio to attach the process.
+In both case, the execution will wait about 10 seconds, if EiffelStudio does not connect before, the execution will continue.
+It is possible to use any available port number, for that make sure your machine does not already use the port number you choose, and that the application is authorized to open that port (for instance port 10505 is often available).
 
 To attach the process from EiffelStudio, follow the menu path <code>Execution->Attach Debuggee</code> and provide the same port number as specified above.
 (Note that you can add the associated command to the execution tool bar.)
 
-At this point EiffelStudio is able to debug the application just as if the application had been launched by EiffelStudio.
+Once EiffelStudio attached the execution, it is able to debug the application just as if the application had been launched by EiffelStudio.
 
