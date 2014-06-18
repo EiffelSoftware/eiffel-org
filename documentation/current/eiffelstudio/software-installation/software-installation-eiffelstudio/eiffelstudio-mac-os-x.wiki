@@ -11,7 +11,7 @@
 | x86-64
 |- 
 | '''Operating System'''
-| Mac OS X 10.8 or above
+| Mac OS X 10.9 or above
 |- 
 | '''C compiler'''
 | gcc included in XCode
@@ -38,44 +38,33 @@
 
 ==Prerequisites==
 
-*You will need to install '''Xcode''' from the App Store. (On old versions of OS X, Xcode was on your OSX-Installation disk, or you downloaded it from Apple's developer web site.) After installing Xcode, make sure to install the command line tools by going to the Xcode preferences and under '''Downloads''' install the '''Command Line Tools''' components.
+*You will need to install '''Xcode''' from the App Store.After installing Xcode, make sure to install the command line tools by going to the Xcode preferences and under '''Downloads''' install the '''Command Line Tools''' components.
 
-*You also need to install X11:
-** On OS X 10.8 (Mountain Lion): install it from http://xquartz.macosforge.org.
-** On OS X 10.5, 10.6 and 10.7: nothing to be done.
-** ON OS X 10.4 and older: install it from your OS X installation disk.
+*You also need to install X11 from http://xquartz.macosforge.org.
 
-==Installing the Free Edition==
+==Installing the GPL Edition==
 
-After downloading the '''EiffelXX.dmg''' installation package (where XX stands for the EiffelStudio version), double click on it to mount the disk image. Then double click on the '''EiffelXX.pkg''' file to launch the installation procedure. Follow the steps indicated in the dialogs to complete the installation.
+MacPorts is a tool that allows you to use many Unix applications on the Mac. We have created a package in the MacPorts repository that allows you to to install Eiffel Studio with all dependencies in a convenient way. First, install [http://guide.macports.org/#installing MacPorts].
 
-==Installing the Enterprise Edition==
+Now simply type (from a bash [http://guides.macrumors.com/Terminal terminal]):
+<pre>
+sudo port install eiffelstudio
+</pre>
+where 'XX' stands for the EiffelStudio version you want to install (for example eiffelstudio) and after some time (compiling on a 2.4 GHz Intel Mac takes about an hour) you're ready to go. 
 
-Insert the CD into your CD-ROM drive. Open the CD-ROM contents and double click on the '''EiffelXX.pkg''' file to launch the installation procedure. Follow the steps indicated in the dialogs to complete the installation.
-
-<center> [[Image:56--mac-setup|Setup dialog]] </center>
-
-Run EiffelStudio, located at /Developers/Applications/EiffelXX/EiffelStudio. Enter the information located inside the box that contains your copy of the EiffelStudio Enterprise Edition. Once the information is correct, the '''Register''' button will be enabled. Click '''Register''' to actually register EiffelStudio.
-
-You now need to launch EiffelStudio to register your copy. Follow the instructions located in the '''Starting EiffelStudio''' section below. The first time you launch EiffelStudio, you will be asked for an activation key through the following dialog:
-
-<center> [[Image:56--mac-registration|Registration dialog]] </center>
-
-By clicking on the [http://activate.eiffel.com http://activate.eiffel.com]  URL, a new web browser will appear with the requested fields automatically filled in with the appropriate information. Simply click '''Activate''' and a new page with an activation code will appear. Copy and paste the activation code in the first field and the '''Activate''' button should be enabled to let you activate your copy.
-
-You can activate your copy up to three times. Once you have reached this threshold and need to reinstall your copy, contact Eiffel Software to request one more activation.
-
-If no web broswer appears, it is most likely because Safari is not installed on your machine or is not in your path. Instead you should manually launch a new web browser and go to the page [http://activate.eiffel.com http://activate.eiffel.com]  and enter the information manually. Then follow the above instructions as if the browser had been properly launched.
-
-You may receive the following dialog when launching EiffelStudio:
-
-<center> [[Image:56--mac-registration-error|Registration incomplete]] </center>
-
-This probably means that the '''register''' program was not launched or did not succeed in storing data to the following file '''/Developer/Applications/EiffelXX/EiffelStudio.app/Contents/Resources/EiffelXX/install/limand/.ec_license'''. To solve this, rerun the '''register''' program with a user account that has permissions to write at '''/Developer/Applications/EiffelXX/EiffelStudio.app/Contents/Resources/EiffelXX/install/limand''' and enter your '''Username''' and '''CD Key'''.
+When a new release of the same version EiffelStudio becomes available, you can upgrade like so:
+<pre>
+sudo port selfupdate
+sudo port upgrade outdated
+</pre>
 
 ==Starting EiffelStudio==
 
-Now everything should be properly installed and you should be able to run the compiler. You can now launch EiffelStudio from the Finder under '''/Developer/Applications/EiffelXX/'''. If you are a new user to EiffelStudio, we recommend that you follow [[EiffelStudio: A Guided Tour|the guided tour]] .
+Now everything should be properly installed and you should be able to run the compiler. Simply navigate to /Applications/MacPorts/Eiffel''XX'' and double click the EiffelStudio icon.
+
+Alternatively, you can also start EiffelStudio from the command line by entering the command '''estudio''' or use the command-line eiffel compiler '''ec'''.
+
+If you are a new user to EiffelStudio, we recommend that you follow [[EiffelStudio: A Guided Tour|the guided tour]] .
 
 
 
