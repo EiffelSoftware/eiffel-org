@@ -1,11 +1,9 @@
 [[Property:title|Mac OS X]]
 [[Property:weight|0]]
 [[Property:uuid|7cf4e0e5-0858-58bb-351e-52becea59ede]]
-{{Note| The Mac OS X version is currently only available under the GPL license and can be downloaded by following the instructions at http://dev.eiffel.com/EiffelOnMac. The instructions below are not currently applicable for Mac OS X.}}
-
 ==Requirements==
 
-{| 
+{| class="doctable"
 |- 
 | '''Computer/Processor'''
 | x86-64
@@ -32,7 +30,7 @@
 | Keyboard and mouse or compatible pointing device
 |- 
 | '''ISE_PLATFORM'''
-| ''macosx-x86''' for x86 based CPU and '''macosx-x86-64''' for x64 based CPU. 
+| '''macosx-x86''' for x86 based CPU and '''macosx-x86-64''' for x64 based CPU. 
 |}
 
 
@@ -50,7 +48,7 @@ Now simply type (from a bash [http://guides.macrumors.com/Terminal terminal]):
 <pre>
 sudo port install eiffelstudio
 </pre>
-where 'XX' stands for the EiffelStudio version you want to install (for example eiffelstudio) and after some time (compiling on a 2.4 GHz Intel Mac takes about an hour) you're ready to go. 
+
 
 When a new release of the same version EiffelStudio becomes available, you can upgrade like so:
 <pre>

@@ -47,6 +47,7 @@ The Eiffel Inspector is also available from the EiffelStudio command line compil
 The following command will perform a code analysis:
 
  ec.exe -config project.ecf -code-analysis [-cadefaults] [-caloadprefs ''preffile''] [-caclass ''CLASS1 CLASS2 ...'']
+ [-caforcerules "RULE1 (First preference=1, Second preference=2) RULE2"]
 
 The arguments in brackets are optional. For a complete description of the Eiffel inspector command line options see [[EiffelStudio: Using command line options|Using command line compiler options]].
 
@@ -62,7 +63,7 @@ As soon as everything needed has been analyzed the results will be displayed as 
 === Output to file ===
 
 Appending "> ''filename''" to the command above will redirect the output to a text file. 
-In addition, a file '''last_analysis_result.csv''' will be saved in the current working directory with the same content as '''filename''' that can be processed by a spreadsheet tool.
+In addition, a file '''last_analysis_result.csv''' will be saved in the 'EIFGENs/target' directory, with the same content as '''filename''', that can be processed by a spreadsheet tool.
 
 
 
