@@ -58,7 +58,7 @@ Upon a successful compilation either the whole system or the classes mentioned i
 
 As soon as everything needed has been analyzed the results will be displayed as a list of rule violations. These rule violations are sorted by class and by location. In addition to the name of the violated rule and the rule ID, a description of the concrete violation will be displayed as well.
 
-[img_assist|nid=2650|title=Eiffel Inspector - Command Line|desc=|link=node|align=center|width=640|height=627]
+[img_assist|nid=2677|title=Eiffel Inspector - Command Line|desc=|link=node|align=center|width=877|height=691]
 
 === Output to file ===
 
