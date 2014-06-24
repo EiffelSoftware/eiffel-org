@@ -63,6 +63,9 @@ Most libraries do now compile in the highest level of void-safety except the fol
 * Fixed <e>{FILE_UTILITIES}.files_end_with</e> to respect the depth level specified in argument.
 * Fixed issues with the handling of the Unicode escape character. If the escaped UTF-32 string contains the escape sequence and it is trying to escape something that could fit the UTF-16 or UTF-8 encoding, then we store the content as is. This is to avoid the case for UTF-16 where if you have: '''?61''' it would yield '''a''' after round-tripping. Now if the UTF-16 or UTF-8, contains the escape character, the resulting string would have it twice, which again preventing proper roundtriping.
 
+===Internationalization===
+* Removed <e>get_locale</e> and <e>get_language</e> from <e>I18N_FILE_SCOPE_INFORMATION to use the Eiffel naming convention <e>locale</e> and <e>language</e> and also changed the types to be detachable. This requires updating callers to the new name and to also perform a check that the request yields an attached entity.
+
 ===Regexp===
 * Renamed CHARACTER_SET and BYTE_CODE into PCRE_CHARACTER_SET and PCRE_BYTE_CODE to avoid name conflicts with libraries that have the same class names.
 
