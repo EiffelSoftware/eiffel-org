@@ -4,7 +4,7 @@
 {{ReviewRequested}}
 
 
-The EiffelVision 2 figure cluster providesa high-level way of drawing on an [[ref:libraries/vision2/reference/ev_drawable_chart|EV_DRAWABLE]]  descendant. It offers a number of advantages:
+The EiffelVision 2 figure cluster provides a high-level way of drawing on an [[ref:libraries/vision2/reference/ev_drawable_chart|EV_DRAWABLE]]  descendant. It offers a number of advantages:
 * The model (tree of figures) is separated from the graphical representation by using projectors that take a "world" (an entire set of figures) and project it onto any device, not just a drawing area.
 * Instead of drawing with static APIs like <code>draw_line</code>, you can use real figure objects, which internally remember their location, rotation and scaling; later on you can perform limitless transformations on them, either individually or as part of an entire branch in the tree of figures: move, rotation, scaling, change of color...
 * For projection devices that support the mouse, pointer events propagate to the affected figures.
@@ -91,7 +91,7 @@ A closed figure is a figure that has some area enclosed when drawn that can opti
 
 ===Points===
 
-Central in the design of the figures are points. Figures are built up as much from points as possible. For example, an ellipse is not a center point with two radii, but is instead the largest fitting ellipse inside an imaginary rectangle, so of two points.
+Central in the design of the figures are points. Figures are defined from their points. For example, an ellipse is not a center point with two radii, but is instead the largest fitting ellipse inside an imaginary rectangle, so of two points.
 
 As you can see in the table above, each figure has a certain number of points. These values can be 1, 2 or * (any number). For each value there is a class the figure inherits from. These are:
 * 1 (figure has one point): [[ref:libraries/vision2/reference/ev_single_pointed_figure_chart|EV_SINGLE_POINTED_FIGURE]].
@@ -119,7 +119,7 @@ These classes offer features to handle the given number of points. [[ref:librari
 
 ===Relative Point===
 
-The points that the figures use are of type [[ref:libraries/vision2/reference/ev_relative_point_chart|EV_RELATIVE_POINT]]. Each point is relative to the location of the parent figure group (<code>point</code>), which is relative to the location of its parent figure group, and so on up to the top-level (world) figure group. Each point is a set of relative coordinates and a reference point (<code>origin</code>). If the reference point is not attached (as may be the case for immediate children of the top-level group, when it has no point object), the subordinate relative points are relative to point (0,0).  The absolute coordinates are calculated only when needed by adding the absolute coordinates of the reference point to the relative coordinates.
+The points that the figures use are of type [[ref:libraries/vision2/reference/ev_relative_point_chart|EV_RELATIVE_POINT]]. Each point is relative to the location of the parent figure group (<code>point</code>), which is relative to the location of its parent figure group, and so on up to the top-level (world) figure group. Thus, each figure is defined by a set of relative points and a reference point (<code>origin</code>). If the reference point is not attached (as may be the case for immediate children of the top-level group, when it has no point object), the subordinate relative points are relative to point (0,0).  The absolute coordinates are calculated only when needed by adding the absolute coordinates of the reference point to the relative coordinates.
 
 {{note|Even the top-level (world) figure group can be "moved" by calling its <code>set_point</code> feature, passing a new relative point.  However, if this is done, then THAT relative point is relative to point (0,0).  If you do this, do so before <code>extend</code>-ing it with figures and sub-groups so that they receive the point in question as their reference point.}}
 
@@ -159,7 +159,7 @@ When using events, keep the z-order in mind. This is the order in which the figu
 
 ==Rotation and Scaling==
 
-Relative Points also support rotation and scaling. Both rotation and scaling can be entered at any point in the tree of relative points.  One of the most useful of these points is the <code>point</code> of an [[ref:libraries/vision2/reference/ev_figure_group_chart|EV_FIGURE_GROUP]], which rotation and/or scaling will then propagate down the tree to all the contained figures and sub-groups.  Rotation is in radians progressing counter-clockwise from the positive X axis.  Scaling is multiplied into the chain of relative points.  This means that when a relative point which is the root of a tree of several points is moved, the entire tree is moved.  When it is scaled the entire tree is scaled, and the same for rotation.
+Relative Points, which supply the location, scale and orientation for EV_FIGURE_... objects, also support rotation and scaling. Both rotation and scaling can be entered at any point in the tree of relative points.  One of the most useful of these points is the <code>point</code> of an [[ref:libraries/vision2/reference/ev_figure_group_chart|EV_FIGURE_GROUP]], which rotation and/or scaling will then propagate down the tree to all the contained figures and sub-groups, by way of something like <eiffel>my_figure_group.point.set_angle (...)</eiffel>.  Rotation is in radians progressing counter-clockwise from the positive X axis.  Scaling is multiplied into the chain of relative points.  This means that when a relative point which is the root of a tree of several points is moved, the entire tree is moved.  When it is scaled the entire tree is scaled, and the same for rotation.
 
 The scaling factor has two components:  horizontal (x) and vertical (y), which can be set separately or together. If the x/y scaling factor is 0.5, everything at that point and below in the tree is displayed at half its normal size.
 
