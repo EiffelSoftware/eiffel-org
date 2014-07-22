@@ -81,7 +81,7 @@ feature
         do 
             create soc1.make_server ("/tmp/here") 
             from 
-                soc1listen (5) 
+                soc1.listen (5) 
                 count := 0
             until 
                 count = 3
@@ -102,14 +102,11 @@ feature
             soc1.accept
             if attached soc1.accepted as l_soc2 then
                 if attached {OUR_MESSAGE} retrieved (l_soc2) as l_our_new_list then 
-                    from 
-                        l_our_new_list.start
-                    until 
-                        l_our_new_list.after
+                    across
+                        l_our_new_list as it
                     loop 
-                        io.putstring (l_our_new_list.item) 
+                        io.put_string (it.item) 
                         io.new_line
-                        l_our_new_list.forth
                     end 
                     l_our_new_list.extend ("%N I'm back.%N") 
                     l_our_new_list.independent_store (l_soc2) 
@@ -164,13 +161,10 @@ feature
             our_list.extend (" test") 
             our_list.independent_store (soc1) 
             if attached {OUR_MESSAGE} our_list.retrieved (soc1) as l_our_new_list then
-                from 
-                    l_our_new_list.start
-                until 
-                    l_our_new_list.after
+                across
+                    l_our_new_list as it
                 loop 
-                    io.putstring (l_our_new_list.item) 
-                    l_our_new_list.forth
+                    io.putstring (it.item) 
                 end 
                 io.new_line
             end
