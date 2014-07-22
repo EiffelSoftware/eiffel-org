@@ -56,6 +56,16 @@ sudo port selfupdate
 sudo port upgrade outdated
 </pre>
 
+==Installing EiffelStudio from a compressed package==
+This section only applies if you have installed all the required prerequisites. If you are not sure, use the installation from MacPorts as described in the previous section.
+
+After downloading the compressed package, you should manually extract its contents to your hard drive. For example, you can extract it into /usr/local using the following commands (assuming that you have permission to /usr/local and that the installation package was saved in /tmp/Eiffel_X.Y.tar.bz2, where X.Y stands for the EiffelStudio version):
+<code>
+cd /usr/local
+tar xvfj /tmp/Eiffel_X.Y.tar.bz2</code>
+
+This will install EiffelStudio files into /usr/local/Eiffel_X.Y. Once this is done, jump to the [[#Setting up EiffelStudio|Setting up EiffelStudio]]  section in order to complete the installation of EiffelStudio.
+
 ==Starting EiffelStudio==
 
 Now everything should be properly installed and you should be able to run the compiler. Simply navigate to /Applications/MacPorts/Eiffel''XX'' and double click the EiffelStudio icon.

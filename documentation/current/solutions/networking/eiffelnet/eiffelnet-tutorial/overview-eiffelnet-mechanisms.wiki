@@ -58,9 +58,9 @@ The second distinction reflects two modes of socket communication: stream commun
 <code>IO_MEDIUM</code> has all the basic input and output facilities applying to objects of basic types, as also offered in FILE(see the specification of<code> FILE</code> in reference [ [[Bibliography|2]] ]). So you can use sockets to send and receive characters, integers, real numbers in simple or double precision and strings. For example, if the type of
 `my_socket' is one of the socket classes shown on the preceding figures, any of the following calls will be valid:
 <code>
-            my_socket.putstring ("Some text") 
-            my_socket.readint 
-            my_last_integer := my_socket.lastint
+            my_socket.put_string ("Some text") 
+            my_socket.read_integer_32
+            my_last_integer := my_socket.last_integer_32
 </code>
 
 Since sockets are bidirectional, these instructions may all appear as part of the same class provided you make sure to guarantee proper synchronization between senders and receivers. You may also prefer to specialize certain sockets for sending and others for receiving.
