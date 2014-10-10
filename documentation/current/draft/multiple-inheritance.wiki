@@ -1,0 +1,14 @@
+[[Property:title|Multiple inheritance]]
+[[Property:weight|0]]
+[[Property:uuid|7f54afce-fd1d-fba7-7a55-f74604ea9846]]
+<h2>Multiple inheritance: overview</h2>
+
+Multiple inheritance is a mechanism for combining abstractions. It lets you define a class by extending or specializing two or more classes, not just one as in <em>single</em> inheritance. 
+
+Multiple inheritance sometimes has the reputation of being complicated or even messy, but there is no such problem in Eiffel. "Name clashes", for example, are not a big deal: if classes <eiffel>A</eiffel> and <e>B</e> both have a feature with the same name <e>f</e> and class <e>C</e> inherits from both,  
+
+
+<e>
+class feature end
+</e>
+
