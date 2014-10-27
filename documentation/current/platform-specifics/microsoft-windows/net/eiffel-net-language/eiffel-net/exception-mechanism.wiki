@@ -38,7 +38,7 @@ If the instructions in the rescue clause can set things up so that it might prov
 
 If the rescue clause exits without issuing a <code>retry</code> instruction, then the routine fails. 
 
-It should be noted that rescue clauses and retry instructions are not something that are used commonly. Out of the approximately 2000 class in the delivered Eiffel libraries, there are only 16 occurrences. Many of these are oriented toward network and database operations for which some reasonable recovery might be possible. 
+It should be noted that rescue clauses and retry instructions are not something that are used commonly. Out of the approximately 2000 classes in the delivered Eiffel libraries, there are only 16 occurrences. Many of these are oriented toward network and database operations for which some reasonable recovery might be possible. 
 <code>
     transmit: (p: PACKET)
             -- Transmit packet `p'
