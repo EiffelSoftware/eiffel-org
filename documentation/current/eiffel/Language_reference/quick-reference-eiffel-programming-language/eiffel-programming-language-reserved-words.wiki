@@ -1,4 +1,5 @@
 [[Property:title|Eiffel programming language reserved words]]
+[[Property:link_title|Reserved words]]
 [[Property:weight|1]]
 [[Property:uuid|047ce062-45de-f25c-f356-ee8ec0fc2d1d]]
 In the Eiffel programming language, there are certain words that are considered "reserved". These words have specific meanings recognized by the compiler. As such, it is invalid to attempt to use a reserved word as an ordinary language identifier.
@@ -319,7 +320,7 @@ The logical negation [[Eiffel programming language syntax#Operators|operator]].
 
 ===note===
 
-Used to begin a Notes part, in either a [[Eiffel programming language syntax#Class declarations|class declaration]] or a [[Eiffel programming language syntax#Check instructions|check instruction]].
+Used to begin a Notes part, in a [[Eiffel programming language syntax#Class declarations|class declaration]], a [[Eiffel programming language syntax#Feature declarations|feature declaration]], or a [[Eiffel programming language syntax#Check instructions|check instruction]].
 
 :[[Eiffel programming language syntax#Notes|Syntax.]]
 
