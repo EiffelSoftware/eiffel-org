@@ -3,13 +3,10 @@
 [[Property:uuid|43ce73b9-3ac4-4f71-34a3-f359a66d9082]]
 It is possible to raise and catch exceptions in Eiffel. Catching exceptions is done by using the rescue keyword. The [[ref:/libraries/base/reference/exceptions_chart|EXCEPTIONS]]  class provides helper features to analyze the caught exception and handle it. 
 
-The [[ref:/libraries/base/reference/exceptions_chart|<eiffel>EXCEPTIONS</eiffel>]] class also provides ways to raise exception, via its feature [[ref:libraries/base/reference/exceptions_flatshort|raise]] . 
+The [[ref:/libraries/base/reference/exceptions_chart|EXCEPTIONS]] class also provides ways to raise exception, via its feature [[ref:libraries/base/reference/exceptions_flatshort|raise]] . 
 
 When an exception is raised while the application is being debugged, the application stops immediately and the debugger displays the context in which the exception occurred, whether or not the exception is rescued.
 
 {{seealso|<br/>
 [[ET: Design by Contract (tm), Assertions and Exceptions|Reference of exceptions]]  }}
-
-
-
 
