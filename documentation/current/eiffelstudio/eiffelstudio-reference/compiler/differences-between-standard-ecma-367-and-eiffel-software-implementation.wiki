@@ -1,4 +1,5 @@
 [[Property:title|Differences between standard ECMA-367 and Eiffel Software implementation]]
+[[Property:link_title|ECMA-367 vs implementation]]
 [[Property:weight|-10]]
 [[Property:uuid|0eb58761-5b06-585f-ea92-cab2b8cd74b2]]
 "ETL 2" refers to the book "Eiffel: The Language" (2nd printing), published by Prentice Hall.
@@ -32,7 +33,7 @@
 | <code>infix "+"</code>
 | Yes
 | No
-| Yes
+| Yes, marked as obsolete
 |- 
 | Operator and bracket aliases
 | <code>add alias "+"</code>
@@ -221,7 +222,7 @@ reattachment
 <code>b: detachable ANY</code> 
 | No
 | Yes, attached by default
-| Yes, default attachment status is controlled by option ''is_attached_by_default''
+| Yes, attached by default
 |- 
 | Object test
 | <code>attached {STRING} e as o</code>
