@@ -127,6 +127,7 @@ Class_declaration ::= <nowiki>[</nowiki>[[#Notes|Notes]]<nowiki>]</nowiki>
 <nowiki>[</nowiki>[[#Creators parts|Creators]]<nowiki>]</nowiki>
 <nowiki>[</nowiki>[[#Converter clauses|Converters]]<nowiki>]</nowiki> 
 <nowiki>[</nowiki>[[#Feature parts|Features]]<nowiki>]</nowiki> 
+<nowiki>[</nowiki>[[#Notes|Notes]]<nowiki>]</nowiki>
 <nowiki>[</nowiki>[[#Assertions|Invariant]]<nowiki>]</nowiki> 
 <nowiki>[</nowiki>[[#Notes|Notes]]<nowiki>]</nowiki>
 <code>end</code>
