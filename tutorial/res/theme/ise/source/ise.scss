@@ -1,0 +1,93 @@
+/**
+ * A simple theme for reveal.js presentations, similar
+ * to the default theme. The accent color is darkblue.
+ *
+ * This theme is Copyright (C) 2015 Jocelyn Fiat, https://github.com/jocelyn. It is MIT licensed.
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../../../reveal.js/css/theme/template/mixins";
+@import "../../../reveal.js/css/theme/template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Lato', sans-serif;
+$mainColor: #000;
+$headingFont: 'Arial', Impact, sans-serif;
+$headingColor: #000;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: #ddebfa;
+$linkColor: #00008B;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: rgba(0, 0, 0, 0.99);
+
+
+
+// Theme template ------------------------------
+@import "../../../reveal.js/css/theme/template/theme";
+// ---------------------------------------------
+
+// hljs ----------------------------------------
+@import "hljs";
+// ---------------------------------------------
+
+.reveal span.logo {
+	float: left;
+	display: inline-block;
+	width: 250px; height: 100px;
+	&:after {
+		content: " ";
+	}
+	background-image: url("logo.png");
+	background-repeat: no-repeat;
+	background-position: left top 0;
+}
+
+.reveal h2 {
+	color: #4672b9;
+	line-height: 1em;
+	padding: 5px 5px 15px 5px;
+	background-color: white;
+	border-top: solid 2px rgba(0,0,210,0.4);
+	margin: 0;
+	font-weight: bold;
+	font-size: 56px;
+}
+
+.reveal h3 {
+	color: #4672b9;
+	line-height: 0.9em;
+	background-color: white;
+	padding: 5px 5px 15px 5px;
+	border-top: solid 2px rgba(0,0,210,0.4);
+	font-weight: bold;
+	font-size: 48px;
+}
+
+.reveal section {
+	min-height: 80%;
+	.footer {
+		position: absolute;
+		bottom: 0px;
+		right: 0;
+		font-size: 18px;
+		padding-top: 4px;
+		vertical-align: middle;
+		color: $headingColor;
+		display: inline-block;
+		width: 100%;
+		height: 30px;
+		& a { color: $headingColor; }
+		text-align: right;
+	}
+}

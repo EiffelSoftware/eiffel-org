@@ -1,0 +1,131 @@
+/**
+ * A simple theme for reveal.js presentations, similar
+ * to the default theme. The accent color is darkblue.
+ *
+ * This theme is Copyright (C) 2015 Jocelyn Fiat, https://github.com/jocelyn. It is MIT licensed.
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../../../reveal.js/css/theme/template/mixins";
+@import "../../../reveal.js/css/theme/template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Lato', sans-serif;
+$mainColor: #000;
+$headingFont: 'Arial', Impact, sans-serif;
+$headingColor: #fff;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$headingBackgroundColor: #0B5394;
+$backgroundColor: #fff;
+$linkColor: #00008B;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: rgba(0, 0, 0, 0.99);
+
+
+
+// Theme template ------------------------------
+@import "../../../reveal.js/css/theme/template/theme";
+// ---------------------------------------------
+
+// hljs ----------------------------------------
+@import "hljs";
+// ---------------------------------------------
+
+.reveal span.logo {
+	float: left;
+	display: inline-block;
+	width: 65px; height: 100px;
+	&:after {
+		content: " ";
+	}
+	background-image: url("logo_icon.png");
+	background-repeat: no-repeat;
+	background-position: left top 0;
+}
+
+.reveal section {
+	h2, h3, h4 {
+		color: $headingColor;
+		background: $headingBackgroundColor url("bg.jpg") no-repeat right bottom 0px;
+	}
+	h2 {
+		line-height: 1em;
+		padding: 5px 5px 15px 5px;
+		font-weight: bold;
+		font-size: 56px;
+	}
+	h3 {
+		line-height: 0.9em;
+		padding: 5px 5px 15px 5px;
+		font-weight: bold;
+		font-size: 48px;
+	}
+	h4,h5,h6 {
+		line-height: 0.8em;
+		padding: 5px 5px 15px 5px;
+		font-weight: bold;
+		font-size: 42px;
+	}
+
+	.footer {
+		position: absolute;
+		bottom: 0px;
+		right: 0;
+		font-size: 18px;
+		padding-top: 4px;
+		vertical-align: middle;
+		color: $headingColor;
+		display: inline-block;
+		width: 100%;
+		height: 30px;
+		background: url("logo_icon_h30.png") no-repeat left top, url("bg.jpg")  no-repeat left -550px top -500px;
+		& a { color: $headingColor; }
+	}
+	&.full  {
+		color: $headingColor;
+		background: $headingBackgroundColor url("bg.jpg") repeat left top 0px;
+		background-size: cover;
+		a {
+			color: $headingColor;
+		}
+		h2, h3, h4 {
+			color: $headingColor;
+			background: none;
+		}
+		h5,h6 {
+			color: $headingColor;
+		}
+		.footer {
+			background: url("logo_icon_h30.png") no-repeat left top;
+		}
+		ul {
+			width: 70%;
+		}
+	}
+
+	background: none;
+	min-height: 95%;
+}
+
+/* Top sections */
+.reveal :not(section) section {
+	min-height: 95%;
+	background-position: right bottom 0px;
+	background: linear-gradient(180deg, white 98%, $headingBackgroundColor);
+}
+.reveal pre>code {
+	font-size: 95%;
+	max-height: 100% !important;
+}
+

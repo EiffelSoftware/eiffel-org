@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Eiffel Web Framework: basic service</title>
+		<meta name="description" content="How to create a basic web service with Eiffel ">
+		<meta name="author" content="Jocelyn Fiat">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../res/reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="../res/theme/eiffel/eiffel.css" id="theme">
+		<!--
+		<link rel="stylesheet" href="../res/reveal.js/css/theme/black.css" id="theme">
+		-->
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../res/reveal.js/lib/css/zenburn.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2><span class="logo"></span>Simple web application <br/>using Eiffel?</h2>
+					<br/>
+                    <ul>
+                        <li><strong>level</strong>: basic</li>
+                        <li><strong>requirements</strong>: EiffelStudio 14.11 installed</li>
+                        <li><strong>goal</strong>: web application that return "Hello Web!" in browser.</li>
+                    </ul>
+					<div class="footer">&copy;2015 <a href="https://eiffel.org">eiffel.org</a></div>
+				</section>
+				<section>
+					<h3>EWF: the Eiffel Web Framework</h3>
+                    <ul>
+                        <li><strong>WSF</strong>: Web Server Foundation library</li>
+                        <li><strong>Connectors</strong>: CGI, libFCGI, standalone Eiffel httpd <strong>"nino"</strong></li>
+                        <br/>
+                        Let's use wsf and wsf/default/nino libraries.
+                    </ul>
+					<div class="footer">&copy;2015 <a href="https://eiffel.org">eiffel.org</a></div>
+				</section>
+				<section>
+					<h3>Into the code</h3>
+                    <ul>
+                        <li>Inherit from WSF_DEFAULT_SERVICE</li>
+						<li>Implement routine <br/><pre><code data-trim contenteditable>execute (req: WSF_REQUEST; res: WSF_RESPONSE)</code></pre></li>
+                        <li>Update option to use port 9090</li>
+			             <li>Open <a href="http://localhost:9090/">http://localhost:9090</a></li>
+                    </ul>
+					<div class="footer">&copy;2015 <a href="https://eiffel.org">eiffel.org</a></div>
+				</section> 
+				<section>
+					<h2>Thank you for watching</h2>
+					<br/>
+                    <ul>
+                        <li>https://eiffel.com/</li>
+                        <li>https://github.com/EiffelWebFramework/EWF/</li>
+                    </ul>
+					<div class="footer">&copy;2015 <a href="https://eiffel.org">eiffel.org</a></div>
+				</section>
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="../res/reveal.js/lib/js/head.min.js"></script>
+	 	<script type="text/javascript" src="../res/reveal.js/js/reveal.min.js"></script>
+		<script type="text/javascript" src="../res/reveal.js/plugin/highlight/highlight.js"></script>
+		<script>
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				minScale: 0.2,
+				maxScale: 1.1,
+				center: false,
+				transition: 'linear', // none/linear/fade/slide/convex/concave/zoom
+				//slideNumber: false,
+				//overview: true,
+				history: true
+
+				// transitionSpeed: 'slow',
+				// backgroundTransition: 'slide'
+			});
+
+		</script>
+	</body>
+</html>
