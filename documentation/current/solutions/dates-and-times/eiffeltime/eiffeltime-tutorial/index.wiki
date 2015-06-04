@@ -17,7 +17,7 @@ As you read this documentation you will notice other concepts that are used in v
 You will read more about these and other EiffelTime concepts in the detailed pages that follow.
 
 
-{{note|When you use [[EiffelStudio: Project settings window|project settings]] to [[adding a library|add]] the EiffelTime library, you will see that there are library choices for different default formatting. The default EiffelTime library uses English formatting by default. However, you can choose the option that uses German or French default formatting by selecting the library whose name contains "german" or "french". }}
+{{note|When you use [[EiffelStudio: Project settings window|project settings]] to [[Adding a library|add]] the EiffelTime library, you will see that there are library choices for different default formatting. The default EiffelTime library uses English formatting by default. However, you can choose the option that uses German or French default formatting by selecting the library whose name contains "german" or "french". }}
 
  
 
