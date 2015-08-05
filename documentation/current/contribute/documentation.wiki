@@ -19,20 +19,21 @@
 
 = Step by step with git =
 * Go to [https://github.com/eiffelsoftware/eiffel-org] for the project, then git clone on your machine.
-* create a git branch
-* add or edit the files locally
-* once you want to share your changes
-** git commit your changes
-** git push them to your github repository
+* create a git branch.
+* add or edit the files locally.
+* once you want to share your changes.
+** git commit your changes.
+** git push them to your github repository.
 ** then create a pull request so that the Eiffel.org documentation team can review and integrate the changes.
-* See current pull requests at [https://github.com/EiffelSoftware/eiffel-org/pulls]
+* See current pull requests at [https://github.com/EiffelSoftware/eiffel-org/pulls].
 
 = Step by step with subversion =
-* <code>svn checkout https://svn.eiffel.com/eiffel-org/trunk/documentation/current/</code>
-* add or edit the files locally
-* once you want to share your changes
-** svn update
+* <code>svn checkout https://svn.eiffel.com/eiffel-org/trunk/documentation/current/</code>.
+* add or edit the files locally.
+* once you want to share your changes.
+** svn update.
 ** Send the patch via [https://codereview.appspot.com/]. (note: follow the instructions from codereview site, you will need to use a python script "upload.py" distributed by the codereview site).
-* See current patches at [https://codereview.appspot.com/search?base=https://svn.eiffel.com/eiffel-org/trunk/documentation/current/]
+* See current patches at [https://codereview.appspot.com/search?base=https://svn.eiffel.com/eiffel-org/trunk/documentation/current/].
 
-
+= Live editing on this site =
+* This is coming soon for trusted editors.
