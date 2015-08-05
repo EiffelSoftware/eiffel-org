@@ -1,0 +1,114 @@
+[[Property:title|Regions and Processors]]
+[[Property:weight|2]]
+[[Property:uuid|974a41dd-0e36-4d75-edd1-ead6ea4b372d]]
+== Regions ==
+
+One of the key ideas in SCOOP is to prohibit simultaneous access to shared memory.
+In order to reach this goal, the SCOOP model partitions the heap memory into ''regions''.
+
+{{definition|Region|A set of objects in the heap. The set of all regions in a program is a partition of the heap.}}
+
+Every object in an Eiffel program belongs to exactly one ''region''. 
+A ''region'' is by itself sequential, meaning that there can only be one routine executed in one object.
+There can be multiple regions in a SCOOP program however.
+
+[[Image:SCOOP regions]]
+
+{{info|SCOOP is classified as a message passing concurrency model, because there is no shared memory.}}
+{{note|A sequential program is a special case for a SCOOP program that has only one region.}}
+
+A direct access from one region into another is not allowed.
+If one wishes to perform a command or a query in an object of a different region, a message has to be sent.
+You'll see how this can be done in chapter [[Separate Calls]].
+
+The simple trick of splitting the heap into several regions, where each region by itself is sequential,
+prevents one of the trickiest problems in concurrency: Data Races.
+In SCOOP you are guaranteed that a data race, meaning a read and write access to the same memory with nondeterministic ordering, can never happen.
+
+== Processors ==
+
+In the SCOOP model, a ''processor'' is used as the engine for execution.
+
+{{definition|Processor| An autonomous thread of control capable of sequential execution of instructions.}}
+
+A ''processor'' is always attached to exactly one region, and is responsible to perform operations on all its objects.
+The term ''handler of an object'' is used to denote the processor attached to the region on which the object is placed.
+
+As already mentioned earlier, a ''processor'' cannot access or perform operations on an object in a different ''region''
+and has to send a message to the other handler instead.
+
+{{info|''Processor'' is an abstract notion and does not mean the physical silicone chip which is present in every computer.
+In SCOOP we think of it as a thread of control capable of applying features to objects.
+In theory processors are not restricted to any particular type of hardware or software, for example they could correspond to threads, processes, hardware processors, or machines in a network.
+Currently however a SCOOP processor is implemented as a thread.}}
+
+== Separate Types==
+
+To support the concept of regions in a program text, SCOOP extends the type system by introducing a single new keyword: <code>separate</code>.
+The <code>separate</code> keyword is used to annotate a reference and means that the object attached to it may be in a different region.
+
+{{definition|Separate type|A type which has been declared including the keyword <code>separate</code>.}}
+
+If an entity uses the keyword <code>separate</code> in its declaration, such as:
+
+<code>
+            my_x: separate X
+</code>
+
+it indicates that the handler of <code>my_x</code> may be different than the handler of <code>Current</code>.
+This in turn means that it is forbidden to access and modify <code>my_x</code> directly.
+To perform any operation on <code>my_x</code>, a message should be sent to the other handler.
+
+Note that the SCOOP type system allows to attach an object to a separate reference, even if it is actually in the same region as <code>Current</code>.
+But it is not possible the other way around: An object in a different region must always be of a separate type.
+This is reflected in the type checker, which treats a regular type <code>A</code> as a subtype of the separate type <code>separate A</code>.
+
+In the image above, the three references that cross a processor boundary must be declared separate.
+The single reference in Region 2, which stays in the same region, can be of a non-separate type.
+
+== Creating regions and processors ==
+
+In order to turn a sequential program into a concurrent program, one has to create new regions and put objects into them.
+The means to achieve this is the creation instruction on an entity whose type is separate.
+
+<code>
+	my_x: separate X
+		-- ...
+	create my_x.make
+</code>
+
+The instruction <code>create my_x.make</code> does a lot of things at the same time:
+* It creates a new region.
+* It creates a new processor for the new region.
+* It creates a new object of type X which is placed into the newly created region.
+
+With this new knowledge we can create a small program that generates the object and region graph shown above:
+
+<code>
+class APPLICATION create make feature
+	
+	person: separate PERSON
+	
+	thing: separate ANY
+	
+	make
+		do
+			create person.make
+			create thing
+		end
+end
+
+class PERSON create make feature
+
+	name: STRING
+	
+	thing: separate ANY
+	
+	make
+		do
+			create name.make_from_string ("John Doe")
+			create thing
+		end
+end
+</code>
+
