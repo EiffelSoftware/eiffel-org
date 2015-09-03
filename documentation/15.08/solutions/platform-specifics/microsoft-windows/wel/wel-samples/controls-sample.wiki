@@ -1,0 +1,44 @@
+[[Property:title|Controls Sample]]
+[[Property:weight|-11]]
+[[Property:uuid|7f9a091f-61af-9ea2-18c3-469573ba14f3]]
+[[Image:controls|controls]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\controls\''. 
+* Choose ''controls.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+==Running==
+
+After launching the program, an empty window will be displayed. There are numerous menus in the window, each relating to a different type of [[Controls cluster|control]]. Each menu has "Create" and "Delete" along with a other options specific to each control. By selecting these menu options, controls will be created and modified as demonstrated in the above illustration. 
+
+==Under the Hood==
+
+Each menu is an instance of [[ref:libraries/wel/reference/wel_menu_chart|WEL_MENU]]  and on_menu_command has been redefined in <code>MAIN_WINDOW</code> to perform the appropriate actions. 
+This sample contains the following classes: 
+* <code>APPLICATION_IDS</code>
+* <code>CONTROLS</code>
+* <code>MAIN_WINDOW</code>
+
+{{seealso|<br/>
+[[WEL_LIST_VIEW|WEL_LIST_VIEW]]  <br/>
+[[ref:/libraries/wel/reference/wel_combo_box_chart|WEL_COMBO_BOX]]  <br/>
+[[WEL_PUSH_BUTTON|WEL_PUSH_BUTTON]]  <br/>
+[[ref:/libraries/wel/reference/wel_edit_chart|WEL_EDIT]]  <br/>
+[[WEL_RADIO_BUTTON|WEL_RADIO_BUTTON]]  <br/>
+[[WEL_PUSH_BUTTON|WEL_CHECK_BUTTON]]  <br/>
+[[WEL_MULTIPLE_LINE_EDIT|WEL_MULTIPLE_LINE_EDIT]]  <br/>
+[[WEL_SCROLL_BAR|WEL_SCROLL_BAR]]  }}
+
+
+
+
+
+
+

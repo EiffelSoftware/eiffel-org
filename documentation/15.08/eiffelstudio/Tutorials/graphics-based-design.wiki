@@ -1,0 +1,298 @@
+[[Property:title|Graphics-based Design]]
+[[Property:weight|1]]
+[[Property:uuid|78239225-67a7-8718-857d-f2c8fb70ef18]]
+So far the project modifications that we have made used the text editor in the Editing Tool. Now let's look at EiffelStudio's ability to provide a graphical depiction of our software system.
+
+In line with the principles of seamlessness and reversibility recalled at the beginning of this Tour, EiffelStudio's interaction between text and diagram access to software is bi-directional. When you make a textual modification, the next incremental recompilation will update the diagram; but you can also work directly from the diagram, and the text will be generated or updated after each graphical operation.
+
+Many people like to use the graphical mechanisms at the beginning of a project, to draft the overall structure of a system in "bubbles-and-arrows" style, then concentrate on text as they get closer to implementation. But there is really no such obligation. At any point in the development, just use the form that is more suited to your taste and to your needs of the moment.
+
+ 
+==Displaying a cluster view==
+
+We are going to play with the root cluster. So, we can work from EiffelStudio's default tools layout. Remember that you can reset the tools layout to the default by following the menu path:
+<code lang="text">
+View --> Tools Layout --> Reset Tools Layout
+</code>
+Now target an Editing tool to the class <code>TESTROOT</code>. So to start out, your Development window should look about like this:
+
+
+[[Image:es gt graphics based design starting point|A starting point]]
+
+
+Before getting started, another thing we want to do is to make sure that the the [[Making the context tool independent from the editor|tools are in "Unlinked" mode]]; you can see this by going to the <code>Edit menu</code>: you will see either a menu item '''Unlink context tool''' (if tools are currently "Linked") or an item '''Link context tool''' (if tools are currently "Unlinked"). So if you see '''Link context tool''', you don't have to do anything. But if you see '''Unlink context tool''', then select that item to unlink the tools. 
+
+Let's start working with '''cluster views''', showing the content of a cluster. Make the Diagram tool visible: move your cursor over (or click on) [[Image:diagram-tool-tab|Diagram tool]] at the bottom of the Development Window. You may want to float the tool away from the Development Window or "pin" it open (as we learned in the section on [[Customizing the tools layout and toolbars#Docking|docking]], and then maybe enlarge the tool some. You should see a graphical rendition of the <code>root_cluster</code> in the Diagram tool, something like the figure below. In the case that <code>root_cluster</code> is not visible, click the '''Target to class or cluster''' button ([[Image:diagram-target-cluster-or-class-icon]]) on the Diagram tool's toolbar.
+
+
+[[Image:es gt testroot cluster diagram|root_cluster diagram]]
+
+
+
+
+==Hiding a class==
+
+First we might decide that we don't want to be bothered with class <code>INVALID</code>. We could delete it altogether from the system by a pick-and-drop of its bubble to the Delete ([[Image:16x16--general-delete-icon|Delete]]) hole. This is not what we want, but try this now to see the confirmation request: 
+
+
+[[Image:es gt diagram delete confirmation]]
+
+
+Make sure to answer '''No''' to that confirmation request (you want to keep the class even though it wouldn't be a catastrophe to lose it). Instead pick-and-drop the <code>INVALID</code> bubble into the Hide figure ([[Image:general-reset-icon|Hide figure]]) hole. This time there is no confirmation request, since the operation is reversible -- it just affects what's displayed in the cluster view -- and the class is removed from the display: 
+
+
+[[Image:es gt class invalid is hidden|Class INVALID is hidden]]
+
+
+You can try '''undoing''' this change ([[Image:general-undo-icon]]), then '''redoing''' it ([[Image:general-redo-icon]]).
+
+You can also click the '''History''' icon ([[Image:general-undo-history-icon]]) which, during the rest of the session, will display the list of executed operations, and let you undo or redo many operations at once by clicking the oldest to be kept or the youngest to be redone. 
+
+For the rest of this discussion we assume <code>INVALID</code> is hidden. 
+
+ 
+==Adding a class==
+
+We are now going to add a class graphically to our system. This means you don't have to worry about creating and initializing a file; EiffelStudio will take care of the details.
+
+The useful button here is '''Create new class''':
+
+[[Image:es gt create new class button|Create a new class]] 
+
+When you click this button you'll see the '''Add New Class''' dialog box: 
+
+
+[[Image:es gt new class dialog]]
+
+
+Overwrite the default class name being proposed by the name <code>HEIR2</code>, as we are going to create a new heir of <code>PARENT</code>. Now click the button labeled '''Create'''.
+
+The new class is created and added to the diagram as part of <code>root_cluster</code>: 
+
+
+[[Image:es gt class heir2 created|Class HEIR2 created]]
+
+
+Using conventional drag-and-drop (not pick-and-drop), move the class bubbles for <code>HEIR2</code>, <code>TESTROOT</code> and <code>PARENT</code> so that the display looks approximately like the following. The double circle around <code>TESTROOT</code> is the [[Notation|BON]] (Business Object Notation) convention to identify a system's root class. 
+
+
+[[Image:es gt class heir2 relocated|Classes rearranged]]
+
+
+==Adding an inheritance link==
+
+Now we are going to make <code>HEIR2</code> an heir of <code>PARENT</code>. To create relationship links between classes you pick-and-drop from the source class, but don't do that yet. First we have to specify that we want an inheritance relationship. 
+
+By default, the new relationship '''Creation Mode''' will be client/supplier ([[Image:diagram-new-supplier-link-icon]]). To change the creation mode to inheritance, click on the selection triangle next to the new client/supplier link icon, and choose '''Conforming inheritance Creation Mode ...''' from the drop-down menu, as shown below.
+
+
+[[Image:es gt select conforming inheritance link creation mode|Selecting Conforming Inheritance Creation Mode]]
+
+
+Notice that the current Creation Mode icon has changed to indicate conforming inheritance ([[Image:diagram-new-conforming-inheritance-link-icon]]).
+
+Now pick-and-drop from the <code>HEIR2</code> bubble to the <code>PARENT</code> bubble. (Now you see why conventional drag-and-drop is used to move bubbles: pick-and-drop on the diagram serves to add links between classes). 
+
+[[Image:es gt class heir2 inheriting parent|HEIR2 now inherits from PARENT]]
+
+To convince yourself that the new class has been made an heir of <code>PARENT</code>, not just in the diagram, but in its text as well, you can look at the class in an Editing tool. Unless you are so fortunate as to have plenty of monitor space, you may have to un-pin the Diagram tool to be able to see the Editing pane. Pick-and-drop <code>HEIR2</code> bubble to the Editing tool to see its text. 
+
+
+[[Image:es gt class heir2 text|Class HEIR2 in an Editing tool]]
+
+
+The code for a minimal class <code>HEIR2</code> has been generated from your graphical operations: creating the class produced a class template, and the creation of the new inheritance link made <code>HEIR2</code> inherit from <code>PARENT</code>. 
+
+In a moment we'll use this Editing Tool to see how, conversely, EiffelStudio will automatically reflect in the diagram a change made to the text. 
+
+For now, make sure the Diagram tool is visible again.
+
+ 
+==Adding a client link==
+
+Next let's make <code>TESTROOT</code> a client of <code>HEIR2</code>. 
+
+First, re-select ''Client-Supplier''' as the Creation Mode for new links. 
+
+Pick-and-drop from the <code>TESTROOT</code> bubble to the <code>HEIR2</code> bubble. This causes the '''New Feature''' dialog box to appear: 
+
+
+[[Image:es gt new feature dialog|The New Feature dialog box]]
+
+
+This technique gives you many option and in fact is a convenient way to build your classes, whether at the analysis, design or implementation level. Here, fill the fields as follows. For the top choice, keep the default, <code lang=text>Attribute</code>; we'll give class <code>TESTROOT</code> an attribute of type <code>HEIR2</code>. For its feature category, keep the choice currently displayed, <code>Access</code>. For its name, replace the default, by the name <code>o3</code>. In the '''invariant''' box, choose 
+<code>
+    o3_not_void: o3 /= Void
+</code>
+
+from the list to specify the invariant property that this attribute should never be void. Finally, to see how EiffelStudio can generate the full accompaniment to an attribute, in the box '''Setter?''' choose
+<code>
+     set_o3
+</code>
+
+This will create a routine with this name which clients can use to set the value of <code>o3</code>.
+
+You may have noticed that the checkbox labeled '''Assigner?''' became enabled when you chose a name for the '''Setter'''. This will make the setter routine be called if a client uses an assignment of the form:
+<code>
+            my_testroot.o3 := some_value
+</code> 
+
+The assigner makes this is a syntactical shortcut for writing:
+<code>
+            my_testroot.set_o3 (some_value)
+</code>
+
+Without the assigner, the direct assignment by a client would result in a syntax error, because in Eiffel clients are prohibited from assigning directly to their suppliers' attributes.
+
+So, check the '''Assigner?''' box. 
+
+Now, click '''OK'''. 
+
+The diagram now shows that <code>TESTROOT</code> is a client of <code>HEIR2</code>. 
+
+
+[[Image:es gt testroot is client of heir2|TESTROOT is now a client of HEIR2]]
+
+
+Now, if you'd like, you can check the text of <code>TESTROOT</code> as we did earlier with <code>HEIR2</code>, but here are the highlights:
+
+You'll notice that the attribute <code>o3</code> has been added under the feature category "Access":
+
+<code>
+feature -- Access
+
+    o3: HEIR2 assign set_o3
+            -- `o3'
+        attribute Result := ({like o3}).default end --| Remove line when attached attribute is correctly assigned
+</code>
+
+After the attribute declaration the keyword <code>assign</code> declares that the feature <code>set_o3</code> is to be called when assignments are made to <code>o3</code> by clients.
+
+You see that the header comment is trivial ( <code>-- `o3'</code> ), simply echoing the feature name. This is because we failed in our duty to fill in a reasonable header comment in the New Feature dialog. Every feature should have a meaningful header comment.
+
+Now notice the last line, beginning with the keyword <code>attribute</code>. This line is intended to be temporary. It makes your new attribute <code>o3</code> a [[Void-safety: Background, definition, and tools#Self-initializing attributes|self-initializing attribute]], which just allows you to avoid certain errors until you insert code to initialize <code>o3</code> properly.
+
+The "setter" routine for <code>o3</code> is generated and categorized as "Element change":
+
+<code>
+feature -- Element change
+
+    set_o3 (an_o3: like o3)
+            -- Assign `o3' with `an_o3'.
+        require
+            an_o3_not_void: an_o3 /= Void
+        do
+            o3 := an_o3
+        ensure
+            o3_assigned: o3 = an_o3
+        end
+</code>
+
+Notice that EiffelStudio has included both a precondition and postcondition for <code>set_o3</code>.
+
+Also, a clause has been added to the class invariant to ensure that <code>set_o3</code> is not void:
+
+<code>
+    o3_not_void: o3 /= Void
+</code>
+
+The situation here is different from what we saw earlier with <code>HEIR2</code>, which had been generated from scratch by the diagram. Here <code>TESTROOT</code> existed before, in text form; so the diagram mechanisms have had to preserve the existing feature and feature clauses, and add the elements corresponding to what you have specified through the diagram mechanisms. The unlabeled Feature clause of the existing class has been kept; the new features have been entered into clauses labeled <code>Access</code> and <code>Element change</code>, observing the Eiffel standard for common feature clauses in libraries. 
+
+ 
+==Updating the diagram from the text==
+
+In this tour of the diagram facilities we have, so far, worked on the diagram and seen the text updated immediately. Of course we want full reversibility. So let's make a change in the text and check the diagram.
+
+The change will be very simple. We'll make <code>TESTROOT</code> a client of <code>HEIR</code>. In the Editing tool, add an attribute declaration 
+<code>
+    other: HEIR
+</code>
+
+Now save the file by clicking the [[Image:16x16--general-save-icon|save]] icon.
+
+Nothing happens yet to the diagram. This is normal: EiffelStudio doesn't update the diagram every time you type some text (which, for one thing, might be syntactically incorrect, or invalid). You need to recompile first. Click the [[Image:compile-button]] button. Then the new relation appears: 
+
+
+[[Image:es gt testroot is client of heir|Now TESTROOT is a client of HEIR]]
+
+
+If the label <code>other</code> of that relation doesn't appear in the exact place shown here, try moving it using conventional drag-and-drop. You can only move such a link label within a small area on either side of the link. 
+
+ 
+==Creating a cluster==
+
+Earlier on, we saw how to create a class from the EiffelStudio diagram, letting EiffelStudio take care of creating and initializing the file. Similarly, you can create a new cluster graphically, and let EiffelStudio create the corresponding directory.
+
+To create a cluster, you can go through [[EiffelStudio: Project settings window|Project settings]], or you can do so directly from the Groups tool. Let's use the Groups tool. On the title bar of the Groups tool, you'll find the '''Add a cluster''' button ([[Image:new-cluster-icon]]). (You may have to expand the titlebar menu through its double chevron placeholder >>). 
+
+The resulting dialog asks you for the cluster name, and the existing cluster (non-precompiled) of which you want to make it a subcluster, here leaving only one choice:
+
+[[Image:es gt add cluster dialog]]
+
+Instead of the default name, type <code>my_cluster</code>; select the only possible supercluster, <code>root_cluster</code>, and click '''Create''' at the bottom of the dialog. 
+
+Now the diagram shows the new subcluster:
+
+
+[[Image:es gt new cluster added|A new cluster has been added]]
+
+
+Try to make your display look approximately like the above; you will probably have to move (drag from the center) and/or resize (drag from a corner) either or both clusters.
+
+ 
+==Moving a class to a different cluster==
+
+Among the many operations you can do graphically is to move a class from one cluster to another. Pick-and-drop the <code>HEIR2</code> class bubble to the rounded rectangle for <code>MY_CLUSTER</code>. 
+
+This graphical manipulation has caused a structural change: class <code>HEIR2</code> is now part of <code>MY_CLUSTER</code>. Check this by expanding the Cluster Tree on the left: 
+
+[[Image:es gt class HEIR2 moved to new cluster|Class HEIR2 has been moved to my_cluster.]]
+
+If you like, you can also look into the project directory -- using the Windows Explorer, or <code>cd</code> and <code>ls</code> on Unix/Linux -- and check that it now has a subdirectory <code>my_cluster</code> with a file <code>heir2.e</code> containing the text of class <code>HEIR2</code>. 
+
+Clearly, it's much more convenient to use EiffelStudio for such manipulations than to move files around manually.
+
+ 
+==Adjusting the display==
+
+A number of buttons enable you to customize the display. So far all class bubbles had the same default color. Try pick-and-dropping a bubble into the '''Color hole''' ([[Image:diagram-choose-color-icon]]) to get a color palette that enables you to select a different color. This is useful if you want to highlight classes possessing certain properties, for example classes that are part of a certain Design Pattern. 
+
+'''Relation depth''' ([[Image:diagram-depth-of-relations-icon]]) enables you to select the depth at which inter-class relations will be displayed. (Don't change this setting now.) '''Include all classes of cluster''' ([[Image:diagram-fill-cluster-icon]]) is more useful for class diagrams than for the cluster diagram we have now, which by default included all classes of the cluster; if you click it here it will add the class <code>INVALID</code> that you removed earlier. There is no need to do this now. 
+
+
+==Views==
+
+So far the top-right '''View''' field has always shown '''DEFAULT:BON'''. You can define any number of views in your project, and apply them to various class and cluster diagrams. 
+
+For example, using the buttons to show and hide links of various kinds you can produce diagrams that only show the inheritance links, and others that only show the client links. If you want to keep both kinds of diagram, simply define views by typing view names -- such as '''Inheritance''', '''Client''', '''All_links''' -- into the '''View''' field. 
+
+You can also use views to retain some of the choices seen just before, such as different colors and depths.
+
+To load a previously defined view, just use the menu associated with the '''View''' field. 
+
+You may remember that when we generated HTML documentation, the dialog asked you to select a view among the available ones. You can choose a different view for each cluster. 
+
+You may have guessed that the '''BON''' in '''DEFAULT:BON''' means that the diagram view is in Business Object Notation. You can also view diagrams in UML-style notation. To do this you would click the '''Show UML''' button ([[Image:diagram-view-uml-icon]]). Click it again to return to the BON view.
+ 
+
+==Class diagrams, cluster diagrams==
+
+In the present discussion we have used cluster diagrams. Both are interesting. To obtain a class diagram, you will target a Class tool to a class, and select the Diagram tool. By default, this shows the parents of the class. Do this now for <code>TESTROOT</code>. 
+
+{{note|Because at the beginning of this page, we put the EiffelStudio context tools in "unlinked" mode, it may be necessary to synchronize the context to see the class diagram. You can do this by clicking '''Synchronize context''' ([[Image:context-sync-icon]]) in the main toolbar. }}
+
+
+[[Image:es gt testroot class diagram]]
+
+
+It's for class diagrams that the '''Relation depth''' ([[Image:diagram-depth-of-relations-icon]]) button is most interesting. It will let you select the exact depth that you wish displayed for each relation type: 
+
+
+[[Image:es gt relation depth dialog]]
+
+
+
+This will conclude our review of the Diagram facilities of EiffelStudio, although you'll surely discover some further riches by yourself and through the rest of the documentation. We hope the complete seamlessness between text and pictures will enable you to increase the effectiveness of your analysis work, or your design work, or your programming -- whatever level of system development you need to tackle.
+
+
+

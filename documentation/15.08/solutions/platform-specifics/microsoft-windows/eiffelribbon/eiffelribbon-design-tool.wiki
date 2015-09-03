@@ -1,0 +1,134 @@
+[[Property:title|EiffelRibbon Design Tool]]
+[[Property:weight|0]]
+[[Property:uuid|0fe37d4f-3f5b-0ceb-e97e-69ae3f9960ad]]
+=Overview=
+
+The EiffelRibbon design tool allows you to design a ribbon graphically, then generate the ribbon markup file and the Eiffel classes necessary to implement your design. 
+
+
+[[Image:EiffelRibbon design tool 01|EiffelRibbon design tool]]
+
+Figure 1: An EiffelRibbon project open in the EiffelRibbon design tool.
+
+
+The interface of the design tool mimics that of [[EiffelBuild|EiffelBuild]]. That is, the interface contains three panes that have counterparts in EiffelBuild:
+
+# Type selector: A list of all the elements available for use in a ribbon.
+# Layout constructor: A structured view of the organization of the elements used in a particular ribbon design.
+# Object editor: The properties of the ribbon element which is currently selected in the Layout constructor.
+
+So, if you've used EiffelBuild, the the EiffelRibbon design tool should seem quite familiar to you. 
+
+=Usage=
+
+The typical usage of the design tool is much like the typical usage of EiffelBuild. 
+
+* Create a new project ( <code lang="text">File -> New Project...</code> ) and choose a location for your EiffelRibbon project.
+* Configure the ribbon by adding elements, name the elements, and choose icons for buttons.
+* Save the project.
+* Generate the code.
+* Use EiffelStudio to compile the generated code.
+
+==Size definitions and scaling policies==
+
+An important aspect of Microsoft's ribbon technology is called '''[http://msdn.microsoft.com/en-us/library/windows/desktop/dd316927(v=vs.85).aspx adaptive layout]'''. When the ribbon is resized by a user at runtime, adaptive layout makes corresponding changes to the size, format, organization and scale of the ribbon controls within each group based on size definition templates and scaling policies associated with the group. Size definitions are patterns for the use of a certain number of ribbon controls such as buttons. For a particular group of controls in an instance of ribbon, you can associate a size definition which will control the layout of the controls. At runtime, when the window hosting the ribbon is resized, a scaling policy, also associated with the group, will control how the controls in the group are reorganized in response to the resizing. When a group is selected in the EiffelRibbon tool, the group's size definition and scaling policy can be selected. 
+
+{{note|Not all size definitions support all scaling policy choices. So it is important to know which scaling policies are supported by a size definition that you wish to associate with a group before you set the scaling policy for the group.}}
+
+===Size definitions===
+
+The ribbon framework provides a significant number of size definition templates (simply called '''size definitions'''), as shown in Figure 2 below. Size definitions are usually assigned names based on the number and type of controls included in the group. For example, the size definition ''"ThreeButtonsAndOneCheckBox"'' is a size definition for three buttons plus one checkbox.
+
+
+[[Image: EiffelRibbon Choose Size Definition]]
+
+Figure 2. Choosing a size definition for a ribbon control group.
+
+
+In addition to using the size definitions provided, it is possible to create your own custom size definitions. You do this with the '''Size Definition Editor'''. At the lower left of Figure 1 above you can see the tab representing the Size Definition Editor. When you expand the tab, the editor becomes visible, as in Figure 3, below.
+
+
+[[Image: EiffelRibbon size definition editor|Size Definition Editor]]
+
+Figure 3. EiffelRibbon tool with the Size Definition Editor pinned open.
+
+
+Use the Size Definition Editor to create custom size definitions for your ribbon designs. The '''Add button''' button will add a new button placeholder to a custom size definition. A selected button placeholder can be altered to show or hide its label and use its small or large size. 
+
+
+[[Image: Size Definition Editor 02|Button placeholders]]
+
+Figure 4. Three button placeholders in a custom size definition (highlighted in red rectangle); one is large, and two are small. The text is visible in all cases. (This is the arrangement used for the "medium" configuration (highlighted in green rectangle) for the ''ThreeButtonCustom'' size definition used in the scaling policy figures in the next section.  Screenshots of specifying arrangements used for "large" "small" configurations for ThreeButtonCustom are not shown.)
+
+
+Once a custom size definition has been designed, it can be named, saved, and used in a ribbon design.
+
+
+[[Image: Size Definition Editor 03|Name field and Save button]]
+
+Figure 5. The Size Definition Editor naming field and '''Save''' button.
+
+
+When you generate code which uses a custom size definition, the EiffelRibbon Design Tool generates the (XML) representation for your size definition and then invoke the Microsoft Ribbon Framework's User Interface Command Compiler (UICC.exe) to validate the generated size definition code. This process can result in [http://msdn.microsoft.com/en-us/library/windows/desktop/dd316918(v=VS.85).aspx certain types of errors]. 
+
+User Interface Command Compiler errors will appear in the Ouput pane of the EiffelRibbon Design Tool.
+
+
+===Scaling policy===
+
+The notion of adaptive layout includes the ability to specify preferred sizes for elements of a group and a scaling policy that can influence how the group reacts to resizing. More detail on size definition and scaling policy is available in Microsoft's [http://msdn.microsoft.com/en-us/library/windows/desktop/dd316927(v=vs.85).aspx ribbon documentation]. 
+
+The EiffelRibbon tool allows you to specify ideal sizes and scale policy for a groups elements through the '''Ideal sizes''' radio buttons and the '''Scale''' checkboxes, as shown in Figure 6 below.
+
+
+[[Image: EiffelRibbon design tool 02|Scaling policy elements: "Ideal sizes" and "Scale"]]
+
+Figure 6. A group definition showing its size definition and the scaling policy elements "Ideal sizes" and "Scale".
+
+
+In Figure 6, none of the Scale checkboxes is checked. This means that no scaling policy is in effect for the group ''group_context_popups''. So in a running application, a window with this ribbon might be rendered as shown in Figure 7:
+
+
+[[Image: EiffelRibbon scaling policy 01]]
+
+Figure 7. A ribbon with no scaling policy, but with enough room to display all groups.
+
+
+If the user resized the window to a narrower form, the buttons in the ''group_context_popups'' group would become occluded because scaling is not in effect. This is shown in Figure 8.
+
+
+[[Image: EiffelRibbon scaling policy 01a]]
+
+Figure 8. After resizing, some buttons of the group are no longer visible.
+
+
+If all of the ''Scale'' checkboxes that are supported by the size definition are checked in the EiffelRibbon tool for the group ''group_context_popups'' as shown in Figure 9, then scaling is enabled. 
+
+
+[[Image: EiffelRibbon scaling policy 02|Scale checkboxes enable scaling policy.]]
+
+Figure 9. All supported scales are enabled for ''group_context_popups''.
+
+
+In the running application again, the initial rendering looks the same as in Figure 7 (its ''Large'' configuration). But if the window is resized to a narrower form with scaling policy enabled, it will go through the various configurations supported by the size definition: ''Medium'', ''Small'', then ''Popup''. The different configurations for this particular ribbon and size definition are shown in Figures 10 through 12.
+
+
+[[Image: EiffelRibbon scaling policy 03|Medium configuration]]
+
+Figure 10. Scaling policy at medium configuration (see Figure 4 above).
+
+
+
+[[Image: EiffelRibbon scaling policy 04|Small configuration]]
+
+Figure 11. Scaling policy at small configuration.
+
+
+
+[[Image: EiffelRibbon scaling policy 05|Popup configuration]]
+
+Figure 12. Scaling policy at popup configuration.
+
+
+
+

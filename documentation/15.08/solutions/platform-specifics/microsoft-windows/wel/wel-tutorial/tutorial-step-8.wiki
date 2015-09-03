@@ -1,0 +1,41 @@
+[[Property:title|Tutorial Step 8]]
+[[Property:weight|7]]
+[[Property:uuid|38c3a22d-2c15-cb68-a685-99a25d191885]]
+This sample builds on tutorial [[Tutorial Step 7|step 7]] , and also demonstrates the use of a [[ref:libraries/wel/reference/wel_open_file_dialog_chart|WEL_OPEN_FILE_DIALOG]]  and a [[ref:libraries/wel/reference/wel_save_file_dialog_chart|WEL_SAVE_FILE_DIALOG]] . The output is shown below: 
+
+[[Image:step8|step8]]  <br/>
+<br/>
+
+==Compiling==
+
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\tutorial\step8\''. 
+* Choose ''tutorial_step8.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+
+==Running==
+
+After launching the sample, you will see a [[ref:libraries/wel/reference/wel_frame_window_chart|WEL_FRAME_WINDOW]]  displayed. By holding down the left mouse button, and moving the mouse (Within the client area of the window), you will be able to draw on the client are of the window. Selecting "Line_thickness" from the "Line" menu, will display a [[ref:libraries/wel/reference/wel_modal_dialog_chart|WEL_MODAL_DIALOG]]  which allows you to change the thickness of the line that is drawn. If you select "Exit" from the "File" menu, you will be prompted if you wish to exit the application. Selecting "New" from the "File" menu will clear the window. Selecting "Save" from the "File" menu will display a [[ref:libraries/wel/reference/wel_save_file_dialog_chart|WEL_SAVE_FILE_DIALOG]]  which allows you to specify the filename and location of the picture you have drawn. Selecting "Open" from the "File" menu will display a [[ref:libraries/wel/reference/wel_open_file_dialog_chart|WEL_OPEN_FILE_DIALOG]]  which allows you to specify a previously saved drawing to open. 
+
+==Under the Hood==
+The [[ref:libraries/wel/reference/wel_open_file_dialog_chart|WEL_OPEN_FILE_DIALOG]]  and the [[ref:libraries/wel/reference/wel_save_file_dialog_chart|WEL_SAVE_FILE_DIALOG]]  are both activated from the redefinition of <code>on_menu_command</code>. A new class, <code>LINES</code> is now used to store the lines drawn by the user and this inherits [[ref:/libraries/base/reference/storable_chart|STORABLE]]  which allows it to be easily stored and retrieved. 
+This sample contains the following classes: 
+* <code>TUTORIAL_STEP6</code>
+* <code>MAIN_WINDOW</code>
+* <code>LINE_THICKNESS_DIALOG_CHART</code>
+* <code>APPLICATION_IDS</code>
+* <code>POINT</code>
+* <code>LINES</code>
+* <code>LINE</code>
+
+{{seealso|<br/>
+[[ref:/libraries/wel/reference/wel_save_file_dialog_chart|Save file dialog]]  <br/>
+[[ref:/libraries/wel/reference/wel_open_file_dialog_chart|Open file dialog]]  }}
+
+
+
+
+

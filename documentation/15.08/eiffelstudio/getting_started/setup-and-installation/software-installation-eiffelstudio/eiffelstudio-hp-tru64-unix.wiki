@@ -1,0 +1,124 @@
+[[Property:title|HP Tru64 UNIX]]
+[[Property:weight|4]]
+[[Property:uuid|f9ef1897-fa95-1c62-d905-54111ad234f1]]
+==Requirements==
+
+{|  class="doctable"
+|- 
+| '''Computer/Processor'''
+| AlphaServer.
+|- 
+| '''Operating System'''
+| HP Tru64 UNIX 5.1B with GTK+ 2.4.
+|- 
+| '''C compiler'''
+| HP C compiler
+|- 
+| '''Memory'''
+| 512MB of RAM (1GB recommended).
+|- 
+| '''Hard Disk'''
+| 500MB of hard disk space (1GB recommended).
+|- 
+| '''Drive'''
+| CD-ROM or DVD drive (not required when downloading EiffelStudio).
+|- 
+| '''Display'''
+| 1024 x 768 or higher resolution video adapter and monitor.
+|- 
+| '''Peripherals'''
+| Keyboard and mouse or compatible pointing device.
+|- 
+| '''ISE_PLATFORM'''
+| '''alpha'''.
+|}
+
+
+==Checking your environment==
+
+EiffelStudio requires GTK+ 2.4.0 or above to function properly. You can check that you have this installed correctly by typing the following command:
+<code>pkg-config --modversion gtk+-2.0</code>
+The command should succeed and the version number of GTK+ should appear. If it is not 2.4.0 or above then you cannot continue the installation of EiffelStudio. You first need to install GTK+ 2.4.0.
+
+==Installing EiffelStudio from the Web==
+
+After downloading the installation package, you should manually extract its contents to your hard drive. For example, you can extract it into /usr/local using the following commands (assuming that you have permission to /usr/local and that the installation package was saved in /tmp/EiffelXX.tar.bz2, where XX stands for the EiffelStudio version):
+<code>
+cd /usr/local
+tar xvfj /tmp/EiffelXX.tar.bz2</code>
+
+This will install EiffelStudio files into /usr/local/EiffelXX. Once this is done, jump to the [[#Setting up EiffelStudio|Setting up EiffelStudio]] section in order to complete the installation of EiffelStudio.
+
+==Installing EiffelStudio from a CD-ROM==
+
+Insert the CD into your CD-ROM drive. You should manually extract its contents to your hard drive. For example you can extract it in /usr/local using the following commands (assuming that you have permission to /usr/local and that the CD is mounted on /mnt/cdrom):
+<code>cd /usr/local
+cp -r /mnt/cdrom/EiffelXX .</code>
+
+This will install the EiffelStudio files into /usr/local/EiffelXX. To complete the installation of EiffelStudio, jump to the next section, [[#Setting up EiffelStudio|Setting up EiffelStudio]].
+<span id="setting_up"></span> 
+==Setting up EiffelStudio==
+
+Once the files have been installed, you should define the following environment variables in order to run EiffelStudio: 
+* '''ISE_EIFFEL''' to /usr/local/EiffelXX
+* '''ISE_PLATFORM''' to alpha.
+and add $'''ISE_EIFFEL'''/studio/spec/$'''ISE_PLATFORM'''/bin to your '''PATH''' environment variable. 
+
+Using sh or bash as a shell, it suffices to type the following commands:
+<code>
+export ISE_EIFFEL=/usr/local/EiffelXX
+export ISE_PLATFORM=alpha
+export PATH=$PATH:$ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin</code>
+
+
+Using csh or tcsh as a shell, it suffices to type the following commands:
+<code>
+setenv ISE_EIFFEL /usr/local/EiffelXX
+setenv ISE_PLATFORM alpha
+set path = ($path $ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin)</code>
+
+
+If you are using the Enterprise edition, please follow the instructions of the next section, [[#Registering the Enterprise Edition|Registering the Enterprise Edition]], otherwise jump to the [[#Using EiffelStudio|Using EiffelStudio]] section at the end of this document.
+<span id="registering"></span> 
+==Registering the Enterprise Edition==
+
+This step assumes you have followed the instructions in the [[#Setting up EiffelStudio|Setting up EiffelStudio]] section. Perform the following commands to start the registration process:
+<code>cd $ISE_EIFFEL
+./register</code>
+
+A dialog asking for your '''Username''' and '''CD Key''' should appear as it does below:
+
+<center> [[Image:56--unix-setup|Setup dialog]] </center>
+
+Enter the information located inside the box that contains your copy of the EiffelStudio Enterprise Edition. Once the information is correct, the '''Register''' button will be enabled. Click '''Register''' to actually register EiffelStudio.
+
+The first time you launch EiffelStudio, you will be asked for an activation key through the following dialog:
+
+<center> [[Image:56--unix-registration|Registration dialog]] </center>
+
+By clicking on the [http://activate.eiffel.com http://activate.eiffel.com]  URL, a new web browser will appear with the requested fields automatically filled in with the appropriate information. Simply click '''Activate''' and a new page with an activation code will appear. Copy and paste the activation code in the first field and the '''Activate''' button should be enabled to let you activate your copy.
+
+You can activate your copy up to three times. Once you have reached this threshold and need to reinstall your copy, contact Eiffel Software to request one more activation.
+
+If no web browser appears, it is most likely because firefox is not installed on your machine or is not in your path. Instead you should manually launch a new web browser, go to the page [http://activate.eiffel.com http://activate.eiffel.com] , and enter the information manually. Then follow the above instructions as if the browser had been properly launched.
+
+You may receive the following dialog when launching EiffelStudio:
+
+<center> [[Image:56--unix-registration-error|Registration incomplete]] </center>
+
+This probably means that the '''register''' program was not launched or did not succeed in storing data to the following file $'''ISE_EIFFEL'''/install/limand/.ec_license. To solve this, rerun the '''register''' program with a user account that has permissions to write at $'''ISE_EIFFEL'''/install/limand and enter your '''Username''' and '''CD Key'''.
+
+Once this is done, you can jump to the next section, [[#Using EiffelStudio|Using EiffelStudio]].
+<span id="using"></span> 
+
+==Using EiffelStudio==
+
+===Starting EiffelStudio===
+
+Now everything should be properly installed and you should be able to run the compiler. Launch '''estudio''' for the interactive graphical user interface of the compiler, or launch '''ec''' for the command line interface. If you are a new user to EiffelStudio, we recommend that you follow [[EiffelStudio: A Guided Tour|the guided tour]].
+
+===EiffelStudio Appearance===
+
+EiffelStudio for Unix uses the GTK+ theme engine to allow for custom appearance such as changing the default font size and color of windows, etc. If you do not have a theme manager (such as that provided with Gnome) you can copy the .gtkrc-2.0 file from $'''ISE_EIFFEL'''/eifinit/studio/spec/gtk directory to your $'''HOME''' directory.
+
+

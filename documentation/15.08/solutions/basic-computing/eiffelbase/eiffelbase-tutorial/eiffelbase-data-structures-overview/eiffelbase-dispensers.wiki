@@ -1,0 +1,36 @@
+[[Property:title|EiffelBase, Dispensers]]
+[[Property:weight|2]]
+[[Property:uuid|4f65d62b-940b-c3c2-557e-d709a2a1bcaf]]
+A dispenser is called that way because of the image of a vending machine (a dispenser) of a rather primitive nature, in which there is only one button. If you press the button and the dispenser is not empty, you get one of its items in the exit tray at the bottom, but you do not choose that item: the machine does. There is also an input slot at the top, into which you may deposit new items; but you have no control over the order in which successive button press operations will retrieve these items.
+
+The deferred class [[ref:/libraries/base/reference/dispenser_chart|DISPENSER]]  provides the facilities which will be shared by all specialized classes. In fact, the interface of all dispenser classes is nearly identical, with the exception of a few extra possibilities offered by priority queues. Many kinds of dispenser are possible, each defined by the relation that the machine defines between the order in which items are inserted and the order in which they arereturned. The Base libraries support three important categories - stacks, queues, and priority queues:
+* A stack is a dispenser with a last-in, first-out (LIFO) internal policy: items come out in the reverse order of their insertion. Each button press returns the last deposited item.
+* A queue is a dispenser with a first-in, first-out (FIFO) internal policy: items come out in the order of their insertion. Each button press returns the oldest item deposited and not yet removed.
+* In a priority queue, items have an associated notion of order; the element that comes out at any given time is the largest of those which are in the dispenser.
+
+==Stacks==
+
+Stacks - dispensers with a LIFO retrieval policy - are a ubiquitous structure in software development. Their most famous application is to parsing (syntactic analysis), but many other types of systems use one or more stacks. Class STACK describes general stacks, without commitment to a representation. This is a deferred class which may not be directly instantiated. The fundamental operations are put (add an element at end of queue), item (retrieve the oldest element, non-destructively), remove (remove the oldest element), is_empty (test for empty queue). <br/>
+Three effective heirs are provided: 
+* [[ref:/libraries/base/reference/linked_stack_chart|LINKED_STACK]] : stacks implemented as linked lists, with no limit on the number of items (<eiffel>count</eiffel>).
+* [[ref:/libraries/base/reference/bounded_stack_chart|BOUNDED_STACK]] : stacks implemented as arrays. For such stacks, the maximum number of items (<eiffel>capacity</eiffel>) is set at creation time.
+* [[ref:/libraries/base/reference/arrayed_stack_chart|ARRAYED_STACK]] : also implemented as arrays, but in this case there is no limit on the number of items; the interface is the same as [[ref:/libraries/base/reference/linked_stack_chart|LINKED_STACK]]  except for the creation procedure. If the number of elements exceeds the initially allocated capacity, the array will simply be resized.
+
+==Queues==
+
+Class [[ref:/libraries/base/reference/queue_chart|QUEUE]]  describes general queues, without commitment to a representation. This is a deferred class which may not be directly instantiated. Three non-deferred heirs are also provided, distinguished by the same properties as their stack counterparts:
+* [[ref:/libraries/base/reference/linked_queue_chart|LINKED_QUEUE]] 
+* [[ref:/libraries/base/reference/bounded_queue_chart|BOUNDED_QUEUE]] 
+* [[ref:/libraries/base/reference/arrayed_queue_chart|ARRAYED_QUEUE]] 
+
+==Priority Queues==
+
+In a priority queue, each item has an associated priority value, and there is an order relation on these values. The item returned by item or removed by remove is the element with the highest priority.The most general class is [[ref:/libraries/base/reference/priority_queue_chart|PRIORITY_QUEUE]]  , which is deferred. Two effective variants are provided:
+*  [[ref:/libraries/base/reference/linked_priority_queue_chart|LINKED_PRIORITY_QUEUE]] , a linked list implementation.
+*  [[ref:/libraries/base/reference/heap_priority_queue_chart|HEAP_PRIORITY_QUEUE]]  which is more efficient and is to be preferred in most cases. A heap is organized like a binary tree, although physically stored in an array; elements with a high priority percolate towards the root.
+
+Because it must be possible to compare priorities, the type of the items must conform to [[ref:/libraries/base/reference/part_comparable_chart|PART_COMPARABLE]] . Constrained genericity ensures this; all the priority queue classes have a formal generic parameter constrained by [[ref:/libraries/base/reference/part_comparable_chart|PART_COMPARABLE]] .
+
+
+
+

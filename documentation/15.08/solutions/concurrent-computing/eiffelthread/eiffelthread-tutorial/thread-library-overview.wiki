@@ -1,0 +1,199 @@
+[[Property:title|Thread library overview]]
+[[Property:weight|1]]
+[[Property:uuid|2bdeeb91-1917-f443-ebfc-4f877107edd7]]
+This is only a quick overview of the EiffelThread Library. The class reference for this library should give its complete interface. 
+
+==Creating and launching threads: the class THREAD (deferred)==
+
+The class of the thread object you want to create should inherit the <eiffel>THREAD</eiffel> class. <br/>
+Your thread is represented by a class which inherits from <eiffel>THREAD</eiffel> (deferred class). <br/>
+
+<code>
+class
+    MY_THREAD
+
+inherit
+    THREAD
+        ...
+
+feature
+
+    execute
+            -- define the deferred feature from THREAD.
+        do
+            ...
+        end
+
+    ...
+
+end -- class MY_THREAD
+</code>
+
+
+Creating a thread is like creating an Eiffel object:
+
+
+<code>
+    my_thread: MY_THREAD
+            -- MY_THREAD inherits from THREAD and defines
+            -- the deferred procedure `execute'
+
+    ...
+
+            create my_thread
+</code>
+
+
+{{note|You have created a thread object but have not started the thread itself yet. <br/>
+To run the thread, use the feature <eiffel>launch</eiffel> from <eiffel>THREAD</eiffel>. }}
+
+
+<code>
+            my_thread.launch</code>
+
+
+On the Eiffel side, the procedure <eiffel>execute</eiffel> will be launched. This procedures deferred in class <eiffel>THREAD</eiffel>, you have to define it in <eiffel>MY_THREAD</eiffel>. 
+
+
+On the C side, a C thread will be created and launched. 
+
+
+{{caution|You may call <eiffel>join_all</eiffel> and the end of the execution of the parent thread if you do not want it to die before its child, otherwise they may prematurely terminate. }}
+
+
+==The class MUTEX==
+
+The implementation of the class <eiffel>MUTEX</eiffel> is mapped on the C standard thread library. An instance of class <eiffel>MUTEX</eiffel> can be shared between different thread. 
+
+
+<eiffel>my_mutex.pointer</eiffel> is the pointer to the nested C mutex of <eiffel>my_mutex</eiffel>. 
+
+
+* Declaration of the mutex: 
+<code>
+    my_mutex: MUTEX</code>
+
+* Creation of mutex: 
+<code>
+            create my_mutex.make</code>
+
+* Locking the mutex: 
+<code>
+            my_mutex.lock</code>
+
+* Unlocking the mutex: 
+<code>
+            my_mutex.unlock</code>
+
+*  <eiffel>try_lock</eiffel>: if it is not locked yet, lock the mutex and return True, otherwise it returns False. 
+<code>
+            my_mutex.try_lock</code>
+
+* Is my mutex initialized? 
+<code>
+            my_mutex.is_set</code>
+
+
+{{note|on Windows: The <eiffel>MUTEX</eiffel> objects on Windows are recursive while they are not on Unix. A recursive mutex can be locked twice by the same thread. }}
+
+
+{{caution|Be sure that a mutex is unlocked when it is disposed. }}
+
+
+==The class SEMAPHORE==
+
+Like <eiffel>MUTEX</eiffel>, the features of this class are mapped on the C thread library. An instance of class <eiffel>SEMAPHORE</eiffel> can be shared between thread. 
+
+
+* Declaration of the semaphore : 
+<code>
+    my_sem: SEMAPHORE</code>
+
+Creation of semaphore: initialize semaphore with nb_tokens, it requires nb_tokens > = 0 
+<code>
+            create my_sem.make (nb_tokens)</code>
+
+* Wait for a token: 
+<code>
+            my_sem.wait</code>
+
+* Give back a token: 
+<code>
+            my_sem.post</code>
+
+*  <eiffel>try_wait</eiffel>, similar to try_lock from <eiffel>MUTEX</eiffel>, if a token is available, take it and return <code> True </code>, otherwise return <code> False </code>. 
+<code>
+            my_sem.try_wait</code>
+
+
+{{caution|Be sure that a semaphore does not wait for a token when it is disposed }}
+
+==The class CONDITION_VARIABLE==
+
+This class allows to use condition variables in Eiffel. An instance of class <eiffel>CONDITION_VARIABLE</eiffel> can be shared between threads. 
+
+
+* Declaration of the condition variable 
+<code>
+    my_cond: CONDITION_VARIABLE</code>
+
+* Creation: 
+<code>
+            create my_cond.make</code>
+
+* Wait for a signal (send by <eiffel>signal</eiffel>). You need to use a mutex.
+<code>
+    my_mutex: MUTEX
+
+        ...
+
+            create my_mutex.make
+</code>
+
+
+<code>my_mutex</code> must be locked by the calling thread so as <eiffel>wait</eiffel> can be called. <eiffel>wait</eiffel> atomically unlocks <code> my_mutex </code> and waits for the condition variable <code> my_mutex </code> to receive a signal. As soon as it received a signal, ''<code>my_cond </code>'' locks ''<code>my_mutex </code>''
+
+<code>
+            my_mutex.lock
+                -- You must lock `my_mutex' before calling wait.
+
+            my_cond.wait (my_mutex)
+                -- Here the critical code to execute when `my_cond' received a signal.
+
+            my_mutex.unlock
+                -- Unlock the mutex at the end of the critical section.
+</code>
+
+
+* Send a signal one thread blocked on the condition variable `my_cond'. 
+<code>
+            my_cond.signal</code>
+
+* Send a signal to all the threads blocked on the condition variable `my_cond'. 
+<code>
+            my_cond.broadcast</code>
+
+
+{{caution|Be sure that a condition variable is unblocked when it is disposed. }}
+
+
+==Miscellaneous classes==
+
+class <eiffel>THREAD_ATTRIBUTES</eiffel>: defines the attributes of an Eiffel Thread regarding the thread scheduling policy and priority. 
+
+
+==Controlling execution: THREAD_CONTROL==
+
+*  <eiffel>yield</eiffel>: the calling thread yields its execution in favor of an other thread of same priority. 
+*  <eiffel>join_all</eiffel>: the calling thread waits for all other threads to finished (all its children). 
+* A parent thread can wait for the termination of a child process through the feature <eiffel>join</eiffel> of class <eiffel>THREAD_CONTROL</eiffel> (inherited by <eiffel>THREAD</eiffel>):
+<code>
+    thr: MY_THREAD
+        ...
+
+            thr.launch
+                ...
+            thr.join
+</code>
+
+

@@ -1,0 +1,31 @@
+[[Property:title|Minimal]]
+[[Property:weight|1]]
+[[Property:uuid|270db90c-dc2a-b6c4-8c2d-62a6657d01de]]
+[[Image:minimal|minimal]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\minimal\''. 
+* Choose ''minimal.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+==Running==
+After launching the program, a window will be displayed as illustrated above. There is no other functionality, but clicking on the close icon (Cross in top right hand corner), will close the window. 
+==Under the Hood==
+<code>MINIMAL_DEMO</code> inherits [[ref:libraries/wel/reference/wel_application_chart|WEL_APPLICATION]]  and redefines <code>main_window</code> in order to display a [[ref:libraries/wel/reference/wel_frame_window_chart|WEL_FRAME_WINDOW]] . 
+This sample contains only one class: 
+* <code>MINIMAL_DEMO</code>
+
+
+{{seealso|<br/>
+[[Tutorial Step 1|tutorial step 1]]  <br/>
+[[ref:/libraries/wel/reference/wel_frame_window_chart|WEL_FRAME_WINDOW]]  }}
+
+
+
+

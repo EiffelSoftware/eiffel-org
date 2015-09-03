@@ -1,0 +1,33 @@
+[[Property:title|Builder window]]
+[[Property:weight|7]]
+[[Property:uuid|e82ca336-cab6-bc60-6ddc-b359a7c86811]]
+The Builder window provides a view of the [[EiffelBuild Notation|objects]]  in your system, in which the [[EiffelBuild Notation|objects]]  may be manipulated. 
+
+This window may either be shown or hidden (default). To change between these two states, click  [[Image:icon-builder-window-color]]  on the [[Main toolbar| main toolbar]] , or select '''Show/Hide builder window''' from the '''View''' menu. 
+
+[[Image:builder-window]]  
+
+The content of this window is a representation of the [[EiffelBuild Notation|objects]]  you have defined in your project. Each [[EiffelBuild Notation|object]]  is represented by the [[EiffelVision Introduction|EiffelVision 2]]  control matching its type. For example, an [[EiffelBuild Notation|object]] representing an <eiffel>EV_BUTTON</eiffel> will be displayed in here using an <eiffel>EV_BUTTON</eiffel>. As this view provides direct access to the objects ( [[EiffelBuild Notation|Pick]]  any of the controls in this window), it enables you to build your interface within a view which provides rich visual feedback. 
+Because this window is just a view of the [[EiffelBuild Notation|objects]] , it will be always synchronized with the [[Layout constructor| layout constructor]] . This means you can [[Reparent an Object| re-parent objects]] , using the [[EiffelBuild Notation|pick and drop]]  transport method, seamlessly between the two views. <br/>
+
+{{note|Holding Ctrl while right clicking on an [[EiffelBuild Notation|object]]  in the Builder Window creates a new [[Object editor|object editor]]  targeted to the [[EiffelBuild Notation|object]] . Holding Ctrl and Shift while right clicking on an [[EiffelBuild Notation|object]] , highlights it within the [[Layout constructor|layout constructor]] .}}
+
+==Visual Differences==
+
+Although the builder window attempts to show you the interface you are developing, it is not a completely accurate representation (Unlike the [[Display window|display window]] ). The main difference is that all [[EiffelBuild Notation|objects]]  representing descendents of EV_CONTAINER are parented in a frame. This was implemented so that you would be able to easily manipulate the containers. 
+
+Imagine that this was not the case, and each container [[EiffelBuild Notation|object]]  was just represented by an [[EiffelVision Introduction|EiffelVision 2]]  object matching its type. Because these containers have no visible screen space when filled with children, manipulation of them would have been difficult, and the functionality of this view would be compromised. 
+
+In the screenshot above, you can see that there are two [[EiffelBuild Notation|objects]]  representing containers in your project, an <eiffel>EV_VERTICAL_BOX</eiffel>, and an <eiffel>EV_HORIZONTAL_BOX</eiffel> (Excluding the <eiffel>EV_TITLED_WINDOW</eiffel> [[EiffelBuild Notation|object]]  represented by this window). 
+
+The properties of the [[EiffelBuild Notation|objects]]  in you system are always reflected in this window, with a few exceptions: 
+* 'user_can_resize', 'maximum_width', 'maximum_height' and 'title_string' are not reflected in this window.
+* 'minimum_width' and `minimum_height' are not reflected in any of the controls representing [[EiffelBuild Notation|objects]]  within this window. 
+
+{{seealso|<br/>
+[[Display window|Display window]]  <br/>
+[[Layout constructor| Layout constructor]]  }}
+
+
+
+
