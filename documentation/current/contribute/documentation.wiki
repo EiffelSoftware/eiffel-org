@@ -5,8 +5,8 @@
 
 = Current documentation system =
 * The documentation is written using wikitext syntax.
-* Each page is stored in a wiki file on disk.
-* Those files comes from a subversion repository (see [https://svn.eiffel.com/eiffel-org/trunk/documentation/current]).
+* Each documentation page is stored in a wiki file on disk.
+* Those files come from the subversion repository: [https://svn.eiffel.com/eiffel-org/trunk/documentation/current] .
 * The outline of book are following the underlying directory structure, and each wiki file can have properties that hold metadata such as:
 :<nowiki>[[Property:title|The page title]]</nowiki>
 :<nowiki>[[Property:link_title|short title]]</nowiki>
@@ -36,4 +36,5 @@
 * See current patches at [https://codereview.appspot.com/search?base=https://svn.eiffel.com/eiffel-org/trunk/documentation/current/].
 
 = Live editing on this site =
-* This is coming soon for trusted editors.
+* If you are a trusted editor, you can edit the documentation directly.
+* To be a trusted editor, please request it via the [/contact] page (don't forget to mention who you are and why you should be a trusted editor).
