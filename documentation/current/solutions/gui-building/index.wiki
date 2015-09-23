@@ -1,7 +1,12 @@
-[[Property:title|GUI building]]
+[[Property:link_title|GUI building]]
+[[Property:title|Graphical applications]]
 [[Property:weight|-14]]
 [[Property:uuid|df3cec75-5fe4-7b6b-c5f3-f07932857e70]]
 == Graphical user interface building solutions ==
 
-Eiffel provides platform independent graphical user interface facilities. EiffelVision 2 is a library of classes for building graphical user interfaces. EiffelBuild is a tool that automatically puts together the EiffelVision 2 classes that you need to achieve a certain effect.
+Eiffel provides platform-independent graphical user interface (GUI) facilities, particularly:
+
+*EiffelVision 2, a class library for building GUI applications.
+
+*EiffelBuild, a GUI-builder, letting you devise your interfaces interactively and generating the corresponding calls to EiffelVision 2 mechanisms.
 
