@@ -1,6 +1,7 @@
-[[Property:title|Concurrent Eiffel with SCOOP]]
+[[Property:link_title|SCOOP]]
+[[Property:title|Concurrent programming with SCOOP]]
 [[Property:weight|1]]
-[[Property:uuid|151838da-80f0-5381-d557-5c5b7727647d]]
+[[Property:uuid|5FE312E0-0AC6-465C-AD3B-D5D73AAE566F]]
 ==Overview==
 
 SCOOP is ''Simple Concurrent Object-Oriented Programming''. SCOOP allows developers to create object-oriented software systems which will take advantage of multiple, concurrently active execution engines while providing strong guarantees that allow programmers to reason like in sequential programs. Read further to get a better idea of what all this means, but for now, the primary message should be: SCOOP is concurrent software development made easy. The basic SCOOP ideas were first published as early as 1993. Since that time, considerable research and development has refined the SCOOP into the model that is implemented in EiffelStudio today.
