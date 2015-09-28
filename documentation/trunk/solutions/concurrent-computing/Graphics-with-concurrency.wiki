@@ -1,4 +1,4 @@
-[[Property:uuid|5422DF33-848E-491F-A761-21B545F425B4]]
+[[Property:uuid|19CBA1DA-DE20-4295-8B62-472EF913335E]]
 [[Property:weight|0]]
 [[Property:title|Graphics with concurrency]]
 How can I build a concurrent graphical in application in Eiffel?
@@ -7,7 +7,7 @@ Eiffel has a great library for producing graphical applications: EiffelVision. E
 
 How do you make the two work together? This note gives you simple guidelines to ensure that the EiffelVision-SCOOP marriage is a harmonious and productive one. 
 
-The first question: why does the problem even exist? Letâ€™s go back to the pre-SCOOP days. Any graphical application has an â€œevent loopâ€, which keeps watching for graphical user events, such as a mouse click, and triggering the corresponding application responses, such as saving a file (if the user clicked â€œOKâ€ on a File Save dialog). If you were using multithreading, the event loop would run in the main thread, also called the GUI (Graphical User Interface) thread.
+The first question: why does the problem even exist? Let's go back to the pre-SCOOP days. Any graphical application has an "event loop", which keeps watching for graphical user events, such as a mouse click, and triggering the corresponding application responses, such as saving a file (if the user clicked "OK" on a File Save dialog). If you were using multithreading, the event loop would run in the main thread, also called the GUI (Graphical User Interface) thread.
                               
 Enter SCOOP. The old technique cannot work because a processor stuck in a loop cannot process any logged call! If you perform calls on a graphical widget, say the OK button, they will be logged right away, but they can only execute once the processor has exited its event loop. Not what you want.
 
