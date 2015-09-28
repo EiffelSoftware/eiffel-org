@@ -1,7 +1,7 @@
 [[Property:title|How to contribute to documentation]]
 [[Property:link_title|To documentation]]
 [[Property:weight|1]]
-[[Property:uuid|6AF9325E-69F2-4516-89A5-9370D6684423]]
+[[Property:uuid|F16E76E5-3E60-4404-949C-9A013E308C39]]
 
 = Current documentation system =
 * The documentation is written using wikitext syntax (similar to wikipedia).
@@ -11,8 +11,8 @@
 :<nowiki>[[Property:title|The page title]]</nowiki>
 :<nowiki>[[Property:link_title|short title]]</nowiki>
 :<nowiki>[[Property:weight|5]]</nowiki>
-* '''link_title''' is used to have a short title in menu, or various links.
-* '''weight''' is used to order sibling pages (lower weight goes before, upper weight goes after).
+** '''link_title''' is used to have a short title in menu, or various links.
+** '''weight''' is used to order sibling pages (lower weight goes before, upper weight goes after).
 
 = To contribute =
 * First, you can post comment on any page (see comment form at the bottom of each page).
