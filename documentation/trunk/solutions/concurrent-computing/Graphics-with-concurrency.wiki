@@ -1,4 +1,4 @@
-[[Property:uuid|C881D4E8-4C3C-4AEB-8005-8315E743EC26]]
+[[Property:uuid|41367400-CA34-4121-853B-035B8C15FE53]]
 [[Property:weight|0]]
 [[Property:title|Graphics with concurrency]]
 How can I build a concurrent graphical in application in Eiffel?
@@ -18,21 +18,21 @@ Since your application uses SCOOP, somewhere it creates a separate object. Let t
 where s is of a separate type (e.g. separate T).
 
 In the "make" creation procedure, create an EV_APPLICATION object, using an instruction such as
-          create my_app
+      create my_app
 with my_app of type EV_APPLICATION.
 
 Still in "make", create all the GUI elements. They will all be in the same processor that created the EV_APPLICATION object.
 
 Also in "make", start the application, using 
-                   my_app.launch
+      my_app.launch
 In the pre-SCOOP world, launch would start the event loop. Here it only creates a separate object (of type EV_APPLICATION_HANDLER), which will run the event loop, forwarding  events to the EV_APPLICATION object.
 
 This is all the make procedure should do. Make sure it terminates with the preceding step. Otherwise,  the event loop will never run!
 
 Now you can start using EiffelVision as you are used to, by sending GUI requests to the EV_APPLICATION object:
 
-o	For requests coming from the same processor as s, just use the EV_APPLICATION object directly.
-o	For requests coming from another processor, you need access to that object; you can get it for example by through the feature ev_separate_application  of class EV_SHARED_APPLICATION}.
+* For requests coming from the same processor as s, just use the EV_APPLICATION object directly.
+* For requests coming from another processor, you need access to that object; you can get it for example by through the feature ev_separate_application  of class EV_SHARED_APPLICATION}.
 
 
 That's all! Happy concurrent Eiffeling. 
