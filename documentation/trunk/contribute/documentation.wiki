@@ -1,16 +1,18 @@
 [[Property:title|How to contribute to documentation]]
 [[Property:link_title|To documentation]]
 [[Property:weight|1]]
-[[Property:uuid|aab3d23e-ef56-4324-b885-067b14a3009b]]
+[[Property:uuid|6AF9325E-69F2-4516-89A5-9370D6684423]]
 
 = Current documentation system =
-* The documentation is written using wikitext syntax.
+* The documentation is written using wikitext syntax (similar to wikipedia).
 * Each documentation page is stored in a wiki file on disk.
 * Those files come from the subversion repository: [https://svn.eiffel.com/eiffel-org/trunk/documentation/current] .
 * The outline of book are following the underlying directory structure, and each wiki file can have properties that hold metadata such as:
 :<nowiki>[[Property:title|The page title]]</nowiki>
 :<nowiki>[[Property:link_title|short title]]</nowiki>
 :<nowiki>[[Property:weight|5]]</nowiki>
+* '''link_title''' is used to have a short title in menu, or various links.
+* '''weight''' is used to order sibling pages (lower weight goes before, upper weight goes after).
 
 = To contribute =
 * First, you can post comment on any page (see comment form at the bottom of each page).
@@ -37,4 +39,4 @@
 
 = Live editing on this site =
 * If you are a trusted editor, you can edit the documentation directly.
-* To be a trusted editor, please request it via the [/contact] page (don't forget to mention who you are and why you should be a trusted editor).
+* To be a trusted editor, please request it via the [/contact] page (do not forget to mention who you are and why you think you should be a trusted editor).
