@@ -1,7 +1,7 @@
 [[Property:title|Documentation]]
 [[Property:description|Central repository of information about Eiffel and the products and technologies of Eiffel Software]]
 [[Property:weight|10]]
-[[Property:uuid|4D7D1824-3260-45F4-B738-B6480F2901EB]]
+[[Property:uuid|26C37469-687B-4841-9D1E-DF2FF9831BBD]]
 = Documentation =
 
 This is the Eiffel documentation site, with a wealth or resources on how to unleash the power of Eiffel. It is organized as a set of '''books''':
@@ -22,4 +22,6 @@ This is the Eiffel documentation site, with a wealth or resources on how to unle
 ** Tools
 * [[Glossary]]: clear definitions of the concepts underlying Eiffel:  feature, routine, attribute, contract...
 * [[FAQs]]: everything you always wanted to ask about Eiffel.
+
+A number of sites outside of eiffel.org contain useful Eiffel resources. You can find a partial list [[Other sources|here]].
 
