@@ -1,25 +1,25 @@
 [[Property:title|Documentation]]
 [[Property:description|Central repository of information about Eiffel and the products and technologies of Eiffel Software]]
 [[Property:weight|10]]
-[[Property:uuid|5D3B6A1F-9213-45F1-8378-7712E0373E86]]
+[[Property:uuid|15C8B9DB-5151-4B36-9FF0-55D13A8C5164]]
 = Documentation =
 
 This is the Eiffel documentation site, with a wealth or resources on how to unleash the power of Eiffel. It is organized as a set of '''books''':
 
-* The [[Eiffel|Eiffel Book]]. Eiffel is the language, but also a comprehensive method of quality software development. The Eiffel Book includes:
-** [[Eiffel Overview|Eiffel overview]]: to get a general idea of what Eiffel is about (or to refresh your view if you havenâ€™t followed Eiffel recently.
-** [[Eiffel Tutorials|Eiffel tutorials]]: step-by-step presentation of Eiffel concepts and constructs. There are
-** [[Language reference|Language reference]]: construct-by-construct description, for when you need a precise specification of a particular mechanism.
+* [[Eiffel]]. Eiffel is the language, but also a comprehensive method of quality software development. The Eiffel book includes:
+** [[Eiffel Overview|Eiffel overview]]: to get a general idea of Eiffel, or refresh your view if you haven't followed recent evolutions.
+** [[Eiffel Tutorials|Eiffel tutorials]]: step-by-step presentation of Eiffel concepts and constructs, including:
+** [[Language reference|Language reference]]: Precise construct-by-construct descriptions.
 ** [[Technical papers about Eiffel|Eiffel technical papers]]: tutorial presentations of specific Eiffel highlights, such as void safety and SCOOP (the concurrency mechanism).
-* The [[EiffelStudio|EiffelStudio Book]]. EiffelStudio is the multi-platform IDE (interactive development environment) supporting Eiffel development: compilation, execution, browsing, metrics, graphics-based design etc. The EiffelStudio book includes:
-** [[Introducing EiffelStudio|EiffelStudio overview]]
-** [[Setup and installation|EiffelStudio installation instructions]]
-** [[EiffelStudio tutorials|EiffelStudio Tutorial]]
-** [[Technical papers about EiffelStudio|EiffelStudio technical papers]] on specific EiffelStudio concepts and tools
-* The [[Solutions|Solutions Book]]. EiffelStudio comes with myriad libraries, packages and tools to help your development. The Solutions Book includes:
-** Libraries (data structures, graphics, networkingâ€¦)
+* [[EiffelStudio]]. EiffelStudio is the multi-platform IDE (interactive development environment) for Eiffel. The EiffelStudio book includes:
+** [[Introducing EiffelStudio]].
+** [[Setup and installation]].
+** [[EiffelStudio tutorials]]
+** [[Technical papers about EiffelStudio|Technical papers]] on specific concepts and tools
+* [[Solutions]]. EiffelStudio comes with numerous libraries, packages and tools. The Solutions book includes:
+** Libraries (data structures, graphics, networkingÃ¢â‚¬Â¦)
 ** Packages
 ** Tools
-* The [[Glossary|Glossary Book]]: clear definitions of the precise concepts (feature, routine, attribute, contractâ€¦) underlying Eiffel.
-* The [[FAQs|FAQs Book]]: everything you always wanted to ask about Eiffel, from whether it is available in open source (hint: yes, it is) to what books and articles are available (hint: lots).
+* [[Glossary]]: clear definitions of the precise concepts (feature, routine, attribute, contractÃ¢â‚¬Â¦) underlying Eiffel.
+* [[FAQs]]: everything else you always wanted to ask about Eiffel.
 
