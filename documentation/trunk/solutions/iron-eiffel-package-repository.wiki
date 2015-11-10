@@ -1,7 +1,7 @@
 [[Property:title|IRON: Eiffel package repository]]
 [[Property:link_title|IRON packages]]
 [[Property:weight|0]]
-[[Property:uuid|A791D30C-F2B9-44A0-9AED-8B78C816C563]]
+[[Property:uuid|67F8B98D-128F-4159-B57E-9B456F24D6D4]]
 {{ReviewRequested}}
 
 =Purpose=
@@ -16,7 +16,7 @@ Most often a package is a library or a set of libraries, but it could also other
 
 Certainly the IRON repository is a repository of Eiffel libraries. However, sometimes libraries are used together, or cross reference one another, and thus are appropriate to be delivered together as a unit. 
 Such unit can also include other types of files, such as external .c files that may need to be compiled on the local platform to make .LIB or .OBJ files available to the linker (.a or .o on Unix and Linux systems), scripts or executables that need to be run as part of the installation process (e.g. to generate other files required by the library, install environment variables, generate source code from LEX files), or tool kits that are part of, or needed by, the library.  
-Since the IRON repository permits programmers to install software components in "units"Ã‚Â, and since sometimes those units can contain more than one library, as well as other types of files, a new term was required to convey this concept:  package.
+Since the IRON repository permits programmers to install software components in "units"Ãƒâ€šÃ‚Â, and since sometimes those units can contain more than one library, as well as other types of files, a new term was required to convey this concept:  package.
 
 {{Definition|package|a downloadable unit of software from an IRON repository that contains one or more Eiffel libraries and their related files.}}
 
@@ -30,7 +30,9 @@ One application of ECFs is to reference libraries installed in different locatio
 
 Typical library references without IRON in ECF:
  <nowiki><library name="base" location="$ISE_LIBRARY\library\base\base.ecf"/></nowiki>
+
  <nowiki><library name="xml_parser" location="$EIFFEL_LIBRARY\library\text\parser\xml\parser\xml_parser.ecf"/></nowiki>
+
  <nowiki><library name="dummy_foobar" location="$LIB_DUMMY\src\foo\bar.ecf"/></nowiki>
 
 
@@ -44,7 +46,9 @@ IRON has made it possible to simplify this scenario dramatically.  For any commo
 
 That's all!  In the above example, the location of the libraries, in the project, then become something like:
  <nowiki><library name="base" location="iron:base:base.ecf" /></nowiki>
+
  <nowiki><library name="xml_parser" location="iron:xml:parser/xml_parser.ecf" /></nowiki>
+
  <nowiki><library name="foobar" location="iron:dummy:src/foo/bar.ecf" /></nowiki>
 
 There is no more need for a set of environment variables.
@@ -140,7 +144,7 @@ At the website provided by a particular IRON server, you can get information abo
 * Select the version that matches the version of EiffelStudio you have installed.  
 Example:  clicking on version 14.05 takes you to https://iron.eiffel.com/repository/14.05/ where you can list existing packages, or add a new package if you have an account on the server. 
 
-If you click the "Package list" or "All packages"Â link, it takes you to a list of packages available under that version. 
+If you click the "Package list" or "All packages"Ã‚Â link, it takes you to a list of packages available under that version. 
 
 == Search/filter==
 To filter this list, you can use the search window.  You can specify search criteria in this format <code>:criterion:search_string</code>
@@ -265,7 +269,7 @@ The "iron" executable is used to perform various operations such as search, inst
 </code>
 (or <nowiki>iron install https://iron.eiffel.com/14.05/com.eiffel/library/base</nowiki>)
 
-:(This latter form is useful in resolving name conflicts when, for instance, you have multiple IRON repositories registered on your system, and two or more contain a packaged called "base"Ã‚Â.)
+:(This latter form is useful in resolving name conflicts when, for instance, you have multiple IRON repositories registered on your system, and two or more contain a packaged called "base"Ãƒâ€šÃ‚Â.)
 
 ===Uninstall a package===
 <code> iron remove  base
@@ -294,7 +298,7 @@ iron  repository  --remove https://custom.example.com/14.05
 
 ===Multiple-Repository Name Conflict Resolution===
 
-If you have more than one IRON repository registered on your system, it is possible that the same package name may exist on more than one repository.  If this is the case, and you attempt to perform operations using that name only, the repository that will be used will be the first repository in the list that contains a package with that name.  If you need the package with that name from a different repository, then use the "id"Â or "uri"Â form of the identifying the package you want.
+If you have more than one IRON repository registered on your system, it is possible that the same package name may exist on more than one repository.  If this is the case, and you attempt to perform operations using that name only, the repository that will be used will be the first repository in the list that contains a package with that name.  If you need the package with that name from a different repository, then use the "id"Ã‚Â or "uri"Ã‚Â form of the identifying the package you want.
 
 If the sequence of repositories is not to your liking, you can change it in three ways:
 
