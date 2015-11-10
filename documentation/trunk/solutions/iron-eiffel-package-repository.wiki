@@ -1,7 +1,7 @@
 [[Property:title|IRON: Eiffel package repository]]
 [[Property:link_title|IRON packages]]
 [[Property:weight|0]]
-[[Property:uuid|17d54aa0-3d7f-4993-2ad6-423bd0cedd44]]
+[[Property:uuid|7A89C720-160B-4A8E-96E6-1FE9C3AFB0D9]]
 {{ReviewRequested}}
 
 =Purpose=
@@ -16,7 +16,7 @@ Most often a package is a library or a set of libraries, but it could also other
 
 Certainly the IRON repository is a repository of Eiffel libraries. However, sometimes libraries are used together, or cross reference one another, and thus are appropriate to be delivered together as a unit. 
 Such unit can also include other types of files, such as external .c files that may need to be compiled on the local platform to make .LIB or .OBJ files available to the linker (.a or .o on Unix and Linux systems), scripts or executables that need to be run as part of the installation process (e.g. to generate other files required by the library, install environment variables, generate source code from LEX files), or tool kits that are part of, or needed by, the library.  
-Since the IRON repository permits programmers to install software components in “units”, and since sometimes those units can contain more than one library, as well as other types of files, a new term was required to convey this concept:  package.
+Since the IRON repository permits programmers to install software components in "units", and since sometimes those units can contain more than one library, as well as other types of files, a new term was required to convey this concept:  package.
 
 {{Definition|package|a downloadable unit of software from an IRON repository that contains one or more Eiffel libraries and their related files.}}
 
@@ -74,10 +74,11 @@ Notes:
 * It is possible to override the default location of IRON installation directory, by setting the environment variable <code>IRON_PATH</code> or <code>ISE_IRON_PATH</code>.
 * In the scope of the .ecf file, the IRON_PATH variable is always set: to default path or to the value of environment variable IRON_PATH.
 * In addition to the IRON way to reference library, it is also possible to use the absolute URL in the repository, see advanced usage for more details.
-
- <nowiki>https://iron.eiffel.com/14.05/com.eiffel/library/base/base.ecf</nowiki>
- <nowiki>https://iron.eiffel.com/14.05/com.eiffel/library/text/parser/xml/parser/xml_parser.ecf</nowiki>
- <nowiki>https://iron.eiffel.com/14.05/others/dummy/src/foo/bar.ecf</nowiki>
+<code>
+ https://iron.eiffel.com/14.05/com.eiffel/library/base/base.ecf
+ https://iron.eiffel.com/14.05/com.eiffel/library/text/parser/xml/parser/xml_parser.ecf
+ https://iron.eiffel.com/14.05/others/dummy/src/foo/bar.ecf
+</code>
 
 But this implies putting the version in the url (i.e 14.05), or you could set ISE_LIBRARY to <nowiki>https://iron.eiffel.com/14.05/com.eiffel</nowiki>
 
@@ -132,13 +133,13 @@ By default the base directory for IRON is under <code><Eiffel User Files>/<Eiffe
 Setting IRON_PATH, can be a way to setup different development environments (with different registered repositories, ...)
 
 =How to Get Information About IRON Packages=
-At the website provided by a particular IRON server, you can get information about available packages in a number of ways.  You can start by simply visiting the server’s base address: https://iron.eiffel.com/ .
+At the website provided by a particular IRON server, you can get information about available packages in a number of ways.  You can start by simply visiting the server's base address: https://iron.eiffel.com/ .
 
 * This page lists the repository versions available.  
 * Select the version that matches the version of EiffelStudio you have installed.  
 Example:  clicking on version 14.05 takes you to https://iron.eiffel.com/repository/14.05/ where you can list existing packages, or add a new package if you have an account on the server. 
 
-If you click the “Package list” or “All packages” link, it takes you to a list of packages available under that version. 
+If you click the "Package list" or "All packages" link, it takes you to a list of packages available under that version. 
 
 == Search/filter==
 To filter this list, you can use the search window.  You can specify search criteria in this format <code>:criterion:search_string</code>
@@ -173,7 +174,7 @@ For the '''base''' library (title: EiffelBase), these URIs look like this:
  /14.05/com.eiffel/library/base
  /14.05/com.eiffel/library/data_structure/adt/base
 
-Given that the server’s HTTP address is (in this example)  https://iron.eiffel.com/,  you can compose full paths from this, and use them in your Eiffel project.  In this case, you can include the EiffelBase library in your project by specifying either:
+Given that the server's HTTP address is (in this example)  https://iron.eiffel.com/,  you can compose full paths from this, and use them in your Eiffel project.  In this case, you can include the EiffelBase library in your project by specifying either:
  https://iron.eiffel.com/14.05/com.eiffel/library/base/base.ecf
  or https://iron.eiffel.com/14.05/com.eiffel/library/data_structure/adt/base/base.ecf
 
@@ -186,7 +187,7 @@ Both will cause your project to compile with the same EiffelBase library provide
 '''IMPORTANT''': those associated URIs may be deprecated soon with the use of IRON uri <code>iron:base:base.ecf</code>.
 
 =Using IRON from the Command Line=
-The “iron” executable is used to perform various operations such as search, install, remove, update and share.  This executable is installed with EiffelStudio in $ISE_EIFFEL/tools/spec/$ISE_PLATFORM/bin/.
+The "iron" executable is used to perform various operations such as search, install, remove, update and share.  This executable is installed with EiffelStudio in $ISE_EIFFEL/tools/spec/$ISE_PLATFORM/bin/.
 
 ==Quick Help from the Command Line==
 *<code>iron help</code>
@@ -258,7 +259,7 @@ The “iron” executable is used to perform various operations such as search, 
 </code>
 (or <nowiki>iron install https://iron.eiffel.com/14.05/com.eiffel/library/base</nowiki>)
 
-:(This latter form is useful in resolving name conflicts when, for instance, you have multiple IRON repositories registered on your system, and two or more contain a packaged called “base”.)
+:(This latter form is useful in resolving name conflicts when, for instance, you have multiple IRON repositories registered on your system, and two or more contain a packaged called "base".)
 
 ===Uninstall a package===
 <code> iron remove  base
@@ -285,7 +286,7 @@ Examples:
 
 ===Multiple-Repository Name Conflict Resolution===
 
-If you have more than one IRON repository registered on your system, it is possible that the same package name may exist on more than one repository.  If this is the case, and you attempt to perform operations using that name only, the repository that will be used will be the first repository in the list that contains a package with that name.  If you need the package with that name from a different repository, then use the “id” or “uri” form of the identifying the package you want.
+If you have more than one IRON repository registered on your system, it is possible that the same package name may exist on more than one repository.  If this is the case, and you attempt to perform operations using that name only, the repository that will be used will be the first repository in the list that contains a package with that name.  If you need the package with that name from a different repository, then use the "id" or "uri" form of the identifying the package you want.
 
 If the sequence of repositories is not to your liking, you can change it in three ways:
 
@@ -318,7 +319,7 @@ See for instance, the package.iron for Eiffel Base package:
  
  end
 
-Note: The package iron file for the Eiffel Base package is available online at https://svn.eiffel.com/eiffelstudio/trunk/Src/library/base/package.iron .
+Note: The package iron file for the Eiffel Base package is available online at <code>https://svn.eiffel.com/eiffelstudio/trunk/Src/library/base/package.iron</code> .
 
 Current status:
 * only the '''name of the package is required'''
@@ -391,7 +392,7 @@ To build the '''gps_nmea''' package from your library <code>c:\eiffel\library\gp
 
  iron share create --username <your_id> --password <your_password>
      --repository https://iron.eiffel.com/14.05 
-     --package "c:\eiffel\library\gps_nmea\package.iron" --package-name “gps_nmea” 
+     --package "c:\eiffel\library\gps_nmea\package.iron" --package-name "gps_nmea"
 
 This command will:
 * create a new package named '''gps_nmea''' on iron repository '''https://iron.eiffel.com/14.05''',
@@ -406,13 +407,13 @@ Then, using the iron executable, install the package on your system, and go thro
 
 It is also '''''strongly''''' encouraged to include (or provide a link to) documentation that orients the user to its use, and answers basic questions such as:  What is the package? What motivated you to create it?  What problem(s) does it address?  Under what circumstances can the package be productively used?  Under what circumstances should it ''not'' be used (if applicable)?  And some basic examples of its use.  If the package is complex, it can be very helpful to include a well-commented  application that demonstrates intended reuse of the package in software.
 
-Important note:  having clear documentation that enables end users to easily learn how to use your package is a VITAL link in the ability to reuse software components as is so aptly described in ''[[uuid:496983ef-b86e-772e-16b9-39b37ef80e37|Object&#8209;Oriented&nbsp;Software&nbsp;Construction,&nbsp;2nd&nbsp;Edition]]'', in the Modular Understandability criterion:
+Important note:  having clear documentation that enables end users to easily learn how to use your package is a VITAL link in the ability to reuse software components as is so aptly described in ''[[uuid:496983ef-b86e-772e-16b9-39b37ef80e37|Object&#8209;Oriented&nbsp;Software&nbsp;Construction,&nbsp;2nd&nbsp;Edition]]'', in the Modular Understand-ability criterion:
 
-:'''''“A method favors Modular Understandability if it helps produce software in which a human reader can understand each module without having to know the others, or, at worst, by having to examine only a few of the others.”'''''
+:''''' "A method favors Modular Understand-ability if it helps produce software in which a human reader can understand each module without having to know the others, or, at worst, by having to examine only a few of the others." '''''
 
 and the Self-Documentation Principle:
 
-:'''''“The designer of a module should strive to make all information about the module part of the module itself.”'''''
+:''''' "The designer of a module should strive to make all information about the module part of the module itself." '''''
 
 The point:  reuse is only possible when end users can easily and quickly learn how to reuse software components available to them.
 
@@ -431,7 +432,7 @@ More features are planned or are already under development:
 :* a way of ensuring that the package compiles under the specified version of EiffelStudio
 :* support for test suite
 :* detection and actions related to package dependencies
-:* package versioning
+:* package version
 :* ability to upgrade of packages already installed
 :* extended post-installation operations
 :* more features that users may request or suggest.
