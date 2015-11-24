@@ -1,6 +1,6 @@
 [[Property:title|Dealing with references]]
 [[Property:weight|-6]]
-[[Property:uuid|ebf8e495-8180-bad2-f063-54fb949298e0]]
+[[Property:uuid|1190C592-50E0-4834-9D60-E1E357921335]]
 In ABEL, a basic type is an object of type <e>STRING</e>, <e>BOOLEAN</e>, <e>CHARACTER</e> or any numeric class like <e>REAL</e> or <e>INTEGER</e>.
 The <e>PERSON</e> class only has attributes of a basic type. 
 However, an object can contain references to other objects. ABEL is able to handle these references by storing and reconstructing the whole object graph 
@@ -72,20 +72,20 @@ invariant
 end
 </code>
 
-This adds in some complexity: 
+This adds some complexity: 
 Instead of having a single object, ABEL has to insert a <e>CHILD</e>'s mother and father as well, and it has to repeat this procedure if their parent attribute is also attached. 
-The good news are that the examples above will work exactly the same.
+The good news is that the examples above will work exactly the same.
 
 However, there are some additional caveats to take into consideration. 
 Let's consider a simple example with <e>CHILD</e> objects ''Baby Doe'', ''John Doe'' and ''Grandpa Doe''.
 From the name of the object instances you can already guess what the object graph looks like: 
 
-[[Image: Child object graph | center | 700px]]
+[[Image:Child object graph | center | 700px]]
 
 Now if you insert ''Baby Doe'', ABEL will by default follow all references and insert every single object along the object graph, which means that ''John Doe'' and ''Grandpa Doe'' will be inserted as well.
 This is usually the desired behavior, as objects are stored completely that way, but it also has some side effects we need to be aware of:
 
-* Assume an insert of ''Baby Doe'' has happened to an empty database. If you now query the database for <e>CHILD</e> objects, it will return exactly the same object graph as above, but the query result will actually have three items, as the object graph consists of three single <e>CHILD</e> objects.
+* Assume an insert of ''Baby Doe'' has happened to an empty database. If you now query the database for <e>CHILD</e> objects, it will return exactly the same object graph as above, but the query result will actually have three items as the object graph consists of three single <e>CHILD</e> objects.
 * The insert of ''John Doe'' and ''Grandpa Doe'', after inserting ''Baby Doe'', is internally changed to an update operation because both objects are already in the database. This might result in some undesired overhead which can be avoided if you know the object structure.
 
 In our main tutorial class <e>START</e> we have the following two features that show how to deal with object graphs. 
@@ -146,5 +146,5 @@ You will notice it is very similar to the corresponding routines for the flat <e
  
 ==Going deeper in the Object Graph==
 ABEL has no limits regarding the depth of an object graph, and it will detect and handle reference cycles correctly. 
-You are welcome to test ABEL's capability with very complex objects, however please keep in mind that this may impact performance significantly.
+You are welcome to test ABEL's capability with very complex objects, however, please keep in mind that this may impact performance significantly.
 
