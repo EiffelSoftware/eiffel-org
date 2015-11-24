@@ -1,12 +1,12 @@
 [[Property:title|Release notes for EiffelStudio 6.5]]
 [[Property:link_title|6.5]]
 [[Property:weight|-12]]
-[[Property:uuid|3cf9bff5-1a0d-fa6b-9577-bc44319ac609]]
+[[Property:uuid|05D62D2D-7688-47C1-AC8A-796E6CA08A88]]
 ==Graphical environment==
 
 ===What's new===
 * A new output tool that combines the Eiffel compilation output, the C compilation output, the testing output as well as the system information.
-* When there is a C compilation error, the errors are now reported in the error list. Currently we only support error reported by either the GNU C compiler or the Microsoft C compiler. The error is also linked to the source Eiffel feature when the information is available.
+* When there is a C compilation error, the errors are now reported in the error list. Currently, we only support error reported by either the GNU C compiler or the Microsoft C compiler. The error is also linked to the source Eiffel feature when the information is available.
 
 ===Improvements===
 * In the recent projects submenu, one can select the most recently compiled target.
@@ -19,7 +19,7 @@ No changes in this release.
 
 ===Bug fixes===
 * Addressed issue where the first change made to the diagram tool could not be undone.
-* Fixed issue with ES crashing when trying to merge a license, when class contains an empty note clause. 
+* Fixed issue with ES crashing when trying to merge a license, when the class contains an empty note clause. 
 * Fixed issue where project settings would let you add twice the same include file rule.
 * Fixed an issue where clicking in the project settings entry to display a dialog and then clicking cancel would show the dialog a second time. 
 * Fixed bug preventing the new features dialog from being displayed when using newer syntax. 
@@ -33,7 +33,7 @@ No changes in this release.
 * <strong>Library: <eiffel>EQA_TES_SET.on_prepare</eiffel> is now called during <eiffel>default_create</eiffel>, making it simpler to write void-safe tests.</strong>
 * Library: Added the possibility to wrap the actual test routine call.
 * AutoTest traverses all writeable clusters in the project for possible test classes, making &lt;tests&gt;-clusters obsolete. The traversal happens in the background allowing the user to continue to work on the project.
-* Tags can be used to control the test execution flow. Tagging a test with "execution/isolated" makes the test execute in a separate evaluator process, meaning the evaluator is restarted before and after executing the corresponding test (useful for tests relying on the initial access to a once routine or tests which possibly leave the memory corrupted).<br />Also any tag of the form "execution/serial[/*]" groups the tests to ensure that they are not executed in parallel (useful when a group of tests share a resource which has to be accessed sequentially).
+* Tags can be used to control the test execution flow. Tagging a test with "execution/isolated" makes the test execute in a separate evaluator process, meaning the evaluator is restarted before and after executing the corresponding test (useful for tests relying on the initial access to a once routine or tests which possibly leave the memory corrupted).<br />Also any tag of the form <nowiki>"execution/serial[/*]"</nowiki> groups the tests to ensure that they are not executed in parallel (useful when a group of tests shares a resource which has to be accessed sequentially).
 * Any results are stored between EiffelStudio sessions.
 * Improved the management of existing tests by merging the "View" and "Filter" box into one input field.
 * Improved bottom part of AutoTest tool by only having two tabs displaying test execution and test creation results.
