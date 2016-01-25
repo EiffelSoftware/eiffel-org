@@ -1,15 +1,10 @@
 [[Property:title|EiffelBuild Version History]]
 [[Property:weight|2]]
 [[Property:uuid|8cc0540e-8ee7-c005-0534-a2ed62f41c96]]
-==14.05 and 13.11 Release==
-No changes.
 
 == 7.3 Release ==
 * Fixed a crash which could occur when generating a project.
 * Fixed a crash when saving a project if it contained a pixmap with no path specified.
-
-==7.2, 7.1 and 7.0 Release==
-No changes.
 
 ==6.8 Release==
 * Fixed bug#13069 and bug#17427 for the incorrect generated code of the '''change_actions''' on an EV_SPIN_BUTTON.
@@ -19,25 +14,10 @@ No changes.
 ==6.7 Release==
 Updated the generated code to the latest Eiffel syntax as specified by ECMA.
 
-==6.6 Release==
-No changes.
-
 ==6.5 Release==
 * Fixed bug#15947 to make the generated code compile in void-safe mode.
 * Fixed bug#13296 when retrieving a project using an EV_SPIN_BUTTON element.
 * Fixed bug#12880 by improving speed of key navigation which was slowed down by attempting to refresh the object editor each time a new widget was highlighted. Now it is only done when the highlight doesn't change for a while.
-
-==6.4 Release==
-No changes.
-
-==6.3 Release==
-No changes.
-
-==6.2 Release==
-No changes.
-
-==6.1 Release==
-No changes.
 
 ==6.0 Release==
 * Code generation includes the facility of closing the application when last window is closed.
