@@ -1,0 +1,35 @@
+[[Property:uuid|C86C3894-2FBC-443E-8E19-FD4A442642CA]]
+[[Property:weight|0]]
+[[Property:title|Major changes between ISE Eiffel 15.01 and ISE Eiffel 15.08]]
+[[Property:link_title|15.08]]
+==What's new==
+* Supported a new inline separate instruction that allows making feature calls on uncontrolled separate targets inline rather than calling dedicated routines:
+<e>
+separate
+   some_expression_of_separate_type as x,
+   other_expression_of_separate_type as y
+do
+   x.foo
+   y.bar
+end
+</e>
+* Supported creation of passive regions in SCOOP that execute all logged calls on caller's processors:
+create <NONE> foo.make -- Creation instruction.
+bar := create <NONE> {separate BAZ}.make -- Creation expression.
+A side effect is that all calls on passive regions are synchronous.
+
+==Improvements==
+* runtime: Improved memory management by performing O(log N) lookups when looking for a large block of memory instead of O(N). This would occur after allocating many large objects whose size is greater than 512 bytes (on 32-bit platform) and 1024 bytes on 64-bit platform and then freeing all those objects. Next time you look for a large object it might have to go through all those large objects without finding one that is large enough.
+* code generation: Made code slightly more compact (2 to 6% size reduction on some platform).
+
+==Changes==
+
+==Bug fixes==
+
+===Compiler issues===
+
+===SCOOP issues===
+* The SCOOP runtime is now fully written in C to avoid portability issues.
+* Corrected access to tuple fields in SCOOP mode that now follow the validity rules and the semantics of ordinary attributes of a class.
+* test#scoop034 - Fixed a code generation bug in finalized mode for a generic derivation with an actual generic of a basic type.
+* test#term216 - Fixed a crash when processing conversion queries defined as constant attributes.
