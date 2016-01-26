@@ -8,6 +8,7 @@ The creation procedure
 <eiffel>
     make (s, e: G)
 </eiffel>
+
 takes as arguments two instances of type <eiffel>G</eiffel> (or <eiffel>G</eiffel>'s actual type from a declaration, e.g., <eiffel>my_time_interval: INTERVAL [TIME]</eiffel> ), which will become the start bound and the end bound of the <eiffel>INTERVAL</eiffel>. The start bound argument must be "before" the end bound argument (i.e., <eiffel>s <= e</eiffel>). <eiffel>make</eiffel> creates twins of its arguments so that the objects referenced as arguments will not change even if the values in the <eiffel>INTERVAL</eiffel> change.
 
 ====Interval measurement====
