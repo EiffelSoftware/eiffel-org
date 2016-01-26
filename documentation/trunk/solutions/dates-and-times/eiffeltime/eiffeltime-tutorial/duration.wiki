@@ -27,7 +27,7 @@ The total number of seconds in the current duration can be obtained by applying 
 
 ====Comparison====
 
-Instances of <eiffel>TIME_DURATION</eiffel> may be compared. The order is the order of the respective total number of seconds. So, 1:-40:0 is less than 0:0:1800, for example. Functions <eiffel><</eiffel>, <eiffel>></eiffel>, <eiffel><=</eiffel>, and <eiffel>>=</eiffel> are available. The <eiffel>BOOLEAN</eiffel> query <eiffel>is_equal</eiffel> (or the object equality operator <eiffel>~</eiffel>) tests object equality, <eiffel>=</eiffel> will compare references. 
+Instances of <eiffel>TIME_DURATION</eiffel> may be compared. The order is the order of the respective total number of seconds. So, 1:-40:0 is less than 0:0:1800, for example. Functions <code><</code>, <code>></code>, <code><=</code>, and <code>>=</code> are available. The <eiffel>BOOLEAN</eiffel> query <eiffel>is_equal</eiffel> (or the object equality operator <eiffel>~</eiffel>) tests object equality, <eiffel>=</eiffel> will compare references. 
 
 ====Element change====
 
@@ -70,7 +70,7 @@ The distinction between definite and relative date duration makes a difference w
 
 Relative durations cannot be compared with any other durations (including zero). This is because of the complexities of the Gregorian calendar. If we consider how many days there are in a duration of one month, we cannot point to a specific integer value that will be correct in all cases ... it depends upon which month we are considering ... and in some cases whether it is a leap year.
 
-If a comparison (<eiffel>></eiffel> or <eiffel><</eiffel>) is applied in a state in which either the current instance or the argument or both are relative durations, the result will be always <eiffel>False</eiffel>. 
+If a comparison (<code>></code> or <code><</code>) is applied in a state in which either the current instance or the argument or both are relative durations, the result will be always <eiffel>False</eiffel>. 
 
 We are able to determine if two durations have equal value by applying the feature <eiffel>is_equal</eiffel> (or the object equality operator <eiffel>~</eiffel>). 
 
@@ -98,7 +98,7 @@ Two creation features are available: <eiffel>make</eiffel> takes three arguments
 
 ====Comparison====
 
-Features <eiffel><</eiffel>, <eiffel>></eiffel>, <eiffel><=</eiffel>, and <eiffel>>=</eiffel> are available. If both instances are definite, numbers of days are compared. If one of them is non-definite, the result is False.
+Features <code><</code>, <code>></code>, <code><=</code>, and <code>>=</code> are available. If both instances are definite, numbers of days are compared. If one of them is non-definite, the result is False.
 
 ====Element change====
 
@@ -133,7 +133,7 @@ There are still several ways to create an instance:
 
 ====Comparison====
 
-The rules are the same than those for <eiffel>DATE_DURATION</eiffel>. Features <eiffel><</eiffel>, <eiffel>></eiffel>, <eiffel><=</eiffel>, and <eiffel>>=</eiffel> are available. If both instances are definite, numbers of days are compared. If one of them is non-definite, the result is False. 
+The rules are the same than those for <eiffel>DATE_DURATION</eiffel>. Features <code><</code>, <code>></code>, <code><=</code>, and <code>>=</code> are available. If both instances are definite, numbers of days are compared. If one of them is non-definite, the result is False. 
 
 ====Element change====
 
