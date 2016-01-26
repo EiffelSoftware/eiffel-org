@@ -7,6 +7,9 @@
 ===What's new===
 EiffelStudio has been updated to support the new agent's type notation which removes the first actual generic parameter, this change impacts the various wizards and all the Eiffel code included in the EiffelStudio delivery. To help users migrating their code, the syntax_updater command line tool has been updated to allow an easy update of both the Eiffel classes and their corresponding ECFs.
 
+===Improvements===
+* When displaying the flat of code involving conversions of manifest constants such as assigning 1 to an INTEGER_8 variable, we will simply show 1 and not `1.to_integer_8' which is not valid Eiffel code.
+
 ===Bug fixes===
 * Fixed display of flat form involving a procedure agent.
 * Improved preferences hanlding for the Eiffel Inspector tool.
