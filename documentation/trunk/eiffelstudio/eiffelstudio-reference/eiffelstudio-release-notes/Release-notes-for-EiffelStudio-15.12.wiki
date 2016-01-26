@@ -7,6 +7,9 @@
 ===What's new===
 EiffelStudio has been updated to support the new agent's type notation which removes the first actual generic parameter, this change impacts the various wizards and all the Eiffel code included in the EiffelStudio delivery. To help users migrating their code, the syntax_updater command line tool has been updated to allow an easy update of both the Eiffel classes and their corresponding ECFs.
 
+===Bug fixes===
+* Fixed display of flat form involving a procedure agent.
+
 ==Compiler==
 * Click [[Major changes between ISE Eiffel 15.08 and ISE Eiffel 15.12|here]] for the compiler release notes.
 
