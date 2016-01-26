@@ -2,6 +2,28 @@
 [[Property:weight|0]]
 [[Property:title|Release notes for EiffelStudio 15.12]]
 [[Property:link_title|15.12]]
-In Progress ...
+==Graphical environment==
 
-* In the meantime, please visit the [https://dev.eiffel.com/EiffelStudio_15.11_Releases 15.11 changelog].
+===What's new===
+
+===Improvements===
+
+===Changes===
+
+===Bug fixes===
+
+==Compiler==
+* Click [[Major changes between ISE Eiffel 15.08 and ISE Eiffel 15.12|here]] for the compiler release notes.
+
+==Debugger==
+N/A
+
+==EiffelBuild==
+* Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.
+
+==Libraries==
+
+===Base===
+
+[[EiffelStudio release notes|Click here to check out what was new in other versions]]
+
