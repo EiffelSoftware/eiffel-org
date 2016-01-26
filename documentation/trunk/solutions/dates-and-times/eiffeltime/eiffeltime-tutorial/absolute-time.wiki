@@ -3,7 +3,7 @@
 [[Property:uuid|195849fc-1a9c-d734-2d2b-acae78133886]]
 The classes dealing with date and those dealing with time have many similarities. These classes descend from more abstract classes implementing the notion of value ([[ref:libraries/time/reference/time_value_chart|TIME_VALUE]] , [[ref:libraries/time/reference/date_value_chart|DATE_VALUE]] , [[ref:libraries/time/reference/date_time_value_chart|DATE_TIME_VALUE]] ). From this notion come two kinds of heirs which are the absolute notion of time (classes [[ref:libraries/time/reference/date_chart|DATE]] , [[ref:libraries/time/reference/time_chart|TIME]]  and [[ref:libraries/time/reference/date_time_chart|DATE_TIME]] ) and the notion of duration (classes [[ref:libraries/time/reference/date_duration_chart|DATE_DURATION]] , [[ref:libraries/time/reference/time_duration_chart|TIME_DURATION]] , [[ref:libraries/time/reference/date_time_duration_chart|DATE_TIME_DURATION]] ). 
 
-[[ref:libraries/time/reference/date_chart|DATE]] , [[ref:libraries/time/reference/time_chart|TIME]]  and [[ref:libraries/time/reference/date_time_chart|DATE_TIME]]  inherit from the deferred class [[ref:libraries/time/reference/absolute_chart|ABSOLUTE]]. These classes model absolute temporal values, i.e., specific times and dates. Because <eiffel>ABSOLUTE</eiffel> inherits from <eiffel>COMPARABLE</eiffel>, the ordering functions <eiffel><</eiffel>, <eiffel><=</eiffel>, <eiffel>></eiffel>, and <eiffel>>=</eiffel> are available on instances of [[ref:libraries/time/reference/absolute_chart|ABSOLUTE]] and its descendants. 
+[[ref:libraries/time/reference/date_chart|DATE]] , [[ref:libraries/time/reference/time_chart|TIME]]  and [[ref:libraries/time/reference/date_time_chart|DATE_TIME]]  inherit from the deferred class [[ref:libraries/time/reference/absolute_chart|ABSOLUTE]]. These classes model absolute temporal values, i.e., specific times and dates. Because <eiffel>ABSOLUTE</eiffel> inherits from <eiffel>COMPARABLE</eiffel>, the ordering functions <code><</code>, <code><=</code>, <code>></code>, and <code>>=</code> are available on instances of [[ref:libraries/time/reference/absolute_chart|ABSOLUTE]] and its descendants. 
 
 ==TIME==
 
@@ -19,7 +19,7 @@ The origin for instances of <eiffel>TIME</eiffel> is 0 hour 0 minute and 0 secon
 
 ====Comparison====
 
-Instances of [[ref:libraries/time/reference/time_chart|TIME ]] may be compared. Functions <eiffel><</eiffel>, <eiffel><=</eiffel>, <eiffel>></eiffel>, and <eiffel>>=</eiffel> are available for ordering instances. Function <eiffel>is_equal</eiffel> (or <eiffel>~</eiffel>) can be used to test object equality, whereas <eiffel>=</eiffel> will compare references. 
+Instances of [[ref:libraries/time/reference/time_chart|TIME ]] may be compared. Functions <code><</code>, <code><=</code>, <code>></code>, and <code>>=</code> are available for ordering instances. Function <eiffel>is_equal</eiffel> (or <eiffel>~</eiffel>) can be used to test object equality, whereas <eiffel>=</eiffel> will compare references. 
 
 ====Measurement====
 
@@ -48,7 +48,7 @@ The origin for instances of <eiffel>DATE</eiffel> is January 1, 1600.
 
 ====Comparison====
 
-Instances of <eiffel>DATE</eiffel> may be compared. Functions <eiffel><</eiffel>, <eiffel><=</eiffel>, <eiffel>></eiffel>, and <eiffel>>=</eiffel> are available for ordering instances by value. Function <eiffel>is_equal</eiffel> (or <eiffel>~</eiffel>) can be used to test object equality, while <eiffel>=</eiffel> will compare references. 
+Instances of <eiffel>DATE</eiffel> may be compared. Functions <code><</code>, <code><=</code>, <code>></code>, and <code>>=</code> are available for ordering instances by value. Function <eiffel>is_equal</eiffel> (or <eiffel>~</eiffel>) can be used to test object equality, while <eiffel>=</eiffel> will compare references. 
 
 ====Measurement====
 
@@ -92,7 +92,7 @@ An instance of <eiffel>DATE_TIME</eiffel> has attributes  which are instances of
 
 ====Comparison====
 
-Instances of <eiffel>DATE_TIME</eiffel> can be compared. Functions <eiffel><</eiffel>, <eiffel><=</eiffel>, <eiffel>></eiffel>, and <eiffel>>=</eiffel> are available for ordering instance by value. Function <eiffel>is_equal</eiffel> (or <eiffel>~</eiffel>) is used to test object equality, while <eiffel>=</eiffel> compares references. 
+Instances of <eiffel>DATE_TIME</eiffel> can be compared. Functions <code><</code>, <code><=</code>, <code>></code>, and <code>>=</code> are available for ordering instance by value. Function <eiffel>is_equal</eiffel> (or <eiffel>~</eiffel>) is used to test object equality, while <eiffel>=</eiffel> compares references. 
 
 ====Measurement====
 
@@ -121,7 +121,3 @@ Feature <eiffel>relative_duration</eiffel> and <eiffel>definite_duration</eiffel
 Obtaining an instance of <eiffel>DATE</eiffel> which represents the date portion of an instance of <eiffel>DATE_TIME</eiffel> can be done by applying the query <eiffel>date</eiffel> to the instance of <eiffel>DATE_TIME</eiffel>.
 
 You can ask for a new instance of <eiffel>DATE_TIME</eiffel> from an instance of <eiffel>DATE</eiffel> by using the query <eiffel>to_date_time</eiffel>. The new instance will have the same date as the target, and have its time set to the origin (0:0:0). A <eiffel>DATE_TIME</eiffel> instance can be initialized with a specific <eiffel>DATE</eiffel> by using <eiffel>DATE_TIME</eiffel>'s creation procedure <eiffel>make_by_date</eiffel>.
-
-
-
-
