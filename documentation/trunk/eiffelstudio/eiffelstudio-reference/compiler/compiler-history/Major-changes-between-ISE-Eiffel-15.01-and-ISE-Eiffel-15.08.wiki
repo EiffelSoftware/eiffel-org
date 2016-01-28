@@ -4,6 +4,7 @@
 [[Property:link_title|15.08]]
 ==What's new==
 * Supported a new inline separate instruction that allows making feature calls on uncontrolled separate targets inline rather than calling dedicated routines:
+<code>
  separate
     some_expression_of_separate_type as x,
     other_expression_of_separate_type as y
@@ -11,9 +12,12 @@
     x.foo
     y.bar
  end
+</code>
 * Supported creation of passive regions in SCOOP that execute all logged calls on caller's processors:
+<code>
  create <NONE> foo.make -- Creation instruction.
  bar := create <NONE> {separate BAZ}.make -- Creation expression.
+</code>
 A side effect is that all calls on passive regions are synchronous.
 
 ==Improvements==
