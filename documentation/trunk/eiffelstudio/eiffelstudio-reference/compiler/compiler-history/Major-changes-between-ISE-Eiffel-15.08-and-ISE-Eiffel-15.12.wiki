@@ -3,7 +3,7 @@
 [[Property:title|Major changes between ISE Eiffel 15.08 and ISE Eiffel 15.12]]
 [[Property:link_title|15.12]]
 ==What's new==
-* Agents have a new type declaration. Instead of PROCEDURE [X, TUPLE [Y]], one can now write PROCEDURE [Y] where the first generic actual parameter is not considered anymore. The compiler accepts both syntax but only one per project, meaning that depending on the ECF version, it will either use the old syntax or the new one, and you cannot mix both syntax within the same project.
+* Agents have a new type declaration. Instead of <eiffel>PROCEDURE [X, TUPLE [Y]]</eiffel>, one can now write <eiffel>PROCEDURE [Y]</eiffel> where the first generic actual parameter is not considered anymore. The compiler accepts both syntax but only one per project, meaning that depending on the ECF version, it will either use the old syntax or the new one, and you cannot mix both syntax within the same project.
 
 ==Improvements==
 * Introduced options to select the number of types being generated in each C directory via the general.cfg located in $ISE_EIFFEL/studio/eifinit. The first option is workbench_c_basket_limit for workbench code (defaulting at 33) and the other is finalized_c_basket_limit (defaulting at 50).
