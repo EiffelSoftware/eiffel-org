@@ -1,0 +1,47 @@
+[[Property:title|eif_procedure]]
+[[Property:weight|1]]
+[[Property:uuid|3937f124-fffa-3244-d2e4-46ccfcec5fa8]]
+==Synopsis==
+
+<code lang="text">
+#include "eif_cecil.h"
+
+EIF_PROCEDURE eif_procedure (char * name, int * tid);
+</code>
+
+==Description==
+
+The <code lang="text">eif_procedure</code> function returns the address of the Eiffel procedure of name <code lang="text">name</code> from the class, which type identifier is <code lang="text">tid</code>. 
+
+If the visible exception is enabled, it raises an visible exception upon failure. 
+
+==Return value==
+
+Successful: Address of the procedure.
+Failing: <code lang="text">NULL</code>. (The procedure does not exist or is not visible). 
+
+Otherwise, the address of the procedure is returned. 
+
+==Notes==
+
+The Eiffel procedure cannot be a C external. In this case, you must directly call the C routine. 
+
+The return value is an address: to use it as a routine, you must call it with arguments or at least with (). 
+
+No argument type checking is done. You may cast the address of an Eiffel routine obtained with <code lang="text">eif_procedure</code> when calling it with real arguments. 
+
+==Conformance==
+
+ISE Eiffel 4.4 and later. 
+
+==Compatibility==
+
+<code lang="text">eif_procedure</code> is equivalent to <code lang="text">eif_proc</code>, which is deprecated. 
+
+
+{{SeeAlso| <br/>
+[[eif_type_id]] <br/>
+[[eif_reference_function]] }}
+
+
+

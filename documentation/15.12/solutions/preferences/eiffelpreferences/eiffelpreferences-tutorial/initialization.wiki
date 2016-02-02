@@ -1,0 +1,154 @@
+[[Property:title|Initialization]]
+[[Property:weight|1]]
+[[Property:uuid|2f69a1b5-b5fd-57be-46e0-60eb2406ff5d]]
+This document details how to setup preferences for your application.
+
+==Initializating the preferences==
+
+The first thing you must do to setup preferences for your application is create a <eiffel>PREFERENCES</eiffel> object. Ideally any access to preference information should be done through this object. There are 5 creation routines available to initialize the preferences: 
+* 2 recommended routines (more flexible)
+**  <eiffel>make_with_storage</eiffel>
+**  <eiffel>make_with_defaults_and_storage</eiffel>
+* and 3 other routines (might become obsolete one day)
+**  <eiffel>make</eiffel> 
+**  <eiffel>make_with_location</eiffel> 
+**  <eiffel>make_with_defaults_and_location</eiffel> 
+
+The <eiffel>make_with_storage</eiffel> will create an instance of <eiffel>PREFERENCES</eiffel> using the underlying storage passed as argument, and without any default preference values. 
+The current supported underlying storages are ''XML file'' (<eiffel>PREFERENCES_STORAGE_XML</eiffel>), and on Windows-only ''Windows Registry'' storage (<eiffel>PREFERENCES_STORAGE_REGISTRY</eiffel>). 
+
+''Note:'' that you can build your own custom storage, by implementing the class <eiffel>PREFERENCES_STORAGE_I</eiffel>, and use such object as storage in the associated creation routine.
+
+The option <eiffel>make_with_defaults_and_storage</eiffel> is similar to <eiffel>make_with_storage</eiffel> except an additional parameter is given to retrieve one or more default file locations. This will be one or more XML files on disk containing the default values to use for some or all of your preferences. It is a convenient way to initialize your application with all the default values required `out of the box' for correct or preferred functioning. Those files also contain additional attributes for preference configuration such as more detailed descriptions of the preference. If two files list the same preference, the last one to mention it takes precedence. 
+
+The format of the XML default file is very simple: 
+<xml><EIFFEL_DOCUMENT>		
+	<PREF NAME="some_manager.some_name" DESCRIPTION="Preference description here" HIDDEN="True/False" RESTART="True/False"><TYPE>Value here</TYPE></PREF>
+	...More preferences...
+<EIFFEL_DOCUMENT>
+</xml>
+The "HIDDEN" attribute indicates if this preference is to be hidden from view and is used for preferences that you do not wish for your users to modify or see. The "RESTART" attribute allows for you to flag that when a particular preference is changed it may be necessary to restart the application for the changes to take effect. You can handle this in your application by querying for this value in the preference and dispalying appropriate dialogs and messages for your application. 
+
+For backward compatibility, there is a default <eiffel>PREFERENCES_STORAGE_DEFAULT</eiffel>, which is based on XML file or Windows Registry depending if you compile using the ''preferences_xml.ecf'' or the ''preferences_registry.ecf'' configuration file (nb: on non Windows platform, only the XML version is supported).
+And if you use the <eiffel>make</eiffel>, <eiffel>make_with_location</eiffel>, <eiffel>make_with_defaults_and_location</eiffel>, this is pretty similar to use an object <eiffel>PREFERENCES_STORAGE_DEFAULT</eiffel> instantiated with the specified location (if any), see next ''Storage'' section for more details.
+
+
+== Storage ==
+To create an implementation of <eiffel>PREFERENCES_STORAGE_I</eiffel> (XML or Windows Registry), there are 2 creation routines available:
+* make_empty
+* make_with_location
+
+The option <eiffel>make_empty</eiffel> will create a preferences storage (implementer of <eiffel>PREFERENCES_STORAGE_I</eiffel>) object for you with no specific underlying datastore location.
+
+In this scenario an underlying data store location will be created for you automatically based on the current system settings. For example, if you are using the Windows Registry as your data store, and your program is is called ''my_program.exe'', then a registry key will be created in ''HKEY_CURRENT_USER\Software\myprogram.exe''. In between user sessions the preference name-value pairs will be stored in this key location. This particular method of creating preferences is ideal if you are not particularly concerned where the values are stored. You may think of it as the "it just works" mode, and it is ideal for development and simple use. 
+
+The option ( <eiffel>make_with_location</eiffel>) will take a location value to use for the underlying data storage. Values will be stored to and retrieved from this location between sessions (it could be a specific XML file location, or a specific Windows Registry path, depending if you use XML or REGISTRY storage).
+
+==Managers==
+
+Once you have created a <eiffel>PREFERENCES</eiffel> object using one of the creation routines described above you will create a <eiffel>PREFERENCE_MANAGER</eiffel> to store related preference values. For example, if your application is a web browser control that has preferences for user favorites and also a user browsing history you could create 2 managers, one for the favorites and one for the history. It is not mandatory that you create 2 managers and you could just create one and have all preferences stored therein, but for reasons of management 2 would be better. Each separate manager must have a unique name to distinguish it from the other managers in the system. We may have one called "favorites" and one called "history". 
+
+==Creating preferences==
+
+Now you have your preferences and at least one manager to put them in you can create the actual preferences. Preferences are generic, and all preferences inherit the class TYPED_PREFERENCE [G]. G denotes the type of the preference, for example INTEGER for a preference containing an integer value. Depending on the type you will use a factory class to actually create the new preference. By default the library supports 6 types of preferences, 4 basic type ones and 2 graphical types. The table below clearly indicates the currently available preferences and the factory class you should use to create them: 
+{| border="1"
+|- 
+|  '''Preference type''' 
+|  '''Description''' 
+|  '''Factory class''' 
+|  '''Factory method''' 
+|- 
+|  <eiffel>BOOLEAN_PREFERENCE</eiffel> 
+| Stores boolean value (true or false)
+|  <eiffel>BASIC_PREFERENCE_FACTORY</eiffel> 
+|  <eiffel>new_boolean_preference_value</eiffel> 
+|- 
+|  <eiffel>INTEGER_PREFERENCE</eiffel> 
+| Stores an integer value
+|  <eiffel>BASIC_PREFERENCE_FACTORY</eiffel> 
+|  <eiffel>new_integer_preference_value</eiffel> 
+|- 
+|  <eiffel>STRING_PREFERENCE</eiffel> 
+| Stores a string value
+|  <eiffel>BASIC_PREFERENCE_FACTORY</eiffel> 
+|  <eiffel>new_string_preference_value</eiffel> 
+|- 
+|  <eiffel>ARRAY_PREFERENCE</eiffel> 
+| Stores a list of string values
+|  <eiffel>BASIC_PREFERENCE_FACTORY</eiffel> 
+|  <eiffel>new_array_preference_value</eiffel> 
+|- 
+|  <eiffel>COLOR_PREFERENCE</eiffel> 
+| Stores a color value (rgb)
+|  <eiffel>GRAPHICAL_PREFERENCE_FACTORY</eiffel> 
+|  <eiffel>new_color_preference_value</eiffel> 
+|- 
+|  <eiffel>FONT_PREFERENCE</eiffel> 
+| Stores a font value (font name, face, height, etc)
+|  <eiffel>GRAPHICAL_PREFERENCE_FACTORY</eiffel> 
+|  <eiffel>new_font_preference_value</eiffel> 
+|}
+As you can see creating preferences is very easy. Also you will notice that color and font preferences use the <eiffel>GRAPHICAL_PREFERENCE_FACTORY</eiffel>. If you wish to use these preferences in your application you will need to use EiffelVision2 since these preference values are stored as <eiffel>EV_COLOR</eiffel> and <eiffel>EV_FONT</eiffel> types. If you wish to store preference value that are different to those offered by the 6 available preferences it also very easy to extend the design and add your own custom types. Simply inherit TYPED_PREFERENCE [G] and implement the deferred features for your specific preference. There is an example of this in the sample application. 
+
+==Default Values==
+
+When you create a preference using a factory class you will provide a manager, a name for the preference, and a value. For example, in <eiffel>BASIC_PREFERENCE_FACTORY</eiffel> you create an integer preference by calling <eiffel>new_integer_preference_value</eiffel>:
+<code>
+    new_integer_preference_value (a_manager: PREFERENCE_MANAGER; a_name: STRING; a_fallback_value: INTEGER): INTEGER_PREFERENCE
+            -- Add a new integer preference with name `a_name'.  If preference cannot be found in
+            -- underlying datastore or in a default values then `a_fallback_value' is used for the value.
+        require
+            name_valid: a_name /= Void 
+            name_not_empty: not a_name.is_empty
+            not_has_preference: not a_manager.known_preference (a_name)
+        ensure
+            has_result: Result /= Void
+            preference_name_set: Result.name.is_equal (a_name)
+            preference_added: a_manager.preferences.has_preference (a_name)
+        end	
+</code>
+An appropriate example in code of this could be:
+<code>
+
+    window_width_preference: INTEGER_PREFERENCE
+            -- Preference holding value for width of application main window
+
+    initialize_my_preferences
+            -- Initialize the application preferences	
+        local
+            factory: BASIC_PREFERENCE_FACTORY
+        do
+            create factory
+            window_width_preference := factory.new_integer_preference_value (my_manager, "window_width", 480)
+        end</code>
+This will create a new preference, which you can then use in your application to get, set and save the corresponding value when necessary. The issue to be aware of here though involves the value that the preference will contain when it is created. You see in the code above we pass the integer value 480. '''This does not mean, however, the initial value of the preference will be 480'''. This may sound odd, so let me explain...
+The value of a preference when initialized is determined by a number of factors. The first of these is the underlying data store value. If a preference value was changed in a previous session, by the user or by the application directly, and was saved to the underlying data store, then this value will be given priority. This makes sense, since if a user changes their preferences they don't want to have to do it every time they use your program. So, if they want the default window width to be larger, say 600, then this will be the value of the preference named "window_width" when initialized next time. Following this, if there is no previously saved value then the library will look for a default value to use. If a default file was given when the preferences were created (see above), and this default specifies a default value of 240 for the integer preference called "window_width", then this will be used. Finally, if no preference value was previously stored ''and'' no value is provided as a default value then the supplied value in the code is used - our 480 value from the example above. Although this process may seem confusing it is infact very simple and intuitive way to initialze the preferences. The process chart below illustrates more clearly the various permutations.
+
+[[Image:value-chart]] 
+
+==Using and Manipulating Preferences==
+
+Now you have preferences created you may use them from your application. Using the example preference above, window_width_preference, you can query the value of the preferences by simply querying the preference directly:
+<code>window_width := window_width_preference.value</code>
+
+Or for a value which should always be associated to the preference:
+<code>
+    window_width: INTEGER
+            -- Width of window
+        do
+            Result := window_width_preference.value
+        end
+</code>
+
+If you need to react when a preference value is changed you can hook up an agent to the <eiffel>change_actions</eiffel> of the preference:
+<code>window_width_preference.change_actions.extend (agent my_agent_routine)</code>
+
+To manually set the value of the preference call <eiffel>set_value</eiffel> or <eiffel>set_value_from_string</eiffel>, and to set a value for the default value call <eiffel>set_default_value</eiffel>. To reset a preference value back to it's original default value use <eiffel>reset</eiffel>.
+
+To save the current preference to the underlying data store you must call <eiffel>save_preference</eiffel> on the PREFERENCES object. This will persist the value to the data store for retrieval in the next session. Remember, if you change a preference value during execution and do not save it then the value will be lost when execution has finished. 
+
+The preference window interface provided with the library will allow users to set there own preference values and will save the values upon confirmation. However, if you are using preferences in your code and do not wish to provide an interface for preference modification you must remember to manually save the preferences. 
+
+You can save all preferences at once my calling <eiffel>save_preferences</eiffel> in <eiffel>PREFERENCES</eiffel>, or individually with <eiffel>save_preference</eiffel>.
+
+

@@ -1,0 +1,34 @@
+[[Property:title|Header Control]]
+[[Property:weight|-5]]
+[[Property:uuid|9b2bee5f-8676-4f9f-c6e0-e00b44b3bef4]]
+[[Image:header-ctrl|header_ctrl]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\header_ctrl\''. 
+* Choose ''header_ctrl.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. If you select another directory than the default one, please copy icons (*.ico) and resource files (*.rc) from the default directory (the one containing the ecf file) to the new one.
+* Click '''OK'''. 
+
+==Running==
+
+After launching the program, a window will be displayed as shown above. By manipulating the header control, you will see notification of the events that occur displayed in the [[ref:libraries/wel/reference/wel_list_view_chart|WEL_LIST_VIEW]]  situated below. 
+
+==Under the Hood==
+
+<code>HEADER_CONTROL</code> inherits [[ref:libraries/wel/reference/wel_header_control_chart|WEL_HEADER_CONTROL]]  and redefines many of the `on_' notification features to display the output. 
+
+This sample contains the following classes: 
+* <code>APPLICATION_IDS</code>
+* <code>HEADER_CONTROL</code>
+* <code>HEADER_CONTROL_DEMO</code>
+* <code>MAIN_WINDOW</code>
+
+
+
+
+

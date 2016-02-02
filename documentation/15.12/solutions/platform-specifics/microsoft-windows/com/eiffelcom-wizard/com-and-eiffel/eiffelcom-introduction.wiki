@@ -1,0 +1,22 @@
+[[Property:title|EiffelCOM: Introduction]]
+[[Property:weight|0]]
+[[Property:uuid|adadc51d-3dec-320a-9405-0842eacca4f7]]
+This chapter attempts to cover enough information about COM for Eiffel developers to use the EiffelCOM wizard in an effective way. It does not cover all of COM ... that would (and does) require volumes. Still, this chapter presents the main concepts needed to understand how to build an EiffelCOM system. 
+
+Briefly stated, the Component Object Model is a Microsoft binary standard that establishes how two binary units can access each other at runtime. Such binary units can run in the same process, in different processes on the same machine, or even on different machines. Components can be implemented in any language as long as the compiler produces binaries compliant with the COM standard. 
+
+The advantages of such an approach include an increased reusability (binary reuse), a better version management (COM standard implies that new component versions are compatible with the older ones), and a built-in runtime environment. The binary reuse aspect of COM, augmented with the software quality of Eiffel, offers the developer a platform for increased productivity. 
+
+
+{{seealso|<br/>
+[[EiffelCOM Library| EiffelCOM library]]  <br/>
+[[COM Concepts|COM Concepts]]  <br/>
+[[COM Interfaces| COM Interfaces]]  <br/>
+[[Coclass| Coclasses]]  <br/>
+[[The Component Location|Component Location]]  <br/>
+[[Access Type|Access Type]]  <br/>
+[[Deeper into COM|Deeper into COM]]  }}
+
+
+
+

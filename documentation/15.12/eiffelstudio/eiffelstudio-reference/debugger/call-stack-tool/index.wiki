@@ -1,0 +1,14 @@
+[[Property:title|Call stack tool]]
+[[Property:weight|-13]]
+[[Property:uuid|8c3cd0fe-78aa-7ec6-f36a-2233a4e26755]]
+The call stack is the list of routines that have been entered during execution, but not yet exited since execution started. The list can be considered a '''stack''' structure, because before any routine, say <code>my_routine</code>, can exit, any routine that <code>my_routine</code> may have called must have exited first. Therefore the last entered feature is listed at the top of the stack and the program root feature is its bottom.
+
+There is one level in the call stack, the currently selected element, that has a special status. It is the level to which all debugging tools refer. The currently selected element is, as you might guess, user-selectable. So it is possible to move along the call stack, changing the currently selected element, and view information in the debugging tools about any level..
+
+To keep a record of a call stack (for example in order to indicate to other people where a problem occurred), you can [[Save call stack|save the call stack]] to a text file. 
+
+Information concerning the call stack is spread over several graphical components:
+* The entire call stack, depicted as a list of elements, is displayed in the [[Call stack tool: Interface|call stack tool]] . 
+* [[Information relative to a stack element|Information concerning the current call stack element]] is displayed in the feature tab, the locals view, and is used to provide the expressions evaluations contained in the [[Evaluation tool or Watch tool|Expression evaluator tool]] . 
+
+

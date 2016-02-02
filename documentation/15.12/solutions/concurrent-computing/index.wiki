@@ -1,0 +1,23 @@
+[[Property:link_title|Concurrency]]
+[[Property:title|Concurrency]]
+[[Property:weight|-10]]
+[[Property:uuid|E76EF4EE-0D90-4AEE-8521-0293A0086AA2]]
+== Building concurrent applications in Eiffel ==
+
+'''Concurrency''' is a system's ability to perform several tasks at a time, as with an email client that can download new messages while you are scrolling through previously donwloaded ones.
+
+
+Many applications need concurrency, either for convenience or out of sheer necessity. Operating systems provide a concurrency mechanism in the form of "threading": a program can start several concurrent lines of control, or threads, which run in parallel.
+
+
+In most programming languages, the way to obtain threaded applications is to rely on a threading library. Eiffel offers this possibility through the [[Eiffelthreads|EiffelThreads library]].
+
+
+Thread libraries are at a lower level of abstraction than modern programming languages, requiring you to manage the interaction of threads manually through such techniques as mutual exclusion semaphores. Eiffel offers a higher-level mechanism: [[SCOOP]] (Simple Concurrent Object-Oriented Programming), which greatly simplifies the writing of concurrent applications and avoids many of the typical pitfalls of concurrency such as "data races". SCOOP is the recommended approach to concurrent Eiffel programming.
+
+For details see:
+* The [[SCOOP|SCOOP documentation]] for the recommended approach to concurrent programming in Eiffel.
+* The [[EiffelThreads|EiffelThreads documentation]] if you need to exert fine control on the execution and synchronization of threads. 
+
+
+

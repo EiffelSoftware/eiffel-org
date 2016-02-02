@@ -1,0 +1,147 @@
+[[Property:title|Testing: Background and basics]]
+[[Property:weight|0]]
+[[Property:uuid|12c2a2d4-9bf2-ba73-6647-cb9900666de1]]
+==Background and motivation for testing tools==
+
+Developers test software in the hope that the testing process will expose faults in the software they've developed. Most developers also realize that no amount of testing will ever prove software to be bug free. So while testing is a virtuous activity that we dare not neglect, we are wise to temper our expectation of the practical value of testing. 
+
+A test is designed to exercise a software element given certain inputs and execution state. The state is observed after the test execution to see if the software element has behaved in a manner that is consistent with its specification. 
+
+As a body of software is developed and tested, a large number of tests may accumulate. This large suite of tests can be run at any time in order to ensure that a change or the addition of a new software element does not cause a previously successful test now to fail. Some software development processes call for running a whole suite of tests after every increment of development activity. This type of testing is often referred to as ''regression testing'', because it tends to expose software which had been satisfying its tests at one time, but because of some development activity has regressed to a failing state.
+
+Creating, managing and running a large number of tests manually can be time-consuming, messy, and error-prone, thus the motivation for automated testing tools. Testing tools help programmers to create, maintain, and execute a suite of tests by automating the activity. During the last few years, both testing methods and tools have become more sophisticated.  
+
+
+==The Eiffel advantage in testing==
+
+Some of today's development methods require tests to be written before the software elements they test. Then the tests are included as a part of the software specification. But tests can only reflect a very small subset of the possible execution cases. Testing can never replace a comprehensive software specification. 
+
+The great advantage you have with Eiffel, of course, is that the specification for a software element exists in its contract. Like the tests mentioned above, contracts for software are written prior to implementation. So, importantly, tests are ''not'' a part of a software specification in Eiffel.
+
+With contract checking enabled at run time, the running software's behavior is constantly monitored against the contract's expectations. In other words, for routines, the precondition defines an acceptable state in which the routine can execute, and the postcondition defines an acceptable state after successful execution. The class invariant defines the constraints necessary for instances of a class to be valid. 
+
+A term commonly used in software testing is "oracle". Tests are generally looked at as having two parts, the first part is a mechanism that exercises (runs or calls) a particular software element in a given context. The second part is the "oracle" whose responsibility it is to determine whether the software element passes or fails the test. Not surprisingly, test oracles in other testing frameworks often look a lot like assertions in Eiffel. So the advantage for Eiffel is that the test oracles for all routines are already written as the postconditions on routines and class invariants. 
+
+The presence of preconditions provides another advantage. Preconditions make it possible to automate testing in ways unavailable in other environments. Because of preconditions, we already have information about the limits of valid inputs to routines. So it's possible to generate a call to a routine we want to test automatically and with a context that meets the routine's precondition.
+
+
+==AutoTest==
+
+AutoTest attempts to capitalize on the testing advantages inherent in Eiffel due to Design by Contract. AutoTest consists of an interactive interface, and a library of classes which support testing activity. 
+
+The testing support classes are distributed with EiffelStudio and exist in the ''testing'' subfolder of the ''libraries'' folder. With the exception of one class which we will discuss soon, the classes in "testing" are not intended to be used directly by developers. They exist to support the functionality of AutoTest.
+
+The interface for AutoTest is accessible through the EiffelStudio development environment. You may find it already resident as a tab in the right hand pane next to Clusters, Features, and Favorites. If it's not there, then you can bring it up by following the menu path:
+
+<code lang=text>
+View --> Tools --> Testing Tool </code>
+
+
+==Test classes and tests==
+
+The AutoTest interface helps you to create and execute tests on the software you develop. The interface contains a wizard called the '''New Eiffel Test Wizard''' which helps you create or generate the types of tests you need. We'll learn more about the interface and the wizard as we go along. But first, let's look at what constitutes a ''test''. For AutoTest, we define the term ''test'' in the context of some other testing terminology:
+
+
+{{definition|Test class|An effective class that inherits from the class EQA_TEST_SET. }}
+
+
+{{definition|Test|Any procedure of a test class that satisfies all of the following conditions: <br/>1) Is exported to <code>ANY</code><br/>2) Is immediate (i.e., introduced within the text of the test class)<br/>3) Takes no arguments }}
+
+
+{{definition|Test set|The set of tests in a test class. }}  
+
+
+{{definition|Test suite|A set of test classes (and by implication the tests contained therein) which is designed to test some particular software system or library. }}
+
+
+Whenever you use AutoTest, it will find your test classes, those classes that inherit from EQA_TEST_SET. When you run tests, it will execute all the tests in those classes, or a subset of tests that you choose. So, you have probably figured out that the one class from the testing library that you may need to know a little about is EQA_TEST_SET. But you don't have to know very much, because AutoTest can help you construct your test classes.
+
+
+==Types of tests==
+
+There are three different types of tests supported by AutoTest: 
+* Manual tests
+* Extracted tests 
+* Generated tests
+
+Each test of any of these types ultimately is a feature of class that inherits from EQA_TEST_SET. Ordinarily, though, the three types of tests won't be mixed in a test class. That is, any one particular test class will contain only one type of test. But from the point of view of AutoTest, all types of tests are managed and run the same way. We will discuss these types of tests in more detail later, but for right now, let's just establish some definitions.   
+
+
+{{definition|Manual test|A test manually coded within a test class. }} 
+
+
+Manual tests are features, procedures in fact, of classes that inherit from EQA_TEST_SET. In many simple cases, test classes containing manual tests inherit directly from EQA_TEST_SET, but that's not a requirement. Occasionally it can be useful for test classes to inherit from a descendant of EQA_TEST_SET that provides additional functionality. 
+
+A manual test is "manual" in the sense that you code the essential procedural part of the test by hand. But you really don't have to deal with the more mundane business of creating the whole test class and ensuring the proper inheritance. The ''New Eiffel Test Wizard'' helps out by automatically creating the shell of a test class and the shell of a test for you to fill in. Then it's pretty easy to add new tests manually to an existing test class.
+
+
+{{definition|Extracted test|A test that has been created during the execution of a system as a result of a developer request or a failure of the system. Extracted with the test is the current runtime state. When run, the test will attempt to recreate the runtime context. }}
+
+
+Extracted tests are convenient because they allow you to accumulate tests that are based on actual failures of your software (good for the software, not so good for your ego!). Once these tests are in your suite of tests, they are available from then on.
+
+
+{{definition|Generated test|A test that is the product of generating and running a series of randomly generated invocations of target routines. }} 
+
+
+The process of creating generated tests is sometimes known in the community as creating via ''AutoTest''. The randomly generated calls to target routines which were created and run are discarded at the completion of the creation. But from the results of these calls, a set of permanent tests is distilled. These are the generated tests. 
+
+Generated tests are made possible by Design by Contract. Hopefully, you remember that one thing that DbC gives us is the handy ability to assign blame when something goes wrong. When a test makes a call to a routine we want to test, if a contract violation occurs, it may be the fault of the called routine or it may be the fault of the caller ... and that depends upon what type of contract violation has occurred. The contract violations that are interesting to AutoTest in the process of synthesizing tests are only those in which the called routine is at fault. That is, postcondition and invariant violations. AutoTest will then create a generated test for every ''unique'' failure in which the called routine being tested was to blame.  
+
+
+
+==Anatomy of a test==
+
+Here are two more definitions:
+
+{{definition|Target routine|A routine that is to be tested by a test. Sometimes called a "routine under test." }}
+
+
+{{definition|Target class|A class that contains target routines. Sometimes called a "class under test." }}  
+
+
+In its simplest form, a test is a routine that issues a call to some routine you've developed in some class you've developed. 
+
+So the tests and the test classes are in the realm of testing and are used to test the target routines in target classes which are the real product of your software development project.
+
+AutoTest will manage and run the tests in any test class whether or not they actually test any target routines. Even though the test shown below doesn't test anything, it still qualifies as a test. Naturally, it would seem silly to keep a test around that doesn't test anything, but the important thing to understand is that AutoTest will work with anything that matches the definitions of test and test class above. That is, once tests are created, AutoTest doesn't really have a stake in what you are trying to test.
+
+
+
+<code>
+note
+    description: "[
+        Eiffel tests that can be executed by testing tool.
+
+    ]"
+    author: "EiffelStudio test wizard"
+    date: "$Date$"
+    revision: "$Revision$"
+    testing: "type/manual"
+
+class
+    MY_TEST_CLASS
+
+inherit
+    EQA_TEST_SET
+
+feature -- Test routines
+
+    my_test
+            -- New test routine
+    do
+        assert ("not_implemented", False)
+    end
+
+end</code>
+
+
+This test class was created by AutoTest's New Eiffel Test Wizard. It is about as simple a test class as there can be. Its only value is to illustrate the basic form of AutoTest tests. So, let's look at that form. 
+
+It is clear that <code>MY_TEST_CLASS</code> is an effective class that inherits from <code>EQA_TEST_SET</code>, so that makes it fit the definition of a test class. And, it's also clear the <code>my_test</code> is a feature of <code>MY_TEST_CLASS</code>, specifically a procedure, exported to <code>ANY</code>, requiring no arguments. That qualifies <code>my_test</code> as a test. If <code>MY_TEST_CLASS</code> is located in a test cluster of your project, then AutoTest will find it and be able to run it whenever you request. 
+
+This test would always fail because of the <code>assert</code> that the wizard put in the implementation. So if you asked AutoTest to run your tests, it would tell you that <code>my_test</code> was a failed test, for the reason: "not_implemented". The <code>assert</code> is not a necessary part of a test. The wizard puts it there to remind you that the test has not been implemented. If you removed the <code>assert</code> line from the test, then the test would always succeed, which would be nice, but it would be succeeding at testing nothing! We'll see more later about what it means for tests to succeed and fail. 
+
+But first let's get some exposure to the AutoTest interface, by building a manual test for a routine in a simple class.
+
+

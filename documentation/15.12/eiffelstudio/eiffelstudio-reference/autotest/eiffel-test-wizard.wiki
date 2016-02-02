@@ -1,0 +1,99 @@
+[[Property:title|The Eiffel Test Wizard]]
+[[Property:weight|1]]
+[[Property:uuid|305a8288-cb6a-df2a-1515-e23138e21566]]
+==Introduction==
+
+The '''New Eiffel test wizard''' creates new tests based on information entered by a developer on a series of wizard panes. Each of the three test types supported by AutoTest requires certain unique information. Therefore, there is a unique sequence of wizard panes corresponding to each test type, but you will notice that some of the same wizard panes are used in more than one sequence. 
+
+The '''New Eiffel test wizard''' is invoked by clicking the '''Create new test''' button ( [[Image:create new tests]] ) on the AutoTest interface toolbar. By default, clicking '''Create new test''' invokes the wizard sequence for a manual test. To choose a different type of test, click the triangle to the right of '''Create new test''' button and use the drop-down menu to select the specific test type you want.
+
+
+[[Image:AutoTest create new test]]
+
+
+Once you begin the process or creation of a new test, you will be shown the sequence of wizard panes. The wizard panes are ordered in such a way that the information most likely to change from the creation of one test to the next appears in the earliest panes. This means that if you need only to change information on the first wizard pane, and the information on later panes can remain as it was when you created a previous test, then you can click the '''Launch''' button directly from the first wizard pane. In this way, you avoid having to re-enter the information on the later panes.
+
+
+==The manual test wizard sequence==
+
+
+Creating manual tests will involve using the following wizard panes. For a guided tour of this process, see [[Create a manual test]].
+
+
+===The "Manual Test" pane===
+
+
+In this pane you provide a name for the new test that will be created. This name will be a feature name of the created test class. In this pane you can also indicate that the created class should include redefined versions of features <eiffel>on_prepare</eiffel> (called during preparation for test execution) and/or <eiffel>on_clean</eiffel> (called during clean-up after test execution).
+
+
+[[Image: AutoTest Manual Test pane]]
+
+
+===The "Tags" pane===
+
+This pane gives you the ability to associate the new test with certain [[Create a manual test#About Tags|tags]].
+
+
+[[Image: AutoTest Tags pane]]
+
+
+To add a tag for a covered class and feature, or a predefined tag, such as '''run test serially''' or '''run test in private evaluator''' click on the appropriate link below the text entry boxes.
+
+There is an entry box with an '''Add''' button to its right. Use it to create entries for a tag system that you have developed. 
+
+
+===The "General" pane===
+
+Here you provide a name for the class that is your new test set. 
+
+
+[[Image:AutoTest General pane]]
+
+
+You can also choose where you would like your test classes to reside. By default, tests will be kept in a folder in your project's EIFGENs folder. This is an easy way to do things, but if you manually delete the EIFGENs folder, you'll delete your tests. In the screenshot above a new cluster called "tests" was created to house the test suite.
+
+
+
+==The extracted test wizard sequence==
+
+
+The '''Extract tests from debugger''' choice in the '''Create new test''' drop-down menu is only sensitive if the system is currently running. 
+
+Creating extracted tests will involve using the "Test Extraction", "Tags", and "General" wizard panes. The "Tags" and "General" panes are used as shown above.
+
+
+===The "Test Extraction" pane===
+
+
+[[Image:AutoTest Test Extraction Pane]]
+
+
+This pane provides a depiction of the current call stack. Choose the routine or routines for which you want extracted tests to be created.
+
+
+==The generated test wizard sequence==
+
+For generated tests, there are two options on the '''Create new test''' drop-down menu. '''Generate tests for open classes''' and '''Generate tests for custom types'''. The difference is that if you select '''Generate tests for open classes''', AutoTest automatically populates the '''Types to test''' box with the names of any classes that are currently open in the Editor pane. 
+
+Creating generated tests will involve using "Test Generation", "Tags", and "General" panes. The "Tags" and "General" panes are used as shown above.
+
+
+===The "Test Generation" pane===
+
+
+[[Image:AutoTest Test Generation pane]]
+
+
+On this pane enter the information needed to produce generated tests. Use the '''Class or type name''' entry box, along with the <code>+</code> and <code>-</code> buttons, to declare a list of one or more classes as target classes for generated tests. 
+
+Other information necessary for creating generated tests is:
+
+*'''Cutoff (minutes)''' -- How long AutoTest will execute random invocations of the routines in the classes to be tested, specified in minutes.
+*'''Cutoff (invocations)''' -- How long AutoTest will execute random invocations of the routines in the classes to be tested, specified by invocation count.
+*'''Routine timeout (seconds)''' -- How long AutoTest will wait for completion of any invocation.
+*'''Random number generation seed''' -- The seed used for random number generator used during the process. A value of zero instructs AutoTest to use a seed derived from the system clock.
+*'''Slice minimization''' -- Designate '''slicing''' as the approach for minimizing the size of generated tests.
+*'''DDMin for minimization''' -- Designate '''DDMin''' as the approach for minimizing the size of generated tests.
+*'''HTML statistics''' -- Output history and statistics from the synthesizing process in html format.
+
+

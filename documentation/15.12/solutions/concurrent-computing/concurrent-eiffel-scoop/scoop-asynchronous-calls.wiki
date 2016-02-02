@@ -1,0 +1,136 @@
+[[Property:title|Asynchronous Calls]]
+[[Property:weight|6]]
+[[Property:uuid|d3d3873c-5c84-7566-547e-1ede38544081]]
+==Overview==
+
+As we've seen in [[Separate Calls]], feature calls to a non-separate target are always synchronous.
+Furthermore, queries are always synchronous as well, because the caller has to wait for the result.
+
+{| border="1"
+|-
+! Target
+! Query
+! Command
+|-
+| non-separate
+| synchronous
+| synchronous
+|-
+| separate
+| synchronous
+| potentially asynchronous
+|}
+
+Asynchronous calls can therefore only happen on commands with a separate target.
+Indeed, such calls are by default executed asynchronously, but there are some important exceptions to this rule.
+A command to a separate target is executed synchronously if any of the following applies: 
+* The client (caller) and supplier (target) region are the same.
+* The target region is passive.
+* The callee needs a lock currently held by the caller (lock passing).
+* The caller holds the locks of the callee (separate callbacks).
+
+== Triggers for Synchronization ==
+
+=== Same Regions ===
+
+The first case happens when a reference is declared separate, but happens to be non-separate. This case follows directly from the type system: A non-separate type <code>A</code> always conforms to its variation <code>separate A</code>. At run-time such cases can be detected with an object test:
+
+<code> 
+sep_object: separate A
+--...
+if attached {A} sep_object as non_sep_object then
+	-- ...
+end
+</code>
+
+=== Passive Regions ===
+
+In the SCOOP model, a passive region does not have a processor attached to it.
+This means that clients of the passive region need to apply features logged against a passive region themselves.
+The logical consequence of this is that all call to a passive region, including commands, are executed synchronously.
+
+=== Lock Passing ===
+
+Lock passing is another source of synchronization. It is one of the trickiest issues to detect, and to fully understand it we must first introduce a few more definitions.
+
+In [[Exclusive Access]] we have learned that an object is ''controlled'' if it appears as a formal argument of the enclosing routine. SCOOP however always grants exclusive access over a whole region. We therefore introduce the new term ''Lock'':
+
+{{definition|Lock|Exclusive access to a SCOOP region and all objects therein.}}
+
+Note the difference between ''controlled'' and ''locked'':
+* ''Controlled'' applies to a single object, whereas ''locked'' applies to a region.
+* The ''controlled'' property can be determined statically at compile-time, whereas ''locked'' is determined at runtime.
+* The set of ''controlled'' objects of a processor is always a subset of the set of objects in ''locked'' regions.
+
+{{note|In terms of implementation, a ''lock'' corresponds to an open call queue to a region.}}
+
+Now consider a small classes <code>HASH_STORAGE</code> and <code>EXAMPLE</code>:
+<code>
+class HASH_STORAGE feature
+
+	hash_code: INTEGER
+
+	set_hash_code (a_string: separate STRING)
+		do
+			hash_code := a_string.hash_code
+		end
+end
+
+class EXAMPLE feature
+
+	run (a_hash_storage: separate HASH_STORAGE; a_string: separate STRING)
+		do
+			a_hash_storage.set_hash_code (a_string)
+			io.put_integer (a_hash_storage.hash_code)
+		end
+end
+</code>
+
+You might notice a problem here:
+In the feature <code>{EXAMPLE}.run</code>, exclusive access to 'a_hash_storage' and 'a_string' is guaranteed by the SCOOP semantics.
+Or in other words, the corresponding regions are ''locked''. The feature <code>{HASH_STORAGE}.set_hash_code</code> however needs access to ''a_string'' as well.
+In the SCOOP model, as seen so far, this would result in a deadlock. The handler of the <code>HASH_STORAGE</code> object waits for exclusive access on the string object, and the <code>EXAMPLE</code> object waits for the query <code>{HASH_STORAGE}.hash_code</code> to return.
+
+To resolve this problem, SCOOP implements a technique called ''Lock Passing''.
+Locks on regions can be passed to the handler of the target of a separate call.
+Lock passing happens whenever the client processor (the handler of the <code>EXAMPLE</code> object) has locked a region that holds an object which is passed as an actual argument to a separate call. Note that this also includes non-separate reference objects, because a processor always holds a lock over its own region.
+
+When a client has passed its locks to the supplier processor, it cannot continue execution until the called feature has been applied by the supplier processor, and the supplier processor has given back the locks to the client. Therefore, this type of call must be synchronous.
+
+{{note|During lock passing, a processor gives away all the locks that it currently holds, including the lock on itself.}}
+
+{{note| Lock passing happens for every synchronous call, in particular also for queries and passive processors.}}
+
+The advantage of lock passing is that it enables some very common programming patterns without triggering a deadlock. The disadvantage, however, is that it's hard to tell '''when''' it happens. However, there are a few cases when lock passing is guaranteed to happen, namely when the actual argument passed to a separate call is
+* a formal argument of the enclosing routine,
+* of a non-separate reference type or
+* <code>Current</code>.
+
+There are, however, some cases where it's not immediately obvious that lock passing happens.
+For example, a region might be locked because of a controlled argument somewhere further up in the call stack (i.e. not the enclosing routine, but the caller of that routine), or because an object is passed as an argument which happens to be on the same region as one of the controlled objects.
+
+There is a workaround to disable lock passing for a specific call:
+<code>
+async_call (a_procedure: separate PROCEDURE [ANY, TUPLE])
+	do
+		a_procedure.call (Void)
+	end
+
+example (a_object: separate ANY)
+	do
+		async_call (agent a_object.some_feature (Current))
+	end
+</code>
+
+The feature <code>async_call</code> can be defined somewhere in the project and can be reused. The downside is that an agent needs to be created, but there's no lock passing happening, because all arguments to the agent are closed and only <code>Void</code> is passed to the separate call which cannot trigger lock passing.
+However, this mechanism should be used with some care, because it's easy to run into one of the above mentioned deadlocks.
+
+=== Separate Callbacks ===
+
+The last occurrence of synchronous calls is closely related to lock passing. If a processor '''A''' has passed a non-separate reference argument to another processor '''B''', and thus has passed its locks away, it cannot proceed its execution. Sometimes however processor '''B''' has to log some calls back to '''A''', which is called a ''separate callback''.
+
+{{definition|Separate Callback | A separate call where the caller holds the locks of the callee. }}
+
+During a separate callback processor '''B''' has to give back the locks it has previously received from '''A'''.
+This in turn means '''B''' has to wait until '''A''' has finished its execution of the separate callback and returned the locks, which effectively makes the call synchronous.
+

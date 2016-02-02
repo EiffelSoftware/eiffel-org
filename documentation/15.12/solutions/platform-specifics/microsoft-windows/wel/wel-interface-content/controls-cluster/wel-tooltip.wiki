@@ -1,0 +1,9 @@
+[[Property:title|WEL_TOOLTIP]]
+[[Property:weight|13]]
+[[Property:uuid|2eb53721-d1a8-cec0-5c6a-692e9dc58755]]
+A [[ref:libraries/wel/reference/wel_tooltip_chart|WEL_TOOLTIP]]  is an encapsulation of the Win32 tooltip control, and controls pop-up windows which display text. Each tooltip may control multiple pop-up windows, which are added to the tooltip using <eiffel>add_tool</eiffel>. 
+==Appearance==
+[[Image:wel-tooltip|wel_tooltip]]  
+
+
+

@@ -1,0 +1,20 @@
+[[Property:title|windows cluster]]
+[[Property:weight|-1]]
+[[Property:uuid|dc1af280-2e91-713c-751f-e88ce87197cf]]
+This cluster contains the different types of windows available to a [[ref:/libraries/wel/reference/wel_application_chart|WEL_APPLICATION]] . 
+
+The following effective window types are available:
+*  [[ref:/libraries/wel/reference/wel_popup_window_chart|WEL_POPUP_WINDOW]]  
+*  [[ref:/libraries/wel/reference/wel_modal_dialog_chart|WEL_MODAL_DIALOG]]  
+*  [[ref:/libraries/wel/reference/wel_modeless_dialog_chart|WEL_MODELESS_DIALOG]]  
+*  [[ref:/libraries/wel/reference/wel_mdi_frame_window_chart|WEL_MDI_FRAME_WINDOW]]  
+*  [[ref:/libraries/wel/reference/wel_mdi_client_window_chart|WEL_MDI_CLIENT_WINDOW]]  
+*  [[ref:/libraries/wel/reference/wel_mdi_child_window_chart|WEL_MDI_CHILD_WINDOW]]  
+*  [[ref:/libraries/wel/reference/wel_main_dialog_chart|WEL_MAIN_DIALOG]]  
+*  [[ref:/libraries/wel/reference/wel_frame_window_chart|WEL_FRAME_WINDOW]]  
+*  [[ref:/libraries/wel/reference/wel_control_window_chart|WEL_CONTROL_WINDOW]]  
+
+{{note|A WEL application must contain at least one window. See the [[WEL Tutorial]]  for details of how to set up your first window within a [[ref:/libraries/wel/reference/wel_application_chart|WEL_APPLICATION]] . }}
+
+
+

@@ -1,0 +1,71 @@
+[[Property:title|EiffelBuild Version History]]
+[[Property:weight|2]]
+[[Property:uuid|8cc0540e-8ee7-c005-0534-a2ed62f41c96]]
+
+== 7.3 Release ==
+* Fixed a crash which could occur when generating a project.
+* Fixed a crash when saving a project if it contained a pixmap with no path specified.
+
+==6.8 Release==
+* Fixed bug#13069 and bug#17427 for the incorrect generated code of the '''change_actions''' on an EV_SPIN_BUTTON.
+* Fixed the icon view mode display for widgets where content was shown incorrectly in previous releases.
+* Fixed code generation of widgets when generated as clients.
+
+==6.7 Release==
+Updated the generated code to the latest Eiffel syntax as specified by ECMA.
+
+==6.5 Release==
+* Fixed bug#15947 to make the generated code compile in void-safe mode.
+* Fixed bug#13296 when retrieving a project using an EV_SPIN_BUTTON element.
+* Fixed bug#12880 by improving speed of key navigation which was slowed down by attempting to refresh the object editor each time a new widget was highlighted. Now it is only done when the highlight doesn't change for a while.
+
+==6.0 Release==
+* Code generation includes the facility of closing the application when last window is closed.
+* The EiffelBuild binary has been renamed into '''esbuilder'''.
+* Fixed crash when generating code which included a combo box in read-only mode.
+* Fixed bug#12920 where pressing a digit while dropping was not adding x-time the selected widgets (where x is the digit pressed).
+* Fixed bug#12210 where pixmaps set on a menu would be incorrectly displayed in the generated executable (The last added one will always be shown for all menu entries with a pixmap).
+* Fixed bug#11878 where EiffelBuild would crash when saving a project just after removing an event.
+* Fixed bug#11738 where EiffelBuild would crash when picking and dropping a top level widget into the Generate button.
+
+==5.7 Release==
+* Fixed positioning bug when moving items within their current parent by dropping on another item in that parent with the shift key held down.
+* Fixed bug where modifying the "User can resize" property of a window while the tools were always shown on top stopped the tools from being shown on top.
+* Added support for multi-line tooltips.
+* Added support for `is_item_expanded' from EV_SPLIT_AREA.
+* Added the ability to specify a directory for generation, into which location all files are to be generated.
+* Event selection dialogs now contain the name of the object to which they refer in their title for cases where multiple dialogs are open simultaneously
+* The project settings dialog is now completely navigatable via the keyboard on Windows platforms.
+* Added support for Ctrl+Z and Ctrl+Y to navigate through the history.
+* The font selection dialog now shows the currently selected font when displayed.
+* Deleting an object that is contained within an object editor now clears the contents of the object editor.
+* Preferences window now has the focus when displayed so it is fully navigatable via the keyboard.
+* Code generation improved to allow the modifying of constants and subsequent update of the interface, permitting multiple languages to be supported.
+
+==5.6 Release==
+* Added support for the generation of any widget as a class. You now may place widgets within the "Widget Selector" to enable this. The "Widget Selector" is simply the old "Widget Selector" renamed.
+* Added clipboard functionality, permitting the copying/pasting of objects.
+* Added support for new constant types: Font and Color.
+
+==5.5 Release==
+* Added support for EV_RICH_TEXT which has been added to EiffelVision2.
+* Notebook item texts may now be set to string constants.
+* Better support for corrupt installations with warning dialogs now displayed.
+* Fixed bug with generated code for notebooks often hiding the first item when they were actually displayed.
+
+==5.4 Release==
+* Added support for multiple windows, including dialogs.
+* Added support for constants of type Integer, String, Directory and Pixmap.
+* New tool, "Widget Selector" added to handle organization of windows, including the ability to define subdirectories in a project, and group windows accordingly.
+* Tip of the day dialog added.
+* Recent projects are now available from the "File" menu.
+* The contents of EiffelBuild projects may now be imported.
+* The ability to reset the minimum dimensions of widgets have been added. In the previous version, it was not possible to complete undo the effects of setting a widgets minimum size.
+* Preferences added, which allow you to customize the default behavior of EiffelBuild. For example, dialogs may be displayed or hidden as desired.
+* The layout of EiffelBuild and its tools is now maintained between sessions.
+* Docking added, permitting the re-ordering of particular tools within the interface, including making them "float" externally.
+* Smarter code generation options, permitting only named attributes to be exported.
+
+
+
+

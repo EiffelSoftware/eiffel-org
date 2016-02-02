@@ -1,0 +1,48 @@
+[[Property:title|Dynamic library: Generated files]]
+[[Property:weight|3]]
+[[Property:uuid|f3926dd7-eb68-7a82-39f0-b4f5ea891436]]
+Once the Eiffel definition file is created, the compiler will generate a set of files and will compile them to generate the Dynamic library into the <code>EIFGENs/target_name/W_code</code> or <code>EIFGENs/target_name/F_code</code> directory. 
+
+{{note|To generate and compile these files, you have to indicate the definition file that should be used in the [[Advanced Options|advanced node of the project settings]]  of your system. This way EiffelStudio will know which one to use. If you do not specify any definition file, nothing will be generated. }}
+
+The set of files is composed of:
+<div> 
+*  <code>EIFGENs/target_name/W_code/</code>'''system.def''' (or F_code) 
+*  <code>EIFGENs/target_name/W_code/</code>'''edynlib.c''' (or F_code) 
+*  <code lang=text>$(ISE_EIFFEL)/studio/config/$(ISE_PLATFORM)/templates/</code>'''egc_dynlib.template''' <br/>
+this file will be copied during the compilation into the EIFGENs/target_name/W_code/E1 directory as '''egc_dynlib.c''' 
+*  <code lang=text>$(ISE_EIFFEL)/studio/spec/$(ISE_PLATFORM)/include/</code>'''egc_dynlib.h''' 
+* and the Makefile
+</div>
+The ''system.def'' is only used on windows, it is the definition file used to generate a DLL when linking.<br/>
+Information about the DLL
+<code lang=text>LIBRARY demo.dll
+DESCRIPTION DEMO.DLL</code>
+The following are EXPORTed functions.
+<code lang=text>
+EXPORTS</code>
+This part concerns the run-time. It initializes the run-time and reclaim Eiffel objects.
+<code lang=text>
+;System
+	init_rt
+	reclaim_rt
+</code>
+The exported for the BAR class:
+<code lang=text>; CLASS [BAR]
+	get_string
+	print_bar
+</code>
+The exported for the ROOT_CLASS class:
+<code lang=text>; CLASS [ROOT_CLASS]
+	make
+	foo
+	test_bar</code>
+
+
+The ''edynlib.c'' file is the interface between the Eiffel system and the C code. It contains the declaration and the implementation of the function used to directly call the eiffel feature with its real name. 
+
+The <span> ''egc_dynlib.c'' </span> and <span> ''egc_dynlib.h'' </span> files are used for operations performed by the run-time. 
+
+
+
+

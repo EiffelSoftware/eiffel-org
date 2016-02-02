@@ -1,0 +1,29 @@
+[[Property:title|Interfacing with DLLs]]
+[[Property:weight|0]]
+[[Property:uuid|4ad177dd-13ec-c237-99b3-efc9851995a5]]
+Using EiffelStudio, there are two different ways to call C routines exported in DLLs. This is because on the Windows platform, there are two frequently-used calling conventions for C routines found in DLLs:
+
+* _cdecl: referred to as the standard calling convention
+* __stdcall referred to as the Pascal calling convention
+
+Calling conventions define 1) how arguments are placed on the stack, and 2) which entity (the caller, or the callee) is responsible for returning the call stack to its previous state when the routine has completed.  These two methods are NOT compatible.  Therefore if you have a routine in a DLL you wish to call, one of the first things to find out about it is which calling convention it expects.  DLL routines that use the `_cdecl' calling convention require the use of the '''dll32''' sub-language option.  For `__stdcall', use the '''dllwin32''' sub-language option. Here is an example:
+
+<code>
+    my_cdecl_routine (a: INTEGER): POINTER
+            -- Encapsulation of a dll function with the `_cdecl' call mechanism.
+        external
+            "C [dll32 %"my_cdecl_dll.dll%"] (int): EIF_POINTER"
+        end
+		
+    my_stdcall_routine (a: INTEGER): POINTER
+            -- Encapsulation of a dll function with the `_stdcall' call mechanism.
+        external
+            "C [dllwin32 %"my_stdcall_dll.dll%"] (int): EIF_POINTER"
+        end
+</code>
+
+{{note|Most OS services provided by the Win32 API use the __stdcall calling convention.}}
+
+{{warning|Getting '''dll32''' and '''dllwin32''' reversed will cause your application's call stack to be corrupted.  This will cause your application to malfunction, can cause it to crash, and can potentially crash your whole system. So getting this right is crucial to smooth implementation of external DLL calls.  For more information please consult your C compiler documentation.}}
+
+

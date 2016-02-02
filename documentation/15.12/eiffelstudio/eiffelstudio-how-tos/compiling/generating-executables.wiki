@@ -1,0 +1,27 @@
+[[Property:title|Generating executables]]
+[[Property:weight|0]]
+[[Property:uuid|d089f44a-9d01-41cf-9ba5-a58570ca5365]]
+There are several ways to compile an executable with EiffelStudio.
+
+The most essential compilation modes are: '''melting''', '''freezing''', and '''finalizing'''. To learn more about the compilation semantics in EiffelStudio, see the documentation of [[Melting Ice Technology|Eiffel's compilation technology]]. 
+
+There is a command for each compilation mode in the '''Project''' menu, under the entries '''Compile''', '''Freeze''' and '''Finalize'''. 
+
+The "drop-down" option of the Compile button ([[Image:compile-button]]) on the '''Project''' toolbar also offers these choices as shown in the image below.
+
+
+[[Image:compile-button-dropdown]]
+
+
+If you need the compilation options even handier than this, you can customize the '''Project''' toolbar by adding icons for each of the options:  [[Image:project-melt-icon]] ,  [[Image:project-freeze-icon]] ,  [[Image:project-finalize-icon]] . [[Toolbar customization|Here's how]]. Or you can use the keyboard shortcuts that are shown in the Compile button's drop-down menu.
+
+To help resolve the errors that occur during the Eiffel compilation, use the [[Error wizard|compilation error wizard]]. For errors occurring during the C compilation, check that the installation is not corrupted and refer to your C compiler documentation for more information. 
+
+
+{{seealso|<br/>
+[[Command line|Command line options]]  <br/>
+[[Compiler|Compiler]]  }}
+
+
+
+

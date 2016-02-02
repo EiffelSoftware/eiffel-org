@@ -1,0 +1,104 @@
+[[Property:title|Managing tests]]
+[[Property:weight|9]]
+[[Property:uuid|f1e7f63a-dc86-fefb-e669-3e3ea178c596]]
+The previous sections cover the basics of testing and what it takes to create and use each of the test types supported by AutoTest. This section will finish things up with some miscellaneous information about testing strategy and hints on using AutoTest.
+
+
+
+==Favor manual tests==
+
+
+It is worth repeating that currently, manual tests should form the majority of your testing suite. As you have seen, extracted and synthesized tests use more complex setup and execution mechanisms. These mechanisms make tests less robust and readable than manual tests. So using extracted and synthesized tests as a guide to produce manual tests with the same coverage is, at this time, the best way to work. You will probably be able to do this easily enough with synthesized tests. Extracted tests attempt to recreate the context at a specific point in time, which may make it more difficult to write a manual test that is equivalent an extracted test. 
+
+Because manual tests are more easily readable than either of the automatically generated test types, you should be able to understand more quickly what has happened when a test produces failing results.
+
+
+==Deleting uneeded tests==
+
+
+At some point and for various reasons, you will probably want to delete tests from your test suite. This is easy enough to do. Remember that test sets are actually just classes with certain characteristics, and that tests are actually just specialized routines of test classes. 
+
+If you want to delete a single test, you can delete that feature from its test class. 
+
+If you want to remove a whole test set, then [[Removing a class|delete the class]] that defines that test set.
+
+
+==Using Filters==
+
+Filtering is provided to help view, manage, and run the tests in a test suite. 
+
+Filtering controls which tests are visible in the AutoTest interface how the view is organized. You can display tests organized by the test classes that contain them, by the classes they target, by their type, by their most recent results, or by any system you set up using a system of [[Create a manual test#About tags|tags]]. 
+
+Filtering helps you manage which tests get run during a give execution. You can select certain tests to be run from those visible in the AutoTest interface, or you can choose to run all tests visible through a filter.
+
+
+===The Filter box===
+
+The Filter box in the AutoTest interface can be used to enter filter text which will allow only certain tests to be visible.
+
+Filter text can be a string of characters occurring in specific test class name or test routine name, or it can be a [[Create a manual test#About tags|tag]] or a portion of a tag hierarchy. The Filter box supports regular expressions, so you can filter with more granularity.
+
+It is important to bear in mind that the View box works with the system of [[Create a manual test#About tags|tags]] described in the section on creating manual tests. Tags are hierarchically structured names that are applied to tests through the <code>note</code> clause. When you use the View box to display a set of tests, you specify that set by the tags on the tests. Some of the tags are implicit, in the sense that AutoTest accounts for them, and they are not explicitly coded in <code>note</code> clauses. This should become clear when we look at some examples.
+
+When the filter text is cleared, the AutoTest interface will display tests accessible through all tag roots. 
+
+As of version 6.5 of EiffelStudio, the tag root words used are:
+
+
+{| border="2"
+|- 
+| class || Tests organized by test classes 
+|-
+| covers || Tests organized by target classes/routines
+|-
+| result || Tests organized by the results of their most recent execution
+|-
+| user || Tests organized by type (manual, extracted, generated) and by user-added tag hierachies
+|}
+
+
+{{note|The tag roots will appear only if there are tests that can be categorized under them. For example, if you have not run any tests, then '''result''' will not appear. }}
+
+
+Notice that the Filter box has a drop-down with a list of options: 
+
+
+[[Image:AutoTest filter drop down]]
+
+
+These options are shortcuts to the various tag roots listed above: 
+
+#'''Test classes''' displays the sub-tree under the tag root '''class'''
+#'''Classes under test''' displays the sub-tree under the tag root '''covers'''
+#'''Results''' displays the sub-tree under the tag root '''result'''
+#'''User-defined tags''' displays the sub-tree under the tag root '''user'''
+
+
+Any tagging system that you devise will show up under the '''user''' tag root.
+
+For example, consider a manual test containing a '''testing:''' note name with a user-defined tag as in the following code.
+
+<code>
+    test_deposit_01
+            -- New test routine
+        note
+            testing:  "covers/{BANK_ACCOUNT}.deposit"
+            testing:  "my_tag_root"  -- My new tag root
+        local
+            l_ba: BANK_ACCOUNT
+        do
+            create l_ba
+            l_ba.deposit (500)
+        end
+</code>
+
+This will cause the new user-defined tag and its associated tests to be visible in the AutoTest interface.
+
+[[Image: AutoTest user defined tag root]]
+
+
+{{seealso|The [[The AutoTest Interface#Filtering|Filtering]] section in [[The AutoTest interface]].}}
+
+
+
+

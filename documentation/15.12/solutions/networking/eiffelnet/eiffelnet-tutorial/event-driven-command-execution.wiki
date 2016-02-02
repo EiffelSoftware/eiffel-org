@@ -1,0 +1,207 @@
+[[Property:title|Event-driven command execution]]
+[[Property:weight|8]]
+[[Property:uuid|66036773-3e41-2877-7fa4-e0601558fc7c]]
+{{note|The example classes discussed in this section appear in the subdirectory ''polling ''of the example directory.}}
+
+
+===9.1 Commands and events===
+
+In the preceding examples each participant in a communication had to get ready to send or receive at specific stages of its life. Although this did not preclude asynchronous communication, it is sometimes desirable to make the scheme even more asynchronous, and control more decentralized, by letting each system simply specify certain communication events that it wants to monitor, and certain commands to be executed on occurrence of the specified events.
+
+The commands are objects, instances of a general-purpose class <code>COMMAND</code> or its proper descendants. Class <code>COMMAND</code> has, among its features, a procedure <eiffel>execute</eiffel> which executes the current command; some commands are undoable and have an <eiffel>undo</eiffel> procedure. 
+
+In EiffelNet the possible events associated with a socket will be of three kind: a read event; a write event; or a special event (out of bounds operation). The command classes will be descendants of [[ref:/libraries/net/reference/poll_command_chart|POLL_COMMAND]], an heir of <code>COMMAND</code>.
+
+===9.2 Command classes===
+
+The example uses three command classes: <code>DATAGRAM_READER</code>, used by both clients and servers, and specialized versions of a datagram writer: one for clients, <code>CLIENT_DATAGRAM_WRITER</code>, and one for servers, <code>SERVER_DATAGRAM_WRITER</code>. These classes model operations that must be triggered in the case of a read event and a write event.
+
+Here is the common reader command:
+<code>
+class 
+    DATAGRAM_READER
+
+inherit
+
+    POLL_COMMAND
+        redefine
+            active_medium
+        end
+
+create
+
+    make
+
+feature
+
+    active_medium: NETWORK_DATAGRAM_SOCKET
+
+    execute (arg: ANY)
+        local
+            rec_pack: PACKET
+            datagram: DATAGRAM_PACKET
+            i: INTEGER
+        do
+            rec_pack := active_medium.received (10, 0)
+            create datagram.make_from_managed_pointer (rec_pack.data)
+            io.putint (datagram.packet_number)
+            io.new_line
+            from i := 0 until i > 9 loop
+                io.putchar (datagram.element (i))
+                i := i + 1
+            end
+            io.new_line
+        end
+
+end -- class DATAGRAM_READER
+
+</code>
+
+The <eiffel>execute</eiffel> procedure reads a packet of ten characters and prints these characters. Its counterpart in the writing command will produce these ten packets:
+<code>
+class 
+    CLIENT_DATAGRAM_WRITER
+
+inherit
+
+    POLL_COMMAND
+        redefine
+            active_medium
+        end
+
+create
+
+    make
+
+feature
+
+    active_medium: NETWORK_DATAGRAM_SOCKET
+
+    execute (arg: ANY)
+        local
+            sen_pack: DATAGRAM_PACKET
+            char: CHARACTER
+        do
+                -- Make packet with characters `a' to `j' in successive positions
+            create sen_pack.make (10)
+            from char := 'a' until char > 'j' loop
+                sen_pack.put_element (char, char |-| 'a')
+                char := char.next
+            end
+            sen_pack.set_packet_number (1)
+            active_medium.send (sen_pack, 0)
+        end
+
+end -- class CLIENT_DATAGRAM_WRITER
+</code>
+
+===9.3 The server and the client===
+
+Once the commands have been defined, it suffices for the server and the client to associate instances of these commands with the appropriate.
+
+The abstraction needed for this purpose is provided by class <code>MEDIUM_POLLER</code>. An instance of this class knows about a number of commands, each associated with a certain socket in read, write or special event mode. By applying procedure <eiffel>execute</eiffel> to such a medium poller, you direct it to monitor these sockets for the corresponding events and to execute the command associated with each event that will be received. Procedure <eiffel>execute</eiffel> takes two integer arguments: the maximum number of sockets to monitor, and the timeout in milliseconds. 
+
+Here is the server built with this mechanism:
+<code>
+class 
+    POLLING_SERVER
+
+create
+
+    make
+
+feature
+
+    make (argv: ARRAY [STRING])
+        local
+            soc: detachable NETWORK_DATAGRAM_SOCKET
+            ps: MEDIUM_POLLER
+            readcomm: DATAGRAM_READER
+            writecomm: SERVER_DATAGRAM_WRITER
+        do
+            if argv.count /= 2 then
+                io.error.putstring ("Usage: ")
+                io.error.putstring (argv.item (0))
+                io.error.putstring (" portnumber%N")
+	    else
+                create soc.make_bound (argv.item (1).to_integer)
+                create ps.make_read_only
+                create readcomm.make (soc)
+                ps.put_read_command (readcomm)
+                create writecomm.make (soc)
+                ps.put_write_command (writecomm)
+                ps.execute (15, 20000)
+                ps.make_write_only
+                ps.execute (15, 20000)
+                soc.close
+            end
+        rescue
+            if soc /= Void and then not soc.is_closed then
+                soc.close
+            end
+        end
+
+end -- POLLING_SERVER
+</code>
+
+
+Procedure <eiffel>make</eiffel> creates three objects: a socket, which it associates with a specific port; a poller; and a read command (an instance of DATAGRAM_READER), which it attaches to the socket. It then enters the read command into the poller, and does the same thing with a write command. It sets up the poller to accept read commands only and then executes the poller; this will enable the server to get the read event triggered by the client's write command (as it appears below in the text of class <code>POLLING_CLIENT</code>). Then the server reverses the poller's set-up to write-only, and calls <eiffel>execute</eiffel> again. 
+
+The client follows the same scheme, reversing the order of read and write operations:
+<code>
+class 
+    POLLING_CLIENT
+
+create
+
+    make
+
+feature
+
+    make (argv: ARRAY [STRING])
+        local
+            soc: detachable NETWORK_DATAGRAM_SOCKET
+            ps: MEDIUM_POLLER
+            readcomm: DATAGRAM_READER
+            writecomm: CLIENT_DATAGRAM_WRITER
+        do
+            if argv.count /= 3 then
+                io.error.putstring ("Usage: ")
+                io.error.putstring (argv.item (0))
+                io.error.putstring (" hostname portnumber%N")
+            else
+                create soc.make_targeted (argv.item (1), argv.item (2).to_integer)
+                create ps.make_write_only
+                create readcomm.make (soc)
+                ps.put_read_command (readcomm)
+                create writecomm.make (soc)
+                ps.put_write_command (writecomm)
+                ps.execute (15, 20000)
+                ps.make_read_only
+                ps.execute (15, 20000)
+                soc.close
+            end
+        rescue
+            if soc /= Void and then not soc.is_closed then
+                soc.close
+            end
+        end
+
+end
+
+</code>
+
+===9.4 A less deterministic scheme===
+
+Although the example uses the event-driven mechanisms of EiffelNet, it is still relatively deterministic in that it follows a precise protocol defined by a strict sequence of read and write operations on both sides. This is why every call to <eiffel>execute</eiffel> is preceded by a call to either <eiffel>make_read_only</eiffel> or <eiffel>make_write_only</eiffel> to set up the poller in the appropriate mode. 
+
+A less deterministic scheme may often be desirable, where you simply enter a number of commands (read, write, out of bounds processing) into a poller and then wait for arbitrary events to occur and trigger commands. There is no need with this scheme to know in advance the order in which events may occur: a read event will trigger the command entered into the poller through <eiffel>put_read_command</eiffel>; a write event will trigger the command entered through <eiffel>put_write_command</eiffel>. 
+
+To achieve this behavior, simply create the poller using <eiffel>make</eiffel> as creation procedure. This will set up the poller so as to accept all socket events, and enter into event-driven command execution by calling <eiffel>execute</eiffel> on the poller. 
+
+
+
+
+
+
+

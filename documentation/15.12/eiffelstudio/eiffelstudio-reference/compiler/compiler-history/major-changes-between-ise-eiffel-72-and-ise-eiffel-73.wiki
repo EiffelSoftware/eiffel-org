@@ -1,0 +1,36 @@
+[[Property:title|Major changes between ISE Eiffel 7.2 and ISE Eiffel 7.3]]
+[[Property:link_title|7.3]]
+[[Property:weight|10]]
+[[Property:uuid|84a0a02d-b9cc-9897-c1d9-41dfc27c294a]]
+==What's new==
+* Added support for agents with targets of separate types.
+* Added new levels of void-safety: "conformance" that enables taking attachment marks into account when checking for conformance; "transitional" (previously "all") that checks almost all void-safety rules except those for unqualified agents and allows CAPs for preconditions and check instructions; "all" that checks all void-safety rules.
+
+==Improvements==
+* Fixed issue that causes many classes to be recompiled when not needed. 
+* Relaxed rules for using Current and unqualified agents when not all attributes are set to report VEVI errors only when qualified calls are involved in a sequence of unqualified calls and creation procedure calls ("targeted rules").
+
+==Changes==
+* The BIT type has been completely removed from libraries and runtime.
+
+==Bug fixes==
+
+===Language issues===
+N/A
+
+===Compiler issues===
+* Fixed error in processing replicated and selected attributes with self-initializing attribute bodies that could lead to reporting these attributes as uninitialized.
+* Fixed a bug that might result in a missing VEVI error for Result in a self-initializing attribute body.
+
+===SCOOP issues===
+* Fixed a bug that caused incorrect conformance checks for formal generics of different separate status.
+* Fixed a bug that might cause incorrect conformance checks for attachment and separateness status of a constrained formal generic parameter against a class type.
+* Fixed a C code generation bug that might cause an access on an invalid address during object test evaluation with an expression of a separate type.
+
+===Runtime/code generation issues===
+* Fixed a bug where the TYPE instance of a new generic derivation in the running system would be corrupted.
+
+===Store/Retrieve issues===
+* Fixed a bug in .NET where using the Eiffel serialization or marking objects would trigger computation of `hash_code' on Eiffel objects and thus changing their state.
+
+
