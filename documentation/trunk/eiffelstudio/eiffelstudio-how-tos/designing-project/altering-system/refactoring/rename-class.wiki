@@ -11,5 +11,6 @@
 #*  '''Rename File''': rename the file of the class to correspond with the class name, if another file with this name already exists the file will not be renamed and a warning will be given. 
 #*  '''Replace Name in Comments''': replace usage of the class name in comments that follow the '''{CLASSNAME}''' syntax. 
 #*  '''Replace Name in Strings''': replace usage of the class name in strings that follow the '''{CLASSNAME}''' syntax. 
+#* '''Reuse existing name''': allow two or more classes to have the same name during refactoring (note: the compiler will still report an error, if there are two or more classes conflicting with same name, but this option could be use to merge two classes).
 # Click '''OK'''. 
 
