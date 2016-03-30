@@ -1,7 +1,7 @@
 [[Property:uuid|D1DDF411-5387-4A81-9A85-3EF8A2A4220D]]
 [[Property:weight|0]]
 [[Property:title|How to build a concurrent graphical application: EiffelVision with SCOOP]]
-How can I build a concurrent graphical in application in Eiffel?
+==How can I build a concurrent graphical in application in Eiffel?==
 
 Eiffel has a great library for producing graphical applications: EiffelVision. Eiffel also has a powerful concurrency mechanism: SCOOP.
 
