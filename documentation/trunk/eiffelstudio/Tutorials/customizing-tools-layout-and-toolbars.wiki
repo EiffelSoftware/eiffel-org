@@ -207,7 +207,7 @@ But remember that our goal in this exercise is to restore the pane holding the D
 What happens if we drag our pane over one of the tips of the cross shaped target graphic? These targets will allow us to split the target pane into two panes, one containing the original content and the other containing the content of the pane we are moving. The original pane will be split according to which tip of the cross you drop your pane onto. For example dropping on the right tip will split the target pane into left and right panes an put your pane on the right. Again you can see this depicted in a preview when you hover over one of these, as shown below.
 
 
-[[Image: es gt split pane right|Hovering over the tip of a cross causes the target pane to be split and the new pane added adjacent]]
+[[Image:es gt split pane right|Hovering over the tip of a cross causes the target pane to be split and the new pane added adjacent]]
 
 Figure 12
 
