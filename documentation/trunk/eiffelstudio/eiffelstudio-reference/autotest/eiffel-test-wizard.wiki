@@ -26,7 +26,7 @@ Creating manual tests will involve using the following wizard panes. For a guide
 In this pane you provide a name for the new test that will be created. This name will be a feature name of the created test class. In this pane you can also indicate that the created class should include redefined versions of features <eiffel>on_prepare</eiffel> (called during preparation for test execution) and/or <eiffel>on_clean</eiffel> (called during clean-up after test execution).
 
 
-[[Image: AutoTest Manual Test pane]]
+[[Image:AutoTest Manual Test pane]]
 
 
 ===The "Tags" pane===
@@ -34,7 +34,7 @@ In this pane you provide a name for the new test that will be created. This name
 This pane gives you the ability to associate the new test with certain [[Create a manual test#About Tags|tags]].
 
 
-[[Image: AutoTest Tags pane]]
+[[Image:AutoTest Tags pane]]
 
 
 To add a tag for a covered class and feature, or a predefined tag, such as '''run test serially''' or '''run test in private evaluator''' click on the appropriate link below the text entry boxes.
