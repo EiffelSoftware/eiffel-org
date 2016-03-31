@@ -31,7 +31,7 @@ The following columns are available in the list:
 *  '''[[Protocols|Protocol]]''' - the type of the Source. 
 *  '''Name''' - the name of the annotation.
 *  '''Tags''' - terms or phrases used to categorize annotations. Tags are separated by '''","'''
-*  '''Override''' - checkbox is checked if an implicit, automatically generated annotation is being overridden by the annotation in this list entry. If this list entry is itself an implicit annotation, this column shows the automatic annotation [[Image: automatic annotation icon]] icon. Override is defined only for  annotations on classes.
+*  '''Override''' - checkbox is checked if an implicit, automatically generated annotation is being overridden by the annotation in this list entry. If this list entry is itself an implicit annotation, this column shows the automatic annotation [[Image:automatic annotation icon]] icon. Override is defined only for  annotations on classes.
 
 
 
@@ -67,7 +67,7 @@ The progress bar in the bottom of the tool indicates the progress of a currently
 
 ==Using Pick-and-Drop with the Information tool==
 
-You can use pick-and-drop with the information tool. If you drop a pebble on the information tree, the annotation list, the "Locate currently edited class/cluster" icon [[Image:EIS locate class or cluster icon]] on the mini-toolbar, or the Info tab [[Image:EIS info tab]], the Information tool will find and display any annotations associated with the dropped pebble. If you drop a pebble on the "Add" button [[Image:EIS add button]] a new entry will be created for the object represented by the pebble. Lastly, dropping a pebble representing a target or cluster on the "Edit EIS auto-node generation property" button [[Image: automatic annotation icon]] will display the automatic node generation dialog for the target or cluster associated with the pebble.
+You can use pick-and-drop with the information tool. If you drop a pebble on the information tree, the annotation list, the "Locate currently edited class/cluster" icon [[Image:EIS locate class or cluster icon]] on the mini-toolbar, or the Info tab [[Image:EIS info tab]], the Information tool will find and display any annotations associated with the dropped pebble. If you drop a pebble on the "Add" button [[Image:EIS add button]] a new entry will be created for the object represented by the pebble. Lastly, dropping a pebble representing a target or cluster on the "Edit EIS auto-node generation property" button [[Image:automatic annotation icon]] will display the automatic node generation dialog for the target or cluster associated with the pebble.
 
 
 
