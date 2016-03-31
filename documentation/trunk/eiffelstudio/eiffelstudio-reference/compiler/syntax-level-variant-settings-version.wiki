@@ -28,12 +28,17 @@ The options are distinguished by how the compiler handles the processing of cert
 |}
 
 
-{| border="1" style="border-collapse: collapse; border-style: solid;"
+
+{| border="1" style="width: 100%; border-collapse: collapse; border-style: solid;"
 |+ '''Constructs affected by the ''syntax'' project setting'''
+|-
 ! rowspan="2" style="text-align: center; valign: center;" | Release
 ! colspan="4" style="text-align: center;" | Setting value*
 |-
-! Obsolete !! Transitional !! Standard !! Provisional
+! Obsolete 
+! Transitional 
+! Standard 
+! Provisional
 |-
 ! rowspan="9" style="valign: center; text-align: center;" | [[Release notes for EiffelStudio 7.0 | 7.0]], [[Release notes for EiffelStudio 7.1 | 7.1]]
 | style="color: gray;" | across
