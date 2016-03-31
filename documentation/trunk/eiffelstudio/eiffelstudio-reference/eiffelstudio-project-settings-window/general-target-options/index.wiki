@@ -53,6 +53,6 @@ Further options are
 * Full Class Checking, Void-safety, Are types attached by default?: These settings are generally associated with increasing the safety of compiled code, particularly [[Creating a new void-safe project#Project settings for void-safe projects|void-safety]].
 * Cat call detection: Attempts to identify at compile time the possibility of the system making a [[ET: Inheritance#Catcalls|catcall]].
 * Syntax: Allows you to select the [[Setting the syntax variant|syntax variant]] used by the compiler when compiling this target.
-* Concurrency: Controls the level of concurrency support for this target. ''No concurrency'' means mono-threaded; ''EiffelThread'' means concurrent threads using the [[EiffelThread Tutorial|EiffelThread]] library. ''SCOOP'' means concurrency based on the [[Concurrent Eiffel with SCOOP|SCOOP]] rules.
+* Concurrency: Controls the level of concurrency support for this target. ''No concurrency'' means mono-threaded; ''EiffelThread'' means concurrent threads using the [[EiffelThread Tutorial|EiffelThread]] library. ''SCOOP'' means concurrency based on the [[Concurrent programming with SCOOP|SCOOP]] rules.
 
 

@@ -38,7 +38,7 @@ These are used in the <code>can_search</code>, <code>can_insert</code>, and <cod
         end
 </code>
 
-For the deleter calling <code>{SHARED_LIST}.start_delete</code>, the precondition clause <code>can_delete</code> is an [[Concurrent Eiffel with SCOOP#Preconditions|uncontrolled precondition]]. This means that the deleter will wait until the <code>can_delete</code> becomes true before feature application of <code>start_delete</code> occurs.
+For the deleter calling <code>{SHARED_LIST}.start_delete</code>, the precondition clause <code>can_delete</code> is an [[Concurrent programming with SCOOP#Preconditions|uncontrolled precondition]]. This means that the deleter will wait until the <code>can_delete</code> becomes true before feature application of <code>start_delete</code> occurs.
 
 
 

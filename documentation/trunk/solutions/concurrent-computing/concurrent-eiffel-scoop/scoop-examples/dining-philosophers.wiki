@@ -28,7 +28,7 @@ Class <code>PHILOSOPHER</code> models the philosophers. The totality of a philos
 
 This feature is called by <code>{PHILOSOPHER}.live</code> repeatedly until the philosopher has eaten a prescribed number of times.
 
-The feature <code>think</code> requires no access to shared objects, but the feature <code>eat</code> depends upon the philosopher's ability to secure access to both of the forks adjacent to his plate. Because all forks are separate objects, each call to <code>eat</code> waits until the processors for both the left and right forks are available (in accordance with the [[Concurrent Eiffel with SCOOP#Access to shared resources|Wait rule]]).
+The feature <code>think</code> requires no access to shared objects, but the feature <code>eat</code> depends upon the philosopher's ability to secure access to both of the forks adjacent to his plate. Because all forks are separate objects, each call to <code>eat</code> waits until the processors for both the left and right forks are available (in accordance with the [[Concurrent programming with SCOOP#Access to shared resources|Wait rule]]).
 
 Another interesting feature of this example is the feature <code>{PHILOSOPHER}.eat</code>. If you look at the text of this feature
 

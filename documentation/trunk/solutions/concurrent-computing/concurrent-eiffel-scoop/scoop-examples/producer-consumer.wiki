@@ -32,11 +32,11 @@ It might occur to you that it would be easier, simpler, and clearer just to incl
 
 in place of the call to <code>launch_producer</code>, and dispense with the <code>launch_producer</code> feature entirely. But that is not possible in this case. 
 
-The reason is that <code>a_producer.produce (900)</code> is a [[Concurrent Eiffel with SCOOP#Separate types and separate calls|separate call]] (i. e., the object attached to <code>a_producer</code> is declared of a separate type), and according to the [[Concurrent Eiffel with SCOOP#Access to shared resources|separate argument rule]], calls on a separate object are valid only when applied to an argument of the enclosing routine. 
+The reason is that <code>a_producer.produce (900)</code> is a [[Concurrent programming with SCOOP#Separate types and separate calls|separate call]] (i. e., the object attached to <code>a_producer</code> is declared of a separate type), and according to the [[Concurrent programming with SCOOP#Access to shared resources|separate argument rule]], calls on a separate object are valid only when applied to an argument of the enclosing routine. 
 
 ==Wait condition==
 
-This example also shows an [[Concurrent Eiffel with SCOOP#Preconditions|uncontrolled precondition]] serving as a "wait condition". In the class <code>PRODUCER</code> we see the buffer declared as a class attribute with a <code>separate</code> type:
+This example also shows an [[Concurrent programming with SCOOP#Preconditions|uncontrolled precondition]] serving as a "wait condition". In the class <code>PRODUCER</code> we see the buffer declared as a class attribute with a <code>separate</code> type:
 
 <code>
     buffer: separate BOUNDED_BUFFER [INTEGER]
