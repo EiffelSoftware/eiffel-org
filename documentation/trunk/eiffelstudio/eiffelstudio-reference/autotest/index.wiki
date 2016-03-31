@@ -5,7 +5,7 @@
 
 AutoTest is a facility within EiffelStudio that helps developers create, manage, and execute software tests. 
 
-This documentation is intended to describe the AutoTest interface and capabilities. In addition to this material, you will find a tutorial entitled [[Using AutoTest]] in [[EiffelStudio: A Guided Tour]]. The tutorial employs a simple example that is used to work step-by-step through AutoTest's different facilities. The tutorial also explains testing basics and recommendations for using AutoTest. Lastly, the tutorial contains definitions for terminology used in both the tutorial and in these reference pages. It is recommended that you become familiar with these definitions, specifically:
+This documentation is intended to describe the AutoTest interface and capabilities. In addition to this material, you will find a tutorial entitled [[Using AutoTest]] in [[Introducing EiffelStudio]]. The tutorial employs a simple example that is used to work step-by-step through AutoTest's different facilities. The tutorial also explains testing basics and recommendations for using AutoTest. Lastly, the tutorial contains definitions for terminology used in both the tutorial and in these reference pages. It is recommended that you become familiar with these definitions, specifically:
 
 #[[Testing: Background and basics#Test classes and tests|Test classes and tests]]
 #[[Testing: Background and basics#Types of tests|The types of test supported by AutoTest]]
@@ -16,7 +16,7 @@ This documentation is intended to describe the AutoTest interface and capabiliti
 
 ==Components==
 
-When you use AutoTest, you control things by using two components: '''[[The AutoTest Interface]]''' and '''[[The New Eiffel Test Wizard]]'''. The interface is used to access, manage, execute, and monitor tests. The New Eiffel test wizard is used to help you create new tests.
+When you use AutoTest, you control things by using two components: '''[[The AutoTest Interface]]''' and '''[[The Eiffel Test Wizard]]'''. The interface is used to access, manage, execute, and monitor tests. The New Eiffel test wizard is used to help you create new tests.
 
 
 {{Caution|At this time, AutoTest will work only for project targets in the classic Eiffel environment. This means that projects targeted to Microsoft .Net will not be able to use AutoTest.}}
