@@ -19,7 +19,7 @@ where s is of a separate type (e.g. separate T).
 
 In the "make" creation procedure, create an EV_APPLICATION object, using an instruction such as
       create my_app
-with my_app of type EV_APPLICATION.
+with my_app of type <eiffel>EV_APPLICATION</eiffel>.
 
 Still in "make", create all the GUI elements. They will all be in the same processor that created the EV_APPLICATION object.
 
