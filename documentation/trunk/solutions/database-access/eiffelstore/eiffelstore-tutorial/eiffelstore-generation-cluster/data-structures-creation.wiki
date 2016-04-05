@@ -92,7 +92,7 @@ Let us take an example:
 | corresponding result file extract
 |- 
 | <code><A:A:A><AN:L>: <TN:U></code> <br/><code></A></code>
-| <eiffel>companyid: DOUBLE</eiffel> <br/><eiffel>companyname: STRING</eiffel> 
+| <code>companyid: DOUBLE</code> <br/><code>companyname: STRING</code> 
 |}
 
 Text contained in the tag 'A' is mapped to each table (or view) attribute and the resulting texts are concatenated. Let us see now the details about each tag. 
@@ -324,7 +324,7 @@ The wizard uses one different template for each class.
 ===3.1. Table classes===
 
 For each selected database table, a class is created from the same template, mapping the database table. This template is:
-<eiffel>
+<code>
 	indexing
 	    description: "Class which allows EiffelStore to retrieve/store%
 	    %the content of a table row from database table <CN:U>"
@@ -391,14 +391,14 @@ For each selected database table, a class is created from the same template, map
 
 	end -- class CODES
 
-</eiffel>
+</code>
 
 '''Note''': the template content can be adjusted, for instance to add comments or change the indexing. However, the fundamental template structure should not be changed to use data structures as described in the [[Data structures use|corresponding section]] . 
 
 ===3.2. Description classes===
 
 For each selected database table, a class is also created from a unique template, mapping the database table. This template is:
-<eiffel>
+<code>
 	indexing
 		description: "Description of class <CN:U>"
 		author: "EiffelStore Wizard"
@@ -564,7 +564,7 @@ For each selected database table, a class is also created from a unique template
 			-- Piece of <CN:L> associated with the description 
 
 	end -- class CODES_DESCRIPTION			
-</eiffel>
+</code>
 
 '''Note''': As for the table class generation, the template content can be adjusted, for instance to add comments or change the indexing. However, the fundamental template structure should not be changed. 
 
@@ -575,8 +575,8 @@ Some additional tags are directly replaced by the wizard:
 
 ===2.3.3. Access class===
 
-The <eiffel>DB_SPECIFIC_TABLES_ACCESS</eiffel> class is mapped to the database from the following template: 
-<eiffel>
+The <code>DB_SPECIFIC_TABLES_ACCESS</code> class is mapped to the database from the following template: 
+<code>
 	indexing
 		description: "Description of database tables.%
 			%Use this class through DB_SPECIFIC_TABLES_ACCESS_USE."
@@ -645,5 +645,4 @@ The <eiffel>DB_SPECIFIC_TABLES_ACCESS</eiffel> class is mapped to the database f
 		</A>
 
 	end -- class DB_SPECIFIC_TABLES_ACCESS 
-</eiffel>
-
+</code>
