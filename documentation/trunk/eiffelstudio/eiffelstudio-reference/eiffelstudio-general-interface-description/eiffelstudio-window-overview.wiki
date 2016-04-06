@@ -61,7 +61,7 @@ The context tool, located in the right panel, is a major part of EiffelStudio. I
 By default, the context tool is unlinked from the rest of the window, which means all left tools refer to the object that is in the editor and the main toolbar, while the context tool (and the debug tools if they are present) displays information concerning a different object. It is possible to link the context tool, so that the whole development window displays information relative to the same development object.
 
 {{seealso|<br/>
-[[EiffelStudio: A Guided Tour|EiffelStudio Guided Tour]]  <br/>
+[[Introducing EiffelStudio]]  <br/>
 [[Browsing tools|Browsing tools]]  <br/>
 [[Main toolbars|Toolbar customization]]  <br/>
 [[EiffelStudio Editor]]  <br/>
