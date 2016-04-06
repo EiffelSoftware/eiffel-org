@@ -25,7 +25,7 @@ The table below shows project settings that, depending upon their values, can af
 |-
 | [[Syntax level variant settings by version|Obsolete syntax]]
 | Favor obsolete syntax over standard.
-| 
+| [[Release notes for EiffelStudio 6.3 | 6.3]], [[Release notes for EiffelStudio 6.4 | 6.4]]
 |-
 | [[Syntax level variant settings by version|Transitional syntax]]
 | Favor standard syntax, but allow obsolete syntax when determinable by context.
@@ -33,7 +33,7 @@ The table below shows project settings that, depending upon their values, can af
 |-
 | [[Syntax level variant settings by version|Standard syntax]]
 | Enforce current standard syntax.
-|
+| [[Release notes for EiffelStudio 2015.12 | 15.12]], [[Release notes for EiffelStudio 2015.08 | 15.08]], [[Release notes for EiffelStudio 2015.01 | 15.01]], [[Release notes for EiffelStudio 2014.05 | 14.05]], [[Release notes for EiffelStudio 2013.11 | 13.11]], [[Release notes for EiffelStudio 7.3 | 7.3]], [[Release notes for EiffelStudio 7.2 | 7.2]], [[Release notes for EiffelStudio 7.1 | 7.1]], [[Release notes for EiffelStudio 7.0 | 7.0]]
 |-
 | [[Syntax level variant settings by version|Provisional syntax]]
 | Like Transitional syntax, but also allow not-yet-approved constructs.
@@ -45,11 +45,11 @@ The table below shows project settings that, depending upon their values, can af
 |-
 | True
 | Features of parent classes are rechecked for validity in heir classes.
-|
+| [[Release notes for EiffelStudio 2015.12 | 15.12]], [[Release notes for EiffelStudio 2015.08 | 15.08]], [[Release notes for EiffelStudio 2015.01 | 15.01]], [[Release notes for EiffelStudio 2014.05 | 14.05]], [[Release notes for EiffelStudio 2013.11 | 13.11]], [[Release notes for EiffelStudio 7.3 | 7.3]]
 |-
 | False
 | No recheck performed.
-| [[Release notes for EiffelStudio 6.8 | 6.8]], [[Release notes for EiffelStudio 6.7 | 6.7]], [[Release notes for EiffelStudio 6.6 | 6.6]], [[Release notes for EiffelStudio 6.5 | 6.5]]
+| [[Release notes for EiffelStudio 7.2 | 7.2]], [[Release notes for EiffelStudio 7.1 | 7.1]], [[Release notes for EiffelStudio 7.0 | 7.0]], [[Release notes for EiffelStudio 6.8 | 6.8]], [[Release notes for EiffelStudio 6.7 | 6.7]], [[Release notes for EiffelStudio 6.6 | 6.6]], [[Release notes for EiffelStudio 6.5 | 6.5]]
 |-
 | colspan="4" style="background: #E8E8E8" |
 |-
@@ -57,7 +57,7 @@ The table below shows project settings that, depending upon their values, can af
 |-
 | True
 | <code>x: T</code> is treated like <code>x: attached T</code>
-|
+| [[Release notes for EiffelStudio 2015.12 | 15.12]], [[Release notes for EiffelStudio 2015.08 | 15.08]], [[Release notes for EiffelStudio 2015.01 | 15.01]], [[Release notes for EiffelStudio 2014.05 | 14.05]], [[Release notes for EiffelStudio 2013.11 | 13.11]], [[Release notes for EiffelStudio 7.3 | 7.3]], [[Release notes for EiffelStudio 7.2 | 7.2]], [[Release notes for EiffelStudio 7.1 | 7.1]], [[Release notes for EiffelStudio 7.0 | 7.0]]
 |-
 | False
 | <code>x: T</code> is treated like <code>x: detachable T</code>
@@ -65,11 +65,11 @@ The table below shows project settings that, depending upon their values, can af
 |-
 | colspan="4" style="background: #E8E8E8" |
 |-
-|  rowspan="5" style="text-align: center" | [[Creating a new void-safe project#Project settings for void-safe projects|Void-safety]]
+|  rowspan="6" style="text-align: center" | [[Creating a new void-safe project#Project settings for void-safe projects|Void-safety]]
 |-
 | No
 | No checking against any void-safety validity rules.
-| [[Release notes for EiffelStudio 6.8 | 6.8]], [[Release notes for EiffelStudio 6.7 | 6.7]], [[Release notes for EiffelStudio 6.6 | 6.6]], [[Release notes for EiffelStudio 6.5 | 6.5]]
+| [[Release notes for EiffelStudio 7.2 | 7.2]], [[Release notes for EiffelStudio 7.1 | 7.1]], [[Release notes for EiffelStudio 7.0 | 7.0]], [[Release notes for EiffelStudio 6.8 | 6.8]], [[Release notes for EiffelStudio 6.7 | 6.7]], [[Release notes for EiffelStudio 6.6 | 6.6]], [[Release notes for EiffelStudio 6.5 | 6.5]]
 |-
 | Conformance
 | The attachment marks are not ignored for type conformance checks (with respect to VJAR/VBAR and related validity rules).
@@ -79,9 +79,13 @@ The table below shows project settings that, depending upon their values, can af
 | Validity rules are selectively checked. The initialization rule (VEVI) and the target rule (VUTA) are checked only for attached entities and attached call targets -- i.e., detachable cases are not checked.
 | 
 |-
+| Transitional
+| Checking against all void-safety validity rules using some potentially unsafe CAPs, assuming that all assertions are satisfied, and ignoring some complex cases like passing incompletely initialized Current from a creation procedure or creating agents when Current is not completely initialized.
+| [[Release Notes for EiffelStudio 13.11| 13.11]], [[Release notes for EiffelStudio 7.3 | 7.3]]
+|-
 | Complete
-| Complete checking against all void-safety validity rules.
-| [[Release Notes for EiffelStudio 13.11| 13.11]]
+| Complete checking against all void-safety validity rules ignoring any unsafe CAPs.
+| [[Release notes for EiffelStudio 2015.12 | 15.12]], [[Release notes for EiffelStudio 2015.08 | 15.08]], [[Release notes for EiffelStudio 2015.01 | 15.01]], [[Release notes for EiffelStudio 2014.05 | 14.05]]
 |}
 
 
@@ -151,7 +155,7 @@ Bear in mind that the detail meanings of the various syntax variants may change 
 
 ===The syntax updater===
 
-The syntax updater is located in the EiffelStudio "tools" folder. It is a command line utility that will update certain syntax elements from obsolete syntax to current syntax. The syntax updater was introduced with EiffelStudio version 6.4 and is delivered as late as version 6.7.
+The syntax updater is located in the EiffelStudio "tools" folder. It is a command line utility that will update certain syntax elements from obsolete syntax to current syntax. The syntax updater was introduced with EiffelStudio version 6.4.
 
 The tool makes the following updates to existing code:
 # Replaces obsolete "<code>!!</code>" syntax with <code>create</code> keyword syntax.
