@@ -8,7 +8,7 @@ To change the command line arguments used when debugging:
 * In this dialog, you can change the current arguments and also store and load argument sets. 
 * Click '''OK'''. 
 
-{{tip|To get the command line arguments in a program, it is possible to either define the root feature as taking an array of [[ref:/libraries/base/reference/string_8_chart|STRING_8]]  objects, or to use the [[ref:/libraries/base/reference/arguments_chart|ARGUMENTS]]  class, which provides a lot of functionality linked with command line arguments. }}
+{{tip|To get the command line arguments in a program, it is possible to either define the root feature as taking an array of [[ref:libraries/base/reference/string_8_chart|STRING_8]]  objects, or to use the [[ref:libraries/base/reference/arguments_chart|ARGUMENTS]]  class, which provides a lot of functionality linked with command line arguments. }}
 
 
 
