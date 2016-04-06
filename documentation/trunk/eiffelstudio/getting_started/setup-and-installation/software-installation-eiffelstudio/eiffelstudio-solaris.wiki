@@ -116,7 +116,7 @@ Once this is done, you can jump to the next section, [[#Using EiffelStudio|Using
 
 ===Starting EiffelStudio===
 
-Now everything should be properly installed and you should be able to run the compiler. Launch '''estudio''' for the interactive graphical user interface of the compiler, or launch '''ec''' for the command line interface. If you are a new user to EiffelStudio, we recommend that you follow [[EiffelStudio: A Guided Tour|the guided tour]] .
+Now everything should be properly installed and you should be able to run the compiler. Launch '''estudio''' for the interactive graphical user interface of the compiler, or launch '''ec''' for the command line interface. If you are a new user to EiffelStudio, we recommend that you follow [[Introducing EiffelStudio|the EiffelStudio guided tour]].
 
 ===EiffelStudio Appearance===
 
