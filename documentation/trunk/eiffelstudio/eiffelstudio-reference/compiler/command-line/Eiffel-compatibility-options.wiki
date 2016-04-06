@@ -81,7 +81,7 @@ The table below shows project settings that, depending upon their values, can af
 |-
 | Transitional
 | Checking against all void-safety validity rules using some potentially unsafe CAPs, assuming that all assertions are satisfied, and ignoring some complex cases like passing incompletely initialized Current from a creation procedure or creating agents when Current is not completely initialized.
-| [[Release Notes for EiffelStudio 13.11| 13.11]], [[Release notes for EiffelStudio 7.3 | 7.3]]
+| [[Release notes for EiffelStudio 13.11 | 13.11]], [[Release notes for EiffelStudio 7.3 | 7.3]]
 |-
 | Complete
 | Complete checking against all void-safety validity rules ignoring any unsafe CAPs.
