@@ -178,14 +178,14 @@ It is important to note that this optimization, if at all necessary, should at m
 ==Tuples==
 
 A new Kernel Library class is introduced: [[ref:libraries/base/reference/tuple_chart|TUPLE]] . <br/>
-Alone among all classes, class TUPLE has a variable number of generic parameters. TUPLE, TUPLE [X], TUPLE [X, Y], TUPLE [X, Y, Z] and so on are all valid types, assuming valid types X, Y, Z and so on. <br/>
+Alone among all classes, class TUPLE has a variable number of generic parameters. <code>TUPLE, TUPLE [X], TUPLE [X, Y], TUPLE [X, Y, Z]</code> and so on are all valid types, assuming valid types <code>X, Y, Z</code> and so on. <br/>
 Conformance rules: 
 <code>[CONF1]
 	For n >= 0
 	TUPLE [U1, U2, ..., Un, Un+1] conforms to
 	TUPLE [U1, U2, ..., Un]</code>
 
-(and hence to TUPLE  [T1, T2, ..., Tn] if each of the Ui conforms to each of the Ti for 1 <= i <= n.) 
+(and hence to <code>TUPLE [T1, T2, ..., Tn]</code> if each of the Ui conforms to each of the Ti for <code>1 <= i <= n</code>.) 
 
 In particular all tuple types conform to [[ref:libraries/base/reference/tuple_chart|TUPLE]] , with no parameter. 
 <code>[CONF2]
@@ -197,42 +197,26 @@ In particular all tuple types conform to [[ref:libraries/base/reference/tuple_ch
 {{Definition|Tuple Type|A "tuple type" is any type based on class [[ref:libraries/base/reference/tuple_chart|TUPLE]] , i.e. any type of the form <code>TUPLE [T1, T2, ..., Tn]</code> for any n (including 0, for which there is no generic parameter). }}
 
 
-{{note|CONF1 should be understood in terms of the underlying mathematical model. <br/>
-Mathematically, TUPLE [T1, T2, ..., Tn] is the set TUPLE n of all partial functions f from N+ (the set of non-negative integers) to T1 U T2 U ... Tn, such that:<br/>The domain of f contains the interval 1..n (in other words, f is defined for any i such that 1 <&#61; i <&#61; n). <br/>For 1 <&#61; i <&#61; n, f (i) is a member of Ti.  }}
+{{note|CONF1 should be understood in terms of the underlying mathematical model. <br/> Mathematically, <code>TUPLE [T1, T2, ..., Tn]</code> is the set TUPLE n of all partial functions f from N+ (the set of non-negative integers) to <code>T1 U T2 U ... Tn</code>, such that:<br/>The domain of f contains the interval 1..n (in other words, f is defined for any i such that 1 <nowiki><</nowiki>&#61; i <nowiki><</nowiki>&#61; n). <br/>For 1 <nowiki><</nowiki>&#61; i <nowiki><</nowiki>&#61; n, f (i) is a member of Ti.  }}
 
 With this definition, TUPLE <code>n</code> is indeed a subset of TUPLE <code>n+1</code>, and in particular TUPLE <code>0</code>, the empty set, is a subset of TUPLE <code>n</code> for any n.) 
 
-Semantics: an instance of TUPLE [T1, T2, ..., Tn] is a tuple whose first element is an instance of T1, the second element being an instance of T2 etc. (The precise definition is the mathematical one given in note 1.) Note that there can be more than n elements to the tuple: for example a tuple with first element 5 and second element "FOO" is an instance of all of the following tuple types: TUPLE; TUPLE [INTEGER]; TUPLE [INTEGER, STRING]. 
+Semantics: an instance of <code>TUPLE [T1, T2, ..., Tn]</code> is a tuple whose first element is an instance of <code>T1</code>, the second element being an instance of <code>T2</code> etc. (The precise definition is the mathematical one given in note 1.) Note that there can be more than n elements to the tuple: for example a tuple with first element 5 and second element "FOO" is an instance of all of the following tuple types: <code>TUPLE; TUPLE [INTEGER]; TUPLE [INTEGER, STRING]</code>. 
 
-It may seem restrictive at first to permit only one class, [[ref:libraries/base/reference/tuple_chart|TUPLE]] , to have an arbitrary number of actual generic parameters. Why not have a general mechanism for declaring any class C so that all of C [X], C [X, Y] etc. are valid? But in fact this is not really a restriction. To obtain this effect without any complicated language convention, just declare C as 
-C [G -> TUPLE]
-
-and then use the generic derivations
-
-C [TUPLE [X]] <br/>
+It may seem restrictive at first to permit only one class, [[ref:libraries/base/reference/tuple_chart|TUPLE]] , to have an arbitrary number of actual generic parameters. Why not have a general mechanism for declaring any class <code>C</code> so that all of <code>C [X], C [X, Y]</code> etc. are valid? But in fact this is not really a restriction. To obtain this effect without any complicated language convention, just declare <code>C</code> as 
+<code>C [G -> TUPLE]</code> and then use the generic derivations 
+<code>C [TUPLE [X]]  
 C [TUPLE [X, Y]]
-and so on. This also makes it possible to have the effect of some fixed parameters and some variable ones, as in 
-C [G, H, I -> TUPLE]
-
-so we have all the necessary flexibility.)
+</code>
+and so on. This also makes it possible to have the effect of some fixed parameters and some variable ones, as in <code>C [G, H, I -> TUPLE]</code> so we have all the necessary flexibility.)
 
 ==Tuple expressions==
 
-Let e1, e2, ..., en be expressions of respective types T1, T2, ..., Tn. Then the expression 
+Let e1, e2, ..., en be expressions of respective types T1, T2, ..., Tn. Then the expression <code>[e1, e2, ..., en]</code> denotes an instance of <code>TUPLE [T1, T2, ..., Tn]</code>, whose first element is e1, the second element being e2, etc. 
 
-[e1, e2, ..., en] 
+Tuple expressions can be nested: whereas <code>[1, 2, 3]</code> is a tuple with three elements (representing an instance of <code>TUPLE [INTEGER, INTEGER, INTEGER]), [1, [2, 3]]</code> is a tuple with two elements, the second one itself a tuple; the overall expression represents an instance of <code>TUPLE [INTEGER, TUPLE [INTEGER, INTEGER]]</code>.
 
-denotes an instance of TUPLE [T1, T2, ..., Tn], whose first element is e1, the second element being e2, etc. <br/>
-Tuple expressions can be nested: whereas 
-
-[1, 2, 3]
-
-is a tuple with three elements (representing an instance of TUPLE [INTEGER, INTEGER, INTEGER]), 
-
-[1, [2, 3]]
-
-is a tuple with two elements, the second one itself a tuple; the overall expression represents an instance of TUPLE [INTEGER, TUPLE [INTEGER, INTEGER]]. <br/>
-As a special case of tuple expression syntax, the delimiters [ and ] are replaced by parentheses for the tuple representing the actual argument list of a routine call (see section 4). 
+As a special case of tuple expression syntax, the delimiters <code>[</code> and <code>]</code> are replaced by parentheses for the tuple representing the actual argument list of a routine call (see section 4). 
 
 ==Tuple features==
 
@@ -243,28 +227,28 @@ The exact specification of class [[ref:libraries/base/reference/tuple_chart|TUPL
 *  [[ref:libraries/base/reference/tuple_chart|is_equal]] : redefined to consider only the first n elements, where n is the smaller length. 
 
 Other features under consideration include:
-* stripped (i): a tuple of type TUPLE [T1, T2, Ti-1, Ti+1, ..., Tn], derived from the current one by removing the i-th component, again with the obvious precondition. 
+* stripped (i): a tuple of type <code>TUPLE [T1, T2, Ti-1, Ti+1, ..., Tn]</code>, derived from the current one by removing the i-th component, again with the obvious precondition. 
 * wedged (x, i): a tuple with one more element, inserted at position i.
 *  '''infix''' "+": tuple concatenation 
 *  '''infix''' "++": element concatenation; t ++ x is the same thing as t.wedged (x, t.count + 1). 
 
 ==What have we gained?==
 
-First we have solved the only case in the Eiffel programming language in which an expression has no precisely defined type: polymorphic manifest arrays. We don't have manifest arrays any more, but manifest tuples, with a precisely defined type. No incompatibility is introduced thanks to rule CONF2. The original syntax for manifest arrays, Result := <<e1, e2, ..., en>>, will continue to be supported. <br/>
-Second, we can define functions that return multiple results. This is a quite significant increase in expressive power. No common language has that. (You have to go to Lisp and functional languages.) Just define TUPLE [...] as the result type; in the function, you will write things like 
-
+First we have solved the only case in the Eiffel programming language in which an expression has no precisely defined type: polymorphic manifest arrays. We don't have manifest arrays any more, but manifest tuples, with a precisely defined type. No incompatibility is introduced thanks to rule CONF2. The original syntax for manifest arrays, <code>Result := <<e1, e2, ..., en>></code>, will continue to be supported. 
+Second, we can define functions that return multiple results. This is a quite significant increase in expressive power. No common language has that. (You have to go to Lisp and functional languages.) Just define <code>TUPLE [...]</code> as the result type; in the function, you will write things like 
+<code>
 Result := [e1, e2, ..., en] 
-
+</code>
 Also, from a theoretical viewpoint, feature calls are simpler and more homogeneous: every feature takes exactly one tuple as argument and returns exactly one tuple as a result. (Either of these tuples may be empty: the first for a feature with no argument, the second for a procedure.) The syntax for a call becomes
 <code>Feature Arguments</code>
 
 with Arguments defined as
 <code>Tuple_expression</code>
 
-where the Tuple_expression uses the form given in section 2 but with the outermost [ and ] delimiters replaced by parentheses to conform to usual practice. So the call
+where the Tuple_expression uses the form given in section 2 but with the outermost <code>[</code> and <code>]</code> delimiters replaced by parentheses to conform to usual practice. So the call
 <code>f (a, b, c)</code>
 
-which we continue to think of as having three arguments a, b and c, formally has only one tuple argument [a, b, c]. This is of course not to be confused with a call of the form
+which we continue to think of as having three arguments a, b and c, formally has only one tuple argument <code>[a, b, c]</code>. This is of course not to be confused with a call of the form
 <code>g ([a, b, c])</code>
 
 which has one argument (a tuple with three elements) in both the ordinary and the formal sense.
@@ -465,8 +449,9 @@ Writing, assembling and compiling a system yields an executable command. The sys
 <code>your_system arg1 arg2 arg3</code>
 
 although one may conceive of other ways of entering the command arguments, such as tabular or graphical form-filling. In any case, the software must be able to access the values passed as command arguments. <br/>
-A language mechanism is available for that purpose: the Root Class rule indicates that the creation procedure of the root class may have a single argument (in the Eiffel sense of argument to a routine) of type <code>ARRAY[STRING]</code>. The corresponding array of strings will be initialized at the beginning of the system's execution with the values entered as arguments to that execution of the command. <br/>
+A language mechanism is available for that purpose: the Root Class rule indicates that the creation procedure of the root class may have a single argument (in the Eiffel sense of argument to a routine) of type <code>ARRAY [STRING]</code>. The corresponding array of strings will be initialized at the beginning of the system's execution with the values entered as arguments to that execution of the command. <br/>
 Although this facility suffices in many cases, it is not always convenient if you suddenly need to access the command arguments in a class that is far away from the root. An alternative mechanism, class ARGUMENTS, is available. Once again, this is a class from which you should inherit if you need its facilities. It has just two exported features: 
 * <eiffel>argument_count</eiffel>, a non-negative integer, is the number of command arguments. 
 * <eiffel>argument</eiffel> <code>(</code>i<code>)</code>, a string, is the i-th command argument. Here <code>i</code> must be between 0 and <eiffel>argument_count</eiffel>; the convention is that for <code>i </code> <code>= 0</code> the result is the name of the command itself. 
+
 
