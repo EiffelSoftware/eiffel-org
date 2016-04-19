@@ -11,7 +11,7 @@ Professor C.A.R. Hoare from Microsoft Research, winner of the Turing Award and t
 
 :"The invention of the null reference in 1965" [the source of void calls] "has led to innumerable errors, vulnerabilities, and system crashes, which have probably caused a billion dollars of pain and damage in the last forty years."
 
-(Citation at:  [http://qconlondon.com/london-2009/presentation/Null+References:+The+Billion+Dollar+Mistake] )
+(Citation at:  [http://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare] )
 
 
 The Eiffel solution relies on a combination of language mechanisms:
