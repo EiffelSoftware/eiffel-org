@@ -13,27 +13,21 @@ Enter SCOOP. The old technique cannot work because a processor stuck in a loop c
 
 So here is what you should do:
 
-Since your application uses SCOOP, somewhere it creates a separate object. Let the creation instruction be
-      create s.make
-where s is of a separate type (e.g. <eiffel>separate T</eiffel>).
-
-In the <eiffel>make</eiffel> creation procedure, create an <eiffel>EV_APPLICATION</eiffel> object, using an instruction such as
+In a creation procedure used to initialize GUI objects, create an <eiffel>EV_APPLICATION</eiffel> object, using an instruction such as
       create my_app
-with <eiffel>my_app</eiffel> of type <eiffel>EV_APPLICATION</eiffel>.
+with <eiffel>my_app</eiffel> of type <eiffel>EV_APPLICATION</eiffel>. (This may be a root creation procedure or a creation procedure of a separate object in case the root processor is going to be used for other operations.)
 
-Still in <eiffel>make</eiffel>, create all the GUI elements. They will all be in the same processor that created the <eiffel>EV_APPLICATION</eiffel> object.
+Then in the same creation procedure create all the GUI elements. They will all be in the same processor that created the <eiffel>EV_APPLICATION</eiffel> object.
 
-Also in <eiffel>make</eiffel>, start the application, using 
+After that start the application, using 
       my_app.launch
 In the pre-SCOOP world, launch would start the event loop. Here it only creates a separate object (of type <eiffel>EV_APPLICATION_HANDLER</eiffel>), which will run the event loop, forwarding  events to the <eiffel>EV_APPLICATION</eiffel> object.
 
-This is all the make procedure should do. Make sure it terminates with the preceding step. Otherwise,  the event loop will never run!
+This is all the creation procedure should do. Make sure it terminates with the preceding step. Otherwise, the event loop will never run!
 
 Now you can start using EiffelVision as you are used to, by sending GUI requests to the <eiffel>EV_APPLICATION</eiffel> object:
 
-* For requests coming from the same processor as s, just use the <eiffel>EV_APPLICATION</eiffel> object directly.
-* For requests coming from another processor, you need access to that object; you can get it for example by through the feature <eiffel>ev_separate_application</eiffel> of class <eiffel>EV_SHARED_APPLICATION</eiffel>}.
-
+* For requests coming from the same processor just use the <eiffel>EV_APPLICATION</eiffel> object directly.
+* For requests coming from another processor, you need access to that object; you can get through the feature <eiffel>ev_separate_application</eiffel> of class <eiffel>EV_SHARED_APPLICATION</eiffel>.
 
 That's all! Happy concurrent Eiffeling. 
- 
