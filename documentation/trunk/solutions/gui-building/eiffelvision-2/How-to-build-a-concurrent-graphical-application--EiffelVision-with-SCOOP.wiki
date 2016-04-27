@@ -28,6 +28,6 @@ This is all the creation procedure should do. Make sure it terminates with the p
 Now you can start using EiffelVision as you are used to, by sending GUI requests to the <eiffel>EV_APPLICATION</eiffel> object:
 
 * For requests coming from the same processor just use the <eiffel>EV_APPLICATION</eiffel> object directly.
-* For requests coming from another processor, you need access to that object; you can get through the feature <eiffel>ev_separate_application</eiffel> of class <eiffel>EV_SHARED_APPLICATION</eiffel>.
+* For requests coming from another processor, you can get the access through the feature <eiffel>ev_separate_application</eiffel> of class <eiffel>EV_SHARED_APPLICATION</eiffel>.
 
 That's all! Happy concurrent Eiffeling. 
