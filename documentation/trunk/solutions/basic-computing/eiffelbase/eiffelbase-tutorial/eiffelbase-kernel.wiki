@@ -103,6 +103,7 @@ These two features enable clients to ascertain the dynamic type of an entity at 
 ==Miscellaneous==
 
 The query Void, of type <eiffel>NONE</eiffel>, denotes a reference that is always void - not attached to any object. <br/>
+
 Procedure <eiffel>do_nothing</eiffel> does what its name implies. <br/>
 Function default also has an empty body; its result type is <code>like Current</code>, so what it returns is the default value of the current type. This is mostly interesting for expanded types, since for reference types the default value is simply a void reference. 
 
@@ -112,13 +113,60 @@ A number of classes offer facilities which are very close to the language level.
 
 ==Basic types==
 
-The basic types [[ref:libraries/base/reference/boolean_chart|BOOLEAN]] , [[ref:libraries/base/reference/character_8_chart|CHARACTER]] , [[ref:libraries/base/reference/integer_32_chart|INTEGER]] , [[ref:libraries/base/reference/real_32_chart|REAL]]  and [[ref:libraries/base/reference/real_64_chart|DOUBLE]]  are defined by classes of the Kernel library. <br/>
-In reading the class specifications for the numeric types [[ref:libraries/base/reference/integer_32_chart|INTEGER]] , [[ref:libraries/base/reference/real_32_chart|REAL]]  and [[ref:libraries/base/reference/real_64_chart|DOUBLE]] , you might think that the type declarations are too restrictive. For example the addition operation in class [[ref:libraries/base/reference/real_32_chart|REAL]]  reads 
+The basic types [[ref:libraries/base/reference/boolean_chart|BOOLEAN]] ,
+[[ref:libraries/base/reference/character_8_chart|CHARACTER]] ,
+INTEGER_( [[ref:libraries/base/reference/integer_8_chart|8]] ,
+ [[ref:libraries/base/reference/integer_16_chart|16]] ,
+ [[ref:libraries/base/reference/integer_32_chart|32]] ,
+ [[ref:libraries/base/reference/integer_64_chart|64]] )
+ and REAL_( [[ref:libraries/base/reference/real_32_chart|32]] ,
+ [[ref:libraries/base/reference/real_64_chart|64]] )
+ are defined by classes of the Kernel library.
+<br/>
+
+INTEGER is an alias for
+ [[ref:libraries/base/reference/integer_32_chart|INTEGER_32]] ,
+ REAL is an alias for [[ref:libraries/base/reference/real_32_chart|REAL_32]] ,
+ and DOUBLE is an alias for
+ [[ref:libraries/base/reference/real_64_chart|REAL_64]].
+Please, note that these aliases may be modfied.
+<br/>
+
+In reading the class specifications for the numeric types
+ [[ref:libraries/base/reference/integer_32_chart|INTEGER]] , and
+ [[ref:libraries/base/reference/real_32_chart|REAL]] ,
+ you might think that the type declarations are too restrictive.
+ For example the addition operation in class
+ [[ref:libraries/base/reference/real_32_chart|REAL]]  reads
 <code>
-    infix "+" (other: REAL): REAL
+    plus alias "+" (other: REAL_32): REAL_32
 </code>
 
-but there is actually no problem here. A language convention applicable to all arithmetic expressions, the Balancing rule, states that in any such expression all operands are considered to be converted to the heaviest type, where [[ref:libraries/base/reference/real_64_chart|DOUBLE]]  is heavier than [[ref:libraries/base/reference/real_32_chart|REAL]]  and [[ref:libraries/base/reference/real_32_chart|REAL]]  is heavier than [[ref:libraries/base/reference/integer_32_chart|INTEGER]] . So mixed-type arithmetic, consistent with common practice, is possible and indeed frequent. 
+but there is actually no problem here.
+For instance, a [[ref:libraries/base/reference/real_32_chart|REAL_32]]  can be
+ added to an [[ref:libraries/base/reference/integer_32_chart|INTEGER_32]] :
+
+<code>
+v := 0.1 + 1
+</code>
+
+This is enabled by the declaration of a conversion clause:
+
+<code>
+frozen expanded class
+    INTEGER_32
+
+create
+    ...
+
+convert
+    to_real: {REAL_32},
+    ...
+
+feature
+    ...
+end
+</code>
 
 ==Arrays==
 
