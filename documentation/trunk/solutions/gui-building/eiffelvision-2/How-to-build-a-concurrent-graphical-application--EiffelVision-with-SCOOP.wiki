@@ -30,6 +30,6 @@ Now you can start using EiffelVision as you are used to, by sending GUI requests
 * For requests coming from the same processor just use the <eiffel>EV_APPLICATION</eiffel> object directly.
 * For requests coming from another processor, you can get the access through the feature <eiffel>ev_separate_application</eiffel> of class <eiffel>EV_SHARED_APPLICATION</eiffel>.
 
-Note that only one <eiffel>EV_APPLICATION<eiffel> object can be used, therefore all GUI objects have to be created in the region of this object.
+Note that only one <eiffel>EV_APPLICATION</eiffel> object can be used, therefore all GUI objects have to be created in the region of this object.
 
 That's all! Happy concurrent Eiffeling. 
