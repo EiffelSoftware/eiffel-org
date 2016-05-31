@@ -33,5 +33,5 @@
 * Fix minimum size computation of windows with Aero Glass. When compiling code using the latest versions of Visual Studio, the minimum size of a window was slightly smaller than what it should have been.
 
 ===WEL===
-* Fix invalid computation of `null_terminated_strings'. The computation done to advance the pointer was based on a buffer length expressed in characters but it is already in bytes, so no need to multiply it by the size of characters.
+* Fix invalid computation of `null_terminated_strings'.
 * Fix improper wrapping of WEL_HD_NOTIFY we used an INTEGER_32 when a POINTER should have been used (causing some possible loss of data and some memory access violation).
