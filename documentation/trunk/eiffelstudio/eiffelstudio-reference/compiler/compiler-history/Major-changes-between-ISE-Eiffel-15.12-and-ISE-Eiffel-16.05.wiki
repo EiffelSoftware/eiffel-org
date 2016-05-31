@@ -3,10 +3,97 @@
 [[Property:title|Major changes between ISE Eiffel 15.12 and ISE Eiffel 16.05]]
 [[Property:link_title|16.05]]
 ==What's new==
+* Change the default behavior of attachment of local entities and Result. They are treated as if they were detachable. We instead apply the rules of void-safety to check that all usages are properly typed. In the case of Result, it has to be attached at the end of the routine.
+
+This is achieved as follows:
+# If a local (or Result) is a target of an assignment, it's type is considered detachable.
+# If a local (or Result) of a type that required initialization (this includes attached and formal generic types, possibly through anchors) is not set, it's value is considered detachable.
+# If a local (or Result) is considered attached due to an assignment or a CAP, it is also considered set (even though it might have never been assigned).
+# If a local (or Result) is assigned a value that requires initialization (i.e. of an attached or formal generic type), it is considered set, but may be detachable.
+# If a local (or Result) is assigned a value of a detachable type that does not require initialization, it is considered unset and detachable.
+# A target of an assignment attempt may not be of an attached type or a type that requires initialization.
+# At routine end Result is required to be set if it is of a type that requires initialization.
+
+The change allows dropping explicit detachable marks in local declarations and simplifying the code that uses Result, e.g.
+<eiffel>
+	foo: X
+		local
+			r: detachable X
+		do
+			r := something
+			if not attached r then
+				r := something_else_attached
+			end
+			Result := r
+		end
+
+	foo: X
+		do
+			if attached something as r then
+				Result := r
+			else
+				Result := something_else_attached
+			end
+		end
+</eiffel>
+
+into
+<code>
+	foo: X
+		do
+			Result := something
+			if not attached Result then
+				Result := something_else_attached
+			end
+		end
+</code>
+
+The change does not allow previously void-unsafe code to be treated as void-safe, but may affect errors reported by the compiler, in particular:
+# VEVI errors may be now reported as VUTA(2) when a local of an attached type is used as a target of call before it is attached.
+# VEVI errors may be now reported as VJAR (or the counterpart for argument
+passing) when a local of an attached type is used as a source expression before it is attached.
+
+
 ==Improvements==
+* Improve reporting for errors in regular expressions used in include and exclude file rules in ECF by adding position information and providing error description all the time.
+
+* Improve performance of code using across iterator. Breaking change causes you to the need of add a redefinition of index_set to have code compatible with both 15.12 and 16.05. Optimized code generation for iteration instruction calls to `after' and `forth' by rechecking the code with the actual type of a cursor variable. Added `lower' and `upper' to {READABLE_INDEXABLE} to be used instead of `index_set' by iteration cursor. Marked `{READABLE_INDEXABLE}.index_set' as obsolete in favor of `lower' and `upper' to avoid object creation, especially when implementing external cursors for iterative forms of a loop. Provided implementation of `index_set' in {READABLE_INDEXABLE} so that it can be removed in descendants. Made `lower_defined' and `upper_defined' in {INTEGER_INTERVAL} always True because this was the case for all created objects and clients almost never checked if boundaries were defined. Provided specialized versions of iteration cursors for SPECIAL, ARRAY, ARRAYED_LIST, READABLE_STRING_8, READABLE_STRING_32 to improve performance of across loops for these containers.
+
+
 ==Changes==
+* Change code analysis command-line arguments to report errors immediately instead of trying to run code analysis and improve error reporting by providing more details (such as option name, rule name, kind of syntax error). Add support of position-independent code analysis options (still retaining old code analysis options) that act like regular EiffelStudio command-line options:
+** -ca_default
+** -ca_setting preference_file_name
+** -ca_class (-all|class_name)
+** -ca_rule rule_name_with_optional_setting 
+
+* Add a more efficient way to perform access on void target in non-void-safe mode by making the check only once for side-effect free entities. Avoid checks for voidness for object test locals because they are always attached.
 
 ==Bug fixes==
+Bug Fixes Compiler:
+* Fix crash during documentation generation via the Generate documentation dialog when the project contains library that are not actually part of the system because they are conditionnaly included (see bug#19173)
+* Fix code analysis issue by resetting the internal data between checks (see eweasel test#codeanalysis019)
+* Fix .NET code generation failure causing a stack overflow.
+* Fix spurious compilation error when involving conversions between attached and detachable types.
+* Fix invalid type checking error when using a manifest array in an across loop when some special crafted code appears before (see eweasel test#valid288) as in:
 
-===Compiler issues===
-===SCOOP issues===
+<code>
+failure
+local
+i: INTEGER
+do
+bar (Void).make_from_array (Void)               -- Comment out this line to fix the bug.
+
+across
+<<1, 2, 3>> as c_i
+loop
+i := c_i.item                                   -- Error here.
+end
+end
+</code>
+
+* Fix .NET code generation to generate verifiable code when converting a manifest integer constant compatible with a NATURAL_64 (see eweasel test#dotnet118)
+* Fix invalid .NET code generation when you inherit from a .NET class where one of the following routines is frozen: Equals, Finalize, ToString and/or GetHashCode (see eweasel test#dotnet119)
+* Fix invalid inlining of routine involving an object test local, an iteration cursor or a separate instruction local (see bug#18028, test#final114, test#final123, test#bench019).
+* Fix test#scoop077 by applying SCOOP semantics rules and checking SCOOP validity rules for iteration cursors.
+* Fix an issue when extracting a type ID from a string involving the separate keyword.
