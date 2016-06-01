@@ -33,7 +33,7 @@ The table below shows project settings that, depending upon their values, can af
 |-
 | [[Syntax level variant settings by version|Standard syntax]]
 | Enforce current standard syntax.
-| [[Release notes for EiffelStudio 15.12 | 15.12]], [[Release notes for EiffelStudio 15.08 | 15.08]], [[Release notes for EiffelStudio 15.01 | 15.01]], [[Release notes for EiffelStudio 14.05 | 14.05]], [[Release notes for EiffelStudio 13.11 | 13.11]], [[Release notes for EiffelStudio 7.3 | 7.3]], [[Release notes for EiffelStudio 7.2 | 7.2]], [[Release notes for EiffelStudio 7.1 | 7.1]], [[Release notes for EiffelStudio 7.0 | 7.0]]
+| [[Release notes for EiffelStudio 7.0 | 7.0]] and more recent
 |-
 | [[Syntax level variant settings by version|Provisional syntax]]
 | Like Transitional syntax, but also allow not-yet-approved constructs.
@@ -45,7 +45,7 @@ The table below shows project settings that, depending upon their values, can af
 |-
 | True
 | Features of parent classes are rechecked for validity in heir classes.
-| [[Release notes for EiffelStudio 15.12 | 15.12]], [[Release notes for EiffelStudio 15.08 | 15.08]], [[Release notes for EiffelStudio 15.01 | 15.01]], [[Release notes for EiffelStudio 14.05 | 14.05]], [[Release notes for EiffelStudio 13.11 | 13.11]], [[Release notes for EiffelStudio 7.3 | 7.3]]
+| [[Release notes for EiffelStudio 7.3 | 7.3]] and more recent
 |-
 | False
 | No recheck performed.
@@ -57,7 +57,7 @@ The table below shows project settings that, depending upon their values, can af
 |-
 | True
 | <code>x: T</code> is treated like <code>x: attached T</code>
-| [[Release notes for EiffelStudio 15.12 | 15.12]], [[Release notes for EiffelStudio 15.08 | 15.08]], [[Release notes for EiffelStudio 15.01 | 15.01]], [[Release notes for EiffelStudio 14.05 | 14.05]], [[Release notes for EiffelStudio 13.11 | 13.11]], [[Release notes for EiffelStudio 7.3 | 7.3]], [[Release notes for EiffelStudio 7.2 | 7.2]], [[Release notes for EiffelStudio 7.1 | 7.1]], [[Release notes for EiffelStudio 7.0 | 7.0]]
+| [[Release notes for EiffelStudio 7.0 | 7.0]] and more recent
 |-
 | False
 | <code>x: T</code> is treated like <code>x: detachable T</code>
@@ -85,7 +85,7 @@ The table below shows project settings that, depending upon their values, can af
 |-
 | Complete
 | Complete checking against all void-safety validity rules ignoring any unsafe CAPs.
-| [[Release notes for EiffelStudio 15.12 | 15.12]], [[Release notes for EiffelStudio 15.08 | 15.08]], [[Release notes for EiffelStudio 15.01 | 15.01]], [[Release notes for EiffelStudio 14.05 | 14.05]]
+| [[Release notes for EiffelStudio 14.05 | 14.05]] and more recent
 |}
 
 
