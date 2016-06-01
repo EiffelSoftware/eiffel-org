@@ -80,11 +80,11 @@ failure
 	local
 		i: INTEGER
 	do
-		bar (Void).make_from_array (Void)               -- Comment out this line to fix the bug.
+		bar (Void).make_from_array (Void) -- Comment out this line to fix the bug.
 		across
 			<<1, 2, 3>> as c_i
 		loop
-			i := c_i.item                                   -- Error here.
+			i := c_i.item             -- Error here.
 		end
 	end
 </code>
