@@ -50,8 +50,7 @@ into
 
 The change does not allow previously void-unsafe code to be treated as void-safe, but may affect errors reported by the compiler, in particular:
 # VEVI errors may be now reported as VUTA(2) when a local of an attached type is used as a target of call before it is attached.
-# VEVI errors may be now reported as VJAR (or the counterpart for argument
-passing) when a local of an attached type is used as a source expression before it is attached.
+# VEVI errors may be now reported as VJAR (or the counterpart for argument passing) when a local of an attached type is used as a source expression before it is attached.
 
 
 ==Improvements==
@@ -70,7 +69,6 @@ passing) when a local of an attached type is used as a source expression before 
 * Add a more efficient way to perform access on void target in non-void-safe mode by making the check only once for side-effect free entities. Avoid checks for voidness for object test locals because they are always attached.
 
 ==Bug fixes==
-Bug Fixes Compiler:
 * Fix crash during documentation generation via the Generate documentation dialog when the project contains library that are not actually part of the system because they are conditionnaly included (see bug#19173)
 * Fix code analysis issue by resetting the internal data between checks (see eweasel test#codeanalysis019)
 * Fix .NET code generation failure causing a stack overflow.
