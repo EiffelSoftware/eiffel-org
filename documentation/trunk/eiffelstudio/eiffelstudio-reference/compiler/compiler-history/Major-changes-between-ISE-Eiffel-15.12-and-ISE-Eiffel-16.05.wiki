@@ -56,17 +56,25 @@ The change does not allow previously void-unsafe code to be treated as void-safe
 ==Improvements==
 * Improve reporting for errors in regular expressions used in include and exclude file rules in ECF by adding position information and providing error description all the time.
 
-* Improve performance of code using across iterator.<br/> Breaking change causes you to the need of add a redefinition of index_set to have code compatible with both 15.12 and 16.05. Optimized code generation for iteration instruction calls to <code>after</code> and <code>forth</code> by rechecking the code with the actual type of a cursor variable. Added <code>lower</code> and <code>upper</code> to {READABLE_INDEXABLE} to be used instead of <code>index_set</code> by iteration cursor. Marked <code>{READABLE_INDEXABLE}.index_set</code> as obsolete in favor of <code>lower</code> and <code>upper</code> to avoid object creation, especially when implementing external cursors for iterative forms of a loop. Provided implementation of <code>index_set</code> in {READABLE_INDEXABLE} so that it can be removed in descendants. Made <code>lower_defined</code> and <code>upper_defined</code> in {INTEGER_INTERVAL} always True because this was the case for all created objects and clients almost never checked if boundaries were defined. Provided specialized versions of iteration cursors for SPECIAL, ARRAY, ARRAYED_LIST, READABLE_STRING_8, READABLE_STRING_32 to improve performance of across loops for these containers.
+* Improve performance of code using across iterator.<br/> Breaking change causes you to the need of add a redefinition of index_set to have code compatible with both 15.12 and 16.05.
+* Optimized code generation for iteration instruction calls to <code>after</code> and <code>forth</code> by rechecking the code with the actual type of a cursor variable.
+* Added <code>lower</code> and <code>upper</code> to {READABLE_INDEXABLE} to be used instead of <code>index_set</code> by iteration cursor.
+* Marked <code>{READABLE_INDEXABLE}.index_set</code> as obsolete in favor of <code>lower</code> and <code>upper</code> to avoid object creation, especially when implementing external cursors for iterative forms of a loop.
+* Provided implementation of <code>index_set</code> in {READABLE_INDEXABLE} so that it can be removed in descendants.
+* Made <code>lower_defined</code> and <code>upper_defined</code> in {INTEGER_INTERVAL} always True because this was the case for all created objects and clients almost never checked if boundaries were defined.
+* Provided specialized versions of iteration cursors for SPECIAL, ARRAY, ARRAYED_LIST, READABLE_STRING_8, READABLE_STRING_32 to improve performance of across loops for these containers.
 
 
 ==Changes==
-* Change code analysis command-line arguments to report errors immediately instead of trying to run code analysis and improve error reporting by providing more details (such as option name, rule name, kind of syntax error). Add support of position-independent code analysis options (still retaining old code analysis options) that act like regular EiffelStudio command-line options:
+* Change code analysis command-line arguments to report errors immediately instead of trying to run code analysis and improve error reporting by providing more details (such as option name, rule name, kind of syntax error).
+* Add support of position-independent code analysis options (still retaining old code analysis options) that act like regular EiffelStudio command-line options:
 ** -ca_default
 ** -ca_setting preference_file_name
 ** -ca_class (-all|class_name)
 ** -ca_rule rule_name_with_optional_setting 
 
-* Add a more efficient way to perform access on void target in non-void-safe mode by making the check only once for side-effect free entities. Avoid checks for voidness for object test locals because they are always attached.
+* Add a more efficient way to perform access on void target in non-void-safe mode by making the check only once for side-effect free entities.
+* Avoid checks for voidness for object test locals because they are always attached.
 
 ==Bug fixes==
 * Fix crash during documentation generation via the Generate documentation dialog when the project contains library that are not actually part of the system because they are conditionnaly included (see bug#19173)
@@ -80,11 +88,12 @@ failure
     local
         i: INTEGER
     do
-        bar (Void).make_from_array (Void) -- Comment out this line to fix the bug.
+            -- Comment out next line to fix the bug.
+        bar (Void).make_from_array (Void)
         across
             <<1, 2, 3>> as c_i
         loop
-            i := c_i.item                 -- Error here.
+            i := c_i.item -- Error here.
         end
     end
 </code>
