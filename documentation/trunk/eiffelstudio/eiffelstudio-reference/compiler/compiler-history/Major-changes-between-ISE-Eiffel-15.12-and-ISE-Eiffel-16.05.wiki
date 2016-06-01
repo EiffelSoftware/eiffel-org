@@ -16,36 +16,36 @@ This is achieved as follows:
 
 The change allows dropping explicit detachable marks in local declarations and simplifying the code that uses Result, e.g.
 <code>
-foo: X
-    local
-        r: detachable X
-    do
-        r := something
-        if not attached r then
-            r := something_else_attached
-        end
-        Result := r
-    end
+	foo: X
+		local
+			r: detachable X
+		do
+			r := something
+			if not attached r then
+				r := something_else_attached
+			end
+			Result := r
+		end
 
-foo: X
-    do
-        if attached something as r then
-            Result := r
-        else
-            Result := something_else_attached
-        end
-    end
+	foo: X
+		do
+			if attached something as r then
+				Result := r
+			else
+				Result := something_else_attached
+			end
+		end
 </code>
 
 into
 <code>
-foo: X
-    do
-        Result := something
-        if not attached Result then
-            Result := something_else_attached
-        end
-    end
+	foo: X
+		do
+			Result := something
+			if not attached Result then
+				Result := something_else_attached
+			end
+		end
 </code>
 
 The change does not allow previously void-unsafe code to be treated as void-safe, but may affect errors reported by the compiler, in particular:
@@ -58,11 +58,11 @@ The change does not allow previously void-unsafe code to be treated as void-safe
 
 * Improve performance of code using across iterator.<br/> Breaking change causes you to the need of add a redefinition of index_set to have code compatible with both 15.12 and 16.05.
 * Optimized code generation for iteration instruction calls to <code>after</code> and <code>forth</code> by rechecking the code with the actual type of a cursor variable.
-* Added <code>lower</code> and <code>upper</code> to {READABLE_INDEXABLE} to be used instead of <code>index_set</code> by iteration cursor.
+* Added <code>lower</code> and <code>upper</code> to <code>READABLE_INDEXABLE</code> to be used instead of <code>index_set</code> by iteration cursor.
 * Marked <code>{READABLE_INDEXABLE}.index_set</code> as obsolete in favor of <code>lower</code> and <code>upper</code> to avoid object creation, especially when implementing external cursors for iterative forms of a loop.
-* Provided implementation of <code>index_set</code> in {READABLE_INDEXABLE} so that it can be removed in descendants.
-* Made <code>lower_defined</code> and <code>upper_defined</code> in {INTEGER_INTERVAL} always True because this was the case for all created objects and clients almost never checked if boundaries were defined.
-* Provided specialized versions of iteration cursors for SPECIAL, ARRAY, ARRAYED_LIST, READABLE_STRING_8, READABLE_STRING_32 to improve performance of across loops for these containers.
+* Provided implementation of <code>index_set</code> in <code>READABLE_INDEXABLE</code> so that it can be removed in descendants.
+* Made <code>lower_defined</code> and <code>upper_defined</code> in <code>INTEGER_INTERVAL</code> always <code>True</code> because this was the case for all created objects and clients almost never checked if boundaries were defined.
+* Provided specialized versions of iteration cursors for <code>SPECIAL</code>, <code>ARRAY</code>, <code>ARRAYED_LIST</code>, <code>READABLE_STRING_8</code>, <code>READABLE_STRING_32</code> to improve performance of across loops for these containers.
 
 
 ==Changes==
@@ -98,8 +98,8 @@ failure
     end
 </code>
 
-* Fix .NET code generation to generate verifiable code when converting a manifest integer constant compatible with a NATURAL_64 (see eweasel test#dotnet118)
-* Fix invalid .NET code generation when you inherit from a .NET class where one of the following routines is frozen: Equals, Finalize, ToString and/or GetHashCode (see eweasel test#dotnet119)
+* Fix .NET code generation to generate verifiable code when converting a manifest integer constant compatible with a <code>NATURAL_64</code> (see eweasel test#dotnet118)
+* Fix invalid .NET code generation when you inherit from a .NET class where one of the following routines is frozen: <code>Equals</code>, <code>Finalize</code>, <code>ToString</code> and/or <code>GetHashCode</code> (see eweasel test#dotnet119)
 * Fix invalid inlining of routine involving an object test local, an iteration cursor or a separate instruction local (see bug#18028, test#final114, test#final123, test#bench019).
 * Fix test#scoop077 by applying SCOOP semantics rules and checking SCOOP validity rules for iteration cursors.
 * Fix an issue when extracting a type ID from a string involving the separate keyword.
