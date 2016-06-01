@@ -15,7 +15,7 @@ This is achieved as follows:
 # At routine end Result is required to be set if it is of a type that requires initialization.
 
 The change allows dropping explicit detachable marks in local declarations and simplifying the code that uses Result, e.g.
-<eiffel>
+<code>
 	foo: X
 		local
 			r: detachable X
@@ -35,7 +35,7 @@ The change allows dropping explicit detachable marks in local declarations and s
 				Result := something_else_attached
 			end
 		end
-</eiffel>
+</code>
 
 into
 <code>
@@ -78,18 +78,18 @@ Bug Fixes Compiler:
 * Fix invalid type checking error when using a manifest array in an across loop when some special crafted code appears before (see eweasel test#valid288) as in:
 
 <code>
-failure
-local
-i: INTEGER
-do
-bar (Void).make_from_array (Void)               -- Comment out this line to fix the bug.
-
-across
-<<1, 2, 3>> as c_i
-loop
-i := c_i.item                                   -- Error here.
-end
-end
+	failure
+		local
+			i: INTEGER
+		do
+			bar (Void).make_from_array (Void)               -- Comment out this line to fix the bug.
+			
+			across
+				<<1, 2, 3>> as c_i
+			loop
+				i := c_i.item                                   -- Error here.
+			end
+		end
 </code>
 
 * Fix .NET code generation to generate verifiable code when converting a manifest integer constant compatible with a NATURAL_64 (see eweasel test#dotnet118)
