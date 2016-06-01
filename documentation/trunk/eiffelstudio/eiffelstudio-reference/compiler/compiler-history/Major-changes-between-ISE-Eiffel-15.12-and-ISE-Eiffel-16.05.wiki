@@ -16,36 +16,36 @@ This is achieved as follows:
 
 The change allows dropping explicit detachable marks in local declarations and simplifying the code that uses Result, e.g.
 <code>
-	foo: X
-		local
-			r: detachable X
-		do
-			r := something
-			if not attached r then
-				r := something_else_attached
-			end
-			Result := r
+foo: X
+	local
+		r: detachable X
+	do
+		r := something
+		if not attached r then
+			r := something_else_attached
 		end
+		Result := r
+	end
 
-	foo: X
-		do
-			if attached something as r then
-				Result := r
-			else
-				Result := something_else_attached
-			end
+foo: X
+	do
+		if attached something as r then
+			Result := r
+		else
+			Result := something_else_attached
 		end
+	end
 </code>
 
 into
 <code>
-	foo: X
-		do
-			Result := something
-			if not attached Result then
-				Result := something_else_attached
-			end
+foo: X
+	do
+		Result := something
+		if not attached Result then
+			Result := something_else_attached
 		end
+	end
 </code>
 
 The change does not allow previously void-unsafe code to be treated as void-safe, but may affect errors reported by the compiler, in particular:
@@ -76,18 +76,17 @@ The change does not allow previously void-unsafe code to be treated as void-safe
 * Fix invalid type checking error when using a manifest array in an across loop when some special crafted code appears before (see eweasel test#valid288) as in:
 
 <code>
-	failure
-		local
-			i: INTEGER
-		do
-			bar (Void).make_from_array (Void)               -- Comment out this line to fix the bug.
-			
-			across
-				<<1, 2, 3>> as c_i
-			loop
-				i := c_i.item                                   -- Error here.
-			end
+failure
+	local
+		i: INTEGER
+	do
+		bar (Void).make_from_array (Void)               -- Comment out this line to fix the bug.
+		across
+			<<1, 2, 3>> as c_i
+		loop
+			i := c_i.item                                   -- Error here.
 		end
+	end
 </code>
 
 * Fix .NET code generation to generate verifiable code when converting a manifest integer constant compatible with a NATURAL_64 (see eweasel test#dotnet118)
