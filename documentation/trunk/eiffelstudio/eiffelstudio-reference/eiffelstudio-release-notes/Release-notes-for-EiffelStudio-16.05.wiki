@@ -5,33 +5,36 @@
 
 ==Graphical environment==
 ===What's new===
-* Ability to target more than one Microsoft C compiler. We now support VS 2015 and above. A known issue with VS 2015 is that using the console in a graphical application will cause a crash. A separate runtime update will be available shortly.
+* Ability to target more than one Microsoft C compiler. We now support VS 2015 and above. <br/>A known issue with VS 2015 is that using the console in a graphical application will cause a crash. A separate runtime update will be available shortly.
 
 ===Improvements===
 * Update wizards to allow setting the SCOOP concurrency setting
 * Flat short involving conversions on numeric constants will not show the conversion calls.
 * Add checks for validity of regular expressions used in include and exclude file rules in ECF specified in EiffelStudio dialog and rejecting invalid regular expression with the corresponding error dialog to avoid a possibility to store ECF that cannot be retrieved.
+* The '''Add Library''' dialog was revisited to enhance the search which now looks into name, description, tags, ... . In addition, it is also possible to search for a library including a class name.
+* The '''Execution Parameters''' are now saved as xml file. It is also possible to export/import such execution parameters xml file from the ''Execution Parameters'' dialog, using the drop-down menu.
 
 ===Bug fixes===
 * Fix crash in bug report submission dialog when a network problem occurs
 * Fix crash when trying to save an empty editor tab (see bug#19178)
-* Fix metric tool that stopped working due to a change in the interface of the ROUTINE class in 15.12 (see bug#19212).
+* Fix metric tool that stopped working due to a change in the interface of the <code>ROUTINE</code> class in 15.12 (see bug#19212).
 
 ==Compiler==
-* Click [[Major changes between ISE Eiffel 15.12 and ISE Eiffel 16.05|here]] for the compiler release notes.
+* Click [[Major changes between ISE Eiffel 15.12 and ISE Eiffel 16.05|here]] for the '''compiler release notes'''.
 
 ==Libraries==
 ===General===
 * Update to the latest version of the Eiffel Gobo library
+* New library ''etar'' located at <code>$ISE_LIBRARY/contrib/library/utility/archive/etar</code>.
 
 ===Vision2===
-* `upper_bar' and `lower_bar' are now obsolete. Use instead a vertical box where the first item is the upper_bar and the last item the lower_bar. 
+* <code>upper_bar</code> and <code>lower_bar</code> are now obsolete. Use instead a vertical box where the first item is the upper_bar and the last item the lower_bar. 
 * Vision will now keep windows open even if not referenced. This address a long standing gotcha for beginners. As a consequence, it is critical that code close or destroy windows when they are not needed anymore, otherwise they will be displayed until the application termination.
 * Fix issue preventing Vision applications to work correctly in SCOOP mode
-* For proper SCOOP handling, the last instruction in a creation procedure that initializes GUI objects should be {EV_APPLICATION}.launch.
+* For proper SCOOP handling, the last instruction in a creation procedure that initializes GUI objects should be <code>{EV_APPLICATION}.launch</code>.
 * Use a passive region for an application cell to avoid creating a new thread for no reason.
 * Fix minimum size computation of windows with Aero Glass. When compiling code using the latest versions of Visual Studio, the minimum size of a window was slightly smaller than what it should have been.
 
 ===WEL===
-* Fix invalid computation of `null_terminated_strings'.
-* Fix improper wrapping of WEL_HD_NOTIFY we used an INTEGER_32 when a POINTER should have been used (causing some possible loss of data and some memory access violation).
+* Fix invalid computation of <code>null_terminated_strings</code>.
+* Fix improper wrapping of <code>WEL_HD_NOTIFY</code> we used an <code>INTEGER_32</code> when a <code>POINTER</code> should have been used (causing some possible loss of data and some memory access violation).
