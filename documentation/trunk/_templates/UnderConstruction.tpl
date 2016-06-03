@@ -1,1 +1,1 @@
-<center class="doc-tpl-box"><p style="text-align:center; width: 350px; border: 1px solid #FFB55F; padding: 2px; background-color: #FFEEBF; color: black;">[[Image:LogoConstruction|24px]] '''Under construction:''' [[How to contribute to documentation#UnderConstruction|see definition]].</p></center>
+<p class="tpl header-message">[[Image:LogoConstruction|24px]] '''Under construction:''' [[How to contribute to documentation#UnderConstruction|see definition]].</p>

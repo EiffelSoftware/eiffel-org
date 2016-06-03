@@ -1,1 +1,1 @@
-<center class="doc-tpl-box"><p style="text-align:center; width: 350px; border: 1px solid #0000CC; padding: 2px; background-color: #FFFFFF; color: black;">[[Image:LogoReviewRequested|24px]] '''Review requested: ''' [[How to contribute to documentation#ReviewRequested|see definition]].</p></center>
+<p class="tpl header-message" style="background-color: #FFFFFF; border-color: black">[[Image:LogoReviewRequested|24px]] '''Review requested: ''' [[How to contribute to documentation#ReviewRequested|see definition]].</p>
