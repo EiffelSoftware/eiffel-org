@@ -56,7 +56,7 @@ The change does not allow previously void-unsafe code to be treated as void-safe
 ==Improvements==
 * Improve reporting for errors in regular expressions used in include and exclude file rules in ECF by adding position information and providing error description all the time.
 
-* Improve performance of code using across iterator. <span class="inline-warning">Breaking change:</span> custom descendants of <code>READABLE_INDEXABLE</code> may need to be updated in one of the following ways:
+* Improve performance of code using across iterator. {{Inline-Warning|Breaking change:}} custom descendants of <code>READABLE_INDEXABLE</code> may need to be updated in one of the following ways:
 *# By removing <code>index_set</code>, if no backward compatibility with earlier versions of EiffelStudio is required
 *# By adding an explicit redeclaration clause for <code>index_set</code>, if backward compatibility with [[Release notes for EiffelStudio 15.12|EiffelStudio 15.12]] is required:
 <code>
