@@ -6,6 +6,35 @@
 * Have a look at [https://en.wikipedia.org/wiki/Help:Wiki_markup Wikipedia markup] documentation.
 * The current website does not support the full Wikipedia syntax, but still most of the needed cases.
 
+* To embed inline code:
+** `` `foo.bar` ``
+** `<code>foo.bar</code>`
+** `<eiffel>foo.bar</eiffel>`
+
+* To embed block code:
+
+```xml
+<code lang="eiffel">
+	class FOOBAR
+</code>
+```
+
+```xml
+<eiffel>
+	class FOOBAR
+</eiffel>
+```
+
+<code lang="text">
+```eiffel
+	class FOOBAR
+```
+</code>
+
+Note: if you do not specify the lang, it is defaulted to "eiffel"
+
+
+
 = Templates =
 == Top page templates ==
 Used to qualify the current page.
