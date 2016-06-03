@@ -66,7 +66,7 @@ The change does not allow previously void-unsafe code to be treated as void-safe
 				index_set
 			end
 </code>
-The specific changes in the compiler and cursor classes include:
+*:The specific changes in the compiler and cursor classes include:
 ** Optimized code generation for iteration instruction calls to <code>after</code> and <code>forth</code> by rechecking the code with the actual type of a cursor variable.
 ** Added <code>lower</code> and <code>upper</code> to <code>READABLE_INDEXABLE</code> to be used instead of <code>index_set</code> by iteration cursor.
 ** Marked <code>{READABLE_INDEXABLE}.index_set</code> as obsolete in favor of <code>lower</code> and <code>upper</code> to avoid object creation, especially when implementing external cursors for iterative forms of a loop.
