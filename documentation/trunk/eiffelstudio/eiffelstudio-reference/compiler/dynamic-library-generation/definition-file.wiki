@@ -32,9 +32,7 @@ The syntax is pretty simple when you understand what you need to export a featur
 <code lang=text>
 ROOT_CLASS (make): foo @ 4 Alias my_foo call_type __stdcall</code>
 
-
 ===Constraints===
-<div> 
 * on the class: <div>The class cannot be deferred or generic.</div>
 * on the feature: <div>It could be any feature except an attribute, an external feature or a deferred feature.</div>
 * on the creation procedure: <div>It must have zero argument, and no return type.</div>
@@ -63,8 +61,3 @@ BAR (make_a) : print_bar
 ROOT_CLASS : make
 ROOT_CLASS (make) : foo
 ROOT_CLASS (make) : test_bar</code>
-
-</div>
-
-
-
