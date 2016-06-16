@@ -6,7 +6,7 @@ Using EiffelStudio, there are two different ways to call C routines exported in 
 * _cdecl: referred to as the standard calling convention
 * __stdcall referred to as the Pascal calling convention
 
-Calling conventions define 1) how arguments are placed on the stack, and 2) which entity (the caller, or the callee) is responsible for returning the call stack to its previous state when the routine has completed.  These two methods are NOT compatible.  Therefore if you have a routine in a DLL you wish to call, one of the first things to find out about it is which calling convention it expects.  DLL routines that use the `_cdecl' calling convention require the use of the '''dll32''' sub-language option.  For `__stdcall`, use the '''dllwin32''' sub-language option. Here is an example:
+Calling conventions define 1) how arguments are placed on the stack, and 2) which entity (the caller, or the callee) is responsible for returning the call stack to its previous state when the routine has completed.  These two methods are NOT compatible.  Therefore if you have a routine in a DLL you wish to call, one of the first things to find out about it is which calling convention it expects.  DLL routines that use the `_cdecl` calling convention require the use of the '''dll32''' sub-language option.  For `__stdcall`, use the '''dllwin32''' sub-language option. Here is an example:
 
 <code>
     my_cdecl_routine (a: INTEGER): POINTER
