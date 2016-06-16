@@ -353,9 +353,9 @@ Some deferred classes describe a structural property, useful to the description 
 
 `NUMERIC` describes objects on which arithmetic operations `+, -, *, /` are available, with the properties of a ring (associativity, distributivity, zero elements etc.). Kernel Library classes such as `INTEGER` and `REAL` -- but not, for example, `STRING` -- are descendants of `NUMERIC`. An application that defines a class `MATRIX` may also make it a descendant of `NUMERIC`. 
 
-`COMPARABLE` describes objects on which comparison operations `<, <=, >, >=` are available, with the properties of a total preorder (transitivity, irreflexivity). Kernel Library classes such as `CHARACTER`, `STRING` and `INTEGER` -- but not our `MATRIX` example -- are descendants of `COMPARABLE`. 
+`COMPARABLE` describes objects on which comparison operations <code><, <=, >, >=</code> are available, with the properties of a total preorder (transitivity, irreflexivity). Kernel Library classes such as `CHARACTER`, `STRING` and `INTEGER` -- but not our `MATRIX` example -- are descendants of `COMPARABLE`. 
 
-For such classes it is again essential to permit effective features in a deferred class, and to include assertions. For example class `COMPARABLE` declares `infix "<"` as deferred, and expresses `>, >=` and `<=` effectively in terms of it. 
+For such classes it is again essential to permit effective features in a deferred class, and to include assertions. For example class `COMPARABLE` declares <code>infix "<"</code> as deferred, and expresses `>, >=` and <code><=</code> effectively in terms of it. 
 
 
 {{note|The type `like Current` will be explained in [[ET: Inheritance#Covariance, anchored declarations, and "catcalls"|"Covariance, anchored declarations, and "catcalls""]] ; you may understand it, in the following class, as equivalent to `COMPARABLE`. }}
@@ -703,7 +703,7 @@ Eiffel's inheritance mechanism has an important application to extending the fle
 <code>
         if item (i) < item (j) then ...
 </code>
-where `item (i)` and `item (j)` are of type `G`. But this requires the availability of a feature `infix "<"` in all types that may serve as actual generic parameters corresponding to `G`. Using the type `SORTABLE_ARRAY [INTEGER]` should be permitted, because `INTEGER` has such a feature; but not `SORTABLE_ARRAY [COMPLEX]` if there is no total order relation on `COMPLEX`. 
+where `item (i)` and `item (j)` are of type `G`. But this requires the availability of a feature <code>infix "<"</code> in all types that may serve as actual generic parameters corresponding to `G`. Using the type `SORTABLE_ARRAY [INTEGER]` should be permitted, because `INTEGER` has such a feature; but not `SORTABLE_ARRAY [COMPLEX]` if there is no total order relation on `COMPLEX`. 
 
 To cover such cases, declare the class as
 <code>
@@ -711,7 +711,7 @@ class SORTABLE_ARRAY [G -> COMPARABLE]
 </code>
 making it '''constrained generic'''. The symbol `->` recalls the arrow of inheritance diagrams; what follows it is a type, known as the generic constraint. Such a declaration means that: 
 
-Within the class, you may apply the features of the generic constraint -- here the features of `COMPARABLE`: `infix "<"`, `infix ">"` etc. -- to expressions of type `G`. 
+Within the class, you may apply the features of the generic constraint -- here the features of `COMPARABLE`: <code>infix "<"</code>, `infix ">"` etc. -- to expressions of type `G`. 
 
 A generic derivation is only valid if the chosen actual generic parameter conforms to the constraint. Here you can use `SORTABLE_ARRAY [INTEGER]` since `INTEGER` inherits from `COMPARABLE`, but not `SORTABLE_ARRAY [COMPLEX]` if `COMPLEX` is not a descendant of `COMPARABLE`. 
 
@@ -889,7 +889,7 @@ It is possible to use `Current` as anchor; the declaration `like Current` denote
     is_less alias "<" (other: like Current): BOOLEAN ...
 </code>
 
-since we only want to compare two comparable elements of compatible types -- but not, for example, integer and strings, even if both types conform to `COMPARABLE`. (A "balancing rule" makes it possible, however, to mix the various arithmetic types, consistently with mathematical traditions, in arithmetic expressions such as `3 + 45.82` or boolean expressions such as `3 < 45.82`.) 
+since we only want to compare two comparable elements of compatible types -- but not, for example, integer and strings, even if both types conform to `COMPARABLE`. (A "balancing rule" makes it possible, however, to mix the various arithmetic types, consistently with mathematical traditions, in arithmetic expressions such as `3 + 45.82` or boolean expressions such as <code>3 < 45.82</code>.) 
 
 Similarly, class `ANY` declares procedure `copy` as 
 <code>
@@ -906,7 +906,7 @@ The anchored types shown above specify anchors which are either:
 * The name of a query of the class in which the anchored declaration appears 
 ** as in the case of: `set_owner (h: like owner)` or 
 * `Current`
-** as in the case of: `is_less alias "<" (other: like Current): BOOLEAN`. 
+** as in the case of: <code>is_less alias "<" (other: like Current): BOOLEAN</code>. 
 
 Declarations can also use '''qualified''' anchored types. Consider this possible feature of `ACCOUNT`:
 
