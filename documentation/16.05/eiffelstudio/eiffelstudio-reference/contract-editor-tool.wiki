@@ -1,0 +1,137 @@
+[[Property:title|Contract Editor tool]]
+[[Property:weight|-11]]
+[[Property:uuid|867bcb6b-1052-b28f-bd18-243532816dfd]]
+
+[[Image:es ref contract editor 01|center]]
+
+
+=Overview=
+
+As a rule, in EiffelStudio, class text can only be edited in the Editing tool, and then only when the Basic Text view is selected. The Contract Editing tool is an exception to this.
+
+The Contract Editor tool gives you the ability to examine and edit class contracts in a context that is isolated from the full class text. In other words, when you use the Contract Editor tool, you see and edit the contracts without having to work around other elements of the software text such as implementation. For routines, you can edit pre- and postconditions, and for classes, you can edit class invariants. The tool provides views of inherited contracts as well as immediate ones. 
+
+Also included is a set of templates for creating common assertion patterns. By using these templates whenever possible, you add consistency to your class text.
+
+You can target the Contract Editor tool by picking a routine name or class name and dropping it into the tool. Within the Contract Editor tool window, a single contract element is shown. A contract element here means either a precondition or a postcondition for a routine, or a class invariant for a class. Each assertion clause for a particular contract element is editable individually. 
+
+The Contract Editor tool can be helpful during analysis and design phases of development, when class specification is a primary concern.
+
+
+=Invoking the Contract Editor tool=
+
+If the Contract Editor tool is not currently visible, it can be made visible by following the menu path:
+
+<code lang="text">
+View --> Tools --> Contract Editor
+</code>
+
+Once visible, the tool can be [[Customizing the tools layout and toolbars#Docking|docked]] to an appropriate location, if desired.
+
+
+=Toolbar=
+
+The Contract Editor toolbar contains the following items:
+
+: [[Image:16x16--general-save-icon]] ''Save modifications to the associated class.'' Becomes enabled when changes have been made to a contract. Clicking will cause changes to be saved.
+
+: [[Image:16x16--general-add-icon]] ''Add a new contract.'' Allows you to add a new contract assertion clause to the currently selected contract element (precondition, postcondition, or invariant). Clicking will provide a choice of creating from a template or creating a custom assertion clause. 
+
+: [[Image:metrics-tool--general-remove-icon]] ''Remove selected contract.'' Will delete the currently selected assertion clause from the contract element being edited.
+
+: [[Image:contract-editor-edit-icon]] ''Edit selected contract.'' Will place the currently selected assertion clause in edit mode. Clauses can also be edited by double-clicking the clause itself, or right-clicking on a selected clause and choosing "Edit".
+
+: [[Image:move-up-icon]] and [[Image:move-down-icon]] ''Move selected contract up (or down).'' Use to move the selected assertion clause up or down in relation to the other clauses for this contract element.
+
+: [[Image:refresh-icon]] ''Refresh the current contracts to include any unsaved, undetected editor changes.'' EiffelStudio updates the Contract Editor tool display whenever class text is saved. However, if you edit a class in the Editing tool and have not saved it, there will be a difference between the Editing tool's display and the Contract Editor tool's display for the edited code. Clicking this icon will update the Contract Editor tool to include unsaved changes from the Editing tool.
+
+: [[Image:contract-icon]] ''Select the type of contracts to edit.'' Use to select the contract element to edit. The name of the element (precondition, postcondition, or invariant) is listed to the right of the icon. If the Contract Editor tool is targeted to a routine, you can choose between Precondition and Postcondition by clicking this icon. If the tool is targeted to a class, then Invariant is selected and this icon is disabled in the toolbar.
+
+: [[Image:show-hide-contract-placeholders-icon]] ''Show/hide the hidden contract place holders for inherited contracts.'' In addition to the assertion clauses that are coded immediately on the target routine or class, the Contract Editor tool also shows any assertion clauses inherited from a class's proper ancestor classes. These clauses are labeled with the name of the class from which they are inherited. By default, any classes in the inheritance graph which do not contribute clauses to a contract element are not shown. Toggling this icon down will show placeholders for these classes that are in the graph but do not contribute assertion clauses. Toggling the icon up will re-hide the placeholders.
+
+: [[Image:feature-callers-icon]] or [[Image:class-descendents-icon]] ''Show the callers of the currently edited feature.'' The icon shown here is dependent upon whether the tool is targeted to a routine or class. If the tool is targeted to a routine, then the icon shown will be the feature callers icon ([[Image:feature-callers-icon]]). If the tool is targeted to a class, then the icon shown will be the class descendants icon ([[Image:class-descendents-icon]]). In either case, clicking the icon does not effect the display in the Contract Editor tool. Rather, the action is shown in either the Feature tool (in the case of routines) or the Class tool (in the case of classes). 
+ 
+
+=Editing contracts=
+
+You edit contracts one assertion clause at a time. When you make a selection in the Contracts column of the Contract Editor tool, an entire assertion clause will be selected. In the depiction below, the clause <code>minute_valid</code> is selected from the class invariant of class <code>TIME_OF_DAY</code>.
+
+
+[[Image:es ref contract editor 02]]
+
+
+This applies to multi-line assertion clauses, too, as shown below.
+
+
+[[Image:es ref contract editor 03]]
+
+
+The selected clause can be moved up or down relative to the other clauses by using the up and down arrows in the toolbar. 
+
+To make changes to the text of the currently selected assertion clause, click the Edit button ([[Image:contract-editor-edit-icon]]) on the toolbar, or just double-click the selected clause. The clause appears in the Edit Contract dialog box. 
+
+
+[[Image:es ref edit contract dialog 01]]
+
+
+You can edit the tag for your assertion clause and the assertion itself. 
+
+Assertion clause tags must be valid identifiers. The Contract Editor tool will check your input as you type and alert you if entered a character string that would not be a valid identifier. The tag is optional, so you can leave it empty if you wish.
+
+After editing the assertion clause itself, you can click OK. At this point the Contract Editor tool will perform a syntactical analysis on your assertion clause in order to help you avoid some types of errors. If your assertion clause appears syntactically sound, the Edit Contract dialog box will be dismissed and your changes will be visible in the Contract Editor tool display. 
+
+At this point, the changes have not been saved to the class text. To save the changes click the Save icon ([[Image:16x16--general-save-icon]]) in the toolbar.
+
+
+=Adding assertion clauses=
+
+You can add a new clause to any contract assertion by clicking the "Add" button ([[Image:16x16--general-add-icon]]) on the toolbar. The button provides two methods of creation "Custom" and "From Template". 
+
+
+[[Image:es ref contract editor add 01|Add Custom or Add from Template]]
+
+
+Choosing "Add Custom..." produces a freeform dialog, much like the editing dialog show earlier in which you can edit an assertion clause from scratch:
+
+
+[[Image:es ref contract editor add 02|Add a custom assertion clause]]
+
+
+"Add from Template" provides a list of code templates for commonly used assertion types. Adding assertion clauses from templates when possible speeds up class specification and helps to avoid errors. Consider a newly coded routine:
+
+<code>
+    my_routine (a_string: STRING)
+            -- Do something with `a_string'.
+        do
+    		
+        end
+</code>
+
+Part of the specification of this routine might be a precondition that states that the argument must be attached (i.e., not <code>Void</code>), and not the empty string. This precondition can be added to the feature by adding two assertion clauses from templates. To specify that <code>a_string</code> must be attached, you would first choose the template "Attached Contract" which provides this dialog:
+
+
+[[Image:es ref add attached contract template 01|Attached contract]]
+
+
+This template focuses on the fact that some entity (expressed as <code>var</code> in the template) must be the object of an assertion clause that guarantees that the entity is attached. To have the template create such a clause for the argument <code>a_string</code> shown in the routine above, just replace  <code>var</code> with <code>a_string</code> in the top text box of the dialog. The resulting code is updated automatically:
+
+
+[[Image:es ref add attached contract template 02|Attached contract]]
+
+
+Adding a clause to specify that <code>a_string</code> must not be empty is done similarly, by selecting the "Not is empty" template. After adding these two precondition clauses, the routine now looks like this:
+
+<code>
+    my_routine (a_string: STRING)
+            -- My routine
+        require
+            a_string_attached: a_string /= Void
+            not_a_string_is_empty: not a_string.is_empty
+        do
+
+        end
+</code>
+
+
+
+

@@ -8,7 +8,7 @@
 * New editor with: 
 ** smart syntax highlighting
 ** feature completion (by pressing Ctrl+Space after an identifier).
-** syntax completion of major control statement (if, from, is,...)and of symbols such as `{', `[', `(', `"',...
+** syntax completion of major control statement (if, from, is,...)and of symbols such as `{`, `[`, `(`, `"`,...
 ** smart auto indenting
 ** block indent and exdent.
 ** infinite level of Undo/Redo

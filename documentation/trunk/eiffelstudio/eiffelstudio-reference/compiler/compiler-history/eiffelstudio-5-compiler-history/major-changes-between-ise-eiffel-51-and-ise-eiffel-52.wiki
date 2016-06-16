@@ -18,7 +18,7 @@ And the following limitations:
 
 * .NET generation now supports assembly signing in enterprise edition.
 * .NET generation now supports precompiled libraries.
-* Supports for manifest integer constants of different sizes, i.e. you can now assign for example the value `8' to a location of type <eiffel>INTEGER_8</eiffel>, <eiffel>INTEGER_16</eiffel>, <eiffel>INTEGER</eiffel> or <eiffel>INTEGER_64</eiffel>, however you can only assign the value `254' to a location of type <eiffel>INTEGER_16</eiffel>, <eiffel>INTEGER</eiffel> or <eiffel>INTEGER_64</eiffel>. 
+* Supports for manifest integer constants of different sizes, i.e. you can now assign for example the value `8` to a location of type <eiffel>INTEGER_8</eiffel>, <eiffel>INTEGER_16</eiffel>, <eiffel>INTEGER</eiffel> or <eiffel>INTEGER_64</eiffel>, however you can only assign the value `254' to a location of type <eiffel>INTEGER_16</eiffel>, <eiffel>INTEGER</eiffel> or <eiffel>INTEGER_64</eiffel>. 
 
 ==Improvements==
 * Compiler that is about 20% faster than 5.1.

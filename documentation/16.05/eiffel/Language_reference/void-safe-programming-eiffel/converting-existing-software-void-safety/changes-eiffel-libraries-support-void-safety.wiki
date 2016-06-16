@@ -1,0 +1,88 @@
+[[Property:title|Void-safe changes to Eiffel libraries]]
+[[Property:weight|0]]
+[[Property:uuid|dc993c0e-fbec-dc5a-82c8-fbfd9fa9bc3a]]
+==Overview==
+
+During the adoption of void-safety, the software libraries provided by Eiffel Software have been converted to be void-safe. The bulk of the changes made to these libraries will have little or no adverse effect on your existing software as you go through the process of void-safe conversion. However, there are a few changes to the library that we consider "breaking" changes, that is, important changes that might cause problems in existing systems that use certain library classes. 
+
+
+{{note|Many of these changes were in effect in the ''experimental'' mode of versions 6.4 and 6.5. With the release of version 6.6, the ''experimental'' mode of previous versions became the ''default'' mode and, consequently may have caused these changes to become more apparent to some users. A ''compatibility'' mode is available to ease transition. The ''compatibility'' mode is accessible using the <code>-compat</code> command line option or through the EiffelStudio choices provided through the Microsoft Windows ''Start'' button. }}
+
+
+==Important changes to library classes==
+
+
+===Class ARRAY===
+
+====New preconditions====
+
+Some additional preconditions are in force in <code>ARRAY</code> in void-safe mode. 
+
+In void-unsafe mode, the behavior is equivalent to that of previous versions.
+
+====Feature make_from_special====
+
+The signature of this routine has changed. 
+
+Current signature: <code>make_from_special (a: SPECIAL [G])</code> 
+
+Previous signature: <code>make_from_special (a: SPECIAL [G]; min_index, max_index: INTEGER)</code>
+
+Using the current version will create an array with a range from 1 to the number of elements in the argument `a'.
+
+====Feature auto_resize====
+
+This implementation (private) feature has been removed.
+
+
+===Class ARRAYED_LIST===
+
+====Relationship to ARRAY====
+
+Previously <code>ARRAYED_LIST</code> conformed to <code>ARRAY</code>. This is no longer the case. The feature <code>{ARRAYED_LIST}.to_array</code> can be used to produce an instance of <code>ARRAY</code> from an instance of <code>ARRAYED_LIST</code>.
+
+====Features count and area====
+
+Previously these two queries, <code>count</code> and <code>area</code>, were attributes. They are now functions.
+
+
+===Class HASH_TABLE===
+
+The internal implementation has changed in ways that cause the order of traversal to differ from previous versions.
+
+
+===Classes SPECIAL and TO_SPECIAL===
+
+====Feature {SPECIAL}.make====
+
+This void-unsafe feature has been removed.
+
+In its place, the creation procedures <code>{SPECIAL}.make_filled</code> and <code>{SPECIAL}.make_empty</code> can be used.
+
+<code>{SPECIAL}.make_filled</code> is available in both ''default'' and ''compatible'' modes. Use this creation procedure if you want code that is compatible with both modes.
+
+<code>{SPECIAL}.make_empty</code> is available in ''default'' mode only.
+
+====Feature {TO_SPECIAL}.make_area====
+
+In order to reflect the above change to class <code>SPECIAL</code>, the <code>make_area</code> feature of <code>TO_SPECIAL</code> has been removed in favor of <code>{TO_SPECIAL}.make_filled_area</code> and <code>{TO_SPECIAL}.make_empty_area</code>.
+
+The availability of <code>{TO_SPECIAL}.make_filled_area</code> and <code>{TO_SPECIAL}.make_empty_area</code> corresponds to that noted above for the creation features of <code>SPECIAL</code>:
+
+<code>{TO_SPECIAL}.make_filled_area</code> is available in both ''default'' and ''compatible'' modes. Use <code>make_filled_area</code> for code that needs to compile in both modes.
+
+<code>{TO_SPECIAL}.make_empty_area</code> is available only in ''default'' mode.
+
+====Relationship of feature {SPECIAL}.count to {SPECIAL}.capacity====
+
+In previous versions, for a particular instance of <code>SPECIAL</code> the queries <code>count</code> and <code>capacity</code> yielded the same value.
+
+This is no longer always true. If an instance of <code>SPECIAL</code> is created with, for example, <code>make_empty (10)</code>, although the <code>capacity</code> will be 10, the <code>count</code> will be zero.
+
+However creating a <code>SPECIAL</code> using <code>make_filled</code> will produce an instance in which <code>count</code> and <code>capacity</code> are equal upon creation. So the behavior is similar to that of previous versions. Also, <code>make_filled</code> is available in both ''default'' and ''compatible'' modes. 
+
+If your code depends upon <code>count</code> and <code>capacity</code> having the same value, then you can use <code>make_filled</code> for creation. And then if you need resizing, use the "_with_default" versions of the "resized" features, specifically <code>resized_area_with_default</code> and <code>aliased_resized_area_with_default</code>.
+
+
+
+

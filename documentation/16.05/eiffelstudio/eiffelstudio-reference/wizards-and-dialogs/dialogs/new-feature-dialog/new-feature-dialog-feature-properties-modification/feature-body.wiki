@@ -1,0 +1,35 @@
+[[Property:title|Feature body]]
+[[Property:weight|6]]
+[[Property:uuid|8f9f0b70-e884-73f1-e270-f1b51ef672c6]]
+What goes into the feature body field is dependent on what kind of feature you wish to generate.
+*  '''do''': this is the normal procedure type. Enter in the field below '''do''' a body for your feature. 
+<code>
+    do_something
+        do
+            a := b
+        end</code>
+
+*  '''once''': this is the type for a routine that is executed once per execution. As a once routine cannot have arguments, it is disabled when you added one or more arguments. 
+<code>
+    init
+        once
+            load
+        end</code>
+
+*  '''deferred''': this creates a routine of deferred type. The local and body fields gray out as they serve no use anymore. 
+<code>
+    do_something
+        deferred
+        end</code>
+
+*  '''external''': this creates an Eiffel wrap routine around a routine written in another language. Use the body field to enter a string containing the necessary information about the routine using the external syntax. 
+<code>
+    do_something
+        external
+            "C | %"location.h%""
+        end</code>
+
+
+
+
+

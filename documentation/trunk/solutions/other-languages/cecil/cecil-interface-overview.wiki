@@ -230,7 +230,7 @@ void display_and_release_obj (void)
 </code>
 
 </div>
-Between the call of ` ''c_foo''' and ` ''c_display_obj''', the global object ''(eif_access (my_obj))'' may not be referenced from Eiffel any longer. To prevent the GC from collecting it before the call to ` ''c_display_and_release_obj''', you must protect it with ` ''eif_adopt''' in the C function ` ''foo'. '' 
+Between the call of `c_foo` and `c_display_obj`, the global object `(eif_access (my_obj))` may not be referenced from Eiffel any longer. To prevent the GC from collecting it before the call to `c_display_and_release_obj`, you must protect it with `eif_adopt` in the C function `foo`.
 
 ==Other CECIL functions:==
 
@@ -271,7 +271,7 @@ main (int argc,char **argv,char **envp)
 </code>
 
 
-{{note|`eif_create' does not call any creation procedure. It just allocates memory and initializes an object. }}
+{{note|`eif_create` does not call any creation procedure. It just allocates memory and initializes an object. }}
 
 ===Protecting the objects returned by Eiffel functions.===
 
@@ -289,7 +289,7 @@ eif_protect is to be called on an EIF_REFERENCE returned by eif_attribute, eif_s
 
 See also eif_adopt, eif_create, eif_wean, eif_access. 
 
-'''Example:''' Assume that you want to access an attribute `tab' of type <eiffel>ARRAY [INTEGER]</eiffel> in the class <eiffel>OBJECT</eiffel>. 
+'''Example:''' Assume that you want to access an attribute `tab` of type <eiffel>ARRAY [INTEGER]</eiffel> in the class <eiffel>OBJECT</eiffel>. 
 
 <code lang="c">
 #include eif_setup.h"
@@ -431,7 +431,7 @@ EIFFEL_TYPE eif_attribute (EIF_REFERENCE object, char *name, EIFFEL_TYPE, int *s
 
 Return the attribute of an Eiffel object. 
 
-The `eif_attribute' macro returns the attribute of object of name, which is of type EIFFEL_TYPE. 
+The `eif_attribute` macro returns the attribute of object of name, which is of type EIFFEL_TYPE. 
 
 EIFFEL_TYPE is the type of the Eiffel attribute. It can be: EIF_INTEGER, EIF_POINTER, EIF_CHARACTER, EIF_BOOLEAN, EIF_DOUBLE, EIF_REAL or EIF_REFERENCE. 
 
@@ -466,7 +466,7 @@ COMPATIBILITY:
 
 Return the address of the Eiffel routine by giving its name rout_name and the type id type_id of the class, in which it is declared. Returns a NULL pointer or raises a visible exception (if enabled) when there is no corresponding routine with name rout_name or the routine is not visible. The first argument of an Eiffel routine has to be the target of the Eiffel routine. 
 
-The Eiffel object returned by an Eiffel function must be protected afterwards with 'eif_protect' (this only applies for functions whose addresses are returned by `eif_reference_function', since the other function types returns basic types, which are not Eiffel objects). 
+The Eiffel object returned by an Eiffel function must be protected afterwards with `eif_protect` (this only applies for functions whose addresses are returned by `eif_reference_function`, since the other function types returns basic types, which are not Eiffel objects). 
 
 {{note|The address returned by these functions must be called between parenthesis. }}
 

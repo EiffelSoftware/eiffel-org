@@ -1,0 +1,158 @@
+[[Property:title|Release notes for EiffelStudio 5.7]]
+[[Property:link_title|5.7]]
+[[Property:weight|-15]]
+[[Property:uuid|8adae9f2-9160-5f6e-bc81-f0763dfe963c]]
+==Graphical environment==
+
+===What's new===
+* Dual licensing of EiffelStudio both commercial and open-source.
+* Refactoring facilities: renaming and feature pull-up.
+* Metric engine. It lets you define more advanced metrics. This is the first result of our new query engine.
+* UUID library for generating UUID.
+* Process library for launching, waiting, redirecting outputs of processes.
+* Configuration system. It brings a new dimension to the way you manage multiple projects and simplifies it.
+
+===Improvements===
+* Output of C compilation now appears within the EiffelStudio environment.
+* Improved tool for launching external commands from within the EiffelStudio environment.
+* Introduced basic support for Unicode in Eiffel libraries, namely EiffelBase, EiffelVision2 and WEL.
+* Improved display of clusters, libraries and assemblies.
+* Added ability to see more relations in the diagram tool. For example, you can select a class and choose to see its descendants in the diagram.
+* If a project that needs a precompile is opened and the precompile does not exist it will automatically be compiled.
+* New projects use precompiles by default which speeds up the initial compilation.
+* Improved search facility that has two faces: a quick search bar in the editor for finding text in the current editor, and a search panel to perform exhaustive search over your project.
+* Profiler output is now sortable and can also be represented as a tree.
+* Redesigned completion engine: 
+** Completion on wild-cards to quickly find a routine in a long list.
+** Completion list is now available anytime a text field accepts a class or an expression (Class creation dialog, debugger evaluation expression, ...)
+** On .NET, overloaded routines are all put together under one name.
+** Hidden option can now be set with a toolbar at its bottom.
+** Completion is available even if you have a syntax error in your class.
+
+* Formatters are now presenting results in a structured way with sorting capability.
+* Overridden classes are now shown with the list of classes they are overriding.
+
+===Changes===
+* New configuration system. EiffelStudio will automatically convert your existing ace or epr files to the new format.
+* Compilation progress is now displayed in the status bar and in the output pane, no more dialog box.
+* Display of errors and warnings is now done in different panes, so that you do not lose their content when the output pane has changed.
+* Pick and drop is now a dashed line.
+* Redesigned the starting dialog to make it easier to create new projects as well as managing many existing projects.
+
+===Bug fixes===
+* When in a different format than the editable format, one can now select a feature and it will bring you to the feature in the selected format, rather than going back to the editable format.
+* Fixed various formatting issue for our documentation format.
+* Fixed some memory corruption that could cause EiffelStudio to randomly crash.
+
+==Compiler==
+* Click [[Major changes between ISE Eiffel 5.6 and ISE Eiffel 5.7|here]]  for the compiler release notes.
+
+==Debugger==
+===Graphical environment===
+* More flexibility has been added for the layout in the debugging tool. One can merge the Current objects with the locals and arguments.
+* The objects and watches tools restore the tree structure when stepping, and highlight value differences.
+* New thread tool that let you switch from one thread to another while debugging.
+* New Exception handling tool that let you ignore or catch certain kind of exceptions.
+* New breakpoint tool to see at glance the status of all your breakpoints.
+* Added ability to see the routine that defines an agent object (classic only for now).
+
+===Debugger engine===
+* One can debug multithreaded application.
+* One can ignore certain kind of exceptions.
+* One can disable Assertion checking during debugging (only classic system for now).
+* Dotnet debugger is now much more stable for dotnet 2.0
+* Improved expression evaluation error reporting system to provide more information
+
+==EiffelBuild==
+* Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.
+
+==Libraries==
+
+===EiffelBase===
+* <eiffel>STRING</eiffel>, <eiffel>STRING_8</eiffel>, <eiffel>STRING_32</eiffel> and <eiffel>STRING_GENERAL</eiffel>: 
+** Added Unicode support through the addition of STRING_32. For the moment Unicode support is limited to the data-structure.
+** Added <eiffel>STRING_GENERAL</eiffel>, a common ancestor to <eiffel>STRING_8</eiffel> and <eiffel>STRING_32</eiffel>. It is useful if you want to handle both ASCII and Unicode string. For example this facility is used in EiffelVision2 and WEL. 
+** <eiffel>STRING</eiffel> can be either <eiffel>STRING_8</eiffel> or <eiffel>STRING_32</eiffel> depending on your configuration. Default is <eiffel>STRING_8</eiffel>.
+** Added <eiffel>is_integer_xx</eiffel>, <eiffel>is_natural_xx</eiffel>, <eiffel>to_integer_xx</eiffel> and <eiffel>to_natural_xx</eiffel> where xx stands for 8, 16, 32 or 64.
+** Added <eiffel>is_number_sequence</eiffel> which is semantically identical to the behavior of <eiffel>is_integer</eiffel> in 5.6. Changed behavior of <eiffel>is_integer</eiffel> to check that it fits into a 32-bit integer value.
+** Updated <eiffel>is_double</eiffel>, <eiffel>is_real</eiffel>, <eiffel>is_real_32</eiffel>, <eiffel>is_real_64</eiffel> so that the specification allows optional integral part or decimal part, but not both (as per the ECMA specification of a real constant). This fixes the bug where <code>1.e-4</code> was not considered a valid floating point value.
+** Changed behavior of <eiffel>is_boolean</eiffel> to match the ELKS specification which says the lower case version of the string should either be true or false.
+** Fixed issue in <eiffel>from_c_substring</eiffel> which would not properly if argument <code>start_pos</code> was greater than 1.
+
+* <eiffel>CHARACTER</eiffel>, <eiffel>CHARACTER_8</eiffel> and <eiffel>CHARACTER_32</eiffel>: 
+** Removed <eiffel>WIDE_CHARACTER</eiffel> and <eiffel>WIDE_CHARACTER_REF</eiffel>; they are replaced by <eiffel>CHARACTER_32</eiffel> and <eiffel>CHARACTER_32_REF</eiffel>.
+
+* <eiffel>REAL_32</eiffel> and <eiffel>REAL_64</eiffel>: 
+** Renamed <eiffel>REAL</eiffel> into <eiffel>REAL_32</eiffel>, and <eiffel>DOUBLE</eiffel> into <eiffel>REAL_64</eiffel>. <eiffel>REAL</eiffel> can be either <eiffel>REAL_32</eiffel> or <eiffel>REAL_64</eiffel> depending on your configuration. Default is <eiffel>REAL_32</eiffel>.
+** Added <eiffel>rounded_xxx</eiffel>, <eiffel>floor_xxx</eiffel> and <eiffel>ceiling_xxx</eiffel> where xxx is the current floating point type, as the version returning an <eiffel>INTEGER</eiffel> is definitely not precise for large numbers.
+
+* SED serialization facility: 
+** Fixed <eiffel>read_attributes</eiffel> in <eiffel>SED_INDEPENDENT_DESERIALIZER</eiffel> because we simply forgot to check that between the retrieved system and the stored system, a type has the same number of attributes.
+** Fixed <eiffel>wipe_out</eiffel> in <eiffel>SED_OBJECTS_TABLE</eiffel>' which did not reset <eiffel>last_index</eiffel>. As a consequence if you were doing several storing in a row, then <eiffel>last_index</eiffel> kept being incremented but when retrieving the data it would fail because it would expect <eiffel>last_index</eiffel> to start at 1, not at the last incremented value.
+** Changed <eiffel>SED_MEDIUM_READER_WRITER</eiffel> encoding so that it can also be used in a networking context. Basically now before sending the data, we first send the number of bytes of the data, and then the data. The old encoding is still available in <eiffel>SED_MEDIUM_READER_WRITER_1</eiffel>.
+
+* Added <eiffel>lock_marking</eiffel> and <eiffel>unlock_marking</eiffel> to use <eiffel>lock</eiffel> and <eiffel>unlock</eiffel> in <eiffel>INTERNAL</eiffel> in a multithreaded context. Currently used by the serialization classes.
+* <eiffel>IO_MEDIUM</eiffel>: 
+** Added <eiffel>read_integer_XX</eiffel>, <eiffel>put_integer_XX</eiffel>, <eiffel>last_integer_xx</eiffel> and <eiffel>read_natural_XX</eiffel>, <eiffel>put_natural_XX</eiffel>, <eiffel>last_natural_XX</eiffel> where XX stands for 8, 16, 32, 64.
+
+* <eiffel>HASH_TABLE</eiffel>: 
+** Fixed an infinite cycle when using <eiffel>replace_key</eiffel> with a key which is not present in the table.
+** Improved correct_mismatch to also retrieve <eiffel>HASH_TABLE</eiffel>s from version 5.4.
+** Prevented catcalls in <eiffel>HASH_TABLE</eiffel> when you have keys which have a different type.
+
+* Added a bracket feature to <eiffel>item</eiffel> from <eiffel>ARRAY2</eiffel>.
+* In <eiffel>ACTIVE_INTEGER_INTERVAL</eiffel> the action sequence will only be called if the range actually changes.
+* Fixed <eiffel>launch</eiffel> from <eiffel>EXECUTION_ENVIRONMENT</eiffel> to not inherit handles on Windows.
+* Moved <eiffel>list_eiffel3</eiffel> and <eiffel>table_eiffel3</eiffel> to the <eiffel>obsolete</eiffel> library.
+* Changed .NET implementation of the feature <eiffel>FILE</eiffel>.<eiffel>read_line</eiffel> to follow the behavior of the feature in classic mode and to treat either single '%N' or a sequence of '%R' and '%N' as an end of line.
+* Ensured that feature <eiffel>POINTER</eiffel>.<eiffel>out</eiffel> produces under .NET a hexadecimal number like in classic mode rather than a decimal number preceded by 0x.
+
+===EiffelNet===
+* Added in <eiffel>SOCKET</eiffel> <eiffel>read_integer_XX</eiffel>, <eiffel>put_integer_XX</eiffel>, <eiffel>last_integer_xx</eiffel> and <eiffel>read_natural_XX</eiffel>, <eiffel>put_natural_XX</eiffel>, <eiffel>last_natural_XX</eiffel> where XX stands for 8, 16, 32, 64.
+* Modified <eiffel>put</eiffel> and <eiffel>read</eiffel> in <eiffel>NETWORK_RESOURCE</eiffel>, <eiffel>FTP_PROTOCOL</eiffel>, <eiffel>HTTP_PROTOCOL</eiffel>, <eiffel>FILE_PROTOCOL</eiffel> so that the error checking code is not using <eiffel>socket_ok</eiffel> which might triggers error when there are none.
+* Improved handling of <eiffel>recipients</eiffel> and <eiffel>header_from</eiffel> in <eiffel>SMTP_PROTOCOL</eiffel> so that you can provide a nice `From' or `To' in the message since they are different from the addresses you have to pass from MAIL FROM and RCPT TO.
+* Improved error handling in EiffelNet. Now each time an error occurs you get an exception and the operating system error code is preserved.
+* Added ability to get the number of bytes read for all the read operation through the <eiffel>bytes_read</eiffel> query. This is useful to detect graceful shutdown of sockets.
+
+===EiffelThread===
+* Refactored the library so that even if you do not have the multithreaded option set, it will compile. However new preconditions have been added so that you know when you are using the library when you cannot.
+
+===EiffelVision2===
+* Added Unicode support. Read the WEL entry for Unicode below to see the impact on your code.
+* [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
+
+===Process===
+* New library to launch processes and redirect their output.
+
+===UUID===
+* New library to generate UUID.
+
+===WEL===
+* Added Unicode support: 
+** All routines taking an argument of type <eiffel>STRING</eiffel> or a generic type with <eiffel>STRING</eiffel> in one of the actual generic parameter have been changed to take an argument of type <eiffel>STRING_GENERAL</eiffel> which should not impact you at all, however make sure that if your redefine such a routine, you need to change the signature to <eiffel>STRING_GENERAL</eiffel>, otherwise you may introduce a CATCALL. 
+** All queries of type <eiffel>STRING</eiffel> have been changed to <eiffel>STRING_32</eiffel>. Because <eiffel>STRING_32</eiffel> should not be convertible to <eiffel>STRING</eiffel>, it would break a lot of existing code, as a result and only for a transition period, we made <eiffel>STRING_32</eiffel> convert to <eiffel>STRING</eiffel>. In the next release this conversion will be marked obsolete, and in the release after the next it will be removed. 
+** For queries whose type is a generic with <eiffel>STRING</eiffel> as one of the actual generic parameter, we changed <eiffel>STRING</eiffel> into <eiffel>STRING_32</eiffel>. Because no automatic conversion can be done in this case, we have introduced for a routine nnnnn following this pattern a new routine nnnnn_8 whose actual generic parameter is still <eiffel>STRING</eiffel>. 
+
+* <eiffel>WEL_TREE_VIEW</eiffel>: 
+** Fixed <eiffel>get_item_rect</eiffel> which was always returning a 0,0,0,0 rect as we were not correctly initializing the rect structure with the pointer to the item.
+** Added <eiffel>get_item_text_rect</eiffel> which returns a rect only for the text of the items.
+
+* <eiffel>WEL_WINDOWS_ROUTINES</eiffel>: 
+** Improved <eiffel>window_of_item</eiffel> to reduce the number of cases where we might get an exception. This makes debugging easier.
+** Fixed <eiffel>resource_string_id</eiffel> which generated a call on Void target exception.
+
+* Added ability to have drop down menus in <eiffel>WEL_TOOL_BAR_BUTTON</eiffel>.
+* Added the ability to add an icon to the SystemTray.
+* Added ability to drop files to <eiffel>WEL_WINDOW</eiffel> components.
+* Made all contextual menus being selectable from both left and right click (formerly it was only left click).
+* Fixed issue with contextual menus which might not appear correctly, nor respond to click or Esc key properly because the menu is not at the front.
+* Fixed in <eiffel>WEL_LIST_VIEW</eiffel> a bug where if the text of the string is too long, it would be displayed but truncated.
+* Fixed incorrect result for <eiffel>title_bar_height</eiffel> in <eiffel>WEL_SYSTEM_METRICS</eiffel>.
+* Fixed a memory corruption due to Windows not sending a WM_DESTROY or WM_NCDESTROY message in all cases when a window is actually destroyed.
+* Fixed a bug in <eiffel>WEL_REGISTRY_KEY_VALUE</eiffel>.<eiffel>string_value</eiffel> that might cause assertion violation when a value is an empty string, because a check whether the last character is null was done without checking if string has at least one character.
+
+[[EiffelStudio release notes|Click here to check out what was new in other versions]]  
+
+
+
+

@@ -230,7 +230,7 @@ void display_and_release_obj (void)
 </code>
 
 </div>
-Between the call of ` ''c_foo''' and ` ''c_display_obj''', the global object ''(eif_access (my_obj))'' may not be referenced from Eiffel any longer. To prevent the GC from collecting it before the call to ` ''c_display_and_release_obj''', you must protect it with ` ''eif_adopt''' in the C function ` ''foo'. '' 
+Between the call of `c_foo` and `c_display_obj`, the global object `(eif_access (my_obj))` may not be referenced from Eiffel any longer. To prevent the GC from collecting it before the call to `c_display_and_release_obj`, you must protect it with `eif_adopt` in the C function `foo`. 
 
 ==Other CECIL functions:==
 

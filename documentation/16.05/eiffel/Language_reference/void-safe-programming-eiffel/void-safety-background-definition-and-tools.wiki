@@ -1,0 +1,292 @@
+[[Property:title|Void-safety: Background, definition, and tools]]
+[[Property:weight|0]]
+[[Property:uuid|689f62b2-5675-5ab6-cd47-d891cf3d484d]]
+=Background=
+
+The primary focus of Eiffel is on software quality. Void-safety, like static typing, is another facility for improving software quality. Void-safe software is protected from run time errors caused by calls to void references, and therefore will be more reliable than software in which calls to void targets can occur. The analogy to static typing is a useful one. In fact, void-safe capability could be seen as an extension to the type system, or a step beyond static typing, because the mechanism for ensuring void-safety is integrated into the type system.
+
+==Static typing==
+
+You know that static typing eliminates a whole class of software failures. This is done by making an assurance at compile time about a feature call of the form:
+<code>
+            x.f (a)
+</code>
+Such a feature call is judged acceptable at compile time only if the type of <code>x</code> has a feature <code>f</code> and that any arguments, represented here by <code>a</code>, number the same as the formal arguments of <code>f</code>, and are compatible with the types of those formal arguments.
+
+
+In statically typed languages like Eiffel, the compiler guarantees that you cannot, at run time, have a situation in which feature <code>f</code> is not applicable to the object attached to <code>x</code>. If you've ever been a Smalltalk programmer, you are certainly familiar with this most common of errors that manifests itself as "Message not understood." It happens because Smalltalk is not statically typed. 
+
+==Void-unsafe software==
+
+Static typing will ensure that there is some feature <code>f</code> that can be applied at run time to <code>x</code> in the example above. But it does not assure us that, in the case in which <code>x</code> is a reference, that there will always be an object attached to <code>x</code> at any time <code>x.f (a)</code> is executed. 
+
+This problem is not unique to Eiffel. Other environments that allow or mandate reference semantics also allow the possibility of void-unsafe run time errors. If you've worked in Java or .NET you may have seen the NullReferenceException. Sometimes you might have experienced this rather poetic sounding message: "Object reference not set to an instance of an object". In Eiffel you would see "Feature call on void target". All these are the hallmarks of run time errors resulting from void-unsafe software.
+
+{{note|If you need a review of difference between reference types and expanded types in Eiffel, see [[ET: The Dynamic Structure: Execution Model|the chapter of the Eiffel Tutorial dedicated to the Eiffel execution model]]. }}
+
+Of course this is not an issue with instances of expanded types, because these instances are indeed "expanded" within their parent objects. But we could not imagine a world with expanded types only. References are important for performance reasons and for modeling purposes. For example, consider that a car has an engine and a manufacturer. When we model cars in software, it might be appropriate for engines to be expanded types, as each car has one engine. But certainly the same is not true for manufacturer. Many cars can share, through a reference, a single manufacturer.
+
+So, references are necessary, but we want them to be trouble free. 
+
+==Void-safe software==
+
+Void-safe software, then, is software in which the compiler can give assurance, through a static analysis of the code, that at run time whenever a feature is applied to a reference, that the reference in question will have an object attached. This means that the feature call
+<code>
+            x.f (a)
+</code>
+is valid only if we are assured that <code>x</code> will be attached to an object when the call executes.
+
+
+{{info|This validity rule is called the '''Target rule''', validity code VUTA, and is the primary rule for void-safety. In the following discussion, you will see that other validity rules are involved, too. You can see the formal definition of all validity rules in the [http://www.ecma-international.org/publications/standards/Ecma-367.htm ISO/ECMA standard document] available online. }}
+
+
+Once we have committed ourselves to this validity rule, we must have a strategy for complying with the rule.
+
+=Elements of the void-safe strategy=
+
+Here are the tools of void-safe trade. They will each be addressed in more detail throughout the documentation that follows. As you look at these elements it helps to try to think about things from the compiler's viewpoint ... after all, it is the compiler that we expect to give us the guarantee that our code is indeed void-safe. 
+
+First let's look at a couple of approaches that won't work.
+
+It might occur to us that we could enforce compliance with the target rule by simply eliminating the concept of void references. But this would not be practical. Void is a valuable abstraction that is useful in many situations, such as providing void links in structures. So, we must keep void ... but we want to keep it under control.
+
+Another thought might be that we could just have the compiler do all the work for us. But would be impossibly time consuming for the compiler to investigate every conceivable execution path available to a system to make certain that every possible feature call was made on an attached reference. 
+
+So, all of this boils down to the fact that we have to take some actions that help the compiler along. That's what the following are about.
+
+===Certified Attachment Patterns (CAPs)===
+
+We know that in the context of certain code patterns, it is clear that it would be impossible for a reference to be void. These patterns are identified and we call them CAPs, short for Certified Attachment Patterns. Here is a very straightforward example expressed in a syntax that should be familiar to all Eiffel developers:
+<code>
+            if x /= Void then
+--              ... Any other instructions here that do not assign to x
+                x.f (a)
+            end
+</code>
+Here a check is made to ensure <code>x</code> is not void. Then as long as no assignments to <code>x</code> are made in the interim, a feature <code>f</code> can be applied to <code>x</code> with the certainty that <code>x</code> will be attached at the time ... and importantly, this can be determined at compile time. So, we say that this code pattern is a CAP for <code>x</code>.
+
+
+It is important to understand that in this example (and with other CAPs), <code>x</code> is allowed to be a local variable or formal argument only. That is, <code>x</code> may not be an attribute or general expression (with one exception which we will see [[#Stable attributes|below]]). Direct access to class attribute references cannot be allowed via a CAP due to the fact that they could be set to void by a routine call in some execution path invoked by the intervening instructions or possibly even different process thread. In a later [[Void-safety: Background, definition, and tools#Types as "attached" or "detachable"|section]], we well see that this is not quite such a limitations as it may appear at this point.
+
+
+{{note|You will find more useful information about CAPs in [[Creating a new void-safe project#More about CAPs|More about CAPs]]. Learn how certain code patterns are determined to be CAPs in [[What makes a Certified Attachment Pattern]]. }}
+
+
+===The ''attached syntax'' (object test)===
+
+For the purposes of void-safety, the '''attached syntax''' does double duty for us. It allows us to make certain that a reference is attached, and it provides us a safe way to access objects that are attached to class attributes. 
+
+We noted earlier that this code
+<code>
+            if x /= Void then
+--              ... Any other instructions here that do not assign to x
+                x.f (a)
+            end
+</code>
+creates a CAP for feature calls on <code>x</code>, but only if <code>x</code> is a local variable or a formal argument. 
+
+By using the '''attached syntax''', we can perform an '''object test''' on a variable. That is, the attached syntax is a <code>BOOLEAN</code> expression which provides an answer to the question "Is <code>x</code> attached to an object?" At the same time, if indeed <code>x</code> is attached to an object, the attached syntax will deliver to us a fresh local variable, also attached to <code>x</code>'s object, on which we can make feature calls.
+<code>
+            if attached x as l_x then
+                l_x.f (a)
+            end
+</code>
+In the example above, <code>x</code> is tested to make certain that it is attached. If so, the new local <code>l_x</code> becomes attached to the same object as <code>x</code>. And so the object can be used safely even if <code>x</code> is a class attribute. So, the attached syntax, is really another CAP, because it provides a clearly verifiable place for the application of features to targets that are guaranteed not to be void.
+
+
+{{note|The attached syntax has other syntax variations as well as other uses. These will be discussed [[Creating a new void-safe project#More about the attached syntax|later]]. }}
+
+
+One way to make sure we comply with the target rule would be always use a CAP or the attached syntax every time we want to apply a feature to a referenced object. That might work, but it falls among the impractical approaches to the problem ... it would break a very high percentage of existing Eiffel code, not to mention cluttering things up quite a bit.
+
+===Types as "attached" or "detachable"===
+
+Rather than trying to protect every feature call, Eiffel allows us to declare any variable as being of an '''attached type'''. This is an important extension to the Eiffel type system. 
+
+In Eiffel prior to the introduction of void-safe facilities, any reference variable could be set to <code>Void</code>. So, all variables were considered '"detachable"'. 
+
+The current standard Eiffel supports a mixture of '''attached''' and '''detachable''' types. When a variable is declared of an attached type, as in the following example, then the compiler will prevent it from being set to <code>Void</code> or set to anything that can be set to <code>Void</code>.
+ 
+<code>
+    my_attached_string: attached STRING
+</code>
+
+It is easy to imagine that the more declarations are of attached types, the easier it will be to guarantee that a call to a void target cannot take place at run time. In fact, if every declaration was guaranteed to be of an attached type, then that would be all that was needed to satisfy the Target rule. 
+
+However, it wouldn't be workable to have only attached types, because sometimes it's important to allow references to have a value of <code>Void</code>.  
+
+When it is necessary to allow <code>Void</code> as a value, a declaration can use the ''detachable mark'' as in the following.
+<code>
+    my_detachable_string: detachable STRING
+</code> 
+
+
+This doesn't mean that on every declaration you must put either an ''attached mark'' or a ''detachable mark''. Declarations that are unmarked are allowed. Whether unmarked declarations are considered attached or detachable is determined by the value of an EiffelStudio project setting named '''Are types attached by default?''' This setting can be set differently in different parts of your project giving you fine-grained control, which is particularly useful while converting existing software or mixing libraries of differing void-safety levels. 
+
+In Eiffel then, all declarations will have types that are either '''attached''' or '''detachable'''. As a result, we need only use CAPs and the attached syntax with detachable types. So the important thing to remember is that ''direct access to class attributes of detachable types is never void-safe.''
+
+When building void-safe software in Eiffel it is best, in virtually every case, to set '''Are types attached by default?''' to '''True'''. This means that if a declaration contains neither '''attached''' nor '''detachable''', then it is assumed to be '''attached'''.
+
+====Attachment and conformance====
+
+The distinction between attached and detachable types results in a small but important addition to the rules of conformance. Because variables declared as attached types can never be void, then it is important not to allow any assignment of a detachable source to an attached target. However, assigning an attached source to a detachable target is permissible. The following code shows both cases and assumes types are attached by default.
+<code>
+    my_attached_string: STRING
+    my_detachable_string: detachable STRING
+
+                ...
+
+            my_attached_string := my_detachable_string    -- Invalid
+            my_detachable_string := my_attached_string    -- Valid
+</code>
+
+
+===Initialization rule===
+
+If we have attached types, then we can assume variables declared of these types, once attached, will always be attached. But how do they get attached in the first place? That's what the initialization rule is all about. 
+
+The rule says that at any place in which a variable is accessed, it must be '''properly set'''. A variable's being properly set has a precise, but not particularly simple definition in the Eiffel standard. 
+
+
+{{info|You can find the formal definition of the '''Variable initialization rule''', validity code VEVI, and its related concepts such as '''properly set''' variables in the [http://www.ecma-international.org/publications/standards/Ecma-367.htm ISO/ECMA standard document]. }}
+
+
+Still, it's not too hard to understand the basics of initializing variables of attached types:
+
+* For the initialization of attributes of a class, we can apply a rule similar to that of the initial evaluation of class invariants ... that is, everything must be in order upon completion of a creation procedure. If a class attribute is of an attached type, then each of the class's creation procedures is responsible for making sure that the attribute is attached to an object upon its completion. 
+
+* A local variable is considered properly set if it is initialized at some point '''preceding''' its use in any execution path in which it is used. So immediately after its <code>create</code> instruction, the local variable would be considered properly set. But if the <code>create</code> occurred in the <code>then</code> part of an <code>if</code> instruction, the local variable would not be properly set in the <code>else</code> part of that same <code>if</code> instruction:
+
+<code>
+    my_routine
+                -- Illustrate properly set local variable
+        local
+            l_my_string: STRING
+        do
+            if my_condition then
+                create l_my_string.make_empty
+--              ... l_my_string is properly set here
+            else
+--              ... l_my_string is not properly set here
+            end
+        end
+</code>
+
+* A variable is considered properly set if it is '''self-initializing'''. What it means to be self-initializing is explained below.
+
+===Self-initializing attributes===
+
+A self-initializing attribute is guaranteed to have a value when accessed at run time. Declarations of self-initializing attributes are characterized by the use of the code that follows the <code>attribute</code> keyword. The code is executed to initialize the attribute in the case that the attribute is accessed prior to being initialized in any other way. 
+
+So, self-initializing attributes are ordinary attributes, with the restriction that they are of both ''attached'' types and ''reference'' types (i.e., not expanded types or constants).  Self-initializing attributes still can be, and typically will be initialized in the traditional ways. The difference is that the code in the attribute part serves as a kind of safety net guaranteeing that a self-initializing attribute will never be void, even if it is accessed prior to being initialized by one of the traditional means.
+
+<code>
+    value: STRING
+        attribute
+            create Result.make_empty
+        end
+</code>
+
+In the example above, the attribute <code>value</code> will be attached to an object of type <code>STRING</code>, in fact, the empty string, if no other initialization occurs before the first access of <code>value</code>.
+
+===Rule for conformance===
+
+You will remember that the Eiffel type system dictates that an assignment instruction:
+<code>
+            x := y
+</code>
+is valid only if the type of <code>y</code> is '''compatible''' with the type of <code>x</code>. Compatibility, in turn, means either '''conversion''' or '''conformance'''. 
+
+The fact that all types are either '''attached''' or '''detachable''' adds another dimension to rule for conformance:
+*If x is of an attached type, then y must be of an attached type.
+This prevents us from circumventing attached status at run time. If <code>x</code> is of a detachable type, then <code>y</code> could be either a detachable or attached type.
+
+The same goes for routine calls. In a call:
+<code>
+            z.r (y)
+</code>
+where <code>x</code> is the formal argument for <code>r</code>, then if x is of an attached type, then y must be of an attached type.
+
+===Stable attributes===
+
+Stable attributes are really stable ''detachable'' attributes, as adding the concept of stability is meaningful only for detachable attributes. Declaring a detachable attribute as stable, means that it behaves like a detachable attribute except that its assignment rules mimic those of attached attributes. In other words, a stable attribute does not need to be attached during object creation the way that attributes declared as attached must. But like attached type attributes, stable attributes can never be the target of an assignment in which the source is <code>Void</code> or a detachable type.
+<code>
+    my_test: detachable TEST
+        note
+            option: stable
+        attribute
+        end
+</code>
+
+This means that even though stable attributes do not need to be initialized like attributes of attached types, once they are attached to an object, they can never be void again.
+
+Stable attributes are also interesting in that they are the only exception to the rule given above in the [[Void-safety: Background, definition, and tools#Certified Attachment Patterns (CAPs)|CAPs section]] that stated that direct access to attributes cannot be protected by a CAP. A stable attribute can be used under the protection of a CAP. This is because once a stable attribute has an object attached, it can never again be set to <code>Void</code>. So there's no worry about having the attribute's state going unexpectedly from attached to non-attached because of the actions of other routines or threads.
+
+===Rule for generic parameters===
+
+Generic classes provide another question. A generic class like
+<code>
+class
+    C [G]
+        ...
+</code>
+allows us to create a type by providing a specific actual generic parameter for the formal parameter <code>G</code>.
+
+So, two valid derivations are:
+<code>
+    my_integer_derivation: C [INTEGER]
+</code>
+and
+<code>
+    my_employee_derivation: C [EMPLOYEE]
+</code>
+
+If class C contains a declaration:
+<code>
+    x: G
+</code>
+What do we know about the void-safety of <code>x</code> ? 
+
+In the case of the <code>INTEGER</code> derivation above, we know <code>x</code> is safe because <code>INTEGER</code> is an expanded type. But often types like <code>EMPLOYEE</code> will be reference types which could be void at run time.
+
+'''For a class like <code>C [G]</code>, <code>G</code> is considered detachable'''. As a result, because of the [[Void-safety: Background, definition, and tools#Rule for conformance|rule for conformance]], any class will work for an actual generic parameter. That means that both of the following are valid generic derivations:
+
+<code>
+    my_detachable_string_derivation: C [detachable STRING]
+
+    my_attached_string_derivation: C [attached STRING]
+</code>
+
+If <code>C</code> contains a declaration <code>x: G</code>, the application of features to <code>x</code> must include verification of attachment (CAPs, attached syntax, etc).
+
+Constrained genericity can be used to create generic classes in which the generic parameter represents an attached type. If class <code>C</code> had been defined as: 
+<code>
+class C [G -> attached ANY]
+            ...
+</code>
+then <code>x</code> in this class <code>G</code> represents an attached type. Consequently, the actual generic type in any derivation must be attached ... and feature calls on <code>x</code> are safe.
+
+===Rule for ARRAYs===
+
+The rule for generic parameters applies to all generic types ... except <code>ARRAYs</code>. In the typical creation of an <code>ARRAY</code>, we would provide a minimum and maximum index. 
+<code>
+    my_array: ARRAY [STRING]
+
+                ...
+
+            create my_array.make (1, 100)
+</code>
+During creation, an area to store the appropriate number of entries is also created. And depending upon the actual generic parameter, these entries are either objects for expanded types or references for reference types. 
+
+In the case of an actual generic parameter of an attached reference type, all the elements must be attached to instances of type during the creation of the ARRAY. The <code>make</code> procedure would not do this. Creation of an <code>ARRAY</code> in which the actual generic parameter is attached must be done using the <code>make_filled</code> creation procedure. 
+<code>
+            create my_array.make_filled ("", 1, 100)
+</code>
+The first argument is an object of the actual generic type, in this case an empty <code>STRING</code>. Every entry in the newly created <code>ARRAY</code> will be initialized to reference this object.
+
+
+For more detail on void-safe use of arrays and other generic classes, see the section: [[Creating a new void-safe project#Using generic classes|Using generic classes]].
+
+
+
+

@@ -1,0 +1,63 @@
+[[Property:title|Major changes between ISE Eiffel 7.0 and ISE Eiffel 7.1]]
+[[Property:link_title|7.1]]
+[[Property:weight|12]]
+[[Property:uuid|4b7325ad-4c9c-d6f8-3a25-7d2a4d709fcb]]
+==What's new==
+* New SCOOP processor GC which lets you create as many processors as you want as long as they are no more than 1500 concurrent processors (or less depending on your available memory).
+* Supported the EIFFEL_LIBRARY environment variables to locate libraries.
+
+==Improvements==
+* The Eiffel Configuration Files accept C compiler and linker flags. Former ECFs using a workaround to specify those flags as part of the external includes or external objects sections are automatically updated to the new specification.
+* Report invalid Unicode code point for STRING_8 manifest.
+* Ensured you can switch C compilers after compiling with one on Windows.
+* Speed up C compilation with Visual Studio by using `#pragma once' on our header files (bug#17092). 
+* Speed up execution of expanded comparison using ~ when types are known to be different at compile time.
+* Optimized code generation of <e>{CHARACTER_32}.is_character_8</e>.
+* Optimized code generation of boolean expressions that are known to be False or True at compile time in both workbench and finalized mode.
+
+==Changes==
+* Breaking change of generating Unicode code point for STRING_8 manifest written in UTF-8 source code. (Written UTF-8 bytes was generated). Unlike previous versions, what you see will be what you get at runtime, i.e. the character codes are the same.
+* In the `on-demand' void-safety mode, the compiler will not report a VD88 error when you are using a non-void safe library. This should help migrating existing code to full void-safety.
+* Removed support for type qualifier for strings used in obsolete messages.
+* Removed type qualifiers from manifest constants to follow the changes in the language rules that now prevent from using them in constant attribute declarations.
+* VWEQ warnings will only be triggered for immediate code, not inherited code.
+* The assignment attempt operator <e>?=</e> is now triggering an obsolete syntax warning.
+* Changed expected content of verbatim strings to take into account that empty lines and empty lines with blanks are considered as different (test#syntax045).
+* Default projects are now console applications by default.
+
+==Bug fixes==
+
+===Language issues===
+* Fixed bug that the compiler accepted invalid typed character. i.e. {BOOLEAN} 'c'.
+* Made sure that typed manifest strings are using a proper string type, not just any type (bug#18045).
+* Ensured all attributes are set when an unqualified agent is created (bug#18067).
+* Triggered a warning when a non-empty body of an attribute which has a self-initializing type as the body is guaranteed to be never executed (bug#15145, test#exec296).
+* Added detection of inline agents on attributes to report a NOT_SUPPORTED error (bug#15147, test#term168).
+
+===Compiler issues===
+* Fixed various issues where compiler did not properly report errors for mal-formed Eiffel Configuration Files.
+* Fixed formatting of VFAV(2) error reporting (bug#18050).
+* Fixed duplicated report of VFAC(1) error (bug#18047).
+* Made sure one can perform the C compilation using the 32-bit version of the compiler on a 64-bit machine.
+* Fixed compilation of EiffelBase using the new replication mode (test#replication008 and test#replication009).
+* Improved VTAT error description (bug#16875).
+* Fixed a compiler failure when the F_code or W_code sub-directories are deleted after an initial compilation.
+
+===SCOOP issues===
+* Fixed a memory corruption when a query on a separate target would not properly register the results to the garbage collector, making the results potentially unusable.
+
+===Runtime/code generation issues===
+* Fixed code generation in melted mode when you declare a CHARACTER_32 constant feature such as <e>x: CHARACTER_32 = '%/027/'</e>.
+* Prevented a deadlock situation after a fork is performed on Unix platforms when using the `eif_thread_fork' (bug#18094).
+* Fixed a traitor situation where a multi-dot chain involving a separate target are treated as separate calls rather than normal calls (test#scoop024).
+* Fixed code generation of object test on basic types that was failing on .NET (test#dotnet113).
+* Fixed some definitions conflicts with `complex.h' which occurs on some platforms.
+* Ensured that on Windows using any Microsoft C++ compiler only 2 digits are displayed for exponents that can be represented on 2 digits and three otherwise.
+* Fixed a potential memory leak of thread context when a parent and a child are exiting at about the same time.
+* Fixed an incorrect handling of <e>detachable NONE</e> at runtime (test#melt088, test#valid154).
+* Fixed a performance issue when a thread exits which would slow downs all threads until the next garbage collector cycle.
+* Redesigned termination of a multithreaded program to avoid some deadlock and/or race conditions that could occur on a heavily loaded system (test#thread020, test#thread021 and test#thread023)
+
+===Store/Retrieve issues===
+N/A
+

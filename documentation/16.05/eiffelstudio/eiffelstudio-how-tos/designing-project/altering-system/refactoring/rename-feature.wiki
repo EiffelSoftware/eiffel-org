@@ -1,0 +1,13 @@
+[[Property:title|Rename Feature]]
+[[Property:weight|4]]
+[[Property:uuid|03a8b4de-3c7b-0f9e-ecd2-48ff2035eaf9]]
+# Start the '''Rename feature''' refactoring action by either:
+## Selecting '''Refactor->Rename''' from the context menu associated with the feature you want to rename.
+## Picking the feature and dropping its pebble into the '''Rename''' hole ([[Image:refactor-rename-icon]]) on the [[Main toolbars|refactoring toolbar]].
+# After a compilation the '''Refactoring: Feature Rename''' dialog appears. You can enter a new name. 
+# You can choose between these options: 
+#*  '''Replace Name in Comments''': replace usage of the feature name in comments that follow the '''`featurename'''' syntax. 
+#*  '''Replace Name in Strings''': replace usage of the feature name in strings that follow the '''`featurename'''' syntax. 
+#*  '''Reuse existing name''': allow two or more features to have the same name during refactoring (note: the compiler will still report an error, if there are two or more features with same name, but this option could be use to merge two features). 
+# Click '''OK'''. 
+

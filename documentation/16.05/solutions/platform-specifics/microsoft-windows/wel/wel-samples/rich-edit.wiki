@@ -1,0 +1,43 @@
+[[Property:title|Rich Edit]]
+[[Property:weight|4]]
+[[Property:uuid|d0a35ffd-a253-406f-ba15-c78400e8acd5]]
+[[Image:richedit|richedit]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\richedit\''. 
+* Choose ''richedit.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+==Running==
+
+After launching the program, a window will be displayed as shown above. The program is a simple text editor which allows you to load and save files; select fonts and colors; and print files. The operations are accessible through the menu bar and/or the tool bar.
+
+==Under the Hood==
+
+Both the menu items and the tool bar buttons are handled by on_menu_command which has been redefined in MAIN_WINDOW.
+
+Four of the [[stddlgs cluster|standard dialogs]]  provided by WEL are used to receive input from the user. 
+This sample contains the following classes: 
+* APPLICATION_IDS
+* MAIN_WINDOW
+* RICHEDIT_DEMO
+
+{{seealso|<br/>
+[[ref:/libraries/wel/reference/wel_rich_edit_chart|WEL_RICH_EDIT]]  <br/>
+[[WEL_PRINT_DIALOG|WEL_PRINT_DIALOG]]  <br/>
+[[WEL_SAVE_FILE_DIALOG|WEL_SAVE_FILE_DIALOG]]  <br/>
+[[WEL_OPEN_FILE_DIALOG|WEL_OPEN_FILE_DIALOG]]  <br/>
+[[WEL_CHOOSE_COLOR_DIALOG|WEL_CHOOSE_COLOR_DIALOG]]  <br/>
+[[WEL_CHOOSE_FONT_DIALOG|WEL_CHOOSE_FONT_DIALOG]]  }}
+
+
+
+
+
+

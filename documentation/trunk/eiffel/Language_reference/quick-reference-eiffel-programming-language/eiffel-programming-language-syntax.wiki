@@ -71,7 +71,7 @@ A simple string -- specimen of Simple_string -- is a [[#Strings|String]] consist
 |-
 | NL (LF) || %N || Newline
 |-
-| ` || %Q || Backquote
+| `` ` `` || %Q || Backquote
 |-
 | CR || %R || Carriage return
 |-
@@ -540,7 +540,7 @@ External ::= <code>external</code> External_language <nowiki>[External_name]</no
 External_language ::= Unregistered_language | [[#Registered languages|Registered_language]] 
 Unregistered_language ::= [[#Manifest strings|Manifest_string]] 
 External_name ::= <code>alias</code> [[#Manifest strings|Manifest_string]]
-{{note|If the `inline' keyword is used in the Registered_language part, then External_name part is the inline code on the specified language.}}
+{{note|If the `inline` keyword is used in the Registered_language part, then External_name part is the inline code on the specified language.}}
 
 
 ===Registered languages ===

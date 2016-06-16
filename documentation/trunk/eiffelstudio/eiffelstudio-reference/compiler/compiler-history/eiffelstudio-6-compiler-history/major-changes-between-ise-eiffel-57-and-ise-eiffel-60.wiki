@@ -34,7 +34,7 @@
 * Fixed bug#12782 where compiler would crash at degree 1 when removing a formal generic parameter of class (eweasel test#incr249 and test#incr284).
 * Fixed bug#12823 where specifying in the command line a target in a different case than the lower case version of the actual target name would fail to find the target in your configuration file.
 * Fixed bug#12698 where compiler was not processing the target extension properly if not specified in lower case.
-* Fixed bug#12591: compiler would not find classes from library referenced deeply using relative path. This also removes the extra `.' or `..' in the displayed path for a class.
+* Fixed bug#12591: compiler would not find classes from library referenced deeply using relative path. This also removes the extra `.` or `..` in the displayed path for a class.
 * Fixed issue with incorrect labeled tuples which were not detected in signature of features (see eweasel test#tuple008).
 * Fixed crash when checking an incorrect labeled tuple (e.g. <eiffel>TUPLE</eiffel> [a, a: <eiffel>INTEGER</eiffel>]) (see eweasel test#tuple009).
 * Fixed issue with inline agents where if you have one and during a compilation from scratch you have a compiler error, then fixing this error and recompiling, it would crash when melting or freezing (test#incr277).

@@ -1,0 +1,63 @@
+[[Property:title|Example: Command line arguments]]
+[[Property:weight|0]]
+[[Property:uuid|ba852d83-3c02-4d38-088a-60b76fe5c63f]]
+==Description==
+
+Retrieve the list of command-line arguments given to the program.
+Example command line:
+<code lang="text">
+myprogram -c "alpha beta" -h "gamma"
+</code>
+
+==Notes==
+
+This class inherits functionality for dealing with command line arguments from class <code lang="eiffel">ARGUMENTS</code>. It uses the feature <code lang="eiffel">separate_character_option_value</code> to return the values by option name for each of the two arguments. <code lang="eiffel">ARGUMENTS</code> provides a rich set of features for command line argument processing.
+
+The simple version in [[#Solution|Solution]] below is as submitted to Rosetta Code to illustrate class <code lang="eiffel">ARGUMENTS</code>, but it should be noted that <code lang="eiffel">separate_character_option_value</code> is of a detached type and will return a void reference if no value is found for a specified character option. Therefore, a safer version of the use of <code lang="eiffel">separate_character_option_value</code> would include object test on the result:
+
+<code>
+            if attached separate_character_option_value ('c') as l_val then
+                print ("Command line argument value for option 'c' is: ")
+                print (l_val + "%N")
+            end
+            if attached separate_character_option_value ('h') as l_val then
+                print ("Command line argument value for option 'h' is: ")
+                print (l_val + "%N")
+            end
+</code>
+
+==Source==
+
+Problem description from [http://rosettacode.org/wiki/Command-line_arguments Rosetta Code]
+
+==Solution==
+
+<code>
+class
+    APPLICATION
+inherit
+    ARGUMENTS
+create
+    make
+feature {NONE} -- Initialization
+    make
+            -- Print values for arguments with options 'c' and 'h'.
+        do
+            print ("Command line argument value for option 'c' is: ")
+            print (separate_character_option_value ('c') + "%N")
+            print ("Command line argument value for option 'h' is: ")
+            print (separate_character_option_value ('h') + "%N")
+            io.read_line    -- Keep console window open
+        end
+end
+</code>
+
+
+==Output (for command line arguments: -c "alpha beta" -h "gamma")==
+
+<code lang="text">
+Command line argument value for option 'c' is: alpha beta
+Command line argument value for option 'h' is: gamma
+</code>
+
+

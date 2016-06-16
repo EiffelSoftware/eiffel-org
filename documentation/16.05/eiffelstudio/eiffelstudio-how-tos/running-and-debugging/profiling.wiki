@@ -1,0 +1,72 @@
+[[Property:title|Profiling]]
+[[Property:weight|7]]
+[[Property:uuid|cd9f3f2d-25bf-4b1a-eaf9-9b9d056228eb]]
+The profiler is a tool that gives dynamic execution time information. It is very useful to detect which parts of a program need to be optimized most.
+
+To use the profiler, the first thing to do is to enable it.
+
+To enable the profiler:
+* Open the [[General Target Options|Project Settings]]  dialog. 
+* In the '''Target''' section, enable '''Profile'''. 
+* Click '''OK'''. 
+* You must [[Generating executables|recompile]]  your project for the changes to take effect. 
+
+By default the profiler will profile the entire program. However it is possible to enable or disable the profiler on certain clusters only. To do this:
+* Open the [[Group Options|Project Settings]]  dialog. 
+* In the '''Clusters''' property, check the '''Profile''' boolean value in the clusters where you want the profiler to be enabled. 
+* Click '''Apply''' or '''OK'''. 
+* You must [[Generating executables|recompile]]  your project for the changes to take effect. 
+
+It is also possible to dynamically start and stop the profiler in a program. To do this:
+* Create an object of type [[ref:/libraries/base/reference/profiling_setting_chart|PROFILING_SETTING]] . 
+* Call [[ref:libraries/base/reference/profiling_setting_flatshort|start_profiling]]  on this object to start the profiler. 
+* Call [[ref:libraries/base/reference/profiling_setting_flatshort|stop_profiling]]  on this object to stop the profiler. 
+
+{{tip|To profile only part of a program, turn off the profiler at the very beginning of the program, turn it on just before the part of the code that should be profiled, and turn it back off after this section. Typically, it results in the following code: }}
+
+In the root feature:
+
+<code>
+        local
+            ps: PROFILING_SETTING
+                -- Other local variables if necessary.
+        do
+            create ps.make
+            ps.stop_profiling
+                -- Real program execution.
+            ps.start_profiling
+        end</code>
+
+
+And in the feature(s) that needs to be profiled:
+<code></code> 
+<code>
+        local
+            ps: PROFILING_SETTING
+                -- Other local variables if necessary.
+        do
+            create ps.make
+            ps.start_profiling
+                -- What needs to be profiled.
+            ps.stop_profiling
+        end</code>
+
+
+{{note|Even if the profiler should only work in certain sections of code, the '''Profiling''' check box of the [[General Target Options|Projects Settings]]  dialog must be checked or the '''profile''' option must be set on certain clusters. }}
+
+Once the profiler has been enabled and the program has been recompiled, it is necessary to launch the program.
+
+{{tip|It is possible to profile debuggable(frozen/melted) executables as well as finalized ones. It is more interesting to profile finalized executables, though, since the execution speed is more representative of what will be obtained by your end users. }}
+
+When the program exits, a file named 'profinfo' should be generated next to it.
+
+All that's left to do is launch the [[Profiler wizard]]  and follow the instructions. 
+
+{{seealso|<br/>
+[[Generating executables|Generating executables]]  <br/>
+[[Running an application|Running a program]]  <br/>
+[[Tuning a program|Tuning a program]]  }}
+
+
+
+
