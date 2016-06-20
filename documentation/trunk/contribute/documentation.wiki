@@ -8,9 +8,11 @@
 * Each documentation page is stored in a wiki file on disk.
 * Those files come from the subversion repository: [https://svn.eiffel.com/eiffel-org/trunk/documentation/trunk] .
 * The outline of book are following the underlying directory structure, and each wiki file can have properties that hold metadata such as:
-:<nowiki>[[Property:title|The page title]]</nowiki>
-:<nowiki>[[Property:link_title|short title]]</nowiki>
-:<nowiki>[[Property:weight|5]]</nowiki>
+<code>
+[[Property:title|The page title]]
+[[Property:link_title|short title]]
+[[Property:weight|5]]
+</code>
 ** '''link_title''' is used to have a short title in menu, or various links.
 ** '''weight''' is used to order sibling pages (lower weight goes before, upper weight goes after).
 
@@ -39,4 +41,4 @@
 
 = Live editing on this site =
 * If you are a trusted editor, you can edit the documentation directly.
-* To be a trusted editor, please request it via the [/contact] page (do not forget to mention who you are and why you think you should be a trusted editor).
+* To be a trusted editor, please request it via the [https://www.eiffel.org/contact contact] page (do not forget to mention who you are and why you think you should be a trusted editor).
