@@ -64,9 +64,23 @@ After downloading the compressed package, you should manually extract its conten
 cd /usr/local
 tar xvfj /tmp/Eiffel_X.Y.tar.bz2</code>
 
-This will install EiffelStudio files into /usr/local/Eiffel_X.Y. Once this is done, jump to the [[#Setting up EiffelStudio|Setting up EiffelStudio]]  section in order to complete the installation of EiffelStudio.
+This will install EiffelStudio files into `/usr/local/Eiffel_X.Y` . Once this is done, jump to the [[#Setting up EiffelStudio|Setting up EiffelStudio]]  section in order to complete the installation of EiffelStudio.
 
-==Starting EiffelStudio==
+==  Setting up EiffelStudio ==
+Once the files have been installed, you should define the following environment variables in order to run EiffelStudio:
+* ISE_EIFFEL to `/usr/local/Eiffel_X.Y`
+* ISE_PLATFORM to `macosx-x86` for the 32 bits version or `macosx-x86-64` for the 64 bits version. We will be using `macosx-x86-64` in the examples below.
+and add `$ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin` to your PATH environment variable.
+
+Using sh or bash as a shell, it suffices to type the following commands:
+```shell
+export ISE_EIFFEL=/usr/local/Eiffel_X.Y
+export ISE_PLATFORM=macosx-x86-64
+export PATH=$PATH:$ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin
+```
+(Note: you can write this into your .profile file).
+
+== Starting EiffelStudio ==
 
 Now everything should be properly installed and you should be able to run the compiler. Simply navigate to /Applications/MacPorts/Eiffel''XX'' and double click the EiffelStudio icon.
 
