@@ -9,7 +9,7 @@
 * EiffelStudio is now integrated with the new support site entirely rewritten using EWF and in beta until now.
 
 ===Improvements===
-* When displaying the flat of code involving conversions of manifest constants such as assigning 1 to an INTEGER_8 variable, we will simply show 1 and not `1.to_integer_8' which is not valid Eiffel code.
+* When displaying the flat of code involving conversions of manifest constants such as assigning 1 to an INTEGER_8 variable, we will simply show 1 and not `1.to_integer_8` which is not valid Eiffel code.
 
 ===Bug fixes===
 * Fixed display of flat form involving a procedure agent.
@@ -23,10 +23,10 @@
 All libraries have been updated to the latest syntax for the agent's type.
 
 ===Base===
-* Exported `read_to_string' from FILE to allow user side buffering.
+* Exported `read_to_string` from FILE to allow user side buffering.
 
 ===Preferences===
-* Added a precondition to `add_parent_structure_preference_row' and `formatted_name' that a preference name cannot be empty (this might be the case when preference names get erroneously converted from non-ASCII strings, e.g. as it was with incorrect implementation of code analysis preferences).
+* Added a precondition to `add_parent_structure_preference_row` and `formatted_name` that a preference name cannot be empty (this might be the case when preference names get erroneously converted from non-ASCII strings, e.g. as it was with incorrect implementation of code analysis preferences).
 * Avoided automatic formatting of a preference name if it has whitespace to allow for preference names with underscore characters or those that are pre-formatted.
 * Added a creation procedure to pass a preference grid control explicitly in case some fine-tuning is needed.
 * Changed type of preference values to READABLE_STRING_32 to avoid conversion when the values are loaded from XML where values are returned as READABLE_STRING_32.

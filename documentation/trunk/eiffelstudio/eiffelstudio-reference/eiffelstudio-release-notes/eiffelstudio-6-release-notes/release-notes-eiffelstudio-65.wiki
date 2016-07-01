@@ -62,7 +62,7 @@ No changes in this release.
 ==Libraries==
 
 ===EiffelBase===
-* In experimental mode, we have changed the signature of <eiffel>generating_type</eiffel> to return an instance of <eiffel>TYPE</eiffel> rather than an instance of <eiffel>STRING</eiffel>. Existing code should still compile out of the box since we have equipped <eiffel>TYPE</eiffel> with conversions and new features similar to those of <eiffel>STRING</eiffel>. In the few cases where it would still not compile, use `generating_type.out' to ensure that the code will compile fine regardless of the compiler mode chosen (i.e. experimental or non-experimental).
+* In experimental mode, we have changed the signature of <eiffel>generating_type</eiffel> to return an instance of <eiffel>TYPE</eiffel> rather than an instance of <eiffel>STRING</eiffel>. Existing code should still compile out of the box since we have equipped <eiffel>TYPE</eiffel> with conversions and new features similar to those of <eiffel>STRING</eiffel>. In the few cases where it would still not compile, use `generating_type.out` to ensure that the code will compile fine regardless of the compiler mode chosen (i.e. experimental or non-experimental).
 * Fixed an issue in <eiffel>copy</eiffel> from <eiffel>HEAP_PRIORITY_QUEUE</eiffel> which would not do anything because it was simply copying itself, not the other queue.
 * Fixed a bug in <eiffel>remove</eiffel> from <eiffel>HEAP_PRIORITY_QUEUE</eiffel> which caused the internal structure to be referenced beyond its bounds. 
 * Made <eiffel>clear_all</eiffel> in <eiffel>STRING_8</eiffel>, <eiffel>STRING_32</eiffel> and <eiffel>HASH_TABLE</eiffel> obsolete. One has to use <eiffel>wipe_out</eiffel>instead.
@@ -80,7 +80,7 @@ No changes in this release.
 ===EiffelNet===
 * Fixed an issue with {NETWORK_STREAM_SOCKET}.make_server_by_port (0) which would not automatically get a port assigned.
 * Fixed obsolete warnings in the library.
-* Prevented a socket to change its blocking mode when connecting with a timeout (it would end up always being blocking even if requested otherwise before the call to `connect'.
+* Prevented a socket to change its blocking mode when connecting with a timeout (it would end up always being blocking even if requested otherwise before the call to `connect`.
 * Ensured that a socket is indeed connected when successfully connecting to it while the socket is in non-blocking mode.
 
 ===EiffelVision2===

@@ -20,7 +20,7 @@ After launching the program, a window will be displayed containing a pair of [[r
 
 <code>LISTVIEW_DEMO</code> redefines <code>init_application</code> in order to load the [[ref:libraries/wel/reference/wel_common_controls_dll_chart|WEL_COMMON_CONTROLS_DLL]]  and the [[ref:libraries/wel/reference/wel_rich_edit_dll_chart|WEL_RICH_EDIT_DLL]] .
 
-<code>LISTVIEW</code> redefines many of the `on_' features inherited from [[ref:libraries/wel/reference/wel_list_view_chart|WEL_LIST_VIEW]]  in order to generate output for the user.
+<code>LISTVIEW</code> redefines many of the `on_` features inherited from [[ref:libraries/wel/reference/wel_list_view_chart|WEL_LIST_VIEW]]  in order to generate output for the user.
 
 The style of the <code>LISTVIEW_DEMO</code> is changed by calling <code>set_style</code> with the required new style.
 

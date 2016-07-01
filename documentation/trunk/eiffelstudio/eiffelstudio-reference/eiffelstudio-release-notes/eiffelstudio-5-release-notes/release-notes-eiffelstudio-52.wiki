@@ -15,7 +15,7 @@
 * Click [[Major changes between ISE Eiffel 5.1 and ISE Eiffel 5.2|here]]  for more details on compiler improvements and full Eiffel support on .NET 
 
 ==Debugger==
-* Right-clicking on one of the run buttons will pop up a dialog enabling you to choose the command line argument (it is a shortcut for `Project Settings'-> Debug tab).
+* Right-clicking on one of the run buttons will pop up a dialog enabling you to choose the command line argument (it is a shortcut for `Project Settings`-> Debug tab).
 * Expressions can now be dynamically evaluated in the debugger. ( [[Expression evaluation|info]] ) 
 * Conditional breakpoints. ( [[Breakpoints|info]] ) 
 * Classes can now define <code> debug_output </code>, a feature inherited from <code> DEBUG_OUTPUT </code>, whose string result is automatically displayed in the debugger for all objects of that type. ( [[Debug output|info]] ) 
@@ -31,7 +31,7 @@
 ** Fixed <code> is_integer </code> to return False for strings of the form "(-|+)[a-zA-Z]+[0-9]*)" 
 ** Improved speed of <code> to_lower </code> and <code> to_upper </code>. 
 ** Updated for ELKS 2001 conformance: 
-*** Changed signature of <code> out </code> and <code> replace_substring </code> to use <code> STRING </code> instead of `like Current'. 
+*** Changed signature of <code> out </code> and <code> replace_substring </code> to use <code> STRING </code> instead of `like Current`. 
 *** Added <code> keep_tail </code>, <code> keep_head </code>, <code> remove_tail </code>, <code> remove_head </code> and make <code> head </code> and <code> tail </code> obsolete. 
 *** Added <code> string </code>, <code> same_string </code>, <code> has_substring </code>, <code> fill_with </code>, <code> insert_string </code>, <code> insert_character </code>, <code> as_lower </code>, <code> as_upper </code>. 
 *** Modified <code> make_from_string </code> so that no sharing of internal string is done. 
@@ -58,14 +58,14 @@
 * Put Windows and Unix version to the same version number.
 * Fixed EiffelWeb documentation and example.
 * Fixed minor issues found with EiffelVision2 on Unix and Windows which were affecting EiffelBuild.
-* Fixed incorrect configuration file specification for EiffelVision2 examples and wizards on Unix platforms where application could be linked dynamically with `libpng' but should not.
+* Fixed incorrect configuration file specification for EiffelVision2 examples and wizards on Unix platforms where application could be linked dynamically with `libpng` but should not.
 * Fixed EiffelStore handle for Oracle so that it works fine when compiled with the Borland C compiler.
 * Fixed incorrect version number in VERSION file on Unix platforms.
 
 ===Version 5.2.1313:===
 * Fixed resource leak on Windows 98 and Windows Me.
 * Fixed incorrect implementation of <code> area </code> and <code> substring </code> for <code> STRING </code> in dotnet mode. 
-* Fixed issue with setting of arguments. After restarting EiffelStudio the command line argument contains an extra `]' character.
+* Fixed issue with setting of arguments. After restarting EiffelStudio the command line argument contains an extra `]` character.
 * Fixed issue with working directories where only the first one ever set was used even if new ones have been set afterwards.
 * Fixed issue in IL code generation where having a class that inherits from a non-Eiffel .NET class. And the class has the following features: <br/>
 <code>

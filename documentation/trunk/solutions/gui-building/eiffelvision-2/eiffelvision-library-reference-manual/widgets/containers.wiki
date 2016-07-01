@@ -41,9 +41,9 @@ A code example of adding widgets to a container is as follows:
 </code>
 
 The mapping of a EiffelVision 2 container interface is very close to that of containers in [[EiffelBase]], such as a linked list. 
-* To add a widget to a container call <code>`extend'</code>.
-* To remove a widget from the container call <code>`prune'</code>.
-* To empty a container call <code>`wipe_out'</code>.
+* To add a widget to a container call <code>extend</code>.
+* To remove a widget from the container call <code>prune</code>.
+* To empty a container call <code>wipe_out</code>.
 * To traverse the container, you can use features such as <code>start</code>, <code>forth</code>, <code>item</code>, and <code>off</code>.
 
 {{note|When a widget is added to a container, the container is the parent of the widget. }}

@@ -21,7 +21,7 @@ to say that the valid actual generic parameters for <eiffel>A</eiffel> are alway
 ==Changes==
 * Compiler is now checking that you cannot redeclare a formal generic parameter into a reference type unless the formal generic parameter is being constraint to be always a reference type (See the '''What's new''' section above).
 * Removed obsolete <eiffel>eifcid</eiffel>, <eiffel>eif_expand</eiffel> and <eiffel>eifexp</eiffel>from the CECIL interface, one has to use <eiffel>eif_type_id</eiffel>instead.
-* In .NET, changed the naming conventions of resources included in an assembly. The extension `.resources' is appended for resources that are originally provided as `.resx' or `.txt' files. Other files are embedded as is in the assembly and the name of the resource is the name of the file.
+* In .NET, changed the naming conventions of resources included in an assembly. The extension `.resources` is appended for resources that are originally provided as `.resx` or `.txt` files. Other files are embedded as is in the assembly and the name of the resource is the name of the file.
 * In .NET, now all classes inherit from <eiffel>ANY</eiffel>. Before all classes inherited from <eiffel>SYSTEM_OBJECT</eiffel>. The consequences are: 
 ** You can write an Eiffel generic classes where the actual generic parameter is a .NET class.
 ** If you used to inherit from .NET classes and Eiffel classes you can replace the inheritance clause below: 
@@ -139,7 +139,7 @@ instead of
 
 ===.NET issues===
 * Fixed incorrect code generation of native arrays which would cause the code to be rejected in newer version of the .NET Framework.
-* Fixed incorrect computation of `max_stack' for a routine body which could make the generated code not verifiable.
+* Fixed incorrect computation of `max_stack` for a routine body which could make the generated code not verifiable.
 
 ===Store/Retrieve issues===
 * Fix some issues related to the use of recoverable storable when manipulating generic types.

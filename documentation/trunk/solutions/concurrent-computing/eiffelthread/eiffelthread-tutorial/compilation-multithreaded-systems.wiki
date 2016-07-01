@@ -11,7 +11,7 @@
 * Set the Concurrency option to EiffelThread in the project settings under Advanced. 
 * Do not use a non-multi-threaded precompiled library. The corresponding multi-threaded libraries of base, WEL and Vision2 should be located in $ISE_EIFFEL/precomp/spec/$PLATFORM/ with the mt prefix. 
 * You may want to include the thread library (located at "$ISE_EIFFEL/library/thread") in your project. This setting can be done in [[Group Options| the groups section of the project settings window]] . 
-* When using external C libraries, be sure that they are MT-safe on the platforms where the Eiffel Threads are available. For example [[WEL]]  and [[EiffelNet]] multi-threaded libraries can be recognized by the `mt' prefix. 
+* When using external C libraries, be sure that they are MT-safe on the platforms where the Eiffel Threads are available. For example [[WEL]]  and [[EiffelNet]] multi-threaded libraries can be recognized by the `mt` prefix. 
 
 ==Compilation==
 

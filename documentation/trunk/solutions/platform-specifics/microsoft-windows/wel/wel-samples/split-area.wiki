@@ -18,7 +18,7 @@ To compile the example:
 After launching the program, a window will be displayed containing a pair of [[ref:libraries/wel/reference/wel_rich_edit_chart|WEL_RICH_EDIT]]  in a split area. Clicking the mouse on the split area (between the two rich edits) and dragging the mouse, will adjust the split area and its content accordingly. 
 ==Under the Hood==
 
-There is no split area class provided with WEL, but <code>WEL_SPLIT_AREA</code> was created for this sample to illustrate how new controls can be built when required. Redefining some of the `on_' features inherited from [[ref:libraries/wel/reference/wel_window_chart|WEL_WINDOW]]  in <code>WEL_SPLIT_AREA</code> shows how the control over the contents of the split area is achieved.
+There is no split area class provided with WEL, but <code>WEL_SPLIT_AREA</code> was created for this sample to illustrate how new controls can be built when required. Redefining some of the `on_` features inherited from [[ref:libraries/wel/reference/wel_window_chart|WEL_WINDOW]]  in <code>WEL_SPLIT_AREA</code> shows how the control over the contents of the split area is achieved.
 
 This sample contains the following classes: 
 * <code>APPLICATION</code>

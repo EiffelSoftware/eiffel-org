@@ -121,7 +121,7 @@ After the compile completes, then the first pane of the New Eiffel Test Wizard a
 
 Here we will name our test. Let's say that we plan to write this test against the feature <code>{BANK_ACCOUNT}.deposit</code>. We'll give this test the name <code>test_deposit_01</code>. The name uses an ad hoc naming convention for tests. You can use this, or develop your own. The prefix <code>test_</code> comes before the feature name it will test, and the suffix <code>_01</code> follows, so that we have a framework for adding more tests against <code>deposit</code>. Again, you can choose any naming scheme that makes sense to you. You may want to try to describe the test in its name. For example, <code>test_deposit_very_large_amount</code>.
 
-We're ready to click '''Next''', but before we do, let's look at the check boxes on this wizard pane. The two check boxes labeled '''Redefine `on_prepare'''' and '''Redefine `on_clean'''' have to do with the way that tests are run. 
+We're ready to click '''Next''', but before we do, let's look at the check boxes on this wizard pane. The two check boxes labeled '''Redefine `on_prepare`''' and '''Redefine `on_clean`''' have to do with the way that tests are run. 
 
 AutoTest runs each test as a three step process:
 # Preparation

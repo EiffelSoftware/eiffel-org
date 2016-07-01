@@ -15,7 +15,7 @@ The options available in this tab are as follows:
 *  <span id="build_type"></span> '''Build type''' 
 Select 'Project' if you wish to generate a complete project including an ace file, and an application class, which will launch the GUI you are developing.
 
-Select `Class' if you wish to generate a single class that represents the GUI you are developing. This option is useful if you wish to incorporate your current project into an existing EiffelVision 2 system.
+Select `Class` if you wish to generate a single class that represents the GUI you are developing. This option is useful if you wish to incorporate your current project into an existing EiffelVision 2 system.
 
 *  '''Always rebuild ace''' 
 This option causes the ace file to be completely re-generated every time you generate your project. If you do not wish the ace file to be re-generated, then disable this option. This check box is only available if 'build type' is set to 'project'.

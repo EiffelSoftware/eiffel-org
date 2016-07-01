@@ -5,7 +5,7 @@
 
 This example shows how to create a C array from an existing Eiffel array. 
 
-After you have done the appropriate steps to compile the example, you will get a `cecil.exe' on windows, or `cecil' on Unix. 
+After you have done the appropriate steps to compile the example, you will get a `cecil.exe` on windows, or `cecil` on Unix. 
 
 Launch the program and you will be prompted for 10 integers that will be inserted in an Eiffel array, it will then initialize the C array and display it. 
 
@@ -39,7 +39,7 @@ Displaying from C
 </code>
 
 ==object==
-This example shows the Eiffel memory management and all issues when passing an Eiffel object reference to C. In the example, you can edit the file `root_class.e' to modify the example: 
+This example shows the Eiffel memory management and all issues when passing an Eiffel object reference to C. In the example, you can edit the file `root_class.e` to modify the example: 
 <code>
 --give_to_c (o1)
 give_to_c_by_pointer ($o1) -- Choose the way you pass it
@@ -81,7 +81,7 @@ An Eiffel object of type OBJECT is collected
 </code>
 
 ==string==
-This example shows how to create a C string from an existing Eiffel string. After you have done the appropriate steps to compile the example, you will get a `cecil.exe' on windows, or `cecil' on Unix. Launch the program and you will be prompted for a string from Eiffel and a C string will be created and display. A typical output will be: 
+This example shows how to create a C string from an existing Eiffel string. After you have done the appropriate steps to compile the example, you will get a `cecil.exe` on windows, or `cecil` on Unix. Launch the program and you will be prompted for a string from Eiffel and a C string will be created and display. A typical output will be: 
 <code>
 $ cecil
 Enter a string to convert into a C string:

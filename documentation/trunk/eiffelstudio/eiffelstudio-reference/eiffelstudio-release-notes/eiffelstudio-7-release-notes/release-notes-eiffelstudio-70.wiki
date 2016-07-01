@@ -55,7 +55,7 @@
 * Prevented creation of instances of <e>PROCEDURE</e>, <e>FUNCTION</e>, and <e>PREDICATE</e> using a creation instruction. An agent has to be created via the agent expression provided at the language level.
 * Fixed a potential reporting of version mismatch when there is a mismatch but actually no version changes.
 * Added <e>TABLE_ITERATOR</e> and <e>TABLE_ITERATION_CURSOR</e> to provide a common way for <e>TABLE</e> like datastructure to iterate over using the new across loop.
-* Improved speed of `replace_substring_all' when replacing a smaller string by a larger one.
+* Improved speed of `replace_substring_all` when replacing a smaller string by a larger one.
 * Added support for string searches of a <e>STRING_32</e> string (previously it was limited to <e>STRING_8</e>).
 * Fixed {IMMUTABLE_STRING_XX}.shared_substring which would not be properly processed by many string operations (e.g. item, item_code, code, ...).
 * Changed the behavior of {STRING_XX}.twin to create a new string where the capacity is set to the count of the twinned strings and not to its capacity. In scenarios where a large buffer is used but a frequent twin is used it has a big impact on speed and memory usage.

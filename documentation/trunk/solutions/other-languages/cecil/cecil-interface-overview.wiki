@@ -16,7 +16,7 @@ Generally, you should use these types when implementing external C functions bou
 
 {{note|In the following code samples, the class <eiffel>OBJECT</eiffel> is a placeholder for one of your type that you wish to use via CECIL.}}
 
-{{sample|Calling C external `foo' from Eiffel, which takes a pointer and an eiffel object of type OBJECT as arguments and returns an INTEGER. }}
+{{sample|Calling C external `foo` from Eiffel, which takes a pointer and an eiffel object of type OBJECT as arguments and returns an INTEGER. }}
 <div> 
 <code>
     c_foo (ptr: POINTER; obj: OBJECT): INTEGER
@@ -28,7 +28,7 @@ Generally, you should use these types when implementing external C functions bou
 </code>
 
 
-In the C side, The C function `foo' is defined as follow:
+In the C side, The C function `foo` is defined as follow:
 
 <code lang="c">
 EIF_INTEGER foo (EIF_POINTER ptr, EIF_OBJECT obj)
@@ -121,7 +121,7 @@ EIF_INTEGER foo (EIF_POINTER ptr, EIF_OBJECT obj);
 
 '''Important rules when using eif_access:'''
 
-{{note|The first argument of ''(ep)'' is the target of the function (the eiffel object to which you want to apply the Eiffel feature ''(ep)'') and the second argument corresponds to the first argument of ` ''print'''. Any Eiffel object could have been the 1st argument of ''(ep)'' since all of them inherit ''ANY''. }}
+{{note|The first argument of ''(ep)'' is the target of the function (the eiffel object to which you want to apply the Eiffel feature ''(ep)'') and the second argument corresponds to the first argument of `print`. Any Eiffel object could have been the 1st argument of ''(ep)'' since all of them inherit ''ANY''. }}
 
 
 *  '''Never pre compute the value returned by eif_access. ''' <br/>
@@ -148,7 +148,7 @@ because e_ref is the direct reference to the Eiffel object when calling ''eif_ac
 	* which corresponds to the C string passed as its argument.
 	*/
 </code>
-Nothing guarantees that the direct reference returned by `eif_access (a)' will be still valid when executing (ep): it may be obsolete after the Eiffel call eif_string ("Hello world"), which may invoke a collection cycle. 
+Nothing guarantees that the direct reference returned by `eif_access (a)` will be still valid when executing (ep): it may be obsolete after the Eiffel call eif_string ("Hello world"), which may invoke a collection cycle. 
 
 The correct code is
 
@@ -160,7 +160,7 @@ my_string = eif_string ("Hello world");
 </code>
 
 
-In this case, you do not need to protect `my_string' since the GC is not likely to be triggered after the call to ''eif_string'' and before `my_string' is given as argument in ''(ep). '' A collection is triggered only during Eiffel calls. If an Eiffel call had been performed, you would have had to use ''eif_protect'' (see paragraph 3. 2): 
+In this case, you do not need to protect `my_string` since the GC is not likely to be triggered after the call to ''eif_string'' and before `my_string` is given as argument in ''(ep). '' A collection is triggered only during Eiffel calls. If an Eiffel call had been performed, you would have had to use ''eif_protect'' (see paragraph 3. 2): 
 
 <code lang="c">
 EIF_REFERENCE my_string;

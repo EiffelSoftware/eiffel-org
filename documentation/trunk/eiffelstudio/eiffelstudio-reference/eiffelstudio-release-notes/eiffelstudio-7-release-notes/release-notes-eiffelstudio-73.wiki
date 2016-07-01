@@ -38,7 +38,7 @@
 * Made <e>INTERNAL</e> obsolete. It is now replaced by two sets of classes: a static introspection class and a dynamic one. The class that lets you examine the static content is <e>REFLECTOR</e>; most references to <e>INTERNAL</e> can easily be replaced by <e>REFLECTOR</e>. To inspect objects, you have a new set of classes starting with <e>REFLECTED_OBJECT</e>. This lets you inspect objects with copy semantics without actually causing a copy each time you access it, unlike what was happening before with <e>INTERNAL</e>.
 * Fixed a reallocation bug in <e>SED_MEMORY_READER_WRITER</e> where if you retrieve a large chunk, we would not allocate enough memory.
 * Added ability to store/retrieve expanded objects and objects with copy semantics with SED.
-* Storables made using SED from version 6.6 or earlier of EiffelStudio not using the `is_for_fast_retrieval' setting won't be recoverable.
+* Storables made using SED from version 6.6 or earlier of EiffelStudio not using the `is_for_fast_retrieval` setting won't be recoverable.
 
 ===EiffelStore===
 * Do not remove trailing spaces for string content.

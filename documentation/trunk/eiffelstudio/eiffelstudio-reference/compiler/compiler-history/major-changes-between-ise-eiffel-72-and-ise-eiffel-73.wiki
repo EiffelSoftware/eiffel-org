@@ -31,6 +31,6 @@ N/A
 * Fixed a bug where the TYPE instance of a new generic derivation in the running system would be corrupted.
 
 ===Store/Retrieve issues===
-* Fixed a bug in .NET where using the Eiffel serialization or marking objects would trigger computation of `hash_code' on Eiffel objects and thus changing their state.
+* Fixed a bug in .NET where using the Eiffel serialization or marking objects would trigger computation of `hash_code` on Eiffel objects and thus changing their state.
 
 

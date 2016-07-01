@@ -32,7 +32,7 @@ Updated the generated code to the latest Eiffel syntax as specified by ECMA.
 * Fixed positioning bug when moving items within their current parent by dropping on another item in that parent with the shift key held down.
 * Fixed bug where modifying the "User can resize" property of a window while the tools were always shown on top stopped the tools from being shown on top.
 * Added support for multi-line tooltips.
-* Added support for `is_item_expanded' from EV_SPLIT_AREA.
+* Added support for `is_item_expanded` from EV_SPLIT_AREA.
 * Added the ability to specify a directory for generation, into which location all files are to be generated.
 * Event selection dialogs now contain the name of the object to which they refer in their title for cases where multiple dialogs are open simultaneously
 * The project settings dialog is now completely navigatable via the keyboard on Windows platforms.

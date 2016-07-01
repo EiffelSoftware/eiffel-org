@@ -28,7 +28,7 @@ a: detachable MY_TYPE note option: stable attribute end
 * Removed usage of infix/prefix in most of the libraries. To ease transition, added a compatibility option that allows existing code using the infix/prefix notation to continue to compile.
 * Attachment status of formal generic constraints are now taken into account when checking conformance and detecting VUTA errors when target type is a formal generic. '''Important''': default attachment status of the constraints follows the "attached-by-default" setting, so the code might need to be updated by adding a detachable mark in front of the formal generic constraints if the actual generic parameters can be detachable types. 
 * The compiler does not produce the class progress output in batch mode. The old behavior is available by using the '''-verbose''' option. 
-* Fixed incorrect display of NATURAL_32 attributes when calling `out' (fixes eweasel test#exec298 and bug#13862.) 
+* Fixed incorrect display of NATURAL_32 attributes when calling `out` (fixes eweasel test#exec298 and bug#13862.) 
 
 ==Bug fixes==
 
@@ -50,13 +50,13 @@ a: detachable MY_TYPE note option: stable attribute end
 * Fixed eweasel test#melt085 and test#melt086 where using Precursor in a manifest array, manifest tuple or expression of an object test would cause a crash at runtime. 
 * Fixed multiple issues with validity checks involving multi-constraint formal generics and "like Current" types.
 * Fixed system validity errors which were not previously detected or on the other hand rejected when it was correct. Fixes eweasel tests test#svalid019, test#svalid020 and test#multicon051. 
-* Fixed eweasel test#exec310 and bug#14477 where if you have a class name that is longer than 512 bytes or an attribute name longer than 512 bytes and you call `out' it would cause a buffer overflow.
+* Fixed eweasel test#exec310 and bug#14477 where if you have a class name that is longer than 512 bytes or an attribute name longer than 512 bytes and you call `out` it would cause a buffer overflow.
 
 ===Runtime/code generation issues===
 * Fixed broken generation of single threaded DLL. 
 * Fixed a bug on Windows where including some Eiffel multithreaded code in a DLL would cause a crash. This was due to the way we compiled our Thread Local Storage using a Microsoft optimization that only works for normal binaries, not DLLs. 
 * Fixed some interpreter crashes when handling manifest strings or agent expressions.
-* Fixed eweasel test#final077 where the arguments passed to a creation expression where not properly processed when analyzing expressions. This caused the following instruction: "l_x := x.y.z (create .make (l_x))" to override the value of `l_x' with the value of `x.y' which is wrong. 
+* Fixed eweasel test#final077 where the arguments passed to a creation expression where not properly processed when analyzing expressions. This caused the following instruction: "l_x := x.y.z (create .make (l_x))" to override the value of `l_x` with the value of `x.y` which is wrong. 
 * Fixed eweasel test#incr321 when if you finalize after removing a class from the system, then execution of workbench code fails. 
 * Fixed eweasel test#attach047 where type of array of string passed as argument to the creation procedure of the root class should have an attached actual argument type. 
 * Fixed eweasel test#expanded008 and bug#15693 where if you had an expanded with references attributes then the garbage collector would not update the internal references of the expanded and cause some memory corruption. 

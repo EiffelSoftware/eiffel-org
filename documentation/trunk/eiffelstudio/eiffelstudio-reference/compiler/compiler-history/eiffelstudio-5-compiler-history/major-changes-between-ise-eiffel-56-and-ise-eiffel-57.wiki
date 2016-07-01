@@ -28,7 +28,7 @@
 * No freeze is required when adding an agent, saving you time since C compilation can be long for very large project.
 * Reduced the required disk space for a workbench compilation in classic mode (went from 1.8 GB to 1GB for a very large project).
 * Improved speed of agent calls in classic mode.
-* Support use of IL enumerations with underlying integer types different from System.Int32. In particular, the built-in features `to_integer' and `from_integer' now use the underlying type rather than System.Int32.
+* Support use of IL enumerations with underlying integer types different from System.Int32. In particular, the built-in features `to_integer` and `from_integer` now use the underlying type rather than System.Int32.
 * Support generation of IL properties as well as custom attributes for them.
 * Support the new syntax without the <code>is</code> keyword in the feature declaration.
 * Allowed bracket expressions to be used as a target of a qualified feature call (this is an extension to ECMA standard that does not permit this syntax at the moment).

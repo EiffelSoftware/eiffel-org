@@ -23,7 +23,7 @@ No major improvements in 6.5 as this release was mostly focused on quality impro
 ===Compiler issues===
 * Fixed eweasel test#incr313, test#incr317 and test#incr318 where removal of a convert clause was not taken into account by the compiler. 
 * Fixed eweasel test#svalid022 where conversion to a target of a detachable type was not accepted, and also now the compiler will verify that the source of the conversion is always attached. Ensured that the source or the target type mentioned in a convert clause is attached. 
-* Fixed eweasel test#svalid024 where using an inspect clause with static constant access would failed to compile in a descendant class when `full class checking' is enabled. 
+* Fixed eweasel test#svalid024 where using an inspect clause with static constant access would failed to compile in a descendant class when `full class checking` is enabled. 
 * Fixed eweasel test#term156 and test#svalid025 where compiler would crash while compiling code that needs to be regenerated in descendant classes (e.g. code from precondition) involving anchors or formal generic parameters. 
 * Supported tracking changes made to a shared library definition file to trigger freeze automatically when there are any modifications to this file. 
 * Fixed bug on Unix platforms where spaces in project/installation paths failed to create the necessary symbolic links, when using precompiles. 
@@ -44,6 +44,6 @@ No major improvements in 6.5 as this release was mostly focused on quality impro
 
 
 ===Store/Retrieve issues===
-* Fixed bug#16395 and eweasel test#store026 to avoid mismatch if the metadata stored in `eskelet' is simplified or not (i.e. for class A[G] feature g: B[G], and then having A [INTEGER] could either describe `g' as either `B[G]' or `B[INTEGER]', even though different they are the same type and should not yield a mismatch). 
+* Fixed bug#16395 and eweasel test#store026 to avoid mismatch if the metadata stored in `eskelet` is simplified or not (i.e. for class A[G] feature g: B[G], and then having A [INTEGER] could either describe `g` as either `B[G]` or `B[INTEGER]`, even though different they are the same type and should not yield a mismatch). 
 * Fixed eweasel test#store028 where retrieving an object whose type involves a TUPLE type without a TUPLE instance could corrupt the retrieval system. 
 

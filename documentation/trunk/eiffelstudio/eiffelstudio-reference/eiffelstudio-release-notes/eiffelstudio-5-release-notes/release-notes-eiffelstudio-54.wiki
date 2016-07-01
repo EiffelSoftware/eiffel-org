@@ -10,7 +10,7 @@
 * All callers will not show empty entries.
 
 ===Bug fixes===
-* Fixed issue where setting the string background color to `auto' in the preferences will set it to a black color next time your relaunch EiffelStudio.
+* Fixed issue where setting the string background color to `auto` in the preferences will set it to a black color next time your relaunch EiffelStudio.
 * Fixed issue where typing in an empty features tree will close down EiffelStudio.
 * Fixed issue with BON diagram where expanded client links were not properly displayed (the expanded bar was drawn on top of classes instead of on the link itself).
 
@@ -43,7 +43,7 @@
 * Fixed bug in <code>generic_typecode</code> from <code>TUPLE</code> in .NET implementation which fixed an issue with <code>is_reference_item</code>.
 * Made <code>TUPLE</code> a descendant of <code>HASHABLE</code> and defined <code>hash_code</code> (based on the hash_codes of the elements of a <code>TUPLE</code>).
 * Added <code>default_create</code> as creation procedure of <code>TUPLE</code> and made <code>make</code> obsolete.
-* Added convenience features to <code>TUPLE</code>: <code>put_XX_item</code> where `XX' can be replaced by `character, boolean, integer, double,...'.
+* Added convenience features to <code>TUPLE</code>: <code>put_XX_item</code> where `XX` can be replaced by `character, boolean, integer, double,...`.
 * Optimized <code>ROUTINE</code>, <code>PROCEDURE</code> and <code>FUNCTION</code> implementation to speed up agent calls by a factor of 2 to 3. Removed <code>open_operand_type</code> from <code>ROUTINE</code> as its specification was only used internally and specification was not precise enough to be used by clients of <code>ROUTINE</code>.
 * Fixed <code>append</code> from <code>SEQUENCE</code> to not perform a <code>deep_clone</code> when passed argument is the same reference as Current. This was a problem when the base class of the type of the elements inherited from <code>MEMORY</code> and redefined <code>dispose</code>. You could possibly end up freeing twice an external resource.
 * Changed implementation of <code>INTERACTIVE_LIST</code> to be based on <code>ARRAYED_LIST</code> rather than on <code>LINKED_LIST</code>.
@@ -69,7 +69,7 @@
 * Made <code>OBJECT_OWNER</code> obsolete
 * Added <code>wait_with_timeout</code> in <code>CONDITION_VARIABLE</code>
 * Added <code>READ_WRITE_LOCK</code> class to be used in a system where few writes are done compare to reads. A typical example of its use would be to have a thread safe lookup table where few insertions are done.
-* Now a C externals that might block the execution of a system, should be marked `blocking'. [[Major changes between ISE Eiffel 5.3 and ISE Eiffel 5.4|See compiler changes for more details]] .
+* Now a C externals that might block the execution of a system, should be marked `blocking`. [[Major changes between ISE Eiffel 5.3 and ISE Eiffel 5.4|See compiler changes for more details]] .
 
 ===EiffelVision2===
 * [[Revisions and Bug Fixes|Click here to see list of update and modification to EiffelVision2]] .

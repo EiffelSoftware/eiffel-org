@@ -26,7 +26,7 @@ In order to run properly you need to read [[Eiffel2Java|the library requirement]
 
 ===Compiling the example===
 
-Since the example is using the `test.java' class, the first step is to compile the java class using the `javac' command line utility from the JDK. Once it is done, copy the `test.class' either into $ISE_EIFFEL\examples\Eiffel2Java\EIFGENs\classic\W_code or else into $ISE_EIFFEL\examples\Eiffel2Java\EIFGENs\classic\F_code, depending on your compilation mode (freezing vs. finalizing).
+Since the example is using the `test.java` class, the first step is to compile the java class using the `javac` command line utility from the JDK. Once it is done, copy the `test.class` either into $ISE_EIFFEL\examples\Eiffel2Java\EIFGENs\classic\W_code or else into $ISE_EIFFEL\examples\Eiffel2Java\EIFGENs\classic\F_code, depending on your compilation mode (freezing vs. finalizing).
 
 ===Running the example===
 

@@ -27,15 +27,15 @@
 * Fixed compiler issues with handling of attached types.
 
 ===Compiler issues===
-* Renamed `eif_com.h' from the compiler delivery into `eif_com_exception.h' as it conflicts with `eif_com.h' from the EiffelCOM library.
+* Renamed `eif_com.h` from the compiler delivery into `eif_com_exception.h` as it conflicts with `eif_com.h` from the EiffelCOM library.
 * Fixed eweasel test#final061 and test#final063 where some kind of code could cause a crash of the compiler during degree -3 with inlining enabled.
 * Fixed eweasel test#final063 which caused a C compiler error when your code uses an inline agent in an assertion and the routine in which it is defined is deferred. 
 * Fixed Makefile code generation issue on machine with many cores which could cause a C compilation error because some dependencies are missing in the Makefile targets.
 * Fixed bug#13881 where if you have a VKCN error when using a routine whose return type is a like argument then it would crash instead of reporting the VKCN error. Improved VKCN error reporting by providing the instruction or expression which causes the problem.
 * Fixed eweasel test#rdtp001 and test#term158 where if TUPLE is not written using upper case characters, then the compiler will crash when trying to analyze the type. 
-* Fixed the issue found with GCC 4.x series where an assignment of the form *(a + x) = f() would first evaluate (a+x) and then `f' which could cause a memory corruption if `f' triggers a GC cycle. As far as we could tell, this kind of code generation was only done when `f' would return a basic type. See eweasel test#runtime007.
-* Fixed eweasel test#ccomp076 where C/C++ inlines did not get the protected object if any, but only the unprotected one which could cause some issue if the C/C++ inline code uses `eif_access' or `eif_adopt'. 
-* Fixed various issues with the `full class checking' option that would not work for inherited code involving conversion or labeled tuples (see eweasel test#svalid001, test#svalid007, test#svalid009 and test#svalid010). 
+* Fixed the issue found with GCC 4.x series where an assignment of the form *(a + x) = f() would first evaluate (a+x) and then `f` which could cause a memory corruption if `f` triggers a GC cycle. As far as we could tell, this kind of code generation was only done when `f` would return a basic type. See eweasel test#runtime007.
+* Fixed eweasel test#ccomp076 where C/C++ inlines did not get the protected object if any, but only the unprotected one which could cause some issue if the C/C++ inline code uses `eif_access` or `eif_adopt`. 
+* Fixed various issues with the `full class checking` option that would not work for inherited code involving conversion or labeled tuples (see eweasel test#svalid001, test#svalid007, test#svalid009 and test#svalid010). 
 * Fixed bug#14856 and test#final064 where if before generating the agent call/item routine we generated a call to a deferred routine without implementation we would not generate the arguments of the agent causing a C compilation error in finalized mode.
 * Fixed improper runtime semantics for creation of manifest tuples, arrays and agents (see eweasel test#tuple011, test#tuple014 and test#agent006)
 * Fixed eweasel test#term159 where the compiler would crash if there is a conversion for one of the closed argument of an agent creation. 
@@ -50,7 +50,7 @@
 * When registering externally created threads, make sure that the runtime does not exit them when no more Eiffel code needs to be run as it must be done by the code that created it. Also made sure that the runtime per thread data are reset to 0 to ensure that we can register/unregister the external thread as many times as needed. 
 * Fixed a buffer overflow that would occur on some Unix platforms when a signal was received by the application.
 * Fixed eweasel test#thread006 where if many threads allocate small objects which are quickly dying then we could break the runtime synchronization and cause a crash.
-* Added a cast to ensure that `eif_globals' can compile properly in C++ mode.
+* Added a cast to ensure that `eif_globals` can compile properly in C++ mode.
 * Fixed eweasel test#runtime008 where we have a leak on each created thread if invariants are monitored.
 * Fixed eweasel test#runtime009 where a reallocation of a SPECIAL object could cause a memory corruption.
 * Fixed various issues with exceptions (performance, failure when reporting invariant, added I/O  reason to exception object, extended stack traces up to the root class, rather than stopping at the first rescue clause).

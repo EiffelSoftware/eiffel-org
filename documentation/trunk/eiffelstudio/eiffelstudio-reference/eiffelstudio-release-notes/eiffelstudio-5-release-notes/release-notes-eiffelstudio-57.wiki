@@ -110,7 +110,7 @@
 ===EiffelNet===
 * Added in <eiffel>SOCKET</eiffel> <eiffel>read_integer_XX</eiffel>, <eiffel>put_integer_XX</eiffel>, <eiffel>last_integer_xx</eiffel> and <eiffel>read_natural_XX</eiffel>, <eiffel>put_natural_XX</eiffel>, <eiffel>last_natural_XX</eiffel> where XX stands for 8, 16, 32, 64.
 * Modified <eiffel>put</eiffel> and <eiffel>read</eiffel> in <eiffel>NETWORK_RESOURCE</eiffel>, <eiffel>FTP_PROTOCOL</eiffel>, <eiffel>HTTP_PROTOCOL</eiffel>, <eiffel>FILE_PROTOCOL</eiffel> so that the error checking code is not using <eiffel>socket_ok</eiffel> which might triggers error when there are none.
-* Improved handling of <eiffel>recipients</eiffel> and <eiffel>header_from</eiffel> in <eiffel>SMTP_PROTOCOL</eiffel> so that you can provide a nice `From' or `To' in the message since they are different from the addresses you have to pass from MAIL FROM and RCPT TO.
+* Improved handling of <eiffel>recipients</eiffel> and <eiffel>header_from</eiffel> in <eiffel>SMTP_PROTOCOL</eiffel> so that you can provide a nice `From` or `To` in the message since they are different from the addresses you have to pass from MAIL FROM and RCPT TO.
 * Improved error handling in EiffelNet. Now each time an error occurs you get an exception and the operating system error code is preserved.
 * Added ability to get the number of bytes read for all the read operation through the <eiffel>bytes_read</eiffel> query. This is useful to detect graceful shutdown of sockets.
 

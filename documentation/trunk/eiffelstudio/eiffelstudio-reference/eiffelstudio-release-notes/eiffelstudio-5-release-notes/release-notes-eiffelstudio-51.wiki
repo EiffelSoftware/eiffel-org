@@ -9,7 +9,7 @@
 * Editor now supports drag-and-drop of the selection.
 * When debugging a project from EiffelStudio, the current directory will be your project directory. It is a change from previous version where: 
 ** on Windows, it used to be launched in the W_code subdirectory of your project directory
-** on Unix, it used to be launched from the same directory where `estudio' (or `ebench') was launched.
+** on Unix, it used to be launched from the same directory where `estudio` (or `ebench`) was launched.
 
 * EiffelStudio GUI now also available on Unix platforms and Windows 9x/Me
 

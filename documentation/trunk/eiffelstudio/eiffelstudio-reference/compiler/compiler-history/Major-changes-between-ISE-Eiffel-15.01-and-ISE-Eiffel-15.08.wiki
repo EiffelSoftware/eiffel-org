@@ -23,14 +23,14 @@ A side effect is that all calls on passive regions are synchronous.
 ==Improvements==
 * runtime: Improved memory management by performing O(log N) lookups when looking for a large block of memory instead of O(N). This would occur after allocating many large objects whose size is greater than 512 bytes (on 32-bit platform) and 1024 bytes on 64-bit platform and then freeing all those objects. Next time you look for a large object it might have to go through all those large objects without finding one that is large enough.
 * code generation: Made code slightly more compact (2 to 6% size reduction on some platform).
-* Optimized `expr and False' and `expr and then False' to just False if `expr' is a local, a argument, Result, Current, an attribute access or if it is the `and' boolean op.
+* Optimized `expr and False` and `expr and then False` to just False if `expr` is a local, a argument, Result, Current, an attribute access or if it is the `and` boolean op.
 
 ==Changes==
 
 ==Bug fixes==
 
 ===Compiler issues===
-* Fixed eweasel test#final122 and bug#19028 where we would incorrectly optimize `expr and False' or `expr and then False' into just `expr' which is wrong if `expr' is True (as the whole expression would be True and not False).
+* Fixed eweasel test#final122 and bug#19028 where we would incorrectly optimize `expr and False` or `expr and then False` into just `expr` which is wrong if `expr` is True (as the whole expression would be True and not False).
 
 ===SCOOP issues===
 * The SCOOP runtime is now fully written in C to avoid portability issues.

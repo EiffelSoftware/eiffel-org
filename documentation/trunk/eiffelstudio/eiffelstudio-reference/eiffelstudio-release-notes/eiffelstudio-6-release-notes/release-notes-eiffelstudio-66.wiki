@@ -70,7 +70,7 @@
 ** ARRAYED_LIST does not conform to ARRAY. One has to use {ARRAYED_LIST}.to_array to convert it to an ARRAY.
 ** HASH_TABLE internals have been changed so that order of traversal will be different from what it used to be.
 ** The non-void safe routine {SPECIAL}.make has been removed. Instead one has to use either {SPECIAL}.make_empty (which is not available in compatible mode) or {SPECIAL}.make_filled (which is available in both)
-** To reflect the change in SPECIAL, TO_SPECIAL was also modified and `make_area' was replaced by `make_empty_area'. Again to have compatible code between both mode use `make_filled_area' instead.
+** To reflect the change in SPECIAL, TO_SPECIAL was also modified and `make_area` was replaced by `make_empty_area`. Again to have compatible code between both mode use `make_filled_area` instead.
 
 ===EiffelThread===
 * Made the <e>THREAD</e> class thread-safe which prevents using the same object to launch a new thread. Now there is a precondition <e>is_launchable</e> and a status report <e>is_last_launch_successful</e> to help in determining whether a thread was actually launched.

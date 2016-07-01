@@ -20,7 +20,7 @@ After launching the program, a window will be displayed as shown above. By manip
 
 ==Under the Hood==
 
-<code>HEADER_CONTROL</code> inherits [[ref:libraries/wel/reference/wel_header_control_chart|WEL_HEADER_CONTROL]]  and redefines many of the `on_' notification features to display the output. 
+<code>HEADER_CONTROL</code> inherits [[ref:libraries/wel/reference/wel_header_control_chart|WEL_HEADER_CONTROL]]  and redefines many of the `on_` notification features to display the output. 
 
 This sample contains the following classes: 
 * <code>APPLICATION_IDS</code>

@@ -29,7 +29,7 @@
 * Better copy/paste of code to avoid useless reformatting after copying and pasting a block of text. The smart behavior is available via Ctrl+V or Shift+Ins. If the new behavior is not adequate, Ctrl+Shift+V will paste as is.
 * Better formatting of Eiffel source code when using the pretty printer.
 * Better performance of SCOOP runtime for certain types of concurrent calls.
-* Printing in postscript mode now allowed on Unix (previously, printing always defaulted to RTF); added `use_postscript' preference.
+* Printing in postscript mode now allowed on Unix (previously, printing always defaulted to RTF); added `use_postscript` preference.
 * Take into account mice with high resolution wheels.
 * Avoid flashing when completion window is updated at each keystroke.
 * Avoid resizing the grid all the time in Info tool when grid items are recreated for sorting, or other operations.
@@ -71,8 +71,8 @@
 * Added ability to create a local string using a separate string.
 * Moved most of the queries of strings descendants (e.g. <code>is_real</code>, <code>is_integer</code>, ...) to class <code>READABLE_STRING_GENERAL</code> to make it easier to handle all the various kinds of strings.
 * Added <code>{HASH_TABLE}.disjoint</code> to find out if 2 tables have some common elements or not based on the key comparison criteria.
-* Made explicit that the `<code>area</code>' is shared between an <code>ARRAY</code> and an <code>ARRAYED_LIST</code> created via conversion.
-* Fixed improper implementation of `<code>copy</code>' for <code>UNIX_FILE_INFO</code> and <code>BOOL_STRING</code> which caused for the former a sharing of some <code>FILE</code> specific information.
+* Made explicit that the `<code>area</code>` is shared between an <code>ARRAY</code> and an <code>ARRAYED_LIST</code> created via conversion.
+* Fixed improper implementation of `<code>copy</code>` for <code>UNIX_FILE_INFO</code> and <code>BOOL_STRING</code> which caused for the former a sharing of some <code>FILE</code> specific information.
 * Fixed <code>{STRING_32}.left_adjust</code> that did not work properly when the string contained only white spaces. 
 * Fixed an issue with <code>{FILE}.exists</code> on Windows 32-bit when files are larger than 2GB. It only occurs with the latest version of the Microsoft C++ compiler (VS2010 or later).
 

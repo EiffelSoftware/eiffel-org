@@ -13,9 +13,9 @@
 ** block indent and exdent.
 ** infinite level of Undo/Redo
 
-* When edition of a class text which has been successfully compiled, the class will be fully `pick-and-droppable'.
+* When edition of a class text which has been successfully compiled, the class will be fully `pick-and-droppable`.
 * Faster rendering for Clickable, Flat, Contract (previously known as Short) and Flat Contract views.
-* System tool has been replaced by a `project settings' window. The underlying mechanism of the configuration file is kept, but all changes are done through a nice GUI making it simpler for beginners to create their first configuration file.
+* System tool has been replaced by a `project settings` window. The underlying mechanism of the configuration file is kept, but all changes are done through a nice GUI making it simpler for beginners to create their first configuration file.
 * Toolbars are now customizable
 * EiffelCase has been merged within EiffelStudio to provide a true reverse engineering using the BON notation.
 
@@ -47,9 +47,9 @@ The compiler has been improved in many ways and some functionality have been add
 * New <code>ROUTINE</code> classes which perform better type checking on argument passing.
 * Introduction of binary operations on <code>INTEGER</code> types: <code>infix "&"</code>,<code>infix "|"</code>, <code>bit_xor</code>, <code>bit_not</code>, <code>bit_shift</code>, <code>infix "|>>"</code>, <code>infix "|<<"</code>and <code>bit_text</code>.
 * Removed <code>infix "^"</code> from <code>NUMERIC</code>. It does not break any inheritance, but break clients that were using this operator on an entity declared of type NUMERIC. This is due to the different return type of this operator depending the NUMERIC type you are handling.
-* Changed the signature of <code>pruned</code> in <code>BINARY_SEARCH_TREE</code> to take an extra argument. This was necessary to fix a problem that caused the `parent' attributes to become inconsistent under certain conditions when calling <code>pruned</code>.
+* Changed the signature of <code>pruned</code> in <code>BINARY_SEARCH_TREE</code> to take an extra argument. This was necessary to fix a problem that caused the `parent` attributes to become inconsistent under certain conditions when calling <code>pruned</code>.
 * Re-implemented the features <code>disjoint</code> and <code>symdif</code> of <code>SUBSET</code>. These features caused problems under certain conditions and were also quite inefficient. The new implementation of these features uses the strategy pattern to choose among different versions of these calculations depending on the properties of the elements contained in the set.
-* All features on <code>SUBSET</code> that take another subset as an argument(e.g. <code>intersect</code>) now accept any other subset type as an argument, independent of its underlying implementation, and not only subsets of type `like Current'.
+* All features on <code>SUBSET</code> that take another subset as an argument(e.g. <code>intersect</code>) now accept any other subset type as an argument, independent of its underlying implementation, and not only subsets of type `like Current`.
 * Many smaller bug fixes for bugs that were reported by our customers or that have been discovered during our development andtesting.
 
 ===WEL:===

@@ -9,7 +9,7 @@
 * For .NET, allow calling of overloaded features for a .NET classes to be called without using disambiguated names. Disambiguated names are still needed when redefining inherited features from .NET classes.
 * Support for inclusion of .NET resources within Eiffel assemblies.
 * Launch C compilation when needed if "-c_compile" option is specified on the "ec" command line. 
-* Added ability to define custom attributes on assembly. One as to define custom attributes under the new `assembly_metadata' index clause of the root class.
+* Added ability to define custom attributes on assembly. One as to define custom attributes under the new `assembly_metadata` index clause of the root class.
 * Limited support for new <code> convert </code> keyword (only on argument passing and assignments. Not supported when used with infix routines). 
 
 ==Improvements==
@@ -22,7 +22,7 @@
 
 ==Changes==
 * Changed the way we generate calls to C/C++ external routines. It is possible that because of this change, code that used to C compile, will not compile anymore. This happens mostly when mixing C and C++ code and the C call being made is incorrect but was not previously checked against the C header files if provided.
-* In multithreaded mode, all C externals that could potentially block the execution of the system should be marked `blocking' as in: <br/>
+* In multithreaded mode, all C externals that could potentially block the execution of the system should be marked `blocking` as in: <br/>
 <code>	sleep (m: INTEGER) is
 		external
 			"C blocking"          
@@ -36,7 +36,7 @@ ti: TUPLE [INTEGER]
 td := ti</code>
 The warning will help you correct code using this pattern, because in the next release this will be rejected in order to conform to the Eiffel programming language specification. 
 * Now we do not generate by default the .NET attribute <eiffel>ComVisibleAttribute</eiffel> with a False value. If needed it has to be done through the new compiler functionality to add custom attributes on assembly.
-* Changed indexing clause tag for specifying custom attributes for .NET systems. Now `attribute' is replaced by `metadata'. Now you can have: 
+* Changed indexing clause tag for specifying custom attributes for .NET systems. Now `attribute` is replaced by `metadata`. Now you can have: 
 ** metadata: generated for both interface and implementation classes 
 ** assembly_metadata: generated for assembly only when specified in root class of system 
 ** class_metadata: generated only for implementation class 

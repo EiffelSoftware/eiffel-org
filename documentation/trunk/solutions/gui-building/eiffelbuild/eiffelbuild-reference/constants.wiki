@@ -54,7 +54,7 @@ As objects are reliant on the constant you are removing, you must confirm that y
 
 ==String constant==
 
-A String constant represents an Eiffel STRING, and may be any valid STRING. For example, in the generated constants file, for a String constant named `modify_button_text', the following code is generated:
+A String constant represents an Eiffel STRING, and may be any valid STRING. For example, in the generated constants file, for a String constant named `modify_button_text`, the following code is generated:
 <code>
     modify_button_text: STRING
             -- `Result' is STRING constant named modify_button_text.
@@ -66,7 +66,7 @@ A String constant represents an Eiffel STRING, and may be any valid STRING. For 
 
 ==Integer constant==
 
-A Integer constant represents an Eiffel INTEGER, and may be any valid INTEGER value. For example, in the generated constants file, for an Integer constant named `medium_padding', the following code is generated:
+A Integer constant represents an Eiffel INTEGER, and may be any valid INTEGER value. For example, in the generated constants file, for an Integer constant named `medium_padding`, the following code is generated:
 <code>
     medium_padding: INTEGER
             -- `Result' is INTEGER constant named medium_padding.
@@ -76,7 +76,7 @@ A Integer constant represents an Eiffel INTEGER, and may be any valid INTEGER va
 
 ==Directory constant==
 
-A Directory constant is an Eiffel representation of a directory, as a STRING value. For example, in the generated constants file, for a Directory constant named `pixmap_location', the following code is generated:
+A Directory constant is an Eiffel representation of a directory, as a STRING value. For example, in the generated constants file, for a Directory constant named `pixmap_location`, the following code is generated:
 <code>
     pixmap_location: STRING
             -- `Result' is DIRECTORY constant named pixmap_location.
@@ -115,12 +115,12 @@ A pixmap constant is a representation of a pixmap image, and two types are avail
             set_with_named_file(Result, a_file_name)
         end</code>
 
-Where `pixmap_location' is the name of the Directory constant to which the pixmap is relative.
+Where `pixmap_location` is the name of the Directory constant to which the pixmap is relative.
 
 
 ==Font constant==
 
-A Font constant represents an EV_FONT. For example, in the generated constants file, for a font constant named `times_new_roman', the following code is generated:
+A Font constant represents an EV_FONT. For example, in the generated constants file, for a font constant named `times_new_roman`, the following code is generated:
 <code>
     times_new_roman: EV_FONT
             -- `Result' is EV_FONT constant named `times_new_roman'.
@@ -135,7 +135,7 @@ A Font constant represents an EV_FONT. For example, in the generated constants f
 
 ==Color constant==
 
-A Color constant represents an EV_COLOR. For example, in the generated constants file, for a color constant named `red', the following code is generated:
+A Color constant represents an EV_COLOR. For example, in the generated constants file, for a color constant named `red`, the following code is generated:
 <code>
     red: EV_COLOR
             -- `Result' is EV_COLOR constant named `red'.

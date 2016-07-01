@@ -13,7 +13,7 @@ The sections concerning [[#macros|Macros]]  and [[#structs|Structs]]  are also a
 
 You can encapsulate routines that are defined in a C header file. We will take some examples and will show you how to write wrappers in Eiffel.
 
-If in a header file called `my_header.h', you have the following declaration:
+If in a header file called `my_header.h`, you have the following declaration:
 <code lang="c">
 	/* Routine with no parameter */
 extern void no_param(void);
@@ -68,7 +68,7 @@ Here is the corresponding Eiffel code:
 
 ==Macros==
 
-If in a header file called `my_header.h', you have the following declaration:
+If in a header file called `my_header.h`, you have the following declaration:
 <code lang="c">
 	/* Predefined constants */
 #define ID_MENU		128
@@ -112,7 +112,7 @@ Then, the corresponding Eiffel code will look like:
 
 The struct encapsulation enables you to wrap C/C++ structures easily without having to write any additional code in a C header file as it was the case until Eiffel Software introduced this new keyword in the external specification with the 4.5 release of the Eiffel Software environment. With the struct encapsulation you can set and retrieve the value of a certain field of a struct.
 
-If in a header file called `my_header.h', you have the following declaration of the `Point' structure whose `x' and `y' fields we want to access and set:
+If in a header file called `my_header.h`, you have the following declaration of the `Point` structure whose `x` and `y` fields we want to access and set:
 
 
 <code lang="c">
@@ -167,7 +167,7 @@ With EiffelStudio you now have two different ways to call C routines exported in
 * _cdecl: referred to as the standard way
 * __stdcall referred to as the Pascal way
 
-Therefore if you want to call an external routine defined in a DLL supposed to be called using the `_cdecl' method, you have to use the '''dll32''' sub-language option. For `__stdcall' you need to use the '''dllwin32''' sub-language option. Here is an example: 
+Therefore if you want to call an external routine defined in a DLL supposed to be called using the `_cdecl` method, you have to use the '''dll32''' sub-language option. For `__stdcall` you need to use the '''dllwin32''' sub-language option. Here is an example: 
 
 
 <code>
@@ -189,9 +189,9 @@ Therefore if you want to call an external routine defined in a DLL supposed to b
 
 ===Windows API===
 
-As described in the previous section concerning routines exported in a DLL, the Windows API is using the `__stdcall' convention. As a consequence, you cannot use the standard external mechanism to wrap them because it is using the `_cdecl' convention. However, you can easily wrap those function by using the '''macro''' sub-language. 
+As described in the previous section concerning routines exported in a DLL, the Windows API is using the `__stdcall` convention. As a consequence, you cannot use the standard external mechanism to wrap them because it is using the `_cdecl` convention. However, you can easily wrap those function by using the '''macro''' sub-language. 
 
-Here is an example that has been taken from WEL, the Windows Eiffel Library, to encapsulate the Windows `SendMessage' function:
+Here is an example that has been taken from WEL, the Windows Eiffel Library, to encapsulate the Windows `SendMessage` function:
 Windows defined SendMessage as: 
 
 

@@ -60,7 +60,7 @@ Clicking this button will cause the following dialog to be displayed:
 
 Looking at the screenshot above, you will see that this dialog contains all the action_sequences available for the <eiffel>EV_BUTTON</eiffel> to which the object editor is targeted.
 
-If you check a button connected with one of the action sequences, you will be then able to enter the name of a feature that you wish to connect to the action sequence. The screenshot above shows the user has connected a feature named `button_pressed' to the `select_actions'. When [[EiffelBuild: Code Generation|code is generated]] , this will cause EiffelBuild to generate an empty feature named `button_pressed' already connected to the `select_actions' of the button. 
+If you check a button connected with one of the action sequences, you will be then able to enter the name of a feature that you wish to connect to the action sequence. The screenshot above shows the user has connected a feature named `button_pressed` to the `select_actions`. When [[EiffelBuild: Code Generation|code is generated]] , this will cause EiffelBuild to generate an empty feature named `button_pressed` already connected to the `select_actions` of the button. 
 
 {{note|You will only be allowed to enter valid and unique Eiffel feature names. If a name is invalid, it will be highlighted in red, and a dialog will warn you when you attempt to close the dialog. }}
 

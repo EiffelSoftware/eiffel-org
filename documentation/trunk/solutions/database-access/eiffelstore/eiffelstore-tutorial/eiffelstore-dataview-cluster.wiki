@@ -147,13 +147,13 @@ The component can then be used on an interface:
 Output handlers are specific to the [[ref:libraries/store/reference/dv_tablerows_component_chart|DV_TABLE_COMPONENT]]  object, that is, you can output messages in a different way within your GUI. However, the same handlers will be used for subcomponents.
 
 3 handlers can be set:
-* `status_handler' to display status information
-* `warning_handler' to display warning information. Warnings usually correspond to database errors, they are called warnings because the database error is "caught" and the message should enable the user to round the problem.
-* `confirmation_handler' to ask for confirmation before an action.
+* `status_handler` to display status information
+* `warning_handler` to display warning information. Warnings usually correspond to database errors, they are called warnings because the database error is "caught" and the message should enable the user to round the problem.
+* `confirmation_handler` to ask for confirmation before an action.
 
 These handlers have default values, which are:
-* For `status_handler' and `warning_handler', messages are displayed on standard output (with {ANY}.io.put_string)
-* For `confirmation_handler', action is executed without confirmation.
+* For `status_handler` and `warning_handler`, messages are displayed on standard output (with {ANY}.io.put_string)
+* For `confirmation_handler`, action is executed without confirmation.
 
 ====4.1.2. Database handler====
 
@@ -204,8 +204,8 @@ Finally, notice that by default slave components have the same output handlers a
 [[Image:component-search-relation]]  
 
 Basic relationship between table component class and search class
-* `display' assigns a set of table rows to the table component.
-* `refresh' asks to refresh the table rows from the same database query.
+* `display` assigns a set of table rows to the table component.
+* `refresh` asks to refresh the table rows from the same database query.
 
 [[ref:libraries/store/reference/dv_searcher_chart|DV_SEARCHER]]  component does not afford an extended interface. This interface is defined in its descendants. The implemented [[ref:libraries/store/reference/dv_searcher_chart|DV_SEARCHER]]  descendants are:
 * [[ref:libraries/store/reference/dv_typed_searcher_chart|DV_TYPED_SEARCHER]]  performs different [[#dv_typed_searcher|basic searches]]  used by the cluster. 
@@ -294,8 +294,8 @@ This class enables to create database table rows.
 Basic relationship between table component class and navigation class
 
 [[ref:libraries/store/reference/dv_creator_chart|DV_CREATOR]]  class contains minimum information to interact with [[ref:libraries/store/reference/dv_tablerows_component_chart|DV_TABLE_COMPONENT]] : when a table row is created, a creator component may display it on the table component. In this case, when the table component needs to refresh the table rows set, this refreshing action need to be managed by the creator component:
-* `set_just_created' informs a table component that displayed table row set comes from the creator component.
-* `refresh' lets the creation component refresh table component display.
+* `set_just_created` informs a table component that displayed table row set comes from the creator component.
+* `refresh` lets the creation component refresh table component display.
 
 Much of the work, that is row creation, is totally abstracted in DV_CREATOR.DV_CHOICE_CREATOR implements DV_CREATOR and thus affords a creation procedure.
 
@@ -328,11 +328,11 @@ Creation process and [[ref:libraries/store/reference/dv_choice_creator_chart|DV_
 Table row creation process is:
 # Table row creation is triggered by a [[#dv_s_control| controller]]  ("create") 
 #  <eiffel>DV_CHOICE_CREATOR</eiffel> creates a table row object
-#  <eiffel>DV_CHOICE_CREATOR </eiffel> requests a first foreign key value to [[ref:libraries/store/reference/dv_tablerow_id_provider_chart|DV_TABLEROW_ID_PROVIDER]]  (through `select_from_table')
+#  <eiffel>DV_CHOICE_CREATOR </eiffel> requests a first foreign key value to [[ref:libraries/store/reference/dv_tablerow_id_provider_chart|DV_TABLEROW_ID_PROVIDER]]  (through `select_from_table`)
 #  <eiffel>DV_TABLEROW_ID_PROVIDER </eiffel> loads the available table rows that can be referenced
 #  <eiffel>DV_TABLEROW_ID_PROVIDER</eiffel> assigns the table rows to <eiffel>DV_TABLEROWS_NAVIGATOR</eiffel> and pops up the interface with the table rows
 # Table row selection is triggered by a [[#dv_s_control| controller]]  ("ok") 
-#  <eiffel>DV_TABLEROW_ID_PROVIDER</eiffel> retrieves the selected table row ID and gives it back to <eiffel>DV_CHOICE_CREATOR</eiffel> (through `add_foreign_key_value')
+#  <eiffel>DV_TABLEROW_ID_PROVIDER</eiffel> retrieves the selected table row ID and gives it back to <eiffel>DV_CHOICE_CREATOR</eiffel> (through `add_foreign_key_value`)
 #  <eiffel>DV_CHOICE_CREATOR</eiffel> requests other foreign key values to <eiffel>DV_TABLEROW_ID_PROVIDER</eiffel>
 #  <eiffel>DV_CHOICE_CREATOR</eiffel> creates the database row with a new ID through the database handle
 

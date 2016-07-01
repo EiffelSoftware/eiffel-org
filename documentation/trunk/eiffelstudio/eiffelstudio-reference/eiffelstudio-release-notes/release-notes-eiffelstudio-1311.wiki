@@ -51,7 +51,7 @@ N/A
 * Added functions <e>{TUPLE}.new_tuple_from_special</e> and <e>{TUPLE}.new_tuple_from_tuple</e> to create a tuple of a specified type filled with given values (rev#92917).
 * Added features <e>{ROUTINE}.flexible_call</e> and <e>{FUNCTION}.flexible_item</e> that accept argument tuples whose type should not exactly match the type of the routine as soon as the types of arguments match (rev#92918).
 * Marked <e>{ROUTINE}.empty_operands</e> as obsolete to be ready for removal in the future as non-void-safe (rev#92918).
-* In <e>HASH_TABLE</e>, in the event of a mismatch, it is possible that the value of `control' was invalid (see bug#18670) so we reset it to 0. 
+* In <e>HASH_TABLE</e>, in the event of a mismatch, it is possible that the value of `control` was invalid (see bug#18670) so we reset it to 0. 
 * Introspection changes in <e>OBJECT_GRAPH_TRAVERSABLE</e>:
 **Rewrote <e>traverse</e> to fix an issue with objects with expanded fields where we would not recurse into them. Added support for <e>SPECIAL</e> of expanded as well. We still have restrictions for <e>TUPLE</e> with expanded for which a copy be done.
 ** Added new callbacks <e>on_processing_object_action</e> and <e>on_processing_reference_action</e> each time a new object is traversed, that help building a graph of objects.
@@ -70,7 +70,7 @@ N/A
 * Simplified compilation of unix side of the library to load the webkit shared library at runtime without requiring it at compile time.
 
 ===XML===
-* Fixed XML cases where we have <foo att/> or <foo att> ... take into account the attribute `att' but report missing value for attribute `att'.
+* Fixed XML cases where we have <foo att/> or <foo att> ... take into account the attribute `att` but report missing value for attribute `att`.
 * Add report_unsupported_bom_value routine to report unsupported BOM value error.
 
 [[EiffelStudio release notes|Click here to check out what was new in other versions]]

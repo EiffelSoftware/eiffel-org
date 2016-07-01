@@ -101,7 +101,7 @@ Choosing "Add Custom..." produces a freeform dialog, much like the editing dialo
 
 <code>
     my_routine (a_string: STRING)
-            -- Do something with `a_string'.
+            -- Do something with `a_string`.
         do
     		
         end

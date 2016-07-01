@@ -21,8 +21,8 @@ Imagine that this was not the case, and each container [[EiffelBuild Notation|ob
 In the screenshot above, you can see that there are two [[EiffelBuild Notation|objects]]  representing containers in your project, an <eiffel>EV_VERTICAL_BOX</eiffel>, and an <eiffel>EV_HORIZONTAL_BOX</eiffel> (Excluding the <eiffel>EV_TITLED_WINDOW</eiffel> [[EiffelBuild Notation|object]]  represented by this window). 
 
 The properties of the [[EiffelBuild Notation|objects]]  in you system are always reflected in this window, with a few exceptions: 
-* 'user_can_resize', 'maximum_width', 'maximum_height' and 'title_string' are not reflected in this window.
-* 'minimum_width' and `minimum_height' are not reflected in any of the controls representing [[EiffelBuild Notation|objects]]  within this window. 
+* `user_can_resize`, `maximum_width`, `maximum_height` and `title_string` are not reflected in this window.
+* `minimum_width` and `minimum_height` are not reflected in any of the controls representing [[EiffelBuild Notation|objects]]  within this window. 
 
 {{seealso|<br/>
 [[Display window|Display window]]  <br/>

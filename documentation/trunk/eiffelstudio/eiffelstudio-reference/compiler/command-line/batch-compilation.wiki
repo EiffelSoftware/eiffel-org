@@ -4,7 +4,7 @@
 In order to launch a compilation without user intervention you need to specify the `-batch` switch in the '''ec''' command line, otherwise the Eiffel compilation will be blocked. We will present below a typical example of batch processing on both Unix and Windows platforms where we want to compile a project in both frozen and finalized mode, then to launch the C compilations. At the same time we want to save the output of '''ec''' and the C compilations. 
 
 ===Unix===
-In a file called `launch_ec' you can have the following: 
+In a file called `launch_ec` you can have the following: 
 <code lang=text>
 #!/bin/sh
 output_file="/output_path/OUTPUT"
@@ -26,7 +26,7 @@ It will go the directory where your project is located and compile your Eiffel c
 {{note|All output from '''ec''' are going to the error output, so do not forget to redirect the error output when you want to see the result. }}
 
 ===Windows===
-In a file called `launched_ec.bat' you can have the following: 
+In a file called `launched_ec.bat` you can have the following: 
 <code lang=text>
 rem Launch Eiffel compilation
 ec -batch -config config.ecf -finalize -c_compile > c:\output_path\OUTPUT

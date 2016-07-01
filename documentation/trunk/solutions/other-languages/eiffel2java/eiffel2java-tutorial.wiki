@@ -16,7 +16,7 @@ The Java interface allows you to call Java routines or attributes from your Eiff
 * In this version, you can only use one JNI environment.
 * Only one thread can interact with the Java Virtual Machine (JVM).
 * It is not possible to call Eiffel features from Java program.
-* The Eiffel feature `destroy_vm' of `JAVA_VM' calls a C function of the Java NativeInterface that is not fully implemented in jdk 1.1.8. This function, called DestroyJavaVM, always returns -1 in jdk 1.1.8. For further information, go on the JNI pages at the address above.
+* The Eiffel feature `destroy_vm` of `JAVA_VM` calls a C function of the Java NativeInterface that is not fully implemented in jdk 1.1.8. This function, called DestroyJavaVM, always returns -1 in jdk 1.1.8. For further information, go on the JNI pages at the address above.
 
 ==Interface classes==
 

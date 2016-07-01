@@ -40,14 +40,14 @@ As stated before, the library has undergone some drastic changes since the previ
 
 EiffelVision 2 provides programmers with high-level classes that provide all mechanisms and data structures needed to build advanced user interfaces for deployment on almost all platforms without having to worry about detailed requirements of of those platforms (toolkits).
 
-The abstract design has been derived from an analysis of user interfaces. Therefore we have classes with names like MENU, WINDOW, BUTTON, LINE or POLYGON. The features of these classes are simple, clearly defined properties or commands, like the feature `minimize' (a command) on WINDOW or `text' (a property of type STRING) on BUTTON.
+The abstract design has been derived from an analysis of user interfaces. Therefore we have classes with names like MENU, WINDOW, BUTTON, LINE or POLYGON. The features of these classes are simple, clearly defined properties or commands, like the feature `minimize` (a command) on WINDOW or `text` (a property of type STRING) on BUTTON.
 
 {{note| All class names in EiffelVision 2 are pre-pended with EV_ to avoid name clashes with existing classes.  Thus, <eiffel>BUTTON</eiffel> becomes <eiffel>EV_BUTTON</eiffel>, etc. }}
 
 
 ==Properties==
 
-When talking about a property of a class, like `text', in fact we are talking about multiple features. One is a query of the state of the property, in this case simply the query `text'. The other is the set-routine, which is by convention named `set_text' taking exactly one argument of the type of the property.  A property can be read-only, which means that it cannot be set by clients of the class.
+When talking about a property of a class, like `text`, in fact we are talking about multiple features. One is a query of the state of the property, in this case simply the query `text`. The other is the set-routine, which is by convention named `set_text` taking exactly one argument of the type of the property.  A property can be read-only, which means that it cannot be set by clients of the class.
 <code>
     text: STRING
 
@@ -58,7 +58,7 @@ When talking about a property of a class, like `text', in fact we are talking ab
         end
 </code>
 
-Boolean properties have a different convention. Instead of one set-routine, it has one enable-routine and one disable-routine.  The first one sets the property to true, and the second to false. This has been done this way because sometimes these enable/disable features have trivial equivalents, for example for feature `enable_visible' a clearer name is `show'. 
+Boolean properties have a different convention. Instead of one set-routine, it has one enable-routine and one disable-routine.  The first one sets the property to true, and the second to false. This has been done this way because sometimes these enable/disable features have trivial equivalents, for example for feature `enable_visible` a clearer name is `show`. 
 <code>
     is_sensitive: BOOLEAN
 

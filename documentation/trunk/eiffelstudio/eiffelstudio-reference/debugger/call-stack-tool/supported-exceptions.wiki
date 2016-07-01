@@ -21,7 +21,7 @@ Here is a list of exceptions that may appear in the [[Call stack tool: Interface
 
 '''Floating point exception''' (signal SIGFPE): An error occurred while processing floating point numbers. This may be for example a FPU overflow, a division by zero, or an invalid operation. 
 
-'''Unmatched inspect value''': An inspect clause couldn't find the value it was passed among the `when' clauses. If any value maybe passed to the `when' clause, adding an `else' clause will solve this problem. 
+'''Unmatched inspect value''': An inspect clause couldn't find the value it was passed among the `when` clauses. If any value maybe passed to the `when` clause, adding an `else` clause will solve this problem. 
 
 '''I/O error''': An error occurred while accessing a stream. Examples of this are a missing file, or insufficient rights. 
 
@@ -37,9 +37,9 @@ Here is a list of exceptions that may appear in the [[Call stack tool: Interface
 
 '''Run-time I/O error''': Exception raised by the run-time when encountering a I/O error internally. 
 
-'''External event''': On Unix, this happens when an operating system error occurs and does not set the `errno' variable. 
+'''External event''': On Unix, this happens when an operating system error occurs and does not set the `errno` variable. 
 
-'''Operating system error''': On Unix, this happens when an operating system error occurs and sets the `errno' variable. 
+'''Operating system error''': On Unix, this happens when an operating system error occurs and sets the `errno` variable. 
 
 '''COM error''': Raised when EiffelCOM encounters an error. 
 

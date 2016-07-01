@@ -5,11 +5,11 @@
 * Implementation of new external syntax.
 * Implementation of verbatim strings.
 * Implementation of agents.
-* Implementation of agent creations on `Result' and `Current' object.
+* Implementation of agent creations on `Result` and `Current` object.
 * Improved incrementality of the C compilation: fewer directories will have their C files changed after a freeze.
 * New MSIL generation.
 * Introduction of 4 new basic classes: INTEGER_8, INTEGER_16, INTEGER_64, WIDE_CHARACTER.
-* Changed the storable mechanism so that we do not store POINTER objects with their value, instead we store a NULL value. As a consequence it is safe to store on disk objects that have references to C objects. Upon retrieval those references will be equal to `default_pointer'. This is now the default behavior, if someone wants to have the previous behavior, simply call `set_keep_pointer_value' from STORABLE.
+* Changed the storable mechanism so that we do not store POINTER objects with their value, instead we store a NULL value. As a consequence it is safe to store on disk objects that have references to C objects. Upon retrieval those references will be equal to `default_pointer`. This is now the default behavior, if someone wants to have the previous behavior, simply call `set_keep_pointer_value` from STORABLE.
 
 ==Improvements==
 * New run-time speed improvement (between 30 to 100% faster than the 4.5 release). 
@@ -24,7 +24,7 @@
 * CHARACTER has been extended to support the extended ASCII which means that the following expressions are now True instead of being False as it was in our previous version: 
 ** '%/127/' < '%/128/'
 ** '%/127/' < '%/128/'
-** When using `independent_store', in case of retrieval error due to a name change in one of the class attributes we will display the original attribute name that was used to make the storable file. This will help when managing many storable files.
+** When using `independent_store`, in case of retrieval error due to a name change in one of the class attributes we will display the original attribute name that was used to make the storable file. This will help when managing many storable files.
 
 
 

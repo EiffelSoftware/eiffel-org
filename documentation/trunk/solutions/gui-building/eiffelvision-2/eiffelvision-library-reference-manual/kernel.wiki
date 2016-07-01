@@ -77,9 +77,9 @@ end
 
 ==What Does Launch Actually Do?==
 
-In EiffelVision 2, to launch an application means to pass control to the underlying graphical toolkit. Simply creating an application does not launch it. An explicit call to <eiffel>`launch'</eiffel> is required for the event processing to begin.
+In EiffelVision 2, to launch an application means to pass control to the underlying graphical toolkit. Simply creating an application does not launch it. An explicit call to <eiffel>launch</eiffel> is required for the event processing to begin.
 
-{{note|An EiffelVision 2 system is event based. This means that the way you control the execution within an EiffelVision 2 system is by responding appropriately to [[Events|events]]  as they occur. Therefore, if you call launch on an [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]], the processing for the application will continue indefinitely unless you have provided a way to exit the application. It is essential to initialize your components correctly, so your application can be exited (i.e. call <eiffel>`destroy'</eiffel> on the application object). }}
+{{note|An EiffelVision 2 system is event based. This means that the way you control the execution within an EiffelVision 2 system is by responding appropriately to [[Events|events]]  as they occur. Therefore, if you call launch on an [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]], the processing for the application will continue indefinitely unless you have provided a way to exit the application. It is essential to initialize your components correctly, so your application can be exited (i.e. call <eiffel>destroy</eiffel> on the application object). }}
 
 
 ==Building Your Application Skeleton==

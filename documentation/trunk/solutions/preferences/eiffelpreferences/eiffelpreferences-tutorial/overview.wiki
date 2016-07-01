@@ -5,7 +5,7 @@ This document gives a brief overview of the EiffelPreferences library.
 
 ==Introduction==
 
-Simply, preferences are name-value pairs. All preferences are descendants of the deferred class <eiffel>PREFERENCE</eiffel>, and therefore all inherit the common properties of name, value, default values and string representations. Common to all <eiffel>PREFERENCE</eiffel> objects is the notion of `manager'. All preferences belong to a manager, which is a helper class used for organizational and hierarchical management of your applications preferences. 
+Simply, preferences are name-value pairs. All preferences are descendants of the deferred class <eiffel>PREFERENCE</eiffel>, and therefore all inherit the common properties of name, value, default values and string representations. Common to all <eiffel>PREFERENCE</eiffel> objects is the notion of `manager`. All preferences belong to a manager, which is a helper class used for organizational and hierarchical management of your applications preferences. 
 
 So, all preferences belong to a <eiffel>PREFERENCE_MANAGER</eiffel>. The manager itself belongs to a set of related <eiffel>PREFERENCES</eiffel>. In fact, when you create a new manager for a group of preferences you must provide a <eiffel>PREFERENCES</eiffel> object to the creation routine to indicate which set of preferences the new manager will be associated: 
 <code>
