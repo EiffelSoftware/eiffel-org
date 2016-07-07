@@ -15,7 +15,7 @@ However for specific needs (such as server development), you might want to start
 == Execution ==
 There are 2 ways to provide this port number:
 * Setting the <code>ISE_DBG_PORTNUM</code> environment variable to a specific port number will make the execution to wait right away for EiffelStudio to attach the process.
-* calling <eiffel>{RT_DEBUGGER}.rt_workbench_wait_for_debugger (a_port_number: INTEGER)</eiffel> from the application code will wait for EiffelStudio to attach the process.
+* calling <eiffel>{RT_DEBUGGER}.wait_for_debugger (a_port_number: INTEGER)</eiffel> from the application code will wait for EiffelStudio to attach the process.
 In both case, if it is unable to open the port, the execution continues, otherwise it waits until EiffelStudio get connected (i.e attach the execution).
 It is possible to use any available port number, for that make sure your machine does not already use the port number you choose, and that the application is authorized to open that port (for instance try with port 50505).
 
