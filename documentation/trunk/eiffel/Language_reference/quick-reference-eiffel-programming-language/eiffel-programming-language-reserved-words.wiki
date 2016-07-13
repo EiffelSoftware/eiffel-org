@@ -15,6 +15,9 @@ The reserved words listed in the ISO/ECMA standard are shown below with a brief 
 
 ==Reserved words==
 
+===across===
+
+Introduces an [[ET: Instructions#Loop|iteration]].
 
 ===agent===
 
