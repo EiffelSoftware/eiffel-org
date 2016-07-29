@@ -143,10 +143,15 @@ Class_declaration ::= <nowiki>[</nowiki>[[#Notes|Notes]]<nowiki>]</nowiki>
 
 ===Notes ===
 Notes ::= <code>note</code> Note_list
+
 Note_list ::= {Note_entry ";" ...}* 
+
 Note_entry ::= Note_name Note_values 
+
 Note_name ::= [[#Identifiers|Identifier]] ":" 
+
 Note_values ::= {Note_item ","...}+ 
+
 Note_item ::= [[#Identifiers|Identifier]] | [[#Manifest constants|Manifest_constant]] 
 
 ===Class headers ===
