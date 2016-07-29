@@ -312,15 +312,15 @@ Instruction ::= [[#Creation instructions|Creation_instruction]] | [[#Feature cal
 
 
 ===Assertions ===
-Precondition ::= <code>require</code> [<code>else</code>] Assertion 
+Precondition ::= <code>require</code> <nowiki>[</nowiki><code>else</code><nowiki>]</nowiki> Assertion 
 
-Postcondition ::= <code>ensure</code> [<code>then</code>] Assertion <nowiki>[</nowiki>[[#"Only" postcondition clauses|Only]]<nowiki>]</nowiki> 
+Postcondition ::= <code>ensure</code> <nowiki>[</nowiki><code>then</code><nowiki>]</nowiki> Assertion <nowiki>[</nowiki>[[#"Only" postcondition clauses|Only]]<nowiki>]</nowiki> 
 
 Invariant ::= <code>invariant</code> Assertion 
 
 Assertion ::= {Assertion_clause ";" ...}* 
 
-Assertion_clause ::= [Tag_mark] Unlabeled_assertion_clause 
+Assertion_clause ::= <nowiki>[</nowiki>Tag_mark<nowiki>]</nowiki> Unlabeled_assertion_clause 
 
 Unlabeled_assertion_clause ::= [[#Expressions|Boolean_expression]] | [[#Comments|Comment]] 
 
