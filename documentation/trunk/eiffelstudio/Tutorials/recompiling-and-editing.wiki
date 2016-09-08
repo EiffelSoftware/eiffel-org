@@ -63,7 +63,7 @@ When you edit text, it will be automatically '''indented''' according to standar
 Tools --> Preferences --> Editor</code> 
 
 To indent a sequence of lines, select the lines, then use 
-<codeang=text>
+<code lang=text>
 Edit --> Advanced --> Indent selection</code>
 You can also use the Tab key, but only if the selection consists of one or more entire lines; otherwise typing Tab will simply replace the selected text with a Tab character. Shift-Tab will similarly decrease indentation by one step. 
 
@@ -77,7 +77,7 @@ Other useful facilities of the <code lang=text>Edit --> Advanced</code> menu are
 *  <code>Embed in "debug"</code>, <code>CTRL-D</code>, which will include the selected instructions in a <code>debug</code> <span>...</span> <code>end</code> instruction, so that their execution becomes conditional on a Debug compilation option. 
 
  
-==Search and replace==
+== Search and replace ==
 
 The editor lets you search for text and replace occurrences, individually or globally. We assume you have seen a text search facility before, so we'll just emphasize some of the less obvious features.
 
