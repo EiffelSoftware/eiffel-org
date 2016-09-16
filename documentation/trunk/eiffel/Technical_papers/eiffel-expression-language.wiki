@@ -11,6 +11,6 @@ To make the notations simpler, a number of extensions have been proposed. They i
 *Type inference (to avoid explicitly specifying the type when it can be deduced from the context). This is a facility for the programmer, useful in particular for local variables, but does not affect the type system: Eiffel remains strongly typed, it is just that you can be lazy about writing the type when there is no ambiguity.
 *In the same vein, omitting the entire list of generic parameters when it can be inferred.
 
-The description of the mechanism (see the link below) is in the form of a set of slides explaining the concepts and presenting example. This is a working document and feedback is welcome.
+
 
 
