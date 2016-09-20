@@ -194,7 +194,7 @@ The basic procedure for analyzing successive tokens in the text is <eiffel>get_t
 * <eiffel>other_possible_tokens</eiffel>, an array giving all the other possible token types of the last token. (If <eiffel>token_type</eiffel> is <eiffel>No_token</eiffel> the array is empty.)
 * <eiffel>end_of_text</eiffel>, a boolean attribute used to record whether the end of text has been reached. If so, subsequent calls to <eiffel>get_token</eiffel> will have no effect.
 
-Procedure <eiffel>get_token</eiffel> recognizes the longest possible token. So if <, = and <= are all regular expressions in the grammar, the analyzer recognizes <= as one token, rather than < followed by =. You can use <eiffel>other_possible_tokens</eiffel> to know what shorter tokens were recognized but not retained.
+Procedure <eiffel>get_token</eiffel> recognizes the longest possible token. So if <code><</code>, <code>=</code> and <code><=</code> are all regular expressions in the grammar, the analyzer recognizes <code><=</code> as one token, rather than <code><</code> followed by <code>=</code>. You can use <eiffel>other_possible_tokens</eiffel> to know what shorter tokens were recognized but not retained.
 
 If it fails to recognize a regular expression, <eiffel>get_token</eiffel> sets <eiffel>token_type</eiffel> to <eiffel>No_token</eiffel> and advances the input cursor by one character.
 
@@ -565,14 +565,3 @@ When you create a tool, it is by default invisible to clients. To make it visibl
 If the analysis encounters a token that belongs to two or more different selected regular expressions, the one entered last takes over. Others are recorded in the array <eiffel>other_possible_tokens</eiffel>.
 
 If you do not explicitly give an integer value to a regular expression, its default value is its rank in <eiffel>tool_list</eiffel>.
-
-
-
-
-
-
-
-
-
-
-
