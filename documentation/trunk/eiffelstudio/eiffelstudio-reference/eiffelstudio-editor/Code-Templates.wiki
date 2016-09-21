@@ -71,7 +71,8 @@ feature  -- Templates
 
    slice_maximum (low, high: INTEGER): T
              --  Get the maximum of an array, 
-             --  where the interval is defined by default by array.lower |..| array.upper.
+             --  where the interval is defined by default 
+             -- by array.lower |..| array.upper.
          note
              tags: "Algorithm, Maximum, ARRAY"
              default: "target.lower, target.upper"
