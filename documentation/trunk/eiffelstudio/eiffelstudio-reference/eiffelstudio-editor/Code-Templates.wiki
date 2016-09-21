@@ -34,19 +34,18 @@ class ARRAY_TEMPLATE [T -> COMPARABLE]
 
 inherit
     
-           TEMPLATE [ARRAY [T]]
+    TEMPLATE [ARRAY [T]]
 
 feature  -- Templates
 
    slice_maximum (low, high: INTEGER): T
-             --  Get the maximum of an array, where the interval is defined by default by array.lower |..|    
-             --  array.upper.
+             --  Get the maximum of an array, where the interval is defined by default by array.lower |..| array.upper.
          note
              tags: "Algorithm, Maximum, ARRAY"
-             default: "a.lower, a.upper"
+             default: "target.lower, target.upper"
          do
              across low |..| high as i loop
-                 Result := Result.max (a [i.item])
+                 Result := Result.max (target [i.item])
              end
          end  
 end  
