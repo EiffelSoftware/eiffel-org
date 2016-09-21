@@ -18,6 +18,25 @@ User defined templates will have precedence over templates located at the Eiffel
 <span id="templates_definition"></span> 
 ==Templates Definition==
 
+* Every template should inherit from a TEMPLATE class
+   class ARRAY_TEMPLATE [T -> COMPARABLE] inherIt TEMPLATE [ARRAY [T]] 
+* Multiple Generic Constraints is not supported
+   class EXAMPLE_TEMPLATE [T -> {TYPE_1, TYPE_2}]
+ * A file could have multiple code templates definitions
+    ** Queries 
+    ** Commands
+Code templates could be Global or applicable to a given Context
+Queries and Commands accept multiple arguments like (a:T1; b:T2; c:T3), if any, will be used as input arguments where the default values will be filled with defaults if they exist.
+Target Templates
+Inherit from TEMPLATE [T]
+Targetless Templates.
+Metadata: it’s possible to add metadata to code templates using note clause 
+title: title of template   
+tags: List of tags to classify the template. 
+default: use to define default values for input arguments. 
+(*) Optional, by default we use the name of the feature in the template.
+
+
 
 <span id="templates_skeleton"></span> 
 ==Templates Skeleton==
