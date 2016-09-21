@@ -20,7 +20,37 @@ Code templates in Eiffel are described in Eiffel itself, there are some constrai
 <span id="templates_skeleton"></span> 
 ==Templates Skeleton==
 
+===With Generic Constraints===
 
+<code>
+note
+    description: "[
+        Code templates for Arrays of COMPARABLES.
+    ]"
+    template_version: "1.0"
+
+
+class ARRAY_TEMPLATE [T -> COMPARABLE]
+
+inherit
+    
+           TEMPLATE [ARRAY [T]]
+
+feature  -- Templates
+
+   slice_maximum (low, high: INTEGER): T
+             --  Get the maximum of an array, where the interval is defined by default by array.lower |..|    
+             --  array.upper.
+         note
+             tags: "Algorithm, Maximum, ARRAY"
+             default: "a.lower, a.upper"
+         do
+             across low |..| high as i loop
+                 Result := Result.max (a [i.item])
+             end
+         end  
+end  
+</code>
 
 
 
