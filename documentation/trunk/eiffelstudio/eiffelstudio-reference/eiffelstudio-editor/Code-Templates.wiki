@@ -27,8 +27,8 @@ User defined templates will have precedence over templates located at the Eiffel
  * Commands
 * Code templates could be Global/Target-less or applicable to a given Context
 Queries and Commands accept multiple arguments like (a:T1; b:T2; c:T3), if any, will be used as input arguments where the default values will be filled with defaults if they exist.
-* Target Templates inherit from TEMPLATE [T]
-* Targetless Templates inherit from TEMPLATE 
+* Target Templates inherit from <code>TEMPLATE [T]</code>
+* Targetless Templates inherit from <code>TEMPLATE</code> 
 * Metadata: it’s possible to add metadata to code templates using note clause 
 ** title: title of template   
 ** tags: List of tags to classify the template. 
