@@ -41,7 +41,7 @@ These templates does not have the feature `target'.
 <span id="templates_skeleton"></span> 
 ==Templates Skeleton==
 
-====Context temples====
+====Context templates====
 The next example shows how to define a template that will be applicable to types that conforms <code>ARRAY [COMPARABLE]</code>.
 
 EiffelStudio editor provides automatic help to use code templates, in the case of context templates, when you type a dot ('.') character after a feature name, as part of feature call auto-completion, a new option will be available by pressing <code>crtl+space</code> 
