@@ -11,6 +11,8 @@ Code templates in Eiffel are described in Eiffel itself, there are some constrai
 <span id="templates_location"></span> 
 ==Templates location==
 
+EiffelStudio will scan the Eiffel Templates at the EiffelStudio installation and EiffelStudio user directory.
+User defined templates will have precedence over templates located at the EiffelStudio installation.
 
 
 <span id="templates_definition"></span> 
