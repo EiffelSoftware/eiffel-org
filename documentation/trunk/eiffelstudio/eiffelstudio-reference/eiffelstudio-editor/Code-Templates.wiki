@@ -18,14 +18,15 @@ User defined templates will have precedence over templates located at the Eiffel
 <span id="templates_definition"></span> 
 ==Templates Definition==
 * Indexing notes at top level class
-** template_version, it's used to select the version of the given template, if not present, it will be parsed using the latest version.
+** `template_version`, it's used to select the version of the given template, if not present, it will be parsed using the latest version,
+at the moment version is `1.0`
 * Every template should inherit from the <code>TEMPLATE</code> class
    class ARRAY_TEMPLATE [T -> COMPARABLE] inherIt TEMPLATE [ARRAY [T]] 
 * Multiple Generic Constraints is not supported
    class EXAMPLE_TEMPLATE [T -> {TYPE_1, TYPE_2}]
 * A file could have multiple code templates definitions.
- * Queries 
- * Commands
+** Queries 
+** Commands
 * Code templates could be Global/Target-less or applicable to a given Context
 Queries and Commands accept multiple arguments like (a:T1; b:T2; c:T3), if any, will be used as input arguments where the default values will be filled with defaults if they exist.
 * Target Templates inherit from <code>TEMPLATE [T]</code>
