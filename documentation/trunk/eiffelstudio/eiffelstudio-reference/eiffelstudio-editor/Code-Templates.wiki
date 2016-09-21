@@ -3,9 +3,9 @@
 [[Property:title|Code Templates]]
 [[Property:weight|7]]
 
-EiffelStudio editor includes a new feature designed to help write Eiffel code. Code template completion is it.
+EiffelStudio editor supports `code template completion', a functionality designed to help write Eiffel code.
 
-Code templates in Eiffel are described in Eiffel itself, there are some constraints to define templates that we will cover below. At the moment Code templates can only be used as part of an existing feature. Some templates will be available as global/target-less templates, it means there is not target context, so you can include a useful template inside your current feature. In other cases we will have templates that will be only available to certain context, for example if you have an <code>ARRAY [INTEGER]</code>, then you will be able to see templates applicable to it, if any.
+Code templates are described in Eiffel itself, there are some constraints to define templates that we will cover below. At the moment Code templates can only be used as part of an existing feature. Some templates will be available as global/target-less templates, it means there is not target context, so you can include a useful template inside your current feature. In other cases we will have templates that will be only available to certain context, for example if you have an <code>ARRAY [INTEGER]</code>, then you will be able to see templates applicable to it, if any.
 
 
 <span id="templates_location"></span> 
@@ -70,7 +70,7 @@ inherit
 feature  -- Templates
 
    maximum: T
-            -- Get the maximum of an array.
+            -- Maximum of `target' array.  
         note
             tags: "Algorithm, Maximum, ARRAY"
         do
@@ -111,7 +111,7 @@ inherit
 feature -- Templates
 
 	entries 
-			-- Show entires for the current directory.
+			-- Display entries of current directory.
 		note
 			title: "Entries for a directory"
 			tags: "Algorithm, entries , DIRECTORY"
