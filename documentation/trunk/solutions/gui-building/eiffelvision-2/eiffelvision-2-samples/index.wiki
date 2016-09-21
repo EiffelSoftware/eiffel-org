@@ -6,9 +6,9 @@ EiffelVision 2 ships with a number of samples provided to demonstrate different 
 *  [[Widgets Sample|Widgets]] sample. Demonstrates both the appearance and behavior of the available widgets. 
 
 Then explore other samples: 
-*  [[Accelerator Sample|Accelerator]]  - Demonstrates the use of an [[ref:/libraries/vision2/reference/ev_accelerator_chart|EV_ACCELERATOR]] . 
-*  [[Cursor Sample|Cursor]]  - Demonstrates how to modify the displayed [[ref:/libraries/vision2/reference/ev_cursor_chart|EV_CURSOR]]  for an [[ref:/libraries/vision2/reference/ev_widget_chart|EV_WIDGET]] . 
-*  [[Gauges Sample|Gauges]]  - Demonstrates different types of [[ref:/libraries/vision2/reference/ev_gauge_chart|EV_GAUGE]] . 
-*  [[Standard_dialogs Sample|Standard_dialogs]]  - Demonstrates different types of [[ref:/libraries/vision2/reference/ev_standard_dialog_chart|EV_STANDARD_DIALOG]] . 
-*  [[Viewport Sample|Viewport]]  - Demonstrates [[ref:/libraries/vision2/reference/ev_viewport_chart|EV_VIEWPORT]] . 
+*  [[Accelerator Sample|Accelerator]]  - Demonstrates the use of an [[ref:libraries/vision2/reference/ev_accelerator_chart|EV_ACCELERATOR]] . 
+*  [[Cursor Sample|Cursor]]  - Demonstrates how to modify the displayed [[ref:libraries/vision2/reference/ev_cursor_chart|EV_CURSOR]]  for an [[ref:libraries/vision2/reference/ev_widget_chart|EV_WIDGET]] . 
+*  [[Gauges Sample|Gauges]]  - Demonstrates different types of [[ref:libraries/vision2/reference/ev_gauge_chart|EV_GAUGE]] . 
+*  [[Standard_dialogs Sample|Standard_dialogs]]  - Demonstrates different types of [[ref:libraries/vision2/reference/ev_standard_dialog_chart|EV_STANDARD_DIALOG]] . 
+*  [[Viewport Sample|Viewport]]  - Demonstrates [[ref:libraries/vision2/reference/ev_viewport_chart|EV_VIEWPORT]] . 
 

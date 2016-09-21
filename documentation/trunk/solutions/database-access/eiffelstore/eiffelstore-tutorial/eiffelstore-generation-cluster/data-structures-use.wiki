@@ -45,7 +45,7 @@ You can then access or modify [[ref:libraries/store/reference/db_table_flatshort
 		end
 </code>
 
-{{note|to access attributes data with ''code'', you need to use the [[ref:/libraries/store/reference/db_table_description_flatshort|DB_TABLE_DESCRIPTION]]  object associated to your [[ref:libraries/store/reference/db_table_flatshort|DB_TABLE]]  object. }}
+{{note|to access attributes data with ''code'', you need to use the [[ref:libraries/store/reference/db_table_description_flatshort|DB_TABLE_DESCRIPTION]]  object associated to your [[ref:libraries/store/reference/db_table_flatshort|DB_TABLE]]  object. }}
 
 ===2.3. Getting objects metadata===
 

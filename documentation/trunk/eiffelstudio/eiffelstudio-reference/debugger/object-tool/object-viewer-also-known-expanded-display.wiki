@@ -22,7 +22,7 @@ Depending the nature of the dropped object, you can view it with one or more of 
 ** <code>deep_physicial_size</code>
 ** <code>physical_size</code>
 
-{{note|The "string display" viewer is available for objects with a string representation, for instance objects whose types conform to [[ref:/libraries/base/reference/string_8_chart|STRING_8]] or conform to [[ref:/libraries/base/reference/debug_output_chart|DEBUG_OUTPUT]]  (see [[Debug output|Debug Output]]. )}}
+{{note|The "string display" viewer is available for objects with a string representation, for instance objects whose types conform to [[ref:libraries/base/reference/string_8_chart|STRING_8]] or conform to [[ref:libraries/base/reference/debug_output_chart|DEBUG_OUTPUT]]  (see [[Debug output|Debug Output]]. )}}
 
 {{note|The "XML display" is available for objects eligible for "String display", and whose string representation has XML content. The viewer displays XML in a tree-enabled grid.}}
 

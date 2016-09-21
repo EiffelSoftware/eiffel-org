@@ -10,7 +10,7 @@ In the preceding examples each participant in a communication had to get ready t
 
 The commands are objects, instances of a general-purpose class <code>COMMAND</code> or its proper descendants. Class <code>COMMAND</code> has, among its features, a procedure <eiffel>execute</eiffel> which executes the current command; some commands are undoable and have an <eiffel>undo</eiffel> procedure. 
 
-In EiffelNet the possible events associated with a socket will be of three kind: a read event; a write event; or a special event (out of bounds operation). The command classes will be descendants of [[ref:/libraries/net/reference/poll_command_chart|POLL_COMMAND]], an heir of <code>COMMAND</code>.
+In EiffelNet the possible events associated with a socket will be of three kind: a read event; a write event; or a special event (out of bounds operation). The command classes will be descendants of [[ref:libraries/net/reference/poll_command_chart|POLL_COMMAND]], an heir of <code>COMMAND</code>.
 
 ===9.2 Command classes===
 

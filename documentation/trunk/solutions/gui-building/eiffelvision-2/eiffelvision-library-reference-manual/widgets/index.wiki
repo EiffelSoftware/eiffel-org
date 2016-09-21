@@ -3,15 +3,15 @@
 [[Property:uuid|595bb73e-146a-ea19-221f-40f3415aad34]]
 ==What Is a Widget?==
 
-A Widget is the fundamental building block of your application's GUI.  Components such as Windows, Buttons, Text fields, Check Boxes, List Boxes and layout Containers are examples of widgets. The widget set in EiffelVision 2 provides you with the flexibility to easily create powerful graphical applications. All widgets in EiffelVision 2 inherit from [[ref:/libraries/vision2/reference/ev_widget_chart| EV_WIDGET]], thus the features provided in <eiffel>EV_WIDGET</eiffel> may be called on any widget. 
+A Widget is the fundamental building block of your application's GUI.  Components such as Windows, Buttons, Text fields, Check Boxes, List Boxes and layout Containers are examples of widgets. The widget set in EiffelVision 2 provides you with the flexibility to easily create powerful graphical applications. All widgets in EiffelVision 2 inherit from [[ref:libraries/vision2/reference/ev_widget_chart| EV_WIDGET]], thus the features provided in <eiffel>EV_WIDGET</eiffel> may be called on any widget. 
 
 
 ==Variations of Widgets==
 Within EiffelVision 2, widgets have been classified into three different groups: 
 
-*  [[Primitives|Primitives]]  — These are elements of the user interface that are mainly responsible for interaction with the user, such as an [[ref:/libraries/vision2/reference/ev_button_chart|EV_BUTTON]]. 
+*  [[Primitives|Primitives]]  — These are elements of the user interface that are mainly responsible for interaction with the user, such as an [[ref:libraries/vision2/reference/ev_button_chart|EV_BUTTON]]. 
 
-*  [[Containers|Containers]]  — These are used to contain other widgets and position them in a certain way, such as an [[ref:/libraries/vision2/reference/ev_vertical_box_chart| EV_VERTICAL_BOX ]]  that stacks its child widgets one by one vertically.
+*  [[Containers|Containers]]  — These are used to contain other widgets and position them in a certain way, such as an [[ref:libraries/vision2/reference/ev_vertical_box_chart| EV_VERTICAL_BOX ]]  that stacks its child widgets one by one vertically.
 
 *  [[EiffelVision Dialogs|Dialogs]]  — These are pop up dialog boxes used for interacting with the user for tasks such as opening a file (EV_FILE_OPEN_DIALOG) or displaying a message (EV_MESSAGE_DIALOG). You may also construct your own dialog boxes by inheriting from EV_DIALOG. 
 

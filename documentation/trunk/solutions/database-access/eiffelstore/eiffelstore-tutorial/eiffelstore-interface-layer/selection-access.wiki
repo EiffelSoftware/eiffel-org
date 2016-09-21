@@ -12,8 +12,8 @@ To use DB_RESULT, process in 2 steps:
 
 ==Retrieving DB_RESULT objects==
 
-[[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  class provides different ways to customize result loading:
-* You want to access an '''unique''' row: [[ref:/libraries/store/reference/db_result_flatshort|DB_RESULT]]  object is accessible via cursor:
+[[ref:libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  class provides different ways to customize result loading:
+* You want to access an '''unique''' row: [[ref:libraries/store/reference/db_result_flatshort|DB_RESULT]]  object is accessible via cursor:
 <code>
     selection: DB_SELECTION
     my_result: DB_RESULT
@@ -27,7 +27,7 @@ To use DB_RESULT, process in 2 steps:
             end
 </code>
 
-* You want to load a '''complete list''' of rows: [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  can store [[ref:/libraries/store/reference/db_result_flatshort|DB_RESULT]]  objects in a list. To do this, you have mainly to provide a LIST object to DB_SELECTION with set_container:
+* You want to load a '''complete list''' of rows: [[ref:libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  can store [[ref:libraries/store/reference/db_result_flatshort|DB_RESULT]]  objects in a list. To do this, you have mainly to provide a LIST object to DB_SELECTION with set_container:
 <code>
     selection: DB_SELECTION
     container: ARRAYED_LIST [DB_RESULT]
@@ -48,10 +48,10 @@ To use DB_RESULT, process in 2 steps:
             end
 </code>
 
-{{tip|Provide [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  with the LIST structure convenient for what you need to do with the results. }}
+{{tip|Provide [[ref:libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  with the LIST structure convenient for what you need to do with the results. }}
 
-* You want to '''select part''' of the result set: you can set an action in [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  that will be executed each time a row is loaded. This action can for instance manipulate current row and define a stop condition. 
-** You need to define a descendant of class ACTION and set it to [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]] :
+* You want to '''select part''' of the result set: you can set an action in [[ref:libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  that will be executed each time a row is loaded. This action can for instance manipulate current row and define a stop condition. 
+** You need to define a descendant of class ACTION and set it to [[ref:libraries/store/reference/db_selection_flatshort|DB_SELECTION]] :
 <code>
 class
     MY_ACTION
@@ -75,7 +75,7 @@ inherit
             Result := i >= Max_result
         end
 </code>
-** Then set action to [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]] :
+** Then set action to [[ref:libraries/store/reference/db_selection_flatshort|DB_SELECTION]] :
 <code>
     selection: DB_SELECTION
     action: MY_ACTION

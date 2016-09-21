@@ -1,7 +1,7 @@
 [[Property:title|Tutorial Step 1]]
 [[Property:weight|0]]
 [[Property:uuid|b952d232-1ef9-04a8-bac4-117185aa316d]]
-This sample shows you how to set up your first [[ref:/libraries/wel/reference/wel_application_chart|WEL_APPLICATION]]  consisting of a single [[ref:/libraries/wel/reference/wel_frame_window_chart|WEL_FRAME_WINDOW]] . This is one of the simplest WEL applications you can write, and the output is shown below: 
+This sample shows you how to set up your first [[ref:libraries/wel/reference/wel_application_chart|WEL_APPLICATION]]  consisting of a single [[ref:libraries/wel/reference/wel_frame_window_chart|WEL_FRAME_WINDOW]] . This is one of the simplest WEL applications you can write, and the output is shown below: 
 
 [[Image:step1|step1]]
 <br/>
@@ -24,9 +24,9 @@ After you launch the sample, You should see the window displayed in the screen a
 
 ==Under the Hood==
 
-Although this system does nothing except create and display a [[ref:/libraries/wel/reference/wel_frame_window_chart|WEL_FRAME_WINDOW]] , it shows how to set up your first [[ref:/libraries/wel/reference/wel_application_chart|WEL_APPLICATION]] . 
+Although this system does nothing except create and display a [[ref:libraries/wel/reference/wel_frame_window_chart|WEL_FRAME_WINDOW]] , it shows how to set up your first [[ref:libraries/wel/reference/wel_application_chart|WEL_APPLICATION]] . 
 
-This sample only contains one class, TUTORIAL_STEP1 which inherits [[ref:/libraries/wel/reference/wel_application_chart|WEL_APPLICATION]]  and redefines <code>main_window</code> 
+This sample only contains one class, TUTORIAL_STEP1 which inherits [[ref:libraries/wel/reference/wel_application_chart|WEL_APPLICATION]]  and redefines <code>main_window</code> 
 
 {{seealso|<br/>
 [[Inheriting WEL_APPLICATION|Inheriting WEL application]]  <br/>

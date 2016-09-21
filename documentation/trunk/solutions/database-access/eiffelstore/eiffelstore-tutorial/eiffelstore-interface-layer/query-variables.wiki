@@ -3,7 +3,7 @@
 [[Property:uuid|37222a07-a8f8-e57d-45f0-3b28cd66d660]]
 If you have to execute database queries which only differ in the expression values, you can create a template query and then bind variables into this template for each execution.
 
-This mechanism can be applied for requests with a result ([[ref:/libraries/store/reference/db_selection_chart|DB_SELECTION]] ) or without ([[ref:/libraries/store/reference/db_change_chart|DB_CHANGE]] ). Hence both classes inherits from STRING_HDL that actually handle variable binding.
+This mechanism can be applied for requests with a result ([[ref:libraries/store/reference/db_selection_chart|DB_SELECTION]] ) or without ([[ref:libraries/store/reference/db_change_chart|DB_CHANGE]] ). Hence both classes inherits from STRING_HDL that actually handle variable binding.
 
 To use variable binding:
 *  [[#create|Create]]  a template query. 
@@ -24,7 +24,7 @@ Variables syntax is simple: the ':' special character followed by the variable n
             selection.set_query ("Select * from CONTACTS where Firstname = ':" + Bind_var + "'")
 </code>
 
-{{note|The code example shows how to bind variables to a [[ref:/libraries/store/reference/db_selection_chart|DB_SELECTION]]  object but the mechanism is exactly the same for [[ref:/libraries/store/reference/db_change_chart|DB_CHANGE]]  objects. }}
+{{note|The code example shows how to bind variables to a [[ref:libraries/store/reference/db_selection_chart|DB_SELECTION]]  object but the mechanism is exactly the same for [[ref:libraries/store/reference/db_change_chart|DB_CHANGE]]  objects. }}
 
 ==Binding variables to a query==
 

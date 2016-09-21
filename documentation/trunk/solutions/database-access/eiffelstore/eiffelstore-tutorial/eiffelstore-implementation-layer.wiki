@@ -2,10 +2,10 @@
 [[Property:weight|1]]
 [[Property:uuid|80cd0938-6837-3c17-8515-b4ac60a51d09]]
 Each interface class has an implementation counterpart that implements specific DBMS handling. The class prefix indicates clearly its layer, for instance:
-* [[ref:/libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  is the interface to perform a database selection query.
-* [[ref:/libraries/store/reference/database_selection_flatshort|DATABASE_SELECTION]]  [ [[ref:/libraries/store/reference/database_flatshort|DATABASE]] ] is its implementation. 
+* [[ref:libraries/store/reference/db_selection_flatshort|DB_SELECTION]]  is the interface to perform a database selection query.
+* [[ref:libraries/store/reference/database_selection_flatshort|DATABASE_SELECTION]]  [ [[ref:libraries/store/reference/database_flatshort|DATABASE]] ] is its implementation. 
 
-The abstract [[ref:/libraries/store/reference/database_flatshort|DATABASE]]  class represents a DBMS, i.e. it is the Eiffel-side database call interface. It is inherited for instance by the instantiable <eiffel>ORACLE</eiffel> and <eiffel>ODBC</eiffel> classes.
+The abstract [[ref:libraries/store/reference/database_flatshort|DATABASE]]  class represents a DBMS, i.e. it is the Eiffel-side database call interface. It is inherited for instance by the instantiable <eiffel>ORACLE</eiffel> and <eiffel>ODBC</eiffel> classes.
 
 EiffelStore enables to link common interface objects with database-specific implementation objects using a '''handle'''. This handle also enables to switch between different databases. 
 

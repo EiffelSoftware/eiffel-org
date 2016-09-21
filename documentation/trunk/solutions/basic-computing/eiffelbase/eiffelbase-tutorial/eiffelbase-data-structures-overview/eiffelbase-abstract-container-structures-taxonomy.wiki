@@ -8,7 +8,7 @@ A container can be studied from three viewpoints: access, storage and traversal.
 * The '''storage''' criterion affects how the items are put together. For example some containers are finite, others potentially infinite; among finite structures, some are bounded, others unbounded. 
 * The '''traversal''' criterion affects how, if in any way, the items of a container can be traversed. A traversal is a mechanism which makes it possible to examine each item of a container once, in a clearly specified order. For example some containers can be traversed sequentially, in one direction or two; tree structures lend themselves to preorder, postorder and breadth-first traversals. 
 
-For each of these criteria the Base library offers a single-inheritance hierarchy of deferred classes. The top of the access hierarchy is class [[ref:libraries/base/reference/collection_chart|COLLECTION]] ; the top of the storage hierarchy is class [[ref:/libraries/base/reference/box_chart|BOX]] ; the top of the traversal hierarchy is class [[ref:/libraries/base/reference/traversable_chart|TRAVERSABLE]] . These three classes are heirs of the most general class [[ref:libraries/base/reference/container_chart|CONTAINER]] . 
+For each of these criteria the Base library offers a single-inheritance hierarchy of deferred classes. The top of the access hierarchy is class [[ref:libraries/base/reference/collection_chart|COLLECTION]] ; the top of the storage hierarchy is class [[ref:libraries/base/reference/box_chart|BOX]] ; the top of the traversal hierarchy is class [[ref:libraries/base/reference/traversable_chart|TRAVERSABLE]] . These three classes are heirs of the most general class [[ref:libraries/base/reference/container_chart|CONTAINER]] . 
 
 
 

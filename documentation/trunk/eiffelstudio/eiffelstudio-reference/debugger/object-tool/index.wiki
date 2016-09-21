@@ -17,7 +17,7 @@ When an exception occurs (for instance, an assertion violation), the object tool
 
 All objects can be expanded to see the values of their attributes. They are also pickable, so that it is possible to drop them onto the Object tool, an [[Expression evaluation|expression evaluator tool]] (also know as Watch tool), or an editor.
 
-It is also possible to use the [[Set slice size command|set slice size command]] with [[ref:/libraries/base/reference/special_chart|SPECIAL]] objects or [[ref:/libraries/base/reference/native_array_chart|NATIVE_ARRAY]] (.NET) objects. 
+It is also possible to use the [[Set slice size command|set slice size command]] with [[ref:libraries/base/reference/special_chart|SPECIAL]] objects or [[ref:libraries/base/reference/native_array_chart|NATIVE_ARRAY]] (.NET) objects. 
 
 
 

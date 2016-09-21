@@ -8,7 +8,7 @@ The kernel cluster contains classes that provide functionality common to most Wi
 
 [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]]  is the basis for every EiffelVision 2 application and is considered the most important class in the library. It is responsible for initializing the underlying toolkit that is driving the windowing system on the platform that you compile your system on. It is also where the main event loop that drives your application is executed.
 
-{{note|It is an '''error''' to attempt to create any EiffelVision 2 components before the application object has been created (see the Flat Contracts view of [[ref:/libraries/vision2/reference/ev_environment_chart|EV_ENVIRONMENT]]). }}
+{{note|It is an '''error''' to attempt to create any EiffelVision 2 components before the application object has been created (see the Flat Contracts view of [[ref:libraries/vision2/reference/ev_environment_chart|EV_ENVIRONMENT]]). }}
 
 You may inherit [[ref:libraries/vision2/reference/ev_application_chart|EV_APPLICATION]]  or use it as a client in order to create your EiffelVision 2 application. A simple method of using EV_APPLICATION is as follows: 
 

@@ -18,7 +18,7 @@ By default the profiler will profile the entire program. However it is possible 
 * You must [[Generating executables|recompile]]  your project for the changes to take effect. 
 
 It is also possible to dynamically start and stop the profiler in a program. To do this:
-* Create an object of type [[ref:/libraries/base/reference/profiling_setting_chart|PROFILING_SETTING]] . 
+* Create an object of type [[ref:libraries/base/reference/profiling_setting_chart|PROFILING_SETTING]] . 
 * Call [[ref:libraries/base/reference/profiling_setting_flatshort|start_profiling]]  on this object to start the profiler. 
 * Call [[ref:libraries/base/reference/profiling_setting_flatshort|stop_profiling]]  on this object to stop the profiler. 
 

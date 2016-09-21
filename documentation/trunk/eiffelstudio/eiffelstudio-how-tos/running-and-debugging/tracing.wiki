@@ -43,7 +43,7 @@ Last, here's the output when '''Trace''' is '''True''' for both the root cluster
 =Dynamic control=
 
 It is also possible to enable and disable the trace dynamically. To do this:
-* Create an object of type [[ref:/libraries/base/reference/tracing_setting_chart|TRACING_SETTING]] . 
+* Create an object of type [[ref:libraries/base/reference/tracing_setting_chart|TRACING_SETTING]] . 
 * Call [[ref:libraries/base/reference/tracing_setting_flatshort|enable_tracing]]  on this object to start the trace. 
 * Call [[ref:libraries/base/reference/tracing_setting_flatshort|disable_tracing]]  on this object to stop the trace. 
 

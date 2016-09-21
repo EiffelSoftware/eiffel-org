@@ -1,7 +1,7 @@
 [[Property:title|Database control]]
 [[Property:weight|7]]
 [[Property:uuid|432c6e51-36d5-b469-c924-eb821713256a]]
-Use the [[ref:/libraries/store/reference/db_control_flatshort|DB_CONTROL]]  class to check or change database status and behavior. The main operations you are likely to use are:
+Use the [[ref:libraries/store/reference/db_control_flatshort|DB_CONTROL]]  class to check or change database status and behavior. The main operations you are likely to use are:
 *  Handling database errors. 
 *  Connecting to the database. 
 *  Committing changes in the database. 
@@ -10,7 +10,7 @@ Use the [[ref:/libraries/store/reference/db_control_flatshort|DB_CONTROL]]  clas
 
 Every EiffelStore interface class has an is_ok feature. This enables to check directly if the last database operation has been successful.
 
-When an error is detected, you can use [[ref:/libraries/store/reference/db_control_flatshort|DB_CONTROL]] to obtain further information about the error:
+When an error is detected, you can use [[ref:libraries/store/reference/db_control_flatshort|DB_CONTROL]] to obtain further information about the error:
 * error_message provides a description of the error that occurred.
 * error_code returns a code corresponding to the error type. This code enables to handle specific errors within your code without parsing the error_message.
 * warning_message provides a warning message about the last transaction performed. 
@@ -19,7 +19,7 @@ Once you have handled your error, for instance by displaying the error_message o
 
 ==Managing database connection==
 
-[[ref:/libraries/store/reference/db_control_flatshort|DB_CONTROL]]  lets you connect, check your connection, and disconnect from the database.
+[[ref:libraries/store/reference/db_control_flatshort|DB_CONTROL]]  lets you connect, check your connection, and disconnect from the database.
 
 The following example sum up these capabilities:
 <code>
