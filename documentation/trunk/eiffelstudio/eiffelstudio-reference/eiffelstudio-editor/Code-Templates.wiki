@@ -41,7 +41,10 @@ These templates does not have the feature `target'.
 <span id="templates_skeleton"></span> 
 ==Templates Skeleton==
 
-===With Generic Constraints===
+====Context temples====
+The next example shows how to define a template that will be applicable to types that conforms <code>ARRAY [COMPARABLE]</code>.
+
+
 
 <code>
 note
@@ -70,8 +73,8 @@ feature  -- Templates
         end
 
    slice_maximum (low, high: INTEGER): T
-             --  Get the maximum of an array, 
-             --  where the interval is defined by default 
+             -- Get the maximum of an array, 
+             -- where the interval is defined by default 
              -- by array.lower |..| array.upper.
          note
              tags: "Algorithm, Maximum, ARRAY"
