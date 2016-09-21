@@ -17,7 +17,8 @@ User defined templates will have precedence over templates located at the Eiffel
 
 <span id="templates_definition"></span> 
 ==Templates Definition==
-
+* Indexing notes at top level class
+** template_version, it's used to select the version of the given template, if not present, it will be parsed using the latest version.
 * Every template should inherit from the <code>TEMPLATE</code> class
    class ARRAY_TEMPLATE [T -> COMPARABLE] inherIt TEMPLATE [ARRAY [T]] 
 * Multiple Generic Constraints is not supported
@@ -38,6 +39,7 @@ These templates does not have the feature `target'.
 
 
 
+
 <span id="templates_skeleton"></span> 
 ==Templates Skeleton==
 
@@ -45,7 +47,9 @@ These templates does not have the feature `target'.
 The next example shows how to define a template that will be applicable to types that conforms <code>ARRAY [COMPARABLE]</code>.
 
 EiffelStudio editor provides automatic help to use code templates, in the case of context templates, when you type a dot ('.') character after a feature name, as part of feature call auto-completion, a new option will be available by pressing <code>crtl+space</code> 
-the list of available templates will be display
+the list of available templates will be display. 
+
+At this point a user can select an available template, to insert into the current feature, back to the list of completion possibles by pressing <code>crtl+space</code>, or just ignore and continue editing the code.
 
 
 <code>
@@ -89,6 +93,40 @@ feature  -- Templates
 end  
 </code>
 
+====Targetless Templates====
+
+<code>
+class  TEMPLATE_DIRECTORY_GLOBAL
+
+inherit
+	
+	TEMPLATE 
+
+feature
+
+	entries 
+			-- Show entires for the current directory.
+		note
+			title: "Entries for a directory"
+			tags: "Algorithm, entries , DIRECTORY"
+		local
+			l_path: PATH
+			l_dir: DIRECTORY
+			i,j: INTEGER
+		do
+ 
+			create l_path.make_current
+			create l_dir.make_with_path (l_path)
+
+			across
+				l_dir.entries as ic
+			loop
+				print (ic.item.name)
+				io.put_new_line
+			end
+		end
+end
+</code>
 
 
 
