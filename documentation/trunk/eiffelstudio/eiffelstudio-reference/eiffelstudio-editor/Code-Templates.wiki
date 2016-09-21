@@ -32,7 +32,7 @@ These templates will inherit a feature `target' with the type of the context, th
 * Targetless Templates inherit from <code>TEMPLATE</code>
 These templates does not have the feature `target'.
 * Metadata: it’s possible to add metadata to code templates using note clause 
-** title: title of template   
+** title: title of template, if not present we will use the name of the feature defined in the template.   
 ** tags: List of tags to classify the template. 
 ** default: use to define default values for input arguments. 
 
@@ -58,6 +58,16 @@ inherit
     TEMPLATE [ARRAY [T]]
 
 feature  -- Templates
+
+   maximum: T
+            -- Get the maximum of an array.
+        note
+            tags: "Algorithm, Maximum, ARRAY"
+        do
+	    across target as element loop
+                Result := Result.max (element.item)
+            end
+        end
 
    slice_maximum (low, high: INTEGER): T
              --  Get the maximum of an array, 
