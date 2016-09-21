@@ -51,6 +51,7 @@ the list of available templates will be display.
 
 At this point a user can select an available template, to insert into the current feature, back to the list of completion possibles by pressing <code>crtl+space</code>, or just ignore and continue editing the code.
 
+!TODO add image
 
 <code>
 note
@@ -94,6 +95,11 @@ end
 </code>
 
 ====Targetless Templates====
+The next example shows how to define a template that will be applicable without any specific target. 
+To show the list of available targetless templates by pressing <code>crtl+space</code> you will see a new option in the list
+of completion possibilities,  by pressing again <code>crtl+space</code>, the list of targetless templates will be available.
+
+!TODO add image 
 
 <code>
 class  TEMPLATE_DIRECTORY_GLOBAL
@@ -102,7 +108,7 @@ inherit
 	
 	TEMPLATE 
 
-feature
+feature -- Templates
 
 	entries 
 			-- Show entires for the current directory.
