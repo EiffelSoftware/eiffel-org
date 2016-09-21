@@ -5,8 +5,11 @@
 
 EIS supports following types of variables which can be used in '''Source''' of annotation list. 
 *  EiffelStudio installation built-in variables 
-**  ISE_WIKI = http://dev.eiffel.com 
-**  EIFFELROOM = http://www.eiffelroom.com 
+** ISE_WIKI = http://dev.eiffel.com 
+** EIFFELROOM = http://www.eiffelroom.com 
+** ISE_DOC = http://docs.eiffel.com  
+** ISE_DOC_UUID = http://doc.eiffel.com/isedoc/uuid  
+** ISE_DOC_REF = http://doc.eiffel.com/isedoc/eis  
 
 *  Other EiffelStudio built-in variables
 **  system_path = The path of the system being annotated
