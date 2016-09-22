@@ -59,7 +59,7 @@ The auto-completion can be cancelled by clicking outside the window or pressing 
 After you have selected a feature, if the feature is a routine requiring arguments, the argument prototypes will be included in the generated feature text, and the text for the first argument will be selected, as in Figure 2.
 
 
-[[Image:feature call auto complete example 1]]
+[[Image:target_template_1_0]]
 
 Figure 2. Auto-completion of a routine with arguments.
 
