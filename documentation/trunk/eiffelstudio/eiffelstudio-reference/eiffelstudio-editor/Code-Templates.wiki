@@ -145,6 +145,16 @@ feature -- Templates
 end
 </code>
 
+<span id="gui_template"></span> 
+==Associating GUI with Template definition==
+The following image shows the relationship between the template definition and how they will look in the GUI.
+
+[[Image:target_template_1_2]] 
+Figure 5. Gui and Template relationship.
+
+
+
+
 
 
 
