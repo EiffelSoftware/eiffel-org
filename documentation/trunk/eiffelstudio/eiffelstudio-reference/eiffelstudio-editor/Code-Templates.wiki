@@ -153,6 +153,12 @@ The following image shows the relationship between the template definition and h
 Figure 5. Gui and Template relationship.
 
 
+* Feature name or metadata `title` if present will be used as the value in the list of completion possibilities.
+* Feature comment will be used in the tooltip description of a selected template.
+* Feature body will be used in the tooltip code preview.
+
+
+
 
 
 
