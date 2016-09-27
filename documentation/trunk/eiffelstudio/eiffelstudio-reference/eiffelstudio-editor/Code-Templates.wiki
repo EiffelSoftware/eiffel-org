@@ -47,11 +47,15 @@ The next example shows how to define a template that will be applicable to types
 EiffelStudio editor provides automatic help to use code templates, in the case of context templates, when you type a dot ('.') character after a feature name, as part of feature call auto-completion, a new option will be available by pressing <code>crtl+space</code> 
 the list of available templates will be display. 
 
+[[Image:target_template_1_0]] 
+Figure 1. Auto-completion with code template option
+
 At this point a user can select an available template, to insert into the current feature, back to the list of completion possibles by pressing <code>crtl+space</code>, or just ignore and continue editing the code.
 
-[[Image:target_template_1_0]] 
+[[Image:target_template_1_1]] 
+Figure 2. Auto-completion with code templates option list
 
-Figure 1. Auto-completion with code template option
+
 
 <code>
 note
