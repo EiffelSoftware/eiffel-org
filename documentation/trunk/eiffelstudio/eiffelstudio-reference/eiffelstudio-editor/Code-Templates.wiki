@@ -101,9 +101,16 @@ end
 ====Targetless Templates====
 The next example shows how to define a template that will be applicable without any specific target. 
 To show the list of available targetless templates by pressing <code>crtl+space</code> you will see a new option in the list
-of completion possibilities,  by pressing again <code>crtl+space</code>, the list of targetless templates will be available.
+of completion possibilities.
 
-!TODO add image 
+[[Image:target_template_1_3]] 
+Figure 3. Targetless Auto-completion with code template option
+
+By pressing again <code>crtl+space</code>, the list of targetless templates will be available.
+
+[[Image:target_template_1_4]] 
+Figure 4. Targetless Auto-completion with code templates option list.
+
 
 <code>
 class  TEMPLATE_DIRECTORY_GLOBAL
