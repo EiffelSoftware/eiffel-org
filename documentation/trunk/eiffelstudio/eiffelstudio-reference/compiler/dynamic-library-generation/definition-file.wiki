@@ -33,12 +33,12 @@ The syntax is pretty simple when you understand what you need to export a featur
 ROOT_CLASS (make): foo @ 4 Alias my_foo call_type __stdcall</code>
 
 ===Constraints===
-* on the class: <div>The class cannot be deferred or generic.</div>
-* on the feature: <div>It could be any feature except an attribute, an external feature or a deferred feature.</div>
-* on the creation procedure: <div>It must have zero argument, and no return type.</div>
-* on the alias name: <div>It must be a valid name for a C function.</div>
-* on the index: <div>It must be strictly positive.</div>
-* on the call type: <div>It must be a valid call type for the targeted platform (useful for Windows only). For Visual C++, the valid calling conventions are __stdcall, __cdecl and __fastcall.</div>
+; on the class: The class cannot be deferred or generic.
+; on the feature: It could be any feature except an attribute, an external feature or a deferred feature.
+; on the creation procedure: It must have zero argument, and no return type.
+; on the alias name: It must be a valid name for a C function.
+; on the index: It must be strictly positive.
+; on the call type: It must be a valid call type for the targeted platform (useful for Windows only). For Visual C++, the valid calling conventions are __stdcall, __cdecl and __fastcall.
 
 For each feature the required fields are the '''class''', the '''creation procedure''', and of course the '''feature''' itself. 
 * If the feature is a creation procedure then do not specify any creation, it will use the feature as creation. For example '''ROOT_CLASS: make'''. 
@@ -60,4 +60,5 @@ BAR (make_a) : print_bar
 -- Here the feature is also a creation
 ROOT_CLASS : make
 ROOT_CLASS (make) : foo
-ROOT_CLASS (make) : test_bar</code>
+ROOT_CLASS (make) : test_bar
+</code>
