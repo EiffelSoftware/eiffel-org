@@ -9,9 +9,7 @@ Our example system is very simple and has no need for execution arguments. In mo
 
 In the Eiffel text, you can access such run-time arguments through the Kernel Library class <code>ARGUMENTS</code>. There is another technique -- using the arguments to the root creation procedure -- but using <code>ARGUMENTS</code> is the most general way. Any class of your system can inherit from <code>ARGUMENTS</code> and use queries <code>argument_count</code> to know the number of arguments passed to the execution, and <code>argument (i)</code>, for <code>i</code> between 1 and <code>argument_count</code> to access the <code>i</code>-th element. Class <code>ARGUMENTS</code> has more features; since you have Eiffelstudio up, you can check the details if you wish (use the contract form). 
 
-There are 2 ways to specify execution arguments from within EiffelStudio. The first is through the menu path
-<code lang=text>
-Project --> Project Settings --> Debug/Profile --> Program Execution</code> 
+There are 2 ways to specify execution arguments from within EiffelStudio. The first is through the menu path <code lang=text>Execution --> Execution Parameters</code> .
 The second is through the argument dialog which can be opened by right-clicking on any of the debugging or program execution buttons on the main toolbar. The latter is more convenient for quick and easy access to execution arguments. 
 
 ==Executing from EiffelStudio==
@@ -20,17 +18,11 @@ We have seen how to execute a compiled system from within EiffelStudio: choose o
 
 ==Executing a finalized system outside of EiffelStudio==
 
-A finalized system can be executed on any computer of the appropriate platform; it doesn't need EiffelStudio. The executable version is in the directory
-<code lang=text>
-project_directory/EIFGENs/target_name/F_code</code>
-
-where `project_directory` is the project's directory and `target_name` is the name of the target. The name of the executable file is `system_name` (or `system_name.exe` on Windows) where `system_name` is the name that you have assigned to your system in the project settings (reflected in the ECF file). 
+A finalized system can be executed on any computer of the appropriate platform; it doesn't need EiffelStudio. The executable version is in the directory `project_directory/EIFGENs/target_name/F_code` where `project_directory` is the project's directory and `target_name` is the name of the target. The name of the executable file is `system_name` (or `system_name.exe` on Windows) where `system_name` is the name that you have assigned to your system in the project settings (reflected in the ECF file). 
 
 The target of the Guided Tour system is `classic` and the name is `simple`, so you can locate `simple.exe` (or `simple.exe` on Windows) in `EIFGENs/classic/F_code` for your project, and run it stand-alone if you like. 
 
-If you run the system from a command line, and it requires arguments (`simple` doesn't), you will provide the appropriate arguments after the command name: 
-<code>
-system_name ... arg ...</code>
+If you run the system from a command line, and it requires arguments (`simple` doesn't), you will provide the appropriate arguments after the command name: `system_name ... arg ...` .
 
 Because various platforms have different conventions, "relative paths" referenced in your system will mean something different under Unix/Linux, where they relate to the directory from which the command is launched, and under Windows, where they relate to the application's directory.
 
