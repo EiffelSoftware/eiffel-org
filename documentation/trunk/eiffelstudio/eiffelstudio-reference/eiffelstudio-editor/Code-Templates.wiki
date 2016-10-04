@@ -5,7 +5,7 @@
 
 EiffelStudio editor supports `code template completion', a functionality designed to help write Eiffel code.
 
-Code templates are described in Eiffel itself, there are some constraints to define templates that we will cover below. At the moment Code templates can only be used as part of an existing feature. Some templates will be available as global/target-less templates, it means there is not target context, so you can include a useful template inside your current feature. In other cases we will have templates that will be only available to certain context, for example if you have an <code>ARRAY [INTEGER]</code>, then you will be able to see templates applicable to it, if any.
+Code templates are written using the Eiffel syntax, there are some constraints to define templates that we will cover below. At the moment Code templates can only be used as part of an existing feature. Some templates will be available as global/target-less templates, it means there is not target context, so you can include a useful template inside your current feature. In other cases we will have templates that will be only available to certain context, for example if you have an <code>ARRAY [INTEGER]</code>, then you will be able to see templates applicable to it, if any.
 
 
 <span id="templates_location"></span> 
@@ -21,7 +21,7 @@ User defined templates will have precedence over templates located at the Eiffel
 ** `template_version`, it's used to select the version of the given template, if not present, it will be parsed using the latest version,
 at the moment version is `1.0`
 * Every template should inherit from the <code>TEMPLATE</code> class
-   class ARRAY_TEMPLATE [T -> COMPARABLE] inherIt TEMPLATE [ARRAY [T]] 
+   class ARRAY_TEMPLATE [T -> COMPARABLE] inherit TEMPLATE [ARRAY [T]] 
 * Multiple Generic Constraints is not supported
    class EXAMPLE_TEMPLATE [T -> {TYPE_1, TYPE_2}]
 * A file could have multiple code templates definitions.
@@ -100,7 +100,7 @@ end
 
 ====Targetless Templates====
 The next example shows how to define a template that will be applicable without any specific target. 
-To show the list of available targetless templates by pressing <code>crtl+space</code> you will see a new option in the list
+To show the list of available targetless templates by pressing <code>crtl+space</code> you will see a new option in the list 
 of completion possibilities.
 
 [[Image:target_template_1_3]] 
