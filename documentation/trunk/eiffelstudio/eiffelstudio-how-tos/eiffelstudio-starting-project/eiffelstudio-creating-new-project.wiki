@@ -14,9 +14,10 @@ Under '''Create project''', several options are offered, which depend on the pla
 *  '''.NET application''' has by default all essential components to start a project targeting the Microsoft .NET platform. Of course, it is only available on Windows, and only if you have chosen to install the .NET support during the installation. 
 *  '''Vision2 application''' creates a new project that includes the [[EiffelVision Introduction|Eiffel Vision2 library]] . This is the perfect choice to start a platform-independent graphic application, or even any graphic application, since EiffelVision2 is easier to use than platform-specific libraries. This option is available on all platforms. 
 *  '''WEL application''' generates a project using the [[WEL|Windows Eiffel Library(WEL)]] . This option is recommended for projects needing advanced Windows features, or Windows applications that are time-critical, since the graphic functionality provided by WEL is more efficient than the one provided by Vision2, which on the other hand provides a platform-independent abstract interface. This wizard is only available on Windows. 
-All those options are also available in the ''' File'''/ '''New project...''' menu. This pops up a dialog with all the options to generate a new project:  
 *  '''EiffelWeb application''' creates a new project based on the EiffelWeb framework (EWF). This is the choice to build a platform-independent web server application on top of various solution (CGI, libFCGI, or standalone EiffelWeb server). This option is available on all platforms. 
 * This list of wizards is not definitive, and may change in the future, to bring new solutions.
+
+All those options are also available in the ''' File'''/ '''New project...''' menu. This pops up a dialog with all the options to generate a new project:  
 
 [[Image:create-a-project]]  
 
