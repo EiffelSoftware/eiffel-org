@@ -20,11 +20,11 @@ There are two kinds of template:
 * Targetless (or “global’): applicable in all contexts, without a target.
 
 
-<span id="templates_location"></span> 
-==Templates location==
 
-EiffelStudio will scan the Eiffel Templates at the EiffelStudio installation and EiffelStudio user directory.
-User defined templates will have precedence over templates located at the EiffelStudio installation.
+<span id="how_do_i_use_templates"></span> 
+==How do I use templates in EiffelStudio?==
+
+Code templates are part of EiffelStudio’s code completion mechanism. Code completion lets you choose a code template at the same place where it offers you features to call: when you type a dot character “.” after the name of an applicable local variable, attribute or function, a menu appears:
 
 
 <span id="templates_definition"></span> 
