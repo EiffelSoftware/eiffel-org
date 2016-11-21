@@ -16,6 +16,9 @@ For example, if you are using an integer array, EiffelStudio will offer a code t
 EiffelStudio comes with a number of predefined templates; you can also contribute your own.
 There are two kinds of template:
 
+* Targeted, that is, applied to a certain target entity.  For example, if you have a variable of type ARRAY [INTEGER], EiffelStudio will offer you templates that work on that array (the “target”).
+* Targetless (or “global’): applicable in all contexts, without a target.
+
 
 <span id="templates_location"></span> 
 ==Templates location==
