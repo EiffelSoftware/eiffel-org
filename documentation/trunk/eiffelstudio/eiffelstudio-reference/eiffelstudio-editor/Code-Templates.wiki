@@ -26,6 +26,15 @@ There are two kinds of template:
 
 Code templates are part of EiffelStudio’s code completion mechanism. Code completion lets you choose a code template at the same place where it offers you features to call: when you type a dot character “.” after the name of an applicable local variable, attribute or function, a menu appears:
 
+[[Image:target_template_1_0]] 
+Figure 1. Auto-completion with code template option
+
+If there are any applicable targeted templates, the first entry says “Code templates (CTRL-Space)” and you can click it to get a list of applicable templates:
+
+[[Image:target_template_1_1]] 
+Figure 2. Auto-completion with code templates option list
+
+
 
 <span id="templates_definition"></span> 
 ==Templates Definition==
