@@ -26,41 +26,31 @@ There are two kinds of template:
 
 Code templates are part of EiffelStudio’s code completion mechanism. Code completion lets you choose a code template at the same place where it offers you features to call: when you type a dot character “.” after the name of an applicable local variable, attribute or function, a menu appears:
 
-[[Image:target_template_1_0]] 
+[[Image:target_template_1_0]]
+ 
 Figure 1. Auto-completion with code template option
 
 If there are any applicable targeted templates, the first entry says “Code templates (CTRL-Space)” and you can click it to get a list of applicable templates:
 
 [[Image:target_template_1_1]] 
+
 Figure 2. Auto-completion with code templates option list
 
+As suggested, you can also type Control-space to get the same effect. If you find a template that you like, just click it (or navigate to it in the list using the up and down arrow keys, then type Return).
 
 
-<span id="templates_definition"></span> 
-==Templates Definition==
-* Indexing notes at top level class
-** `template_version`, it's used to select the version of the given template, if not present, it will be parsed using the latest version,
-at the moment version is `1.0`
-* Every template should inherit from the <code>TEMPLATE</code> class
-   class ARRAY_TEMPLATE [T -> COMPARABLE] inherit TEMPLATE [ARRAY [T]] 
-* Multiple Generic Constraints is not supported
-   class EXAMPLE_TEMPLATE [T -> {TYPE_1, TYPE_2}]
-* A file could have multiple code templates definitions.
-** Queries 
-** Commands
-* Code templates could be Global/Target-less or applicable to a given Context
-Queries and Commands accept multiple arguments like (a:T1; b:T2; c:T3), if any, will be used as input arguments where the default values will be filled with defaults if they exist.
-* Target Templates inherit from <code>TEMPLATE [T]</code>
-These templates will inherit a feature `target` with the type of the context, the generic type. 
-* Targetless Templates inherit from <code>TEMPLATE</code>
-These templates does not have the feature `target`.
-* Metadata: it’s possible to add metadata to code templates using note clause 
-** title: title of template, if not present we will use the name of the feature defined in the template.   
-** tags: List of tags to classify the template. 
-** default: use to define default values for input arguments. 
+It's also possible to use code templates without a target after type Control-Space, if there are any applicable targetless templates, the first entry says “Code templates (CTRL-Space)” and you can click it to get a list of applicable templates. Choose the desired one by clicking or navigating.
 
-<span id="templates_skeleton"></span> 
-==Templates Skeleton==
+[[Image:targetless_template_1_3]] 
+Figure 3. Targetless Auto-completion with code template option
+
+
+When you insert a template into your code, it will often have some highlighted fields, corresponding to the template arguments, for example the lower and upper bounds of the array slice whose maximum you need:
+
+
+[[Image:targetless_template_1_4|780px]] 
+Figure 4. Targetless Auto-completion with code templates option list.
+
 
 ====Context templates====
 The next example shows how to define a template that will be applicable to types that conforms <code>ARRAY [COMPARABLE]</code>.
