@@ -41,8 +41,8 @@ As suggested, you can also type Control-space to get the same effect. If you fin
 
 It's also possible to use code templates without a target after type Control-Space, if there are any applicable targetless templates, the first entry says “Code templates (CTRL-Space)” and you can click it to get a list of applicable templates. Choose the desired one by clicking or navigating.
 
-[[Image:targetless_template_1_3]] 
-Figure 3. Targetless Auto-completion with code template option
+[[Image:targetless_template_1_3|Figure 3. Targetless Auto-completion with code template option]] 
+
 
 
 When you insert a template into your code, it will often have some highlighted fields, corresponding to the template arguments, for example the lower and upper bounds of the array slice whose maximum you need:
