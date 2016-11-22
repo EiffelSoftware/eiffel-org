@@ -102,6 +102,10 @@ end
 This class defines two templates: maximum for the maximum of an entire array, and slice_maximum for the maximum of some contiguous part (“slice”) of that array.
 That was a targeted template: EiffelStudio will propose it whenever the user types a dot after a target of type ARRAY [T] where T is a “COMPARABLE”. Note how you specify the target: as the actual generic parameters of TEMPLATE; that’s why the definition starts here as
 
+<span id="share_code_templates"></span> 
+=Sharing code templates=
+
+
 
 <span id="gui_template"></span> 
 =Associating GUI with Template definition=
