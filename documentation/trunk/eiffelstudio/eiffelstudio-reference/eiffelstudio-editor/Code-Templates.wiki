@@ -109,14 +109,12 @@ You can share your code templates using Github
 <span id="githib_code_templates"></span> 
 =Contributing Code Templates EiffelStudio=
 
-* Fork the project (https://github.com/EiffelSoftware/EiffelStudio), clone your fork, and configure the remotes:
+  == Fork the project == 
+Clone your fork, and configure the remotes.  EiffelStudio github location: https://github.com/EiffelSoftware/EiffelStudio 
 
-# Clone your fork of the repo into the current directory
-<code>git clone https://github.com/<your-username>/<repo-name></code>
-# Navigate to the newly cloned directory
-<code>cd <repo-name></code>
-# Assign the original repo to a remote called "upstream"
-<code>git remote add upstream https://github.com/<upstream-owner>/<repo-name></code>
+# Clone your fork of the repo into the current directory: <code>git clone https://github.com/<your-username>/<repo-name></code>
+# Navigate to the newly cloned directory: <code>cd <repo-name></code>
+# Assign the original repo to a remote called "upstream": <code>git remote add upstream https://github.com/<upstream-owner>/<repo-name></code>
 
 If you cloned a while ago, get the latest changes from upstream:
 
@@ -125,10 +123,11 @@ git checkout <dev-branch>
 git pull upstream <dev-branch>
 </code>
 
-# Create a new topic branch (off the main project development branch) to contain your new code template
-
+== New Branch ==
+Create a new topic branch (off the main project development branch) to contain your new code template
 <code>git checkout -b <topic-branch-name></code>
-Commit your changes in logical chunks. Please adhere to these git commit message guidelines or your code is unlikely be merged into the main project. Use Git's interactive rebase feature to tidy up your commits before making them public.
+Commit your changes in logical chunks. Before to commit double check Tim Pope's A Note About Git Commit Messages (http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
+Use Git's interactive rebase feature to tidy up your commits before making them public.
 
 Locally merge (or rebase) the upstream development branch into your topic branch:
 
@@ -138,10 +137,11 @@ Push your topic branch up to your fork:
 
 <code>git push origin <topic-branch-name></code>
 
-# Open a Pull Request with a clear title and description
+==Pull Request== 
+Open a Pull Request with a clear title and description
 
 
-# Code Template Review
+== Code Template Review ==
 For your work to be integrated into the project, the maintainers will review your work and either request changes or merge it.
 
 
