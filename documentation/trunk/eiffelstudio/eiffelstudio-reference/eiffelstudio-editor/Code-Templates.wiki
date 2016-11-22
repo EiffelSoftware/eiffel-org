@@ -19,7 +19,6 @@ There are two kinds of template:
 * Targetless (or “global’): applicable in all contexts, without a target.
 
 
-
 <span id="how_do_i_use_templates"></span> 
 = How do I use templates in EiffelStudio? =
 
@@ -57,6 +56,44 @@ To offer the template menus seen above, EiffelStudio looks in two locations:
 Standard templates, found in 
 User-defined templates, which you can add at 
 
+<span id="template_definition"></span> 
+=What does a template definition look like?=
+
+It is very easy to define a template. It is all done in Eiffel, of course. You simply define a class that inherits from TEMPLATE, with any number of routines, each of which introduces one template, applicable to targets of the corresponding type. If the routine has arguments, those will be the arguments of the template. Basically, that’s it!
+Here is how we defined the template used in the above targeted example:
+
+<code>
+class ARRAY_TEMPLATE [T -> COMPARABLE] inherit
+    
+    TEMPLATE [ARRAY [T]]
+
+feature  -- Templates
+
+   maximum: T
+            -- Maximum of `target' array.  
+        note
+            tags: "Algorithm, Maximum, ARRAY"
+        do
+	    across target as element loop
+                Result := Result.max (element.item)
+            end
+        end
+
+   slice_maximum (low, high: INTEGER): T
+             -- Maximum of an array, 
+             -- where the interval is defined by default 
+             -- by array.lower |..| array.upper.
+         note
+             tags: "Algorithm, Maximum, ARRAY"
+             default: "target.lower, target.upper"
+         do
+             across low |..| high as i loop
+                 Result := Result.max (target [i.item])
+             end
+         end  
+end 
+
+</code>
 
 <span id="gui_template"></span> 
 =Associating GUI with Template definition=
