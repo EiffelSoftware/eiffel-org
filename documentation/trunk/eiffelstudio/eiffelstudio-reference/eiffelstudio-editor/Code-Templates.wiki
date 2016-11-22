@@ -109,7 +109,7 @@ You can share your code templates using Github
 <span id="githib_code_templates"></span> 
 =Contributing Code Templates EiffelStudio=
 
-  == Fork the project == 
+== Fork the project == 
 Clone your fork, and configure the remotes.  EiffelStudio github location: https://github.com/EiffelSoftware/EiffelStudio 
 
 # Clone your fork of the repo into the current directory: <code>git clone https://github.com/<your-username>/<repo-name></code>
