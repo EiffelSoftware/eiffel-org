@@ -54,8 +54,8 @@ Figure 4. Targetless Auto-completion with code templates option list.
 = Where does EiffelStudio find the templates? =
 
 To offer the template menus seen above, EiffelStudio looks in two locations:
-Standard templates, found in 
-User-defined templates, which you can add at 
+* Standard templates, found in 
+* User-defined templates, which you can add at 
 
 <span id="template_definition"></span> 
 =What does a template definition look like?=
@@ -93,8 +93,11 @@ feature  -- Templates
              end
          end  
 end 
-
 </code>
+
+This class defines two templates: maximum for the maximum of an entire array, and slice_maximum for the maximum of some contiguous part (“slice”) of that array.
+That was a targeted template: EiffelStudio will propose it whenever the user types a dot after a target of type ARRAY [T] where T is a “COMPARABLE”. Note how you specify the target: as the actual generic parameters of TEMPLATE; that’s why the definition starts here as
+
 
 <span id="gui_template"></span> 
 =Associating GUI with Template definition=
