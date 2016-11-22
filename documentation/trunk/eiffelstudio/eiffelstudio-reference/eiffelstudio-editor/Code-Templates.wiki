@@ -56,6 +56,8 @@ Figure 4. Targetless Auto-completion with code templates option list.
 To offer the template menus seen above, EiffelStudio looks in two locations:
 * Standard templates, found in 
 * User-defined templates, which you can add at 
+** Linux: <code> ~/.es/eiffel_user_files/16.11/templates/<code>
+** Windows: <code>C:/Users/your_user_name/Documents/Eiffel User Files/16.11/templates/code</code>
 
 <span id="template_definition"></span> 
 =What does a template definition look like?=
