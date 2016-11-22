@@ -38,7 +38,7 @@ Figure 2. Auto-completion with code templates option list
 As suggested, you can also type Control-space to get the same effect. If you find a template that you like, just click it (or navigate to it in the list using the up and down arrow keys, then type Return).
 
 == Targetless Templates ==
-It's also possible to use code templates without a target after type Control-Space, if there are any applicable targetless templates, the first entry says “Code templates (CTRL-Space)” and you can click it to get a list of applicable templates. Choose the desired one by clicking or navigating.
+It's also possible to use code templates without a target after type Control-Space, if there are any applicable targetless templates, the first entry says “Show templates (Ctrl+Space)” and you can click it to get a list of applicable templates. Choose the desired one by clicking or navigating.
 
 [[Image:targetless_template_1_3]]
 
