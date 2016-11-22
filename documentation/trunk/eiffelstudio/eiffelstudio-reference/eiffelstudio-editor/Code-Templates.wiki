@@ -4,7 +4,7 @@
 [[Property:weight|7]]
 
 <span id="what_are_code_templates"></span> 
-=What are code templates and how do they help me?=
+= What are code templates and how do they help me? =
 
 EiffelStudio offers Code Templates. Introduced in version 16.11, code templates facilitate the programmer’s task by proposing program schemes that correspond to typical situations. Code templates are contextual: based on some properties of your code, EiffelStudio  will offer a list of templates that could -- just could! -- do exactly what’s on your mind at the moment.
 
@@ -21,7 +21,7 @@ There are two kinds of template:
 
 
 <span id="how_do_i_use_templates"></span> 
-=How do I use templates in EiffelStudio?=
+= How do I use templates in EiffelStudio? =
 
 Code templates are part of EiffelStudio’s code completion mechanism. Code completion lets you choose a code template at the same place where it offers you features to call: when you type a dot character “.” after the name of an applicable local variable, attribute or function, a menu appears:
 
@@ -50,8 +50,16 @@ When you insert a template into your code, it will often have some highlighted f
 
 Figure 4. Targetless Auto-completion with code templates option list.
 
+<span id="eiffel_studio_templates"></span> 
+= Where does EiffelStudio find the templates? =
+
+To offer the template menus seen above, EiffelStudio looks in two locations:
+Standard templates, found in 
+User-defined templates, which you can add at 
+
+
 <span id="gui_template"></span> 
-==Associating GUI with Template definition==
+=Associating GUI with Template definition=
 The following image shows the relationship between the template definition and how they will look in the GUI.
 
 [[Image:target_template_1_2|780px]] 
