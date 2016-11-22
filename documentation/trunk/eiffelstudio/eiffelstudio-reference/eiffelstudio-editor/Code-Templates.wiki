@@ -29,7 +29,7 @@ Code templates are part of EiffelStudio’s code completion mechanism. Code comp
 
 Figure 1. Auto-completion with code template option
 
-If there are any applicable targeted templates, the first entry says “Code templates (CTRL-Space)” and you can click it to get a list of applicable templates:
+If there are any applicable targeted templates, the first entry says “Show templates (Ctrl+Space)” and you can click it to get a list of applicable templates:
 
 [[Image:target_template_1_1]] 
 
