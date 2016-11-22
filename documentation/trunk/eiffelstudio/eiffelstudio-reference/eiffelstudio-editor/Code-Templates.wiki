@@ -48,7 +48,7 @@ Figure 3. Targetless Auto-completion with code template option
 When you insert a template into your code, it will often have some highlighted fields, corresponding to the template arguments, for example the lower and upper bounds of the array slice whose maximum you need:
 
 
-[[Image:targetless_template_1_4|780px]] 
+[[Image:targetless_template_1_4|680px]] 
 Figure 4. Targetless Auto-completion with code templates option list.
 
 
