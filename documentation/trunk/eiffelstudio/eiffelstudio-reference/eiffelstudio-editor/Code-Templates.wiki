@@ -123,7 +123,7 @@ git pull upstream <dev-branch>
 == New Branch ==
 Create a new topic branch (off the main project development branch) to contain your new code template
 <code>git checkout -b <topic-branch-name></code>
-Commit your changes in logical chunks. Before to commit double check [http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html Tim Pope's A Note About Git Commit Messages]
+Commit your changes in logical chunks. Before to commit double check [http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html Tim Pope's A Note About Git Commit Messages].
 Use Git's interactive rebase feature to tidy up your commits before making them public.
 
 Locally merge (or rebase) the upstream development branch into your topic branch:
