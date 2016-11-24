@@ -6,10 +6,10 @@
 <span id="what_are_code_templates"></span> 
 = What are code templates and how do they help me? =
 
-EiffelStudio offers Code Templates. Introduced in version 16.11, code templates facilitate the programmer’s task by proposing program schemes that correspond to typical situations. Code templates are contextual: based on some properties of your code, EiffelStudio  will offer a list of templates that could -- just could! -- do exactly what’s on your mind at the moment.
+EiffelStudio offers Code Templates. Introduced in version 16.11, code templates facilitate the programmer’s task by proposing program schemes that correspond to typical situations. Code templates are contextual: based on some properties of your code, EiffelStudio  will offer a list of templates that could — just could! — do exactly what’s on your mind at the moment.
 
 
-For example, if you are using an integer array, EiffelStudio will offer a code template for a common operation: computing computes the array’s maximum. If you select the template, EiffelStudio will insert its code into your program, giving you the option of specifying the starting and ending indices (which it sets by default to the array’s bounds). You just have to specify the information relevant to your particular case; the template takes care of the implementation.
+For example, if you are using an integer array, EiffelStudio will offer a code template for a common operation: computing the array’s maximum. If you select the template, EiffelStudio will insert its code into your program, giving you the option of specifying the starting and ending indices (which it sets by default to the array’s bounds). You just have to specify the information relevant to your particular case; the template takes care of the implementation.
 
 
 EiffelStudio comes with a number of predefined templates; you can also contribute your own.
