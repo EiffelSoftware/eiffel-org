@@ -24,7 +24,7 @@ There are two kinds of template:
 
 Code templates are part of EiffelStudio’s code completion mechanism. Code completion lets you choose a code template at the same place where it offers you features to call, typically after you type a dot character “.” after the name of an applicable local variable. attribute or function
 
-==Target Templates==
+==Target templates==
 When you type a dot character “.” after the name of an applicable target, a menu appears:
 
 [[Image:target_template_1_0]]
@@ -39,18 +39,18 @@ Figure 2. Auto-completion with code templates option list
 
 As suggested, you can also type Control-space to get the same effect. If you find a template that you like, just click it (or navigate to it in the list using the up and down arrow keys, then type Return).
 
-== Targetless Templates ==
+== Targetless templates ==
 It's also possible to use code templates without a target after type Control-Space, if there are any applicable targetless templates, the first entry says “Show templates (Ctrl+Space)” and you can click it to get a list of applicable templates. Choose the desired one by clicking or navigating.
 
 [[Image:targetless_template_1_3]]
 
-Figure 3. Targetless Auto-completion with code template option 
+Figure 3. Targetless auto-completion with code template option 
 
 When you insert a template into your code, it will often have some highlighted fields, corresponding to the template arguments, for example the lower and upper bounds of the array slice whose maximum you need:
 
 [[Image:targetless_template_1_4|680px]] 
 
-Figure 4. Targetless Auto-completion with code templates option list.
+Figure 4. Targetless auto-completion with code templates option list.
 
 <span id="eiffel_studio_templates"></span> 
 = Where does EiffelStudio find the templates? =
@@ -122,7 +122,7 @@ git checkout <dev-branch>
 git pull upstream <dev-branch>
 </code>
 
-== New Branch ==
+== New branch ==
 Create a new topic branch (off the main project development branch) to contain your new code template
 <code>git checkout -b <topic-branch-name></code>
 Commit your changes in logical chunks. Before to commit double check [http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html Tim Pope's A Note About Git Commit Messages].
@@ -136,20 +136,20 @@ Push your topic branch up to your fork:
 
 <code>git push origin <topic-branch-name></code>
 
-==Pull Request== 
-Open a Pull Request with a clear title and description
+==Pull request== 
+Open a pull request with a clear title and description
 
 
-== Code Template Review ==
+== Code template review ==
 For your work to be integrated into the project, the maintainers will review your work and either request changes or merge it.
 
 
 <span id="gui_template"></span> 
-=Associating GUI with Template definition=
+=Associating a user interface with a template definition=
 The following image shows the relationship between the template definition and how they will look in the GUI.
 
 [[Image:target_template_1_2|780px]] 
-Figure 5. Gui and Template relationship.
+Figure 5. UI and template relationship.
 
 
 * Feature name or metadata `title` if present will be used as the value in the list of completion possibilities.
