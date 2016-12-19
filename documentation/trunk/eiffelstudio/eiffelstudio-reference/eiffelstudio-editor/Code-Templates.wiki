@@ -80,7 +80,7 @@ This template, used to compute the minimum of a part, or "slice", of an array, h
 
 Figure 6. Inserted template code, with highlighted argument fields
 
-The reason for these defaults is that much of the time you will want the minimum of the ''whole'' array. If you are happy with that default, just leave the fields as they are  But if you just need a smaller slice, for example excluding the first and last elements, just type the desired values in the corresponding fields:
+The reason for these defaults is that much of the time you will want the minimum of the ''whole'' array. If you are happy with that default, just leave the fields as they are  But if you just need a different slice, for example from index 5 to index 10, just type the desired values in the corresponding fields:
 
 [[Image:target_template_with_defaults_overridden_1_1]]
 
