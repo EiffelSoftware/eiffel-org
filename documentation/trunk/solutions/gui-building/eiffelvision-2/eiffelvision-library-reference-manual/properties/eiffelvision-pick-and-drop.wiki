@@ -13,7 +13,7 @@ The "pebble" may then be dropped into any compatible "hole" (drop target—a wid
 [[Image:EiffelStudio after class pick and drop2|thumbnail|360px|center|EiffelStudio After Class Pick-and-Drop]]
 
 
-{{note|See [[uuid:a3789781-153b-7f4d-bb94-4bdf8923fb56|Retargeting Through Pick-and-Drop]] to see how EiffelStudio uses the Pick-and-Drop user interface.<br><br>}}
+{{note|See [[uuid:a3789781-153b-7f4d-bb94-4bdf8923fb56|Retargeting Through Pick-and-Drop]] to see how EiffelStudio uses the Pick-and-Drop user interface.}}
 
 
 Because the Pick-and-Drop operation has been so popular, classes have been added to the EiffelVision 2 library to make implementing this user interface very easy.
@@ -37,7 +37,7 @@ A simple example of this is demonstrated here:
 
 Because <eiffel>print</eiffel> takes an argument of type [[ref:libraries/base/reference/string_8_chart|STRING_8]], button2 becomes a valid drop-target for the pebble contained by button1. Right clicking the mouse pointer over the '''source''' will start the transport, and right clicking with the mouse pointer over a valid '''target''' will complete the transport. The transport can be canceled anytime with a simple left click, just as you would do in EiffelStudio. 
 
-{{note|Any type of object can be used as the '''pebble'''.  When a transport completes, the '''pebble''' that was transported is passed as an argument to all agents in the '''target's''' <code>drop_actions</code> list to which the '''pebble''' [[uuid:b8c10baa-4f50-adfe-a6f8-9cb56a8f1917#Conformance|conforms]]. <br><br>}}
+{{note|Any type of object can be used as the '''pebble'''.  When a transport completes, the '''pebble''' that was transported is passed as an argument to all agents in the '''target's''' <code>drop_actions</code> list to which the '''pebble''' [[uuid:b8c10baa-4f50-adfe-a6f8-9cb56a8f1917#Conformance|conforms]].}}
 
 
 ==Three Different Modes of Transport==
@@ -57,7 +57,7 @@ When <eiffel>mode_is_pick_and_drop</eiffel> or <eiffel>mode_is_drag_and_drop</ei
 
 Example:
 
-<code>
+<eiffel>
 	add_some_widgets
 			-- Add some widgets with a Pick-and-Drop example into `main_window'.
 		local
@@ -83,6 +83,6 @@ Example:
 			create bullseye_ptr_style.make_with_pixel_buffer (bullseye_pix_buffer, 32, 32)
 			my_button2.set_accept_cursor (bullseye_ptr_style)
 		end
-</code>
+</eiffel>
 
 

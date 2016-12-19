@@ -58,12 +58,12 @@ In the root feature:
                 -- Other local variables if necessary.
         do
             create ts.make
-            ps.disable_tracing
+            ts.disable_tracing
                 -- Program execution continues.
                     ...
 
                 -- Restore tracing before exiting for proper cleanup.
-             ps.enable_tracing
+             ts.enable_tracing
         end
 </code>
 
@@ -76,10 +76,10 @@ Then, in a feature in which tracing is desired:
                 -- Other local variables if necessary.
         do
             create ts.make
-            ps.enable_tracing    -- Enable trace
+            ts.enable_tracing    -- Enable trace
                     -- Section needing trace.
                 ...
-            ps.disable_tracing    -- Disable trace
+            ts.disable_tracing    -- Disable trace
         end
 </code>
 
