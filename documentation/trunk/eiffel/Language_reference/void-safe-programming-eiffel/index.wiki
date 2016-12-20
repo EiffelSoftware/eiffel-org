@@ -3,16 +3,16 @@
 [[Property:uuid|a03568e8-eb79-70d7-04a3-6fd3ed7ac2b3]]
 =About void-safe software development using Eiffel=
 
-When you develop software in Eiffel, you can be assured (at compile time) that your system will not attempt (at run time) to apply a feature to a void reference. That is, Eiffel prevents situations in which systems fail at run time with the error: "Feature call on void target".
+When you develop software in Eiffel, you can be assured (at compile time) that your system will not attempt (at run time) to apply a feature to a void reference -- or, in the terminology of other languages such as C, "dereference a null pointer".
 
-Throughout the history of Eiffel, important new capabilities, such as agents and the SCOOP concurrency mechanism, have been added adding considerable expressive power to the language while causing minimum impact on existing software. Void-safe Eiffel is such an innovation; in this case the innovation does not add any new expressive mechanisms, it ''removes'' a major source of instability in programs (present in all other major languages): null-pointer dereferencing. To say that Eiffel is void-safe means that such catastrophic yet common errors simply will not occur.
+Throughout the history of Eiffel, new capabilities -- agents, the SCOOP concurrency mechanism and many others -- have added considerable expressive power to the languag,e while causing minimum impact on existing software. Void-safe Eiffel is such an innovation, which instead of adding new mechanisms ''removes'' a major source of instability in programs, present in all other major languages: null-pointer dereferencing. To say that Eiffel is void-safe means that such catastrophic yet common errors simply will not occur.
 
-There is in fact no need to speak of "void-safe Eiffel". The language is just Eiffel ... and it is void-safe, just as it is statically typed.  We still occasionally refer to "Void-safe Eiffel" simply because until 2005 or so Eiffel was not void-safe (we had to start somewhere), and you may still encounter older documentation that talks about "void calls" (null-pointer dereferences). But in today's Eiffel void calls are impossible. 
+There is in fact no need to speak of "void-safe Eiffel". The language is just Eiffel... and it is void-safe, just as it is statically typed.  We still occasionally refer to "Void-safe Eiffel" simply because until 2005 or so Eiffel was not void-safe (it had to start somewhere), and you may still encounter older documentation that talks about "calls on void targets" (null-pointer dereferences). But in today's Eiffel such an event is impossible. 
 
-The rest of this chapter goes through the following topics:
+The rest of this chapter explains void safety:
 
 # How is void-safety defined?
-# What are the specific elements of the mechanism for void-safety?
+# What are the specific elements of the mechanism?
 # How do these relate to Eiffel before void-safety?
 # What do I need to know to produce standard Eiffel software?
 # What do I need to know to convert my existing systems to be standard?
