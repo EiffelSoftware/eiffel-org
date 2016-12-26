@@ -19,7 +19,7 @@ This is the essential void-safe project setting. It can assume one of the follow
 # '''Transitional''': It is an obsolete level which is for users who have already migrated their code to void-safety using an old version of the compiler which did not implement all the void-safety validity rules (especially with agent initialization).
 # '''Complete''': Complete checking against all void-safety validity rules.
 
-So, for a new void-safe project, you would want to set this option first to '''Conformance''', then '''Initialization'''' and finally to '''Complete'''. This will let you migrate your code progressively without much changes at each steps.
+So, for a new void-safe project, you would want to set this option first to '''Conformance''', then '''Initialization''' and finally to '''Complete'''. This will let you migrate your code progressively without much changes at each steps.
 
 
 ===The ''"Full class checking"'' setting===
