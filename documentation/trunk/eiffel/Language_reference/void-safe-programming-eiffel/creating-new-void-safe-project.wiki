@@ -157,7 +157,8 @@ feature -- Access
             l_result := descriptive_text_cache
             if l_result = Void then
                 create Result.make_empty
---			... Build Result with appropriate descriptive text for Current
+                    -- ... Build Result with appropriate
+                    -- descriptive text for Current.
                 descriptive_text_cache := Result
             else
                 Result := l_result
@@ -193,7 +194,8 @@ Because the '''attached syntax''' can test attached status and provide a local v
                 Result := l_result
             else
                 create Result.make_empty
---			... Build Result with appropriate descriptive text for Current
+                    -- ... Build Result with appropriate
+                    -- descriptive text for Current.
                 descriptive_text_cache := Result
             end
         ensure
