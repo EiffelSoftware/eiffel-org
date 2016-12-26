@@ -121,15 +121,13 @@ When it is necessary to allow <code>Void</code> as a value, a declaration can us
 </code> 
 
 
-This doesn't mean that on every declaration you must put either an ''attached mark'' or a ''detachable mark''. Declarations that are unmarked are allowed. Whether unmarked declarations are considered attached or detachable is determined by the value of an EiffelStudio project setting named '''Are types attached by default?''' This setting can be set differently in different parts of your project giving you fine-grained control, which is particularly useful while converting existing software or mixing libraries of differing void-safety levels. 
+This doesn't mean that on every declaration you must put either an ''attached mark'' or a ''detachable mark''. Declarations that are unmarked are allowed. If a declaration contains neither '''attached''' nor '''detachable''', then it is assumed to be '''attached'''.
 
 In Eiffel then, all declarations will have types that are either '''attached''' or '''detachable'''. As a result, we need only use CAPs and the attached syntax with detachable types. So the important thing to remember is that ''direct access to class attributes of detachable types is never void-safe.''
 
-When building void-safe software in Eiffel it is best, in virtually every case, to set '''Are types attached by default?''' to '''True'''. This means that if a declaration contains neither '''attached''' nor '''detachable''', then it is assumed to be '''attached'''.
-
 ====Attachment and conformance====
 
-The distinction between attached and detachable types results in a small but important addition to the rules of conformance. Because variables declared as attached types can never be void, then it is important not to allow any assignment of a detachable source to an attached target. However, assigning an attached source to a detachable target is permissible. The following code shows both cases and assumes types are attached by default.
+The distinction between attached and detachable types results in a small but important addition to the rules of conformance. Because variables declared as attached types can never be void, then it is important not to allow any assignment of a detachable source to an attached target. However, assigning an attached source to a detachable target is permissible. The following code shows both cases (as described earlier, class types are attached by default).
 <code>
     my_attached_string: STRING
     my_detachable_string: detachable STRING
