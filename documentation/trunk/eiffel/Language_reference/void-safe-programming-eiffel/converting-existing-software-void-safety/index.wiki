@@ -76,11 +76,9 @@ So, fix any problems that arise out of turning on full class checking.
 
 The second step in conversion of existing software is to change the values of the other void-safe related project settings and use the void-safe configurations for any delivered libraries and precompilations.
 
-In the project settings for the target in which you are working:
-# Set '''Void-safe''' to either '''Complete''', '''Initialization''' or '''Conformance'''. 
-# Set '''Are types attached by default?''' to '''True'''. 
+In the project settings for the target in which you are working, set '''Void-safe''' to either '''Complete''', '''Initialization''' or '''Conformance'''. 
 
-{{note|Remember that during a transitional period starting with V6.4, there will be multiple versions of the configuration files for Eiffel libraries and precompiles. For example, base.ecf (void-unsafe) and base-safe.ecf (void-safe). It is expected that in the future there will only be one configuration file (e.g., base.ecf) that will work with both void-safe and void-unsafe client software. }}
+{{note|Remember that during a transitional period starting with v6.4, there will be multiple versions of the configuration files for Eiffel libraries and precompiles. For example, base.ecf (void-unsafe) and base-safe.ecf (void-safe). Starting with v16.11 there is only one configuration file for libraries (e.g., base.ecf) that works with both void-safe and void-unsafe client software, but if you are using a precompile, there could be different versions for void-safe and void-unsafe precompiles.}}
 
 If necessary, remove Eiffel libraries and any precompiled library that your project uses and re-add them with their void-safe configuration files. Because you've set your target to void-safety, when you click '''Add Library''', you should see only void-safe configurations by default. 
 You will see a check box on the dialog that you can uncheck if you want to see all available library configurations:
