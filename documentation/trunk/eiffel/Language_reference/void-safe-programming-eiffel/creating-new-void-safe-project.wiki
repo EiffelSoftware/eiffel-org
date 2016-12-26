@@ -21,30 +21,6 @@ This is the essential void-safe project setting. It can assume one of three valu
 
 So, for a new void-safe project, you would want to set this option first to '''Conformance''', then '''Initialization'''' and finally to '''Complete'''. This will let you migrate your code progressively without much changes at each steps.
 
-===The ''"Are types attached by default?"'' setting===
-
-It is this setting that tells the compiler how to treat declarations which specify neither the <code>detachable</code> keyword nor the <code>attached</code> keyword, for example:
-<code>
-    x: T
-</code>
-A value of '''True''' will instruct the compiler to treat <code>x</code> as if it were declared:
-<code>
-    x: attached T
-</code>
-A value of '''False''', and <code>x</code> will be viewed as if it were:
-<code>
-    x: detachable T
-</code>
-
-In a new project, ideally all of your declarations would be of attached types. But of course there are some occasions, for various reasons, that you must or should use detachable types. 
-
-So, for a new void-safe project, it is recommended that a value of '''True''' is used. 
-
-{{Warning|As of EiffelStudio 14.05, this setting will always be True by default and future releases of EiffelStudio will not let you change this.}}
-
-
-{{SeeAlso| [[Void-safety: Background, definition, and tools#Types as "attached" or "detachable"|Types as "attached" or "detachable"]].}}
-
 
 ===The ''"Full class checking"'' setting===
 
@@ -55,7 +31,7 @@ This setting instructs the compiler to recheck inherited features in descendant 
 
 As of EiffelStudio version 13.11, all libraries distributed with EiffelStudio are void-safe except the EiffelCOM library.
 
-{{note|During a period of transition, there will be different Eiffel configuration files (.ecf's) for void-unsafe and void-safe projects (for example, base.ecf and base-safe.ecf). If you have set the '''Void-safe''' setting to check for void-safety, then when you add a library to your project in EiffelStudio, you will see only the void-safe configurations by default. After the transition period, it is expected that there will be only one version of each of the configuration files for each library. The single configuration files will serve both void-unsafe and void-safe projects. }}
+{{note|During a period of transition, there are different Eiffel configuration files (.ecf's) for void-unsafe and void-safe projects (for example, base.ecf and base-safe.ecf). If you have set the '''Void-safe''' setting to check for void-safety, then when you add a library to your project in EiffelStudio, you will see only the void-safe configurations by default. Starting with version 16.11 there is only one version of each of the configuration files for each library. The single configuration files serve both void-unsafe and void-safe projects.}}
 
 ===Using generic classes===
 
@@ -93,9 +69,6 @@ So, a call using <code>make_filled</code> would look like this:
             create my_array.make_filled (" ", 1, 100)
 </code>
 Upon creation, each element of the array will reference the same object; an object of type <code>STRING</code> composed of one space character.
-
-
-{{note|Full void-safety on arrays of attached types requires a change to class <code>ARRAY</code> which can break existing code. During a transitional period, this and similar changes are available for testing and use in an "experimental" version of EiffelStudio. This version of EiffelStudio can be invoked by using the "-experiment" option from the command line, or by selecting it on Microsoft Windows by following the '''Start''' menu path to EiffelStudio. You are encouraged to try to compile your libraries and systems using experimental mode in order to prepare for the time when these changes are made permanent.<br/><br/>As of version 6.6, the normal mode of EiffelStudio becomes what had been accessible in earlier versions as "experimental".}}
 
 
 ==Using the ''attribute'' keyword carefully==
@@ -200,7 +173,7 @@ feature {NONE} -- Implementation
     descriptive_text_cache: like descriptive_text
 
 </code>
-This example will not compile in a void-safe project (assuming types are attached by default). The problem is that the attribute <code>descriptive_text_cache</code> is of an attached type, therefore will be flagged by the compiler as not properly set (VEVI). Of course, it will be ... that's the whole idea here: not to initialize <code>descriptive_text_cache</code> until it's actually used. So it sounds like <code>descriptive_text_cache</code> should be declared detachable. That is:
+This example will not compile in a void-safe project (class types are attached by default). The problem is that the attribute <code>descriptive_text_cache</code> is of an attached type, therefore will be flagged by the compiler as not properly set (VEVI). Of course, it will be ... that's the whole idea here: not to initialize <code>descriptive_text_cache</code> until it's actually used. So it sounds like <code>descriptive_text_cache</code> should be declared detachable. That is:
 <code>
     descriptive_text_cache: detachable like descriptive_text
 </code>
@@ -409,6 +382,4 @@ Also, you should remember that unlike other attributes, you can access stable at
             ...
 </code>
 
- 
-
-
+{{SeeAlso| [[Void-safety: Background, definition, and tools#Types as "attached" or "detachable"|Types as "attached" or "detachable"]].}}
