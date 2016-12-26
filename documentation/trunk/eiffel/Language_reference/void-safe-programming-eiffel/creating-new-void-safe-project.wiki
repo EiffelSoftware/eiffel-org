@@ -6,13 +6,13 @@ Now that we've been introduced to the Eiffel void-safe facilities, let's look at
 
 ==Project settings for void-safe projects==
 
-There are three project settings that are related to void-safety. These settings can be set with great granularity throughout your project to allow you maximum flexibility, particularly when including classes or libraries that are void-unsafe or that have been converted to void-safety, but must do double duty in the void-safe and void-unsafe worlds. 
+There are two project settings that are related to void-safety. These settings can be set with great granularity throughout your project to allow you maximum flexibility, particularly when including classes or libraries that are void-unsafe or that have been converted to void-safety, but must do double duty in the void-safe and void-unsafe worlds. 
 
 ===The ''"Void-safe"'' setting===
 
 The '''Void-safe''' setting determines whether and how the Eiffel compiler checks your project against the void-safe related validity rules. 
 
-This is the essential void-safe project setting. It can assume one of three values:
+This is the essential void-safe project setting. It can assume one of the following values:
 # '''No''': No checking against any of the void-safety validity rules. Attachment marks '''attached''' and '''detachable''' are simply ignored.
 # '''Conformance''': The attachment marks are not ignored for type conformance checks (with respect to VJAR/VBAR and related validity rules).
 # '''Initialization''': Validity rules are selectively checked. The initialization rule (VEVI) and the target rule (VUTA) are checked only for attached entities and attached call targets -- i.e., detachable cases are not checked. 
