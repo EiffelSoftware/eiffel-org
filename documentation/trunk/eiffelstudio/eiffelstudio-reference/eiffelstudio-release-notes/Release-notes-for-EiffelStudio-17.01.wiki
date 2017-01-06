@@ -10,7 +10,9 @@
 * New Import settings dialog. It is shown when a new version of EiffelStudio is launched for the first time, and available at any time from menu `Tools > Import Settings`.
 
 ===Improvements===
-* 
+* The debugger Object tools now displays the `Result` value without any parent row.
+* Compile_all: added `ISE_COMPILE_ALL_FLAGS` environment variable support (its content is added to compile_all command line arguments). Exclude ecf redirection file from compile_all scope.
+
 
 ===Bug fixes===
 * 
@@ -20,7 +22,16 @@
 
 ==Libraries==
 ===General===
-* 
+* New JSON serialization solution under `contrib/library/text/parser/json/library/serialization`.
+
+===EiffelNet===
+* Added receive and send timeout.
+* Added C functions to use socket functions without raising exception on I/O networking error.
+
+===EiffelWeb===
+* The standalone connector does not raise anymore on networking exception (better debugger experience).
+* New websocket standalone connector to be able to build within the same processor a web service and a websocket service.
+* The socket usage in EiffelWeb benefits from recent improvement on EiffelNet. In addition it is not possible to fine tune the standalone connector (concurrent settings, timeout values, ...)
 
 ===Vision2===
 * 
