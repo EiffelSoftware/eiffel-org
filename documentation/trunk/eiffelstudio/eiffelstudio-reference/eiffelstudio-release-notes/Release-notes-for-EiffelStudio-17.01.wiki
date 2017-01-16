@@ -7,12 +7,13 @@
 
 ==Graphical environment==
 ===What's new===
-* New Import settings dialog. It is shown when a new version of EiffelStudio is launched for the first time, and available at any time from menu `Tools > Import Settings`.
-* Added `code templates` functionality. Using code completion, it is possible to insert predefined code template as-is or modify them as necessary. You can as well create your own templates (custom templates). To learn more click [https://www.eiffel.org/doc/eiffelstudio/Code%20Templates here].
+* Added new Import settings dialog. It is shown when a new version of EiffelStudio is launched for the first time, and available at any time from menu `Tools > Import Settings`.
+* Added `code templates` functionality. Using code completion, it is possible to insert predefined code template as-is or modify them as necessary. User can as well create his own templates (custom templates). To learn more click [https://www.eiffel.org/doc/eiffelstudio/Code%20Templates here].
 
 ===Improvements===
-* The debugger Object tools now displays the `Result` value without any parent row.
-* Compile_all: added `ISE_COMPILE_ALL_FLAGS` environment variable support (its content is added to compile_all command line arguments). Exclude ecf redirection file from compile_all scope.
+* Changed how the debugger object tools displays the `Result` value, now it does not have any parent row.
+* Added `ISE_COMPILE_ALL_FLAGS` environment variable support to the `compile_all` tool  (its value is added to compile_all command line arguments). 
+* Modified `compile_all` tool, to exclude ecf redirection file from its scope.
 
 
 ===Bug fixes===
@@ -23,16 +24,17 @@
 
 ==Libraries==
 ===General===
-* New JSON serialization solution under `contrib/library/text/parser/json/library/serialization`.
+* Added new JSON serialization solution under `contrib/library/text/parser/json/library/serialization`.
 
 ===EiffelNet===
 * Added receive and send timeout.
 * Added C functions to use socket functions without raising exception on I/O networking error.
 
 ===EiffelWeb===
-* The standalone connector does not raise anymore on networking exception (better debugger experience).
-* New websocket standalone connector to be able to build within the same processor a web service and a websocket service.
-* The socket usage in EiffelWeb benefits from recent improvement on EiffelNet. In addition it is not possible to fine tune the standalone connector (concurrent settings, timeout values, ...)
+* Changed the standalone connector implementation to avoid raising exception for any networking error (it brings better debugger experience).
+* Added new websocket standalone connector to be able to build within the same processor a web service and a websocket service.
+* Change the networking programing in EiffelWeb components, to benefit from recent improvements on EiffelNet. 
+* Added finer control on standalone connector. It is now possible to fine tune the standalone connector (concurrent settings, timeout values, ...)
 
 ===Vision2===
 * 
