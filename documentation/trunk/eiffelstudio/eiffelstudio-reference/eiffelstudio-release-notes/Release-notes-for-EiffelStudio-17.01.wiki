@@ -8,6 +8,7 @@
 ==Graphical environment==
 ===What's new===
 * New Import settings dialog. It is shown when a new version of EiffelStudio is launched for the first time, and available at any time from menu `Tools > Import Settings`.
+* EiffelStudio includes now as part of code completion, code templates. You can use predefined templates as-is or modify them as necessary. You can as well create your own templates (custom templates). To learn more click [[https://www.eiffel.org/doc/eiffelstudio/Code%20Templates|here]].
 
 ===Improvements===
 * The debugger Object tools now displays the `Result` value without any parent row.
