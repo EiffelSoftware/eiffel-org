@@ -20,7 +20,9 @@
 * 
 
 ==Compiler==
-* 
+* Added a notion of capabilities that allows for specifying what settings a particular library is capable of. At the moment the settings include cat-call detection, concurrency and void safety. A project or a library with a specific setting cannot rely on a library with insufficient capabilities.
+* Configuration option "Are types attached by default?" defaults to True when reading non-void-safe projects so that if the project is changed to be void-safe, the recommended default for attachment status of class types without marks is used.
+* Removed a possibility to set void safety level for a specific class or cluster, it can be done only for a whole library or project.
 
 ==Libraries==
 ===General===
@@ -36,8 +38,6 @@
 * Change the networking programing in EiffelWeb components, to benefit from recent improvements on EiffelNet. 
 * Added finer control on standalone connector. It is now possible to fine tune the standalone connector (concurrent settings, timeout values, ...)
 
-===Vision2===
-* 
+----
 
-===WEL===
-* 
+See [https://dev.eiffel.com/EiffelStudio_17.01_Releases change log]. for more details.
