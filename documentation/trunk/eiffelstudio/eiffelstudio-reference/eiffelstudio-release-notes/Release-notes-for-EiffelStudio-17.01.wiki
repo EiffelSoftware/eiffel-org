@@ -7,11 +7,11 @@
 
 ==Graphical environment==
 ===What's new===
-* Added support for `code templates` via completion dialog. Code templates provide predefined but customizable program schemes for frequently encountered situations. Potentially applicable code templates come up automatically, as part of the completion mechanism; you can select any relevant one and then update the details that correspond to the specific situation (variable names etc.). The mechanism also includes an easy way to add your own code templates, to complement those included as part of the delivery (only a few at the moment). Code templates are a major new addition to EiffelStudio’s extensive existing mechanism to support software reuse.[https://www.eiffel.org/doc/eiffelstudio/Code%20Templates learn more].
-* Added new solution to import settings from previous installation. A dialog is popuped when a new version of EiffelStudio is first launched, and available at any time from the `Tools > Import Settings` menu. This functionality addresses a frequently expressed request.
+* Added support for '''code templates''' via completion dialog. Code templates provide predefined but customizable program schemes for frequently encountered situations. Potentially applicable code templates come up automatically, as part of the completion mechanism; you can select any relevant one and then update the details that correspond to the specific situation (variable names etc.). The mechanism also includes an easy way to add your own code templates, to complement those included as part of the delivery (only a few at the moment). Code templates are a major new addition to EiffelStudio’s extensive existing mechanism to support software reuse.[https://www.eiffel.org/doc/eiffelstudio/Code%20Templates learn more].
+* Added new solution to '''import settings''' from previous installation. A dialog is popuped when a new version of EiffelStudio is first launched, and available at any time from the `Tools > Import Settings` menu. This functionality addresses a frequently expressed request.
 
 ===Improvements===
-* Changed how the debugger object tools displays the `Result` value, now it does not have any parent row.
+* Changed how the debugger objects tool displays the `Result` value, now it does not have any parent row.
 * Added `ISE_COMPILE_ALL_FLAGS` environment variable support to the `compile_all` tool  (its value is added to compile_all command line arguments). 
 * Modified `compile_all` tool, to exclude ecf redirection file from its scope.
 
@@ -20,7 +20,7 @@
 * 
 
 ==Compiler==
-* Added notion of capability for specifying what settings a particular library supports. The key advantage is that even if you compile in different settings and use libraries with different properties (for void safety, SCOOP concurrency etc.) you can now use a single ECF (Eiffel Control File) rather than maintaining different ECFs for different configurations. This mechanism fulfills a wish often expressed by Eiffel developers, particularly those in charge of large applications.  At the moment the settings include cat-call detection, concurrency and void safety. A project or a library with a specific setting cannot rely on a library with insufficient capabilities.
+* Added notion of '''capability''' for specifying what settings a particular '''library supports'''. The key advantage is that even if you compile in different settings and use libraries with different properties (for void safety, SCOOP concurrency etc.) you can now use a '''single ECF''' (Eiffel Control File) rather than maintaining different ECFs for different configurations. This mechanism fulfills a wish often expressed by Eiffel developers, particularly those in charge of large applications.  At the moment the settings include cat-call detection, concurrency and void safety. A project or a library with a specific setting cannot rely on a library with insufficient capabilities.
 * Configuration option "Are types attached by default?" defaults to True when reading non-void-safe projects so that if the project is changed to be void-safe, the recommended default for attachment status of class types without marks is used.
 * Removed a possibility to set void safety level for a specific class or cluster, it can be done only for a whole library or project.
 
