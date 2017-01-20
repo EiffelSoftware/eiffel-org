@@ -18,16 +18,7 @@
 | 4GB of RAM
 |- 
 | '''Hard Disk'''
-| 1GB of hard disk space
-|- 
-| '''Drive'''
-| CD-ROM or DVD drive (not required when downloading EiffelStudio)
-|- 
-| '''Display'''
-| 1024 x 768 or higher resolution video adapter and monitor
-|- 
-| '''Peripherals'''
-| Keyboard and mouse or compatible pointing device
+| 1GB of free space
 |- 
 | '''ISE_PLATFORM'''
 | '''macosx-x86''' for x86 based CPU and '''macosx-x86-64''' for x64 based CPU. 
