@@ -6,28 +6,19 @@
 {|  class="doctable"
 |- 
 | '''Computer/Processor'''
-| PC with 1GHz or higher Intel/AMD processor or equivalent recommended.
+| x86 or x86-64
 |- 
 | '''Operating System'''
-| Windows 2000/XP/2003/Vista/Win7.
+| Windows 7, Windows 8, Windows 8.1 and Windows 10
 |- 
 | '''C compiler'''
-| Microsoft Visual Studio 2005 or greater, or using MinGW (gcc) included in the EiffelStudio delivery
+| Microsoft Visual Studio 2010 or greater, or using MinGW (gcc) included in the EiffelStudio delivery
 |- 
 | '''Memory'''
-| 512MB of RAM (1GB recommended).
+| 4GB of RAM
 |- 
 | '''Hard Disk'''
-| 500MB of hard disk space (1GB recommended). Hard disk space requirements will vary depending on configuration; custom installation choices may require more or less space. Space required for installation of the Microsoft .NET Framework will also be required.
-|- 
-| '''Drive'''
-| CD-ROM drive (not required when downloading EiffelStudio).
-|- 
-| '''Display'''
-| 1024 x 768 or higher resolution video adapter and monitor.
-|- 
-| '''Peripherals'''
-| Keyboard and mouse or compatible pointing device.
+| 1GB of free space.
 |- 
 | '''ISE_PLATFORM'''
 | '''windows''' for 32 bits version of Windows, '''win64''' for 64 bits version of Windows.
