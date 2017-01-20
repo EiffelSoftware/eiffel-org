@@ -6,28 +6,19 @@
 {|  class="doctable"
 |- 
 | '''Computer/Processor'''
-| PC with 300 MHz or higher Pentium II class processor or equivalent recommended.
+| x86 or x86-64
 |- 
 | '''Operating System'''
-| Fedora Core 2, Slackware 10 or any Linux system with glibc 2.3 and either Gnome 2.6 or GTK+ 2.4.
+| Ubuntu 8.04 or any Linux system with glibc 2.7 and GTK+ 2.4.
 |- 
 | '''C compiler'''
 | gcc
 |- 
 | '''Memory'''
-| 512MB of RAM (1GB recommended).
+| 4GB of RAM
 |- 
 | '''Hard Disk'''
-| 500MB of hard disk space (1GB recommended).
-|- 
-| '''Drive'''
-| CD-ROM or DVD drive (not required when downloading EiffelStudio).
-|- 
-| '''Display'''
-| 1024 x 768 or higher resolution video adapter and monitor.
-|- 
-| '''Peripherals'''
-| Keyboard and mouse or compatible pointing device.
+| 1GB of free space
 |- 
 | '''ISE_PLATFORM'''
 | '''linux-x86''' for x86 based CPU, '''linux-x86-64''' for x64 based CPU.
