@@ -53,20 +53,20 @@ This will install the EiffelStudio files into /usr/local/EiffelXX. To complete t
 
 Once the files have been installed, you should define the following environment variables in order to run EiffelStudio: 
 * '''ISE_EIFFEL''' to /usr/local/EiffelXX
-* '''ISE_PLATFORM''' to freebsd-x86.
+* '''ISE_PLATFORM''' to openbsd-x86-64.
 and add $'''ISE_EIFFEL'''/studio/spec/$'''ISE_PLATFORM'''/bin to your '''PATH''' environment variable. 
 
 Using sh or bash as a shell, it suffices to type the following commands:
 <code>
 export ISE_EIFFEL=/usr/local/EiffelXX
-export ISE_PLATFORM=freebsd-x86
+export ISE_PLATFORM=openbsd-x86-64
 export PATH=$PATH:$ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin</code>
 
 
 Using csh or tcsh as a shell, it suffices to type the following commands:
 <code>
 setenv ISE_EIFFEL /usr/local/EiffelXX
-setenv ISE_PLATFORM freebsd-x86
+setenv ISE_PLATFORM openbsd-x86-64
 set path = ($path $ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin)</code>
 
 
