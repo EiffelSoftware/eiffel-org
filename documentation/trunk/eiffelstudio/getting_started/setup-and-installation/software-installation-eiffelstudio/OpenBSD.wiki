@@ -1,5 +1,5 @@
 [[Property:uuid|A98B98AA-B61C-464E-BD49-6E63C3249341]]
-[[Property:weight|0]]
+[[Property:weight|7]]
 [[Property:title|OpenBSD]]
 [[Property:link_title|OpenBSD]]
 ==Requirements==
@@ -10,7 +10,7 @@
 | x86 or x86-64
 |- 
 | '''Operating System'''
-| FreeBSD 11 with GTK+ 2.4 or greater
+| OpenBSD 6 with GTK+ 2.4 or greater
 |- 
 | '''C compiler'''
 | gcc
@@ -22,7 +22,7 @@
 | 1GB of free space
 |- 
 | '''ISE_PLATFORM'''
-| '''freebsd-x86''' for x86 based CPU and '''freebsd-x86-64''' for x64 based CPU.
+| '''openbsd-x86''' for x86 based CPU and '''openbsd-x86-64''' for x64 based CPU.
 |}
 
 
