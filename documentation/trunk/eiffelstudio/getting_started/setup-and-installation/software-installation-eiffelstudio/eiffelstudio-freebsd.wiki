@@ -6,28 +6,19 @@
 {| class="doctable"
 |- 
 | '''Computer/Processor'''
-| PC with 300 MHz or higher Pentium II class processor or equivalent recommended.
+| x86 or x86-64
 |- 
 | '''Operating System'''
-| FreeBSD 7.2 with either Gnome 2.6 or GTK+ 2.4.
+| FreeBSD 11 with GTK+ 2.4 or greater
 |- 
 | '''C compiler'''
 | gcc
 |- 
 | '''Memory'''
-| 512 MB of RAM (1GB recommended).
+| 4GB of RAM
 |- 
 | '''Hard Disk'''
-| 400Mb uncompressed hard disk space (700Mb recommended).
-|- 
-| '''Drive'''
-| CD-ROM or DVD drive (not required when downloading EiffelStudio).
-|- 
-| '''Display'''
-| 1024 x 768 or higher resolution video adapter and monitor.
-|- 
-| '''Peripherals'''
-| Keyboard and mouse or compatible pointing device.
+| 1GB of free space
 |- 
 | '''ISE_PLATFORM'''
 | '''freebsd-x86''' for x86 based CPU and '''freebsd-x86-64''' for x64 based CPU.
