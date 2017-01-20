@@ -9,16 +9,16 @@
 | x86-64
 |- 
 | '''Operating System'''
-| Mac OS X 10.9 or above
+| Mac OS X 10.12 or above
 |- 
 | '''C compiler'''
 | gcc included in XCode
 |- 
 | '''Memory'''
-| 512MB of RAM (1GB recommended)
+| 4GB of RAM
 |- 
 | '''Hard Disk'''
-| 400MB of hard disk space (1GB recommended) 
+| 1GB of hard disk space
 |- 
 | '''Drive'''
 | CD-ROM or DVD drive (not required when downloading EiffelStudio)
