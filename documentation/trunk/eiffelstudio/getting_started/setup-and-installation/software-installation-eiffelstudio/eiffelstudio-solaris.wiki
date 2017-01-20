@@ -6,28 +6,19 @@
 {|  class="doctable"
 |- 
 | '''Computer/Processor'''
-| UltraSparc.
+| UltraSparc, x86 or x86-64
 |- 
 | '''Operating System'''
-| Solaris 9.0 or greater for Sparc, Solaris 10 or greater for x86 with either Gnome 2.6 or GTK+ 2.4.
+| Solaris 9.0 or greater for UltraSparc, Solaris 10 or greater for x86 and x86-64 with either Gnome 2.6 or GTK+ 2.4.
 |- 
 | '''C compiler'''
 | Sun Studio 12 C compiler
 |- 
 | '''Memory'''
-| 512MB of RAM (1GB recommended).
+| 4GB of RAM
 |- 
 | '''Hard Disk'''
-| 500MB of hard disk space (1GB recommended).
-|- 
-| '''Drive'''
-| CD-ROM or DVD drive (not required when downloading EiffelStudio).
-|- 
-| '''Display'''
-| 1024 x 768 or higher resolution video adapter and monitor.
-|- 
-| '''Peripherals'''
-| Keyboard and mouse or compatible pointing device.
+| 1GB of free space
 |- 
 | '''ISE_PLATFORM'''
 | '''solaris-sparc''' for 32 bits version of Solaris on Sparc processor, '''solaris-sparc-64''' for 64 bits versions, '''solaris-x86''' and '''solaris-x86-64''' for the Intel processor on 32 and 64 bits.
