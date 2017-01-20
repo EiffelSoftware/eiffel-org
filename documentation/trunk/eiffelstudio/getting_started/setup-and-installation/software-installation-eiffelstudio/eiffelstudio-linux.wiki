@@ -6,13 +6,13 @@
 {|  class="doctable"
 |- 
 | '''Computer/Processor'''
-| x86 or x86-64
+| x86 or x86-64, armv6
 |- 
 | '''Operating System'''
 | Ubuntu 8.04 or any Linux system with glibc 2.7 and GTK+ 2.4.
 |- 
 | '''C compiler'''
-| gcc
+| gcc or SunStudio 12 Linux compiler
 |- 
 | '''Memory'''
 | 4GB of RAM
