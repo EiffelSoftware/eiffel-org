@@ -15,19 +15,10 @@
 | HP C compiler
 |- 
 | '''Memory'''
-| 512MB of RAM (1GB recommended).
+| 4GB of RAM
 |- 
 | '''Hard Disk'''
-| 500MB of hard disk space (1GB recommended).
-|- 
-| '''Drive'''
-| CD-ROM or DVD drive (not required when downloading EiffelStudio).
-|- 
-| '''Display'''
-| 1024 x 768 or higher resolution video adapter and monitor.
-|- 
-| '''Peripherals'''
-| Keyboard and mouse or compatible pointing device.
+| 1GB of free space
 |- 
 | '''ISE_PLATFORM'''
 | '''hpux-11'''.
