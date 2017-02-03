@@ -37,3 +37,22 @@ To avoid SQL Injections you will need to map variables names to values using the
 * Queries returning a result will need to use: <code>DB_SELECTION</code>
 * Queries updating the database (Insert, Update, Delete) will need to use: <code>DB_CHANGE</code>
 
+The following example shows an attempt to do an SQL Injection attack, but as we are using EiffelStore API to bind the parameters the unsafe data will be escaped.
+
+<code>
+	safe_query
+		local
+			l_connection: DATABASE_CONNECTION
+			db_selection: DB_SELECTION
+			l_query: STRING
+		do
+			...	
+			create db_selection.make
+			db_selection.set_query ("SELECT * FROM new_users where datetime = :datetime")
+			db_selection.set_map_name ("\''; DROP TABLE new_users; --", ":datetime")
+			db_selection.execute_query
+			db_selection.unset_map_name (":datetime")
+                        ....
+		end
+<code>
+
