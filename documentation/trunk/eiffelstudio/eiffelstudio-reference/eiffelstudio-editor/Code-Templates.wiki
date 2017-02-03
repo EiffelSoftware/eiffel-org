@@ -3,7 +3,7 @@
 [[Property:title|Code Templates]]
 [[Property:weight|7]]
 
-<span id="what_are_code_templates"></span> 
+
 
 EiffelStudio's code templates facilitate the programmer’s task by offering program schemes that correspond to typical programming needs. Templates are a simple idea (section 1); you can use templates that others have defined (section 2); you can define your own templates (section 3); and you can share them, so that they will become part of future EiffelStudio deliveries (section 4). 
 
@@ -23,12 +23,12 @@ There are two kinds of template:
 
 Whether targeted or targetless, a template can be a fixed pattern or have '''arguments''' which enable you to parameterize to your needs.
 
-<span id="how_do_i_use_templates"></span> 
+
 = 2. How do I use templates in EiffelStudio? =
 
 Code templates are part of EiffelStudio’s code completion mechanism. Code completion lets you choose a code template at the same place where it offers you features to call, typically after you type a dot character “.” after the name of an applicable local variable. attribute or function
 
-<span id="targeted_templates"></span> 
+
 ==Targeted templates==
 When you type a dot character “.” after the name of an applicable target, a menu appears:
 
@@ -63,7 +63,7 @@ When you insert a template into your code, it will often have some highlighted f
 Figure 4. Targetless auto-completion with code templates option list.
 
 
-<span id="filling_in_arguments"></span> 
+
 == Filling in arguments ==
 
 Some templates let you parameterize their code by filling ''arguments'' in a highlighted field. Initially, the field contains the corresponding argument's default value; you can leave that default, or override it with your own choice. If the template uses the argument several times, you can fill in the value in any of the corresponding fields, and all others will automatically be updated.
@@ -88,13 +88,11 @@ Figure 7. Inserted template code, with highlighted argument fields
 
 Note that each argument appears in two different fields; if you edit any of these fields, the other will get updated automatically.
 
-<span id="template_definition"></span> 
+
 = 3. Can I define my own templates? =
 
 It is very easy to define a template. It is all done in Eiffel, of course. You simply define a class that inherits from TEMPLATE, with any number of routines, each of which introduces one template, applicable to targets of the corresponding type. If the routine has arguments, those will be the arguments of the template.
 
-
-<span id="eiffel_studio_templates"></span> 
 == Where does EiffelStudio find the templates? ==
 
 To offer templates as part of code completion, EiffelStudio looks in two locations:
@@ -107,7 +105,6 @@ To offer templates as part of code completion, EiffelStudio looks in two locatio
 
 If you define templates for your own specific use, store them in the second location.
 
-<span id="targeted_definition"></span> 
 == Defining a targeted template ==
 Here is how we defined the template used in the above targeted example:
 
@@ -161,7 +158,6 @@ The correspondence between what you write in the template definition and what ap
 #.On selection of a template, EiffelStudio will insert the template’s body into the code.
 # Argument occurrences will appear as fields for the user to fill in.
 
-<span id="targetless_definition"></span> 
 == Defining a targetless template ==
 
 
@@ -206,12 +202,9 @@ end
 
 </code>
 
-
-<span id="share_code_templates"></span> 
 =4. Sharing code templates=
 You can share your code templates using Github.
 
-<span id="fork"></span> 
 == Fork the project == 
 Clone your fork, and configure the remotes.Eiffel Studio github repository at:  [https://github.com/EiffelSoftware/EiffelStudio  https://github.com/EiffelSoftware/EiffelStudio ]
 
@@ -241,18 +234,14 @@ Push your topic branch up to your fork:
 
 <code>git push origin <topic-branch-name></code>
 
-<span id="pull"></span> 
+
 ==Pull request== 
 Open a pull request with a clear title and description
 
-<span id="review"></span> 
 == Code template review ==
 For your work to be integrated into the project, the maintainers will review your work and either request changes or merge it.
 
 
-<span id="gui_template"></span> 
-
-<span id="UI"></span> 
 =Associating a user interface with a template definition=
 The following image shows the relationship between the template definition and how they will look in the GUI.
 
