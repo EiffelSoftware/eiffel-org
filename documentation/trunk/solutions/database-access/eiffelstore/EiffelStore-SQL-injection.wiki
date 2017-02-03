@@ -54,5 +54,5 @@ The following example shows an attempt to do an SQL Injection attack, but as we 
 			db_selection.unset_map_name (":datetime")
                         ....
 		end
-<code>
+</code>
 
