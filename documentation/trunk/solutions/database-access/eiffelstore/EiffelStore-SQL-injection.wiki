@@ -19,3 +19,9 @@ A template query is a string containing the fixed parts of the query and placeho
 
 {{Note|the way you bind variables to the query is quite important and it will define if your query is safe and avoid a SQL Injection attack.}}
 
+== How to define placeholders (variables) in a SQL Template query? ==
+Variables syntax is simple: the ':' special character followed by the variable name, something like <code>:value</code> 
+
+   	<code>SELECT * FROM  TABLE_NAME WHERE field1 = :value</code>
+
+
