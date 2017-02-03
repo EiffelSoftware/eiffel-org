@@ -2,3 +2,11 @@
 [[Property:weight|4]]
 [[Property:title|EiffelStore SQL injection]]
 [[Property:weight|4]]
+
+
+<span id="SQL Injection"></span>
+A SQL injection attack is a coding technique that consists of insertion or "injection" of a SQL query via the input data (passing unsafe data. ) from the client to the application. A successful SQL injection, can read sensitive data from the database, modify database data (Insert/Update/Delete), and become administrators of the database server.  To learn more about SQL injection read the following articles.
+
+* [https://en.wikipedia.org/wiki/SQL_injection https://en.wikipedia.org/wiki/SQL_injection]
+* [https://www.owasp.org/index.php/SQL_injection https://www.owasp.org/index.php/SQL_injection]
+
