@@ -18,7 +18,7 @@ An SQL injection attack is a coding technique that inserts, or "injects", an SQL
 
 
 = Template Query =
-A template query is a string containing the fixed parts of the query and placeholders for the variable parts, and you can later substitute in values into those placeholders. (Bind variables to the query.). A template query could be static or dynamic
+A template query is a string containing the fixed parts of the query and placeholders for the variable parts, and you can later substitute in values into those placeholders. (Bind variables to the query.). A template query could be static or dynamic.
 
 {{Note|the way you bind variables to the query is quite important and it will define if your query is safe and avoid a SQL Injection attack.}}
 
@@ -26,5 +26,8 @@ A template query is a string containing the fixed parts of the query and placeho
 Variables syntax is simple: the ':' special character followed by the variable name, for example <code>:value</code> 
 
    	<code>SELECT * FROM  TABLE_NAME WHERE field1 = :value</code>
+
+{{SeeAlso| To learn more about EiffelStore query variables read the following article}}
+* [https://www.eiffel.org/doc/solutions/Query%20variables Query Variables]
 
 
