@@ -10,8 +10,8 @@ In this article we will explain you how to use EiffelStore API to avoid SQL inje
 
 <span id="SQL Injection"></span>
 
-= 1. What is the meaning of SQL injection? =
-A SQL injection attack is a coding technique that consists of insertion or "injection" of a SQL query via the input data (passing unsafe data. ) from the client to the application. A successful SQL injection, can read sensitive data from the database, modify database data (Insert/Update/Delete), and become administrators of the database server.  To learn more about SQL injection read the following articles.
+= 1. What is an SQL injection? =
+An SQL injection attack is a coding technique that inserts, or "injects", an SQL query via the input data, passing unsafe input from the client to the application. A successful SQL injection can enable the attacker to read sensitive data from the database, modify database data (Insert/Update/Delete), or become administrator of the database server.  To learn more about SQL injection, read the following articles.
 
 * [https://en.wikipedia.org/wiki/SQL_injection https://en.wikipedia.org/wiki/SQL_injection]
 * [https://www.owasp.org/index.php/SQL_injection https://www.owasp.org/index.php/SQL_injection]
