@@ -63,7 +63,7 @@ using feature <code> BD_SELECTION.set_map_name</code> and the API is responsible
 === Unsafe binding ===
 If you use your own binding to map variables names to values, for example using String replacement, EiffelStore does not ensure that your query is safe, because it will depend on how do you handle escaping inputs before adding them to the query.
 
-The following example shows how we can bypass the EiffelStore API to bind placeholders using an unsafe String replacement, in this case, is up to the developer to escape the input value. The example is unsafe and subject to SQL Injections attacks when the input is unsafe as in the example. 
+The following example shows how we can bypass the EiffelStore API to bind placeholders using an unsafe String replacement, in this case, is up to the developer to escape the input value. The example is unsafe and subject to SQL Injections attacks when the input is unsafe.
 
 <code>
 unsafe_query
