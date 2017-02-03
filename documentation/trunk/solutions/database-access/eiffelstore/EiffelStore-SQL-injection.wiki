@@ -30,4 +30,10 @@ Variables syntax is simple: the ':' special character followed by the variable n
 {{SeeAlso| To learn more about EiffelStore query variables read the following article}}
 * [https://www.eiffel.org/doc/solutions/Query%20variables Query Variables]
 
+==How to bind variables/placeholders to a template query.==
+
+To avoid SQL Injections you will need to map variables names to values using the EiffelStore API (using EiffelStore supported connectors)
+
+* Queries returning a result will need to use: <code>DB_SELECTION</code>
+* Queries updating the database (Insert, Update, Delete) will need to use: <code>DB_CHANGE</code>
 
