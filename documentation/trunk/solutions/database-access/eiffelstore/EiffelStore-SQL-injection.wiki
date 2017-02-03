@@ -11,8 +11,10 @@ In this article we will explain you how to use EiffelStore API to avoid SQL inje
 = What is an SQL injection? =
 An SQL injection attack is a coding technique that inserts, or "injects", an SQL query via the input data, passing unsafe input from the client to the application. A successful SQL injection can enable the attacker to read sensitive data from the database, modify database data (Insert/Update/Delete), or become administrator of the database server.  To learn more about SQL injection, read the following articles.
 
+{{SeeAlso|
 * [https://en.wikipedia.org/wiki/SQL_injection https://en.wikipedia.org/wiki/SQL_injection]
 * [https://www.owasp.org/index.php/SQL_injection https://www.owasp.org/index.php/SQL_injection]
+}}
 
 = Template Query =
 A template query is a string containing the fixed parts of the query and placeholders for the variable parts, and you can later substitute in values into those placeholders. (Bind variables to the query.). A template query could be static or dynamic
@@ -20,7 +22,7 @@ A template query is a string containing the fixed parts of the query and placeho
 {{Note|the way you bind variables to the query is quite important and it will define if your query is safe and avoid a SQL Injection attack.}}
 
 == How to define placeholders (variables) in a SQL Template query? ==
-Variables syntax is simple: the ':' special character followed by the variable name, something like <code>:value</code> 
+Variables syntax is simple: the ':' special character followed by the variable name, for example <code>:value</code> 
 
    	<code>SELECT * FROM  TABLE_NAME WHERE field1 = :value</code>
 
