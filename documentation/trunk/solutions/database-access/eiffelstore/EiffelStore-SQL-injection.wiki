@@ -1,24 +1,20 @@
 [[Property:link_title|SQL injection]]
 [[Property:uuid|438C838C-C115-44B4-8480-05A825FE1047]]
 [[Property:weight|4]]
-[[Property:title|EiffelStore SQL injection]]
+[[Property:title|Defending against SQL injections with EiffelStore]]
 [[Property:weight|4]]
 
 
-<span id="Introduction"></span>
+= Introduction =
 In this article we will explain you how to use EiffelStore API to avoid SQL injections.
 
-<span id="SQL Injection"></span>
-
-= 1. What is an SQL injection? =
+= What is an SQL injection? =
 An SQL injection attack is a coding technique that inserts, or "injects", an SQL query via the input data, passing unsafe input from the client to the application. A successful SQL injection can enable the attacker to read sensitive data from the database, modify database data (Insert/Update/Delete), or become administrator of the database server.  To learn more about SQL injection, read the following articles.
 
 * [https://en.wikipedia.org/wiki/SQL_injection https://en.wikipedia.org/wiki/SQL_injection]
 * [https://www.owasp.org/index.php/SQL_injection https://www.owasp.org/index.php/SQL_injection]
 
-
-<span id="Template queries"></span>
-= 2. Template Query =
+= Template Query =
 A template query is a string containing the fixed parts of the query and placeholders for the variable parts, and you can later substitute in values into those placeholders. (Bind variables to the query.). A template query could be static or dynamic
 
 {{Note|the way you bind variables to the query is quite important and it will define if your query is safe and avoid a SQL Injection attack.}}
