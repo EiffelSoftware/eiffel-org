@@ -20,5 +20,5 @@ A SQL injection attack is a coding technique that consists of insertion or "inje
 = 2. Template Query =
 A template query is a string containing the fixed parts of the query and placeholders for the variable parts, and you can later substitute in values into those placeholders. (Bind variables to the query.). A template query could be static or dynamic
 
-Note: the way you bind variables to the query is quite important and it will define if your query is safe and avoid a SQL Injection attack.
+{{Note|the way you bind variables to the query is quite important and it will define if your query is safe and avoid a SQL Injection attack.}}
 
