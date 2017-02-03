@@ -6,7 +6,7 @@
 
 
 = Introduction =
-In this article we will explain you how to use EiffelStore API to avoid SQL injections.
+In this article, we will explain to you how to use EiffelStore API to avoid SQL injections.
 
 = What is an SQL injection? =
 An SQL injection attack is a coding technique that inserts, or "injects", an SQL query via the input data, passing unsafe input from the client to the application. A successful SQL injection can enable the attacker to read sensitive data from the database, modify database data (Insert/Update/Delete), or become administrator of the database server.  To learn more about SQL injection, read the following articles.
@@ -37,6 +37,7 @@ To avoid SQL Injections you will need to map variables names to values using the
 * Queries returning a result will need to use: <code>DB_SELECTION</code>
 * Queries updating the database (Insert, Update, Delete) will need to use: <code>DB_CHANGE</code>
 
+=== Safe binding ===
 The following example shows an attempt to do an SQL Injection attack, but as we are using EiffelStore API to bind the parameters the unsafe data will be escaped.
 
 <code>
@@ -54,5 +55,31 @@ The following example shows an attempt to do an SQL Injection attack, but as we 
 			db_selection.unset_map_name (":datetime")
                         ....
 		end
+</code>
+
+As you can observe in the previous example the binding to map the variable name <code>:datetime</code> to their value is done
+using feature <code> BD_SELECTION.set_map_name</code> and the API is responsible to do the necessary encoding.
+
+=== Unsafe binding ===
+If you use your own binding to map variables names to values, for example using String replacement, EiffelStore does not ensure that your query is safe, because it will depend on how do you handle escaping inputs before adding them to the query.
+
+The following example shows how we can bypass the EiffelStore API to bind placeholders using an unsafe String replacement, in this case, is up to the developer to escape the input value. The example is unsafe and subject to SQL Injections attacks when the input is unsafe as in the example. 
+
+<code>
+unsafe_query
+	local
+		l_connection: DATABASE_CONNECTION
+		db_selection: DB_SELECTION
+		l_query: STRING
+	do
+		...
+		check l_connection.is_connected end
+		create l_query.make_from_string ("SELECT * FROM new_users where datetime = :datetime")
+		l_query.replace_substring_all (":datetime", "\''; DROP TABLE new_users; --" )
+		create db_selection.make
+		db_selection.set_query (l_query)
+		db_selection.execute_query
+                ...
+	end
 </code>
 
