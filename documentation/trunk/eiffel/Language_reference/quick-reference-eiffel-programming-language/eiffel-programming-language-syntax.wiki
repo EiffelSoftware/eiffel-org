@@ -467,18 +467,25 @@ Type_interval ::= [[#Manifest constants|Manifest_type]] ".." [[#Manifest constan
 
 
 ===Loops ===
-Loop ::= Initialization 
-<nowiki>[</nowiki>[[#Assertions|Invariant]]<nowiki>]</nowiki> 
-Exit_condition 
-Loop_body 
-<nowiki>[</nowiki>[[#Variants|Variant]]<nowiki>]</nowiki>
-<code>end</code> 
+Loop ::=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<nowiki>[</nowiki>Iteration<nowiki>]</nowiki><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<nowiki>[</nowiki>Initialization<nowiki>]</nowiki><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<nowiki>[</nowiki>[[#Assertions|Invariant]]<nowiki>]</nowiki><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<nowiki>[</nowiki>Exit_condition<nowiki>]</nowiki><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loop_body<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<nowiki>[</nowiki>[[#Variants|Variant]]<nowiki>]</nowiki><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>end</code> 
+
+Iteration ::= <code>across</code> [[#Expressions|Expression]] <code>as</code>  [[#Identfiers|Identifier]]
 
 Initialization ::= <code>from</code> [[#Instructions|Compound]] 
 
 Exit_condition ::= <code>until</code> [[#Expressions|Boolean_expression]] 
 
-Loop_body ::= <code>loop</code> [[#Instructions|Compound]]
+Loop_body ::=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>loop</code> [[#Instructions|Compound]] |<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>all</code> [[#Expressions|Boolean_expression]] |<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>some</code> [[#Expressions|Boolean_expression]]
 
 
 ===Debug instructions ===
