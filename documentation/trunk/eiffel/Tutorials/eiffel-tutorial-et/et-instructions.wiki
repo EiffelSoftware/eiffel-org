@@ -104,7 +104,11 @@ Here's one example:
 and the other: 
 
 <code>
-            across my_list as ic loop print (ic.item) end 
+            across
+                        my_list as ic
+            loop
+                        print (ic.item)
+            end 
 </code>
 ''Loop example 2.''
 
@@ -113,7 +117,14 @@ At first observation, it may not appear that both of these examples are using th
 
 Incidentally, there is no requirement that ''Loop example 1'' occupy multiple lines, and ''Loop example 2'' occupy only one line. ''Loop example 1'' could have been written like this:
 <code>
-            from my_list.start until my_list.off loop print (my_list.item) my_list.forth end
+            from
+                        my_list.start
+            until
+                        my_list.off
+            loop
+                        print (my_list.item)
+                        my_list.forth
+            end
 </code>
 just as ''Loop example 2'' could have been written to take multiple lines. It comes down to a matter of balance among traditional style, conciseness, and readability. 
 
@@ -247,7 +258,8 @@ Here are all the possible loop parts, most of which we've seen in examples, in t
 
 
 {| border="2" cellpadding="8" 
-! This loop part: !! Has this pattern: 
+! This loop part:
+! Has this pattern: 
 |-
 | ''Iteration part'' || <code>across expression as identifier</code>
 |-
@@ -259,7 +271,7 @@ Here are all the possible loop parts, most of which we've seen in examples, in t
 |-
 | rowspan="3" | ''Body part'' || <code>loop</code> ''<code>zero_or_more_instructions      </code>'' '''or'''
 |-
-| <code>all</code> ''<code>boolean_expression              </code>'' '''or'''
+| <code>all</code> ''<code>boolean_expression</code>'' '''or'''
 |-
 | <code>some</code> ''<code>boolean_expression</code>''
 |-
@@ -283,25 +295,47 @@ There are implications of these rules that are worth understanding. Let's look a
 
 Consider that all parts must appear in order (1) and that every loop starts with one of two keywords: either <code>across</code> or <code>from</code> (2). Taken together, these imply that it would be invalid for a loop in ''base'' form to include an ''iteration part''. However, the opposite is not true. Because the ''initialization part'' falls after the ''iteration part'' it is possible for a loop in ''iteration'' form to contain an ''initialization'' part. Imagine for example, that we wanted to compute the sum of the number of characters in all elements of the list of strings in our examples. The ''initialization'' part could be used to initialize the sum entity before starting the iteration:
 <code>
-            across my_list as ic from sum := 0 loop sum := sum + ic.item.count end
+            across
+                        my_list as ic
+            from
+                        sum := 0
+            loop
+                        sum := sum + ic.item.count
+            end
 </code>
 
 Loops of the ''base'' form require an ''exit condition part'' (4). This allows the possibility that ''Iteration'' loops ''may'' contain an ''exit condition part''. Indeed they may, but it is not required. Using an ''exit condition part'' in a loop of the ''iteration'' can be useful if you want to impose an early exit condition on an iteration. So, extending the previous example, if we wanted to sum the length of elements, but only until we reached an element whose content matched a certain criterion, we could add the ''exit condition part'':
 <code>
-            across my_list as ic from sum := 0 until ic.item ~ "Stop now" loop sum := sum + ic.item.count end
+            across
+                        my_list as ic
+            from
+                        sum := 0
+            until
+                        ic.item ~ "Stop now"
+            loop
+                        sum := sum + ic.item.count
+            end
 </code>
 
 For loops of the ''iteration'' form, types of iteration targets must be based on classes inheriting from <code>ITERABLE</code> (5). What classes meet this criterion? All the appropriate classes in the EiffelBase library: lists, hash tables, arrays, intervals, etc. Although the details are beyond the scope of this tutorial, you also should recognize the implication that your own classes could be made iterable. 
 
 One useful descendant of <code>ITERABLE</code> is the integer interval. The general operator "<code>|..|</code>" provides a concise way of creating the interval between two integers.  So, you can use this to loop across a range of integers without a lot of setup. This example:
 <code>
-            across 5 |..| 15 as ic loop print (ic.item.out+"%N") end
+            across
+                        5 |..| 15 as ic
+            loop
+                        print (ic.item.out+"%N")
+            end
 </code>
 prints the integers in the interval 5 through 15. 
 
 Also descending from <code>ITERABLE</code> are the iteration cursors themselves. This means that a cursor can be the target of a loop of the ''iteration'' form. Consider this example that prints the items in <code>my_list</code> in reverse order:
 <code>
-            across my_list.new_cursor.reversed as ic loop print (ic.item) end 
+            across
+                        my_list.new_cursor.reversed as ic
+            loop
+                        print (ic.item)
+            end 
 </code>
 Here the feature <code>new_cursor</code> is applied to <code>my_list</code>. The result is a new iteration cursor for traversing <code>my_list</code>. Then the <code>reversed</code> feature is applied to that result, which itself results in an iteration cursor having the order of the elements reversed. It is this cursor that is used for <code>ic</code> in the traversal.
 
