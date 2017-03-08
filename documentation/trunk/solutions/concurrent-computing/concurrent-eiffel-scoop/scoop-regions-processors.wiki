@@ -37,7 +37,7 @@ The term ''handler of an object'' is used to denote the processor attached to th
 As already mentioned earlier, a ''processor'' cannot access or perform operations on an object in a different ''region''
 and has to send a message to the other handler instead.
 
-{{info|''Processor'' is an abstract notion and does not mean the physical silicone chip which is present in every computer.
+{{info|''Processor'' is an abstract notion and does not mean the physical silicon chip which is present in every computer.
 In SCOOP we think of it as a thread of control capable of applying features to objects.
 In theory processors are not restricted to any particular type of hardware or software, for example they could correspond to threads, processes, hardware processors, or machines in a network.
 Currently however a SCOOP processor is implemented as a thread.}}
