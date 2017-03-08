@@ -45,6 +45,7 @@ Currently however a SCOOP processor is implemented as a thread.}}
 == Separate Types==
 
 To support the concept of regions in a program text, SCOOP extends the type system by introducing a single new keyword: <code>separate</code>.
+
 The <code>separate</code> keyword is used to annotate a reference and means that the object attached to it may be in a different region.
 
 {{definition|Separate type|A type which has been declared including the keyword <code>separate</code>.}}
