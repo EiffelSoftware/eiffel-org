@@ -2,9 +2,7 @@
 [[Property:weight|0]]
 [[Property:title|EiffelWeb framework]]
 [[Property:link_title|EiffelWeb]]
-Eiffel Web Framework 
-
-It provides a common framework to build easily web server application in Eiffel (portable on various connector and platforms).
+The EiffelWeb Framework provides a common framework to build easily web server application in Eiffel (portable on various connectors and platforms).
 
 * Project on github: [https://github.com/EiffelWebFramework/EWF]
 * Associated website [http://www.eiffelweb.org/]
