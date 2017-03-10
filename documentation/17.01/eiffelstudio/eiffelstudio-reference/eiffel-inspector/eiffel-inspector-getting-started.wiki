@@ -1,0 +1,17 @@
+[[Property:title|Eiffel Inspector - Getting Started]]
+[[Property:link_title|Getting Started]]
+[[Property:weight|-15]]
+[[Property:uuid|81ae12fd-f643-c5ba-825c-7750929f6978]]
+==Eiffel Inspector Tool==
+After opening an existing project with EiffelStudio, go to View->Tools->Eiffel Inspector to show the tool. It will look like this:
+
+[img_assist|nid=2643|title=Eiffel Inspector - Tool Panel|desc=The Inspector Eiffel tool panel before the analysis.|link=node|align=center|width=1119|height=324]
+
+== A Simple Analysis ==
+
+Press the '''Analyze System''' button. If needed, the system will be compiled now. A successful compilation is required for the Eiffel Inspector to run. After a successful compilation the analysis will start and will check all classes of your system. The status bar shows the progress by displaying the class currently being analyzed. As soon as the analysis is complete, results will show up in the panel as a list of ''rule violations''.
+
+[img_assist|nid=2645|title=Eiffel Inspector - Simple Analysis|desc=The results of code analysis as a list of rule violations (example).|link=node|align=center|width=978|height=361]
+
+A double-click on a row will update the EiffelStudio editor to go to the position in the code where the issue lies. You may expand the row to see more details.
+

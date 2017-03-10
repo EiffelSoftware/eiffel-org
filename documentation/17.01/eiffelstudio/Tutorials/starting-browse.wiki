@@ -1,0 +1,179 @@
+[[Property:title|Starting To Browse]]
+[[Property:weight|-10]]
+[[Property:uuid|cb6c2e52-d238-9b55-0b78-ab3af9568550]]
+It was important to take a look at how EiffelStudio stores your project, but unless your idea of fun is to poke around directories to look at compiler-generated files that's not really the exciting part yet. Among the most innovative aspects of EiffelStudio is a unique set of facilities to "browse" through a software system. 
+
+
+==Browsing style==
+
+Browsing -- traversing the structure -- is particularly important in object-oriented development and especially in Eiffel because of the speed at which you can construct sophisticated class structures, making use of inheritance, genericity, the client relation and information hiding, and subjecting features to all kinds of adaptations -- renaming, redefinition, undefinition, effecting -- that are key to the expressive power of the software, but call for smart tools to keep track of what's going on. EiffelStudio's tools are second to none. Among their key properties:
+* You can choose many different ways of browsing: sometimes you know the ''name'' of a class or feature, and will get to it just by typing it; sometimes you want to traverse the system through its cluster-subcluster ''structure''; often, you see a reference to element (class or feature) in the text of another element, and just want to get to it by following that reference, like a ''hyperlink''. You'll be able to use all these techniques, and alternate freely between them. 
+* The browsing facilities are always available. There is no "browser" in EiffelStudio; you just browse when you want to, by looking at the information you need. You can do this while editing, debugging, or performing any other of the analysis, design, implementation, extension and maintenance tasks of system construction. 
+* Although classes are stored in files and clusters in directories, you can for the most part forget about the file system. Unlike most environments, which let you manipulate files containing software texts, EiffelStudio lets you concentrate on your <span>development objects</span> -- the units that make sense for you: features, classes, clusters, systems. You think in terms of those conceptual units, and don't have to worry about where they are stored. Most of the time, you'll just forget about files and directories. 
+* You can produce many views of the development objects. For a class, you may see the full text, the interface only, the inheritance structure, the clients, the features, and many other views. You can even display <span>graphical</span> views along with textual ones. All these are fully browsable; you can go from one to the other as you please. 
+
+
+==A Development Window==
+
+Let's see how this works. First, take a look at the EiffelStudio window:
+
+
+[[Image:es gt a development window 01]]
+
+
+{{note|If some parts are too small, just resize the window to arrive at something like what's on the figure. As soon as you have resized it, EiffelStudio will remember that size, and start up in the next session with the size you've set.}}
+
+You can see that the bulk of the Development Window is divided into three primary panes or areas. The [[EiffelStudio Editor|'''Editing''']] tool is the large pane on the top left. The Editing tool supports a tabbed display of the elements in your system ... usually that's class text, and it's in the Editing tool that you make changes to your software. In the image above, it is targeted to the root cluster of our example system. We'll target the Editing tool to a class in a moment. The other two areas support multiple tools, also using a tabbed display. In the area below the Editing tool you see the '''Outputs''' tool currently selected. As you can see there are other tools represented by the tabs at the bottom of the same area. Likewise, the area to the right of the Editing tool shows the '''Groups''' tool selected, but in that area are also tabs for other tools. You will find that the layout of the Development Window is very flexible. Different tools can be made visible or hidden, panes can be removed, new panes created, tools can be docked in these areas or viewed as standalone windows. The appearance of EiffelStudio can be tailored to your needs and preferences. 
+
+So far we have talked about "the EiffelStudio window", but in fact that's not correct. What you see is one '''Development Window''', of which you can have as many as you wish. Some people prefer to use a single development tool, avoiding screen clutter; others don't think twice about having lots of windows, taking the "desktop metaphor" to its full conclusion (some non-computer desktops are quite cluttered). There are many ways to start a new Development Window; for example if you look at the entries in the <code>File</code> menu at the top left -- don't select any of these entries yet, just look -- you'll see, among others, <code>New window</code>, which would create a new Development Window. 
+
+Whether you have one Development Window or many, each may have as its '''target''' an element of the system: system, cluster, class (the most common case), feature, run-time object. This simply means that the tool displays information about that element. 
+
+
+==Retargeting by name==
+
+In our first look at the Development Window, the Editing tool was empty. To target it to a specific class, you can just type the class name -- if you know it -- into the '''Class field''' at the top left:
+
+
+[[Image:es gt class field 01]]
+
+
+Let's use one of the most basic classes, <code>STRING_32</code> from the Kernel Library of EiffelBase. Bring the cursor to the Class Field, click to make it active, type <code>string_32</code> (or <code>STRING_32</code> ) and the Enter key. As shown on the next figure, this causes a new tab to be created in the Editing tool and retargets the Development Window to class <code>STRING_32</code>. Note that you didn't have to worry about where the class resides in the files of your computer. Also, it doesn't matter, when you enter the name into the field, whether you use lower or upper case, or some mix; EiffelStudio will show the name in all upper case because that is the standard Eiffel convention for class names. 
+
+
+[[Image:es gt string 01]]
+
+
+Retargeting by name is only one way to retarget a Development Window. There are other ways of retargeting that are useful at different times. Let's look at some of them.
+
+
+==Retargeting from the Groups tool==
+
+Your first browsing action used a class of which you knew the name, <code>STRING</code>. What if you don't know what's in the system and want to explore it? Among other techniques, you can let the Groups tool, guide you through the classes that are available to your system.
+
+An Eiffel system, as you know, is organized into clusters and libraries (and assemblies on some .NET systems). Additionally, clusters can be structured hierarchically into subclusters. You can expand the clusters and libraries nodes in the Groups tool (by clicking the little <code>+</code> signs to the left of the node icons) in order to see the classes. Try it, and what you see should  look about like the following figure:
+
+[[Image:es gt groups tool 01]]
+
+
+You'll see one cluster: <code>root_cluster</code>, containing the few classes specific to our Guided Tour system. Under libraries you'll see <code>base</code> which provides the classes of the EiffelBase library, and <code>base_precompile</code> which does not provide any classes directly (precompiles are present to speed up compilation time by precompiling classes, so <code>base_precompile</code> is just a precompiled version of the contents of the EiffelBase library). Let's go into <code>base</code>, Eiffel Software's open-source library of fundamental reusable mechanisms. 
+
+The most extensive subcluster of the EiffelBase library is <code>structures</code>, which contains implementations of major data structures and algorithms of computing science. Expand <code>structures</code> to see its own subclusters: 
+
+[[Image:es gt groups tool 02]]
+
+{{note|If you initially don't see as many details as shown on this figure, you may get them by resizing the window, moving the vertical pane boundary, and/or scrolling.}}
+
+The EiffelBase Data Structure library and its subclusters are described in the book [http://www.eiffel.com/services/training/books.html Reusable Software]. Let's go to one of the most frequently used subclusters, <code>list</code>, containing implementations of list structures. Expand the subcluster <code>list</code>. This time, since list is a terminal cluster, it's not subclusters you'll see, but '''classes''', identified by small ellipses ([[Image:class-normal-icon]]): 
+
+[[Image:es gt groups tool 03]]
+
+The ellipse, or "bubble", is indeed throughout EiffelStudio, as in the Business Object Notation (BON, the underlying graphical convention), the distinctive symbol for classes. You will notice that instead of the bubble, some classes are represented by what we call the "expanded" icon ([[Image:expanded-normal-icon]] ). These are still Eiffel classes. They are represented this way to show that they are marked as [[I2E: Types|expanded]]. Still other classes have a modified bubble ( [[Image:class-deferred-icon]] ) indicating that they are marked as [[ET: Inheritance#Deferred features and classes|deferred]]. 
+
+Our second technique for retargeting a Development Window to a class (other than typing the class name as we did before) is to click the class in the Groups tool. Do this now: click <code>LIST</code> in the tree. It doesn't matter whether you click on the class name or the adjacent bubble. This retargets the tool to class <code>LIST</code>. 
+
+[[Image:es gt Development Window targeted to list 01]]
+
+
+As the tool is now targeted to <code>LIST</code>, the Class Field at the top left now shows the name of that class, exactly as if we had typed that name, the way we did with <code>STRING_32</code> in the previous method of retargeting. 
+
+
+==Moving back and forth==
+
+Here now is a third way to retarget. Towards the top-left part of the Development Window there are <code>Back</code> and <code>Forth</code> buttons, which will enable you to revisit classes already seen during the current session: 
+
+[[Image:es gt go back 01]]
+
+Click the <code>Back</code> button. This retargets the tool to the class you visited previously: <code>STRING_32</code>. The <code>Forth</code> button, immediately to the right of <code>Back</code>, becomes active. Click it to retarget back to <code>LIST</code>. 
+
+Note that all buttons of the interface have a "tooltip" as shown in the figure above. if you move the cursor on a button, '''without clicking''', and wait a second or so, a small message comes up, explaining the purpose of the button. Also, if there is an associated keyboard shortcut, it will be displayed in the tooltip. 
+
+
+==The Target History==
+
+As a fourth way to retarget -- there are more, and after this one we'll stop counting -- you can also use the Target History menu, which you can bring up through the little arrow to the right of the Class Field:
+
+[[Image:es gt target history 01]]
+
+If you click this arrow -- the little black triangle -- you will see a menu of all your recent targets. Doing this now will only show the two classes visited so far, <code>STRING_32</code> and <code>LIST</code>, but later on there will be more entries. By default EiffelStudio remembers 20 history entries; this is one of the settings you can change later if you wish, through the menu path: 
+<code lang=text>
+Tools --> Preferences
+</code> 
+But, let's don't do that now. 
+
+
+==Adding to Favorites==
+
+If you find yourself often needing to examine a particular class, you can add it to your [[Favorites tool|Favorites]], much like adding an interesting page's web link to the bookmarks of a Web browser. 
+
+It's easy to add the current target -- currently, <code>LIST</code> -- to your Favorites. Do it now by following the menu path: 
+<code lang="text">
+Favorites --> Add to Favorites
+</code>
+
+[[Image:es gt add to favorites 01]]
+
+Now display the favorites; one way is to go back to that same Favorites menu: 
+<code lang="text">
+Favorites --> Favorites
+</code>
+The Favorites tool appears as a tab in the same area as the Groups tool: 
+
+[[Image:es gt favorites 01]] 
+
+This gives us one more way to retarget a Development Window: click a class in the Favorites tool. ''Two'' ways actually, because once you add a class to Favorites, it appears in the Favorites menu and you can select it by choosing its menu item.
+
+[[Image:es gt list added to favorites 01]]
+
+Right now we don't need the Favorites tool, so you can get rid of it by clicking the little Close icon at the top right of the Favorites pane: 
+
+[[Image:es gt close favorites 01]]
+
+
+After you close the Favorites tool, you may see some tool other than the Groups tool that we had been using. If this is the case, click on the Groups tool's tab at the bottom of the pane to make the library classes visible again.
+
+
+==Using additional Editing tool tabs==
+
+So far, even though we've targeted to the Development Window to different classes, we've only used one Editor tab. But it is helpful sometimes to have views of several classes handy in multiple editor tabs. Its easy enough to create a new tab at the time that you target the Development Window to a new class. For example, you should see the class <code>CHAIN</code> in the Groups tool's view of the the <code>list</code> subcluster of <code>structures</code> (the same place we found class <code>LIST</code>. Instead of clicking on <code>CHAIN</code> the way we did <code>LIST</code>, this time '''control-right-click''' on <code>CHAIN</code>, that is to say, click with the rightmost button of the mouse while holding the CONTROL key on the keyboard. This creates a new tab for <code>CHAIN</code> and retargets the Development Window to that class, while sliding the existing tab for class <code>LIST</code> to the right a bit. 
+
+
+[[Image:es gt development window multiple tabs 01]]
+
+
+You can click on any of the tabs and the Development Window will be retargeted to the class associated with the tab. Each tab has a "Close" button on it, so you can close tabs you no longer need. 
+
+So, for now, close the tab with the class <code>CHAIN</code> and leave just the one tab with class <code>LIST</code>.
+
+==Using additional Development Windows== 
+
+With all the techniques seen so far, you were able to retarget the current the Development Window to a new class. And that may be all you'll ever need. But, as noted earlier, you may also wish to have two or more Development Windows active simultaneously. 
+
+To create a new Development Window, follow the menu path: 
+<code lang="text">
+File --> New Window
+</code>
+This will create a new Development Window with a title bar that reads "<code lang=text>Empty development tool #1</code>" because the window is (as yet) untargeted. You can also create a new Development Window by using the keyboard accelerator: <code>CTRL-N</code>. 
+
+You can close a Development Window either by clicking its close button in the corner of the window, or by following the menu path:
+<code lang="text">
+File --> Close Window
+</code>
+
+Be careful not to try to use:
+<code lang="text">
+ File --> Exit
+</code>
+to close a single window. This menu command will exit the entire EiffelStudio development environment, closing all windows.
+
+If, during a session, you end up with a number of windows active and want to see an active index to them, you can invoke the [[Windows tool|active windows tool]] by following the menu path: 
+<code lang="text">
+View--> Tools--> Active windows
+</code>
+
+[[Image:es gt active windows tool 01]]
+
+
+
+
+

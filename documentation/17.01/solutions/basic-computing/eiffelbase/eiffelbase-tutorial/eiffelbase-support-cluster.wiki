@@ -1,0 +1,31 @@
+[[Property:title|EiffelBase Support Cluster]]
+[[Property:weight|2]]
+[[Property:uuid|f9c2a003-9836-6688-db1f-5aa31313b317]]
+The support cluster offers some commonly needed functionality that do not belong to the kernel.
+
+==Conversions, mathematical properties and ASCII characters==
+
+A few utility classes complement the [[EiffelBase, The Kernel|kernel]]  facilities. [[ref:libraries/base/reference/primes_chart|PRIMES]] , [[ref:libraries/base/reference/random_chart|RANDOM]]  and [[ref:libraries/base/reference/fibonacci_chart|FIBONACCI]]  are part of the data structure taxonomy; the others are meant to be used as ancestors by classes needing their features. 
+
+Two classes provide basic mathematical functions such as logarithms and trigonometric functions: [[ref:libraries/base/reference/single_math_chart|SINGLE_MATH]]  for single precision and [[ref:libraries/base/reference/double_math_chart|DOUBLE_MATH]]  for the double-precision variants. [[ref:libraries/base/reference/math_const_chart|MATH_CONST]]  contains mathematical constants: <code> p </code>, the square root of two, Euler's constant <code> e </code>. 
+
+[[ref:libraries/base/reference/primes_chart|PRIMES]] , [[ref:libraries/base/reference/random_chart|RANDOM]]  and [[ref:libraries/base/reference/fibonacci_chart|FIBONACCI]]  are data structure classes - heirs of [[ref:libraries/base/reference/countable_sequence_chart|COUNTABLE_SEQUENCE]] . In all of these classes function i_th takes an integer argument <code> i </code> and will return the i-th element of the sequence under consideration - prime numbers, pseudo-random numbers or Fibonacci numbers. These sequences are active structures, on which forth will advance the current position and item will return the value at the current position. A few other features are specific to each case: for example [[ref:libraries/base/reference/random_flatshort|higher_prime]]  will yield the smallest prime greater than or equal to a certain value, and [[ref:libraries/base/reference/random_flatshort|set_seed]]  will define the seed to be used for starting the pseudo-random sequence. 
+
+==Internal object structures==
+
+Class [[ref:libraries/base/reference/internal_chart|INTERNAL]]  provides low-level access to internal object structures. It, too, is meant to be used as ancestor by classes needing its features. <br/>
+Here are some of the most useful calls and what they yield, <eiffel>obj</eiffel> being an entity attached to an object <eiffel>O</eiffel> and <eiffel>i</eiffel> an integer: 
+* <eiffel>class_name (obj)</eiffel> : the name of the generator class for O.
+* <eiffel>dynamic_type (obj) </eiffel> : the integer code for the type of <eiffel>O</eiffel>, where each type in a system is identified by a unique code. 
+* <eiffel>field_count (obj) </eiffel> : the number of fields in <eiffel>O</eiffel>. 
+* <eiffel>physical_size (obj) </eiffel> : the space occupied by <eiffel>O</eiffel>, in bytes. 
+*  <eiffel>field_xx (i, obj) </eiffel> where <eiffel>xx</eiffel> is name or offset: name or offset of the i-th field of <eiffel>O</eiffel>. 
+* <eiffel>field (i, obj) </eiffel> : the value of the i-th field of , if a reference; declared of type ANY in the class. 
+*  <eiffel>yy_field (i, obj) </eiffel> where <eiffel>yy</eiffel> is boolean, character, integer, real or double: the value of the i-th field of <eiffel>O</eiffel>, if of the corresponding type; each declared of the appropriate type in the class. 
+* <eiffel>is_special (obj) </eiffel> : a boolean query which indicates whether <eiffel>O</eiffel> is a special object (the sequence of values representing the elements of an array or the characters of a string). 
+
+{{warning|Only very special cases justify the use of the class [[ref:libraries/base/reference/internal_chart|INTERNAL]]. Unless you are writing the lowest level of an interface between an Eiffel application and external tools (such as a database management system), and this requires passing to those tools information about the internals of Eiffel objects, you almost certainly should not use [[ref:libraries/base/reference/internal_chart|INTERNAL]] . }}
+
+
+
+

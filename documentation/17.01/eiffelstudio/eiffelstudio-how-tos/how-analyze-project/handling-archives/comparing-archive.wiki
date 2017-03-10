@@ -1,0 +1,15 @@
+[[Property:title|Comparing to an archive]]
+[[Property:weight|2]]
+[[Property:uuid|eb13a2c4-623d-8a35-6175-40a43486beb8]]
+The main goal of archives is comparing archives one to another. In order to compare your project to an archived file, you must select the '''Metric archive''' tab of the metric tool.
+
+The goal is to load the archive of a (preferably different) project, to compare the archived measures to the system's. You can select your current archive or any other archive, against a reference archive file.
+
+Once the archives are selected, click the '''Compare''' button to start the comparison. It will bring you to the '''Detailed Result''' tab.
+
+{{seealso|<br/>
+[[Creating an archive|Creating an archive]]  }}
+
+
+
+
