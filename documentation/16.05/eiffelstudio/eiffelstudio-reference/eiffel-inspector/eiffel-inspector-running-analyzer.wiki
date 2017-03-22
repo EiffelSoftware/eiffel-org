@@ -14,25 +14,25 @@ There are two ways of running the Eiffel Inspector
 == Analyzing the System ==
 
 If you want to analyze the whole system of the currently open project press the '''Analyze System''' button in the toolbar. Every compiled classes of the system will be analyzed.
-[img_assist|nid=2647|title=Analyze System|desc=|link=node|align=center|width=368|height=84]
+[[Image:CA Analysis Buttons|center|368px|Analyze System]]
 
 
 == Analyzing a Class or Group ==
 
 === Current Class ===
 Left-clicking the '''Analyze Item''' button in the toolbar will start an analysis of the class that is currently opened in the editor.
-[img_assist|nid=2647|title=Analyze Item|desc=|link=node|align=center|width=368|height=84]
+[[Image:CA Analysis Buttons|center|368px|Analyze Item]]
 
 === Any Class ===
 There are two ways of analyzing an arbitrary class (either from your system or from a library):
 * Right-click on a class name and select '''Run Eiffel Inspector on Class...''' from the context menu:
-[img_assist|nid=2648|title=Class Context Menu|desc=|link=node|align=center|width=371|height=487]
+[[Image:CA Class Context Menu|center|371px|Class Context Menu]]
 * Pick a class and drop it on the '''Analyze Item''' button.
 
 === Clusters ===
 To analyze a cluster there are two possibilities, like for classes:
 * You can either right-click the cluster and select '''Run Eiffel Inspector on cluster''' from the context menu:
-[img_assist|nid=2649|title=Cluster Context Menu|desc=|link=node|align=center|width=247|height=220]
+[[Image:CA Cluster Context Menu|center|247px|Cluster Context Menu]]
 * Pick a cluster and drop it on the '''Analyze Item''' button.
 
 === Others ===
@@ -58,7 +58,7 @@ Upon a successful compilation either the whole system or the classes mentioned i
 
 As soon as everything needed has been analyzed the results will be displayed as a list of rule violations. These rule violations are sorted by class and by location. In addition to the name of the violated rule and the rule ID, a description of the concrete violation will be displayed as well.
 
-[img_assist|nid=2677|title=Eiffel Inspector - Command Line|desc=|link=node|align=center|width=877|height=691]
+[[Image:Eiffel Inspector Command Line|center|877px|Eiffel Inspector - Command Line]]
 
 === Output to file ===
 
