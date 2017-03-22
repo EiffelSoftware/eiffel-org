@@ -5,7 +5,8 @@
 = Sorting and Filtering =
 
 The list of rule violations can be sorted by any column by clicking on its header. Click it again to switch the sorting direction. You can hide and show errors, warnings, suggestions, and hints by clicking the corresponding toggle buttons in the middle of the toolbar. Typing in the text field on the right side of the panel toolbar filters the results. The filter takes into consideration the title, the ID, the affected class, and the description of the rule. It is a live filter that filters while you are typing. Press the button on the right of the text field to clear the filter and display again all violations.
-[img_assist|nid=2645|title=The results of code analysis as a list of rule violations (example)|desc=|link=node|align=center|width=978|height=361]
+
+[[Image:CA Simple Analysis|center|978px|The Results of code analysis as a list of rule violations (example)]]
 
 = Navigating Through the Results =
 
@@ -13,7 +14,8 @@ In the list of rule violations, formatted elements like classes and features are
 
 = Fixing Rule Violations =
 
-[img_assist|nid=2654|title=Fixing a rule violation.|desc=|link=node|align=center|width=484|height=79]
+[[Image:CA Fixing Rule Violation|center|484px|Fixing a rule violation.]]
+
 Some violations provide automatic fixing. Right-clicking the corresponding row in the tool panel opens a context menu where you can choose from one or more possible fixes. When you click on ''Fix: ...'' the source code will be adapted and the project will be recompiled.
 
 
