@@ -6,13 +6,13 @@
 
 The ''Preferences'' button in the toolbar opens a dialog containing all preferences for the Eiffel Inspector. There you can enable and disable all rules of a certain severity, you can choose colors for the results, and there are many preferences that control the behavior of individual rules.
 
-[img_assist|nid=2651|title=Preferences|desc=|link=node|align=center|width=640|height=460]
+[[Image:CA Preference Dialog|center|640px|Preferences]]
 
 = Rule-specific Preferences =
 
 The rule-specific preferences are located in the ''Rules'' subfolder. Two preferences can be found for every rule: ''Enabled/disabled'' and the ''severity score''. Some rules have additional integer or boolean preferences like thresholds.
 
-[img_assist|nid=2652|title=Rule-specific Preferences|desc=|link=node|align=center|width=572|height=268]
+[[Image:CA Rule Preferences|center|572px|Rule-specific Preferences]]
 
 = Exporting and Importing Preference Profiles =
 
