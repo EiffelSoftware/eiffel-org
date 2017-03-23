@@ -354,11 +354,11 @@ Storing an object just by itself would usually result in wrong semantics: most o
 
 ==Using the storage and retrieval facilities==
 
-Class [[ref:libraries/base/reference/storable_chart|STORABLE]]  is meant to be used as ancestor. You can use its features in any descendant <eiffel>C</eiffel>; for example a routine of <eiffel>C</eiffel> may contain a call of the form <eiffel>basic_store</eiffel> <code>(</code> <code>my_descriptor</code> <code>)</code>.
+Class [[ref:libraries/base/reference/storable_chart|STORABLE]]  is meant to be used as ancestor. You can use its features in any descendant <eiffel>C</eiffel>; for example a routine of <eiffel>C</eiffel> may contain a call of the form <eiffel>basic_store (my_descriptor)</eiffel>.
 
 The effect of this call will be to store the current object and all its dependents into the file denoted by my_descriptor.
 
-Although basic_store and other procedures of [[ref:libraries/base/reference/storable_chart|STORABLE]] will in general process objects of many different types, only the generating class of the structure's initial object, <eiffel>C</eiffel> in our example, needs to be a descendant of [[ref:libraries/base/reference/storable_chart|STORABLE]] . 
+Although <eiffel>basic_store</eiffel> and other procedures of [[ref:libraries/base/reference/storable_chart|STORABLE]] will in general process objects of many different types, only the generating class of the structure's initial object, <eiffel>C</eiffel> in our example, needs to be a descendant of [[ref:libraries/base/reference/storable_chart|STORABLE]] . 
 
 ==Varieties of store operations==
 
@@ -372,7 +372,8 @@ Feature <eiffel>retrieved</eiffel> returns a result of type [[ref:libraries/base
 <code>
 if attached {MY_TYPE} retrieved (my_descriptor) as data then 
     -- Retrieved result is of expected type.
-    -- Proceed with processing of result, typically with calls of the form `data.some_feature'.
+    -- Proceed with processing of result,
+    -- typically with calls of the form `data.some_feature'.
 else
     -- Result was not of expected type MY_TYPE.
 end
