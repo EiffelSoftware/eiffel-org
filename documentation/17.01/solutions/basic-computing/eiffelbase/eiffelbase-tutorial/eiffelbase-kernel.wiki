@@ -312,16 +312,14 @@ FILE describes the notion of sequential file viewed as a data structure which fi
 The class declaration defines files as unbounded sequences of characters. This means that you will find in FILE all the operations on sequential data structures that you have come to know and love by reading this documentation - at least, all that apply. Just as stacks and linked lists, files have <eiffel>put</eiffel>, <eiffel>extend</eiffel>, <eiffel>has</eiffel>, <eiffel>item</eiffel> and so on. More specific to files are the typed input and output operations. For output, you will find <eiffel>put_character</eiffel>, <eiffel>put_integer</eiffel>, <eiffel>put_real</eiffel>, <eiffel>put_double</eiffel> and <eiffel>put_string</eiffel>, as well as <eiffel>new_line</eiffel>. For input you will find <eiffel>read_integer</eiffel> and its co-conspirators. 
 
 {{caution|Note the application to input features of the command-query separation principle. <br/>
-The input features such as read_integer do not by themselves return a result; they set the values of queries such as last_integer. So the normal way to read is through two operations: <br/>
-<br/>
-my_file.read_integer <br/>
-new_value :&#61; my_file.last_integer }}
+The input features such as read_integer do not by themselves return a result; they set the values of queries such as last_integer. So the normal way to read is through two operations:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my_file.read_integer<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_value :&#61; my_file.last_integer}}
 
 Queries are available to determine the status of a file, in particular <eiffel>exists</eiffel>, <eiffel>is_readable</eiffel>, <eiffel>is_executable</eiffel>, <eiffel>is_writable</eiffel>, <eiffel>is_creatable</eiffel>, <eiffel>is_closed</eiffel>, <eiffel>is_open_read</eiffel> and so on. 
 
-{{caution|You will notice in the flat-short form that all these queries except the first have exists as a precondition. This precondition is good for efficiency since it saves an existence test - a relatively expensive operation - when you know that a certain file exists. But it also means that if you have any doubt about the file's existence you must use the queries in the style <br/>
-<br/>
-<code>if  my_file.exists and then my_file.is_readable then</code>... }}
+{{caution|You will notice in the flat-short form that all these queries except the first have exists as a precondition. This precondition is good for efficiency since it saves an existence test - a relatively expensive operation - when you know that a certain file exists. But it also means that if you have any doubt about the file's existence you must use the queries in the style<br/>
+<eiffel>if  my_file.exists and then my_file.is_readable then ...</eiffel>}}
 
 FILE is a deferred class. Various implementations are possible. A quite detailed one is PLAIN_TEXT_FILE, which adds many features for accessing reading and writing data from/to a file.
 
