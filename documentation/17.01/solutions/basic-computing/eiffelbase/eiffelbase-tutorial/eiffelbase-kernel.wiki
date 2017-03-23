@@ -68,9 +68,12 @@ The first call yields a printable representation of the current object; the seco
 
 ==Input and output features==
 
-Some of the features of [[ref:libraries/base/reference/any_chart|ANY]]  cover common input and output needs. <br/>
-Feature <eiffel>io</eiffel>, of type [[ref:libraries/base/reference/std_files_chart|STD_FILES]] , gives access to standard input and output facilities. For example, <eiffel>io.input</eiffel> is the standard input file and <eiffel>io</eiffel>.<eiffel>new_line</eiffel> will print a line feed on the standard output. Feature <eiffel>io</eiffel> is declared as a once function which, when first called, returns the value of an instance of [[ref:libraries/base/reference/std_files_chart|STD_FILES]]  that provides access to the standard input, the standard output and the error output. As a result, <eiffel>io</eiffel> is never void, so that operations such as <eiffel>io</eiffel>.<eiffel>new_line</eiffel> are always possible. <br/>
-Function <eiffel>out</eiffel>, of type [[ref:libraries/base/reference/string_8_chart|STRING]] , is a universal mechanism for obtaining a simple external representation of any object. For non-void <code>x</code> of any type, the string <code>x.out</code> is a printable representation of <code>x</code>. This works for <code>x</code> of all types, reference or expanded. For example, if <code>x</code> is an integer expression, <code>x.out</code> is its string representation, such as <code>-897</code>; if n is a non-void reference, <code>x.out</code> is (recursively) the concatenation of the result of applying out to the successive fields of the attached object, each labeled by the name of the corresponding attribute. You may redefine out in any class to specify any suitable format for displaying instances of the class. To obtain the default representation regardless of any redefinition of out, use tagged_out, declared as a frozen synonym of the original out. <br/>
+Some of the features of [[ref:libraries/base/reference/any_chart|ANY]]  cover common input and output needs.
+
+Feature <eiffel>io</eiffel>, of type [[ref:libraries/base/reference/std_files_chart|STD_FILES]] , gives access to standard input and output facilities. For example, <eiffel>io.input</eiffel> is the standard input file and <eiffel>io</eiffel>.<eiffel>new_line</eiffel> will print a line feed on the standard output. Feature <eiffel>io</eiffel> is declared as a once function which, when first called, returns the value of an instance of [[ref:libraries/base/reference/std_files_chart|STD_FILES]]  that provides access to the standard input, the standard output and the error output. As a result, <eiffel>io</eiffel> is never void, so that operations such as <eiffel>io</eiffel>.<eiffel>new_line</eiffel> are always possible.
+
+Function <eiffel>out</eiffel>, of type [[ref:libraries/base/reference/string_8_chart|STRING]] , is a universal mechanism for obtaining a simple external representation of any object. For non-void <code>x</code> of any type, the string <code>x.out</code> is a printable representation of <code>x</code>. This works for <code>x</code> of all types, reference or expanded. For example, if <code>x</code> is an integer expression, <code>x.out</code> is its string representation, such as <code>-897</code>; if n is a non-void reference, <code>x.out</code> is (recursively) the concatenation of the result of applying out to the successive fields of the attached object, each labeled by the name of the corresponding attribute. You may redefine out in any class to specify any suitable format for displaying instances of the class. To obtain the default representation regardless of any redefinition of out, use tagged_out, declared as a frozen synonym of the original out.
+
 The call <code>print (x)</code> will output the value of <code>x.out</code> on the default output if <code>x</code> is not void, and do nothing otherwise. 
 
 ==Copy and comparison routines==
@@ -86,9 +89,12 @@ Here both target and source must be non-void; this means that <eiffel>copy</eiff
 </code>
 starts by creating a new object, then populates its fields to be identical to <code>source</code>. 
 
-The boolean function <eiffel>equal</eiffel> compares two objects for field-by-field equality. This is different from the equality operators <code>=</code> and <code>/=</code> which, in the case of reference types, compare references, not objects. <br/>
-The function <eiffel>deep_twin</eiffel> produces a duplicate of an entire object structure. The boolean function <eiffel>deep_equal</eiffel> determines whether two object structures are recursively identical. These routines are the ''deep'' counterparts of the shallow copy and equality tests provided by <eiffel>twin</eiffel> and <eiffel>equal</eiffel>. <br/>
-A class that needs a specific notion of equality and the corresponding copy semantics may redefine <eiffel>copy</eiffel> and <eiffel>is_equal</eiffel> (from which <code>equal</code> follows, since <code>equal (a, b)</code> is defined as <code>a.is_equal (b)</code> for non-void <code>a</code>). You will find such redefinitions in a number of classes of the Base libraries. For example an instance of [[ref:libraries/base/reference/string_8_chart|STRING]]  is a string descriptor containing a reference to the actual character sequence, not that sequence itself, so that what the default equal compares and the default copy copies is the descriptor, not the string. Class [[ref:libraries/base/reference/string_8_chart|STRING]]  redefines these routines to yield the semantics normally expected by string clients; the frozen variants <eiffel>standard_copy</eiffel> and <eiffel>standard_equal</eiffel>, originally declared as synonyms to <eiffel>equal</eiffel> and <eiffel>copy</eiffel>, remain available with the default semantics. <br/>
+The boolean function <eiffel>equal</eiffel> compares two objects for field-by-field equality. This is different from the equality operators <code>=</code> and <code>/=</code> which, in the case of reference types, compare references, not objects.
+
+The function <eiffel>deep_twin</eiffel> produces a duplicate of an entire object structure. The boolean function <eiffel>deep_equal</eiffel> determines whether two object structures are recursively identical. These routines are the ''deep'' counterparts of the shallow copy and equality tests provided by <eiffel>twin</eiffel> and <eiffel>equal</eiffel>.
+
+A class that needs a specific notion of equality and the corresponding copy semantics may redefine <eiffel>copy</eiffel> and <eiffel>is_equal</eiffel> (from which <code>equal</code> follows, since <code>equal (a, b)</code> is defined as <code>a.is_equal (b)</code> for non-void <code>a</code>). You will find such redefinitions in a number of classes of the Base libraries. For example an instance of [[ref:libraries/base/reference/string_8_chart|STRING]]  is a string descriptor containing a reference to the actual character sequence, not that sequence itself, so that what the default equal compares and the default copy copies is the descriptor, not the string. Class [[ref:libraries/base/reference/string_8_chart|STRING]]  redefines these routines to yield the semantics normally expected by string clients; the frozen variants <eiffel>standard_copy</eiffel> and <eiffel>standard_equal</eiffel>, originally declared as synonyms to <eiffel>equal</eiffel> and <eiffel>copy</eiffel>, remain available with the default semantics.
+
 The function <eiffel>twin</eiffel> is defined in terms of <eiffel>copy</eiffel>, and so will follow any redefinition of <eiffel>copy</eiffel>. This makes it impossible to change the semantics of one but not of the other, which would be a mistake. The variant <eiffel>standard_twin</eiffel> is defined in terms of <eiffel>standard_copy</eiffel>. 
 
 
@@ -97,13 +103,16 @@ The function <eiffel>twin</eiffel> is defined in terms of <eiffel>copy</eiffel>,
 
 ==Type information==
 
-The string-valued query <eiffel>generator</eiffel>, applied to any object, returns the name of the object's generating class: the class of which it is an instance. The boolean function <eiffel>conforms_to</eiffel> makes it possible to test dynamically whether the type of an object conforms to that of another - that is to say whether the first one's generator is a descendant of the second one's. <br/>
+The string-valued query <eiffel>generator</eiffel>, applied to any object, returns the name of the object's generating class: the class of which it is an instance. The boolean function <eiffel>conforms_to</eiffel> makes it possible to test dynamically whether the type of an object conforms to that of another - that is to say whether the first one's generator is a descendant of the second one's.
+
 These two features enable clients to ascertain the dynamic type of an entity at runtime. They are only useful for low-level components; the normal mechanism for type-dependent operations is dynamic binding. 
 
 ==Miscellaneous==
 
-The query Void, of type <eiffel>NONE</eiffel>, denotes a reference that is always void - not attached to any object. <br/>
-Procedure <eiffel>do_nothing</eiffel> does what its name implies. <br/>
+The query Void, of type <eiffel>NONE</eiffel>, denotes a reference that is always void - not attached to any object.
+
+Procedure <eiffel>do_nothing</eiffel> does what its name implies.
+
 Function default also has an empty body; its result type is <code>like Current</code>, so what it returns is the default value of the current type. This is mostly interesting for expanded types, since for reference types the default value is simply a void reference. 
 
 =Language-related Facilities=
@@ -112,7 +121,8 @@ A number of classes offer facilities which are very close to the language level.
 
 ==Basic types==
 
-The basic types [[ref:libraries/base/reference/boolean_chart|BOOLEAN]] , [[ref:libraries/base/reference/character_8_chart|CHARACTER]] , [[ref:libraries/base/reference/integer_32_chart|INTEGER]] , [[ref:libraries/base/reference/real_32_chart|REAL]]  and [[ref:libraries/base/reference/real_64_chart|DOUBLE]]  are defined by classes of the Kernel library. <br/>
+The basic types [[ref:libraries/base/reference/boolean_chart|BOOLEAN]] , [[ref:libraries/base/reference/character_8_chart|CHARACTER]] , [[ref:libraries/base/reference/integer_32_chart|INTEGER]] , [[ref:libraries/base/reference/real_32_chart|REAL]]  and [[ref:libraries/base/reference/real_64_chart|DOUBLE]]  are defined by classes of the Kernel library.
+
 In reading the class specifications for the numeric types [[ref:libraries/base/reference/integer_32_chart|INTEGER]] , [[ref:libraries/base/reference/real_32_chart|REAL]]  and [[ref:libraries/base/reference/real_64_chart|DOUBLE]] , you might think that the type declarations are too restrictive. For example the addition operation in class [[ref:libraries/base/reference/real_32_chart|REAL]]  reads 
 <code>
     infix "+" (other: REAL): REAL
@@ -122,25 +132,27 @@ but there is actually no problem here. A language convention applicable to all a
 
 ==Arrays==
 
-To create and manipulate one-dimensional arrays, use class [[ref:libraries/base/reference/array_chart|ARRAY]]  of the Kernel Library. Arrays are not primitive language elements; instead, they are handled through class [[ref:libraries/base/reference/array_chart|ARRAY]] . This class is 'normal' in the sense that it may be used just as any other class by client and descendant classes. It is also somewhat special, however, in that the Eiffel compiler knows about it and uses this knowledge to generate efficient code for array operations. <br/>
+To create and manipulate one-dimensional arrays, use class [[ref:libraries/base/reference/array_chart|ARRAY]]  of the Kernel Library. Arrays are not primitive language elements; instead, they are handled through class [[ref:libraries/base/reference/array_chart|ARRAY]] . This class is 'normal' in the sense that it may be used just as any other class by client and descendant classes. It is also somewhat special, however, in that the Eiffel compiler knows about it and uses this knowledge to generate efficient code for array operations.
+
 To create an instance of [[ref:libraries/base/reference/array_chart|ARRAY]] , use the creation instruction 
 <code>
             create my_array.make (1, u)
 </code>
 
-where the arguments indicate the lower and upper bounds. These bounds will then be accessible as <code>my_array</code> <code>.</code>lower and <code>my_array</code> <code>.</code><eiffel>upper</eiffel>. The number of items is <code>my_array</code> <code>.</code><eiffel>count</eiffel>; feature <eiffel>capacity</eiffel> is a synonym for <eiffel>count</eiffel>. The class invariant expresses the relation between <eiffel>count</eiffel>, <eiffel>lower</eiffel> and <eiffel>upper</eiffel>. <br/>
+where the arguments indicate the lower and upper bounds. These bounds will then be accessible as <code>my_array</code> <code>.</code>lower and <code>my_array</code> <code>.</code><eiffel>upper</eiffel>. The number of items is <code>my_array</code> <code>.</code><eiffel>count</eiffel>; feature <eiffel>capacity</eiffel> is a synonym for <eiffel>count</eiffel>. The class invariant expresses the relation between <eiffel>count</eiffel>, <eiffel>lower</eiffel> and <eiffel>upper</eiffel>.
+
 To access and change the item at index ''i'' in array a, you may use features <eiffel>item</eiffel> and <eiffel>put</eiffel>, as in 
 <code>
             x := my_array.item (i)
             my_array.put (new_value, i)
 </code>
 
-Function item has an infix synonym, <code>infix</code> <code>"</code>@ <code>"</code>, so that you may also write the first assignment above more concisely as 
+Function item has a bracket alias, so that you may also write the first assignment above more concisely as 
 <code>
-            x := my_array @ i
+            x := my_array [i]
 </code>
-<br/>
-Features <eiffel>item</eiffel>, <code>infix</code> <code>"</code>@ <code>" </code>and <eiffel>put</eiffel> have preconditions requiring the index ( <code>i</code>in the above calls) to be within the bounds of the array. This means that you can detect bounds violations (which correspond to bugs in the client software) by using a version of class [[ref:libraries/base/reference/array_chart|ARRAY]]  compiled with precondition checking on. The bounds of an array may be changed dynamically through procedure <eiffel>resize</eiffel>. Previously entered elements are retained. Rather than an explicit resize, you may use calls to procedure <eiffel>force</eiffel> which has the same signature as put but no precondition; if the index is not within the current bounds force will perform a resize as necessary. 
+
+Features <eiffel>item</eiffel> and <eiffel>put</eiffel> have preconditions requiring the index ( <code>i</code>in the above calls) to be within the bounds of the array. This means that you can detect bounds violations (which correspond to bugs in the client software) by using a version of class [[ref:libraries/base/reference/array_chart|ARRAY]]  compiled with precondition checking on. The bounds of an array may be changed dynamically through procedure <eiffel>resize</eiffel>. Previously entered elements are retained. Rather than an explicit resize, you may use calls to procedure <eiffel>force</eiffel> which has the same signature as put but no precondition; if the index is not within the current bounds force will perform a resize as necessary. 
 ==Optimizing array computations==
 
 ''' CAUTION''': Although [[ref:libraries/base/reference/array_chart|ARRAY]]  benefits from an efficient implementation, its more advanced facilities such as resizing do not come for free. For extensive computations on large arrays, an optimization may be desirable, bypassing these facilities. The technique yields loops that run at about the same speed as the corresponding loops written in C or Fortran (the usual references for array computations). It is of interest for advanced uses only, so that you may safely skip this section on first reading unless your domain of application is numerical computation or some other area requiring high-performance array manipulations. 
@@ -154,7 +166,6 @@ The optimization relies on the class SPECIAL, used internally by [[ref:libraries
 you may use <eiffel>direct_access</eiffel> in lieu of 'my_array' within a critical loop, provided none of the operations may resize the array. Typically, the operations should only include put and item. In such a case you can use the following scheme: 
 <code>
             direct_access:= my_array.area
-
                 -- The critical loop:
             from
                 some_initialization
@@ -163,8 +174,6 @@ you may use <eiffel>direct_access</eiffel> in lieu of 'my_array' within a critic
                 index = some_final_index
             loop
                 ...
-
-
                 x := direct_access.item (index)
                 ...
                 direct_access.put (some_value, index)
@@ -172,13 +181,16 @@ you may use <eiffel>direct_access</eiffel> in lieu of 'my_array' within a critic
             end
 </code>
 
-This replaces an original loop where the operations were on <code>my_array</code>. Feature <eiffel>area</eiffel> of [[ref:libraries/base/reference/array_chart|ARRAY]]  gives direct access to the special object, an instance of SPECIAL, containing the array values. Features <eiffel>put</eiffel> and <eiffel>item</eiffel> are available in SPECIAL as in [[ref:libraries/base/reference/array_chart|ARRAY]] , but without the preconditions; in other words, you will not get any bounds checking. Instances of SPECIAL are always indexed from zero, in contrast with arrays, whose lower bound is arbitrary, 1 being the most common value. But rather than performing index translations (that is to say, subtracting <code>my_array</code> <code>.</code><eiffel>lower</eiffel> from index throughout the loop) it is preferable to use the following simple technique: if the lower bound 'lb' of <code>my_array</code> is 1 or another small integer, use 0 as lower bound instead when creating <code>my_array</code>, but only use the positions starting at 'lb'. You will waste a few memory positions (0 to lb-1), but will not have to change anything in your algorithm and will avoid costly subtractions. <br/>
+This replaces an original loop where the operations were on <code>my_array</code>. Feature <eiffel>area</eiffel> of [[ref:libraries/base/reference/array_chart|ARRAY]]  gives direct access to the special object, an instance of SPECIAL, containing the array values. Features <eiffel>put</eiffel> and <eiffel>item</eiffel> are available in SPECIAL as in [[ref:libraries/base/reference/array_chart|ARRAY]] , but without the preconditions; in other words, you will not get any bounds checking. Instances of SPECIAL are always indexed from zero, in contrast with arrays, whose lower bound is arbitrary, 1 being the most common value. But rather than performing index translations (that is to say, subtracting <code>my_array</code> <code>.</code><eiffel>lower</eiffel> from index throughout the loop) it is preferable to use the following simple technique: if the lower bound 'lb' of <code>my_array</code> is 1 or another small integer, use 0 as lower bound instead when creating <code>my_array</code>, but only use the positions starting at 'lb'. You will waste a few memory positions (0 to lb-1), but will not have to change anything in your algorithm and will avoid costly subtractions.
+
 It is important to note that this optimization, if at all necessary, should at most affect a few loops in a large system. You should always begin by writing your software using the normal [[ref:libraries/base/reference/array_chart|ARRAY]]  facilities; then once you have the certainty that the software is correct, if you detect that a large array computation is hampering the efficiency of the system, you may apply the above technique to get the fastest performance out of that computation. The change to the software will be minimal - a few lines - and will be easy to undo if necessary. 
 
 ==Tuples==
 
-A new Kernel Library class is introduced: [[ref:libraries/base/reference/tuple_chart|TUPLE]] . <br/>
-Alone among all classes, class TUPLE has a variable number of generic parameters. <code>TUPLE, TUPLE [X], TUPLE [X, Y], TUPLE [X, Y, Z]</code> and so on are all valid types, assuming valid types <code>X, Y, Z</code> and so on. <br/>
+A new Kernel Library class is introduced: [[ref:libraries/base/reference/tuple_chart|TUPLE]] .
+
+Alone among all classes, class TUPLE has a variable number of generic parameters. <code>TUPLE, TUPLE [X], TUPLE [X, Y], TUPLE [X, Y, Z]</code> and so on are all valid types, assuming valid types <code>X, Y, Z</code> and so on.
+
 Conformance rules: 
 <code>[CONF1]
 	For n >= 0
@@ -295,7 +307,8 @@ A few classes of the Kernel Library support file manipulation, input and output:
 
 ==General files==
 
-FILE describes the notion of sequential file viewed as a data structure which fits in the general taxonomy of EiffelBase. <br/>
+FILE describes the notion of sequential file viewed as a data structure which fits in the general taxonomy of EiffelBase.
+
 The class declaration defines files as unbounded sequences of characters. This means that you will find in FILE all the operations on sequential data structures that you have come to know and love by reading this documentation - at least, all that apply. Just as stacks and linked lists, files have <eiffel>put</eiffel>, <eiffel>extend</eiffel>, <eiffel>has</eiffel>, <eiffel>item</eiffel> and so on. More specific to files are the typed input and output operations. For output, you will find <eiffel>put_character</eiffel>, <eiffel>put_integer</eiffel>, <eiffel>put_real</eiffel>, <eiffel>put_double</eiffel> and <eiffel>put_string</eiffel>, as well as <eiffel>new_line</eiffel>. For input you will find <eiffel>read_integer</eiffel> and its co-conspirators. 
 
 {{caution|Note the application to input features of the command-query separation principle. <br/>
@@ -310,8 +323,10 @@ Queries are available to determine the status of a file, in particular <eiffel>e
 <br/>
 <code>if  my_file.exists and then my_file.is_readable then</code>... }}
 
-FILE is a deferred class. Various implementations are possible. A quite detailed one is PLAIN_TEXT_FILE, which adds many features for accessing reading and writing data from/to a file. <br/>
-[[ref:libraries/base/reference/unix_file_info_chart|UNIX_FILE_INFO]]  describes objects that contain internal information, such as protection mode and size, about a file. <br/>
+FILE is a deferred class. Various implementations are possible. A quite detailed one is PLAIN_TEXT_FILE, which adds many features for accessing reading and writing data from/to a file.
+
+[[ref:libraries/base/reference/unix_file_info_chart|UNIX_FILE_INFO]]  describes objects that contain internal information, such as protection mode and size, about a file.
+
 The class [[ref:libraries/base/reference/directory_chart|DIRECTORY]]  describes those files which are directories - nodes in the tree describing the file structure. 
 
 ==Basic input and output==
@@ -319,44 +334,49 @@ The class [[ref:libraries/base/reference/directory_chart|DIRECTORY]]  describes 
 Regardless of the operating system that you use, for simple input and output [[ref:libraries/base/reference/std_files_chart|STD_FILES]]  is sufficient. You may inherit from that class to gain direct access to its features; or you may declare an entity of type [[ref:libraries/base/reference/std_files_chart|STD_FILES]] . But remember that a feature of this type is always available: io, from class [[ref:libraries/base/reference/any_chart|ANY]] . Thanks to this feature you may include simple input and output in any class, with instructions such as
 <code>io.put_string ("My message")</code>
 
-[[ref:libraries/base/reference/std_files_chart|STD_FILES]]  defines three default files through features <eiffel>input</eiffel>, <eiffel>output</eiffel> and <eiffel>error</eiffel>. These features are Once functions, so that the first reference to any one of them will automatically create the corresponding file descriptor and open the associated file. <br/>
+[[ref:libraries/base/reference/std_files_chart|STD_FILES]]  defines three default files through features <eiffel>input</eiffel>, <eiffel>output</eiffel> and <eiffel>error</eiffel>. These features are Once functions, so that the first reference to any one of them will automatically create the corresponding file descriptor and open the associated file.
+
 To simplify the writing of common input and output operations, the most frequently used features of class FILE - for reading and writing integers, reals and so on, as discussed next - have been repeated in [[ref:libraries/base/reference/std_files_chart|STD_FILES]]  so as to apply to the default input and output. Procedure put_string in the example at the beginning of this section is typical: it writes its output on the standard output. More generally, [[ref:libraries/base/reference/std_files_chart|STD_FILES]]  has all the <eiffel>put_xxx</eiffel>, <eiffel>read_xxx</eiffel> and <eiffel>last_xxx</eiffel> features of FILE. 
 
 =PERSISTENCE, STORAGE, AND RETRIEVAL=
 
-Most object-oriented applications need the ability to store object structures on persistent storage for later retrieval, and to transfer such object structures to other applications. <br/>
+Most object-oriented applications need the ability to store object structures on persistent storage for later retrieval, and to transfer such object structures to other applications.
+
 Class [[ref:libraries/base/reference/storable_chart|STORABLE]]  addresses this need. 
 
 ==Persistence completeness==
 
-A fundamental requirement on object persistence mechanisms is the '' Persistence Completeness'' rule, stated as follows in ''[[Eiffel: The Language]]'': <br/>
-Whenever a routine of class [[ref:libraries/base/reference/storable_chart|STORABLE]]  stores an object into an external file, it stores with it the dependents of that object. Whenever one of the associated retrieval routines retrieves a previously stored object, it also retrieves all its dependents. <br/>
+A fundamental requirement on object persistence mechanisms is the '' Persistence Completeness'' rule, stated as follows in ''[[Eiffel: The Language]]'':
+
+Whenever a routine of class [[ref:libraries/base/reference/storable_chart|STORABLE]]  stores an object into an external file, it stores with it the dependents of that object. Whenever one of the associated retrieval routines retrieves a previously stored object, it also retrieves all its dependents.
+
 Storing an object just by itself would usually result in wrong semantics: most objects contain references to other objects, which must also be stored and retrieved with it. The persistence completeness rule ensures that this is always the case. It also means, of course, that the features of [[ref:libraries/base/reference/storable_chart|STORABLE]]  must do much more than simple input and output; they must perform complete traversals of object structures. 
 
 ==Using the storage and retrieval facilities==
 
-Class [[ref:libraries/base/reference/storable_chart|STORABLE]]  is meant to be used as ancestor. You can use its features in any descendant <eiffel>C</eiffel>; for example a routine of <eiffel>C</eiffel> may contain a call of the form <eiffel>basic_store</eiffel> <code>(</code> <code>my_descriptor</code> <code>)</code>. <br/>
-The effect of this call will be to store the current object and all its dependents into the file denoted by my_descriptor. <br/>
+Class [[ref:libraries/base/reference/storable_chart|STORABLE]]  is meant to be used as ancestor. You can use its features in any descendant <eiffel>C</eiffel>; for example a routine of <eiffel>C</eiffel> may contain a call of the form <eiffel>basic_store</eiffel> <code>(</code> <code>my_descriptor</code> <code>)</code>.
+
+The effect of this call will be to store the current object and all its dependents into the file denoted by my_descriptor.
+
 Although basic_store and other procedures of [[ref:libraries/base/reference/storable_chart|STORABLE]] will in general process objects of many different types, only the generating class of the structure's initial object, <eiffel>C</eiffel> in our example, needs to be a descendant of [[ref:libraries/base/reference/storable_chart|STORABLE]] . 
 
 ==Varieties of store operations==
 
-Two variants of the store operation are supported: basic store and general store. Basic store produces more compact structures in the resulting files, and is slightly faster; but the resulting structure is dependent on the system which executes the store operation ('System' is taken here, as elsewhere in this documentation, in its Eiffel sense of an executable assembly of classes, compiled together with the help of a configuration file.) This means that you can use procedure <eiffel>basic_store</eiffel> to store an object structure during an execution of a system if you will only retrieve it later in that execution, or in a <br/>
-subsequent execution of the same system. If you need to store objects from a certain system and then retrieve them from a different system, possibly running on a different computer, use <eiffel>general_store</eiffel>. The result of <eiffel>general_store</eiffel> is still platform-dependent; the representation of numbers, in particular, is determined by the underlying machine architecture. A third variant called <eiffel>independent_store</eiffel>, uses an entirely platform-independent storage format; <eiffel>independent_store</eiffel> allows a system running on a computer with a certain architecture to retrieve, without any explicit conversion operation, object structures stored by a system running on a machine of a completely different architecture. With <eiffel>general_store</eiffel> the storing and retrieving computers must have compatible architectures. 
+Different variants of the store operation are supported: basic store and independent store. Basic store produces more compact structures in the resulting files, and is slightly faster; but the resulting structure is dependent on the system which executes the store operation ('System' is taken here, as elsewhere in this documentation, in its Eiffel sense of an executable assembly of classes, compiled together with the help of a configuration file.) This means that you can use procedure <eiffel>basic_store</eiffel> to store an object structure during an execution of a system if you will only retrieve it later in that execution, or in a subsequent execution of the same system. Another variant, <eiffel>independent_store</eiffel>, uses an entirely platform-independent storage format. It allows a system running on a computer with a certain architecture to retrieve, without any explicit conversion operation, object structures stored by a system running on a machine of a completely different architecture.
 
 ==Retrieval==
 
-You only need to be aware of the difference between basic and general store at storage time. The stored structure will always be available through feature retrieved; this feature will figure out, from the format of the stored structure, whether it was stored by <eiffel>basic_store</eiffel>, <eiffel>general_store</eiffel>, or <eiffel>independent_store</eiffel> and will decode it accordingly. <br/>
+You only need to be aware of the difference between basic and general store at storage time. The stored structure will always be available through feature retrieved; this feature will figure out, from the format of the stored structure, whether it was stored by <eiffel>basic_store</eiffel>, or <eiffel>independent_store</eiffel> and will decode it accordingly.
+
 Feature <eiffel>retrieved</eiffel> returns a result of type [[ref:libraries/base/reference/any_chart|ANY]]  and is typically used through an object test of the form 
 <code>
-            if attached {SOME_EXPECTED_TYPE} retrieved (my_descriptor) as l_temp then 
---              Retrieved result is of expected type
---              Proceed with processing of result, typically with calls of the form `l_temp.some_feature'
-            else
---              Result was not of expected type
-            end
+if attached {MY_TYPE} retrieved (my_descriptor) as data then 
+    -- Retrieved result is of expected type.
+    -- Proceed with processing of result, typically with calls of the form `data.some_feature'.
+else
+    -- Result was not of expected type MY_TYPE.
+end
 </code>
-<br/>
 
 The object test is necessary because <eiffel>retrieved</eiffel> returns a result of type [[ref:libraries/base/reference/any_chart|ANY]]  whereas the type of <code>x</code> will be based on a proper descendant of [[ref:libraries/base/reference/any_chart|ANY]] . If the structure in the file has been corrupted and <eiffel>retrieved</eiffel> is unable to do its job, it will trigger an exception. The code for that exception in class [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]]  (which inherits it from EXCEP_CONST and is discussed in the next section, together with the notion of exception code) is <eiffel>Retrieve_exception</eiffel>. 
 
@@ -373,28 +393,28 @@ The storable mechanism allows you to retrieve the old version of the object only
 correct_mismatch
             -- Attempt to correct object mismatch during retrieve using `mismatch_information'.
     do
-            -- In version 5.1 and earlier, `content', `keys' and `deleted_marks'
-            -- were of base class ARRAY. In 5.2 we changed it to be a SPECIAL for
-            -- efficiency reasons. In order to retrieve an old HASH_TABLE we
-            -- need to convert those ARRAY instances into SPECIAL instances.
+                -- In version 5.1 and earlier, `content', `keys' and `deleted_marks'
+                -- were of base class ARRAY. In 5.2 we changed it to be a SPECIAL for
+                -- efficiency reasons. In order to retrieve an old HASH_TABLE we
+                -- need to convert those ARRAY instances into SPECIAL instances.
 
-                -- Convert `content' from ARRAY to SPECIAL
+                -- Convert `content' from ARRAY to SPECIAL.
             if attached {ARRAY [G]} mismatch_information.item ("content") as l_temp then
                 content := l_temp.area
             end
 
-                -- Convert `keys' from ARRAY to SPECIAL
+                -- Convert `keys' from ARRAY to SPECIAL.
             if attached {ARRAY [H]} mismatch_information.item ("keys") as l_temp then
                 keys := l_temp.area
             end
 
-                -- Convert `deleted_marks' from ARRAY to SPECIAL
+                -- Convert `deleted_marks' from ARRAY to SPECIAL.
             if attached {ARRAY [BOOLEAN]} mismatch_information.item ("deleted_marks") as l_temp then
                 deleted_marks := l_temp.area
             end
 
             if content = Void or keys = Void or deleted_marks = Void then
-                -- Could not retrieve old version of HASH_TABLE. We throw an exception.
+                    -- Could not retrieve old version of HASH_TABLE. We throw an exception.
                 Precursor {TABLE}
             end
     end
@@ -410,15 +430,19 @@ In some applications, you may need to fine-tune the exception handling and memor
 
 ==Exception handling==
 
-Class [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]]  enables you to control the handling of exceptions. [[ref:libraries/base/reference/unix_signals_chart|UNIX_SIGNALS]] , discussed next, complements it for the special case of fine-grain signal handling on Unix or Unix-like platforms. Both are meant to be inherited by any class that needs their facilities. <br/>
-The basic exception mechanism treats all exceptions in the same way. In some cases, it may be useful to discriminate in a Rescue clause between the various possible causes. <br/>
+Class [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]]  enables you to control the handling of exceptions. [[ref:libraries/base/reference/unix_signals_chart|UNIX_SIGNALS]] , discussed next, complements it for the special case of fine-grain signal handling on Unix or Unix-like platforms. Both are meant to be inherited by any class that needs their facilities.
+
+The basic exception mechanism treats all exceptions in the same way. In some cases, it may be useful to discriminate in a Rescue clause between the various possible causes.
+
 Class [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]]  provides the features to do this. Each kind of exception has an integer code, which you can use through several features: 
 * The integer-valued query exception which gives the code of the latest exception.
 * Queries which determine the general nature of the latest exception: <eiffel>is_signal</eiffel> which determines whether the exception was an operating system signal; <eiffel>is_developer_exception</eiffel> which determines whether it was explicitly caused by a raise, as explained next; <eiffel>assertion_violation</eiffel>.
 * Query<eiffel> recipient_name</eiffel> which gives the name of the exception's recipient - the routine that was interrupted by the exception.
 
-The class also provides a set of constant integer-valued attributes which denote the various possible codes, such as <eiffel>No_more_memory</eiffel>, <eiffel>Routine_ failure</eiffel> and <eiffel>Precondition_violation</eiffel>. So you can test the value of exception against these codes if you need to ascertain the precise nature of an exception. To keep [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]]  simple these constant attributes are declared in a class EXCEP_CONST, of which [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]]  is an heir. <br/>
-Another occasional requirement is for a mechanism to trigger an exception explicitly. Procedure raise answers this needs; the argument, a string, is the tag chosen for the exception. The code in this case is <eiffel>Developer_exception</eiffel>; the query <eiffel>is_developer_exception</eiffel> will return true; and the tag is accessible through feature <eiffel>tag_name</eiffel>. <br/>
+The class also provides a set of constant integer-valued attributes which denote the various possible codes, such as <eiffel>No_more_memory</eiffel>, <eiffel>Routine_ failure</eiffel> and <eiffel>Precondition_violation</eiffel>. So you can test the value of exception against these codes if you need to ascertain the precise nature of an exception. To keep [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]]  simple these constant attributes are declared in a class EXCEP_CONST, of which [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]]  is an heir.
+
+Another occasional requirement is for a mechanism to trigger an exception explicitly. Procedure raise answers this needs; the argument, a string, is the tag chosen for the exception. The code in this case is <eiffel>Developer_exception</eiffel>; the query <eiffel>is_developer_exception</eiffel> will return true; and the tag is accessible through feature <eiffel>tag_name</eiffel>.
+
 You will notice in the interface specification for [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]]  that for some properties of the latest exception there are two features, one with a name such as exception or recipient_name as seen above and the other with a name prefixed by original_: <eiffel>original_exception</eiffel>, <eiffel>original_recipient_name</eiffel>. 
 
 {{caution|The reason for the presence of these pairs is that the immediately visible cause of a routine interruption may not be the real one. Assume that routine <eiffel>r</eiffel> from class <eiffel>C</eiffel>, which has a Rescue clause, calls <eiffel>s</eiffel> from <eiffel>D</eiffel> with no Rescue clause, and that some call executed by <eiffel>s</eiffel> causes a precondition violation. Because <eiffel>s</eiffel> has no Rescue clause of its own, <eiffel>s</eiffel> will fail. Up the call chain, the first routine that has a Rescue clause - <eiffel>r</eiffel> itself, or one of its own direct or indirect callers - may process the exception; but if it examines the exception code through attribute exception it will get the value of <eiffel>Routine_failure</eiffel>. This may be what you want; but to handle the situation in a finer way you will usually need to examine the code for the original exception, the one that interrupted <eiffel>s</eiffel>. This code will be accessible through the attribute original_exception, which in this case will have the value of <eiffel>Precondition</eiffel>, the exception code for precondition violations. So you have the choice between exploring the properties of the original exception, or those of the resulting routine failures. Just make sure you know what you are looking for. }}
@@ -427,20 +451,26 @@ As you will see from the header comments in the flat-short form of class [[ref:l
 
 ==Signal handling==
 
-The features of class [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]]  enable you to determine whether a certain exception is a signal - an operating system event such as may result from a child process that disappears, a window that is resized, a user that hits the Break key and many others. But they do not give you more details because the exact set of possible signals is highly platform-dependent. <br/>
-Class [[ref:libraries/base/reference/unix_signals_chart|UNIX_SIGNALS]]  complements EXCEP_CONST by providing codes for the signals of Unix and similar systems, such as Sigkill for the 'kill' signal and Sigbus for bus error. <br/>
-Query <eiffel>is_defined </eiffel> <code>(some_signal)</code>, where <code>some_signal</code> is an integer code, will determine whether some_signal is supported on the platform. <br/>
-A class whose routines need to perform specific processing depending on the nature of signals received should inherit from [[ref:libraries/base/reference/unix_signals_chart|UNIX_SIGNALS]] , or a similar class for another platform. <br/>
+The features of class [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]]  enable you to determine whether a certain exception is a signal - an operating system event such as may result from a child process that disappears, a window that is resized, a user that hits the Break key and many others. But they do not give you more details because the exact set of possible signals is highly platform-dependent.
+
+Class [[ref:libraries/base/reference/unix_signals_chart|UNIX_SIGNALS]]  complements EXCEP_CONST by providing codes for the signals of Unix and similar systems, such as Sigkill for the 'kill' signal and Sigbus for bus error.
+
+Query <eiffel>is_defined </eiffel> <code>(some_signal)</code>, where <code>some_signal</code> is an integer code, will determine whether some_signal is supported on the platform.
+
+A class whose routines need to perform specific processing depending on the nature of signals received should inherit from [[ref:libraries/base/reference/unix_signals_chart|UNIX_SIGNALS]] , or a similar class for another platform.
+
 Because signal codes are platform-dependent, the features of [[ref:libraries/base/reference/unix_signals_chart|UNIX_SIGNALS]]  are implemented as once functions - computed on the first call - rather than constants, although this makes no difference to clients. 
 
 ==Memory management==
 
-Class [[ref:libraries/base/reference/memory_chart|MEMORY]] , like [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]] , is meant to be used as an ancestor by classes that need its facilities. It offers a number of features for controlling memory management and fine-tuning the garbage collection mechanism, a key component of the Eiffel Software environment. <br/>
+Class [[ref:libraries/base/reference/memory_chart|MEMORY]] , like [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]] , is meant to be used as an ancestor by classes that need its facilities. It offers a number of features for controlling memory management and fine-tuning the garbage collection mechanism, a key component of the Eiffel Software environment.
+
 One of the most useful features in this class is <e>dispose</e>. This procedure describes actions to be applied to an unreachable object just before the garbage collector reclaims it. By default, as declared in [[ref:libraries/base/reference/memory_chart|MEMORY]] , the procedure does nothing; but you may redefine it in a proper descendant of [[ref:libraries/base/reference/memory_chart|MEMORY]]  to describe dispose actions. Normally such actions will involve freeing external resources: for example a class describing file descriptors may redefine <e>dispose</e> so that whenever a descriptor object is garbage-collected the corresponding file will be closed. 
 
 {{caution|This example is typical of proper uses of <e>dispose</e>. In a dispose <e>procedure</e>, you should not include any instruction that could modify the Eiffel object structure, especially if some objects in that structure may themselves have become unreachable: these instructions could conflict with the garbage collector's operations and cause catastrophic behavior. The legitimate use of <e>dispose</e> redefinition is for disposing of non-Eiffel resources. }}
 
-Other features of [[ref:libraries/base/reference/memory_chart|MEMORY]]  provide direct control over the operation of the garbage collector. You can in particular stop garbage collection through a call to <eiffel>collection_off</eiffel>, and restart it through a call to <eiffel>collection_on</eiffel>. By default, garbage collection is always on (a testimony to its authors' trust in its efficiency). Garbage collection is normally incremental, so as not to disrupt the application in a perceptible way. To start a complete garbage collection mechanism - reclaiming all unused objects - call procedure <eiffel>full_collect</eiffel>. The remaining features of [[ref:libraries/base/reference/memory_chart|MEMORY]]  enable finer control of the collection mechanism and are useful in special cases only. You will even find a free procedure providing brave (and competent) developers with a mechanism for reclaiming individual objects manually. <br/>
+Other features of [[ref:libraries/base/reference/memory_chart|MEMORY]]  provide direct control over the operation of the garbage collector. You can in particular stop garbage collection through a call to <eiffel>collection_off</eiffel>, and restart it through a call to <eiffel>collection_on</eiffel>. By default, garbage collection is always on (a testimony to its authors' trust in its efficiency). Garbage collection is normally incremental, so as not to disrupt the application in a perceptible way. To start a complete garbage collection mechanism - reclaiming all unused objects - call procedure <eiffel>full_collect</eiffel>. The remaining features of [[ref:libraries/base/reference/memory_chart|MEMORY]]  enable finer control of the collection mechanism and are useful in special cases only. You will even find a free procedure providing brave (and competent) developers with a mechanism for reclaiming individual objects manually.
+
 MEM_INFO, the result type for query <eiffel>memory_statistics</eiffel> in [[ref:libraries/base/reference/memory_chart|MEMORY]] , describes objects containing information collected about memory usage. The features of [[ref:libraries/base/reference/gc_info_chart|GC_INFO]]  provide statistics about the garbage collector's operation. 
 
 ==Command-line arguments==
@@ -448,10 +478,10 @@ MEM_INFO, the result type for query <eiffel>memory_statistics</eiffel> in [[ref:
 Writing, assembling and compiling a system yields an executable command. The system's users will call that command with arguments. These are normally provided in textual form on the command line, as in
 <code>your_system arg1 arg2 arg3</code>
 
-although one may conceive of other ways of entering the command arguments, such as tabular or graphical form-filling. In any case, the software must be able to access the values passed as command arguments. <br/>
-A language mechanism is available for that purpose: the Root Class rule indicates that the creation procedure of the root class may have a single argument (in the Eiffel sense of argument to a routine) of type <code>ARRAY [STRING]</code>. The corresponding array of strings will be initialized at the beginning of the system's execution with the values entered as arguments to that execution of the command. <br/>
+although one may conceive of other ways of entering the command arguments, such as tabular or graphical form-filling. In any case, the software must be able to access the values passed as command arguments.
+
+A language mechanism is available for that purpose: the Root Class rule indicates that the creation procedure of the root class may have a single argument (in the Eiffel sense of argument to a routine) of type <code>ARRAY [STRING]</code>. The corresponding array of strings will be initialized at the beginning of the system's execution with the values entered as arguments to that execution of the command.
+
 Although this facility suffices in many cases, it is not always convenient if you suddenly need to access the command arguments in a class that is far away from the root. An alternative mechanism, class ARGUMENTS, is available. Once again, this is a class from which you should inherit if you need its facilities. It has just two exported features: 
 * <eiffel>argument_count</eiffel>, a non-negative integer, is the number of command arguments. 
 * <eiffel>argument</eiffel> <code>(</code>i<code>)</code>, a string, is the i-th command argument. Here <code>i</code> must be between 0 and <eiffel>argument_count</eiffel>; the convention is that for <code>i </code> <code>= 0</code> the result is the name of the command itself. 
-
-
