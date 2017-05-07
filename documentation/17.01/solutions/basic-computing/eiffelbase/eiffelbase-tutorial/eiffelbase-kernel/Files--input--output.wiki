@@ -1,5 +1,5 @@
 [[Property:uuid|37099E33-657D-44CF-923C-1F10BE09AAFB]]
-[[Property:weight|0]]
+[[Property:weight|2]]
 [[Property:title|Files, input, output]]
 A few classes of the Kernel Library support file manipulation, input and output: [[ref:libraries/base/reference/std_files_chart|STD_FILES]] , FILE, [[ref:libraries/base/reference/directory_chart|DIRECTORY]]  and [[ref:libraries/base/reference/unix_file_info_chart|UNIX_FILE_INFO]] . For simple applications it suffices to use [[ref:libraries/base/reference/std_files_chart|STD_FILES]] , but to understand the concepts better it is preferable to look first at the other two.
 
