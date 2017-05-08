@@ -1,6 +1,6 @@
 [[Property:uuid|419E822A-646B-4817-810C-B30F973A2D70]]
 [[Property:weight|0]]
-[[Property:title|Universal Class and its Features]]
+[[Property:title|Universal class and its features]]
 The Eiffel inheritance mechanism is set up in such a way that every class is a descendant of a Kernel Library class called [[ref:libraries/base/reference/any_chart|ANY]] . The features of this class provide a number of generally applicable facilities covering such needs as comparison, copying and rudimentary input and output.
 
 ==The structure of universal classes==
