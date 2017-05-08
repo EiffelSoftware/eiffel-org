@@ -75,7 +75,8 @@ If the structure in the file has been corrupted and <eiffel>retrieved</eiffel> i
 
 ==With SED storable==
 
-The example below will show you how to store an object using the SED storable mechanism assuming the current class is a descendant of [[ref:libraries/base/reference/sed_storable_facilities_chart|SED_STORABLE_FACILITIES]]. It uses <eiffel>store</eiffel> feature from the  but you could also use <eiffel>session_store</eiffel> or <eiffel>basic_store</eiffel> too.
+The example below will show you how to store an object using the SED storable mechanism assuming the current class is a descendant of [[ref:libraries/base/reference/sed_storable_facilities_chart|SED_STORABLE_FACILITIES]]. It uses the 
+ <eiffel>store</eiffel> feature but you could also use <eiffel>session_store</eiffel> or <eiffel>basic_store</eiffel> too.
 
 <code>
 store_object (o: ANY; p: PATH)
