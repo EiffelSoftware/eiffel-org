@@ -15,7 +15,7 @@ Storing an object just by itself would usually result in wrong semantics: most o
 
 =Varieties of store operations=
 
-Different variants of the store operation are supported: '''session''', '''basic''' and '''independent''' store
+Different variants of the store operation are available: '''session''', '''basic''' and '''independent''' store
 
 * '''Session''' store produces the most compact structure in the resulting files; but the resulting structure is dependent on the current execution of the system which executes the store operation (''System'' is taken here, as elsewhere in this documentation, in its Eiffel sense of an executable assembly of classes, compiled together with the help of a configuration file.)
 
