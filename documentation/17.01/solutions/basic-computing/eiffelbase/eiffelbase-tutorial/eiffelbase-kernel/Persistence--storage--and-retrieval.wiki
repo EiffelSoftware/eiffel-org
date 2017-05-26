@@ -1,7 +1,7 @@
 [[Property:uuid|EA781CE6-3452-4EEF-BF05-47D94FC88A3D]]
 [[Property:weight|3]]
 [[Property:title|Persistence, storage, and retrieval]]
-Most object-oriented applications need the ability to store object structures on persistent storage for later retrieval, and to transfer such object structures to other applications.
+Most object-oriented applications need the ability to store object structures on persistent storage for later retrieval, and to transfer such object structures to other applications. Eiffel offers a full persistence mechanisms serving these needs.
 
 =Persistence completeness=
 
