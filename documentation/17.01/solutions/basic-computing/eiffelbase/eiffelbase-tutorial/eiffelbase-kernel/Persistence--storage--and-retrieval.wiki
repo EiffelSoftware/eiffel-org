@@ -7,9 +7,11 @@ Most object-oriented applications need the ability to store object structures on
 
 A fundamental requirement on object persistence mechanisms is the ''Persistence Completeness'' rule, stated as follows in ''[[Eiffel: The Language]]'':
 
-Whenever an object is stored into an external file, the stored content contains all the dependents of that object. Conversely, retrieving a previously stored object also retrieves all its dependents.
-
+<blockquote>Whenever an object is stored into an external file, the stored content contains all the dependents of that object. Conversely, retrieving a previously stored object also retrieves all its dependents.
+</blockquote>
+<blockquote>
 Storing an object just by itself would usually result in wrong semantics: most objects contain references to other objects, which must also be stored and retrieved with it. The persistence completeness rule ensures that this is always the case. It also means, of course, that features used for storing and retrieving objects must do much more than simple input and output; they must perform complete traversals of object structures. 
+</blockquote>
 
 =Varieties of store operations=
 
