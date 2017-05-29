@@ -3,7 +3,7 @@
 [[Property:title|Persistence, storage, and retrieval]]
 Most object-oriented applications need the ability to store object structures on persistent storage for later retrieval, and to transfer such object structures to other applications.
 
-==Persistence completeness==
+=Persistence completeness=
 
 A fundamental requirement on object persistence mechanisms is the ''Persistence Completeness'' rule, stated as follows in ''[[Eiffel: The Language]]'':
 
@@ -11,7 +11,7 @@ Whenever an object is stored into an external file, the stored content contains 
 
 Storing an object just by itself would usually result in wrong semantics: most objects contain references to other objects, which must also be stored and retrieved with it. The persistence completeness rule ensures that this is always the case. It also means, of course, that features used for storing and retrieving objects must do much more than simple input and output; they must perform complete traversals of object structures. 
 
-==Varieties of store operations==
+=Varieties of store operations=
 
 Different variants of the store operation are supported: '''session''', '''basic''' and '''independent''' store
 
@@ -21,49 +21,103 @@ Different variants of the store operation are supported: '''session''', '''basic
 
 * On the other hand, '''independent''' store allows a system running on a computer with a certain architecture to retrieve, without any explicit conversion operation, object structures stored by a system running on a machine of a completely different architecture. In addition, independent store lets you retrieve an old version of the object that was saved (see more details in the recoverable section below.)
 
-==Using the storage and retrieval facilities==
+=Using the storage and retrieval facilities=
 
 Historically, the persistence mechanism was offered via the helper class [[ref:libraries/base/reference/storable_chart|STORABLE]] which you could use as an ancestor whenever you wanted to store and retrieve objects. Via this class you would have access to <eiffel>basic_store</eiffel> and <eiffel>independent_store</eiffel> to store an object, and <eiffel>retrieved</eiffel> to retrieve one. However this was not necessary and the persistence mechanism could be used directly from any descendants of the [[ref:libraries/base/reference/io_medium_chart|IO_MEDIUM]] using routines with the same names. This manner of storing and retrieving objects is called the '''C''' persistence mechanism since it was completely written in C and is included as part of the Eiffel runtime.
 
-Today, we recommend you to use the '''SED''' persistence mechanism, entirely written in Eiffel. It is very flexible as it lets you control the format of storables but most users will use its helper class [[ref:libraries/base/reference/sed_storable_facilities_chart|SED_STORABLE_FACILITIES]]. This class offers <eiffel>session_store</eiffel>, <eiffel>basic_store</eiffel>, and <eiffel>store</eiffel> (the de-facto independent store), as well as <eiffel>retrieved</eiffel>.
+Today, we recommend using the '''SED''' ('''SE'''rialization '''D'''eserialization) persistence mechanism, entirely written in Eiffel. It is very flexible as it lets you control the format of storables but most users will use its helper class [[ref:libraries/base/reference/sed_storable_facilities_chart|SED_STORABLE_FACILITIES]]. This class offers <eiffel>session_store</eiffel>, <eiffel>basic_store</eiffel>, and <eiffel>store</eiffel> (the de-facto independent store), as well as <eiffel>retrieved</eiffel>.
 
-==Retrieval==
+In both cases, you only need to be aware of the difference between the various storing mechanism (session, basic and independent) at storage time. The stored structure will always be available through feature retrieved; this feature will figure out, from the format of the stored structure how it was stored and will decode it accordingly.
 
-You only need to be aware of the difference between the various storing mechanism (session, basic and independent) at storage time. The stored structure will always be available through feature retrieved; this feature will figure out, from the format of the stored structure how it was stored and will decode it accordingly.
-
-{{Caution|The above is only true when using just the '''C''' storable or the '''SED''' storable. If it was stored using the '''C''' storable, you need to use the '''C''' retrieved feature. Conversely, if it was stored using '''SED''', you need to use the '''SED''' retrieval mechanism.}}
+{{Caution|This is only true when using just the '''C''' storable or the '''SED''' storable. If it was stored using the '''C''' storable, you need to use the '''C''' retrieved feature. Conversely, if it was stored using '''SED''', you need to use the '''SED''' retrieval mechanism.}}
 
 Regardless of the mechanism used, the feature <eiffel>retrieved</eiffel> returns a result of type [[ref:libraries/base/reference/any_chart|detachable ANY]] and is typically used through an object test.
 
-When using the '''C''' storable mechanis, your code would look like:
+==C storable==
+
+The example below will show you how to store an object using the C storable mechanism. It uses <eiffel>independent_store</eiffel> but you could also use in-place <eiffel>basic_store</eiffel> instead:
+
 <code>
-if attached {MY_TYPE} io_medium.retrieved as data then 
-    -- Retrieved result is of expected type.
-    -- Proceed with processing of result,
-    -- typically with calls of the form `data.some_feature'.
-else
-    -- Result was not of expected type MY_TYPE.
-end
+store_object (o: ANY; p: PATH)
+        -- Store object `o` into file located in `p`.
+    local
+        f: RAW_FILE
+    do
+        create f.make_with_path (p)
+        f.open_write
+        f.independent_store (o)
+        f.close
+    end
 </code>
 
-Or when using SED:
+Then to retrieve the object you would write the following:
+
 <code>
-if attached {MY_TYPE} retrieved (a_reader, false) as data then 
-    -- Retrieved result is of expected type.
-    -- Proceed with processing of result,
-    -- typically with calls of the form `data.some_feature'.
-else
-    -- Result was not of expected type MY_TYPE.
-end
+retrieve (p: PATH)
+        -- Retrieve object stored in file located in `p`.
+    local
+        f: RAW_FILE
+    do
+        create f.make_with_path (p)
+        f.open_read
+        if attached {MY_TYPE} io_medium.retrieved as data then 
+            -- Retrieved result is of expected type.
+            -- Proceed with processing of result,
+            -- typically with calls of the form `data.some_feature'.
+        else
+            -- Result was not of expected type MY_TYPE.
+        end
+        f.close
+    end
 </code>
 
-The object test is necessary because <eiffel>retrieved</eiffel> returns a result of type [[ref:libraries/base/reference/any_chart|detachable ANY]] whereas the code will expect an object of a specific type to continue its execution.
+If the structure in the file has been corrupted and <eiffel>retrieved</eiffel> is unable to do its job, it will trigger an exception (the code for that exception in class [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]] (which inherits it from EXCEP_CONST and is discussed in the next section, together with the notion of exception code) is <eiffel>Retrieve_exception</eiffel>.)
 
-If the structure in the file has been corrupted and <eiffel>retrieved</eiffel> is unable to do its job, it will either:
-* trigger an exception in the case of '''C''' storable (the code for that exception in class [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]] (which inherits it from EXCEP_CONST and is discussed in the next section, together with the notion of exception code) is <eiffel>Retrieve_exception</eiffel>.)
-* not return an object and instead will flag the error(s) in <eiffel>retrieved_errors</eiffel>.
+===With SED storable===
 
-==Recoverable storable==
+The example below will show you how to store an object using the SED storable mechanism assuming the current class is a descendant of [[ref:libraries/base/reference/sed_storable_facilities_chart|SED_STORABLE_FACILITIES]]. It uses <eiffel>store</eiffel> feature from the  but you could also use <eiffel>session_store</eiffel> or <eiffel>basic_store</eiffel> too.
+
+<code>
+store_object (o: ANY; p: PATH)
+        -- Store object `o` into file located in `p`.
+    local
+        f: RAW_FILE
+        writer: SED_MEDIUM_READER_WRITER
+    do
+        create f.make_with_path (p)
+        f.open_write
+        create writer.make_for_writing (l_file)
+        store (o, writer)
+        f.close
+    end
+</code>
+
+Then to retrieve the object you would write the following:
+
+<code>
+retrieve (p: PATH)
+        -- Retrieve object stored in file located in `p`.
+    local
+        f: RAW_FILE
+        reader: SED_MEDIUM_READER_WRITER
+    do
+        create f.make_with_path (p)
+        f.open_read
+	create reader.make_for_reading (f)
+        if attached {MY_TYPE} retrieved (reader, False) as data then 
+            -- Retrieved result is of expected type.
+            -- Proceed with processing of result,
+            -- typically with calls of the form `data.some_feature'.
+        else
+            -- Result was not of expected type MY_TYPE.
+        end
+        f.close
+    end
+</code>
+
+In case of an error during retrieval, no objects will be returned and instead the query <eiffel>retrieved_errors</eiffel> will list all the errors it encountered.
+
+=Recoverable storable=
 
 Sometimes you will be in a position where the schema of a class will have changed between the time you stored your object and the time you are trying to retrieve it. Such changes include:
 * class name changed 
