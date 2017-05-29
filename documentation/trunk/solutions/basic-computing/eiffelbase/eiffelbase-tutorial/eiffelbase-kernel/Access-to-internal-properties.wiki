@@ -1,5 +1,5 @@
 [[Property:uuid|3E1CF220-F2C6-458D-8ED9-92FA7FD4CBAF]]
-[[Property:weight|0]]
+[[Property:weight|4]]
 [[Property:title|Access to internal properties]]
 In some applications, you may need to fine-tune the exception handling and memory management mechanisms. You may also need a simple way to access command-line arguments. In less common cases, you may require low-level access to internal properties of objects.
 
