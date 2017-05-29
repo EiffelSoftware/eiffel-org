@@ -1,23 +1,27 @@
 [[Property:uuid|EA781CE6-3452-4EEF-BF05-47D94FC88A3D]]
 [[Property:weight|3]]
 [[Property:title|Persistence, storage, and retrieval]]
-Most object-oriented applications need the ability to store object structures on persistent storage for later retrieval, and to transfer such object structures to other applications.
+Most object-oriented applications need the ability to store object structures on persistent storage for later retrieval, and to transfer such object structures to other applications. Eiffel offers a full persistence mechanisms serving these needs.
 
 =Persistence completeness=
 
 A fundamental requirement on object persistence mechanisms is the ''Persistence Completeness'' rule, stated as follows in ''[[Eiffel: The Language]]'':
 
-Whenever an object is stored into an external file, the stored content contains all the dependents of that object. Conversely, retrieving a previously stored object also retrieves all its dependents.
-
+<blockquote>Whenever an object is stored into an external file, the stored content contains all the dependents of that object. Conversely, retrieving a previously stored object also retrieves all its dependents.
+</blockquote>
+<blockquote>
 Storing an object just by itself would usually result in wrong semantics: most objects contain references to other objects, which must also be stored and retrieved with it. The persistence completeness rule ensures that this is always the case. It also means, of course, that features used for storing and retrieving objects must do much more than simple input and output; they must perform complete traversals of object structures. 
+</blockquote>
+
+The Eiffel persistence mechanism applies Persistence Completeness.
 
 =Varieties of store operations=
 
-Different variants of the store operation are supported: '''session''', '''basic''' and '''independent''' store
+Different variants of the store operation are available: '''session''', '''basic''' and '''independent''' store
 
 * '''Session''' store produces the most compact structure in the resulting files; but the resulting structure is dependent on the current execution of the system which executes the store operation (''System'' is taken here, as elsewhere in this documentation, in its Eiffel sense of an executable assembly of classes, compiled together with the help of a configuration file.)
 
-* '''Basic''' store is like session store with the difference that the resulting structure is dependent on the system which executes the store operation (i.e. only the system creating the storable can retrieve it.)
+* '''Basic''' store is like session store with the difference that the resulting structure is dependent on the system which executes the store operation (i.e. only the system creating the persistent version can retrieve it.)
 
 * On the other hand, '''independent''' store allows a system running on a computer with a certain architecture to retrieve, without any explicit conversion operation, object structures stored by a system running on a machine of a completely different architecture. In addition, independent store lets you retrieve an old version of the object that was saved (see more details in the recoverable section below.)
 
@@ -25,17 +29,17 @@ Different variants of the store operation are supported: '''session''', '''basic
 
 Historically, the persistence mechanism was offered via the helper class [[ref:libraries/base/reference/storable_chart|STORABLE]] which you could use as an ancestor whenever you wanted to store and retrieve objects. Via this class you would have access to <eiffel>basic_store</eiffel> and <eiffel>independent_store</eiffel> to store an object, and <eiffel>retrieved</eiffel> to retrieve one. However this was not necessary and the persistence mechanism could be used directly from any descendants of the [[ref:libraries/base/reference/io_medium_chart|IO_MEDIUM]] using routines with the same names. This manner of storing and retrieving objects is called the '''C''' persistence mechanism since it was completely written in C and is included as part of the Eiffel runtime.
 
-Today, we recommend using the '''SED''' ('''SE'''rialization '''D'''eserialization) persistence mechanism, entirely written in Eiffel. It is very flexible as it lets you control the format of storables but most users will use its helper class [[ref:libraries/base/reference/sed_storable_facilities_chart|SED_STORABLE_FACILITIES]]. This class offers <eiffel>session_store</eiffel>, <eiffel>basic_store</eiffel>, and <eiffel>store</eiffel> (the de-facto independent store), as well as <eiffel>retrieved</eiffel>.
+Today, we recommend using the '''SED''' ('''SE'''rialization '''D'''eserialization) persistence mechanism, entirely written in Eiffel. It is very flexible, sinceit lets you control the format of the stored structure, but in most cases it suffices to rely on the simple helper class [[ref:libraries/base/reference/sed_storable_facilities_chart|SED_STORABLE_FACILITIES]]. This class offers <eiffel>session_store</eiffel>, <eiffel>basic_store</eiffel>, and <eiffel>store</eiffel> (the de-facto independent store), as well as <eiffel>retrieved</eiffel>.
 
 In both cases, you only need to be aware of the difference between the various storing mechanism (session, basic and independent) at storage time. The stored structure will always be available through feature retrieved; this feature will figure out, from the format of the stored structure how it was stored and will decode it accordingly.
 
-{{Caution|This is only true when using just the '''C''' storable or the '''SED''' storable. If it was stored using the '''C''' storable, you need to use the '''C''' retrieved feature. Conversely, if it was stored using '''SED''', you need to use the '''SED''' retrieval mechanism.}}
+{{Caution|This is only true when using just the '''C''' or '''SED''' persistence format. If the structure was stored using the '''C''' format, you need to use the '''C''' retrieved feature. Conversely, if it was stored using '''SED''', you need to use the '''SED''' retrieval mechanism.}}
 
 Regardless of the mechanism used, the feature <eiffel>retrieved</eiffel> returns a result of type [[ref:libraries/base/reference/any_chart|detachable ANY]] and is typically used through an object test.
 
-==With C storable==
+==With the C persistence format==
 
-The example below will show you how to store an object using the C storable mechanism. It uses <eiffel>independent_store</eiffel> but you could also use in-place <eiffel>basic_store</eiffel> instead:
+The example below will show you how to store an object using the C persistence format. It uses <eiffel>independent_store</eiffel> but you could also use in-place <eiffel>basic_store</eiffel> instead:
 
 <code>
 store_object (o: ANY; p: PATH)
@@ -73,9 +77,9 @@ retrieve (p: PATH)
 
 If the structure in the file has been corrupted and <eiffel>retrieved</eiffel> is unable to do its job, it will trigger an exception (the code for that exception in class [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]] (which inherits it from EXCEP_CONST and is discussed in the next section, together with the notion of exception code) is <eiffel>Retrieve_exception</eiffel>.)
 
-==With SED storable==
+==With the SED persistence format==
 
-The example below will show you how to store an object using the SED storable mechanism assuming the current class is a descendant of [[ref:libraries/base/reference/sed_storable_facilities_chart|SED_STORABLE_FACILITIES]]. It uses the <eiffel>store</eiffel> feature but you could also use <eiffel>session_store</eiffel> or <eiffel>basic_store</eiffel> too.
+The example below will show you how to store an object using the SED mechanism assuming the current class is a descendant of [[ref:libraries/base/reference/sed_storable_facilities_chart|SED_STORABLE_FACILITIES]]. It uses the <eiffel>store</eiffel> feature but you could also use <eiffel>session_store</eiffel> or <eiffel>basic_store</eiffel> too.
 
 <code>
 store_object (o: ANY; p: PATH)
@@ -117,15 +121,22 @@ retrieve (p: PATH)
 
 In case of an error during retrieval, no objects will be returned and instead the query <eiffel>retrieved_errors</eiffel> will list all the errors it encountered.
 
-=Recoverable storable=
+=Recoverable format=
 
-Sometimes you will be in a position where the schema of a class will have changed between the time you stored your object and the time you are trying to retrieve it. Such changes include:
-* class name changed 
-* attributes have been added or removed 
-* attributes have been renamed 
-* attributes type have been changed
+Sometimes you will be in a position where the definition of a class (its "schema") will have changed between the time you stored your object and the time you are trying to retrieve it. Such schema changes include:
 
-The storable mechanism allows you to retrieve the old version of the object only if it was saved using the <eiffel>independent_store</eiffel> facility. Each time you retrieve an object of a certain base class whose schema has changed, the feature <eiffel>correct_mismatch</eiffel> will be called. This feature is defined in [[ref:libraries/base/reference/any_chart|ANY]] and by default will raise an exception. To handle the mismatch, you need to redefine <eiffel>correct_mismatch</eiffel> in the base class whose schema has been changed. For example in EiffelBase, [[ref:libraries/base/reference/hash_table_chart|HASH_TABLE]] has changed between version 5.1 and version 5.2 to use <eiffel> SPECIAL</eiffel> rather than [[ref:libraries/base/reference/array_chart|ARRAY]] for its internal data storage. To retrieve a 5.1 version of [[ref:libraries/base/reference/hash_table_chart|HASH_TABLE]], you need to define <eiffel>correct_mismatch</eiffel> as following: 
+* Renaming the class. 
+* Adding attributes.
+* Removing attributes.
+* Renaming attributes.
+* Changing the types of attributes.
+
+The persistence mechanism allows you to retrieve the old version of the object only if it was saved using the <eiffel>independent_store</eiffel> facility.
+
+The mechanism lets you define precisely what will happen in the case of a scheme change, or "mismatch". Each time you retrieve an object of a certain base class whose schema has changed, the feature <eiffel>correct_mismatch</eiffel> will be called. This feature is defined in [[ref:libraries/base/reference/any_chart|ANY]] and has the following effect:
+* Its default version causes an exception. This is the proper behavior since the old object might not make sense with the new schema (for example, it might violate the invariant), and you do not want to continue the computation, without warning, with wrong objects.
+* To specify otherwise, and avoid the exception, just redefine <eiffel>correct_mismatch</eiffel> in the class whose schema has been changed.
+For example, the important EiffelBase library class [[ref:libraries/base/reference/hash_table_chart|HASH_TABLE]] changed between version 5.1 and version 5.2 to use <eiffel> SPECIAL</eiffel> rather than [[ref:libraries/base/reference/array_chart|ARRAY]] for its internal data storage. To retrieve a 5.1 version of [[ref:libraries/base/reference/hash_table_chart|HASH_TABLE]], you can redefine <eiffel>correct_mismatch</eiffel> as follows: 
 <code>
 correct_mismatch
             -- Attempt to correct object mismatch during retrieve using `mismatch_information'.
@@ -157,6 +168,6 @@ correct_mismatch
     end
 </code>
 
-Note the use of <eiffel>mismatch_information</eiffel>, this is a once feature of [[ref:libraries/base/reference/any_chart|ANY]] of type <eiffel>MISMATCH_INFORMATION</eiffel> which behaves like a [[ref:libraries/base/reference/hash_table_chart|HASH_TABLE]]. The keys of the table are the names of the attributes on which a mismatch occurred and the values are the corresponding object fields as they were originally stored. In this particular case of [[ref:libraries/base/reference/hash_table_chart|HASH_TABLE]] we know that the previous version was an [[ref:libraries/base/reference/array_chart|ARRAY]], so we do an object test and if it succeeds we assign its <eiffel>area</eiffel> to the corresponding attribute of [[ref:libraries/base/reference/hash_table_chart|HASH_TABLE]]. 
+Note the use of <eiffel>mismatch_information</eiffel>. This is a once query of [[ref:libraries/base/reference/any_chart|ANY]] of type <eiffel>MISMATCH_INFORMATION</eiffel> which behaves like a [[ref:libraries/base/reference/hash_table_chart|HASH_TABLE]]. The keys of the table are the names of the attributes on which a mismatch occurred, and the values are the corresponding object fields as they were originally stored. In this particular case of [[ref:libraries/base/reference/hash_table_chart|HASH_TABLE]] we know that the previous version was an [[ref:libraries/base/reference/array_chart|ARRAY]], so we do an object test and if it succeeds we assign its <eiffel>area</eiffel> to the corresponding attribute of [[ref:libraries/base/reference/hash_table_chart|HASH_TABLE]]. 
 
-If a class name changed, then you need to create an instance of <eiffel>CLASS_NAME_TRANSLATIONS</eiffel>, it behaves like a [[ref:libraries/base/reference/hash_table_chart|HASH_TABLE]] where the keys represent the old name, and the value the new name. This instance needs to be created before the call to retrieved.
+If a class name changed, you should create an instance of <eiffel>CLASS_NAME_TRANSLATIONS</eiffel>, it behaves like a [[ref:libraries/base/reference/hash_table_chart|HASH_TABLE]] where the keys represent the old name, and the value the new name. This instance needs to be created before the call to retrieved.
