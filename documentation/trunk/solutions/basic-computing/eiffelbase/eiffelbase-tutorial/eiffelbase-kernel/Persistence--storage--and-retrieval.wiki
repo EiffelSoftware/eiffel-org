@@ -33,7 +33,7 @@ In both cases, you only need to be aware of the difference between the various s
 
 Regardless of the mechanism used, the feature <eiffel>retrieved</eiffel> returns a result of type [[ref:libraries/base/reference/any_chart|detachable ANY]] and is typically used through an object test.
 
-==C storable==
+==With C storable==
 
 The example below will show you how to store an object using the C storable mechanism. It uses <eiffel>independent_store</eiffel> but you could also use in-place <eiffel>basic_store</eiffel> instead:
 
@@ -73,7 +73,7 @@ retrieve (p: PATH)
 
 If the structure in the file has been corrupted and <eiffel>retrieved</eiffel> is unable to do its job, it will trigger an exception (the code for that exception in class [[ref:libraries/base/reference/exceptions_chart|EXCEPTIONS]] (which inherits it from EXCEP_CONST and is discussed in the next section, together with the notion of exception code) is <eiffel>Retrieve_exception</eiffel>.)
 
-===With SED storable===
+==With SED storable==
 
 The example below will show you how to store an object using the SED storable mechanism assuming the current class is a descendant of [[ref:libraries/base/reference/sed_storable_facilities_chart|SED_STORABLE_FACILITIES]]. It uses <eiffel>store</eiffel> feature from the  but you could also use <eiffel>session_store</eiffel> or <eiffel>basic_store</eiffel> too.
 
