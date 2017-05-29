@@ -336,7 +336,7 @@ Regardless of the operating system that you use, for simple input and output [[r
 
 To simplify the writing of common input and output operations, the most frequently used features of class FILE - for reading and writing integers, reals and so on, as discussed next - have been repeated in [[ref:libraries/base/reference/std_files_chart|STD_FILES]]  so as to apply to the default input and output. Procedure put_string in the example at the beginning of this section is typical: it writes its output on the standard output. More generally, [[ref:libraries/base/reference/std_files_chart|STD_FILES]]  has all the <eiffel>put_xxx</eiffel>, <eiffel>read_xxx</eiffel> and <eiffel>last_xxx</eiffel> features of FILE. 
 
-=Persistence, Storage, and Retrieval=
+=PERSISTENCE, STORAGE, AND RETRIEVAL=
 
 Most object-oriented applications need the ability to store object structures on persistent storage for later retrieval, and to transfer such object structures to other applications.
 
