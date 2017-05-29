@@ -1,20 +1,53 @@
 [[Property:uuid|A8615DC3-B389-44AA-9BCB-7E9B793A1599]]
-[[Property:weight|0]]
+[[Property:weight|2]]
 [[Property:title|Release notes for EiffelStudio 17.05]]
 [[Property:link_title|17.05]]
 ==Graphical environment==
 ===What's new===
+* The EiffelStudio Inspector was extended to check '''obsolete features''' and '''obsolete calls''' and make the users aware of coming removal. For that, the inspector checks for presence of well formatted '''date in obsolete message''' (following the `[yyyy-mm-dd]` format). Reports '''severity of obsolete calls''', depending on the associated date (`suggestion` when date is in the future, `warning` for less than 1 year old, and `error` for more than 1 year old). Reports '''obsolete features''' when associated date is more than 1.5 year old.
+* Added shortcuts and contextual menu to '''restore recently closed tabs'''.
+* Using Pick&Drop functionality, users can now '''pick token for local variables and arguments''' from the EiffelStudio editor and formatters. Drop it into editor, and cursor will be moved to related declaration. Note that for now only normal feature locals and arguments are supported (this excludes inline agent, inline separate, object tests, and across variables).
 
 ===Improvements===
+* Improved the '''completion mechanism''' within the editor (especially when inline agent, or inline separate are before the cursor).
 
 ==Compiler==
+* Added '''Visual Studio 2017''' support for C compilation on Windows.
+* Improved performance of object initialization checks in complete void safe mode when a class has hundreds of attributes and features (including inherited ones).
+* On Windows, you may experience a '''breaking change''' with respect to the compilation of Eiffel libraries wrapping the Win32 API. 
+** Indeed, to allow users to use in the same system libraries such as cURL, SSL, zeroMQ, ... ; the C generated code is now compiled using `WIN32_LEAN_AND_MEAN`.
+** As a result, it is not sufficient anymore to just include `<Windows.h>` to use a Windows API, you should look at the MSDN documentation and include the header they say you should be using.
+** The unfortunate result of this change is that you have to go through your externals and fix them according to the MSDN documentation. On the other hand, the positive aspect is that the change will be backward compatible with all the versions of EiffelStudio.
 
 ==Libraries==
+
+===Breaking changes===
+* To have a '''fully void-safe docking library''', some creation procedures were updated and '''now require a docking manager object''' as argument.
+
 ===General===
+*Updated libraries and examples included with EiffelStudio installation to '''avoid obsolete feature calls'''.
 
-===EiffelNet===
+* Added a new creation procedure to `STRING_8` and `IMMUTABLE_STRING_8`: `make_from_c_substring (c_string: POINTER; start_pos, end_pos: INTEGER)` to initialize from a substring between two position of a `c_string`.
 
-===EiffelWeb===
+===C_library===
+* Updated `libpng` library to version 1.6.28
+* Updated `zlib` library to version 1.2.11 
+
+===JSON===
+* Added `is_string`, `is_number`, ... query to `JSON_VALUE`.
+* Fixed parsing of Integer 64 values when they are greater than maximum value of Integer 32.
+
+===EiffelWeb ===
+* Improved and fixed various issues in the libcurl and EiffelNet '''http_client''': fixed query, and form data encoding; better support for port number in net implementation, follow redirection only for 3** status code, allow forcing the encoding for the form data (`multipart/form-data` or `application/x-www-form-urlencoded`).
+* Fixed computation of `path info` in WSF_REQUEST for extreme cases.
+
+===ROC CMS===
+* The ROC CMS solution (used for eiffel.org) got many '''improvements''':
+** better control on '''published''' state, added notion of '''author and editor''' for content.
+** User can set a human friendly '''profile name''' (for security, it is better that usernames do not appear in pages).
+** Extracted '''administration''' pages from normal website (improved performance, and allow to use specific admin theme).
+** Improved '''configuration of content formats''' by selecting various available filters.
+** New '''modules''' (sitemap, messaging, wikitext, embedded feed aggregation, google search v2, ... )
 
 ----
 
