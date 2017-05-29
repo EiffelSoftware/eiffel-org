@@ -1,0 +1,47 @@
+[[Property:title|Object tool]]
+[[Property:weight|-11]]
+[[Property:uuid|6b736424-1729-0b6f-6ddd-8240f9f8ffd6]]
+[[Image:object-tool]]  
+
+The object tool is a debugging tool that displays extended dynamic information about runtime objects while debugging an application. This information includes the values of attributes, as well as the values of <code>once</code> functions that have already been called.
+
+By default the Object tool display is composed of one grid, which gives information about the [[Call stack tool|current stack element]]. Specifically, it provides the Current object value, the arguments' values of the current stack element's feature call, the values of the local variables, as well as the value of the <code>Result</code> (if this feature is a function). 
+
+When an exception occurs (for instance, an assertion violation), the object tool will also display the exception information: 
+
+
+[[Image:objects-tool-exception]]
+
+
+{{note|A specific case for .NET systems: When the system is stopped, the first item of the local view displays the module name for the feature at which execution stopped. }} 
+
+All objects can be expanded to see the values of their attributes. They are also pickable, so that it is possible to drop them onto the Object tool, an [[Expression evaluation|expression evaluator tool]] (also know as Watch tool), or an editor.
+
+It is also possible to use the [[Set slice size command|set slice size command]] with [[ref:libraries/base/reference/special_chart|SPECIAL]] objects or [[ref:libraries/base/reference/native_array_chart|NATIVE_ARRAY]] (.NET) objects. 
+
+
+
+'''The tool bar buttons:'''<br/>
+* the [[Remove object command|remove object command]]   [[Image:general-delete-icon]]  <br/>
+* the [[Set slice size command|set slice size command]]   [[Image:debugger-set-sizes-icon]] .<br/>
+* the button  [[Image:debugger-expand-info-icon]]  can give an [[Object Viewer (also known as Expanded display)|expanded display]]  of the string relative to an object, by dropping the object onto the button (or pressing Ctrl+E on the selected value). Use it if an object has a very long string representation or a string representation that contains carriage returns, for example.<br/>
+* the button  [[Image:debugger-show-hex-value-icon]]  switches the display of integer values between decimal and hexadecimal format.<br/>
+* and the button  [[Image:execution-object-storage-icon]]  controls the [[Debuggee's Object Storage|remote object storage]] . 
+
+
+{{tip|The tool's layout can be customized to have 2 side-by-side "left" and "right" grids holding the various information. This can be done using the button ( [[Image:toolbar-dropdown-icon]] ) from the tool bar which open the objects tool menu and then select "Edit Layout". Then you can use the tool layout editor as shown below to adjust which information you want displayed in each of the two sides. }}
+
+
+[[Image:object-tool-layout-editor]]
+
+
+{{note| By default, the object tool displays the full generating type for object, but this can be changed for speed concern in the [[Debugging preferences|preferences]] . The same way, through the [[Debugging preferences|preferences]] , the user can enable or disable the evaluation of the [[Debug output|Debug Output]]  feature. }}
+
+{{note|When a row displays a pink background, this indicates the value has changed as a result of the previous step. }}
+
+{{tip|The [[Expression evaluation|expression evaluator tools]] (also known as Watch tools) provide many of the same features as the object tool along with even more functionality. }}
+
+
+
+
+

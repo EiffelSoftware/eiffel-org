@@ -1,0 +1,33 @@
+[[Property:title|Execution profiles]]
+[[Property:weight|-13]]
+[[Property:uuid|90e64e1c-b5fc-e150-9901-50daffaac893]]
+While working on a project, you may want to launch your system with values for one or more arguments, specify a working directory, and/or change certain environment variables.
+
+Those parameters are done by changing the execution profiles. For that you need to use the '''Execution parameters''' dialog.
+
+* You can open this dialog in either of two ways:
+** Follow the EiffelStudio menu path: <code>Execution -> Execution parameters</code> .
+** Right-click any of the buttons on the debugging/execution toolbar.
+
+==Using the Execution parameters' dialog==
+
+[[Image:argument-dialog]]  
+
+
+The dialog allows you to manage different execution profiles to specify parameters to be passed to the system at execution time. 
+
+Each profile lets you set a title, the '''arguments''', the '''working directory''', as well as your own '''environment variables'''.
+
+To use a profile, just select it by clicking the corresponding line in the grid.
+
+Once the appropriate execution profile is selected then the system can be run with those parameters using the Run button (If "Keep Dialog Open" is selected the dialog remains opened).<br/>
+To run without any particular parameters, select the '''default''' profile.
+
+If you click on "Run Workbench" or "Run Finalized", the system will be executed outside EiffelStudio (thus debugging is unavailable).
+
+
+{{tip|From version 6.5, you can unset an environment variable FOO by adding the "&-FOO" to the environment variables. By prefixing with "&-", you mark the variable "FOO" to be removed. If you use "&-*", all variables will be removed (except for any that you add to the list after the "&-*" entry). }}
+
+
+
+

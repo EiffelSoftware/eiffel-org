@@ -1,0 +1,418 @@
+[[Property:title|ET: Instructions]]
+[[Property:weight|-6]]
+[[Property:uuid|628bf3db-728f-0b3c-bdbb-fe52deaae5b7]]
+==Instructions==
+
+Eiffel has a remarkably small set of instructions. The basic computational instructions have been seen: creation, assignment, procedure call, retry. They are complemented by control structures: conditional, multi-branch, loop, as well as debug and check. 
+
+===Assignment and attachment===
+
+As noted above we have already introduced assignment. But let's take another look at the assignment in the context of the more abstract concept of '''attachment'''. Attachment can occur with reference types by assignment such as:
+<code>
+            x := y
+</code>
+In this assignment, <code>x</code> is the target of the assignment and <code>y</code> is the source. The object associated with <code>y</code> becomes ''attached'' to the entity <code>x</code>.
+
+Attachment also occurs in other contexts. For example, when actual arguments are substituted for formal arguments in a call to a routine.
+<code>
+            f (w)
+</code>
+In the call to <code>f</code> above, the object associated with the actual argument <code>w</code> will be ''attached'' to the formal argument for the duration of the execution of <code>f</code>. So, in this case, <code>w</code> can be viewed as the source of the attachment and the formal argument of <code>f</code> is the target. 
+
+Other situations in which attachment occurs include [[ET: The Dynamic Structure: Execution Model#Creating and initializing objects|creation instructions]], attachment of [[Void-safety: Background, definition, and tools#The attached syntax (object test)|object test local variables]], and the attachment of local iteration cursors in the iteration form of the [[ET: Instructions#Loop|loop construct]].
+
+We learned in the section on [[ET: Inheritance#Polymorphism|polymorphism]], that the type of the source of an assignment must conform to the type of the assignment's target. 
+
+The rule that governs validity of assignments expands upon this and is generalized to apply to all attachments.
+
+
+{{Rule|name=Assignment|text=An assignment is valid if and only if the type of its source expression is '''compatible''' with the type of its target entity. }}
+
+
+The phrase "'''compatible with'''" in this rule means that either it "'''conforms to'''" or "'''converts to'''". 
+
+We saw conformance defined in the section on [[ET: Inheritance#Polymorphism|Polymorphism]]. [[ET: Other Mechanisms#Convertibility|Convertibility]] is explained in the section on [[ET: Other Mechanisms#Convertibility|Other Mechanisms]].
+
+
+===Conditional===
+
+A conditional instruction has the form 
+<code>
+            if ... then
+                ... 
+            elseif ... then 
+                ... 
+            else 
+                ... 
+            end
+</code> 
+The <code>elseif</code> ... <code>then</code> ... part (of which there may be more than one) and the <code>else</code> ... part are optional. After <code>if</code> and <code>elseif</code> comes a boolean expression; after <code>then</code> and <code>else</code> come zero or more instructions. 
+
+===Multi-branch===
+
+A multi-branch instruction has the form
+<code>
+            inspect
+                exp
+            when v1 then
+                inst
+            when v2 then
+                inst2
+            ...
+            else
+                inst0
+            end
+</code>
+
+where the <code>else inst0</code> part is optional, <code>exp</code> is a character or integer expression, <code>v1</code>, <code>v1</code>, ... are constant values of the same type as <code>exp</code>, all different, and <code>inst0</code>, <code>inst1</code>, <code>inst2</code>, ... are sequences of zero or more instructions. 
+
+The effect of such a multi-branch instruction, if the value of <code>exp</code> is one of the <code>vi</code>, is to execute the corresponding <code>insti</code>. If none of the <code>vi</code> matches, the instruction executes <code>inst0</code>, unless there is no <code>else</code> part, in which case it triggers an exception. 
+
+{{note|Raising an exception is the proper behavior, since the absence of an <code>else</code> indicates that the author asserts that one of the values will match. If you want an instruction that does nothing in this case, rather than cause an exception, use an <code>else</code> part with an empty <code>inst0</code>. In contrast, <code>if c then</code> <code>inst</code> <code>end</code> with no <code>else</code> part does nothing in the absence of an <code>else</code> part, since in this case there is no implied claim that <code>c</code> must hold. }}
+
+===Loop===
+
+The loop construct provides a flexible framework for iterative computation. Its flexibility lies in how the complete form can be tailored and simplified for certain purposes by including or omitting optional parts. 
+
+You'll learn that the loop construct is always used in one of two forms: a '''base''' form which allows precise control over details of all loop aspects, and an '''iteration''' form which abstracts many of the details and provides a concise notation, ideal for traversing data structures and other objects which support iteration.
+
+We will explore the entire mechanism, but let's approach things a little at a time. 
+
+====Two forms -- two examples====
+
+First let's take a look at two examples. These examples accomplish the same goal: they both use a loop to visit and print the content of each node of a linked list of character strings. So, the list in question might be declared like this:
+
+<code>
+    my_list: LINKED_LIST [STRING]
+</code>
+
+Here's one example:
+
+<code>
+            from
+                my_list.start
+            until
+                my_list.off
+            loop
+                print (my_list.item)
+                my_list.forth
+            end
+</code>
+''Loop example 1.''
+
+
+and the other: 
+
+<code>
+            across
+                        my_list as ic
+            loop
+                        print (ic.item)
+            end 
+</code>
+''Loop example 2.''
+
+
+At first observation, it may not appear that both of these examples are using the same language construct. But, indeed, they are simply two different forms of a single language construct, as you will see.
+
+Incidentally, there is no requirement that ''Loop example 1'' occupy multiple lines, and ''Loop example 2'' occupy only one line. ''Loop example 1'' could have been written like this:
+<code>
+            from
+                        my_list.start
+            until
+                        my_list.off
+            loop
+                        print (my_list.item)
+                        my_list.forth
+            end
+</code>
+just as ''Loop example 2'' could have been written to take multiple lines. It comes down to a matter of balance among traditional style, conciseness, and readability. 
+
+In fact, these two examples illustrate the two basic usage forms of the loop construct in Eiffel. The two basic forms can be differentiated by the parts of the construct with which they begin. 
+
+The form shown in ''Loop example 1'' begins with an ''Initialization part'' ( <code>from my_list.start</code> ), which starts with the keyword <code>from</code>. Let's call this form the '''base''' form. So, the type of loop you see in ''Loop example 1'' has been the traditional mechanism for accomplishing iterative computation, including iterating across data structures. However, extensions to Eiffel's loop construct have provided a more concise way of expressing traversing "iterable" structures.
+
+This is the form shown in ''Loop example 2''. It begins with an ''Iteration part'' ( <code>across my_list as c</code> ), which starts with the keyword <code>across</code>. We'll call this form the '''iteration''' form.
+
+====A closer look at the ''base'' form====
+
+What is happening in ''Loop example 1''? Let's dissect it and see.
+
+First there is the ''initialization'' part:
+
+<code>
+            from
+                my_list.start
+</code>
+''Initialization part.''
+
+
+The first thing to occur in the execution of the base loop is the execution of any instructions in the initialization part (it is permissible for the initialization part to be empty of instructions, but the keyword <code>from</code> must be present to distinguish the base loop form). In our example, the feature <code>start</code> is applied to <code>my_list</code> which will attempt to set the list cursor to the first element in <code>my_list</code>. 
+
+The ''Exit condition part'':
+
+<code>
+            until
+                my_list.off
+</code>
+''Exit condition part.''
+
+
+The exit condition part of the loop construct defines the conditions under which the loop body (explained below) should no longer be executed. In our example, the loop will no longer execute if the cursor is "off", that is, there is no current item. So, if the list is empty, the loop body will not execute at all. 
+
+The ''<code>loop</code> body'' part:
+
+<code>
+            loop
+                print (my_list.item)
+                my_list.forth
+</code>
+''<code>loop</code> body part.''
+
+
+The loop body part contains the sequence of instructions to be executed during each iteration. In the example, that includes printing the current list item and then advancing the cursor. At some point, the cursor will pass the last item in the list, causing the exit condition to become true and stop the loop's execution. So, at the risk of stating the obvious, the key to loops that always complete is to ensure that there is something in the loop body that is guaranteed always to cause the exit condition eventually to become true. Loop correctness will discussed in more detail [[#Loop invariants and variants|later]].
+
+And finally, there's the ''End'' part:
+
+<code>
+            end
+</code>
+''<code>end</code> part.''
+
+
+====A closer look at the ''iteration'' form====
+
+Now let's examine the iteration form (sometimes called the "across syntax") used in ''Loop example 2.''
+
+The example begins with an iteration part:
+
+<code>
+            across my_list as ic
+</code>
+''Iteration part.''
+
+
+The iteration form is special in the sense that it is designed to work with objects which are ''iterable'', usually data structures. The iteration form always targets a particular object (usually a data structure) based on a class that inherits, either directly or indirectly from the library class <code>ITERABLE</code>.  The iteration part specifies such a target for the iteration, in the case of our example, the target is <code>my_list</code>. 
+
+The "<code>as ic</code>" indicates that a local iteration cursor object referenced by the name <code>ic</code>, and available only for the scope of the iteration, will be created to effect the iteration. The element of <code>my_list</code> which is currently referenced by the cursor <code>ic</code> is accessed through <code>ic.item</code> as you see in the loop body:
+
+<code>
+            loop print (ic.item)
+</code>
+''<code>loop</code> body part''.
+
+
+Notice that the loop body does not contain the call to the structure's <code>forth</code> feature, as our example in base form did. Neither do you see the call to <code>start</code> nor the check of <code>off</code> in the exit condition. The iteration form abstracts these for you, relieving you of their burden ... while eliminating some opportunities for error.
+
+Notice also that the call "<code>print (ic.item)"</code>" accesses the current item as "<code>ic.item"</code>" versus "<code>my_list.item"</code>" in the base form. This is because in the iteration form, access to the current item is through the cursor variable, "<code>ic</code>" in the case of ''Loop example 2''. 
+
+Concerning cursors, both ways of using the loop construct to traverse a structure employ a cursor. In the base form, the cursor is internal to the structure object. In the case of the example, that would be the instance of <code>LINKED_LIST [STRING]</code> called <code>my_list</code>. Applying the feature <code>item</code> to <code>my_list</code> retrieves the list element currently referenced by the cursor. In the iteration version of traversal, the variable <code>ic</code> holds the iteration cursor, external to the list object. So, you apply <code>ic.item</code> to get the current list element. The advantage to the external cursor is that multiple traversals of the structure can occur simultaneously without interfering with one another. This is possible in the base form, but only by saving and restoring the structure's cursor.
+
+
+{{recommended|The ''iteration'' form of the loop construct is not appropriate for use in cases in which the target structure may be changed during the traversal. Therefore, if you choose to alter the structure during traversal, you must use the ''base'' loop form with explicit cursor manipulation. This is still tricky business, so you should be certain to protect your work with appropriate contracts.}}
+
+
+Lastly, of course, the iteration form includes an ''<code>end</code> part'' ... at the end.
+
+
+====The ''iteration'' form as a boolean expression====
+
+In ''Loop example 2'', the loop behaves as an instruction. But it is possible to have the iteration loop form behave as a boolean expression. This is helpful in cases in which you might want to ask a question that can be answered by traversing all or part of a structure. 
+
+To get this effect, you use the iteration form with one of two alternative body notations, the ''<code>all</code> body part'' or the ''<code>some</code> body part'' in place of the ''<code>loop</code> body''. When you use either of these notations, the ''body'' is a boolean expression. So, the forms for these body parts are:
+
+<code>
+            all boolean_expression
+</code>
+''<code>all</code> body part.''
+
+<code>
+            some boolean_expression
+</code>
+''<code>some</code> body part.''
+
+
+So, to know if all the strings in <code>my_list</code> have lengths greater than three characters, we could code:
+
+<code>
+            across my_list as ic all ic.item.count > 3 end
+</code>
+''Loop example 3.''
+
+
+To know if at least one string in <code>my_list</code> has a length greater than three characters, we would use the ''<code>some</code> body part'':
+
+<code>
+            across my_list as ic some ic.item.count > 3 end
+</code>
+''Loop example 4.''
+
+Of course you can use iteration loops with "<code>all</code>" or "<code>some</code>" bodies in the same way that you would any other boolean expression; in [[#Conditional|conditionals]], for example. 
+
+
+====Loop anatomy and rules for constructing loops====
+
+Now that we've seen examples of the two forms of loops and broken down their component parts, we're ready to examine the anatomy of the entire construct in more detail. You may remember from the beginning of this discussion that the flexibility of the loop construct lies in its ability to use or omit its various parts to gain certain effects. 
+
+Here are all the possible loop parts, most of which we've seen in examples, in the order in which they must appear when we code them:
+
+
+{| border="2" cellpadding="8" 
+! This loop part:
+! Has this pattern: 
+|-
+| ''Iteration part'' || <code>across expression as identifier</code>
+|-
+| ''Initialization part'' || <code>from zero_or_more_instructions</code>
+|-
+| ''Invariant part'' || <code>invariant assertion</code>
+|-
+| ''Exit condition part'' || <code>until boolean_expression</code>
+|-
+| rowspan="3" | ''Body part'' || <code>loop</code> ''<code>zero_or_more_instructions      </code>'' '''or'''
+|-
+| <code>all</code> ''<code>boolean_expression</code>'' '''or'''
+|-
+| <code>some</code> ''<code>boolean_expression</code>''
+|-
+| ''Variant part'' || <code>variant optional_tag: integer_expression</code>
+|-
+| ''<code>end</code> part'' || <code>end</code>
+|}
+
+
+Apart from seeing examples, it is useful to understand some of the rules of constructing loops from these parts. Here's an informal summary of what you should know about putting together valid loops:
+
+# Any loop parts being used must appear in the order shown in the table above.
+# Every loop used will assume one of the two forms mentioned early. As a result, every loop will begin either with the <code>across</code> keyword (''iteration'' form) or the <code>from</code> keyword (''base'' form). 
+# A ''Body part'' and an ''End part'' are both required for every loop. 
+## ''Body parts'' using either the <code>all</code> keyword or the <code>some</code> keyword are only allowed in the absence of an ''initialization part''.
+# An ''exit condition part'' is required for all loops of ''base'' form. 
+# The expression you use in an ''iteration'' part, must have a type that is based on a class that inherits from the library class <code>ITERABLE</code>.
+# The identifier you choose for the internal cursor used in loops of the ''iteration'' form shouldn't be the same as another identifier you are using.
+
+There are implications of these rules that are worth understanding. Let's look at some of them.
+
+Consider that all parts must appear in order (1) and that every loop starts with one of two keywords: either <code>across</code> or <code>from</code> (2). Taken together, these imply that it would be invalid for a loop in ''base'' form to include an ''iteration part''. However, the opposite is not true. Because the ''initialization part'' falls after the ''iteration part'' it is possible for a loop in ''iteration'' form to contain an ''initialization'' part. Imagine for example, that we wanted to compute the sum of the number of characters in all elements of the list of strings in our examples. The ''initialization'' part could be used to initialize the sum entity before starting the iteration:
+<code>
+            across
+                        my_list as ic
+            from
+                        sum := 0
+            loop
+                        sum := sum + ic.item.count
+            end
+</code>
+
+Loops of the ''base'' form require an ''exit condition part'' (4). This allows the possibility that ''Iteration'' loops ''may'' contain an ''exit condition part''. Indeed they may, but it is not required. Using an ''exit condition part'' in a loop of the ''iteration'' can be useful if you want to impose an early exit condition on an iteration. So, extending the previous example, if we wanted to sum the length of elements, but only until we reached an element whose content matched a certain criterion, we could add the ''exit condition part'':
+<code>
+            across
+                        my_list as ic
+            from
+                        sum := 0
+            until
+                        ic.item ~ "Stop now"
+            loop
+                        sum := sum + ic.item.count
+            end
+</code>
+
+For loops of the ''iteration'' form, types of iteration targets must be based on classes inheriting from <code>ITERABLE</code> (5). What classes meet this criterion? All the appropriate classes in the EiffelBase library: lists, hash tables, arrays, intervals, etc. Although the details are beyond the scope of this tutorial, you also should recognize the implication that your own classes could be made iterable. 
+
+One useful descendant of <code>ITERABLE</code> is the integer interval. The general operator "<code>|..|</code>" provides a concise way of creating the interval between two integers.  So, you can use this to loop across a range of integers without a lot of setup. This example:
+<code>
+            across
+                        5 |..| 15 as ic
+            loop
+                        print (ic.item.out+"%N")
+            end
+</code>
+prints the integers in the interval 5 through 15. 
+
+Also descending from <code>ITERABLE</code> are the iteration cursors themselves. This means that a cursor can be the target of a loop of the ''iteration'' form. Consider this example that prints the items in <code>my_list</code> in reverse order:
+<code>
+            across
+                        my_list.new_cursor.reversed as ic
+            loop
+                        print (ic.item)
+            end 
+</code>
+Here the feature <code>new_cursor</code> is applied to <code>my_list</code>. The result is a new iteration cursor for traversing <code>my_list</code>. Then the <code>reversed</code> feature is applied to that result, which itself results in an iteration cursor having the order of the elements reversed. It is this cursor that is used for <code>ic</code> in the traversal.
+
+
+====Loop invariants and variants====
+
+The only loop parts that we have yet to address are the ''invariant part'' and the ''variant part''. These two optional loop parts exist to help guarantee the correctness of loops. The ''invariant part'' expresses a loop invariant (not to be confused with [[ET: Design by Contract (tm), Assertions and Exceptions#Class invariants|class invariants]]). For the loop to be correct, the instructions in ''initialization part'' must ensure that the loop invariant assertion is true, and then every execution of the loop body must preserve the invariant; so the effect of the loop is to yield a state, eventually, in which both the loop invariant and the exit condition are true.
+
+The loop must terminate after a finite number of iterations, of course. This can be guaranteed by including the loop ''variant part''. The ''variant part'' provides an integer expression whose value is non-negative after the execution of the instructions in the ''initialization part''. The value of the variant is then decreased by at least one, while remaining non-negative, by any execution of the loop body. Because a non-negative integer cannot be decreased forever, this guarantees that the loop will terminate. 
+
+When assertion monitoring is enabled for loop invariants and variants, the integrity of these properties is checked after initialization and after each loop iteration. An exception will be triggered if the loop invariant does not hold, or if the variant either becomes negative or does not decrease.
+
+
+===Debug===
+
+An occasionally useful instruction is <code>debug</code> <code>(</code>''Debug_key'', ... <code>)</code> ''instructions'' <code>end</code> where ''instructions'' is a sequence of zero or more instructions and the part in parentheses is optional, containing if present one or more strings, called debug keys. The EiffelStudio compiler lets you specify the corresponding <code>debug</code> compilation option: <code>yes</code>, <code>no</code>, or an explicit debug key. The ''instructions'' will be executed if and only if the corresponding option is on. The obvious use is for instructions that should be part of the system but executed only in some circumstances, for example to provide extra debugging information. 
+
+===Check===
+
+The final instruction is connected with Design by Contract&#153;. The instruction 
+<code>
+            check
+                Assertion
+            end
+</code>where Assertion is a sequence of zero or more assertions, will have no effect unless assertion monitoring is turned on at the <code>Check</code> level or higher. If so it will evaluate all the assertions listed, having no further effect if they are all satisfied; if any one of them does not hold, the instruction will trigger an exception. 
+
+This instruction serves to state properties that are expected to be satisfied at some stages of the computation -- other than the specific stages, such as routine entry and exit, already covered by the other assertion mechanisms such as preconditions, postconditions and invariants. A recommended use of <code>check</code> involves calling a routine with a precondition, where the call, for good reason, does not explicitly test for the precondition. Consider a routine of the form 
+<code>
+    r (a_count: INTEGER)
+        require
+            valid_count: a_count >= minimum_allowable
+        do
+            ...
+        end
+</code>
+
+This routine will only work if its precondition is satisfied on entry. To guarantee this precondition, the caller may protect it by the corresponding test, as in 
+<code>
+            if my_count >= a.minimum_allowable then 
+                a.r (my_count) 
+            end
+</code>
+
+In effect, this says that if the value of <code>my_count</code> meets <code>r</code>'s precondition requirement, then call <code>r</code>, otherwise continue execution. This implies that there is something useful to be done in the case that the call to <code>r</code> could not be executed because the value of <code>my_count</code> did not meet the precondition.
+
+But suppose that due to previous processing, it is reasonably expected that <code>my_count</code> should always have a value that complies with <code>r</code>'s precondition. In other words, it would always be expected that the call to <code>r</code> should proceed without failure. In this case it might be a good idea to use a <code>check</code> to document this property, 
+<code>
+            check
+                my_count_is_large_enough: my_count >= a.minimum_allowable
+                    -- Should always be large enough because ...
+            end
+</code>
+if only to make sure that a reader of the code will realize that the omission of an explicit test was not a mistake. 
+
+In production (finalized) mode, when assertion monitoring is typically turned off, this instruction will have no effect. But it will be precious for a maintainer of the software who is trying to figure out what it does, and in the process to reconstruct the original developer's reasoning. (The maintainer might of course be the same person as the developer, six months later.) And if the rationale is wrong somewhere, turning assertion checking on will immediately uncover the bug. 
+
+There is, however, one form of <code>check</code> that continues to be monitored even when assertion monitoring is turned off. 
+<code>
+            check Assertion then
+                Compound
+            end
+</code>
+Here <code>Assertion</code> is a list of assertions as above, and <code>Compound</code> is a list of zero or more executable instructions. 
+
+This variant is used often when ensuring [[Void-safe programming in Eiffel|void-safety]]. It is used make certain that certain detachable entities are actually attached to objects when expected, and to create a new void-safe scope for accessing the objects. For example:
+<code>
+            check attached my_detachable as l_temp then
+                l_temp.do_something
+            end
+</code>
+In cases in which <code>my_detachable</code> is attached to an object (as is expected), the local entity l_temp will allow controlled access to the object during the scope of the <code>check</code> instruction. If a case occurs in which <code>my_detachable</code> is not attached to an object, then an exception is triggered. As noted above, for this variant of <code>check</code>, assertion monitoring is always in effect, even if it has been turned off for other cases. 
+
+So, the form <code>check ... then ... end</code> is somewhat similar to <code>if ... then ... end</code>. The difference is that the <code>if ... then ... end</code> allows the possibility that valid cases might occur in which the boolean expression is not true, and processing continues. The <code>check ... then ... end</code> does not allow such a possibility. The boolean expression is expected always to hold. In fact, if the expression is not true, then like other assertion violations, this is indicative of a bug, and will cause an exception to be raised.
+
+
+{{recommended|An extra indentation of the <code>check</code> part to separate it from the algorithm proper; and inclusion of a comment listing the rationale behind the developer's decision not to check explicitly for the precondition. }}
+
+
+
+

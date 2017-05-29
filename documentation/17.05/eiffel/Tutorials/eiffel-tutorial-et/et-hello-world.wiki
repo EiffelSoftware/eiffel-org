@@ -1,0 +1,80 @@
+[[Property:title|ET: Hello World]]
+[[Property:weight|-12]]
+[[Property:uuid|5b286f94-dd63-1169-a64e-74b5f8c5ef14]]
+When discovering any approach to software construction, however ambitious its goals, it is reassuring to see first a small example of the big picture -- a complete program to print the famous "Hello World" string. Here is how to perform this fascinating task in the Eiffel notation. 
+
+You write a class <code>HELLO</code> with a single procedure, say <code>make</code>, also serving as creation procedure. If you like short texts, here is a minimal version: 
+<code>
+class 
+    HELLO
+
+create
+    make
+
+feature
+
+    make
+        do 
+            print ("Hello World%N") 
+        end
+
+end
+</code>
+
+In practice, however, the Eiffel style rules suggest a better documented version:
+<code>
+note    
+    description: "Root for trivial system printing a message" 
+    author: "Elizabeth W. Brown"
+
+class 
+    HELLO 
+
+create    
+    make
+
+feature
+
+    make
+            -- Print a simple message.         
+        do      
+            io.put_string ("Hello World")
+            io.put_new_line
+        end
+
+end -- class HELLO
+</code>
+
+The two versions perform identically; the following comments will cover the more complete second one. 
+
+Note the absence of semicolons and other syntactic clatter or clutter. You may in fact use semicolons to separate instructions and declarations. But the language's syntax is designed to make the semicolon optional (regardless of text layout) and it's best for readability to omit it, except in the special case of successive elements on a single line. 
+
+The <code>note</code> clause does not affect execution semantics; you may use it to associate documentation with the class, so that browsers and other indexing and retrieval tools can help users in search of reusable components satisfying certain properties. Here we see two notes, labeled <code>description</code> and <code>author</code>. 
+
+The name of the class is <code>HELLO</code>. Any class may contain "features"; <code>HELLO </code>has just one, called <code>make</code>. The <code>create</code> clause indicates that <code>make</code> is a "creation procedure", that is to say an operation to be executed at class instantiation time. The class could have any number of creation procedures. 
+
+The definition of <code>make</code> appears in a <code>feature</code> clause. There may be any number of such clauses (to separate features into logical categories), and each may contain any number of feature declarations. Here we have only one. 
+
+The line starting with <code>--</code> (two hyphen signs) is a comment; more precisely it is a "header comment", which style rules invite software developers to write for every such feature, just after the point at which the feature is named. As will be seen in [[ET: Design by Contract (tm), Assertions and Exceptions#The_contract_form_of_a_class|"The contract form of a class"]], the tools of EiffelStudio know about this convention and use it to include the header comment in the automatically generated class documentation. 
+
+The body of the feature is introduced by the <code>do</code> keyword and terminated by <code>end</code>. It consists of two output instructions. They both use <code>io</code>, a generally available reference to an object that provides access to standard input and output mechanisms; the notation <code>io.f</code>, for some feature <code>f</code> of the corresponding library class (<code>STD_FILES</code>, in this case), means "apply <code>f</code> to <code>io</code>". Here we use two such features: 
+*  <code>put_string</code> outputs a string, passed as argument, here <code>"Hello World"</code>. 
+*  <code>put_new_line</code> terminates the line. 
+
+Rather than using a call to <code>put_new_line</code>, the first version of the class simply includes a new-line character, denoted as <code>%N</code> (the percent sign is used to introduce codes for [[Eiffel programming language syntax#Special characters|special characters]]), at the end of the string. Either technique is acceptable. 
+
+You may have noticed another difference between the two versions. The first version uses a call to <code>print</code> where the second uses <code>io.put_string</code> . Here too, the effect is identical and either technique is acceptable. In the next section, you will begin to see how things like <code>io</code> and <code>print</code> become available for use in a class like <code>HELLO</code>.
+
+To build the system and execute it:
+* Start EiffelStudio
+* Create a new ''Basic application'' project
+* Specify <code>HELLO</code> as the "root class" and <code>make</code> as the "root procedure". 
+* You can either use EiffelStudio to type in the above class text, or you may use any text editor and store the result into a file <code>hello.e</code> in the current directory. 
+* Click the "Compile" icon. 
+* Click the "Run" icon. 
+
+Execution starts and outputs <code>Hello World</code> on the appropriate medium: under Windows, a Console; under Unix or OpenVMS, the windows from which you started EiffelStudio. 
+
+
+
+

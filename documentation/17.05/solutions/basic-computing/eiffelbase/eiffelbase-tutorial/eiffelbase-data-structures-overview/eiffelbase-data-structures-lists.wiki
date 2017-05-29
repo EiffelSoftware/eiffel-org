@@ -1,0 +1,385 @@
+[[Property:title|EiffelBase Data Structures, Lists]]
+[[Property:weight|1]]
+[[Property:uuid|23f540e0-16d5-807c-30af-74d3416a5709]]
+Many applications need sequential structures, also called linear structures, in particular lists and circular chains. Apart from three classes describing individual list cells, all the classes involved are descendants of class [[ref:libraries/base/reference/linear_chart|LINEAR]] , one of the deferred classes describing general traversal properties and introduced in the chapter that described the general data structure taxonomy. More precisely, all but one of the classes of interest for the present discussion are descendants, direct or indirect, from a class called [[ref:libraries/base/reference/chain_chart|CHAIN]]  which describes general sequential structures possessing a cursor as well as insertion properties. The exception is class [[ref:libraries/base/reference/countable_sequence_chart|COUNTABLE_SEQUENCE]] , which describes infinite structures; all the others describe finite structures. <br/>
+[[ref:libraries/base/reference/chain_chart|CHAIN]]  is an heir of [[ref:libraries/base/reference/sequence_chart|SEQUENCE]] , which describes a more general notion of sequence. [[ref:libraries/base/reference/sequence_chart|SEQUENCE]]  is a descendant of [[ref:libraries/base/reference/linear_chart|LINEAR]] . There are two main categories of sequential structures: some, called circular chains, are cyclic; others, called lists, are not. Another distinction exists between dynamic structures, which may be extended at will, and fixed ones, which have a bounded capacity. <br/>
+In all of the structures under review you may insert two or more occurrences of a given item in such a way that the occurrences are distinguishable. In other words, the structures are bags rather than just sets, although it is possible to use them to implement sets. 
+
+=Higher Level Traversal Classes=
+
+The list and chain classes are characterized, for their traversal properties, as being linear and, more precisely, bilinear. In the traversal hierarchy, the relevant deferred classes are [[ref:libraries/base/reference/linear_chart|LINEAR]]  and [[ref:libraries/base/reference/bilinear_chart|BILINEAR]] , introduced in the [[EiffelBase, Abstract Container Structures: The Taxonomy|discussion]]  of the general taxonomy. 
+
+==Linear structures==
+
+[[ref:libraries/base/reference/linear_chart|LINEAR]]  describes sequential structures that may be traversed one way. It introduces in particular the following features, illustrated on the figure below:
+* <eiffel>after</eiffel>, a boolean-valued query which determines whether you have moved past the last position (a more precise specification is given below).
+* <eiffel>off</eiffel>, a boolean-valued query which is false if and only if there is no item at the current position; for [[ref:libraries/base/reference/linear_chart|LINEAR]]  this is the same as: 
+<code>is_empty and not after</code>
+
+* <eiffel>item</eiffel>, a query which returns the item at the current position - provided of course there is one, as expressed by the precondition: 
+<code>
+            not off</code>
+
+* <eiffel>start</eiffel>, a command to move to the first position if any (if is_empty is true the command has no effect).
+* <eiffel>forth</eiffel>, a command to advance by one position; the precondition is not after.
+* <eiffel>finish</eiffel>, a command to move to the last position; the precondition is: <br/>
+<code>
+            not is_empty</code>
+
+
+[[Image:linear|fig.1: Linear Structure]]  
+
+
+There is also a procedure <eiffel>search</eiffel> with one argument, which determines whether the value of that argument appears in the structure at or after the current position, and if not makes <eiffel>after</eiffel> become true. This procedure is internally used by the default implementation of the <eiffel>has</eiffel> function (the general membership test) for linear structures. Like has for all containers, <eiffel>search</eiffel> uses object or reference equality depending on the value set for <eiffel>object_comparison</eiffel>.
+
+An invariant property of [[ref:libraries/base/reference/linear_chart|LINEAR]]  structures is that the current position may go off one step past the last item if any, but no further. The precondition of <eiffel>forth</eiffel> - not after - helps ensure this. The first item (if any) being at position 1, the maximum allowable position is <eiffel>count</eiffel> + 1, where <eiffel>count</eiffel> is the number of items.
+
+==Bilinear structures==
+
+[[ref:libraries/base/reference/bilinear_chart|BILINEAR]]  describes linear structures which may be traversed both ways. It inherits from [[ref:libraries/base/reference/linear_chart|LINEAR]]  and extends it with two new features which ensure complete symmetry between the two directions of movement:
+* <eiffel>before</eiffel>, a boolean-valued query which determines whether you have moved to the left of the first position (a more precise specification is given below).
+* <eiffel>back</eiffel>, a command to move backward by one position; the precondition is not before.
+
+For bilinear structures the position can range between 0 (not just 1) and count + 1. Query off is accordingly redefined so as to yield the value of after or before.
+
+
+[[Image:bilinear|fig.2: Bilinear Structure]] 
+
+ 
+==Invariant properties for after, before and off==
+
+The redefinition of <eiffel>off</eiffel> illustrates a general methodological advice about invariants: be careful about not over-constraining the invariant by including properties that may be made more general in descendants. It might have been tempting to include in [[ref:libraries/base/reference/linear_chart|LINEAR]]  an invariant clause of the form
+<code>
+            off = is_empty or after</code>
+
+This property, however, would be too constraining. More precisely, it is always true that the right-hand side implies the left-hand-side: if a linear structure is either empty or after, then it is off. But the converse is not true, since certain kinds of linear structure, for example bilinear ones, may be off but neither empty nor after. <br/>
+The actual invariant for class [[ref:libraries/base/reference/bilinear_chart|BILINEAR]]  is obtained in three stages. In class [[ref:libraries/base/reference/traversable_chart|TRAVERSABLE]]  the feature off is deferred and a basic property of that feature is expressed by the invariant clause 
+<code>
+            empty_constraint:is_empty implies off</code>
+
+In [[ref:libraries/base/reference/linear_chart|LINEAR]] , feature <eiffel>off</eiffel> is effected through an implementation which returns the value of the expression <eiffel>is_empty</eiffel> or <eiffel>after</eiffel>. The class adds an invariant clause which, however, says less than the implementation to leave some room for variation:
+<code>
+            after_constraint:after implies off</code>
+
+Finally [[ref:libraries/base/reference/bilinear_chart|BILINEAR]] , an heir of [[ref:libraries/base/reference/linear_chart|LINEAR]] , redefines <eiffel>off</eiffel> to return the value of the expression
+<code>
+            before or after</code>
+
+and adds the invariant clause
+<code>
+            before_constraint: before implies off</code>
+
+The new implementation of <eiffel>off</eiffel> 
+<code>
+            after or before</code>
+
+would not guarantee the invariant clause inherited from [[ref:libraries/base/reference/traversable_chart|TRAVERSABLE]]  were it not for another clause introduced in [[ref:libraries/base/reference/bilinear_chart|BILINEAR]] :
+<code>
+            empty_property: is_empty implies (after or before )</code>
+
+which indicates that an empty bilinear structure must always be <eiffel>after</eiffel> or <eiffel>before</eiffel> but not both, however, as stated by the last new clause, the reason for which is discussed in detail below:
+<code>
+            not_both: not(after and before)</code>
+
+The flat-short form of [[ref:libraries/base/reference/bilinear_chart|BILINEAR]]  shows the complete reconstructed invariant:
+<code>
+            not_both:  not (after and before)
+            empty_property:  is_empty implies (after or before)
+            before_constraint:  before implies off
+            after_constraint:  after implies off
+            empty_constraint:  is_empty implies off</code>
+
+==Iteration patterns==
+
+For a more general form of this scheme, applicable to circular chains as well as other linear structures, replace <eiffel>off</eiffel> by <eiffel>exhausted</eiffel>. With the features shown above, a typical iteration mechanism on a non-empty linear structure 'lin' is of the form:
+<code>
+            from
+                lin.start
+                some_optional_initializing_operation (lin)
+            until
+                lin.off
+            loop
+                lin.some_action (lin.item)
+                lin.forth
+            end</code>
+
+The value of <code>lin.off</code> is always true for an empty structure, so in this case the loop will, correctly, execute only its initialization actions if present. <br/>
+This is a very common pattern, which you will find in the library classes themselves (for example has is implemented in this way) and many application clients. The iterator classes corresponding to linear structures ([[ref:libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] , [[ref:libraries/base/reference/two_way_chain_iterator_chart|TWO_WAY_CHAIN_ITERATOR]] ) turn this pattern and several related ones into actual reusable routines. <br/>
+For bilinear structures there is another traversal mechanism going backward rather than forward; it is the same as above except that <eiffel>finish</eiffel> replaces <eiffel>start</eiffel> and <eiffel>back</eiffel> replaces <eiffel>finish</eiffel>. The exit condition remains <eiffel>off</eiffel> since <eiffel>before</eiffel>, like <eiffel>after</eiffel>, implies <eiffel>off</eiffel>. 
+
+==A precise view of after and before==
+
+Getting the specification of <eiffel>after</eiffel> and before <eiffel>right</eiffel>, so that it will handle all cases properly, requires some care. <br/>
+For every one of the structures under discussion there is a notion of current position, which we may call the cursor position even though for the moment the cursor is a virtual notion only. (Actual cursor objects will come later when we combine [[ref:libraries/base/reference/linear_chart|LINEAR]] , [[ref:libraries/base/reference/bilinear_chart|BILINEAR]]  and other classes from the traversal hierarchy with [[ref:libraries/base/reference/cursor_structure_chart|CURSOR_STRUCTURE]]  and other classes from the collection hierarchy.) The informal definition is that <eiffel>after</eiffel> is true if and only if the cursor - in this informal sense of a fictitious marker signaling the current position - is one position after the last item, if any, and that <eiffel>before</eiffel> is true if and only if the cursor is one position before the first item. When the cursor is on any of the items, <eiffel>after</eiffel> and <eiffel>before</eiffel> are false; <eiffel>after</eiffel> holds when the cursor is to the right of the last item, and <eiffel>before</eiffel> when it is to the left of the first item. This leaves open the question of what conventions to take for an empty structure. If iteration schemes of the above type are to work, then <eiffel>after</eiffel> must be true for an empty structure. For a bilinear structure, however, we should have total symmetry between the two pairs of features 
+* <eiffel>start</eiffel>, <eiffel>forth</eiffel>, <eiffel>after</eiffel>.
+* <eiffel>finish</eiffel>, <eiffel>back</eiffel>, <eiffel>before</eiffel>.
+
+So for an empty list both <eiffel>before</eiffel> and <eiffel>after</eiffel> should be true. This scheme was used in early version of the Base libraries. It has some disadvantages, however; in particular it is not compatible with the simple, symmetric properties:
+<code>
+            after = (index = count + 1)
+            before = (index = 0)</code>
+
+which express elementary definitions for <eiffel>after</eiffel> and <eiffel>before</eiffel> in terms of <eiffel>index</eiffel>, the current position, and <eiffel>count</eiffel>, the number of items (items being numbered from 1 to count). For an empty structure <eiffel>count</eiffel> is zero, so if we want <eiffel>after</eiffel> and <eiffel>before</eiffel> to be both true in this case we have to sacrifice one of the above properties, since the first would imply index to 1 and the second to 0. But again symmetry reigns supreme: we should either keep both properties or renounce both. The solution was to renounce both and replace them by slightly more complicated ones:
+<code>
+            after = (is_empty or (index = count + 1))
+            before = (is_empty or (index = 0))</code>
+
+When a structure is created, some initializations will have to be made; the default initializations will usually lead to a value of 0 rather than 1 for index, although this dissymetry is not apparent in the assertions. Although acceptable, this solution leads to small but unpleasant complications, in particular frequent conditional instructions of the form
+<code>
+            if after and not is_empty then...</code>
+
+The solution finally retained for the Base libraries uses a different technique, which has turned out to be preferable. The idea is to replace the conceptual picture by one in which there are always two fictitious sentinel items. The two sentinel items are only present conceptually. They are of course not taken into account for the computation of <eiffel>count</eiffel> and, although it is possible to conceive of an implementation which would actually reserve space for them (for example in an array representation), none of the implementations used in Base for the classes of this documentation and other descendants of [[ref:libraries/base/reference/linear_chart|LINEAR]]  do. The only purpose of the sentinels is to provide two valid theoretical cursor positions, which exist regardless of the number of actual (non-sentinel) items in the structure. <br/>
+The sentinel items always appear at positions 0 and <eiffel>count</eiffel> + 1; this property is true even if the structure is empty of items, in which case count is zero. As a result, the following properties are part of the invariant: 
+<code>
+            0 <= index
+            index <= count + 1
+            before = (index = 0)
+            after = (index = count + 1)
+            not (after and before)</code>
+
+The last property given indicates that a structure can never be both <eiffel>after</eiffel> <code>and</code> <eiffel>before</eiffel>, since even in an empty structure the two sentinels are still present, with the cursor on one of them. For an empty structure, <eiffel>index</eiffel> will be zero by convention, so that <eiffel>before</eiffel> will be true and <eiffel>after</eiffel> false. But this property is not reflected in any of the invariant clauses.
+
+==Some lessons==
+
+This discussion has illustrated some of the important patterns of reasoning that are frequently involved in serious object-oriented design. Among the lessons are four ideas which you may find useful in many different cases. First, consistency is once again the central principle. Throughout the design of a class library we must constantly ask ourselves:
+* How do I make my next design decision compatible with the previous ones?
+* How do I take my next design decision so that it will be easy - or at least possible - to make future ones compatible with it?
+
+Another frequent concern, partly a consequence of consistency, is symmetry. To mathematicians and physicists, symmetry considerations are often important in guiding the search for a solution to a problem; if the problem exhibits a certain symmetry, a candidate solution will be rejected if it does not satisfy that symmetry. Such was the situation here: since the structure's specification is symmetric with respect to the two possible directions of traversal, so too should the feature design be. <br/>
+The third lesson is also well-known in mathematics and physics: the usefulness of looking at limit cases. To check that a design is sound it is often useful to examine what becomes of it when it is applied to extreme situations - in particular, as was done in this example, empty structures. <br/>
+Finally, the only way to make delicate design decisions is to express the issues clearly through assertions, most notably invariants. To analyze the properties under discussion, and weigh the various alternatives, we need the precision of mathematical logic. Once again note that without assertions it would be impossible to build a good library; we would have no way to know precisely what we are talking about. 
+
+=Sequences And Chains=
+
+Still deferred, classes [[ref:libraries/base/reference/sequence_chart|SEQUENCE]]  and[[ref:libraries/base/reference/chain_chart|CHAIN]]  provide the basis for all list and chain classes, as well as for many trees and for dispensers. <br/>
+SEQUENCE is constructed with the full extent of the technique described in the discussion of the taxonomy: using multiple inheritance to combine one class each from the access, traversal and storage hierarchy. [[ref:libraries/base/reference/sequence_chart|SEQUENCE]]  indeed has three parents: 
+* [[ref:libraries/base/reference/active_chart|ACTIVE]]  gives the access properties. A sequence is an active structure with a notion of current item. Remember that active structures are a special case of bags.
+* [[ref:libraries/base/reference/bilinear_chart|BILINEAR]] , as studied above, indicates that a sequence may be traversed both ways.
+* FINITE, from the storage hierarchy, indicates that the class describes finite sequences. (A class [[ref:libraries/base/reference/countable_sequence_chart|COUNTABLE_SEQUENCE]]  is also present, as described below.)
+
+To the features of [[ref:libraries/base/reference/bilinear_chart|BILINEAR]] , [[ref:libraries/base/reference/sequence_chart|SEQUENCE]]  principally adds features for adding, changing and removing items. A few procedures in particular serve to insert items at the end:
+*  <code>s .put ( v )</code> adds v at the end of a sequence s. 
+*  <eiffel> extend</eiffel> and <eiffel>force</eiffel>, at the [[ref:libraries/base/reference/sequence_chart|SEQUENCE]] level, do the same as <eiffel>put</eiffel>.
+*  <code>s .append ( s1 )</code> adds to the end of s the items of s1 (another sequence), preserving their s1 order. 
+
+Other procedures work on the current position:
+*  <code>s.</code><eiffel>remove</eiffel> removes the item at current position. 
+*  <code>s.replace ( v )</code> replaces by v the item at current position. 
+
+SEQUENCE, however, does not provide a procedure to insert an item at the current position, since not all implementations of sequences support this possibility; you will find it in descendants of [[ref:libraries/base/reference/sequence_chart|SEQUENCE]]  seen below. <br/>
+Yet another group of features are based on the first occurrence of a certain item, or on all occurrences: 
+*  <code>s.prune ( v ) removes the first occurrence of v in s</code>, if any. 
+*  <code>s.prune_all ( v ) removes all occurrences of v</code>. 
+
+These procedures have various abstract preconditions: <code>s .extendible for additions, s .writable for replacements, s .</code><eiffel>prunable</eiffel> for removals. Properties <eiffel>extendible</eiffel> and <eiffel>prunable</eiffel> characterize general categories of container structures rather than individual instances; for example <eiffel>extendible</eiffel> is always true for the 'dynamic' structures seen below. In contrast, <eiffel>writable</eiffel> depends on the current status of each instance. In general <eiffel>writable</eiffel> will be true if there is an item at the current position. 
+
+==Chains==
+
+Chains are sequences with a few more properties: items may be accessed through their indices, and it is possible to define cursor objects attached to individual items. <br/>
+Class [[ref:libraries/base/reference/chain_chart|CHAIN]] is an heir of [[ref:libraries/base/reference/sequence_chart|SEQUENCE]] . It gets its access properties from [[ref:libraries/base/reference/cursor_structure_chart|CURSOR_STRUCTURE]]  (which adds the notion of cursor to the features of [[ref:libraries/base/reference/active_chart|ACTIVE]] , already present in [[ref:libraries/base/reference/sequence_chart|SEQUENCE]] ) and is also an heir of [[ref:libraries/base/reference/indexable_chart|INDEXABLE]] . This ancestry implies in particular the presence of the following features: 
+* <eiffel>cursor</eiffel>, from [[ref:libraries/base/reference/cursor_structure_chart|CURSOR_STRUCTURE]] , which makes it possible to keep a reference to an item of the structure.
+* <eiffel>i_th</eiffel> and <eiffel>put_i_th</eiffel> from [[ref:libraries/base/reference/table_chart|TABLE]] , via [[ref:libraries/base/reference/indexable_chart|INDEXABLE]] , which make it possible to access and replace the value of an item given by its integer index.
+
+These features were called <eiffel>item</eiffel> and <eiffel>put</eiffel> in [[ref:libraries/base/reference/table_chart|TABLE]] , but are renamed here to remove the conflict with homonymous features from [[ref:libraries/base/reference/sequence_chart|SEQUENCE]] . <br/>
+Procedure <eiffel>put</eiffel> for chains is the version obtained from [[ref:libraries/base/reference/cursor_structure_chart|CURSOR_STRUCTURE]] , which has the same effect as <eiffel>replace</eiffel> - replacing the value of the item at cursor position. The <eiffel>put</eiffel> procedure from [[ref:libraries/base/reference/sequence_chart|SEQUENCE]]  is renamed <eiffel>sequence_ put</eiffel>. This feature is not exported by [[ref:libraries/base/reference/chain_chart|CHAIN]] , however, since its effect (adding an item at the end) may be obtained through the simpler name <eiffel>extend</eiffel>. 
+
+==Dynamic chains==
+
+By default, chains can only be extended at the end, through <eiffel>extend</eiffel> and <eiffel>sequence_put</eiffel>. Of particular interest are those chains where clients can insert and remove items at any position. Such chains are said to be dynamic, and described by [[ref:libraries/base/reference/chain_chart|CHAIN]] 's heir [[ref:libraries/base/reference/dynamic_chain_chart|DYNAMIC_CHAIN]] . The new features are predictable:
+* Procedure <eiffel>put_front</eiffel> adds an item before the first. (As noted, the procedures to add an item after the last are already available in chains.)
+* Procedures <eiffel>put_left</eiffel> and <eiffel>put_right</eiffel> add an item at the left and right of the cursor position.
+* Procedures <eiffel>remove_left</eiffel> and remove_right remove an item at the left and right or the cursor position.
+* Procedures <eiffel>merge_left</eiffel> and <eiffel>merge_right</eiffel> are similar to <eiffel>put_left</eiffel> and <eiffel>put_right</eiffel> but insert another dynamic chain rather than a single item. As the word 'merge' suggests, the merged structure, passed as argument, does not survive the process; it is emptied of its items. To preserve it, perform a <eiffel>twin</eiffel> or <eiffel>copy</eiffel> before the merge operation.
+
+The class also provides implementations of <eiffel>prune</eiffel>, <eiffel>prune_all</eiffel> and <eiffel>wipe_out</eiffel> from [[ref:libraries/base/reference/collection_chart|COLLECTION]] . To make these implementations useful, it defines queries <eiffel>extendible</eiffel> and <eiffel>prunable</eiffel> so that they return the value true. 
+
+=Lists And Circular Structures=
+
+A chain is a finite sequential structure. This property means that items are arranged in a linear order and may be traversed from the first to the last. To do this you may use a loop of the form shown above, based on procedures <eiffel>start</eiffel> and <eiffel>forth</eiffel>. <br/>
+This property leaves room for several variants. In particular chains may be straight or circular. 
+*  A straight chain, which from now on will be called a list, has a beginning and an end.
+*  A circular chain, as represented by class [[ref:libraries/base/reference/circular_chart|CIRCULAR]]  and its descendants, has a much more flexible notion of first item. It is organized so that every item has a successor.
+
+This representation is conceptual only; in fact the implementations of circular chains found in the Base libraries are based on lists, implemented in one of the ways described below (in particular linked and arrayed). <br/>
+The major originality of circular chains is that unless the structure is empty procedure <eiffel>forth</eiffel> is always applicable: it will cycle past the last item, coming back to the <br/>
+first. The symmetric property applies to <eiffel>back</eiffel>. The cyclic nature of <eiffel>forth</eiffel> and <eiffel>back</eiffel> for circular chains is expressed precisely by the assertions. The version of <eiffel>forth</eiffel> for class [[ref:libraries/base/reference/chain_chart|CHAIN]] , which comes from [[ref:libraries/base/reference/linear_chart|LINEAR]] , has precondition 
+<code>not after</code>
+
+Similarly, the precondition for back is
+<code>not before</code>
+
+For lists, after becomes true when the cursor moves past the last item. For circular chains, however, after and before are never true except for an empty structure; this is expressed by the invariant clauses of class [[ref:libraries/base/reference/circular_chart|CIRCULAR]] :
+<code>not before</code>
+
+For a non-empty circular chain, then, you can circle forever around the items, using forth or back.
+
+==Choosing the first item==
+
+For a list, the first and last items are fixed, and correspond to specific places in the physical representation. <br/>
+A circular chain also needs a notion of first item, if only to enable a client to initiate a traversal through procedure start. Similarly, there is a last item - the one just before the first in a cyclic traversal. (If the chain has just one item, it is both first and last.) <br/>
+For circular chains, however, there is no reason why the first item should always remain the same. One of the benefits that clients may expect from the use of a circular <br/>
+structure is the ability to choose any item as the logical first. Class [[ref:libraries/base/reference/circular_chart|CIRCULAR]]  offers for that purpose the procedure <eiffel>set_start</eiffel> which designates the current cursor position as the first in the circular chain. Subsequent calls to <eiffel>start</eiffel> will move the cursor to this position; calls to <eiffel>finish</eiffel> will move the cursor to the cyclically preceding position. With most implementations, there will then be two notions of first position: the logical first, which clients may freely choose through calls to <eiffel>set_start</eiffel>; and the <eiffel>physical first</eiffel>, which results from the implementation. In a representation using an array with indices from 1 to <eiffel>capacity</eiffel>, for example, the physical first is position 1, and the logical first may be any index in the permitted range. In a linked representation, there will be a cell first element corresponding to the physical first, but the logical first is any cell in the chain. <br/>
+In such cases the circular chain classes have features called <eiffel>standard_first</eiffel>, <eiffel>standard_last</eiffel>, <eiffel>standard_start</eiffel> and so on, which are not exported (so that you will not see them in the flat-short forms) but serve to implement visible features such as <eiffel>first</eiffel>, <eiffel>last</eiffel> and <eiffel>forth</eiffel>. For example a possible implementation of <eiffel>forth</eiffel> for circular chains is 
+<code>forth is
+		-- Move cursor to next item, cyclically.
+	do
+		standard_forth
+		if standard_after then
+			standard_start
+		end
+		if isfirst then
+      			exhausted := True
+	   	end
+	end</code>
+
+==Traversing a list or circular chain==
+
+The properties of <eiffel>forth</eiffel> for circular chains imply that a traversal loop written as
+<code>from
+	lin.start
+until
+	lin.off
+loop
+   	...
+ 	lin.forth
+end</code>
+
+would not work if <code>lin</code> is a non-empty circular structure: <eiffel>off</eiffel> would never become true, so that the loop would forever cycle over the structure's items. The same would apply to a loop using finish and back instead of <eiffel>start</eiffel> and <eiffel>forth</eiffel>. This behavior is the natural result of the semantics defined for <eiffel>off</eiffel> , <eiffel>forth</eiffel> and <eiffel>back</eiffel> for circular structures. But it prevents us from using these features to perform a single traversal which will visit every item once. <br/>
+Using <eiffel>exhausted</eiffel> in lieu of off solves this problem. In class [[ref:libraries/base/reference/circular_chart|CIRCULAR]] , <eiffel>exhausted</eiffel> is an attribute which is set to false by <eiffel>start</eiffel> and <eiffel>finish</eiffel>, and is set to true by <eiffel>forth</eiffel> when advancing from the last item to the first and by <eiffel>back</eiffel> when backing up from the first item to the last. So you should write the loop as 
+<code>from
+	lin.start
+
+
+
+
+   	some_optional_initializing_operation (lin)
+until
+   	lin.exhausted
+loop
+   	...
+   	lin.some_action (lin.item)
+   	lin.forth
+end</code>
+
+This form is applicable to all linear structures, circular or not, since <eiffel>exhausted</eiffel> is introduced in class [[ref:libraries/base/reference/linear_chart|LINEAR]]  as a function which returns the same value as <eiffel>off</eiffel> .Its redefinition into an attribute, modified by <eiffel>start</eiffel>,<eiffel> finish</eiffel>, <eiffel>forth</eiffel> and <eiffel>back</eiffel>, does not occur until class [[ref:libraries/base/reference/circular_chart|CIRCULAR]] . <br/>
+Because <eiffel>exhausted</eiffel> is more general than <eiffel>off</eiffel> , the iteration scheme just given (and its equivalent going backwards) is preferable to the earlier one using <eiffel>off </eiffel>, especially if there is any chance that the iteration might one day be applied to a lin structure that is circular. Classes of the Iteration library, in particular [[ref:libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] , rely on this scheme for iterating over linear structures. 
+
+==Dynamic structures==
+
+For both lists and circular chains, the most flexible variants, said to be dynamic, allow insertions and deletions at any position. <br/>
+The corresponding classes are descendants of [[ref:libraries/base/reference/dynamic_list_chart|DYNAMIC_LIST]]  and [[ref:libraries/base/reference/dynamic_circular_chart|DYNAMIC_CIRCULAR]] , themselves heirs of [[ref:libraries/base/reference/dynamic_chain_chart|DYNAMIC_CHAIN]]  studied above. <br/>
+
+
+==Infinite sequences==
+
+Class [[ref:libraries/base/reference/countable_sequence_chart|COUNTABLE_SEQUENCES]] , built by inheritance from [[ref:libraries/base/reference/countable_chart|COUNTABLE]] , [[ref:libraries/base/reference/linear_chart|LINEAR]]  and [[ref:libraries/base/reference/active_chart|ACTIVE]] , is similar to [[ref:libraries/base/reference/sequence_chart|SEQUENCE]]  but describes infinite rather than finite sequences.
+
+=Implementations=
+
+We have by now seen the concepts underlying the linear structures of the Base libraries, especially lists and circular chains. Let us look at the techniques used to implement them.
+
+==Linked and arrayed implementations==
+
+Most of the implementations belong to one of four general categories, better described <br/>
+as two categories with two subcategories each: 
+* Linked implementations, which may be one-way or two-way.
+* Arrayed implementations, which may be resizable or fixed.
+
+A linked implementation uses linked cells, each containing an item and a reference to the next cell. One-way structures are described by classes whose names begin with LINKED_, for example [[ref:libraries/base/reference/linked_list_chart|LINKED_LIST]] . Two-way structures use cells which, in addition to the reference to the next cell, also include a reference to the previous one. Their names begin with TWO_WAY_. <br/>
+An arrayed implementation uses an array to represent a linear structure. If the array is resizable, the corresponding class name begins with ARRAYED_, for example <br/>
+[[ref:libraries/base/reference/arrayed_list_chart|ARRAYED_LIST]] ; if not, the prefix is FIXED_. 
+
+==Linked structures==
+
+A linked structure requires two classes: one, such as [[ref:libraries/base/reference/linked_list_chart|LINKED_LIST]] , describes the list proper; the other, such as [[ref:libraries/base/reference/linkable_chart|LINKABLE]] , describes the individual list cells. The figure should help understand the difference; it describes a linked list, but the implementation of linked circular chains is similar.
+
+
+[[Image:linked-list|fig.3: Linked list and linked cells]]  
+
+
+The instance of type [[ref:libraries/base/reference/linked_list_chart|LINKED_LIST]]  shown at the top contains general information about the list, such as the number of items (<eiffel>count</eiffel>) and a reference to the first element (first). Because lists are active structures with a notion of current position, there is also a reference active to the cell at the current position. An entity declared as
+<code>my_list: LINKED_LIST [SOME_TYPE]</code>
+
+will have as its run-time value (if not void) a reference to such an object, which is really a list header. The actual list content is given by the [[ref:libraries/base/reference/linkable_chart|LINKABLE]]  instances, each of which contains a value of type <eiffel>SOME_TYPE</eiffel> and a reference to the next item, called <eiffel>right</eiffel>. <br/>
+Clearly, a header of type <code>LINKED_LIST [SOME_TYPE]</code> will be associated with cells of type <code>LINKABLE  [SOME_TYPE]</code>. <br/>
+Features such as active and first are used only for the implementation; they are not exported, and so you will not find them in the flat-short specifications, although the figures show them to illustrate the representation technique. <br/>
+A similar implementation is used for two-way-linked structures such as two-way lists and two-way circular chains. 
+
+
+[[Image:two-way-list|fig.4: Two way linked list]]  
+
+
+==Linked cells==
+
+The classes describing list cells are descendants of a deferred class called [[ref:libraries/base/reference/cell_chart|CELL]] , whose features are:
+* <eiffel>item</eiffel>, the contents of the cell.
+* <eiffel>put </eiffel> <code>( v :</code> <code>like </code> <eiffel>item</eiffel> <code>)</code>, which replaces the contents of the cell by a new value. 
+
+Class [[ref:libraries/base/reference/linkable_chart|LINKABLE]]  is an effective descendant of [[ref:libraries/base/reference/cell_chart|CELL]] , used for one-way linked structures. It introduces features <eiffel>right</eiffel>, a reference to another cell to which the current <br/>
+cell will be linked. Two-way linked structures use [[ref:libraries/base/reference/bi_linkable_chart|BI_LINKABLE]] , an heir of [[ref:libraries/base/reference/linkable_chart|LINKABLE]]  which to the above features adds <eiffel>left</eiffel>, a reference to the preceding cell in the structure. 
+
+{{caution|Do not confuse the <eiffel>item</eiffel> feature of [[ref:libraries/base/reference/cell_chart|CELL]]  and its descendants, such as [[ref:libraries/base/reference/linkable_chart|LINKABLE]] , with the <eiffel>item</eiffel> feature of the classes describing linear structures, such as [[ref:libraries/base/reference/linked_list_chart|LINKED_LIST]] . For a linked list, <eiffel>item</eiffel> returns the item at cursor position. }}
+
+It may be implemented as
+<code>item: G is
+		-- Current item
+	do
+		Result := active.item
+	end</code>
+
+using the <eiffel>item</eiffel> feature of [[ref:libraries/base/reference/linkable_chart|LINKABLE]] , applied to <eiffel>active</eiffel>.
+
+==One-way and two-way linked chains==
+
+If you look at the interfaces of one-way and two-way linked structures, you will notice that they are almost identical. This is because it is possible to implement features such as <eiffel>back</eiffel> for one-way structures such as described by [[ref:libraries/base/reference/linked_list_chart|LINKED_LIST]]  and [[ref:libraries/base/reference/linked_circular_chart|LINKED_CIRCULAR]] . A simple implementation of <eiffel>back</eiffel> stores away a reference to the current active item, executes <eiffel>start</eiffel>, and then performs <eiffel>forth</eiffel> until the item to the right of the cursor position is the previous <eiffel>active</eiffel>. <br/>
+Although correct, such an implementation is of course rather inefficient since it requires a traversal of the list. In terms of algorithmic complexity, it is in O (<eiffel>count</eiffel>), meaning that its execution time is on the average proportional to the number of items in the structure. In contrast, <eiffel>forth</eiffel> is O (1), that is to say, takes an execution time bounded by a constant. 
+
+{{caution|As a consequence, you should not use one-way linked structures if you need to execute more than occasional <eiffel>back</eiffel> operations (and other operations requiring access to previous items, such as <eiffel>remove_left</eiffel>). }}
+
+Two-way linked structures, such as those described by [[ref:libraries/base/reference/two_way_list_chart|TWO_WAY_LIST]]  and [[ref:libraries/base/reference/two_way_circular_chart|TWO_WAY_CIRCULAR]] , treat the two directions symmetrically, so that <eiffel>back</eiffel> will be just as efficient as <eiffel>forth</eiffel>. Hence the following important advice: If you need to traverse a linked structure both ways, not just left to right, use the <eiffel>TWO_WAY_</eiffel> classes, not the <eiffel>LINKED_</eiffel> versions. The <eiffel>TWO_WAY_</eiffel> structures will take up more space, since they use [[ref:libraries/base/reference/bi_linkable_chart|BI_LINKABLE]]  rather than [[ref:libraries/base/reference/linkable_chart|LINKABLE]]  cells, but for most applications this space penalty is justified by the considerable gains in time that will result if right-to-left operations are frequently needed. 
+
+==Arrayed chains==
+
+Arrayed structures as described by [[ref:libraries/base/reference/arrayed_list_chart|ARRAYED_LIST]] , [[ref:libraries/base/reference/fixed_list_chart|FIXED_LIST]]  and [[ref:libraries/base/reference/arrayed_circular_chart|ARRAYED_CIRCULAR]]  use arrays for their implementations. A list or circular chain of <eiffel>count</eiffel> items may be stored in positions 1 to <eiffel>count</eiffel> of an array of <eiffel>capacity</eiffel> items, where <eiffel>capacity</eiffel> >= <eiffel>count</eiffel>. <br/>
+An instance of [[ref:libraries/base/reference/fixed_list_chart|FIXED_LIST]] , as the name suggests, has a fixed number of items. In particular: 
+* Query extendible has value false for [[ref:libraries/base/reference/fixed_list_chart|FIXED_LIST]] : you may replace existing items, but not add any, even at the end. A [[ref:libraries/base/reference/fixed_list_chart|FIXED_LIST]]  is created with a certain number of items and retains that number.
+* As a result, [[ref:libraries/base/reference/fixed_list_chart|FIXED_LIST]]  joins the deferred feature count of [[ref:libraries/base/reference/list_chart|LIST]]  with the feature count of ARRAY, which satisfies the property <eiffel>count</eiffel> = <eiffel>capacity</eiffel>.
+* Query <eiffel>prunable </eiffel>has value false too: it is not possible to remove an item from a fixed list.
+
+In contrast, [[ref:libraries/base/reference/arrayed_list_chart|ARRAYED_LIST]]  has almost the same interface as [[ref:libraries/base/reference/linked_list_chart|LINKED_LIST]] . In particular, it is possible to add items at the end using procedure <eiffel>extend</eiffel>; if the call causes the list to grow beyond the current array's capacity, it will trigger a resizing. This is achieved by using the procedure <eiffel>force</eiffel> of class ARRAY to implement <eiffel>extend</eiffel>. [[ref:libraries/base/reference/arrayed_list_chart|ARRAYED_LIST]]  even has the insertion procedures (<eiffel>put_front</eiffel>, <eiffel>put_left</eiffel>, <eiffel>put_right</eiffel>) and removal procedures (<eiffel>prune</eiffel>, <eiffel>remove</eiffel>, <eiffel>remove_left</eiffel>, <eiffel>remove_right</eiffel>) that apply to arbitrary positions and appear in the linked implementations. These procedures, however, are rather inefficient, since they usually require moving a whole set of array items, an O (count) operation. (Procedure <eiffel>extend</eiffel> does not suffer from this problem, since it is easy to add an item to the end of an array, especially if there is still room so that no resizing is necessary.)
+
+{{caution|The situation of these features in [[ref:libraries/base/reference/arrayed_list_chart|ARRAYED_LIST]]  is similar to the situation of <eiffel>back</eiffel> in classes describing one-way linked structures: it is convenient to include them because they may be needed once in a while and an implementation exists; but using them more than occasionally may result in serious inefficiencies. If you do need to perform arbitrary insertions and removal, use linked structures, not arrayed ones. }}
+
+Arrayed structures, however, use up less space than linked representations. So they are appropriate for chains on which, except possibly for insertions at the end, few insertion and removal operations or none at all are expected after creation. [[ref:libraries/base/reference/fixed_list_chart|FIXED_LIST]]  offers few advantages over [[ref:libraries/base/reference/arrayed_list_chart|ARRAYED_LIST]] . [[ref:libraries/base/reference/fixed_list_chart|FIXED_LIST]]  may be useful, however, for cases in which the fixed number of items is part of the specification, and any attempt to add more items must be treated as an error. For circular chains only one variant is available, [[ref:libraries/base/reference/arrayed_circular_chart|ARRAYED_CIRCULAR]] , although writing a <eiffel>FIXED_</eiffel> version would be a simple exercise. 
+
+==Multi-arrayed lists==
+
+For lists one more variant is available, combining some of the advantages of arrayed and linked implementations: [[ref:libraries/base/reference/multi_array_list_chart|MULTI_ARRAY_LIST]] . With this implementation a list is <br/>
+divided into a number of blocks. Each block is an array, but the successive arrays are linked. 
+
+=Sorted Linear Structures=
+
+The class [[ref:libraries/base/reference/comparable_struct_chart|COMPARABLE_STRUCT]] , an heir of [[ref:libraries/base/reference/bilinear_chart|BILINEAR]] , is declared as
+<code>deferred class
+	COMPARABLE_STRUCT [G -> COMPARABLE]
+		inherit
+			BILINEAR
+		feature
+   		...</code>
+
+As indicated by the constrained generic parameter it describes bilinear structures whose items may be compared by a total order relation.
+
+{{caution|The class name COMPARABLE_STRUCT, chosen for brevity's sake, is slightly misleading: it is not the structures that are comparable but their items. }}
+
+COMPARABLE_STRUCT introduces the features <eiffel>min</eiffel> and <eiffel>max</eiffel>, giving access to the minimum and maximum elements of a structure; these are always present for a finite <br/>
+structure with a total order relation. [[ref:libraries/base/reference/sorted_struct_chart|SORTED_STRUCT]] , an heir of [[ref:libraries/base/reference/comparable_struct_chart|COMPARABLE_STRUCT]] , describes structures that can be sorted; it introduces the query sorted and the command sort. <br/>
+The deferred class [[ref:libraries/base/reference/part_sorted_list_chart|PART_SORTED_LIST]]  describes lists whose items are kept ordered in a way that is compatible with a partial order relation defined on them. The class is declared as 
+<code>deferred class
+	PART_SORTED_LIST [G -> COMPARABLE]...</code>
+
+An implementation based on two-way linked lists is available through the effective heir [[ref:libraries/base/reference/sorted_two_way_list_chart|SORTED_TWO_WAY_LIST]] . <br/>
+The deferred class [[ref:libraries/base/reference/sorted_list_chart|SORTED_LIST]] , which inherits from [[ref:libraries/base/reference/part_sorted_list_chart|PART_SORTED_LIST]] , assumes that the order relation on G is a total order. As a result, the class is able to introduce features <eiffel>min</eiffel>, <eiffel>max</eiffel> and <eiffel>median</eiffel>. Here too a two-way linked list implementation is available, through the effective class [[ref:libraries/base/reference/sorted_two_way_list_chart|SORTED_TWO_WAY_LIST]] . 
+
+
+
+

@@ -1,0 +1,25 @@
+[[Property:title|Externals Options]]
+[[Property:weight|7]]
+[[Property:uuid|0e46ef16-4946-8bc7-6481-0d069cbb506b]]
+[[Image:external-options|Externals dialog]]  
+
+In most cases this is not needed but for some C/C++ externals and in some .NET projects it is necessary to specify additional includes, objects or resources.
+
+If you use a library, externals of this library are automatically included. E.g. if you use vision2 the externals for vision2 don't need to be added to the project itself.
+* Include: This is where you can enter the location of the directories where the C/C++ compiler will look for the header files that are required. The header files which the C/C++ compiler will look for are the ones that appear in an encapsulation of a C/C++ external in an Eiffel class. See the pages on "[[With other languages|interacting with other languages]]" to learn more about specifying C/C++ externals.
+* Object: additional C/C++ object files
+* Library: like object files, but will be added last, needed for some very strict C compilers
+* Makefile: additional makefiles, if possible use tasks instead
+
+Resource: .NET resources
+* The .resx resource file format is a XML based format to include objects (such as images and other binary formats) and strings.
+* The .txt resource file format can only contains strings.
+
+Externals have three properties: 
+* Location: location of the external, will be copied verbatim into the makefile
+* Description: an optional description about the external
+* Condition: allows the same configuration with externals to work in different situations (e.g. windows and unix) (see [[General Target Options|conditions]] ) 
+
+
+
+
