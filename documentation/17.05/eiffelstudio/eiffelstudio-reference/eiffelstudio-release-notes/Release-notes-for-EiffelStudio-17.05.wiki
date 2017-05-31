@@ -4,7 +4,7 @@
 [[Property:link_title|17.05]]
 ==Graphical environment==
 ===What's new===
-* The EiffelStudio Inspector was extended to check '''obsolete features''' and '''obsolete calls''' and make the users aware of coming removal. For that, the inspector checks for presence of well formatted '''date in obsolete message''' (following the `[yyyy-mm-dd]` format). Reports '''severity of obsolete calls''', depending on the associated date (`suggestion` when date is in the future, `warning` for less than 1 year old, and `error` for more than 1 year old). Reports '''obsolete features''' when associated date is more than 1.5 year old.
+* The EiffelStudio Inspector was extended to check for '''obsolete features''' and '''obsolete calls''' and to make the users aware of coming removal. For that, the inspector checks for presence of well formatted '''date in obsolete message''' (following the ISO `[yyyy-mm-dd]` format). Reported '''severity''' of obsolete calls depends on the associated date (`suggestion` when the date is in the future, `warning` for less than 1 year old, and `error` for more than 1 year old). '''Obsolete features''' are suggested for removal when the specified date is more than 1.5 year old.
 * Added shortcuts and contextual menu to '''restore recently closed tabs'''.
 * Using Pick&Drop functionality, users can now '''pick token for local variables and arguments''' from the EiffelStudio editor and formatters. Drop it into editor, and cursor will be moved to related declaration. Note that for now only normal feature locals and arguments are supported (this excludes inline agent, inline separate, object tests, and across variables).
 
