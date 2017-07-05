@@ -27,6 +27,6 @@ It would be an error to use `default_pointer` instead of `"beers"` because the t
 
 == Untyped manifest array ==
 
-An untyped manifest array has no Manifest_array_type part. As a result, its type is computed from the type of specified elements as a common ancestor type. So, the type of the expression `<<7, "beers">>` would be `ARRAY [ANY]` rather than `ARRAY [COMPARABLE]` because types of the elements do not conform to each other. On the other hand, the expression `<<True, False, False>>` has type `ARRAY [BOOLEAN]`.
+An untyped manifest array has no Manifest_array_type part. As a result, its type is computed from the type of specified elements as a [[Types#Common ancestor types|common ancestor type]]. So, the type of the expression `<<7, "beers">>` would be `ARRAY [ANY]` rather than `ARRAY [COMPARABLE]` because types of the elements do not conform to each other. On the other hand, the expression `<<True, False, False>>` has type `ARRAY [BOOLEAN]`.
 
 Because there is always a common ancestor type for manifest array elements, the untyped manifest array is always valid as soon as all its elements are valid. The empty untyped manifest array has type `ARRAY [NONE]`.
