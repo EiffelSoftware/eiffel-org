@@ -456,6 +456,13 @@ Then_part ::= [[#Expressions|Boolean_expression]] <code>then</code> [[#Instructi
 Else_part ::= <code>else</code> [[#Instructions|Compound]]
 
 
+Conditional_expression ::= <code>if</code> Then_part_expression_list <code>else</code> [[#Expressions|Expression]] <code>end</code> 
+
+Then_part_expression_list ::= {Then_part_expression <code>elseif</code> ...}+ 
+
+Then_part_expression ::= [[#Expressions|Boolean_expression]] <code>then</code> [[#Expressions|Expression]] 
+
+
 ===Multi-branch instructions ===
 Multi_branch ::= <code>inspect</code> [[#Expressions|Expression]] <nowiki>[When_part_list] [Else_part]</nowiki> <code>end</code> 
 
