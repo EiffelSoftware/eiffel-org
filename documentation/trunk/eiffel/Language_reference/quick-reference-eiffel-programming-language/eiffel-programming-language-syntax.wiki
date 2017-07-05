@@ -410,6 +410,14 @@ Constraint_list ::= {Single_constraint "," ...}+
 Constraint_creators ::= <code>create</code> [[#Export adaptation|Feature_list]] <code>end</code>
 
 
+===Manifest arrays ===
+Manifest_array ::= <nowiki>[</nowiki>Manifest_array_type<nowiki>]</nowiki> "<<" Expression_list ">>"
+
+Manifest_array_type ::= "{" [[#Types|Type]] "}"
+
+Expression_list ::= {[[#Expressions|Expression]] "," ...}*
+
+
 ===Tuple types ===
 Tuple_type ::= <code>TUPLE</code> <nowiki>[Tuple_parameter_list]</nowiki>
 
@@ -419,9 +427,7 @@ Tuple_parameters ::= [[#Actual generic parameters|Type_list]] | [[#Formal argume
 
 
 ===Manifest tuples ===
-Manifest_tuple ::= <nowiki>"[" Expression_list "]"</nowiki>
-
-Expression_list ::= {[[#Expressions|Expression]] "," ...}*
+Manifest_tuple ::= <nowiki>"["</nowiki> [[#Manifest arrays|Expression_list]] <nowiki>"]"</nowiki>
 
 
 ===Converter clauses ===
