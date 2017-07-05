@@ -5,7 +5,7 @@
 
 Manifest arrays provide a shortcut to create and initialize an array object using a single expression rather than a creation instruction followed by a sequence of insertions of new elements to the array. The lower index of a manifest array is always <code>1</code> and the upper index is the number of items.
 
-[[Eiffel%20Programming%20Language%20Syntax#Manifest_arrays|Manifest arrays] come in two flavors: typed and untyped with slightly different validity rules and run-time behavior.
+[[Eiffel%20Programming%20Language%20Syntax#Manifest_arrays|Manifest arrays]] come in two flavors: typed and untyped with slightly different validity rules and run-time behavior.
 
 == Typed manifest array ==
 
