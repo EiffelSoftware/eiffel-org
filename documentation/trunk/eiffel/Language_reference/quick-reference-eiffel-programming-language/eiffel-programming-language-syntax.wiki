@@ -572,7 +572,7 @@ Unqualified_call ::= [[#Feature names|Feature_name]] <nowiki>[</nowiki>[[#Actual
 
 Target ::= [[#Entities and variables|Local]] | [[#Entities and variables|Read_only]] | Call | Parenthesized_target 
 
-Parenthesized_target ::= "( |" [[#Expressions|Expression]] "| )" 
+Parenthesized_target ::= <code>(</code> [[#Expressions|Expression]] <code>)</code>
 
 Non_object_call ::= "{" [[#Types|Type]] "}" "." Unqualified_call
 
@@ -623,7 +623,7 @@ Placeholder ::= <nowiki>[</nowiki>[[#Manifest constants|Manifest_type]]<nowiki>]
 Expression ::= Basic_expression | Special_expression 
 
 Basic_expression ::= [[#Entities and variables|Read_only]] | [[#Entities and variables|Local]] | [[#Feature calls|Call]] | [[#Precursor|Precursor]] | [[#Equality expressions|Equality]] | Parenthesized | [[#"Old" postcondition expressions|Old]] | 
-[[#Operator expressions|Operator_expression]] | [[#Bracket expressions|Bracket_expression]]  | [[#Creation expression|Creation_expression]] 
+[[#Operator expressions|Operator_expression]] | [[#Bracket expressions|Bracket_expression]]  | [[#Creation expression|Creation_expression]] | [[#Conditionals|Conditional_expression]]
 
 Special_expression ::= [[#Manifest constants|Manifest_constant]] | [[#Manifest arrays|Manifest_array]] | [[#Manifest tuples|Manifest_tuple]] | [[#Agents|Agent]] | [[#Object test|Object_test]] | Once_string | 
 Address 
