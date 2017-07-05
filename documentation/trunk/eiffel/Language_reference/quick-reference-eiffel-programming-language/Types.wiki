@@ -5,11 +5,41 @@
 
 == Common ancestor type ==
 
-A *common ancestor type* is a type computed for a list of types using the following algorithm:
+A '''common ancestor type''' is a type computed for a list of types using the following algorithm:
 
-1. Temporary ignore whether any types are detachable or separate.
-2. Add a type `NONE` to the list of types (this makes sure the list is never empty).
-3. If there is a type in the list to which all other types conform, remember it as T.
-4. Otherwise, use `ANY` for T.
-5. If there is a detachable or separate type in the list, use the corresponding detachable and/or separate version of type T.
+# Temporary ignore whether any types are detachable or separate.
+# Add a type `NONE` to the list of types (to make sure the list is never empty).
+# If there is a type in the list to which all other types conform, remember it as T.
+# Otherwise, use `ANY` for T.
+# If there is a detachable or separate type in the list, use the corresponding detachable and/or separate version of T.
 
+
+Here are some examples:
+{|
+! Type list
+! Common ancestor type
+|-
+| (empty)
+| <e>NONE</e>
+|-
+| <e>BOOLEAN</e>
+| <e>BOOLEAN</e>
+|-
+| <e>BOOLEAN, BOOLEAN</e>
+| <e>BOOLEAN</e>
+|-
+| <e>INTEGER_32, REAL_64, COMPARABLE</e>
+| <e>COMPARABLE</e>
+|-
+| <e>INTEGER_32, REAL_64</e>
+| <e>ANY</e>
+|-
+| <e>INTEGER_32, detachable COMPARABLE</e>
+| <e>detachable COMPARABLE</e>
+|-
+| <e>INTEGER_32, separate COMPARABLE</e>
+| <e>separate COMPARABLE</e>
+|-
+| <e>detachable STRING, separate COMPARABLE</e>
+| <e>detachable separate COMPARABLE</e>
+|}
