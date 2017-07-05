@@ -1,0 +1,28 @@
+[[Property:uuid|3C1A6DEF-A6F1-4E64-A0BE-C07BDB382C93]]
+[[Property:weight|0]]
+[[Property:title|Manifest array]]
+= Manifest array =
+
+Manifest arrays provide a shortcut to create and initialize an array object using a single expression rather than a creation instruction followed by a sequence of insertions of new elements to the array. The lower index of a manifest array is always <code>1</code> and the upper index is the number of items.
+
+[[Eiffel%20Programming%20Language%20Syntax#Manifest_arrays|Manifest arrays] come in two flavors: typed and untyped with slightly different validity rules and run-time behavior.
+
+== Typed manifest array ==
+
+A typed manifest array has an explicit Manifest_array_type that should resolve to an <e>ARRAY</e> type. It is used to create an object to be filled with specified elements. Every element should be compatible with the specified element type. For example, the expression
+
+<e>
+   {ARRAY [COMPARABLE]} <<7, "beers">>
+</e>
+
+creates an array of type `ARRAY [COMPARABLE]` with 2 elements: `7` and `beers` and is therefore equivalent to the value of an imaginary variable `x` of type `ARRAY [COMPARABLE]` initialized as follows:
+
+<e>
+   create x.make (1, 0)
+   x.force (7, 1)
+   x.force ("beers", 2)
+</e>
+
+== Untyped manifest array ==
+
+An untyped manifest array has no Manifest_array_type part. As a result, its type is computed from the type of specified elements as a common ancestor type. So, the type of the expression `<<7, "beers">>` would be `ARRAY [ANY]` rather than `ARRAY [COMPARABLE]` as in the previous case because types of the elements do not conform to each other. On the other hand, the expression `<<True, False, False>>` has type `ARRAY [BOOLEAN]`.
