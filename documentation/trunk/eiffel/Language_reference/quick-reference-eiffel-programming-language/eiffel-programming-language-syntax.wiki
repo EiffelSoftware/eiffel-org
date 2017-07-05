@@ -618,7 +618,7 @@ Expression ::= Basic_expression | Special_expression
 Basic_expression ::= [[#Entities and variables|Read_only]] | [[#Entities and variables|Local]] | [[#Feature calls|Call]] | [[#Precursor|Precursor]] | [[#Equality expressions|Equality]] | Parenthesized | [[#"Old" postcondition expressions|Old]] | 
 [[#Operator expressions|Operator_expression]] | [[#Bracket expressions|Bracket_expression]]  | [[#Creation expression|Creation_expression]] 
 
-Special_expression ::= [[#Manifest constants|Manifest_constant]] | [[#Manifest tuples|Manifest_tuple]] | [[#Agents|Agent]] | [[#Object test|Object_test]] | Once_string | 
+Special_expression ::= [[#Manifest constants|Manifest_constant]] | [[#Manifest arrays|Manifest_array]] | [[#Manifest tuples|Manifest_tuple]] | [[#Agents|Agent]] | [[#Object test|Object_test]] | Once_string | 
 Address 
 
 Parenthesized ::= "(" Expression ")" 
