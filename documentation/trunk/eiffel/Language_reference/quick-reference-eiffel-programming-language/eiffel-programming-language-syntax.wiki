@@ -411,11 +411,11 @@ Constraint_creators ::= <code>create</code> [[#Export adaptation|Feature_list]] 
 
 
 ===Manifest arrays ===
-Manifest_array ::= <nowiki>[</nowiki>Manifest_array_type<nowiki>]</nowiki> "<<" Expression_list ">>"
+Manifest_array ::= <nowiki>[</nowiki>Manifest_array_type<nowiki>]</nowiki> <code><<</code> Expression_list <code>>></code>
 
-Manifest_array_type ::= "{" [[#Types|Type]] "}"
+Manifest_array_type ::= <code>{</code> [[#Types|Type]] <code>}</code>
 
-Expression_list ::= {[[#Expressions|Expression]] "," ...}*
+Expression_list ::= {[[#Expressions|Expression]] <code>,</code> ...}*
 
 
 ===Tuple types ===
