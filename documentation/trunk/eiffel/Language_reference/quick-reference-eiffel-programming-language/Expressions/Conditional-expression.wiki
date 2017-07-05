@@ -18,7 +18,7 @@
 
 has type `STRING`.
 
-If the types of the expressions are different, the common ancestor type is used as a type of the whole expression.
+If the types of the expressions are different, the [[Types#Common ancestor types|common ancestor type]] is used as a type of the whole expression.
 
 <e>
    if time < noon then
