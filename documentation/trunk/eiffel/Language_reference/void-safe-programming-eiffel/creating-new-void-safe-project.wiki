@@ -2,8 +2,9 @@
 [[Property:title|Creating a new void-safe project]]
 [[Property:weight|2]]
 [[Property:uuid|92cea2e9-b094-6380-2c5d-1cd1eb3038b4]]
-{{TOC|limit=2}}
 = Creating a new void-safe project =
+{{TOC|limit=2}}
+
 Now that we've been introduced to the Eiffel void-safe facilities, let's look at what it takes to set up a new void-safe software project. Here we'll look at the void-safety related project settings and how the can be used. Then we'll look deeper into the use of some of the void-safe tools.
 
 ==Project settings for void-safe projects==
