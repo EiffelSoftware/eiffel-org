@@ -1,7 +1,6 @@
 [[Property:uuid|3C1A6DEF-A6F1-4E64-A0BE-C07BDB382C93]]
 [[Property:weight|0]]
 [[Property:title|Manifest array]]
-= Manifest array =
 
 Manifest arrays provide a shortcut to create and initialize an array object using a single expression rather than a creation instruction followed by a sequence of insertions of new elements to the array. The lower index of a manifest array is always <code>1</code> and the upper index is the number of items.
 
