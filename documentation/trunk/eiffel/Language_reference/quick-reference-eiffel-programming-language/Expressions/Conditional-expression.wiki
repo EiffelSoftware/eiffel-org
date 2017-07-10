@@ -2,7 +2,6 @@
 [[Property:weight|0]]
 [[Property:title|Conditional expression]]
 [[Property:link_title|Conditional]]
-= Conditional expression =
 
 [[Eiffel%20Programming%20Language%20Syntax#Conditionals|Conditional expressions]] compute a value using different expressions depending on one or more conditions. If all expressions have the same type, the conditional expression as a whole has this type as well:
 
