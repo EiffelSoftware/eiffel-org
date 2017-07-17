@@ -6,11 +6,11 @@
 
 A '''common ancestor type''' is a type computed for a list of types using the following algorithm:
 
-# Temporary ignore whether any types are detachable or separate.
-# Add a type `NONE` to the list of types (to make sure the list is never empty).
-# If there is a type in the list to which all other types conform, remember it as T.
-# Otherwise, use `ANY` for T.
-# If there is a detachable or separate type in the list, use the corresponding detachable and/or separate version of T.
+# Add `NONE` to the list of types (to make sure the list is never empty).
+# If there is a separate type in the list, add a mark `separate` in front of all non-separate types in the list.
+# If there is a detachable type in the list, add a mark `detachable` in front of all attached types in the list.
+# If there is a type in the list to which all other types conform, it is the common ancestor type.
+# Otherwise, add `ANY` to the list and repeat steps starting from step #2.
 
 
 Here are some examples:
