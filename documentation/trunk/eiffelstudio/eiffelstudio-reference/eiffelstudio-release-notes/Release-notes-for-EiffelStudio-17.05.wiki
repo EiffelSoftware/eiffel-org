@@ -4,8 +4,8 @@
 [[Property:link_title|17.05]]
 ==Graphical environment==
 ===What's new===
-* The EiffelStudio Inspector was extended to check '''obsolete features''' and '''obsolete calls''' and make the users aware of coming removal. For that, the inspector checks for presence of well formatted '''date in obsolete message''' (following the `[yyyy-mm-dd]` format). Reports '''severity of obsolete calls''', depending on the associated date (`suggestion` when date is in the future, `warning` for less than 1 year old, and `error` for more than 1 year old). Reports '''obsolete features''' when associated date is more than 1.5 year old.
-* Added shortcuts and contextual menu to '''restore recently closed tabs'''.
+* The EiffelStudio Inspector was extended to check for '''obsolete features''' and '''obsolete calls''' and to make the users aware of coming removal. For that, the inspector checks for presence of well formatted '''date in obsolete message''' (following the ISO-like `[yyyy-mm-dd]` format). Reported '''severity of obsolete calls''' depends on the associated date ({{Inline-Info|suggestion}} when the date is in the future, {{Inline-Warning|warning}} for less than 1 year old, and {{Inline-Error|error}} for more than 1 year old). '''Removal of obsolete features''' is suggested when the specified date is more than 1.5 year old.
+* Added a shortcut ({{Key|Ctrl-Shift-T}} by default) and a contextual menu item (on editor tabs) to '''restore a recently closed tab'''.
 * Using Pick&Drop functionality, users can now '''pick token for local variables and arguments''' from the EiffelStudio editor and formatters. Drop it into editor, and cursor will be moved to related declaration. Note that for now only normal feature locals and arguments are supported (this excludes inline agent, inline separate, object tests, and across variables).
 
 ===Improvements===
@@ -18,6 +18,7 @@
 ** Indeed, to allow users to use in the same system libraries such as cURL, SSL, zeroMQ, ... ; the C generated code is now compiled using `WIN32_LEAN_AND_MEAN`.
 ** As a result, it is not sufficient anymore to just include `<Windows.h>` to use a Windows API, you should look at the MSDN documentation and include the header they say you should be using.
 ** The unfortunate result of this change is that you have to go through your externals and fix them according to the MSDN documentation. On the other hand, the positive aspect is that the change will be backward compatible with all the versions of EiffelStudio.
+*Relaxed typing rules for conditional expressions to allow for different types to be used in different branches as soon as they are pair-wise conforming. Special care is taken about attachment and separateness statuses so that the expression `if foo then "Bar" else Void end` is valid and is of type `detachable STRING`.
 
 ==Libraries==
 
