@@ -93,14 +93,14 @@ To leave an argument open, you hold its place with a question mark. If you inten
 <code>
             my_procedure := agent two_argument_procedure (?, 2)	-- Argument 1 left open
             my_procedure := agent two_argument_procedure (?, ?)	-- Both arguments left open
-            my_procedure := agent two_argument_procedure		-- Both arguments left open
+            my_procedure := agent two_argument_procedure	-- Both arguments left open
 </code>
 
 If an argument is open, then it means that a value is not provided for that argument at the time that the agent is created. The implication is that the value must be provided at some time prior to the time that the agent's associated routine gets executed. A precondition to executing a routine associated with an agent is that the agent has a valid set of arguments (called operands within the <code>ROUTINE</code> classes) for the call. If you were to leave one or both of the arguments to <code>two_argument_procedure</code> open as in the examples above, the assignment would still work due to the rules governing <code>TUPLE</code> conformance. But, at runtime unless the other arguments had been provided, the "<code>valid operands</code>" precondition would be violated. 
 
 Let's see an example in which we leave a target open. Suppose we have a class that has a feature coded as below
 <code>
-    my_strings: LINKED_LIST [STRING]
+            my_strings: LINKED_LIST [STRING]
 </code>
 
 and some code to put some strings in <code>my_strings</code>: 
