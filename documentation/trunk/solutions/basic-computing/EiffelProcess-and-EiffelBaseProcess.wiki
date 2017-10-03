@@ -32,11 +32,11 @@ On the `BASE_PROCESS` object, it is possible to configure the execution.
 ! style="border-style: solid; text-align: center; font-weight: 500;" ! Feature
 ! style="border-style: solid; text-align: center; font-weight: 500;" ! Description
 |-
-| colspan="2" | {{Caution|Only for Unix}}
+| colspan="2" | {{Inline-Info|Only for Unix}}
 |-
 | `is_terminal_control_enabled` || If True, the launched process will have terminal control over standard input, output and error. {{Note|Has effect only when `is_launched_in_new_process_group` is True.}}
 |-
-| colspan="2" | {{Caution|Only for Windows}}
+| colspan="2" | {{Inline-Info|Only for Windows}}
 |-
 | `hidden` || If True, the process will be launched silently (no console window will prompt out).
 |-
@@ -84,7 +84,7 @@ On the `BASE_PROCESS` object, it is possible to configure the execution.
 |}
 
 = Process library =
-{{Warning|WARNING: This solution requires multi-threading. In other concurrency modes (none and SCOOP), your project will compile fine but at the execution, it can not be used since your system is not thread-capable.}}
+{{Warning|This solution requires multi-threading. In other concurrency modes (none and SCOOP), your project will compile fine but at the execution, it can not be used since your system is not thread-capable.}}
 
 The Process library is an extension of the BaseProcess library, the main interfaces are
 * `PROCESS_FACTORY` which inherits from `BASE_PROCESS_FACTORY` and creates `PROCESS` objects.
