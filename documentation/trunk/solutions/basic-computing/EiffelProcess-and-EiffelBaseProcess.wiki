@@ -26,13 +26,24 @@ On the `BASE_PROCESS` object, it is possible to configure the execution.
 ** check other `redirect_*` routines.
 
 == Platform-specific settings ==
-There are also platform dependent settings, such as:
-* Only for Unix
-** `is_terminal_control_enabled: BOOLEAN`: If True, the launched process will have terminal control over standard input, output and error. (Has effect only when `is_launched_in_new_process_group' is True).
-* Only for Windows
-** `hidden: BOOLEAN`: if True, the process will be launched silently (no console window will prompt out).
-** `separate_console: BOOLEAN`: if True, the process will be launched with a new console instead of inheriting parent's console.
-** `detached_console: BOOLEAN`: if True, the process will be launched without any console ?
+
+{| class="wikitable" style="width: auto; margin: 0px auto;"
+|-
+! style="border-style: solid; text-align: center; font-weight: 500;" ! Feature
+! style="border-style: solid; text-align: center; font-weight: 500;" ! Description
+|-
+| colspan="2" | {{Caution|Only for Unix}}
+|-
+| `is_terminal_control_enabled` || If True, the launched process will have terminal control over standard input, output and error. {{Note|Has effect only when `is_launched_in_new_process_group` is True.}}
+|-
+| colspan="2" | {{Caution|Only for Windows}}
+|-
+| `hidden` || If True, the process will be launched silently (no console window will prompt out).
+|-
+| `separate_console` || If True, the process will be launched with a new console instead of inheriting parent's console.
+|-
+| `detached_console` || If True, the process will be launched without any console.
+|}
 
 == Execution control ==
 {| class="wikitable" style="width: auto; margin: 0px auto;"
