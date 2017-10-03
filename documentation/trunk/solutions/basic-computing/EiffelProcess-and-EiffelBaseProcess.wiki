@@ -20,9 +20,9 @@ The advantage of `process_launcher` is that you do not have to care about quotin
 == Output redirection ==
 On the `BASE_PROCESS` object, it is possible to configure the execution. 
 * It is possible to redirect the standard and error output, and also the input, for instance:
-** `redirect_output_to_file (..)` is used to record the execution output in a file
+** `redirect_output_to_file` is used to record the execution output in a file
 ** `redirect_error_to_same_as_output` is used to redirect the error output with the standard output
-** `redirect_input_to_file (..)` is used to take the input from a file.
+** `redirect_input_to_file` is used to take the input from a file.
 ** check other `redirect_*` routines.
 
 == Platform-specific settings ==
