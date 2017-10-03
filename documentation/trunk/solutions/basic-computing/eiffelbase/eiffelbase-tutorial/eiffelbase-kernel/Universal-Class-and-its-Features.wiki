@@ -3,7 +3,7 @@
 [[Property:title|Universal class and its features]]
 The Eiffel inheritance mechanism is set up in such a way that every class is a descendant of a Kernel Library class called [[ref:libraries/base/reference/any_chart|ANY]] . The features of this class provide a number of generally applicable facilities covering such needs as comparison, copying and rudimentary input and output.
 
-==The structure of universal classes==
+=The structure of universal classes=
 
 Every class which has no inheritance clause is understood to have an inheritance clause of the form
 <code>
@@ -13,7 +13,7 @@ inherit
 
 As a result, every developer-defined class is a descendant of [[ref:libraries/base/reference/any_chart|ANY]] . You may introduce your own project specific features in [[ref:libraries/base/reference/any_chart|ANY]]  so that all the classes of your system will be able to use these features.
 
-==Using the universal classes==
+=Using the universal classes=
 
 If you need to rename or redefine a feature inherited from one of the universal classes, you should include an explicit inheritance clause, as in
 <code>
@@ -43,7 +43,7 @@ The features of [[ref:libraries/base/reference/any_chart|ANY]]  are usable in bo
 
 The first call yields a printable representation of the current object; the second, which assumes that a is not void, yields a printable representation of the object attached to a.
 
-==Input and output features==
+=Input and output features=
 
 Some of the features of [[ref:libraries/base/reference/any_chart|ANY]]  cover common input and output needs.
 
@@ -53,7 +53,7 @@ Function <eiffel>out</eiffel>, of type [[ref:libraries/base/reference/string_8_c
 
 The call <code>print (x)</code> will output the value of <code>x.out</code> on the default output if <code>x</code> is not void, and do nothing otherwise. 
 
-==Copy and comparison routines==
+=Copy and comparison routines=
 
 Procedure copy copies the fields of an object onto those of another. It is used under the form
 <code>
@@ -78,13 +78,13 @@ The function <eiffel>twin</eiffel> is defined in terms of <eiffel>copy</eiffel>,
 {{note|In some existing Eiffel code you may encounter the use of a function <code>clone</code> which is used to do the job of <code>twin</code>, but has a form like <code>copy</code>, as in <code>target.clone (source)</code>. <code>clone</code> is an obsolete function. Use <code>twin</code> instead.
 }}
 
-==Type information==
+=Type information=
 
 The string-valued query <eiffel>generator</eiffel>, applied to any object, returns the name of the object's generating class: the class of which it is an instance. The boolean function <eiffel>conforms_to</eiffel> makes it possible to test dynamically whether the type of an object conforms to that of another - that is to say whether the first one's generator is a descendant of the second one's.
 
 These two features enable clients to ascertain the dynamic type of an entity at runtime. They are only useful for low-level components; the normal mechanism for type-dependent operations is dynamic binding. 
 
-==Miscellaneous==
+=Miscellaneous=
 
 The query Void, of type <eiffel>NONE</eiffel>, denotes a reference that is always void - not attached to any object.
 
