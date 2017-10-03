@@ -1,7 +1,7 @@
 [[Property:uuid|479D1DED-2E7B-4202-BE21-D2A1757398B9]]
 [[Property:weight|0]]
 [[Property:title|Process and BaseProcess]]
-[[Property:link_title|Process]]
+[[Property:link_title|External processes]]
 The Process library provides solution to execute a command, to control its execution, to redirect its outputs and input.
 
 {{Note|Since version 17.01, there is a SCOOP-capable library BaseProcess that does not yet have all functionalities of the Process library.}}
