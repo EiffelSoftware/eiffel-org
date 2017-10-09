@@ -53,11 +53,11 @@ On the `BASE_PROCESS` object, it is possible to configure the execution.
 |-
 | `launch` || Launch the execution.
 |-
-| `terminate` ||  Terminate launched execution. Check `last_termination_successful` after to see if `terminate` succeeded. {{Note|`terminate` executes asynchronously. After calling `terminate`, call `wait_to_exit' to wait for process to exit.}}
+| `terminate` ||  Terminate launched execution. Check `last_termination_successful` after to see if `terminate` succeeded. {{Note|`terminate` executes asynchronously. After calling `terminate`, call `wait_to_exit` to wait for process to exit.}}
 |-
 | `terminate_tree` || Terminate process tree starting from current launched process. Check `last_termination_successful` after to see if `terminate_tree` succeeded. `terminate_tree` executes asynchronously. After calling `terminate`, call `wait_to_exit` to wait for process to exit. {{Note|On Unix, this feature can terminate whole process tree only when `is_launched_in_new_process_group` is set to True before new process is launched.}}
 |-
-| `wait_for_exit` || Wait until process has exited. Note: child processes of launched process are not guaranteed to have exited after `wait_for_exit` returns.
+| `wait_for_exit` || Wait until process has exited. {{Note|Child processes of launched process are not guaranteed to have exited after `wait_for_exit` returns.}}
 |-
 | `wait_for_exit_with_timeout (timeout: INTEGER)` || Wait launched process to exit for at most `timeout` milliseconds. Check `has_exited` after to see if launched process has exited. {{Note|Child processes of launched process are not guaranteed to have exited even if `has_exited` is `True` after `wait_for_exit_with_timeout`.}}
 |-
