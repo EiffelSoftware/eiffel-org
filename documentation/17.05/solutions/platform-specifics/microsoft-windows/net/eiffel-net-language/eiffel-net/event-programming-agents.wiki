@@ -76,7 +76,7 @@ Then the following assignment is valid.
             my_procedure := agent no_argument_procedure
 </code>
 
-What this means is that the agent created and associated with the procedure <code>no_argument_procedure</code> must conform to the type <code>PROCEDURE [ANY, TUPLE]</code>. The feature <code>my_procedure</code> (which is of type <code>PROCEDURE [ANY, TUPLE]</code>) can be attached at runtime to an agent representing a procedure with no open arguments, which indeed is what <code>no_argument_procedure</code> is. 
+What this means is that the agent created and associated with the procedure <code>no_argument_procedure</code> must conform to the type <code>PROCEDURE [TUPLE]</code>. The feature <code>my_procedure</code> (which is of type <code>PROCEDURE [TUPLE]</code>) can be attached at runtime to an agent representing a procedure with no open arguments, which indeed is what <code>no_argument_procedure</code> is. 
 
 Now let's turn our attention to the other procedure <code>two_argument_procedure</code>. You might think that because it takes two arguments, that you would not be able to build an agent from it which could be assigned to the attribute <code>my_procedure</code>. But you can do it by closing the two arguments at the time that the agent is created, as in the following. 
 <code>
@@ -133,7 +133,7 @@ Now suppose we want to print the values of all the strings in <code>my_strings</
 
 The availability of agents gives us new options. <code>LINKED_LIST</code> has a feature <code>do_all</code> which comes to it from its ancestor <code>LINEAR</code>. The <code>do_all</code> feature's signature looks like this: 
 <code>
-            do_all (action: PROCEDURE [ANY, TUPLE [G]])
+            do_all (action: PROCEDURE [TUPLE [G]])
 </code>
 
 As an argument <code>do_all</code> takes an agent based on a procedure with one open argument which is the same type as the list items (in this class, <code>G</code> is the formal generic parameter representing the type of the items being stored). Then it traverses the list executing the routine associated with that agent and uses the current list item to satisfy the open argument. 
@@ -190,7 +190,13 @@ Here again we'll use a feature of the <code>LINKED_LIST</code> class. There is a
             my_list.do_if (agent print_on_new_line(?), agent {STRING}.has('!'))
 </code>
 
+
 The agent for the action is the same as we used earlier. We've added an agent for the test. It represents applying the <code>has</code> feature of the <code>STRING</code> class. Here the target is left open, because we want each of the strings in the list to be the target of <code>has</code>. 
+
+
+Compatibility note
+
+Versions of the Kernel Library classes ROUTINE, PROCEDURE, FUNCTION and PREDICATE prior to EiffelStudio 17-05 had an extra generic parameter at the initial position; the usual actual generic parameter was ANY. It has been removed. The compiler has been engineered so that in almost all cases it will still accept the old style.
 
 
 
