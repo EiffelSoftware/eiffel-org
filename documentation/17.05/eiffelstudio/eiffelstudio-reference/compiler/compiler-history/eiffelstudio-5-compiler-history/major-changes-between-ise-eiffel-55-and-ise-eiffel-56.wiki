@@ -8,7 +8,9 @@
 * Implemented once manifest strings. They can be used at the same places where normal manifest strings can be used, e.g.: 
 <code>s := once "abc"
 io.put_string (once "Hello World!")</code>
-Once manifest strings are not created every time they are accessed. Instead one instance is created at the first access and then it is reused for subsequent accesses.==What's new==
+Once manifest strings are not created every time they are accessed. Instead one instance is created at the first access and then it is reused for subsequent accesses.
+
+==What's new==
 
 {{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
 * Implemented once manifest strings. They can be used at the same places where normal manifest strings can be used, e.g.: 
