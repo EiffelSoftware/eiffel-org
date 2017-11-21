@@ -15,7 +15,7 @@ The differences between the EiffelStudio implementation of SCOOP and current and
 
 ==Supported concurrency mechanisms==
 
-Although the SCOOP model can support virtually any underlying concurrency mechanism, the initial SCOOP implementation in EiffelStudio version 6.8 supports only one executable, using multiple process threads as SCOOP [[Concurrent programming with SCOOP#Processors|processors]].
+Although the SCOOP model can support any underlying concurrency mechanism, the current SCOOP implementation uses threads as  SCOOP [[Concurrent programming with SCOOP#Processors|processors]].
 
 
 ==Maximum number of SCOOP processors==
@@ -52,7 +52,7 @@ and the type of <code>my_query</code> is <code>separate</code>, you should make 
 
 ==Agents targeted to objects of separate types==
 
-In version 6.8, agents targeted on separate objects are not supported.
+Agents targeted on separate objects are currently not supported.
 
 
 =Workarounds=
