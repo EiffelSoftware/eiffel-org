@@ -23,32 +23,6 @@ Although the SCOOP model can support any underlying concurrency mechanism, the c
 In the initial release, the allowable maximum number of SCOOP processors per system is 1024.
 
 
-==Separate anchored types==
-
-Applicable prior to revision number 86657: 
-
-Separate status for anchored types is not supported properly. So declarations of the form:
-
-<code>
-            my_entity: separate like my_query
-</code>
- 
-and
-
-<code>
-            my_entity: separate like Current
-</code>
-
-should be used only if you are using revision 86657 or later. 
-
-Also, if you use an anchored declaration such as:
-
-<code>
-            my_entity: like my_query
-</code>
-
-and the type of <code>my_query</code> is <code>separate</code>, you should make sure you are using revision 86657 or later.
-
 
 ==Agents targeted to objects of separate types==
 
