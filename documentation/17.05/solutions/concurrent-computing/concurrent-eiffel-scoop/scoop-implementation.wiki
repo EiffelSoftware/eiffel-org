@@ -11,7 +11,7 @@ The implementation of SCOOP is the result of many years of design and refinement
 
 ==Supported concurrency mechanisms==
 
-Although the SCOOP model can support any underlying concurrency mechanism, the current SCOOP implementation uses threads as  SCOOP [[Concurrent programming with SCOOP#Processors|processors]].
+At the core of the SCOOP model lies the notion of  [[Concurrent programming with SCOOP#Processors|processor]]:  a mechanism that can execute instructions sequentially. As a general model covering many forms of concurrency, SCOOP allows many possible implementations of this concept. In the EiffelStudio implementation, processors are implemented as <em>threads</em> of the operating system.
 
 
 ==Maximum number of SCOOP processors==
