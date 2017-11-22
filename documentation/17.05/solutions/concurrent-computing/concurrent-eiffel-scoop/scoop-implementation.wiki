@@ -16,7 +16,7 @@ Although the SCOOP model can support any underlying concurrency mechanism, the c
 
 ==Maximum number of SCOOP processors==
 
-In the initial release, the allowable maximum number of SCOOP processors per system is 1024.
+The maximum number of SCOOP processors per system is currently 1024.
 
 
 
