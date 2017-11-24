@@ -71,7 +71,7 @@ If the agent does not take any arguments, you must pass Void, otherwise the comp
 is on the same processor as the caller and thus triggers lock passing (see [[Asynchronous Calls]]):
 
 <code>
-do_call (proc: separate PROCEDURE [ANY, TUPLE])
+do_call (proc: separate PROCEDURE [TUPLE])
 	do
 		proc.call (Void)	
 	end
@@ -80,7 +80,7 @@ do_call (proc: separate PROCEDURE [ANY, TUPLE])
 If the agent does take arguments, things get a bit more tricky. If the call must be asynchronous, you have to do a workaround with the feature <code>{ROUTINE}.empty_operands</code> like this:
 
 <code>
-do_call (a_procedure: separate PROCEDURE [ANY, TUPLE[separate STRING]]; a_string: separate STRING)
+do_call (a_procedure: separate PROCEDURE [TUPLE[separate STRING]]; a_string: separate STRING)
 	local
 		l_tuple: separate TUPLE [separate STRING]
 	do
