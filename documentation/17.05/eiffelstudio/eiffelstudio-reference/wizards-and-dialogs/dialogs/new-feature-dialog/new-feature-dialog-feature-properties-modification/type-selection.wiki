@@ -37,7 +37,7 @@ The code generated for the selected type is quite straightforward, an example:
 [[Image:feature-wizard-complextype]]
 
 <code>
-    new_feature: FUNCTION [ANY, TUPLE [INTEGER], BOOLEAN]
+    new_feature: FUNCTION [TUPLE [INTEGER], BOOLEAN]
 </code>
 
 
