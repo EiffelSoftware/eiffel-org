@@ -143,7 +143,7 @@ Under EiffelStudio you may also set up compilation options, for the whole system
 
 This ability to check assertions provides a powerful testing and debugging mechanism, in particular because the classes of the EiffelBase Libraries, widely used in Eiffel software development, are protected by carefully written assertions. 
 
-Run-time monitoring, however, is only one application of assertions, whose role as design and documentation aids, as part of theory of Design by Contract&#153;, exerts a pervasive influence on the Eiffel style of software development. 
+Run-time monitoring, however, is only one application of assertions, whose role as design and documentation aids, as part of the theory of Design by Contract&#153;, exerts a pervasive influence on the Eiffel style of software development. 
 
 
 
