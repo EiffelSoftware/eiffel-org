@@ -7,7 +7,7 @@ Such objects are called the '''direct instances''' of the class. Classes and obj
 
 {{info|"Object-Oriented" is a misnomer; "Class-Oriented Analysis, Design and Programming" would be a more accurate description of the method. }}
 
-To see what a class looks like, let us look at a simple example, <code>ACCOUNT</code>, which describes bank accounts. But before exploring the class itself it is useful to study how it maybe used by other classes, called its '''clients'''. 
+To see what a class looks like, let us look at a simple example, <code>ACCOUNT</code>, which describes bank accounts. But before exploring the class itself it is useful to study how it may be used by other classes, called its '''clients'''. 
 
 A class <code>X</code> may become a client of <code>ACCOUNT</code> by declaring one or more '''entities''' of type <code>ACCOUNT</code>. Such a declaration is of the form: 
 <code>acc: ACCOUNT</code>
