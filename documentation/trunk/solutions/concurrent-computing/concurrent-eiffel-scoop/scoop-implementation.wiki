@@ -1,13 +1,9 @@
 [[Property:title|SCOOP implementation]]
 [[Property:weight|9]]
 [[Property:uuid|eeb07907-e036-f3d6-5297-a7c44cfd1900]]
-The implementation of SCOOP within EiffelStudio varies from the definition as it has been presented in publications during the model's evolution. 
 
-Some of the differences stem from the reality that SCOOP systems could be optimized for performance, including maximizing concurrency. For example, even though the SCOOP rules state that a separate call to a query is synchronous, i. e., the calling processor waits until the query completes before proceeding, if a static analysis can show that the wait is not necessary to the proper functioning of the remainder of the calling routine, then the call to the query can be done asynchronously. 
 
-In other ways, particularly for early versions, the EiffelStudio implementation may not cover all the goals of SCOOP as stated in the various publications. Certain elements that are defined in the SCOOP descriptions may not yet be present, or only partially implemented in the EiffelStudio implementation.  
-
-The differences between the EiffelStudio implementation of SCOOP and current and previous definitions of the SCOOP model are shown below.
+The implementation of SCOOP is the result of many years of design and refinement of the model. This page describes specific properties of its current state, in particular ways in which it differs from some of the earlier publications about the model. 
 
 
 =Known limitations=
@@ -15,44 +11,18 @@ The differences between the EiffelStudio implementation of SCOOP and current and
 
 ==Supported concurrency mechanisms==
 
-Although the SCOOP model can support virtually any underlying concurrency mechanism, the initial SCOOP implementation in EiffelStudio version 6.8 supports only one executable, using multiple process threads as SCOOP [[Concurrent programming with SCOOP#Processors|processors]].
+At the core of the SCOOP model lies the notion of  [[Concurrent programming with SCOOP#Processors|processor]]:  a mechanism that can execute instructions sequentially. As a general model covering many forms of concurrency, SCOOP allows many possible implementations of this concept. In the EiffelStudio implementation, processors are implemented as <em>threads</em> of the operating system.
 
 
 ==Maximum number of SCOOP processors==
 
-In the initial release, the allowable maximum number of SCOOP processors per system is 1024.
+The maximum number of SCOOP processors per system is currently 1024.
 
-
-==Separate anchored types==
-
-Applicable prior to revision number 86657: 
-
-Separate status for anchored types is not supported properly. So declarations of the form:
-
-<code>
-            my_entity: separate like my_query
-</code>
- 
-and
-
-<code>
-            my_entity: separate like Current
-</code>
-
-should be used only if you are using revision 86657 or later. 
-
-Also, if you use an anchored declaration such as:
-
-<code>
-            my_entity: like my_query
-</code>
-
-and the type of <code>my_query</code> is <code>separate</code>, you should make sure you are using revision 86657 or later.
 
 
 ==Agents targeted to objects of separate types==
 
-In version 6.8, agents targeted on separate objects are not supported.
+Agents targeted on separate objects are currently not supported.
 
 
 =Workarounds=
@@ -101,7 +71,7 @@ If the agent does not take any arguments, you must pass Void, otherwise the comp
 is on the same processor as the caller and thus triggers lock passing (see [[Asynchronous Calls]]):
 
 <code>
-do_call (proc: separate PROCEDURE [ANY, TUPLE])
+do_call (proc: separate PROCEDURE [TUPLE])
 	do
 		proc.call (Void)	
 	end
@@ -110,7 +80,7 @@ do_call (proc: separate PROCEDURE [ANY, TUPLE])
 If the agent does take arguments, things get a bit more tricky. If the call must be asynchronous, you have to do a workaround with the feature <code>{ROUTINE}.empty_operands</code> like this:
 
 <code>
-do_call (a_procedure: separate PROCEDURE [ANY, TUPLE[separate STRING]]; a_string: separate STRING)
+do_call (a_procedure: separate PROCEDURE [TUPLE[separate STRING]]; a_string: separate STRING)
 	local
 		l_tuple: separate TUPLE [separate STRING]
 	do

@@ -51,7 +51,7 @@ Among the features of <code>ROUTINE</code> and its descendants the most importan
 
 As an example of using these mechanisms, here is how the function <code>integral</code> could look like in our <code>INTEGRATOR</code> example class. The details of the integration algorithm (straight forward, and making no claims to numerical sophistication) do not matter, but you see the place were we evaluate the mathematical function associated with <code>f</code>, by calling <code>item</code> on <code>f</code>: 
 <code>
-    integral (f: FUNCTION [ANY, TUPLE [REAL], REAL]; low, high: REAL): REAL
+    integral (f: FUNCTION [TUPLE [REAL], REAL]; low, high: REAL): REAL
             -- Integral of `f' over the interval [`low', `high']
         require
             meaningful_interval: low <= high
@@ -120,7 +120,7 @@ In the agent <code>agent record_city (name, population, ?, ?)</code>, we say tha
 
 For type checking, <code>agent record_city (name, population, ?, ?)</code> and <code>agent your_routine (?, ?)</code> are acceptable in exactly the same situations, since both represent routines with two arguments. The type of both is 
 <code>
-    PROCEDURE [ANY, TUPLE [INTEGER, INTEGER]]
+    PROCEDURE [TUPLE [INTEGER, INTEGER]]
 </code>
 
 where the tuple type specifies the open operands. 
@@ -240,6 +240,8 @@ Inline agents are interesting also as an implementation of the notion of [http:/
 
 
 Agents provide a welcome complement to the other mechanisms of Eiffel. They do not conflict with them but, when appropriate -- as in the examples sketched in this section -- provide clear and expressive programming schemes, superior to the alternatives.
+
+Compatibility note: earlier versions of the agent classes (ROUTINE, PROCEDURE, FUNCTION, PREDICATE) had an extra initial generic parameter, for which ANY was generally used. The compiler has been engineered to accept the old style in most cases.
 
 
 {{SeeAlso|[[Event Programming with Agents]] }}

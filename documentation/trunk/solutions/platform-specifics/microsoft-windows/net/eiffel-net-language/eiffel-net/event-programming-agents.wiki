@@ -7,13 +7,13 @@ The implementation of agents is an advanced topic, but you do not have to unders
 
 ==Objects that Represent Operations==
 
-Object technology is based on the idea that when we model real world objects, we model them based on the things that they have and what they can do ... their properties and their operations. The operations in Eiffel are the routines, i.e., the functions and procedures, of classes. Operations are not objects. 
+Object technology is based on the idea that when we model systems based on objects, representing the "things" they manipulate. As to operations on these objects, they appear in the corresponding classes, as routines (functions and procedures). Operations are not objects. 
 
-Having said that, it is sometimes desirable for us to model operations. We do this in the same fashion that we model other concepts: statically as classes, and as objects at runtime.
+Sometimes, on the other hand, the "things"  we model with our objects could represent operations. For example,  we might want to build a list of tasks to be performed later; each task is defined by a routine. Each of the objects in the list will represent the corresponding routine.
 
-An object that represents an operation is called an agent.
+Such an object, representing an operation, is called an agent.
 
-If we can have a runtime object that represents an operation, then we can place the object in the structure of another object, where at some later time, a client can cause the associated operation to execute.
+If we can have a run-time object that represents an operation, then we can place the object in the structure of another object, where at some later time, a client can cause the associated operation to execute.
 
 This is a very desirable model for event driven processing, like graphical user interfaces. The operations that are executed when a user take some action like clicking on a button, could be represented by agents. When the user interface element is initialized, agents that represent the action routines are stored within the interface element. Then at the time that an event, say a button click, occurs, the agents for that event are retrieved and their associated operations are executed.
 
@@ -23,9 +23,9 @@ Another area in which agents are commonly used is in traversing data structures.
 
 We know that there are two types of routines in Eiffel, functions and procedures.
 
-Not surprisingly, the implementation of agents relies on three classes in the Base Library. Class <code>ROUTINE</code>, and its heirs <code>FUNCTION</code> and <code>PROCEDURE</code>. 
+The implementation of agents correspondingly relies on three classes in the Base Library: class <code>ROUTINE</code> for the general notion, and its heirs <code>FUNCTION</code>, with and <code>PROCEDURE</code>. In addition, <code>PREDICATE</code>, an heir of <code>FUNCTION</code> , covers the particular case of a function returning a boolean result.
 
-When you use an agent from a client routine, you will be building an instance of either <code>FUNCTION</code> or <code>ROUTINE</code>. This happens implicitly as you will see. 
+When you use an agent from a client routine, you will be building an instance of either <code>FUNCTION</code> or <code>ROUTINE</code>. 
 
 ==Using Agents==
 
@@ -42,10 +42,10 @@ It is important to understand that <code>step_forward</code> does not get applie
 
 In this example, the routine "<code>step_forward</code>" on which the agent is based takes no arguments. If you drilled down into the workings of this example you would find that class that implements the feature <code>extend</code> is class <code>EV_NOTIFY_ACTION_SEQUENCE</code>. You would also see that the signature for the feature <code>extend</code> is as essentially as follows. 
 <code>
-            extend (v: PROCEDURE [ANY, TUPLE])
+            extend (v: PROCEDURE [TUPLE])
 </code>
 
-We don't have to know too much about the workings of agents to see that "<code>extend</code>" takes an argument <code>v</code> which is of type <code>PROCEDURE</code>. It turns out that the actual generic parameter <code>TUPLE</code> represents the set of "open" arguments. In this case, extend is expecting an agent which has no open arguments. 
+We don't have to know too much about the workings of agents to see that "<code>extend</code>" takes an argument <code>v</code> which is of type <code>PROCEDURE</code>. The actual generic parameter <code>TUPLE</code> represents the set of "open" arguments. In this case, <code>extend</code> is expecting an agent with no open arguments. 
 
 ===Open and Closed Arguments===
 
@@ -53,7 +53,7 @@ It is this business of open and closed arguments which really makes agents remar
 
 Suppose a class has a feature declared as shown below.
 <code>
-            my_procedure: PROCEDURE [ANY, TUPLE]
+            my_procedure: PROCEDURE [TUPLE]
 </code>
 
 Then what can be assigned to <code>my_procedure</code>?. An agent, of course. Say the class has procedures as follows. 
@@ -76,14 +76,14 @@ Then the following assignment is valid.
             my_procedure := agent no_argument_procedure
 </code>
 
-What this means is that the agent created and associated with the procedure <code>no_argument_procedure</code> must conform to the type <code>PROCEDURE [ANY, TUPLE]</code>. The feature <code>my_procedure</code> (which is of type <code>PROCEDURE [ANY, TUPLE]</code>) can be attached at runtime to an agent representing a procedure with no open arguments, which indeed is what <code>no_argument_procedure</code> is. 
+What this means is that the agent created and associated with the procedure <code>no_argument_procedure</code> must conform to the type <code>PROCEDURE [TUPLE]</code>. The feature <code>my_procedure</code> (which is of type <code>PROCEDURE [TUPLE]</code>) can be attached at runtime to an agent representing a procedure with no open arguments, which indeed is what <code>no_argument_procedure</code> is. 
 
 Now let's turn our attention to the other procedure <code>two_argument_procedure</code>. You might think that because it takes two arguments, that you would not be able to build an agent from it which could be assigned to the attribute <code>my_procedure</code>. But you can do it by closing the two arguments at the time that the agent is created, as in the following. 
 <code>
             my_procedure := agent two_argument_procedure (1, 2)	-- Is Valid
 </code>
 
-What happens here is that values are fixed for those arguments at the time that the agent, an object of type <code>PROCEDURE [ ANY, TUPLE]</code> is created. 
+What happens here is that values are fixed for those arguments at the time that the agent, an object of type <code>PROCEDURE [ TUPLE]</code> is created. 
 
 So this is the wonderful thing about agents. A routine which will be represented as an agent does not have to be an exact fit for the expected signature. By closing some arguments at agent creation, you have effectively produced a new and conforming routine.
 
@@ -93,14 +93,14 @@ To leave an argument open, you hold its place with a question mark. If you inten
 <code>
             my_procedure := agent two_argument_procedure (?, 2)	-- Argument 1 left open
             my_procedure := agent two_argument_procedure (?, ?)	-- Both arguments left open
-            my_procedure := agent two_argument_procedure		-- Both arguments left open
+            my_procedure := agent two_argument_procedure	-- Both arguments left open
 </code>
 
 If an argument is open, then it means that a value is not provided for that argument at the time that the agent is created. The implication is that the value must be provided at some time prior to the time that the agent's associated routine gets executed. A precondition to executing a routine associated with an agent is that the agent has a valid set of arguments (called operands within the <code>ROUTINE</code> classes) for the call. If you were to leave one or both of the arguments to <code>two_argument_procedure</code> open as in the examples above, the assignment would still work due to the rules governing <code>TUPLE</code> conformance. But, at runtime unless the other arguments had been provided, the "<code>valid operands</code>" precondition would be violated. 
 
 Let's see an example in which we leave a target open. Suppose we have a class that has a feature coded as below
 <code>
-    my_strings: LINKED_LIST [STRING]
+            my_strings: LINKED_LIST [STRING]
 </code>
 
 and some code to put some strings in <code>my_strings</code>: 
@@ -133,7 +133,7 @@ Now suppose we want to print the values of all the strings in <code>my_strings</
 
 The availability of agents gives us new options. <code>LINKED_LIST</code> has a feature <code>do_all</code> which comes to it from its ancestor <code>LINEAR</code>. The <code>do_all</code> feature's signature looks like this: 
 <code>
-            do_all (action: PROCEDURE [ANY, TUPLE [G]])
+            do_all (action: PROCEDURE [TUPLE [G]])
 </code>
 
 As an argument <code>do_all</code> takes an agent based on a procedure with one open argument which is the same type as the list items (in this class, <code>G</code> is the formal generic parameter representing the type of the items being stored). Then it traverses the list executing the routine associated with that agent and uses the current list item to satisfy the open argument. 
@@ -190,7 +190,13 @@ Here again we'll use a feature of the <code>LINKED_LIST</code> class. There is a
             my_list.do_if (agent print_on_new_line(?), agent {STRING}.has('!'))
 </code>
 
+
 The agent for the action is the same as we used earlier. We've added an agent for the test. It represents applying the <code>has</code> feature of the <code>STRING</code> class. Here the target is left open, because we want each of the strings in the list to be the target of <code>has</code>. 
+
+
+Compatibility note
+
+Versions of the Kernel Library classes ROUTINE, PROCEDURE, FUNCTION and PREDICATE prior to EiffelStudio 17-05 had an extra generic parameter at the initial position; the usual actual generic parameter was ANY. It has been removed. The compiler has been engineered so that in almost all cases it will still accept the old style.
 
 
 

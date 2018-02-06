@@ -1,7 +1,7 @@
 [[Property:title|I2E: Event-Driven Programming and Agents]]
 [[Property:weight|-7]]
 [[Property:uuid|16fdab60-ae42-1bb8-f4bb-89e34d18a842]]
-The division of roles in object technology is clear: of the two principal constituents of a system, object types and operations, the first dominates. Classes, representing object types, determines the structure of the software; every routine, representing an operations, belongs to a class. 
+The division of roles in object technology is clear: of the two principal constituents of a system, object types and operations, the first dominates. Classes, representing object types, determines the structure of the software; every routine, representing an operation, belongs to a class. 
 
 In some circumstances it is useful to define an object that denotes an operation. This is especially useful if you want to build an object structure that refers to operations, so that you can later traverse the structure and execute the operations encountered. A typical application is '''event-driven programming''' for Graphical User Interfaces (GUI), including Web programming. In GUI programming you will want to record properties of the form 
 <code>

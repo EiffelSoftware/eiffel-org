@@ -36,7 +36,7 @@ Note that for performance reasons it is usually better to use predefined criteri
 ===Agent Criteria===
 An agent criterion will filter the objects according to the result of an agent applied to them.
 
-The criterion is initialized with an agent of type <e>PREDICATE [ANY, TUPLE [ANY]]</e>. 
+The criterion is initialized with an agent of type <e>PREDICATE [TUPLE [ANY]]</e>. 
 There should be either an open target or a single open argument, and the type of the objects in the query result should conform to the agent's open operand.
 
 ==Creating criteria objects==
@@ -57,7 +57,7 @@ feature -- Creating a criterion
 		-- containing either a single PREDICATE or three 
 		-- values of type [STRING, STRING, ANY].
 
-	new_agent (a_predicate: PREDICATE [ANY, TUPLE [ANY]]): PS_CRITERION
+	new_agent (a_predicate: PREDICATE [TUPLE [ANY]]): PS_CRITERION
 		-- Creates an agent criterion.
 
 	new_predefined (object_attribute: STRING; operator: STRING; value: ANY): PS_CRITERION

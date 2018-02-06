@@ -55,7 +55,7 @@ Another thought might be that we could just have the compiler do all the work fo
 
 So, all of this boils down to the fact that we have to take some actions that help the compiler along. That's what the following are about.
 
-===Certified Attachment Patterns (CAPs)===
+==Certified Attachment Patterns (CAPs)==
 
 We know that in the context of certain code patterns, it is clear that it would be impossible for a reference to be void. These patterns are identified and we call them CAPs, short for Certified Attachment Patterns. Here is a very straightforward example expressed in a syntax that should be familiar to all Eiffel developers:
 <code>
@@ -73,7 +73,7 @@ It is important to understand that in this example (and with other CAPs), <code>
 {{note|You will find more useful information about CAPs in [[Creating a new void-safe project#More about CAPs|More about CAPs]]. Learn how certain code patterns are determined to be CAPs in [[What makes a Certified Attachment Pattern]]. }}
 
 
-===The ''attached syntax'' (object test)===
+==The ''attached syntax'' (object test)==
 
 For the purposes of void-safety, the '''attached syntax''' does double duty for us. It allows us to make certain that a reference is attached, and it provides us a safe way to access objects that are attached to class attributes. 
 
@@ -100,7 +100,7 @@ In the example above, <code>x</code> is tested to make certain that it is attach
 
 One way to make sure we comply with the target rule would be always use a CAP or the attached syntax every time we want to apply a feature to a referenced object. That might work, but it falls among the impractical approaches to the problem ... it would break a very high percentage of existing Eiffel code, not to mention cluttering things up quite a bit.
 
-===Types as "attached" or "detachable"===
+==Types as "attached" or "detachable"==
 
 Rather than trying to protect every feature call, Eiffel allows us to declare any variable as being of an '''attached type'''. This is an important extension to the Eiffel type system. 
 
@@ -126,7 +126,7 @@ This doesn't mean that on every declaration you must put either an ''attached ma
 
 In Eiffel then, all declarations will have types that are either '''attached''' or '''detachable'''. As a result, we need only use CAPs and the attached syntax with detachable types. So the important thing to remember is that ''direct access to class attributes of detachable types is never void-safe.''
 
-====Attachment and conformance====
+===Attachment and conformance===
 
 The distinction between attached and detachable types results in a small but important addition to the rules of conformance. Because variables declared as attached types can never be void, then it is important not to allow any assignment of a detachable source to an attached target. However, assigning an attached source to a detachable target is permissible. The following code shows both cases (as described earlier, class types are attached by default).
 <code>
@@ -140,7 +140,7 @@ The distinction between attached and detachable types results in a small but imp
 </code>
 
 
-===Initialization rule===
+==Initialization rule==
 
 If we have attached types, then we can assume variables declared of these types, once attached, will always be attached. But how do they get attached in the first place? That's what the initialization rule is all about. 
 
@@ -173,7 +173,7 @@ Still, it's not too hard to understand the basics of initializing variables of a
 
 * A variable is considered properly set if it is '''self-initializing'''. What it means to be self-initializing is explained below.
 
-===Self-initializing attributes===
+==Self-initializing attributes==
 
 A self-initializing attribute is guaranteed to have a value when accessed at run time. Declarations of self-initializing attributes are characterized by the use of the code that follows the <code>attribute</code> keyword. The code is executed to initialize the attribute in the case that the attribute is accessed prior to being initialized in any other way. 
 
@@ -188,7 +188,7 @@ So, self-initializing attributes are ordinary attributes, with the restriction t
 
 In the example above, the attribute <code>value</code> will be attached to an object of type <code>STRING</code>, in fact, the empty string, if no other initialization occurs before the first access of <code>value</code>.
 
-===Rule for conformance===
+==Rule for conformance==
 
 You will remember that the Eiffel type system dictates that an assignment instruction:
 <code>
@@ -206,7 +206,7 @@ The same goes for routine calls. In a call:
 </code>
 where <code>x</code> is the formal argument for <code>r</code>, then if x is of an attached type, then y must be of an attached type.
 
-===Stable attributes===
+==Stable attributes==
 
 Stable attributes are really stable ''detachable'' attributes, as adding the concept of stability is meaningful only for detachable attributes. Declaring a detachable attribute as stable, means that it behaves like a detachable attribute except that its assignment rules mimic those of attached attributes. In other words, a stable attribute does not need to be attached during object creation the way that attributes declared as attached must. But like attached type attributes, stable attributes can never be the target of an assignment in which the source is <code>Void</code> or a detachable type.
 <code>
@@ -221,7 +221,7 @@ This means that even though stable attributes do not need to be initialized like
 
 Stable attributes are also interesting in that they are the only exception to the rule given above in the [[Void-safety: Background, definition, and tools#Certified Attachment Patterns (CAPs)|CAPs section]] that stated that direct access to attributes cannot be protected by a CAP. A stable attribute can be used under the protection of a CAP. This is because once a stable attribute has an object attached, it can never again be set to <code>Void</code>. So there's no worry about having the attribute's state going unexpectedly from attached to non-attached because of the actions of other routines or threads.
 
-===Rule for generic parameters===
+==Rule for generic parameters==
 
 Generic classes provide another question. A generic class like
 <code>
@@ -265,7 +265,7 @@ class C [G -> attached ANY]
 </code>
 then <code>x</code> in this class <code>G</code> represents an attached type. Consequently, the actual generic type in any derivation must be attached ... and feature calls on <code>x</code> are safe.
 
-===Rule for ARRAYs===
+==Rule for ARRAYs==
 
 The rule for generic parameters applies to all generic types ... except <code>ARRAYs</code>. In the typical creation of an <code>ARRAY</code>, we would provide a minimum and maximum index. 
 <code>
@@ -285,7 +285,3 @@ The first argument is an object of the actual generic type, in this case an empt
 
 
 For more detail on void-safe use of arrays and other generic classes, see the section: [[Creating a new void-safe project#Using generic classes|Using generic classes]].
-
-
-
-

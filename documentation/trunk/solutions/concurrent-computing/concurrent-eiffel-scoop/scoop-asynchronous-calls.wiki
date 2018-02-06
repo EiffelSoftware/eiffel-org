@@ -111,7 +111,7 @@ For example, a region might be locked because of a controlled argument somewhere
 
 There is a workaround to disable lock passing for a specific call:
 <code>
-async_call (a_procedure: separate PROCEDURE [ANY, TUPLE])
+async_call (a_procedure: separate PROCEDURE [TUPLE])
 	do
 		a_procedure.call (Void)
 	end
