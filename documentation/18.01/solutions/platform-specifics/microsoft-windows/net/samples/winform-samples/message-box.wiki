@@ -1,0 +1,68 @@
+[[Property:title|Message Box]]
+[[Property:weight|-11]]
+[[Property:uuid|cbc37679-43b0-99b8-b8c7-1be8be49882e]]
+<div> 
+[[Image:hello-world|Hello world form]] <br/>
+ [[Image:message-box|Hello world form]]  
+</div>
+<br/>
+<br/>
+
+
+==Compiling==
+
+To compile the example:   
+# Launch EiffelStudio.
+# Click '''Add project'''
+# Browse to ''$ISE_EIFFEL\examples\dotnet\winforms\hello_world_dlg\''
+# Choose ''hello_world_dlg.ecf''
+# Choose the location where the project will be compiled, by default the same directory containing the configuration file.
+# Click '''Open'''.
+
+
+==Running==
+
+After launching the application, you will see a window displayed with a similar appearance to the one above. 
+
+Click on the <span><eiffel>BUTTON</eiffel></span> "Click Me!" and a message box will appear with the text that you have entered in the <span><eiffel>TEXT_BOX</eiffel></span>. 
+
+
+
+==Under the Hood==
+
+The application shows how to use the very useful <span><eiffel>MESSAGE_BOX</eiffel></span> control. 
+
+An event ( <span><eiffel>EVENT_HANDLER</eiffel>)</span> is associated to a control (here to the <span><eiffel>BUTTON</eiffel></span>). So the line
+<code>
+            my_button.add_click (create {EVENT_HANDLER}.make (Current, $on_my_button_clicked ))</code>
+associates a click to <span>my_button</span> to the feature <span><eiffel>on_my_button_clicked</eiffel></span>. So every time the <span>BUTTON</span> <span><eiffel>my_button</eiffel></span> is clicked, the feature <span>on_my_button_clicked</span> is executed. 
+
+
+The feature <span><eiffel>my_button_clicked</eiffel></span> displays a <span><eiffel>MESSAGE_BOX</eiffel></span> 
+<code>
+            {WINFORMS_MESSAGE_BOX}.show (msg) 
+</code>
+with the text contained in <eiffel>TEXT_BOX</eiffel> 
+<code>
+            msg := "Text is : '"
+            msg.append (my_text_box.text)
+            msg.append ("'")
+</code>
+
+This sample uses the following classes:
+*  <span><eiffel>FORM</eiffel></span> 
+*  <span><eiffel>BUTTON</eiffel></span> 
+*  <span><eiffel>TEXT_BOX</eiffel></span> 
+*  <span><eiffel>EVENT_HANDLER</eiffel></span> 
+
+==Notes==
+
+This sample is translated from the example located in the QuickStart\winforms\samples\accessible subdirectory of the .NET Framework SDK samples directory of Microsoft Visual Studio.NET. 
+
+
+
+
+
+
+
+

@@ -1,0 +1,92 @@
+[[Property:title|Console tool]]
+[[Property:weight|-4]]
+[[Property:uuid|bbc24d41-ce47-662a-16c3-4426b4c6e884]]
+The Console tool lets you run external commands from within EiffelStudio. The Console tool is shown in the following figure: 
+[[Image:console1|Defining an input domain]]  
+
+You can type your command in the "Command" region and then press the  [[Image:metrics-tool--debug-run-icon|Launch Command]]  Run button to launch that command. When a command is running, you can type input data to that command in the "Input" region if necessary. And you can press the  [[Image:metrics-tool--debug-stop-icon|Stop Command]]  Stop button to terminate a running command. If the command uses a different locale from your default locale, you can specify the desired locale in the "Locale" region where all supported locales are listed. The selected locale will be used for both the input and output of the command. After the command has exited, its return value will be displayed at the bottom line. 
+
+==Placeholders==
+
+In the "Command" region, the following placeholders can be used: 
+* $class_name: this will be replaced by the name in lower case of the targeted class in editor
+* $directory_name: this will be replaced by the directory location of the targeted class in editor
+* $file: this will be replaced by file name part, i.e., without heading directory path ($directory_name) of the targeted class in editor
+* $file_name: this will be replaced by the fully specified file name ($directory_name + $file) to the targeted class in editor
+* $f_code: this will be replaced by the F_code directory of current target, if defined
+* $group_directory: this will be replaced by the directory of the group where targeted class in editor locates
+* $group_name: this will be replaced by the group name of the targeted class in editor
+* $line: this will be replaced by the line number of the cursor of the targeted class in editor
+* $path: same as $file_name
+* $project_directory: this will be replaced by the directory of current project, if defined
+* $target_directory: this will be replaced by the directory of current target, if defined
+* $target_name: this will be replaced by current target name
+* $w_code: this will be replaced by the W_code directory of current target, if defined
+
+==Buffer support==
+
+Buffer is a way to refer to text of a class, a feature or text/selected text in an editor tab in external command. Three kinds of buffers are supported:
+* {<eiffel>SOME_CLASS</eiffel>} represents text of <eiffel>SOME_CLASS</eiffel>
+* @{<eiffel>SOME_CLASS</eiffel>} represents selected text in the opened editor tab for class <eiffel>SOME_CLASS</eiffel>
+* {<eiffel>SOME_CLASS</eiffel>}.<eiffel>some_feature</eiffel> represents text of <eiffel>some_feature</eiffel> from <eiffel>SOME_CLASS</eiffel>
+
+For example, if you run the command: 
+<code lang=text>
+gvim {ANY}</code>
+then the text of class <eiffel>ANY</eiffel> will be displayed in a gvim window. 
+
+
+If you run the command: 
+<code lang=text>
+gvim @{ANY}</code>
+and if class <eiffel>ANY</eiffel> is opened in an editor tab and some text is selected there, the selected text will be displayed in a gvim window. 
+
+
+If you run the command: 
+<code lang=text>
+gvim @{ANY}.is_equal</code>
+then the text of feature <eiffel>is_equal</eiffel> from class <eiffel>ANY</eiffel> will be displayed in a gvim window. 
+
+
+If you run the command: 
+<code lang=text>
+gvim -d {ANY}.is_equal {APPLICATION}.is_equal</code>
+then a gvim window in diff mode will be opened showing the difference between <eiffel>ANY</eiffel>.<eiffel>is_equal</eiffel> and <eiffel>APPLICATION</eiffel>.<eiffel>is_equal</eiffel>. 
+
+
+The text used in buffer is stored in a temporary file so whatever change done to that text won't affect the text used in EiffelStudio. 
+
+
+==Auto-completion==
+
+The command area supports auto-completion. You can auto-complete placeholder, class name and feature name, shown in the following pictures:
+
+Auto-complete placeholder:  
+
+
+[[Image:console-auto1|Auto-complete placeholder]]  
+
+
+Auto-complete class name:  
+
+
+[[Image:console-auto2|Auto-complete class name]]  
+
+
+Auto-complete feature name:  
+
+
+[[Image:console-auto3|Auto-complete feature name]]  
+
+
+
+==Pick and drop==
+
+You can also pick and drop a group/class/feature into the command area to have related name/path inserted.
+
+{{seealso|<br/>
+[[External commands editor dialog|External commands Editor dialog]]  }}
+
+
+
+

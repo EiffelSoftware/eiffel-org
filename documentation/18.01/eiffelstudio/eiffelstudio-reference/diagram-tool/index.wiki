@@ -1,0 +1,12 @@
+[[Property:title|Diagram tool]]
+[[Property:weight|-6]]
+[[Property:uuid|a3ca34e5-10e9-fac3-4795-9222074273a6]]
+The Diagram Tool of EiffelStudio is your graphical interface to system structures. You can use it both to ''examine'' systems already built or under development, and to ''build'' these systems graphically. EiffelStudio supports complete seamlessness and reversibility between the Diagram Tool's graphical view and the text view of other EiffelStudio tools: whenever you make a change or addition with the graphical tool, EiffelStudio will update the text; and when you change the text, EiffelStudio will update the Diagram Tool's representation on the next compilation. 
+
+Use the diagram tool to design new Eiffel systems, or create [http://bon-method.com BON]  (Business Object Notation) diagrams of existing ones. BON is a simple, clear, self-explanatory notation that you will learn in a few minutes just by looking at some examples. The Diagram Tool provides you with lots of features to manage different views of an Eiffel system, or parts of it. 
+
+
+<div>  [[Image:devel-diagram]]  </div>
+
+
+

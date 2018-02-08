@@ -1,0 +1,19 @@
+[[Property:title|Copying the Example Files]]
+[[Property:weight|-14]]
+[[Property:uuid|bb8ff7d7-2e93-d150-339c-d9afb967bc98]]
+{{note|If you are using Eiffel on a personal computer, you have the option of working directly in the installation directory and would not necessarily need to make copies of files as per the present section. If you choose to work directly in the installation directory, skip this section and go on to the next section, [[Starting EiffelStudio and Opening a Project]]. If you work under Unix or OpenVMS, or may have to share the Eiffel installation with other users, do not have write permissions on the installation, or want to keep the installation unchanged, then please do read the present section and apply its instructions.}}
+
+If you are going to work on a copy, choose or create a directory of your own; let's call it <code>YOURDIR</code> for the rest of the discussion. 
+
+To copy all the files of the example to <code>YOURDIR</code>: 
+* On Windows, open a Windows Explorer, go to <code>$ISE_EIFFEL\examples\studio\tour</code> , select all the files in that directory, and drag-and-drop them to <code>YOURDIR</code> . 
+* On Unix execute the shell command 
+<code lang="text">
+cp $ISE_EIFFEL/examples/studio/tour/* YOURDIR</code>
+
+* On OpenVMS execute the command 
+<code lang=text">
+copy $ISE_EIFFEL:[examples.studio.tour]*.* YOURDIR</code>
+
+
+

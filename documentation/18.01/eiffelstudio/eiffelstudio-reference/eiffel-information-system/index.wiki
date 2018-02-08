@@ -1,0 +1,32 @@
+[[Property:title|Eiffel Information System]]
+[[Property:weight|-2]]
+[[Property:uuid|7e0394e1-cb31-fae3-79b6-9d1847ef8db7]]
+==Introduction==
+
+The Eiffel Information System (EIS) provides a unified mechanism for linking development objects - e.g., classes and features - of Eiffel systems with '''external''' information resources. External means information other than Eiffel program texts. Usually the tools associated with external resources are separate from Eiffel, such as web browsers. Examples of external information resources and possible corresponding external tools are: 
+*  Resource: Web page -- External Tool: default web browser
+*  Resource: PDF document -- External Tool: Adobe Acrobat
+*  Resource: Microsoft Word document -- External tool MS Word
+
+EIS is also intended to be the standard mechanism for obtaining help on Eiffel and EiffelStudio, replacing previous solutions. In that case, external tools may actually be Eiffel tools. 
+
+EIS makes two mechanisms available to users: '''Outgoing''' (from Eiffel to external tools), '''Incoming''' (the reverse).
+
+Examples of outgoing mechanisms include: 
+*  Associating EIS '''annotations''' containing references to external resources with certain Eiffel components of Eiffel systems. 
+*  Automatically opening the corresponding external tool to display or edit information associated with an annotation.
+*  Listing all external information (in a class, cluster or entire system) corresponding to a specified tag.
+
+Examples of incoming mechanisms include: 
+*  For supported tools, selecting external information linked to an Eiffel developer object and having EiffelStudio open automatically and targeted to that object. 
+
+==EIS supports the Eiffel method==
+
+EIS plays an important role in the Eiffel software development method. Eiffel's focus is software quality. One aspect of the Eiffel method that contributes to software quality is the '''Single Product Principle''' as described in the [[ET: The Software Process in Eiffel#The Single Product Principle|Eiffel Tutorial]]: viewing the software as a single product which is expected to be repeatedly refined, extended, and improved. 
+
+The bulk of the Single Product Principle is made possible by the seamless nature of the Eiffel method and the elegant design of the Eiffel programming language. Eiffel allows multiple views of the single software product that are appropriate to certain phases of development and readable by those fulfilling certain development roles. For example, potential reuse consumers use the '''contract''' views to explore class specifications. Also in support of seamlessness and the single product is a single integrated set of tools, the EiffelStudio IDE, working across the entire lifecycle, providing, for example, automatic extraction of the contract views just mentioned. The EiffelStudio graphical views of software (BON and UML, as produced by the Diagram Tool) directly support these ideas through their "roundtrip style". That is, changes to the diagram immediately generate code and changes to the code are reflected in the diagram. Of course documents in other formalisms, for example software requirements specifications (SRS), remain necessary for human consumption; but they should be closely linked to the core project asset, the Eiffel code.
+
+Within EiffelStudio, EIS effects this by ensuring that any documents existing outside the software itself can be linked to the software text and vice versa. For example, if an external software requirements document exists, say in PDF format, it is essential to record precisely the associations between elements in the requirements document and the portion of the software text in which those elements are realized. Perhaps the requirements document contains a statement: "Whenever the tank temperature reaches 50 degrees, the valve shall be closed". In the software text, there will be some feature, for example, <code>monitor_temperature</code> in the class <code>TANK</code>, reflecting this requirement. The requirements statement and the software feature should be linked to one another. This is to ensure that dependencies appear clearly, and that any change in either the requirements or the code triggers the corresponding update to the other side. This is what EIS provides.
+
+
+

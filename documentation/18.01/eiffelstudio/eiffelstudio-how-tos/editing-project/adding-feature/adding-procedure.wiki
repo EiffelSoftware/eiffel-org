@@ -1,0 +1,10 @@
+[[Property:title|Adding a procedure]]
+[[Property:weight|2]]
+[[Property:uuid|220515f7-5c16-2648-fcad-74d3fb1583da]]
+Once [[Opening the new feature dialog|the new feature dialog]]  is displayed and '''procedure''' selected in '''feature type''', follow the following steps: 
+#  [[Feature clauses|Choose a feature clause]]  
+#  [[Name field|Type a name]]  
+#  [[Argument list|Select formal parameters]]  
+#  [[Header comment|Type a header comment]]  
+# Enter [[Precondition|precondition]] , [[Local variable|local variable]] , [[Feature body|body]]  and [[Postcondition|postcondition]]  
+
