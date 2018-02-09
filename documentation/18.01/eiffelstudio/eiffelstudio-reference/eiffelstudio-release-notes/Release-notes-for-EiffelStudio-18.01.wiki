@@ -4,36 +4,57 @@
 [[Property:weight|1]]
 ==Graphical environment==
 ===What's new===
+* EiffelStudio has new menu entries and toolbar buttons to launch code analysis on class (from active editor), on a previously analyzed item, on a parent cluster of a selected item, on a currently selected target. The results of the analysis go to the error list similar to compilation results.
+* Added an experimental command line tool named `eiffel` used to build and launch an Eiffel project directly using the project.ecf file (in a single step).
 
 ===Improvements===
+* EiffelStudio supports filtering of error messages by free text.
+* Added auto-completion support for manifest values in parenthesis.
+* The background colors in error list can be customize to distinguish between different kinds of messages: error, warning, hint, success. The colors can be set in the preferences.
+* Improved style of the documentation generated with a filter for HTML with style-sheets.
+
+===User changes===
+* compiler: changed an algorithm to compute a type of a conditional expression, now it does not depend on the order of expressions used in the branches, and always exists, i.e. there is no VWCE error anymore (more details are available in the [[Conditional expression|documentation]]).
+*  compiler: Added a warning reported when a manifest array type is computed using a target type of the reattachment the array is involved in as a source. The warning can be disabled in the project settings during the first year after the release, cannot be disabled afterwards, and becomes an error after 1.5 year after the release.
+*  EiffelStudio: Disallowed application of automatic fixes to modified classes (changed either by external tools or in the editor). The project needs to be recompiled to apply the fixes. Application of several fixes to the same class is possible in one go.
 
 ==Compiler==
+* The compiler supports now typed manifest arrays of the form `{ARRAY [FOO]} << bar, qux>>`, that allows for explicit specification on the array type (see more in the [[Manifest array#Typed_manifest_array|documentation]]).
+* Be aware, that now for manifest array without explicit specified type, the compiler no longer depends on the type of the target of a reattachment where the array is used as a source (see more in the [[Manifest array#Untyped_manifest_array|documentation]]).
+* Added support for Unicode white space characters in source code as token delimiters. This might be useful when copying code from the internet where some servers/browsers replace ASCII white space and tab characters with no-break spaces.
+* It is possible to modify the preferences of the code analyzer to control when obsolete feature calls are reported by the compiler as warnings that can be suppressed, when as warnings that cannot be suppressed, and when as errors.
+* The compiler now provides precise location in error messages for `VPIR(1), VRLE(1), VREG, and VRFA`.
 
 ==Libraries==
 
 ===Breaking changes===
-* 
+* EiffelNet: now `set_timeout (0)` is accepted for `NETWORK_SOCKET` and do not set anymore the default timeout (20s).
 
 ===General===
-* 
+* EiffelBase: Updated `CHARACTER_PROPERTIES` to use Unicode 10.0.0 instead of 6.2.0.
+* The `event` library is now part of the `patterns` library that is now public in EiffelStudio delivery. The library includes other patterns that facilitate decoupling of different subsystems and could be used to build MVC frameworks on top of it.
+
+===EiffelNet===
+* Adopted `nanosecond` as timeout unit precision in EiffelNet (previous `second` unit precision features are available as obsolete features). To use nanoseconds precision, use the feature ending with "_ns". Note that depending on the platform, and associated C api, the precision may be only microseconds or milliseconds.
 
 ===C_library===
-* 
+* Updated cURL C library to version 7_56_1.
+* Updated OpenSSL C library to version 1.1.0f.
 
 ===EiffelCurl===
-*
+* It is now possible to compile with EiffelCurl based dynamic module, or static C library (with or without dependencies on .dll/.so).
+* Updated cURL library to support static linking of cURL C library. It allows at compile time to choose between using the shared library version (i.e .dll/.so  which is the default) or using the static library version (.lib/.a files not provided).
 
 ===OpenSSL===
-* 
+* Added a new OpenSSL Eiffel wrapper library, used by EiffelNetSSL (version 1.1.0f). 
 
-===JSON===
-* 
-
-===EiffelWeb ===
-*
-
-===ROC CMS===
-*
+===EiffelWeb and related===
+* Introduced the new WSF_COMPRESSION and WSF_*_WITH_COMPRESSION interfaces.
+* Added routing condition mapping (in addition to uri, uri-template, starts-with, ...).
+* Added a handler to execute CGI scripts (useful mainly when using standalone connector).
+* Added support for security protection against XSS injection or other similar threats (see new library wsf_security.ecf).
+* Added new JSON Web Token library under `contrib/library/web/authentication/jwt` .
+* Added support for embedded resources, reference fields to the HAL library.
 
 ----
 
