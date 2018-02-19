@@ -21,7 +21,8 @@
 ==Compiler==
 * The compiler supports now typed manifest arrays of the form `{ARRAY [FOO]} << bar, qux>>`, that allows for explicit specification on the array type (see more in the [[Manifest array#Typed_manifest_array|documentation]]).
 * Be aware, that now for manifest array without explicit specified type, the compiler no longer depends on the type of the target of a reattachment where the array is used as a source (see more in the [[Manifest array#Untyped_manifest_array|documentation]]).
-* Added support for Unicode white space characters in source code as token delimiters. This might be useful when copying code from the internet where some servers/browsers replace ASCII white space and tab characters with no-break spaces.
+* Supported class postconditions and instance-free features. A class postcondition consists of a single keyword class (with an optional leading tag). A feature with a class postcondition is known as a class feature and can be used in non-object calls of the form `{MY_CLASS_TYPE}.my_feature`. The restriction is that a class feature cannot access Current, a variable attribute, a non-qualified agent or make calls to non-instance-free features that include constant attributes, external and class features.
+* Added support for Unicode white space characters in source code as token delimiters. This might be useful when copying code from the Internet where some servers/browsers replace ASCII white space and tab characters with no-break spaces.
 * It is possible to modify the preferences of the code analyzer to control when obsolete feature calls are reported by the compiler as warnings that can be suppressed, when as warnings that cannot be suppressed, and when as errors.
 * The compiler now provides precise location in error messages for `VPIR(1), VRLE(1), VREG, and VRFA`.
 
