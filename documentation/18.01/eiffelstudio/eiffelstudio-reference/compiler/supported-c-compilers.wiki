@@ -28,9 +28,9 @@ In versions as late as 6.6, there is a [[EiffelCOM Wizard Guided Tour|restrictio
 
 You can do it in either of two different ways. 
 
-You can manually edit the registry key <code lang="text">HKLM\Software\ISE\EiffelNN</code> and change the value of the <code lang="text">ISE_C_COMPILER</code> string key to either `msc` or `mingw` depending upon the effect you desire.
+You can manually edit the registry key <code lang="text">HKLM\Software\ISE\EiffelNN</code> and change the value of the <code lang="text">ISE_C_COMPILER</code> string key to either `msc` (`msc_vc140`) or `mingw` depending upon the effect you desire.
 
-Alternatively, you can set the environment variable <code lang="text">ISE_C_COMPILER</code> to either `msc` or `mingw`.
+Alternatively, you can set the environment variable <code lang="text">ISE_C_COMPILER</code> to either `msc` (`msc_vc140`) or `mingw`.
 
 
 
