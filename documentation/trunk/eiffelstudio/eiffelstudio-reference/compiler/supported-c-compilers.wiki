@@ -40,10 +40,19 @@ Alternatively, you can set the environment variable <code lang="text">ISE_C_COMP
 | MinGW
 | `mingw`
 |-
-| Microsoft Visual Studio C++ 2015
+| Microsoft Visual Studio C++ 2010 (v10.0)
+| `msc`
+|-
+| Microsoft Visual Studio C++ 2012 (v11.0)
+| `msc`
+|-
+| Microsoft Visual Studio C++ 2013 (v12.0)
+| `msc`
+|-
+| Microsoft Visual Studio C++ 2015 (v14.0)
 | `msc_vc140`
 |-
-| Microsoft Visual Studio C++ 2017
+| Microsoft Visual Studio C++ 2017 (v15.0)
 | `msc_vc140`
 |-
 |}
