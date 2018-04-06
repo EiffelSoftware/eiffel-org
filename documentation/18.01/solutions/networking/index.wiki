@@ -1,9 +1,25 @@
 [[Property:title|Networking]]
 [[Property:weight|-9]]
 [[Property:uuid|4ddb235c-fea6-ee00-05af-6493e2c652a7]]
-== Network communication solutions==
+==Network communication solutions==
 
-There are a few network related library either coming with EiffelStudio delivery, or available as iron package:
+Many Eiffel applications take advantage of networking. The Eiffel solutions to support networking include the EiffelNet, ZeroMQ and http_client libraries.
+
+===Choosing the right libraries===
+The libraries serve different, and complementary, purposes:
+
+*EiffelNet enables Eiffel systems to use many Internet concepts and protocols: sockets, network address, IPV4, IPV6 and others.
+
+*ZeroMQ supports direct messaging.
+
+*http_client is a web client used to send HTTP requests (GET, POST, ...) and process the associated responses.
+
+===Using the libraries===
+
+Here is how to take advantage of one or more of the above libraries in your Eiffel system:
+
+
+
 * '''EiffelNet''':
 : manipulation of sockets, network addresses, IPv4, IPv6. But also basic limited implementation for a few protocols. <code lang="shell">$ISE_LIBRARY/library/net/net.ecf</code>
 
