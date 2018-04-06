@@ -12,7 +12,7 @@ EiffelStudio supports Microsoft and MinGW compilers on Microsoft Windows.
 
 ===Microsoft Visual C++ Users===
 
-EiffelStudio supports versions 12.0 and higher of the Microsoft Visual Studio C++ environment. This is available in Visual Studio 2010 or higher revision, or in version of the Windows SDK 7.1 or higher.
+EiffelStudio supports versions 10.0 and higher of the Microsoft Visual Studio C++ environment. This is available in Visual Studio 2010 or higher revision, or in version of the Windows SDK 7.1 or higher.
 
 EiffelStudio will automatically detect the location of the C compiler.
 
