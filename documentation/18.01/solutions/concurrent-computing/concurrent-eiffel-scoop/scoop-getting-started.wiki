@@ -12,7 +12,7 @@ In order to enable SCOOP processing in your project, you use the project setting
 
 The second setting is the precompiled library. This should either be '''base-scoop-safe''', or nothing at all. A precompiled library which is not built with SCOOP support will not work.
 
-{{caution | When you use a precompiled library, the ''Concurrency'' setting for that library trumps whatever ''Concurrency'' value you have set for the project. So, if you use the "base-safe.ecf" precompiled library, your project will not be SCOOP-enabled regardless of the setting of ''Concurrency'' in the Target. Likewise, using the "base-scoop-safe.ecf" precompiled library always produces a SCOOP-enabled project, even if the Target ''Concurrency'' setting is ''No concurrency''.}}
+{{caution | When you use a precompiled library, the ''Concurrency'' setting for that library trumps whatever ''Concurrency'' value you have set for the project. So, if you use the "base-safe.ecf" precompiled library, your project will not be SCOOP-enabled regardless of the setting of ''Concurrency'' in the Target. Likewise, using the "base-scoop-safe.ecf" precompiled library always produces a SCOOP-enabled project, even if the Target ''Concurrency'' setting is ''None''.}}
 
 
 =Creating a new SCOOP project=
@@ -32,9 +32,9 @@ To enable SCOOP, you'll have to do some work on the project settings. Follow the
 == Step 1: Adjust Concurrency setting ==
 
 Open the project settings dialogue (Project -> Project settings...).
-Select your favourite target (usually there's only one) and extend the section ''Advanced''.
+Select your favorite target (usually there's only one) and extend the section ''Advanced''.
 
-In there you'll find the setting ''Concurrency'', which should have a value ''No concurrency'' for sequential projects. Change it to ''SCOOP''.
+In there you'll find the setting ''Concurrency'', which should have a value ''None'' for sequential projects. Change it to ''SCOOP''.
 
 In addition to the ''Concurrency'' project setting, it is recommended that for new projects you use [[Creating a new void-safe project#Project settings for void-safe projects|the settings that guarantee void-safety]].
 
