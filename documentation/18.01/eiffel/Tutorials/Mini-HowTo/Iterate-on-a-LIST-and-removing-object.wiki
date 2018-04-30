@@ -1,0 +1,25 @@
+[[Property:uuid|78393BBA-9B1E-4523-9881-3D83CEB6A952]]
+[[Property:weight|0]]
+[[Property:title|Iterate on a LIST and removing object]]
+If you already have the object that you want to remove from the <code>LIST</code> you can easily use <code>prune</code> and <code>prune_all</code>. But if you want to remove object while iterating on that <code>LIST</code> depending on criterions on the objects contained in the <code>LIST</code>, here what you can do.
+
+First of all, if you think about removing object while iterating, I do not recommand using an <code>across</code> loop. If you iterate on the list using a <code>from until loop end</code>, just remember to use the <code>LIST.forth</code> only when you do not use <code>LIST.remove</code>.
+
+For example, let's say we have class <code>MY_CLASS</code> with an attribute <code>has_stopped</code> and that I want to remove every object of a <code>LIST</code> that have this attribute set to <code>True</code>. Here what the code will look like.
+
+<code>
+	removing_stopped(a_list:LIST[MY_CLASS])
+		do
+			from
+				a_list.start
+			until
+				a_list.exhausted
+			loop
+				if a_list.item.has_stoped then
+					a_list.remove
+				else
+					a_list.forth
+				end
+			end
+		end
+</code>
