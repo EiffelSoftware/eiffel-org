@@ -15,9 +15,9 @@ The first it the <code>across</code> loop. The <code>across</code> can be used o
 		end
 </code>
 
-Note that the temporary variable (<code>la_list</code> in the example) represent an iterator of the <code>ITERABLE</code> object, and not directly an element like in many other language (like the <code>for</code> structure in Python for example).
+Note that the temporary variable (<code>la_list</code> in the example) represent an iterator of the <code>ITERABLE</code> object, and not directly an element like in many other languages (like the <code>for</code> structure in Python for example).
 
-The other mecanism use the <code>from until</code> loop syntax. This syntax offer more possibilities that the <code>across</code> loop, but is more risky.
+The other mechanism uses the <code>from until</code> loop syntax. This syntax offer more possibilities than the <code>across</code> loop, but is riskier.
 
 <code>
 	print_elements(a_list:LIST[INTEGER])
