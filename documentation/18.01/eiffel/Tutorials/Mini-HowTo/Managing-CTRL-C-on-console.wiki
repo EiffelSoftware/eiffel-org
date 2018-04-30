@@ -6,7 +6,7 @@ Normally, if the user use the CTRL+C keys, the Eiffel application detect it as a
 
 <code>
 note
-	description: "Show hot to quit an application using CTRL+C (without trace)."
+	description: "Show how to quit an application using CTRL+C (without trace)."
 	autheur: "Louis Marchand"
 	date: "Wed, 25 Apr 2018 23:12:33 +0000"
 	revision: "0.1"
