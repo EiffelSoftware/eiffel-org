@@ -1,5 +1,5 @@
 [[Property:uuid|5CA34C5D-30F1-4D6F-9FE4-B555E541EA8C]]
-[[Property:weight|0]]
+[[Property:weight|4000]]
 [[Property:title|Managing CTRL+C in console application]]
 [[Property:link_title|CTRL_C console]]
 Normally, if the user use the CTRL+C keys, the Eiffel application detect it as an error and throw an exception of type  <code>OPERATING_SYSTEM_SIGNAL_FAILURE</code>.
