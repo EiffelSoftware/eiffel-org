@@ -9,6 +9,7 @@ For example, let's say we have class <code>MY_CLASS</code> with an attribute <co
 
 <code>
 	removing_stopped(a_list:LIST[MY_CLASS])
+			-- Removing every closed element of `a_list'
 		do
 			from
 				a_list.start
