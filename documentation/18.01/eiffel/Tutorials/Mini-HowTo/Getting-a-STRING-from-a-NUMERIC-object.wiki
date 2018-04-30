@@ -1,0 +1,12 @@
+[[Property:uuid|B74D374E-895C-4F22-B95F-656BD78ECD03]]
+[[Property:weight|0]]
+[[Property:title|Getting a STRING from a NUMERIC object]]
+[[Property:link_title|NUMERIC to STRING]]
+Every class have the <code>out</code> method that can be used to get a text version of the object. For a lot of class, this method return internal informations that is not really usefull for the end user. But for every <code>NUMERIC</code> class, the <code>out</code> method return a text representation of the number that the <code>NUMERIC</code> object represent.
+
+<code>
+	print_integer(a_integer:INTEGER)
+		do
+			print(a_integer.out + "%N")
+		end
+</code>
