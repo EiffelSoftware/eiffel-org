@@ -11,4 +11,4 @@ Every class have the <code>out</code> method that can be used to get a text vers
 		end
 </code>
 
-Note that for more advance convertion, you can also used convertion class like <code>FORMAT_DOUBLE</code>
+Note that for more advance convertion, you can also used convertion class like <code>FORMAT_DOUBLE</code>.
