@@ -11,7 +11,7 @@ To detect the exception, you can <code>inherit</code> from the <code>EXCEPTIONS<
 <code>
 note
 	description: "Show how to quit an application using CTRL+C (without trace)."
-	autheur: "Louis Marchand"
+	author: "Louis Marchand"
 	date: "Wed, 25 Apr 2018 23:12:33 +0000"
 	revision: "0.1"
 
@@ -24,20 +24,20 @@ inherit
 create
 	make
 
-feature {NONE} -- Initialisation
+feature {NONE} -- Initialization
 
 	make
-			-- Exécute l'application.
+			-- Launch `Current'.
 		local
 			l_ctrl_c:BOOLEAN
 		do
 			if not l_ctrl_c then
 				from until False loop
-					io.standard_default.put_string ("Appuyez sur CTRL+C%N")
+					io.standard_default.put_string ("Press CTRL+C%N")
 					io.input.read_line
 				end
 			else
-				io.standard_default.put_string ("%NFermeture...%N")
+				io.standard_default.put_string ("%NClosing...%N")
 			end
 		rescue
 			if attached {OPERATING_SYSTEM_SIGNAL_FAILURE} 
