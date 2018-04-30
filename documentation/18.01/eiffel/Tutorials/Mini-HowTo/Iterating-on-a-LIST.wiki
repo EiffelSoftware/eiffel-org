@@ -1,12 +1,13 @@
 [[Property:uuid|96077603-DD2D-4D8C-A486-AF4BD066613A]]
 [[Property:weight|0]]
 [[Property:title|Iterating on a LIST]]
-There is two Eiffel mecanisms to iterate on every element of a <code>LIST</code>.
+There are two Eiffel mechanisms to iterate on every element of a <code>LIST</code>.
 
 The first it the <code>across</code> loop. The <code>across</code> can be used on every <code>ITERABLE</code> object (including <code>LIST</code> objects).
 
 <code>
 	print_elements(a_list:LIST[INTEGER])
+			-- Print every elements on `a_list'
 		do
 			across a_list as la_list loop
 				print(la_list.item.out + "%N")
@@ -20,6 +21,7 @@ The other mecanism use the <code>from until</code> loop syntax. This syntax offe
 
 <code>
 	print_elements(a_list:LIST[INTEGER])
+			-- Print every elements on `a_list'
 		do
 			from
 				a_list.start
