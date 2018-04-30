@@ -36,7 +36,8 @@ feature {NONE} -- Initialisation
 				io.standard_default.put_string ("%NFermeture...%N")
 			end
 		rescue
-			if attached {OPERATING_SYSTEM_SIGNAL_FAILURE} Exception_manager.last_exception then
+			if attached {OPERATING_SYSTEM_SIGNAL_FAILURE} 
+							Exception_manager.last_exception then
 				l_ctrl_c := True
 				retry
 			end
