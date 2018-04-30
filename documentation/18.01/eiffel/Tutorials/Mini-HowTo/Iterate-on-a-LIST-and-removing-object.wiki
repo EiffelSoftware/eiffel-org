@@ -1,5 +1,5 @@
 [[Property:uuid|78393BBA-9B1E-4523-9881-3D83CEB6A952]]
-[[Property:weight|0]]
+[[Property:weight|3000]]
 [[Property:title|Removing object while iterating on a LIST]]
 If you already have the object that you want to remove from the <code>LIST</code> you can easily use <code>prune</code> and <code>prune_all</code>. But if you want to remove objects while iterating on that <code>LIST</code>, depending on criteria on the objects contained in the <code>LIST</code>, here what you can do.
 
