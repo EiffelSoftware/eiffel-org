@@ -2,7 +2,11 @@
 [[Property:weight|0]]
 [[Property:title|Managing CTRL+C on console]]
 [[Property:link_title|CTRL_C terminal]]
-Normally, if the user use the CTRL+C keys, the Eiffel application detect it as an error and throw an exception of type  <code>{OPERATING_SYSTEM_SIGNAL_FAILURE}</code>. To manage the CTRL+C keys, you can use a <code>rescue</code> clause to detect the exception and a <code>retry</code> mecanism to cancel the exception handeling done by the Eiffel runtime.
+Normally, if the user use the CTRL+C keys, the Eiffel application detect it as an error and throw an exception of type  <code>OPERATING_SYSTEM_SIGNAL_FAILURE</code>.
+
+To manage the CTRL+C keys, you can use a <code>rescue</code> clause to detect the exception and a <code>retry</code> mecanism to cancel the exception handeling done by the Eiffel runtime.
+
+To detect the exception, you can <code>inherit</code> from the <code>EXCEPTIONS</code> class and use an attachment test on <code>Exception_manager.last_exception</code>.
 
 <code>
 note
