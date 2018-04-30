@@ -6,6 +6,7 @@ Every class has the <code>out</code> method that can be used to get a text versi
 
 <code>
 	print_integer(a_integer:INTEGER)
+			-- Print the value of `a_integer'
 		do
 			print(a_integer.out + "%N")
 		end
