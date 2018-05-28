@@ -4,9 +4,10 @@
 [[Property:weight|0]]
 ==Graphical environment==
 ===What's new===
-* The execution parameters can be automatically loaded from the eventual file `$target_name.$system_name.dbg.profiles.xml` located in same folder as the .ecf project file.
+* The execution parameters can be automatically loaded from the default file saved from a previous execution session.
 
 ===Improvements===
+* Extended sets of constructs checked by some default rules (CA017, CA046, CA071) of the code analyzer and made sure the checks do not trigger false positives.
 * The debugger string viewer now displays information about the current cursor (character, position, ...). In addition, a new "JSON" string debugger viewer is available.
 * The auto-completion is not triggered anymore for `|.`  or  `..` cases.
 
@@ -15,8 +16,8 @@
 * Minor changes in icons, to have better icons for '''class feature'''.
 
 ==Compiler==
-*It is now possible to extend a project target from a different project (ECF) following the xml syntax `<target name="foo" extends="bar" extends_location="another.ecf"> ....`
-* The rules for '''class''' features were relaxed.  Redeclaration into or joining with a class feature is valid as soon as combined assertions satisfy the class feature conditions. A non-static external and constant feature automatically gets a class post-condition if its contracts do not involve constructs that can access Current object (`Current`, an unqualified call, an inline or unqualified agent, `Precursor`, an address expression with `Current` or an unqualified feature).
+* It is now possible to extend a project target from a different project (ECF).
+* The rules for '''class''' features were relaxed.  Re-declaration into or joining with a class feature is valid as soon as combined assertions satisfy the class feature conditions. A non-static external and constant feature automatically gets a class post-condition if its contracts do not involve constructs that can access Current object .
 * Updated the Eiffel grammar to support bracket expressions as bracket targets (`foo [x][y][z]` as a synonym of `((foo [x]) [y]) [z]`)
 
 * Supports detection of VHPR(5) violations for arbitrary ancestors, not just for immediate parents. This may be a breaking change for classes that inherit different generic derivations of the same class.
@@ -28,7 +29,6 @@
 * EiffelBase:  Added a feature {ARRAY}.force_and_fill that works like {ARRAY}.force, but fills previously unoccupied positions with the specified value rather than with a default one.
 * EiffelProcess: Marked features of BASE_PROCESS_FACTORY, PROCESS_FACTORY, and PROCESS_INFO as class ones to make them usable for non-object calls.
 * Encoding: Use a default console code page on Windows if the current one cannot be retrieved that may happen for GUI applications.
-
 
 
 ----
