@@ -25,8 +25,10 @@
 * EiffelBase: Added EXECUTION_ENVIRONMENT.available_cpu_count
 * EiffelBase: Relaxed a precondition of {ARRAY}.subarray to allow for calling it on empty arrays.
 * EiffelBase:  Marked many features of Base library as class ones to make them usable for non-object calls.
+* EiffelBase:  Added a feature {ARRAY}.force_and_fill that works like {ARRAY}.force, but fills previously unoccupied positions with the specified value rather than with a default one.
 * EiffelProcess: Marked features of BASE_PROCESS_FACTORY, PROCESS_FACTORY, and PROCESS_INFO as class ones to make them usable for non-object calls.
 * Encoding: Use a default console code page on Windows if the current one cannot be retrieved that may happen for GUI applications.
+
 
 
 ----
