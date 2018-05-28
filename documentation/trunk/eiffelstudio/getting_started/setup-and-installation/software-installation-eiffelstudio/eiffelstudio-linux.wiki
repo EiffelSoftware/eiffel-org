@@ -56,28 +56,47 @@ cp -r /mnt/cdrom/EiffelXX .</code>
 
 This will install the EiffelStudio files into /usr/local/EiffelXX. To complete the installation of EiffelStudio, jump to the next section, [[#Setting up EiffelStudio|Setting up EiffelStudio]].
 <span id="setting_up"></span> 
+
 ==Setting up EiffelStudio==
 
 Once the files have been installed, you should define the following environment variables in order to run EiffelStudio: 
 * '''ISE_EIFFEL''' to /usr/local/EiffelXX
-* '''ISE_PLATFORM''' to linux-x86 for the 32 bits version or linux-x86-64 for the 64 bits version. We will be using '''linux-x86''' in the examples below.
+* '''ISE_PLATFORM''' to linux-x86 for the 32 bits version or linux-x86-64 for the 64 bits version. We will be using '''linux-x86-64''' in the examples below.
 and add $'''ISE_EIFFEL'''/studio/spec/$'''ISE_PLATFORM'''/bin to your '''PATH''' environment variable. 
 
 Using sh or bash as a shell, it suffices to type the following commands:
 <code>
 export ISE_EIFFEL=/usr/local/EiffelXX
-export ISE_PLATFORM=linux-x86
+export ISE_PLATFORM=linux-x86-64
 export PATH=$PATH:$ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin</code>
 
 
 Using csh or tcsh as a shell, it suffices to type the following commands:
 <code>
 setenv ISE_EIFFEL /usr/local/EiffelXX
-setenv ISE_PLATFORM linux-x86
+setenv ISE_PLATFORM linux-x86-64
 set path = ($path $ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin)</code>
 
 
 If you are using the Enterprise edition, please follow the instructions of the next section, [[#Registering the Enterprise Edition|Registering the Enterprise Edition]], otherwise jump to the [[#Using EiffelStudio|Using EiffelStudio]] section at the end of this document.
+
+== Installing EiffelStudio on Ubuntu ==
+An alternative to previous solution for Ubuntu, is to use the ppa repository.
+```shell
+sudo add-apt-repository ppa:eiffelstudio-team/ppa 
+sudo apt-get update 
+sudo apt-get install eiffelstudio
+```
+It installs EiffelStudio using the linux layout, so no specific environment variables are needed (note: ISE_EIFFEL and ISE_PLATFORM should not be set to use this linux layout).
+The executable are located under `/usr/bin`, libraries under `/usr/lib/eiffelstudio`, ... 
+
+To reinstall, or update:
+```shell
+sudo apt-get purge eiffelstudio 
+sudo apt-get update 
+sudo apt-get install eiffelstudio 
+```
+
 <span id="registering"></span> 
 ==Registering the Enterprise Edition==
 

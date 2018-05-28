@@ -21,7 +21,7 @@ It is also possible to use the [[Set slice size command|set slice size command]]
 
 
 
-'''The tool bar buttons:'''<br/>
+'''The toolbar buttons:'''<br/>
 * the [[Remove object command|remove object command]]   [[Image:general-delete-icon]]  <br/>
 * the [[Set slice size command|set slice size command]]   [[Image:debugger-set-sizes-icon]] .<br/>
 * the button  [[Image:debugger-expand-info-icon]]  can give an [[Object Viewer (also known as Expanded display)|expanded display]]  of the string relative to an object, by dropping the object onto the button (or pressing Ctrl+E on the selected value). Use it if an object has a very long string representation or a string representation that contains carriage returns, for example.<br/>
@@ -29,7 +29,7 @@ It is also possible to use the [[Set slice size command|set slice size command]]
 * and the button  [[Image:execution-object-storage-icon]]  controls the [[Debuggee's Object Storage|remote object storage]] . 
 
 
-{{tip|The tool's layout can be customized to have 2 side-by-side "left" and "right" grids holding the various information. This can be done using the button ( [[Image:toolbar-dropdown-icon]] ) from the tool bar which open the objects tool menu and then select "Edit Layout". Then you can use the tool layout editor as shown below to adjust which information you want displayed in each of the two sides. }}
+{{tip|The tool's layout can be customized to have 2 side-by-side "left" and "right" grids holding the various information. This can be done using the button ( [[Image:toolbar-dropdown-icon]] ) from the toolbar which open the objects tool menu and then select "Edit Layout". Then you can use the tool layout editor as shown below to adjust which information you want displayed in each of the two sides. }}
 
 
 [[Image:object-tool-layout-editor]]
