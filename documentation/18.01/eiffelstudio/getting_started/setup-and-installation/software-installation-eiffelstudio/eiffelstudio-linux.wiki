@@ -87,7 +87,8 @@ sudo add-apt-repository ppa:eiffelstudio-team/ppa
 sudo apt-get update 
 sudo apt-get install eiffelstudio
 ```
-It installs EiffelStudio using the linux layout, so you don't need to set specific environment variable. The executable are located under `/usr/bin`, libraries under `/usr/lib/eiffelstudio`
+It installs EiffelStudio using the linux layout, so no specific environment variables are needed (note: ISE_EIFFEL and ISE_PLATFORM should not be set to use this linux layout).
+The executable are located under `/usr/bin`, libraries under `/usr/lib/eiffelstudio`, ... 
 
 To reinstall, or update:
 ```shell
