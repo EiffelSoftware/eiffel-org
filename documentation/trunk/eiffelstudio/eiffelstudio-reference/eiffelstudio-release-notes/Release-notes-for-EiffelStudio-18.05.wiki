@@ -1,20 +1,33 @@
 [[Property:uuid|73F20392-AB22-4CD6-BFE5-83296B8BD64B]]
 [[Property:title|Release notes for EiffelStudio 18.05]]
 [[Property:link_title|18.05]]
-[[Property:weight|1]]
+[[Property:weight|0]]
 ==Graphical environment==
 ===What's new===
+* The execution parameters can be automatically loaded from the eventual file `$target_name.$system_name.dbg.profiles.xml` located in same folder as the .ecf project file.
 
 ===Improvements===
+* The debugger string viewer now displays information about the current cursor (character, position, ...). In addition, a new "JSON" string debugger viewer is available.
+* The auto-completion is not triggered anymore for `|.`  or  `..` cases.
 
 ===User changes===
+* The completion window is now shown even if there is a unique entry. In addition now single click completes the code (instead of double-click). The tool-tip is displayed, when the mouse pointer is over the related entry.
+* Minor changes in icons, to have better icons for '''class feature'''.
 
 ==Compiler==
+*It is now possible to extend a project target from a different project (ECF) following the xml syntax `<target name="foo" extends="bar" extends_location="another.ecf"> ....`
+* The rules for '''class''' features were relaxed.  Redeclaration into or joining with a class feature is valid as soon as combined assertions satisfy the class feature conditions. A non-static external and constant feature automatically gets a class post-condition if its contracts do not involve constructs that can access Current object (`Current`, an unqualified call, an inline or unqualified agent, `Precursor`, an address expression with `Current` or an unqualified feature).
+* Updated the Eiffel grammar to support bracket expressions as bracket targets (`foo [x][y][z]` as a synonym of `((foo [x]) [y]) [z]`)
+
+* Supports detection of VHPR(5) violations for arbitrary ancestors, not just for immediate parents. This may be a breaking change for classes that inherit different generic derivations of the same class.
+
 ==Libraries==
+* EiffelBase: Added EXECUTION_ENVIRONMENT.available_cpu_count
+* EiffelBase: Relaxed a precondition of {ARRAY}.subarray to allow for calling it on empty arrays.
+* EiffelBase:  Marked many features of Base library as class ones to make them usable for non-object calls.
+* EiffelProcess: Marked features of BASE_PROCESS_FACTORY, PROCESS_FACTORY, and PROCESS_INFO as class ones to make them usable for non-object calls.
+* Encoding: Use a default console code page on Windows if the current one cannot be retrieved that may happen for GUI applications.
 
-===General===
-
-===EiffelWeb and related===
 
 ----
 
