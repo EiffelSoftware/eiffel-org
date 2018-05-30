@@ -4,23 +4,22 @@
 [[Property:weight|0]]
 
 ==Graphical environment==
-===What's new===
-* The execution parameters can be automatically loaded from the default file saved from a previous execution session.
-
-===Improvements===
+===Improvements ===
 * Extended sets of constructs checked by some default rules of the code analyzer and made sure the checks do not trigger false positives.
+* The execution parameters can be automatically loaded from the default file saved from a previous execution session (this way, an Eiffel project can have default execution parameters).
 * The debugger string viewer now displays information about the current cursor (character, position, ...). In addition, a new "JSON" string debugger viewer is available.
-* The auto-completion is not triggered anymore for `|.`  or  `..` cases.
 
 ===User changes===
-* The completion window is now shown even if there is a unique entry. In addition now single click completes the code (instead of double-click). The tool-tip is displayed, when the mouse pointer is over the related entry.
-* Minor changes in icons, to have better icons for '''class feature'''.
+* Made completion more consistent: the selection list is shown even when there is just one item.
+* Used single-click for completion dialog. And show tool-tip when the pointer is over the entry.
+* New icons for '''class''' features (implying minor changes on existing features icons).
+* The auto-completion is not triggered anymore for `|.`  or  `..` cases.
 
 ==Compiler==
 * It is now possible to extend a project target from a different project (ECF).
 * The rules for '''class''' features were relaxed.  Re-declaration into or joining with a class feature is valid as soon as combined assertions satisfy the class feature conditions. A non-static external and constant feature automatically gets a class post-condition if its contracts do not involve constructs that can access Current object .
 * Updated the Eiffel grammar to support bracket expressions as bracket targets (such as `table[x][y][z]`)
-* Supports detection of VHPR(5) violations for arbitrary ancestors, not just for immediate parents. This may be a breaking change for classes that inherit different generic derivations of the same class.
+* Supports detection of '''VHPR(5)''' violations for arbitrary ancestors, not just for immediate parents. This may be a breaking change for classes that inherit different generic derivations of the same class.
 
 ==Libraries==
 * EiffelBase:
@@ -29,7 +28,8 @@
 **Marked many features of Base library as class ones to make them usable for non-object calls.
 **Added a feature `{ARRAY}.force_and_fill` that works like `{ARRAY}.force`, but fills previously unoccupied positions with the specified value rather than with a default one.
 * EiffelProcess: Marked features of `BASE_PROCESS_FACTORY`, `PROCESS_FACTORY`, and `PROCESS_INFO` as class ones to make them usable for non-object calls.
-* Encoding: Use a default console code page on Windows if the current one cannot be retrieved that may happen for GUI applications.
+* EiffelWeb: it is now possible to redefine the default http response when an exception occurs.
+
 
 
 ----
