@@ -2,9 +2,9 @@
 [[Property:weight|0]]
 [[Property:title|Manifest array]]
 
-A manifest array is an expression denoting an array by simply listing its elements, as in  <code><<1, 4, 9, 16, 25>></code>. The lower index is always <code>1</code> and the upper index is the number of items,  <code>5</code> in this example.
+A manifest array is an expression denoting an array by simply listing its elements, as in  `<<1, 4, 9, 16, 25>>`. The lower index is always `1` and the upper index is the number of items,  `5` in this example.
 
-The type of a manifest array is always  <code>ARRAY [T]</code> where  <code>T</code> is a type to which all the elements conform, <code>INTEGER</code> in the previous example. In case of a possible ambiguity you can make the type explicit, as in <code>{ARRAY [COMPARABLE]} <<7, "Eiffel">></code>, where both  <code>INTEGER</code>, the type of <code>7</code>, and  <code>STRING</code>, the type of <code>"Eiffel"</code>, conform to  <code>COMPARABLE</code>. 
+The type of a manifest array is always `ARRAY [T]` where  `T` is a type to which all the elements conform, `INTEGER` in the previous example. In case of a possible ambiguity you can make the type explicit, as in `{ARRAY [COMPARABLE]} <<7, "Eiffel">>`, where both  `INTEGER`, the type of `7`, and  `STRING`, the type of `"Eiffel"`, conform to `COMPARABLE`. 
 
 == What are manifest arrays good for? ==
 
@@ -14,7 +14,7 @@ Use a manifest array to initialize an element by simply listing its initial elem
   squares: ARRAY [INTEGER]
 ```
 
-you can initialize <code>squares</code> through
+you can initialize `squares` through
 
 ```eiffel
   squares := <<1, 4, 9, 16, 25>>
@@ -43,25 +43,25 @@ which will resize the array to bounds 1 and 6.
 
 If you do not explicitly specify an array type, the type of the manifest array is as follows:
 
-* For an empty manifest array  <code><<>></code>:  <code>ARRAY [NONE]</code>. (In the following cases we assume the array is not empty.)
+* For an empty manifest array  `<<>>`:  `ARRAY [NONE]`. (In the following cases we assume the array is not empty.)
 
-* If all elements are of the same exact type  <code>T</code>:  <code>ARRAY [T]</code>.
+* If all elements are of the same exact type  `T`: `ARRAY [T]`.
 
-* If the types of all elements all conform to a type  <code>T</code>:  <code>ARRAY [T]</code>. Note that in this case  <code>T is unique since two different types cannot conform to each other. (The preceding case, all types identical, is a special case of this one, since a type conforms to itself.) 
+* If the types of all elements all conform to a type  `T`:  `ARRAY [T]`. Note that in this case `T` is unique since two different types cannot conform to each other. (The preceding case, all types identical, is a special case of this one, since a type conforms to itself.) 
 
-* Otherwise:  <code>ARRAY [ANY]</code>.
+* Otherwise:  `ARRAY [ANY]`.
 
-As an example of the third case (conformance of all elements to one of them), assume  <code>POLYGON</code> and  <code>CIRCLE</code> both conform to  <code>FIGURE</code>. Then the manifest array  <code><<a_polygon, a_figure, a_circle>></code>, with  <code>a_polygon of type  <code>POLYGON</code> and so on, is  <code>ARRAY [FIGURE]</code>.
+As an example of the third case (conformance of all elements to one of them), assume  `POLYGON` and  `CIRCLE` both conform to  `FIGURE`. Then the manifest array  `<<a_polygon, a_figure, a_circle>>`, with `a_polygon` of type  `POLYGON` and so on, is  `ARRAY [FIGURE]`.
 
 == Type of a manifest array: the explicit case ==
 
-With the preceding rule, the type of   <code><<7, "Eiffel">></code> is the most general possible one, <code>ARRAY [ANY]</code>, since  <code>INTEGER</code> and  <code>STRING</code> do not conform to each other (either way). If you are not happy with this default type, you can make the array type explicit by writing it in braces:
+With the preceding rule, the type of   `<<7, "Eiffel">>` is the most general possible one, `ARRAY [ANY]`, since  `INTEGER` and  `STRING` do not conform to each other (either way). If you are not happy with this default type, you can make the array type explicit by writing it in braces:
 
 ```eiffel
 {ARRAY [COMPARABLE]} <<7, "Eiffel">>
 ```
 
-The rule in such a case is that in <code>{ARRAY [T]} <<element1, element2, ...>></code> the types of all elements must conform to  <code>T</code>.
+The rule in such a case is that in `{ARRAY [T]} <<element1, element2, ...>>` the types of all elements must conform to  `T`.
 
 As another example, with
 
@@ -69,13 +69,13 @@ As another example, with
 figures: ARRAY [FIGURE]
 ```
 
-you cannot assign  <code><<a_polygon, a_circle>></code> to <code>figures</code> since the type of the manifest array is <code>ARRAY [ANY]</code>. To make this assignment possible, use an explicit type:
+you cannot assign  `<<a_polygon, a_circle>>` to `figures` since the type of the manifest array is `ARRAY [ANY]`. To make this assignment possible, use an explicit type:
 
 ```eiffel
 figures := {ARRAY [FIGURE]} <<a_polygon, a_circle>>
 ```
 
-You can also use this form to give an explicit type to an empty array, which would otherwise be of type <code>ARRAY [NONE]</code>. For example, with <code>figures</code> declared as above:
+You can also use this form to give an explicit type to an empty array, which would otherwise be of type `ARRAY [NONE]`. For example, with `figures` declared as above:
 
 ```eiffel
 figures := {ARRAY [FIGURE]} <<>>
