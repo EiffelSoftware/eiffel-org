@@ -11,21 +11,24 @@ The type of a manifest array is always `ARRAY [T]` where  `T` is a type to which
 Use a manifest array to initialize an element by simply listing its initial elements. For example, with the declaration
 
 ```eiffel
-  squares: ARRAY [INTEGER]
+squares: ARRAY [INTEGER]
 ```
 
 you can initialize `squares` through
 
 ```eiffel
-  squares := <<1, 4, 9, 16, 25>>
+squares := <<1, 4, 9, 16, 25>>
 ```
 
 This is simpler than the alternative, which would be to create the array explicitly and give a value to every element in turn:
 ```eiffel
-   create squares .make_filled (0, 1, 5)
-			-- Arguments to `make_filled' are: default value, lower bound, upper bound.
-   squares  [1] := 1 ; squares  [2] := 4 ; squares  [3] := 9 
-   squares  [4] := 16 ; squares  [5] := 25
+	-- Arguments to `make_filled` are: default value, lower bound, upper bound.
+create squares.make_filled (0, 1, 5)
+squares [1] := 1
+squares [2] := 4
+squares [3] := 9 
+squares [4] := 16
+squares [5] := 25
 ```
 
 The first form, with the manifest array, is shorter, but the effect is the same.
@@ -33,8 +36,8 @@ The first form, with the manifest array, is shorter, but the effect is the same.
 Manifest arrays are normal arrays, not restricted in any way. You can for example add elements to them, as in
 
 ```eiffel
-   squares.force (36, 6)	
-			-- Arguments to `force' are: value, position.
+	-- Arguments to `force` are: value, position.
+squares.force (36, 6)	
 ```
 
 which will resize the array to bounds 1 and 6.
