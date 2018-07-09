@@ -1,20 +1,17 @@
-[[Property:title|Eiffel Inspector - Getting Started]]
+[[Property:modification_date|Mon, 09 Jul 2018 07:47:11 GMT]]
+[[Property:publication_date|Mon, 09 Jul 2018 07:47:11 GMT]]
+[[Property:title|Getting Started]]
 [[Property:link_title|Getting Started]]
 [[Property:weight|-15]]
 [[Property:uuid|81ae12fd-f643-c5ba-825c-7750929f6978]]
-==Eiffel Inspector Tool==
-After opening an existing project with EiffelStudio, go to View->Tools->Eiffel Inspector to show the tool. It will look like this:
-
-The Inspector Eiffel tool panel before the analysis.
-[[Image:Eiffel Inspector - Tool Panel|center|1119px|Eiffel Inspector - Tool Panel]]
+==Code  Analyzer==
+After opening an existing project with EiffelStudio, go to Project->Analyze... to run the tool.
 
 == A Simple Analysis ==
 
-Press the '''Analyze System''' button. If needed, the system will be compiled now. A successful compilation is required for the Eiffel Inspector to run. After a successful compilation the analysis will start and will check all classes of your system. The status bar shows the progress by displaying the class currently being analyzed. As soon as the analysis is complete, results will show up in the panel as a list of ''rule violations''.
+Select the menu item '''Analyze System Target'''. If needed, the system will be compiled now. A successful compilation is required for the Code Analyzer to run. After a successful compilation the analysis will start and will check all classes of your system. The status bar shows the progress by displaying the class currently being analyzed. As soon as the analysis is complete, results will show up in the error panel as a list of ''rule violations''.
 
 The results of code analysis as a list of rule violations (example).
-[[Image:CA Simple Analysis|center|978px|Eiffel Inspector - Simple Analysis]]
-
+[[Image:CA Simple Analysis|center|978px|Code Analyzer - Simple Analysis]]
 
 A double-click on a row will update the EiffelStudio editor to go to the position in the code where the issue lies. You may expand the row to see more details.
-
