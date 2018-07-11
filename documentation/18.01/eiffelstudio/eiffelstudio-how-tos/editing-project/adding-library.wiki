@@ -1,3 +1,5 @@
+[[Property:modification_date|Mon, 09 Jul 2018 15:02:54 GMT]]
+[[Property:publication_date|Mon, 09 Jul 2018 14:41:19 GMT]]
 [[Property:title|Adding a library]]
 [[Property:weight|1]]
 [[Property:uuid|6d711ed5-7cd4-481f-1ea3-7bc0eb4e1730]]
@@ -6,9 +8,13 @@ A dialog window has been designed to help you to add a library to your project.
 
 [[Image:new-library-dialog]]
 
-There are two ways to make this window appear. You can:
-* Click  [[Image:new-library-icon]]  in the [[Groups tool|groups tool]] . 
-* Select '''Add library''' in the '''Tools''' menu. 
+
+To bring up this dialog:
+* go to Project -> Project Settings and either:
+** Select the "Add Library" icon  [[Image:new-library-icon]] in the top icon bar (or use the keyboard shortcut, normally CTRL-L).
+** On a "Target" or "Group" node of the tree, right-click "Libraries" and click "Add Library".
+* or also, go to the [[Groups tool|groups tool]] and click on the small toolbar button [[Image:new-library-icon]] . 
+
 Using this dialog, you can either choose a library from a list or select your own library. 
 
 
