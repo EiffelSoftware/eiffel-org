@@ -1,0 +1,778 @@
+[[Property:title|Eiffel programming language syntax]]
+[[Property:link_title|Syntax]]
+[[Property:weight|0]]
+[[Property:uuid|4CB56AD5-1586-41F6-9E81-085F47E992DC]]
+The syntax specification shown here is a less complete and less formal version of that which is in the Eiffel ISO/ECMA standard document. The format is BNF-E. The Language Specification section of the standard document includes an overview of BNF-E. 
+
+There are a few parts of the syntax that are either non-production or non-representable in BNF-E. Some of these have been omitted from the following specification. These omitted parts of the syntax definition add to the precision of the specification, but knowledge of them is not always vital for developers. 
+
+In the BNF-E representation, generally non-terminals which are defined in the same group of productions in which they are used are not linked. However when a non-terminal is defined outside a group in which it is used, it is linked to the group in which it is defined.
+
+__TOC__
+
+The following section contains those non-production elements of the specification that are used later in the BNF-E specification.
+
+==Eiffel non-production elements==
+
+===Identifiers===
+
+An '''identifier''' is a sequence of one or more alphanumeric [[#Characters|characters]] of which the first is a letter. 
+
+The definition is augmented by the rule that Identifiers are not valid if they are the same as one of the language's reserved words.
+
+===Characters===
+
+Characters are either:
+
+* All 32-bit, corresponding to Unicode and to the Eiffel type CHARACTER_32.
+* All 8-bit, corresponding to 8-bit extended ASCII and to the Eiffel type CHARACTER_8
+
+===Reals===
+
+A real -- specimen of Real -- is made of the following elements, in the order given:
+
+* An optional decimal [[#Integers|Integer]], giving the integral part.
+* A required "." (dot).
+* An optional decimal [[#Integers|Integer]], giving the fractional part.
+* An optional exponent, which is the letter ''e'' or ''E'' followed by an optional [[#Manifest constants|Sign]] and a decimal [[#Integers|Integer]].
+
+No intervening character (blank or otherwise) is permitted between these elements. The integral and fractional parts may not both be absent.
+
+===Strings===
+
+A string -- specimen of construct String -- is a sequence of zero or more manifest characters.
+
+===Simple strings===
+
+A simple string -- specimen of Simple_string -- is a [[#Strings|String]] consisting of at most one line (that is to say, containing no embedded new-line manifest character), possibly containing [[#Special characters|codes for special characters]].
+
+===Special characters===
+
+{| border="2"
+|+ Special Characters and Their Codes
+|-
+! Character 
+! Code 
+! Mnemonic name
+|-
+| @ || %A || At-sign
+|-
+| BS || %B || Backspace
+|-
+| ^ || %C || Circumflex
+|-
+| $ || %D || Dollar
+|-
+| FF || %F || Form feed
+|-
+| \ || %H || Backslash
+|-
+| ~ || %L || Tilde
+|-
+| NL (LF) || %N || Newline
+|-
+| `` ` `` || %Q || Backquote
+|-
+| CR || %R || Carriage return
+|-
+| # || %S || Sharp
+|-
+| HT || %T || Horizontal tab
+|-
+| NUL || %U || Null
+|-
+| &#124; || %V || Vertical bar
+|-
+| % || %% || Percent
+|-
+| ' || %' || Single quote
+|-
+| " || %" || Double quote
+|-
+| [ || %( || Opening bracket
+|-
+| ] || %) || Closing bracket
+|-
+| { || %< || Opening brace
+|-
+| } || %> || Closing brace
+|}
+
+* %/123/  represents the character with decimal code 123 .
+
+===Line wrapping parts===
+
+A sequence of characters consisting of the following, in order:
+* % (percent character)
+* Zero or more blanks or tabs
+* New line (Line feed)
+* Zero or more blanks or tabs
+* % (percent character)
+
+Line wrapping parts are used as separators between one [[#Simple strings|Simple_string]] and the next in a [[#Manifest strings|Basic_manifest_string]] so that the string can be split across lines.
+
+
+
+==Eiffel BNF-E Syntax==
+
+
+===Class names ===
+Class_name ::= [[#Identfiers|Identifier]] 
+
+===Class declarations ===
+Class_declaration ::= <nowiki>[</nowiki>[[#Notes|Notes]]<nowiki>]</nowiki> 
+[[#Class headers|Class_header]] <nowiki>[</nowiki>[[#Formal generic parameters|Formal_generics]]<nowiki>]</nowiki> 
+
+<nowiki>[</nowiki>[[#Obsolete marks|Obsolete]]<nowiki>]</nowiki> 
+
+<nowiki>[</nowiki>[[#Inheritance parts|Inheritance]]<nowiki>]</nowiki>
+
+<nowiki>[</nowiki>[[#Creators parts|Creators]]<nowiki>]</nowiki>
+
+<nowiki>[</nowiki>[[#Converter clauses|Converters]]<nowiki>]</nowiki> 
+
+<nowiki>[</nowiki>[[#Feature parts|Features]]<nowiki>]</nowiki> 
+
+<nowiki>[</nowiki>[[#Notes|Notes]]<nowiki>]</nowiki>
+
+<nowiki>[</nowiki>[[#Assertions|Invariant]]<nowiki>]</nowiki> 
+
+<nowiki>[</nowiki>[[#Notes|Notes]]<nowiki>]</nowiki>
+
+<code>end</code>
+
+===Notes ===
+Notes ::= <code>note</code> Note_list
+
+Note_list ::= {Note_entry ";" ...}* 
+
+Note_entry ::= Note_name Note_values 
+
+Note_name ::= [[#Identifiers|Identifier]] ":" 
+
+Note_values ::= {Note_item ","...}+ 
+
+Note_item ::= [[#Identifiers|Identifier]] | [[#Manifest constants|Manifest_constant]] 
+
+===Class headers ===
+Class_header ::= <nowiki>[Header_mark]</nowiki> <code>class</code> [[#Class names|Class_name]] 
+
+Header_mark ::= <code>deferred</code> | <code>expanded</code> | <code>frozen</code> 
+
+===Obsolete marks ===
+Obsolete ::= <code>obsolete</code> Message 
+
+Message ::= [[#Manifest strings|Manifest_string]] 
+
+===Feature parts ===
+Features ::= Feature_clause+ 
+
+Feature_clause ::= <code>feature</code> <nowiki>[</nowiki>[[#Clients|Clients]]<nowiki>]</nowiki> <nowiki>[</nowiki>[[#Feature parts|Header_comment]]<nowiki>]</nowiki> Feature_declaration_list 
+
+Feature_declaration_list ::= {[[#Feature declarations|Feature_declaration]] ";" ...}* 
+
+Header_comment ::= [[#Comments|Comment]] 
+
+===Feature declarations ===
+Feature_declaration ::= [[#New feature lists|New_feature_list]] Declaration_body 
+
+Declaration_body ::= <nowiki>[</nowiki>[[#Formal argument and entity declarations|Formal_arguments]]<nowiki>] [Query_mark] [Feature_value] </nowiki>
+
+Query_mark ::= Type_mark <nowiki>[</nowiki>[[#Assigner marks|Assigner_mark]]<nowiki>]</nowiki> 
+
+Type_mark ::= ":" [[#Types|Type]] 
+
+Feature_value ::= <nowiki>[Explicit_value] </nowiki>
+<nowiki>[</nowiki>[[#Obsolete parts|Obsolete]]<nowiki>]</nowiki> 
+<nowiki>[</nowiki>[[#Feature parts|Header_comment]]<nowiki>]</nowiki> 
+<nowiki>[</nowiki>[[#Feature bodies|Attribute_or_routine]]<nowiki>]</nowiki> 
+
+Explicit_value ::= "=" [[#Manifest constants|Manifest_constant]] 
+
+
+===New feature lists ===
+New_feature_list ::= {New_feature "," ...}+ 
+
+New_feature ::= <nowiki>[</nowiki><code>frozen</code><nowiki>]</nowiki> [[#Feature names|Extended_feature_name]]
+
+
+===Feature bodies ===
+Attribute_or_routine ::= <nowiki>[</nowiki>[[#Assertions|Precondition]]<nowiki>]</nowiki> 
+<nowiki>[</nowiki>[[#Local variable declarations|Local_declarations]]<nowiki>]</nowiki> 
+Feature_body 
+<nowiki>[</nowiki>[[#Assertions|Postcondition]]<nowiki>]</nowiki> 
+<nowiki>[</nowiki>[[#Rescue clauses|Rescue]]<nowiki>]</nowiki> 
+<code>end</code>
+
+Feature_body ::= [[#Routine bodies|Deferred]] | [[#Routine bodies|Effective_routine]] | [[#Attribute bodies|Attribute]]
+
+
+===Feature names ===
+Extended_feature_name ::= Feature_name <nowiki>[Alias]</nowiki> 
+
+Feature_name ::= [[#Identfiers|Identifier]] 
+
+Alias ::= <code>alias</code> '"' Alias_name '"' <nowiki>[</nowiki><code>convert</code><nowiki>]</nowiki>
+
+Alias_name ::= [[#Operators|Operator]] | Bracket 
+
+Bracket ::= "<nowiki>[ ]</nowiki>" 
+
+
+===Operators ===
+Operator ::= Unary | Binary 
+
+Unary ::= <code>not</code> | "+" | "-" | Free_unary 
+
+Binary ::= <nowiki>"+" | "-" | "*" | "/" | "//" | "\\" | "^" | ".." | "<" | ">" | "<=" | ">=" |</nowiki> <code>and</code> | <code>or</code> | <code>xor</code> | <code>and</code> <code>then</code> | <code>or</code> <code>else</code> | <code>implies</code> | Free_binary
+
+{{note| Free_unary and Free_binary are free operators that are distinct from (respectively) the ''standard'' unary and binary operators (one- or two-character symbols) explicitly listed in the Unary and Binary productions. See ''Definition: Free operator'' in the standard for more precision.}}
+
+
+===Assigner marks ===
+Assigner_mark ::= <code>assign</code> [[#Feature names|Feature_name]]
+
+
+===Inheritance parts ===
+Inheritance ::= Inherit_clause+ 
+
+Inherit_clause ::= <code>inherit</code> <nowiki>[Non_conformance]</nowiki> Parent_list 
+
+Non_conformance ::= "{" NONE "}" 
+
+Parent_list ::= {Parent ";" ...}+ 
+
+Parent ::= [[#Types|Class_type]] <nowiki>[Feature_adaptation]</nowiki>
+
+Feature_adaptation ::= <nowiki>[</nowiki>[[#Undefine clauses|Undefine]]<nowiki>]</nowiki> 
+<nowiki>[</nowiki>[[#Redefinition|Redefine]]<nowiki>]</nowiki> 
+<nowiki>[</nowiki>[[#Rename clauses|Rename]]<nowiki>]</nowiki> 
+<nowiki>[</nowiki>[[#Export adaptation|New_exports]]<nowiki>]</nowiki> 
+<nowiki>[</nowiki>[[#Select clauses|Select]]<nowiki>]</nowiki> 
+<code>end</code> 
+
+
+
+===Rename clauses ===
+Rename ::= <code>rename</code> Rename_list 
+
+Rename_list ::= {Rename_pair "," ...}+ 
+
+Rename_pair ::= [[#Feature names|Feature_name]] <code>as</code> [[#Feature names|Extended_feature_name]] 
+
+
+===Clients ===
+Clients ::= "{" Class_list "}" 
+
+Class_list ::= {[[#Class names|Class_name]] "," ...}+
+
+
+
+===Export adaptation ===
+New_exports ::= <code>export</code> New_export_list 
+
+New_export_list ::= {New_export_item ";" ...}+ 
+
+New_export_item ::= [[#Clients|Clients]] <nowiki>[</nowiki>[[#Feature parts|Header_comment]]<nowiki>]</nowiki> Feature_set 
+
+Feature_set ::= Feature_list | <code>all</code> 
+
+Feature_list ::= {[[#Feature names|Feature_name]] "," ...}+
+
+
+
+===Formal argument and entity declarations ===
+Formal_arguments ::= "(" [[#Formal argument and entity declarations|Entity_declaration_list]] ")" 
+
+Entity_declaration_list ::= {Entity_declaration_group ";" ...}+ 
+
+Entity_declaration_group ::= Identifier_list [[#Feature declarations|Type_mark]] 
+
+Identifier_list ::= {[[#Identfiers|Identifier]] "," ...}+ 
+
+
+===Routine bodies ===
+Deferred ::= <code>deferred</code> 
+
+Effective_routine ::= Internal | [[#External routines|External]] 
+
+Internal ::= Routine_mark [[#Instructions|Compound]] 
+
+Routine_mark ::= <code>do</code> | Once 
+
+Once ::= <code>once</code> <nowiki>[</nowiki> "("Key_list ")" <nowiki>]</nowiki> 
+
+Key_list ::= {[[#Manifest strings|Manifest_string]] "," ...}+
+
+
+===Local variable declarations ===
+Local_declarations ::= <code>local</code> <nowiki>[</nowiki>[[#Formal argument and entity declarations|Entity_declaration_list]]<nowiki>]</nowiki>
+
+
+===Instructions ===
+Compound ::= {Instruction ";" ...}* 
+
+Instruction ::= [[#Creation instructions|Creation_instruction]] | [[#Feature calls|Call]] | [[#Assignments|Assignment]] | [[#Assigner calls|Assigner_call]] | [[#Conditionals|Conditional]] | [[#Multi-branch instructions|Multi_branch]] 
+| [[#Loops|Loop]] | [[#Debug instructions|Debug]] | [[#Precursor|Precursor]] | [[#Check instructions|Check]] | [[#Rescue clauses|Retry]]
+
+
+===Assertions ===
+Precondition ::= <code>require</code> <nowiki>[</nowiki><code>else</code><nowiki>]</nowiki> Assertion 
+
+Postcondition ::= <code>ensure</code> <nowiki>[</nowiki><code>then</code><nowiki>]</nowiki> Assertion <nowiki>[</nowiki>[[#"Only" postcondition clauses|Only]]<nowiki>]</nowiki> 
+
+Invariant ::= <code>invariant</code> Assertion 
+
+Assertion ::= {Assertion_clause ";" ...}* 
+
+Assertion_clause ::= <nowiki>[</nowiki>Tag_mark<nowiki>]</nowiki> Unlabeled_assertion_clause 
+
+Unlabeled_assertion_clause ::= [[#Expressions|Boolean_expression]] | [[#Comments|Comment]] 
+
+Tag_mark ::= Tag ":" 
+
+Tag ::= [[#Identfiers|Identifier]] 
+
+
+==="Old" postcondition expressions ===
+Old ::= <code>old</code> [[#Expressions|Expression]]
+
+
+==="Only" postcondition clauses ===
+Only ::= <code>only</code> <nowiki>[</nowiki>[[#Export adaptation|Feature_list]]<nowiki>]</nowiki>
+
+
+===Check instructions ===
+Check ::= <code>check</code> [[#Assertions|Assertion]] <nowiki>[</nowiki>[[#Notes|Notes]]<nowiki>]</nowiki> <code>end</code>
+
+
+===Variants ===
+Variant ::= <code>variant</code> <nowiki>[</nowiki>[[#Assertions|Tag_mark]]<nowiki>]</nowiki> [[#Expressions|Expression]]
+
+
+===Precursor ===
+Precursor ::= <code>Precursor</code> [Parent_qualification] <nowiki>[</nowiki>[[#Actual arguments|Actuals]]<nowiki>]</nowiki> 
+
+Parent_qualification ::= "{" [[#Class names|Class_name]] "}"
+
+
+===Redefinition ===
+Redefine ::= <code>redefine</code> [[#Export adaptation|Feature_list]]
+
+
+===Undefine clauses ===
+Undefine ::= <code>undefine</code> [[#Export adaptation|Feature_list]]
+
+
+===Types ===
+Type ::= Class_or_tuple_type | [[#Formal generic parameters|Formal_generic_name]] | Anchored 
+
+Class_or_tuple_type ::= Class_type | [[#Tuple types|Tuple_type]] 
+
+Class_type ::= [Attachment_mark] [[#Class names|Class_name]] <nowiki>[</nowiki>[[#Actual generic parameters|Actual_generics]]<nowiki>]</nowiki> 
+
+Attachment_mark ::= "?"  |  "!" 
+
+Anchored ::= [Attachment_mark] <code>like</code> Anchor 
+
+Anchor ::= [[#Feature names|Feature_name]] | <code>Current</code>
+
+
+===Actual generic parameters ===
+Actual_generics ::= <nowiki>"[" Type_list "]"</nowiki>
+
+Type_list ::= {[[#Types|Type]] "," ...}+
+
+
+===Formal generic parameters ===
+Formal_generics ::= <nowiki>"[" Formal_generic_list "]"</nowiki>
+
+Formal_generic_list ::= {Formal_generic ","...}+ 
+
+Formal_generic ::= <nowiki>[</nowiki><code>frozen</code><nowiki>]</nowiki> Formal_generic_name <nowiki>[</nowiki>[[#Generic constraints|Constraint]]<nowiki>]</nowiki> 
+
+Formal_generic_name ::= <nowiki>[?]</nowiki> [[#Identfiers|Identifier]]
+
+
+===Generic constraints ===
+Constraint ::= "->" Constraining_types <nowiki>[Constraint_creators]</nowiki> 
+
+Constraining_types ::= Single_constraint | Multiple_constraint 
+
+Single_constraint ::= [[#Types|Type]] [Renaming] 
+
+Renaming ::= [[#Rename clauses|Rename]] <code>end</code>
+
+Multiple_constraint ::= "{" Constraint_list "}" 
+
+Constraint_list ::= {Single_constraint "," ...}+ 
+
+Constraint_creators ::= <code>create</code> [[#Export adaptation|Feature_list]] <code>end</code>
+
+
+===Manifest arrays ===
+Manifest_array ::= <nowiki>[</nowiki>Manifest_array_type<nowiki>]</nowiki> <code><<</code> Expression_list <code>>></code>
+
+Manifest_array_type ::= <code>{</code> [[#Types|Type]] <code>}</code>
+
+Expression_list ::= {[[#Expressions|Expression]] <code>,</code> ...}*
+
+
+===Tuple types ===
+Tuple_type ::= <code>TUPLE</code> <nowiki>[Tuple_parameter_list]</nowiki>
+
+Tuple_parameter_list ::= <nowiki>"[" Tuple_parameters "]"</nowiki>
+
+Tuple_parameters ::= [[#Actual generic parameters|Type_list]] | [[#Formal argument and entity declarations|Entity_declaration_list]]
+
+
+===Manifest tuples ===
+Manifest_tuple ::= <nowiki>"["</nowiki> [[#Manifest arrays|Expression_list]] <nowiki>"]"</nowiki>
+
+
+===Converter clauses ===
+Converters ::= <code>convert</code> Converter_list 
+
+Converter_list ::= {Converter ","...}+ 
+
+Converter ::= Conversion_procedure | Conversion_query 
+
+Conversion_procedure ::= [[#Feature names|Feature_name]] "(" "{" [[#Actual generic parameters|Type_list]] "}" ")" 
+
+Conversion_query ::= [[#Feature names|Feature_name]] ":" "{" [[#Actual generic parameters|Type_list]] "}"
+
+
+===Select clauses ===
+Select ::= <code>select</code> [[#Export adaptation|Feature_list]]
+
+
+===Conditionals ===
+Conditional ::= <code>if</code> Then_part_list <nowiki>[Else_part]</nowiki> <code>end</code> 
+
+Then_part_list ::= {Then_part <code>elseif</code> ...}+ 
+
+Then_part ::= [[#Expressions|Boolean_expression]] <code>then</code> [[#Instructions|Compound]] 
+
+Else_part ::= <code>else</code> [[#Instructions|Compound]]
+
+
+Conditional_expression ::= <code>if</code> Then_part_expression_list <code>else</code> [[#Expressions|Expression]] <code>end</code> 
+
+Then_part_expression_list ::= {Then_part_expression <code>elseif</code> ...}+ 
+
+Then_part_expression ::= [[#Expressions|Boolean_expression]] <code>then</code> [[#Expressions|Expression]] 
+
+
+===Multi-branch instructions ===
+Multi_branch ::= <code>inspect</code> [[#Expressions|Expression]] <nowiki>[When_part_list] [Else_part]</nowiki> <code>end</code> 
+
+When_part_list ::= When_part+ 
+
+When_part ::= <code>when</code> Choices <code>then</code> [[#Instructions|Compound]] 
+
+Choices ::= {Choice "," ...}+ 
+
+Choice ::= [[#Constants|Constant]] | [[#Manifest constants|Manifest_type]] | Constant_interval | Type_interval 
+
+Constant_interval ::= [[#Constants|Constant]] ".." [[#Constants|Constant]] 
+
+Type_interval ::= [[#Manifest constants|Manifest_type]] ".." [[#Manifest constants|Manifest_type]]
+
+
+===Loops ===
+Loop ::=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<nowiki>[</nowiki>Iteration<nowiki>]</nowiki><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<nowiki>[</nowiki>Initialization<nowiki>]</nowiki><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<nowiki>[</nowiki>[[#Assertions|Invariant]]<nowiki>]</nowiki><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<nowiki>[</nowiki>Exit_condition<nowiki>]</nowiki><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loop_body<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<nowiki>[</nowiki>[[#Variants|Variant]]<nowiki>]</nowiki><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>end</code> 
+
+Iteration ::= <code>across</code> [[#Expressions|Expression]] <code>as</code>  [[#Identfiers|Identifier]]
+
+Initialization ::= <code>from</code> [[#Instructions|Compound]] 
+
+Exit_condition ::= <code>until</code> [[#Expressions|Boolean_expression]] 
+
+Loop_body ::=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>loop</code> [[#Instructions|Compound]] |<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>all</code> [[#Expressions|Boolean_expression]] |<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>some</code> [[#Expressions|Boolean_expression]]
+
+
+===Debug instructions ===
+Debug ::= <code>debug</code> <nowiki>[</nowiki> "("[[#Routine_bodies|Key_list]] ")" ] [[#Instructions|Compound]] <code>end</code>
+
+
+===Attribute bodies ===
+Attribute ::= <code>attribute</code> [[#Instructions|Compound]]
+
+
+===Entities and variables ===
+Entity ::= Variable | Read_only 
+
+Variable ::= Variable_attribute | Local 
+
+Variable_attribute ::= [[#Feature names|Feature_name]] 
+
+Local ::= [[#Identfiers|Identifier]] | <code>Result</code> 
+
+Read_only ::= Formal | Constant_attribute | <code>Current</code> 
+
+Formal ::= [[#Identfiers|Identifier]] 
+
+Constant_attribute ::= [[#Feature names|Feature_name]]
+
+
+===Creators parts ===
+Creators ::= Creation_clause+ 
+
+Creation_clause ::= <code>create</code> <nowiki>[</nowiki>[[#Clients|Clients]]<nowiki>]</nowiki> <nowiki>[</nowiki>[[#Feature parts|Header_comment]]<nowiki>]</nowiki> Creation_procedure_list 
+
+Creation_procedure_list ::= {Creation_procedure ","...}+ 
+
+Creation_procedure ::= [[#Feature names|Feature_name]]
+
+
+===Creation instructions ===
+Creation_instruction ::= <code>create</code> <nowiki>[Explicit_creation_type]</nowiki> Creation_call 
+
+Explicit_creation_type ::= "{" [[#Types|Type]] "}" 
+
+Creation_call ::= [[#Entities and variables|Variable]] [Explicit_creation_call] 
+
+Explicit_creation_call ::= "." [[#Feature calls|Unqualified_call]]
+
+
+===Creation expressions ===
+Creation_expression ::= <code>create</code> [[#Creation instructions|Explicit_creation_type]] <nowiki>[</nowiki>[[#Creation instructions|Explicit_creation_call]]<nowiki>]</nowiki>
+
+
+===Equality expressions ===
+Equality ::= [[#Expressions|Expression]] Comparison [[#Expressions|Expression]] 
+
+Comparison ::= "=" | "/=" | "~" | "/~"
+
+
+===Assignments ===
+Assignment ::= [[#Entities and variables|Variable]] ":=" [[#Expressions|Expression]]
+
+
+===Assigner calls ===
+Assigner_call ::= [[#Expressions|Expression]] ":=" [[#Expressions|Expression]]
+
+
+===Feature calls ===
+Call ::= Object_call | Non_object_call 
+
+Object_call ::= <nowiki>[Target "."] Unqualified_call </nowiki>
+
+Unqualified_call ::= [[#Feature names|Feature_name]] <nowiki>[</nowiki>[[#Actual arguments|Actuals]]<nowiki>]</nowiki> 
+
+Target ::= [[#Entities and variables|Local]] | [[#Entities and variables|Read_only]] | Call | Parenthesized_target 
+
+Parenthesized_target ::= <code>(</code> [[#Expressions|Expression]] <code>)</code>
+
+Non_object_call ::= "{" [[#Types|Type]] "}" "." Unqualified_call
+
+
+===Actual arguments ===
+Actuals ::= "(" Actual_list ")" 
+
+Actual_list ::= {[[#Expressions|Expression]] "," ...}+
+
+
+===Object test ===
+Object_test ::= "{" [[#Identfiers|Identifier]] ":" [[#Types|Type]] "}" [[#Expressions|Expression]]
+
+
+===Rescue clauses ===
+Rescue ::= <code>rescue</code> [[#Instructions|Compound]] 
+
+Retry ::= <code>retry</code>
+
+
+===Agents ===
+Agent ::= Call_agent | Inline_agent 
+
+Call_agent ::= <code>agent</code> [[#Call agent bodies|Call_agent_body]] 
+
+Inline_agent ::= <code>agent</code> <nowiki>[</nowiki>[[#Formal argument and entity declarations|Formal_arguments]]<nowiki>]</nowiki> <nowiki>[</nowiki>[[#Feature declarations|Type_mark]]<nowiki>]</nowiki> <nowiki>[</nowiki>[[#Feature bodies|Attribute_or_routine]]<nowiki>]</nowiki> <nowiki>[</nowiki>[[#Call agent bodies|Agent_actuals]]<nowiki>]</nowiki>
+
+
+===Call agent bodies ===
+Call_agent_body ::= Agent_qualified | Agent_unqualified 
+
+Agent_qualified ::= Agent_target ". " Agent_unqualified 
+
+Agent_unqualified ::= [[#Feature names|Feature_name]] [Agent_actuals] 
+
+Agent_target ::= Entity | Parenthesized | [[#Manifest constants|Manifest_type]] 
+
+Agent_actuals ::= "(" Agent_actual_list ")" 
+
+Agent_actual_list ::= {Agent_actual "," ...}+ 
+
+Agent_actual ::= [[#Expressions|Expression]] | Placeholder 
+
+Placeholder ::= <nowiki>[</nowiki>[[#Manifest constants|Manifest_type]]<nowiki>]</nowiki> "?"
+
+
+===Expressions ===
+Expression ::= Basic_expression | Special_expression 
+
+Basic_expression ::= [[#Entities and variables|Read_only]] | [[#Entities and variables|Local]] | [[#Feature calls|Call]] | [[#Precursor|Precursor]] | [[#Equality expressions|Equality]] | Parenthesized | [[#"Old" postcondition expressions|Old]] | 
+[[#Operator expressions|Operator_expression]] | [[#Bracket expressions|Bracket_expression]]  | [[#Creation expression|Creation_expression]] | [[#Conditionals|Conditional_expression]]
+
+Special_expression ::= [[#Manifest constants|Manifest_constant]] | [[#Manifest arrays|Manifest_array]] | [[#Manifest tuples|Manifest_tuple]] | [[#Agents|Agent]] | [[#Object test|Object_test]] | Once_string | 
+Address 
+
+Parenthesized ::= "(" Expression ")" 
+
+Address ::= "$" [[#Entities and variables|Variable]] 
+
+Once_string ::= <code>once</code> [[#Manifest strings|Manifest_string]] 
+
+Boolean_expression ::= Basic_expression | [[#Manifest constants|Boolean_constant]] | [[#Object test|Object_test]]
+
+
+===Operator expressions ===
+Operator_expression ::= Unary_expression | Binary_expression 
+
+Unary_expression ::= Unary Expression 
+
+Binary_expression ::= [[#Expressions|Expression]] [[#Operators|Binary]] [[#Expressions|Expression]]
+
+
+===Bracket expressions ===
+Bracket_expression ::= Bracket_target "[" [[#Actual arguments|Actuals]] "]" 
+
+Bracket_target ::= [[#Feature calls|Target]] | [[#Expressions|Once_string]] | [[#Manifest constants|Manifest_constant]] | [[#Manifest tuples|Manifest_tuple]]
+
+
+===Constants ===
+Constant ::= [[#Manifest constants|Manifest_constant]] | Constant_attribute 
+
+Constant_attribute ::= [[#Feature names|Feature_name]]
+
+
+===Manifest constants ===
+Manifest_constant ::= [Manifest_type] Manifest_value 
+
+Manifest_type ::= "{" [[#Types|Type]] "}"
+
+Manifest_value ::= Boolean_constant |  
+Character_constant |  
+Integer_constant |  
+Real_constant |  
+[[#Manifest strings|Manifest_string]] | 
+Manifest_type 
+
+Sign ::= "+" | "-" 
+
+Integer_constant ::= <nowiki>[Sign]</nowiki> [[#Integers|Integer]] 
+
+Character_constant ::= " ' " [[#Characters|Character]] " ' " 
+
+Boolean_constant ::= <code>True</code> | <code>False</code> 
+
+Real_constant ::= <nowiki>[Sign]</nowiki> [[#Reals|Real]]
+
+
+===Manifest strings ===
+Manifest_string ::= Basic_manifest_string | Verbatim_string 
+
+Basic_manifest_string ::= ' " '  String_content  ' " ' 
+
+String_content ::= {[[#Simple strings|Simple_string]] [[#Line wrapping parts|Line_wrapping_part]] ...}+
+
+Verbatim_string ::= Verbatim_string_opener Line_sequence Verbatim_string_closer 
+
+Verbatim_string_opener ::= ' " ' <nowiki>[</nowiki>[[#Simple strings|Simple_string]]<nowiki>]</nowiki> Open_bracket 
+
+Verbatim_string_closer ::= Close_bracket <nowiki>[</nowiki>[[#Simple strings|Simple_string]]<nowiki>]</nowiki> ' " ' 
+
+Open_bracket ::= <nowiki>"[" | "{"</nowiki> 
+
+Close_bracket ::= "]" | "}"Verbatim_string ::= Verbatim_string_opener Line_sequence Verbatim_string_closer 
+
+Verbatim_string_opener ::= ' " ' <nowiki>[</nowiki>[[#Simple strings|Simple_string]]<nowiki>]</nowiki> Open_bracket 
+
+Verbatim_string_closer ::= Close_bracket <nowiki>[</nowiki>[[#Simple strings|Simple_string]]<nowiki>]</nowiki> ' " ' 
+
+Open_bracket ::= <nowiki>"[" | "{" </nowiki>
+
+Close_bracket ::= <nowiki>"]" | "}" </nowiki>
+
+
+===External routines ===
+External ::= <code>external</code> External_language <nowiki>[External_name]</nowiki>
+
+External_language ::= Unregistered_language | [[#Registered languages|Registered_language]] 
+
+Unregistered_language ::= [[#Manifest strings|Manifest_string]] 
+
+External_name ::= <code>alias</code> [[#Manifest strings|Manifest_string]]
+{{note|If the `inline` keyword is used in the Registered_language part, then External_name part is the inline code on the specified language.}}
+
+
+===Registered languages ===
+Registered_language ::= [[#C externals|C_external]] | [[#C++ externals|C++_external]] | [[#DLL externals|DLL_external]]
+
+
+===External signatures ===
+External_signature ::= <code>signature</code> <nowiki>[External_argument_types] [: External_type]</nowiki> 
+
+External_argument_types ::= "(" External_type_list ")" 
+
+External_type_list ::= {External_type "," ...}* 
+
+External_type ::= [[#Simple strings|Simple_string]]
+
+
+===External file use ===
+External_file_use ::= <code>use</code> External_file_list 
+
+External_file_list ::= {External_file "," <nowiki>... }+ </nowiki>
+
+External_file ::= External_user_file | External_system_file 
+
+External_user_file ::= ' " '  [[#Simple strings|Simple_string]]  ' " ' 
+
+External_system_file ::= <nowiki>"<"</nowiki> [[#Simple strings|Simple_string]] <nowiki>">"</nowiki>
+
+===C externals ===
+C_external ::= ' " ' <code>C</code> <nowiki>[</nowiki><code>inline</code>] <nowiki>[</nowiki> [[#External signatures |External_signature]] <nowiki>] [</nowiki> [[#External file use |External_file_use]] <nowiki>] ' " '</nowiki>
+
+
+===C++ externals ===
+C++_external ::= ' " '  <code>C++</code> <code>inline</code> <nowiki>[</nowiki> [[#External signatures |External_signature]] <nowiki>] [</nowiki> [[#External file use |External_file_use]] <nowiki>] ' " '</nowiki>
+
+
+===DLL externals ===
+DLL_external ::= ' " ' <code>dll</code> <nowiki>[</nowiki><code>windows</code><nowiki>] DLL_identifier [DLL_index] [[</nowiki> [[#External signatures |External_signature]] <nowiki>] [</nowiki> [[#External file use |External_file_use]] <nowiki>] ' " ' </nowiki>
+
+DLL_identifier ::= [[#Simple strings|Simple_string]] 
+
+DLL_index ::= [[#Integers|Integer]]
+
+
+===Comments ===
+Comment ::= "- -" <nowiki>{</nowiki>[[#Simple strings|Simple_string]] Comment_break ...}* 
+
+Comment_break ::= New_line <nowiki>[Blanks_or_tabs] "- -"</nowiki>
+
+===Integers ===
+Integer ::= <nowiki>[Integer_base]</nowiki> Digit_sequence 
+
+Integer_base ::= "0" Integer_base_letter 
+
+Integer_base_letter ::= "b"  |  "c"  |  "x" |  "B"  |  "C"  |  "X" 
+
+Digit_sequence ::= Digit+ 
+
+Digit ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"  | 
+"a" | "b" | "c" | "d" | "e" | "f" | 
+"A" | "B" | "C" | "D" | "E" | "F" | "_"
+

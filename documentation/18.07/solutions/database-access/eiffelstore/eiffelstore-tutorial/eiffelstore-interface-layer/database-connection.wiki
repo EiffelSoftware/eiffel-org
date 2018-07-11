@@ -1,0 +1,44 @@
+[[Property:title|Database Connection]]
+[[Property:weight|0]]
+[[Property:uuid|2cf2cb7c-e28d-5d06-b03e-e2b17c1f6879]]
+* To connect to your database, you have to create a '''handle''': this handle actually links the interface classes with the corresponding implementation classes mapped to your DBMS. This handle is implemented by the DATABASE_APPL class:
+<code>
+    database_appl: DATABASE_APPL [ODBC]
+            -- Database handle.
+
+                ...
+
+            create database_appl.login (a_name, a_psswd)
+            database_appl.set_base
+</code>
+<br/>
+
+{{note|Calling set_base links the EiffelStore interface to this specific handle. }}
+
+{{tip|You can manage handles to many databases: as an instance of <eiffel>DATABASE_APPL</eiffel> stands for a specific database handle, you only have to create one instance of <eiffel>DATABASE_APPL</eiffel> for every DBMS handle you wish to create. Do not forget to call set_base to activate appropriate handle. }}
+
+
+{{note|The generic parameter of <eiffel>DATABASE_APPL</eiffel> specifies the actual DBMS used. }}
+
+* Once your handle is created, you have to create a session manager which will allow you to manage your database; specifically, to establish a connection, disconnect and also handle errors. The class <eiffel>DB_CONTROL</eiffel> enables your application to control the functioning and status of your database and to request any information about it.
+<code>
+    session_control: DB_CONTROL
+            -- Session control.
+
+                ...
+
+            create session_control.make
+            session_control.connect
+</code>
+
+{{note|Take a look at the [[Database control|database control]]  part to see how to use <eiffel>DB_CONTROL</eiffel> capabilities. }}
+
+
+{{seealso|<br/>
+[[Database control|Database control and error handling]]  <br/>
+[[EiffelStore Implementation Layer|Implementation]]  <br/>
+}}
+
+
+
+

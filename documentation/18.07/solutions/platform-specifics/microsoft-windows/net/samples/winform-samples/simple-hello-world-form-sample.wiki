@@ -1,0 +1,50 @@
+[[Property:title|Simple Hello world form sample]]
+[[Property:weight|-12]]
+[[Property:uuid|f4f924a5-20a2-403b-ee1d-a39c77fbb8fd]]
+<div> 
+[[Image:simple-hello-world|Hello world form]]  
+</div>
+==Compiling==
+
+To compile the example:   
+# Launch EiffelStudio.
+# Click '''Add project'''
+# Browse to ''$ISE_EIFFEL\examples\dotnet\winforms\hello_world\''
+# Choose ''hello_world.ecf''
+# Choose the location where the project will be compiled, by default the same directory containing the configuration file.
+# Click '''Open'''.
+
+
+==Running==
+
+After launching the application, you will see a window displayed with a similar appearance to the one above. This is the simplest windows form we can display. We have just set the title with "HelloWorld". 
+
+
+
+==Under the Hood==
+
+The application shows how to display a Windows Form under the windows environment. The application inherits the <span><eiffel>FORM</eiffel></span> class, and just set the title with <span><code>"Hello world"</code></span> with the inherited feature <span><eiffel>set_text</eiffel></span>. 
+<code>
+            set_text ("Hello world")
+</code>
+
+The application is launched in a <eiffel>PROCESS</eiffel> with this command line:
+<code>
+            {WINFORMS_APPLICATION}.run_form (Current).
+</code>
+
+This sample uses the following classes:
+*  <span><eiffel>FORM</eiffel></span> 
+* <eiffel>WINFORMS_APPLICATION</eiffel>
+
+==Notes==
+
+This sample is translated from the example located in the QuickStart\winforms\samples\simple hello world subdirectory of the.NET Framework SDK samples directory of Microsoft Visual Studio.NET. 
+
+
+
+
+
+
+
+

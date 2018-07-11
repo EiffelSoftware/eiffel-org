@@ -1,0 +1,28 @@
+[[Property:title|Mixing void-safe and void-unsafe software]]
+[[Property:weight|3]]
+[[Property:uuid|3446f214-3c77-ef41-98eb-92942298630c]]
+{{underconstruction}}
+
+
+=Introduction=
+
+Eiffel Software recommends that any new development efforts be implemented using Eiffel's void-safe approach, thus eliminating one more common type of runtime failure. It is also recommended that existing software be converted to void-safety at the earliest opportunity.
+
+Under some circumstances it is possible and even helpful to mix void-safe and void-unsafe libraries. During conversion to void-safety, for example, it can be helpful to compile and test a void-unsafe system with void-safe versions of the libraries it depends upon. 
+
+=Rule for mixing void-safety modes=
+
+The rule for using void-safe and void-unsafe software together is fairly simple. 
+
+
+{{Rule|name=Mixing void-safe and void-unsafe software|text=<br/>
+1) A class that is void-unsafe may depend upon other classes (as suppliers or ancestors) which are either void-safe or void-unsafe.<br/>
+2) A class that is void-safe may depend only upon other classes that are void-safe.}}
+
+
+This means that if the root class of a system is void-safe, then every other class in the system must also be void-safe.  
+
+However, if you are converting a system to void-safety, it's likely that your root class and the classes in the closely related clusters will be void-unsafe. The rule allows you to mix the void-safe versions of the Eiffel Software library classes from the EiffelStudio distribution with your void-unsafe system during conversion.
+
+
+

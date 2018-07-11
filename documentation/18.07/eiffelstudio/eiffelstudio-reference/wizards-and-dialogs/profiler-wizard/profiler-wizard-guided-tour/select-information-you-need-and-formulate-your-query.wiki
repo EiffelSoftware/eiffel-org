@@ -1,0 +1,58 @@
+[[Property:title|Select the information you need and formulate your query]]
+[[Property:weight|3]]
+[[Property:uuid|708f745d-11af-4d3d-e857-159dad4bdeec]]
+The final screen of the wizard lets you select the information you want to be displayed in the profile query window.
+
+==Select the information you need==
+
+Check or uncheck any of the check buttons in '''Output switches''' to select the columns you want to be displayed. Each switch turns on or off the corresponding column output. You should toggle columns on or off depending on what you would like to see in the result of the computation. Here are the explanations of each switch: 
+*  '''Feature name''': Display the name of the current feature. 
+*  '''Number of calls''': Display the number of times the current feature was called during the instrumented execution. 
+*  '''Function time''': Display the time spent in the current feature (not counting the time spent in features called by the current feature). 
+*  '''Descendant time''': Display the time spent in all features called during the execution of the current feature. 
+*  '''Total time''': Display the total time spent in the feature. This value is equal to ''Function time + Descendant time''. 
+*  '''Percentage''': Display the percentage of time spent in the current feature. This value is equal to ''Total time / Execution time''. 
+
+Check or uncheck any of the check buttons in the '''Language type''' to select the type of features you want to be displayed. If you select only one language, the query result will not contain any information about routines written in the other language. The default is Eiffel only. 
+* Eiffel features: Display the features written in Eiffel.
+* C functions: Display the functions written in C.
+* Recursive functions: Display recursive functions.
+
+==Formulate your query==
+
+When running a query, you are able to type a complete query. After pressing the '''Next''' button, a new window will be displayed to show the result of the query. The total query can be either a single one or a set of sub-queries separated by one of the two operators 'or' or 'and'. <br/>
+<br/>
+Each sub-query must have the following syntax 'attribute operator value' where: 
+* 'attribute' is one of: 
+** feature name
+** calls
+** total
+** self
+** descendants
+** percentage
+
+* 'operator' is one of: <, >, <=, >=, =, /=, in
+* 'value' is one of: 
+** An integer (for calls)
+** A string (for feature name). The string may contain wild card characters: ?, standing for arbitrary characters, and *, standing for arbitrary sub-strings.
+** A real value (for other attributes)
+** An interval, of the form a-b for two values a and b.
+** max
+** min
+** avg
+
+
+<br/>
+[[Image:profiler-wizard-fourth-state]]  <br/>
+<br/>
+
+
+Clicking '''Next''' will open the [[Profile query window|Profile query window]]  and display the results of the formulated query. 
+<br/>
+
+{{seealso|<br/>
+[[Profiling|How to profile a system]]  }}
+
+
+
+

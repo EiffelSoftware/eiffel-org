@@ -1,0 +1,88 @@
+[[Property:uuid|0CD0A1B2-42F8-48E0-B419-61B4DC076C1B]]
+[[Property:weight|2]]
+[[Property:title|Eiffel Coding Standard]]
+
+==Language consideration==
+*  Do not put a blank line between
+:* '''create''' and creation instructions
+:* '''inherit''' and parent clauses
+* Do not use assertion clauses without tag names.
+
+A sample of proper formatting of code:
+<e>note
+    description: "Descr...."
+    date: "$date: $"
+
+class A
+
+inherit
+    B
+       rename
+           f as g
+       end
+
+create
+    make
+
+feature {NONE} -- Initialization
+
+    make (a: INTEGER)
+            -- Initialize Current with `a'.
+        do
+        end
+
+invariant
+    a_positive: a > 0
+
+end</e>
+
+==Style==
+*  If instructions:
+<e>if expr1 then
+    ...
+elseif expr2 then
+    ...
+else
+    ...
+end</e>
+
+If expressions are very long, break them on conjunctions as in:
+<e>if
+    expr1 or else
+    expr2
+then
+    ...
+end</e>
+
+* Loop instructions:
+<e>from
+    ...
+until
+    ...
+loop
+    ...
+end</e>
+
+* Inspect instructions:
+<e>inspect expr
+when val1 then ....
+else
+    ...
+end</e>
+
+or
+
+<e>inspect
+    expr
+when val1 then
+    ...
+else
+    ...
+end</e>
+
+* For punctuation, we always have a space before '''(''' and a space after ''')''', ''',''', ''':''', or ''';''':
+<e>require
+   a_tag: query (a, b, c) or other_query (c, d)
+local
+   i: INTEGER; j: INTEGER
+</e>

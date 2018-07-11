@@ -1,0 +1,13 @@
+[[Property:title|Eiffel Inspector - Rules]]
+[[Property:link_title|Rules]]
+[[Property:weight|15]]
+[[Property:uuid|109ca62a-212d-8a85-eea8-ddf0f89177a1]]
+For each rule, you will find an English description of the purpose of the rule, followed by a table providing the following information:
+* Scope: Instruction/
+* Status: Enabled/Disabled by default
+* Severity:	Warning/Error
+* Applicability: All
+* Score: Value used to
+
+In addition you will find an example for a rule violation as well as a suggested fix when available.
+

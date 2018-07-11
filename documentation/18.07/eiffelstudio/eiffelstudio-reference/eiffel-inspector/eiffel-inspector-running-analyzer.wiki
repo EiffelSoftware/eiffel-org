@@ -1,0 +1,69 @@
+[[Property:title|Eiffel Inspector - Running the Analyzer]]
+[[Property:link_title|Running the Analyzer]]
+[[Property:weight|-14]]
+[[Property:uuid|d672c769-57fb-6b87-2781-83daff3ab9e7]]
+= General =
+
+There are several different ways of running the Eiffel Inspector. Most importantly, you can select the scope of the analysis. For example it is possible to analyze a single class, a cluster or a whole system. Also for the same scope there are different ways of running the analyzer depending on your personal preferences. To perform the analysis the Eiffel system which will be analyzed must compile without any error.
+ 
+There are two ways of running the Eiffel Inspector
+# Using the GUI, the Eiffel Inspector Tool appears as a panel. The panel is mainly used for displaying analysis results. The command to perform the analysis can be found not only in the panel but also in various context menus making it easy to analyze specific classes or sets of classes.
+# Using command-line arguments with the command-line version of EiffelStudio. The system is compiled (if necessary) and then analyzed. The output of the analysis will be directed to the terminal window.
+
+= GUI =
+== Analyzing the System ==
+
+If you want to analyze the whole system of the currently open project press the '''Analyze System''' button in the toolbar. Every compiled classes of the system will be analyzed.
+[[Image:CA Analysis Buttons|center|368px|Analyze System]]
+
+
+== Analyzing a Class or Group ==
+
+=== Current Class ===
+Left-clicking the '''Analyze Item''' button in the toolbar will start an analysis of the class that is currently opened in the editor.
+[[Image:CA Analysis Buttons|center|368px|Analyze Item]]
+
+=== Any Class ===
+There are two ways of analyzing an arbitrary class (either from your system or from a library):
+* Right-click on a class name and select '''Run Eiffel Inspector on Class...''' from the context menu:
+[[Image:CA Class Context Menu|center|371px|Class Context Menu]]
+* Pick a class and drop it on the '''Analyze Item''' button.
+
+=== Clusters ===
+To analyze a cluster there are two possibilities, like for classes:
+* You can either right-click the cluster and select '''Run Eiffel Inspector on cluster''' from the context menu:
+[[Image:CA Cluster Context Menu|center|247px|Cluster Context Menu]]
+* Pick a cluster and drop it on the '''Analyze Item''' button.
+
+=== Others ===
+Not only clusters but any other elements of a project (such as a library) can be analyzed by pick-and-dropping it on the '''Analyze Item''' button in the panel.
+
+
+=Command Line=
+The Eiffel Inspector is also available from the EiffelStudio command line compiler by using the '''-code-analysis''' command. The results will be displayed in the terminal window or to a file.
+
+== Execution / Command Line Options ==
+
+The following command will perform a code analysis:
+
+ ec.exe -config project.ecf -code-analysis [-cadefaults] [-caloadprefs ''preffile''] [-caclass ''CLASS1 CLASS2 ...'']
+ [-caforcerules "RULE1 (First preference=1, Second preference=2) RULE2"]
+
+The arguments in brackets are optional. For a complete description of the Eiffel inspector command line options see [[EiffelStudio: Using command line options|Using command line compiler options]].
+
+EiffelStudio will try to compile the system if needed. The analysis will only work with syntactically correct code and a compiled system. Should the compilation fail, EiffelStudio will abort and the analysis will not start.
+
+== Output ==
+Upon a successful compilation either the whole system or the classes mentioned in the arguments will be analyzed. The class that is currently being analyzed will be displayed so that the user can follow the progress.
+
+As soon as everything needed has been analyzed the results will be displayed as a list of rule violations. These rule violations are sorted by class and by location. In addition to the name of the violated rule and the rule ID, a description of the concrete violation will be displayed as well.
+
+[[Image:Eiffel Inspector Command Line|center|877px|Eiffel Inspector - Command Line]]
+
+=== Output to file ===
+
+Appending "> ''filename''" to the command above will redirect the output to a text file. 
+In addition, a file '''last_analysis_result.csv''' will be saved in the 'EIFGENs/target' directory, with the same content as '''filename''', that can be processed by a spreadsheet tool.
+
+
+

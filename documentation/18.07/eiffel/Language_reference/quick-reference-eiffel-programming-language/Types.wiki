@@ -1,0 +1,44 @@
+[[Property:uuid|88764AFC-7DC5-4547-8B8C-4C0A489B0620]]
+[[Property:weight|0]]
+[[Property:title|Types]]
+
+== Common ancestor type ==
+
+A '''common ancestor type''' is a type computed for a list of types using the following algorithm:
+
+# Add `NONE` to the list of types (to make sure the list is never empty).
+# If there is a separate type in the list, add a mark `separate` in front of all non-separate types in the list.
+# If there is a detachable type in the list, add a mark `detachable` in front of all attached types in the list.
+# If there is a type in the list to which all other types conform, it is the common ancestor type.
+# Otherwise, add `ANY` to the list and repeat steps starting from step #2.
+
+
+Here are some examples:
+{|
+! Type list
+! Common ancestor type
+|-
+| (empty)
+| <e>NONE</e>
+|-
+| <e>BOOLEAN</e>
+| <e>BOOLEAN</e>
+|-
+| <e>BOOLEAN, BOOLEAN</e>
+| <e>BOOLEAN</e>
+|-
+| <e>INTEGER_32, REAL_64, COMPARABLE</e>
+| <e>COMPARABLE</e>
+|-
+| <e>INTEGER_32, REAL_64</e>
+| <e>ANY</e>
+|-
+| <e>INTEGER_32, detachable COMPARABLE</e>
+| <e>detachable COMPARABLE</e>
+|-
+| <e>INTEGER_32, separate COMPARABLE</e>
+| <e>separate COMPARABLE</e>
+|-
+| <e>detachable STRING, separate COMPARABLE</e>
+| <e>detachable separate COMPARABLE</e>
+|}

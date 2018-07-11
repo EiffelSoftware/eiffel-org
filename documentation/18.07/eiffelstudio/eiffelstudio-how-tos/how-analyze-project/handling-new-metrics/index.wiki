@@ -1,0 +1,9 @@
+[[Property:title|Handling new metrics]]
+[[Property:weight|2]]
+[[Property:uuid|1ca7a8cf-f446-6cbc-59e1-0455e633ce44]]
+The metric tool ("Metric" tab of the context tool) provides by default a set of metrics that can be used to make some measurements over various scopes in order to evaluate a project.
+
+This set of metrics is certainly not complete, users may probably want to define other metrics regarding their own needs. And then, since needs are different and in order to avoid an explosion in the number of basic metrics, we agreed on implementing only elementary metrics that could not be evaluated if not implemented in the tool.
+
+Users can then define their own metrics. The metric tool provides an interface to define new metrics. Click on the '''Metric Definition''' tab in the metric tool to start adding new metrics and modifying existing metrics.
+
