@@ -1,4 +1,4 @@
-[[Property:modification_date|Wed, 04 Jul 2018 09:10:10 GMT]]
+[[Property:modification_date|Wed, 25 Jul 2018 07:17:36 GMT]]
 [[Property:publication_date|Wed, 27 Jun 2018 08:33:05 GMT]]
 [[Property:uuid|73F20392-AB22-4CD6-BFE5-83296B8BD64B]]
 [[Property:title|Release notes for EiffelStudio 18.07]]
@@ -21,7 +21,8 @@
 * It is now possible to extend a project target from a different project (ECF).
 * The rules for '''class''' features were relaxed.  Re-declaration into or joining with a class feature is valid as soon as combined assertions satisfy the class feature conditions. A non-static external and constant feature automatically gets a class post-condition if its contracts do not involve constructs that can access Current object .
 * Updated the Eiffel grammar to support bracket expressions as bracket targets (such as `table[x][y][z]`)
-* Supports detection of '''VHPR(5)''' violations for arbitrary ancestors, not just for immediate parents. This may be a breaking change for classes that inherit different generic derivations of the same class.
+* Supported detection of '''VHPR(5)''' violations for arbitrary ancestors, not just for immediate parents. This may be a breaking change for classes that inherit different generic derivations of the same class.
+* Added detection of a type mismatch between a manifest array and a target of the reattachment where the manifest array is used for projects created before 18.01 release to facilitate migration to the new typing rules for manifest arrays. A per-library option and a project-wide setting are available to control the checks.
 
 ==Libraries==
 * EiffelBase:
