@@ -1,3 +1,5 @@
+[[Property:modification_date|Tue, 21 Aug 2018 18:55:21 GMT]]
+[[Property:publication_date|Tue, 21 Aug 2018 18:55:21 GMT]]
 [[Property:title|Customizing the tools layout and toolbars]]
 [[Property:weight|-8]]
 [[Property:uuid|eb75573e-c653-9290-376a-063cb5fa32d4]]
@@ -7,18 +9,16 @@ We saw in [[Viewing Classes]] how EiffelStudio panes could be resized and how th
 
 Now let's look at some other ways in which you can customize the layout the EiffelStudio tools.
 
-EiffelStudio uses a '''default''' tools layout that generally reflects the preferences of a majority of users. So if you don't change anything in the way that the EiffelStudio interface is originally set up, you should still be able to work well enough. Also, be aware that as new versions of EiffelStudio emerge, it is possible that the layout that "generally reflects the preferences of a majority of users" may change. So, don't be too surprised if things look just a little different after installing a new version.
+The first time you use EiffelStudio, it will display a '''default''' tools layout that reflects the preferences of a majority of users. Typical user preferences change, so don't be too surprised if things look just a little different after installing a new version.
 
-After considerable experience using EiffelStudio, you may decide that certain changes to the default make sense for the way that you work. For example, you may always want to have certain tools visible which were not visible by default. Once you make a change like this, EiffelStudio generally remembers that change and it will be in force the next time you open EiffelStudio. But you can also save a complete tools layout and recall it at a later time. For example, you might have two or three different development '''modes''' that you work in, and have a saved tools layout for each. 
+As you gain more experience with EiffelStudio, you may want to adapt the layout to your personal preferences. For example, you may always want to have certain tools visible which were not visible by default. Once you make a change like this, EiffelStudio generally remembers that change and it will be in force the next time you open EiffelStudio. But you can also save a complete tools layout and recall it at a later time. For example, you might have two or three different development '''modes''' that you work in, and have a saved tools layout for each. 
 
 The ways in which the EiffelStudio tools can be arranged are nearly endless. You can make tools visible or hide them. You can make almost any tool a tab in almost any pane. You can re-order the tabs for a pane. You can pull tools completely out of EiffelStudio as free-floating windows. You can create additional panes as needed. Almost any pane can be "pinned" open or "auto hidden". 
 
 
 ==Reverting to the default layout==
 
-In view of this, it seems fitting that the first item that we should cover is how to revert back to the default layout in the case in which you get the tool layout in such a state that you just want dismiss the changes that you made and start over.
-
-You can use the menu path:
+If you changed the layout and are not pleased with the result,  you can revert to the default. Use the menu path:
 <code lang="text">
 View --> Tools Layout --> Reset Tools Layout
 </code>
