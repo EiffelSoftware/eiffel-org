@@ -50,9 +50,10 @@ list_traversal_agents
 			a_list.do_all (agent print_element_action)
 		end
 
-	print_element_action (s: STRING)
+	print_element_action (a_element: STRING)
+			-- Print a_element to standard output
 		do
-			io.put_string (s)
+			io.put_string (a_element)
 			io.put_new_line
 		end
 
