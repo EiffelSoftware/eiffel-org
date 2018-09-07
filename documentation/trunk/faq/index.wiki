@@ -1,11 +1,27 @@
+[[Property:modification_date|Fri, 07 Sep 2018 09:34:23 GMT]]
+[[Property:publication_date|Fri, 07 Sep 2018 09:34:23 GMT]]
 [[Property:title|FAQ]]
 [[Property:description|Frequently Asked Questions]]
 [[Property:link_title|FAQ]]
 [[Property:weight|5]]
 [[Property:uuid|e604c263-249d-48d2-8238-b3d027ed04dd]]
 
-See existing Frequently Asked Questions pages:
-* [https://www.eiffel.com/resources/faqs/]
+== I have Visual Studio on my machine, but EiffelStudio cannot find it ==
+
+Here is a summary of steps to make sure C code compiles using Visual Studio 2017 in 64-bit mode on 64-bit Windows 10:
+
+# Cleanup all projects by removing <code lang="sh">EIFGENs</code> directories (including those in precompiles).
+# Setup Visual Studio 2017 environment in 64-bit mode by running
+#:<code lang="sh">...\vsdevcmd.bat -arch=amd64</code>
+# Setup EiffelStudio environment by running (most probably, this step is unnecessary if using GUI only)
+#:<code lang="sh">...\esvars.bat</code>
+# Tell EiffelStudio to use Visual Studio 2017-compatible libraries
+#:<code lang="sh">set ISE_C_COMPILER=msc_vc140</code>
+# Launch EiffelStudio from the command prompt:
+#:<code lang="sh">estudio</code>
+
+
+=== See also: ===
 * [https://www.eiffel.com/resources/faqs/eiffel-language/ General Eiffel FAQ]
 * [https://www.eiffel.com/resources/faqs/eiffel-studio/ EiffelStudio FAQ]
 
