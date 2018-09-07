@@ -1,22 +1,24 @@
+[[Property:modification_date|Fri, 07 Sep 2018 12:13:00 GMT]]
+[[Property:publication_date|Fri, 07 Sep 2018 12:13:00 GMT]]
 [[Property:uuid|78393BBA-9B1E-4523-9881-3D83CEB6A952]]
 [[Property:weight|3000]]
 [[Property:title|Removing object while iterating on a LIST]]
-If you already have the object that you want to remove from the <code>LIST</code> you can easily use <code>prune</code> and <code>prune_all</code>. But if you want to remove objects while iterating on that <code>LIST</code>, depending on criteria on the objects contained in the <code>LIST</code>, here what you can do.
+If you already have the object that you want to remove from the `LIST` you can easily use `prune` and `prune_all`. But if you want to remove objects while iterating on that `LIST`, depending on criteria on the objects contained in the `LIST`, here what you can do.
 
-First of all, if you think about removing object while iterating, I do not recommend using an <code>across</code> loop. If you iterate on the list using a <code>from until loop end</code>, just remember to use the <code>LIST.forth</code> only when you do not use <code>LIST.remove</code>.
+First of all, if you think about removing an object while iterating, I do not recommend using an `across` loop. If you iterate on the list using a `from until loop end`, just remember to use the `LIST.forth` only when you do not use `LIST.remove`.
 
-For example, let's say we have class <code>MY_CLASS</code> with an attribute <code>has_stopped</code> and that I want to remove every object of a <code>LIST</code> that has this attribute set to <code>True</code>. Here what the code will look like.
+For example, let's say we have class `MY_CLASS` with an attribute `has_stopped` and that I want to remove every object of a `LIST` that has this attribute set to `True`. Here what the code will look like.
 
 <code>
-	removing_stopped(a_list:LIST[MY_CLASS])
-			-- Removing every closed element of `a_list'
+	removing_stopped (a_list: LIST [MY_CLASS])
+			-- Removing every closed element of `a_list`
 		do
 			from
 				a_list.start
 			until
 				a_list.exhausted
 			loop
-				if a_list.item.has_stoped then
+				if a_list.item.has_stopped then
 					a_list.remove
 				else
 					a_list.forth
