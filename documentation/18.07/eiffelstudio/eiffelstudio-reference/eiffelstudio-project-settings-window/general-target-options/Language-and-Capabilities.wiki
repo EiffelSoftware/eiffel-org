@@ -1,11 +1,11 @@
-[[Property:modification_date|Mon, 10 Sep 2018 10:36:23 GMT]]
+[[Property:modification_date|Mon, 10 Sep 2018 10:39:52 GMT]]
 [[Property:publication_date|Mon, 10 Sep 2018 10:32:05 GMT]]
 [[Property:uuid|81E6A18A-C7D8-4F80-8D08-8B2C0B6350C8]]
 [[Property:weight|0]]
 [[Property:title|Language and Capabilities]]
-The sections '''Language''' and '''Capability''' list closely-related options that work together. The values in the section '''Language''' specify what rules or semantics the compiler should use when compiling and running the code. If not specified, the value of the corresponding option from the section '''Capability''' is used. A selected value in the section '''Language''' should be compatible with the value in the section '''Capability'''. In other words, the values listed in '''Capability''' tell what source code is capable of, whereas the values in '''Language''' tell what is used when compiling for a specific target.
+The sections '''Language''' and '''Capability''' list closely-related options that work together. The values in the section '''Language''' specify what rules or semantics the compiler should apply when compiling and running code. If not specified, the value of the corresponding option from the section '''Capability''' is used. A selected value in the section '''Language''' should be compatible with the value in the section '''Capability'''. In other words, the values listed in '''Capability''' tell what source code is capable of, whereas the values in '''Language''' tell what is used when compiling for a specific target.
 
-The values in the section '''Language''' are used only when the corresponding target is compiled as a root one. Otherwise, they are ignored. The values in the section '''Capability''' are used to verify that current project settings allow for using a particular library (or classes of the project itself). For example, the standard library ''Base'' can be used in a non-void-safe project, because project settings are compatible with capabilities of the library. On the other hand, the library ''Thread'' cannot be used in a SCOOP project, because the library is not SCOOP-capable.
+The values in the section '''Language''' are used only when the corresponding target is compiled as a root one. Otherwise, they are ignored. The values in the section '''Capability''' are used to verify that current project settings allow for using a particular library (or classes of the project itself). For example, the void-safe library ''Base'' can be used in a non-void-safe project, because project settings are compatible with capabilities of the library. On the other hand, the library ''Thread'' cannot be used in a SCOOP project, because the library is not SCOOP-capable.
 
 Capabilities are supported for the following settings, listed together with compatibility order, where ''X < Y''  means ''X'' is compatible with ''Y'':
 
