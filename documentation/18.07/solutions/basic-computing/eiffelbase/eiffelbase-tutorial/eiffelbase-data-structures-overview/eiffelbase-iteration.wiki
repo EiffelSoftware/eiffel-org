@@ -1,4 +1,4 @@
-[[Property:modification_date|Wed, 12 Sep 2018 16:38:48 GMT]]
+[[Property:modification_date|Wed, 12 Sep 2018 17:24:39 GMT]]
 [[Property:publication_date|Wed, 12 Sep 2018 13:40:39 GMT]]
 [[Property:title|EiffelBase, Iteration]]
 [[Property:weight|6]]
@@ -235,26 +235,7 @@ Some of these features and most of the other iteration features introduced in pr
 ==Linear and chain iteration==
 
 [[ref:libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] , an effective class, refines the iteration mechanisms for cases in which the target is a linear structure, such as a list in any implementation or a circular chain. <br/>
-The class effects all the deferred features inherited from [[ref:libraries/base/reference/iterator_chart|ITERATOR]] , taking advantage of the linear traversal mechanisms present in the corresponding traversal class, [[ref:libraries/base/reference/linear_chart|LINEAR]] . Here for example is the effecting of <eiffel>do_if</eiffel>: 
-<code>
-    do_if
-            -- Apply action to every item of target satisfying
-            -- test.
-        do
-            from
-                target.start
-            invariant
-                    invariant_value
-            until
-                target.exhausted
-            loop
-                if test then
-                    action
-                end
-                forth
-            end
-        end</code>
-
+The class effects all the deferred features inherited from [[ref:libraries/base/reference/iterator_chart|ITERATOR]] , taking advantage of the linear traversal mechanisms present in the corresponding traversal class, [[ref:libraries/base/reference/linear_chart|LINEAR]] . [[#An example use of iteration|Here]] for example is the effecting of <code>until_do</code>.<br/>
 This routine text relies on features <eiffel>start</eiffel>, <eiffel>forth</eiffel> and <eiffel>exhausted</eiffel> which, together with <eiffel>off</eiffel>, have for convenience been carried over to [[ref:libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]]  from their counterparts in [[ref:libraries/base/reference/linear_chart|LINEAR]] , with feature declarations such as
 <code>
     off: BOOLEAN
@@ -267,8 +248,8 @@ This routine text relies on features <eiffel>start</eiffel>, <eiffel>forth</eiff
 
 and similarly for the others. <br/>
 In addition to effecting the general iteration features from [[ref:libraries/base/reference/iterator_chart|ITERATOR]] , class [[ref:libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]]  introduces iteration features that apply to the specific case of linear structures: 
-* <eiffel>search (b :BOOLEAN)</eiffel> moves the iteration to the first position satisfying test if <code>b</code> is true, or not satisfying test if <code>b</code> is false. This use of a boolean argument to switch between two opposite semantics is not part of the recommended style, and you will find few if any other examples in the Base libraries. Here, however, it was deemed preferable to the alternative, which would have involved four separate procedures (if together with <eiffel>search</eiffel> we consider <eiffel>continue_search</eiffel> discussed next). 
-* With a linear structure we can implement an iteration corresponding to the 'for' loop of traditional programming languages, defined by three integers: the starting position, the number of items to be traversed, and the step between consecutive items. This is provided by procedure <eiffel>do_for</eiffel> <code> ( starting , number , step :INTEGER). </code> 
+* <eiffel>search (test: FUNCTION [G, BOOLEAN]; b: BOOLEAN)</eiffel> moves the iteration to the first position satisfying <code>test</code> if both <code>test</code> and <code>b</code> have the same value (both <eiffel>True</eiffel> or both <eiffel>False</eiffel>).  
+* With a linear structure we can implement an iteration corresponding to the 'for' loop of traditional programming languages, defined by three integers: the starting position, the number of items to be traversed, and the step between consecutive items. This is provided by procedure <eiffel>do_for</eiffel> <code> (action: PROCEDURE [G]; starting , number , step: INTEGER). </code> 
 * Since with a linear target the iterator can advance the cursor step by step, the basic iteration operations are complemented by variants which pick up from the position reached by the last call: <eiffel>continue_until</eiffel>, <eiffel>until_continue</eiffel>, <eiffel>continue_while</eiffel>, <eiffel>while_continue</eiffel>, <eiffel>continue_search</eiffel>, <eiffel>continue_for</eiffel>.
 
 ==Two-way iteration==
