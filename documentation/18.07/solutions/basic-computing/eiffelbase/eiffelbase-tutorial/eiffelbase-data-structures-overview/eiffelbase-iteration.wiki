@@ -1,4 +1,4 @@
-[[Property:modification_date|Wed, 12 Sep 2018 13:40:39 GMT]]
+[[Property:modification_date|Wed, 12 Sep 2018 14:20:54 GMT]]
 [[Property:publication_date|Wed, 12 Sep 2018 13:40:39 GMT]]
 [[Property:title|EiffelBase, Iteration]]
 [[Property:weight|6]]
@@ -204,7 +204,7 @@ Of course the data structure class used in connection with a given iterator clas
 
 Class [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  defines the features that apply to all forms of iterator. <br/>
 An iterator will always apply to a certain target structure. The target is introduced in [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  by the feature target: [[ref:libraries/base/reference/traversable_chart|TRAVERSABLE]]  [G] <br/>
-Both the iterator classes and the traversal classes are generic, with a formal generic parameter G. The actual generic parameters will be matched through the choice of iteration target: for a generic derivation of the form <eiffel>SOME_ITERATOR</eiffel> [<eiffel>ACTUAL_TYPE</eiffel>] the target can only be of type <eiffel>SOME_TRAVERSABLE</eiffel> [<eiffel>ACTUAL_TYPE</eiffel>] for the same <eiffel>ACTUAL_TYPE</eiffel>, where <eiffel>SOME_TRAVERSABLE</eiffel> is the traversal class matching <eiffel>SOME_ITERATOR</eiffel> according to the preceding table ([[ref:libraries/base/reference/linear_chart|LINEAR]]  for [[ref:libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] and so on), or one of its proper descendants. <br/>
+Both the iterator classes and the traversal classes are generic, with a formal generic parameter G. The actual generic parameters will be matched through the choice of iteration target: for a generic derivation of the form <eiffel>SOME_ITERATOR</eiffel> &#91; <eiffel>ACTUAL_TYPE</eiffel>&#93;  the target can only be of type <eiffel>SOME_TRAVERSABLE</eiffel> &#91;<eiffel>ACTUAL_TYPE</eiffel>&#93; for the same <eiffel>ACTUAL_TYPE</eiffel>, where <eiffel>SOME_TRAVERSABLE</eiffel> is the traversal class matching <eiffel>SOME_ITERATOR</eiffel> according to the preceding table ([[ref:libraries/base/reference/linear_chart|LINEAR]]  for [[ref:libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] and so on), or one of its proper descendants. <br/>
 Each of the proper descendants of [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  redefines the type of target to the matching proper descendant of [[ref:libraries/base/reference/traversable_chart|TRAVERSABLE]] , to cover more specific variants of the iteration target, For example in [[ref:libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] the feature is redefined to be of type [[ref:libraries/base/reference/linear_chart|LINEAR]] . [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  also introduces the procedure for selecting a target: 
 <code>
     set (s: like target)
