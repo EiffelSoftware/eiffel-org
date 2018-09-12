@@ -1,4 +1,4 @@
-[[Property:modification_date|Wed, 12 Sep 2018 17:24:39 GMT]]
+[[Property:modification_date|Wed, 12 Sep 2018 17:28:53 GMT]]
 [[Property:publication_date|Wed, 12 Sep 2018 13:40:39 GMT]]
 [[Property:title|EiffelBase, Iteration]]
 [[Property:weight|6]]
@@ -235,7 +235,7 @@ Some of these features and most of the other iteration features introduced in pr
 ==Linear and chain iteration==
 
 [[ref:libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] , an effective class, refines the iteration mechanisms for cases in which the target is a linear structure, such as a list in any implementation or a circular chain. <br/>
-The class effects all the deferred features inherited from [[ref:libraries/base/reference/iterator_chart|ITERATOR]] , taking advantage of the linear traversal mechanisms present in the corresponding traversal class, [[ref:libraries/base/reference/linear_chart|LINEAR]] . [[#An example use of iteration|Here]] for example is the effecting of <code>until_do</code>.<br/>
+The class effects all the deferred features inherited from [[ref:libraries/base/reference/iterator_chart|ITERATOR]] , taking advantage of the linear traversal mechanisms present in the corresponding traversal class, [[ref:libraries/base/reference/linear_chart|LINEAR]] . [[#An example iterator routine|Here]] for example is the effecting of <code>until_do</code>.<br/>
 This routine text relies on features <eiffel>start</eiffel>, <eiffel>forth</eiffel> and <eiffel>exhausted</eiffel> which, together with <eiffel>off</eiffel>, have for convenience been carried over to [[ref:libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]]  from their counterparts in [[ref:libraries/base/reference/linear_chart|LINEAR]] , with feature declarations such as
 <code>
     off: BOOLEAN
