@@ -1,4 +1,4 @@
-[[Property:modification_date|Wed, 12 Sep 2018 14:20:54 GMT]]
+[[Property:modification_date|Wed, 12 Sep 2018 16:38:48 GMT]]
 [[Property:publication_date|Wed, 12 Sep 2018 13:40:39 GMT]]
 [[Property:title|EiffelBase, Iteration]]
 [[Property:weight|6]]
@@ -205,7 +205,7 @@ Of course the data structure class used in connection with a given iterator clas
 Class [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  defines the features that apply to all forms of iterator. <br/>
 An iterator will always apply to a certain target structure. The target is introduced in [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  by the feature target: [[ref:libraries/base/reference/traversable_chart|TRAVERSABLE]]  [G] <br/>
 Both the iterator classes and the traversal classes are generic, with a formal generic parameter G. The actual generic parameters will be matched through the choice of iteration target: for a generic derivation of the form <eiffel>SOME_ITERATOR</eiffel> &#91; <eiffel>ACTUAL_TYPE</eiffel>&#93;  the target can only be of type <eiffel>SOME_TRAVERSABLE</eiffel> &#91;<eiffel>ACTUAL_TYPE</eiffel>&#93; for the same <eiffel>ACTUAL_TYPE</eiffel>, where <eiffel>SOME_TRAVERSABLE</eiffel> is the traversal class matching <eiffel>SOME_ITERATOR</eiffel> according to the preceding table ([[ref:libraries/base/reference/linear_chart|LINEAR]]  for [[ref:libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] and so on), or one of its proper descendants. <br/>
-Each of the proper descendants of [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  redefines the type of target to the matching proper descendant of [[ref:libraries/base/reference/traversable_chart|TRAVERSABLE]] , to cover more specific variants of the iteration target, For example in [[ref:libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] the feature is redefined to be of type [[ref:libraries/base/reference/linear_chart|LINEAR]] . [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  also introduces the procedure for selecting a target: 
+Each of the proper descendants of [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  redefines the type of target to the matching proper descendant of [[ref:libraries/base/reference/traversable_chart|TRAVERSABLE]] , to cover more specific variants of the iteration target. For example in [[ref:libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] the feature is redefined to be of type [[ref:libraries/base/reference/linear_chart|LINEAR]]. [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  also introduces the procedure for selecting a target: 
 <code>
     set (s: like target)
             -- Make s the new target of iterations.
@@ -218,44 +218,10 @@ Each of the proper descendants of [[ref:libraries/base/reference/iterator_chart|
             target /= Void
         end</code>
 
-Next [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  introduces the routines describing the elementary action and test that will be applied to items of the iteration targets:
-<code>
-    action
-            -- Action to be applied to item at current position in
-            -- target.
-            -- (default: item_action on item at current position.)
-            -- Note: for iterators to work properly, redefined
-            -- versions of this feature should not change the
-            -- traversable structure.
-        require
-            traversable_exists: target /= Void
-            not_off: not target.off
-            invariant_satisfied: invariant_value
-        do
-            item_action (target.item>)
-        ensure
-            not_off: not target.off
-            invariant_satisfied: invariant_value
-        end
-
-    test: BOOLEAN
-            -- Test to be applied to item at current position in
-            -- target (default: value of item_test on item)
-        require
-            traversable_exists: target /= Void
-            not_off: not target.off
-        do
-            Result := item_test (target.item>)
-        ensure
-            not target.off
-        end</code>
-
-These routines rely on two others, <eiffel>item_action</eiffel> and <eiffel>item_test</eiffel>, which both take an argument of type G, the formal generic parameter. The reason, already noted above, is that in a vast majority of cases the iterated action and test solely depend, at each step of the traversal, on the item (of type G) at the current position. To define an iteration process, then, it suffices to redefine<eiffel> item_action</eiffel> and <eiffel>item_test</eiffel> in a descendant of the appropriate iteration class. Only in complex cases will it be necessary to redefine <eiffel>action</eiffel> and <eiffel>test</eiffel> themselves. <br/>
-If you encounter such a case, note the caveat about action changing the target's structure. Understandably enough, an iterator that attempts to change the data structure while traversing it may engage in strange behavior. No such risk exists if you only redefine <eiffel>item_action</eiffel>, which may change the contents of items but not the structure itself. <br/>
 Another feature introduced in [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  is the query <eiffel>invariant_value</eiffel>, describing invariant properties that must be ensured at the beginning of any iteration and preserved by every iteration step. As declared in [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  this query always returns true, but proper descendants can redefine it to describe more interesting invariant properties. <br/>
 Finally, [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  introduces in deferred form the general iteration routines applicable to all iteration variants. They include two queries corresponding to the quantifiers of first-order predicate calculus: 
 * <eiffel>for_all</eiffel> will return true if all items of the target structure satisfy test.
-* <eiffel>exists</eiffel> will return true if at least one item satisfies test.
+* <eiffel>there_exists</eiffel> will return true if at least one item satisfies test.
 
 The other routines are commands which will traverse the target structure and apply action to items selected through test:
 * <eiffel>do_all</eiffel> applies <eiffel>action</eiffel> to all items.
@@ -264,7 +230,7 @@ The other routines are commands which will traverse the target structure and app
 * <eiffel>do_until</eiffel>, to all items up to and including the first one that satisfies test.
 * <eiffel>while_do</eiffel> and <eiffel>do_while</eiffel>, to all items up to the first one that does not satisfy test. (This can also be achieved with <eiffel>until_do</eiffel> or <eiffel>do_until </eiffel> by choosing the opposite test.)
 
-All these features, and most of the other iteration features introduced in proper descendants of [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  and described next, have no argument. Information about the target of iteration comes from feature <eiffel>target</eiffel>, set by procedure <eiffel>set</eiffel>; information about what needs to be done for each item of the target structure comes from <eiffel>item_action</eiffel> and <eiffel>item_test</eiffel>.
+Some of these features and most of the other iteration features introduced in proper descendants of [[ref:libraries/base/reference/iterator_chart|ITERATOR]]  and described next, have either an <eiffel>action</eiffel> argument that must be of type <eiffel>PROCEDURE [G]</eiffel> or an argument <eiffel>test</eiffel> of type <eiffel>FUNCTION [G, BOOLEAN]</eiffel>. Some have both. Information about the target of the iterations comes from feature <eiffel>target</eiffel>, set by procedure <eiffel>set</eiffel>; information about what needs to be done for each item of the target structure comes from the argument <eiffel>action</eiffel> passed to the routines referenced above.
 
 ==Linear and chain iteration==
 
