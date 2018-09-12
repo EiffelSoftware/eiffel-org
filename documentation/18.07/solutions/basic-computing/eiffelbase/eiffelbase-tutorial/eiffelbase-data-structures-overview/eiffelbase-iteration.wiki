@@ -1,4 +1,4 @@
-[[Property:modification_date|Wed, 12 Sep 2018 17:28:53 GMT]]
+[[Property:modification_date|Wed, 12 Sep 2018 17:55:43 GMT]]
 [[Property:publication_date|Wed, 12 Sep 2018 13:40:39 GMT]]
 [[Property:title|EiffelBase, Iteration]]
 [[Property:weight|6]]
@@ -260,69 +260,77 @@ An alternative design would have kept just one set of features and added two fea
 Contrary to what one might at first imagine, class [[ref:libraries/base/reference/two_way_chain_iterator_chart|TWO_WAY_CHAIN_ITERATOR]]  is extremely short and simple; its <code> Feature </code> clause only contains the declarations of two features, <eiffel>finish</eiffel> and <eiffel>back</eiffel>. <br/>
 The trick is to use repeated inheritance. [[ref:libraries/base/reference/two_way_chain_iterator_chart|TWO_WAY_CHAIN_ITERATOR]]  inherits twice from [[ref:libraries/base/reference/linear_iterator_chart|LINEAR_ITERATOR]] ; the first inheritance branch yields the forward iteration features, the second yields those for backward iteration. There is no need for any explicit declaration or redeclaration of iteration features. Here is the entire class text that yields this result: 
 <code>
-class
-    TWO_WAY_CHAIN_ITERATOR [G]
+class TWO_WAY_CHAIN_ITERATOR [G] inherit
 
-inherit
-    LINEAR_ITERATOR [G]
-        redefine
-            target
-        select
-            start,
-            forth,
-            do_all,
-            until_do,
-            do_until,
-            do_if,
-            do_for,
-            search,
-            forall,
-            exists,
-            until_continue,
-            continue_until,
-            continue_for,
-            continue_search
-        end
+	LINEAR_ITERATOR [G]
+		redefine
+			target
+		select
+			start,
+			forth,
+			do_all,
+			until_do,
+			do_until,
+			while_do,
+			do_while,
+			do_if,
+			do_for,
+			search,
+			for_all,
+			there_exists,
+			until_continue,
+			continue_until,
+			while_continue,
+			continue_while,
+			continue_for,
+			continue_search
+		end
 
-    LINEAR_ITERATOR [G]
-        rename
-            start as finish,
-            forth as back,
-            do_all as do_all_back,
-            until_do as until_do_back,
-            do_until as do_until_back,
-            do_if as do_if_back,
-            do_for as do_for_back,
-            search as search_back,
-            forall as forall_back,
-            exists as exists_back,
-            until_continue as until_continue_back,
-            continue_until as continue_until_back,
-            continue_for as continue_for_back,
-            continue_search as continue_search_back
-        redefine
-            target
-        end
+	LINEAR_ITERATOR [G]
+		rename
+			start as finish,
+			forth as back,
+			do_all as do_all_back,
+			until_do as until_do_back,
+			do_until as do_until_back,
+			do_while as do_while_back,
+			while_do as while_do_back,
+			do_if as do_if_back,
+			do_for as do_for_back,
+			search as search_back,
+			for_all as for_all_back,
+			there_exists as there_exists_back,
+			until_continue as until_continue_back,
+			continue_until as continue_until_back,
+			while_continue as while_continue_back,
+			continue_while as continue_while_back,
+			continue_for as continue_for_back,
+			continue_search as continue_search_back
+		redefine
+			back, finish, target
+		end
 
-feature -- Status report
+create
+	set
 
-    target: BI_LINEAR [G]
-            -- The structure to which iteration features will
-            -- apply
+feature -- Access
+
+	target: CHAIN [G]
 
 feature -- Cursor movement
 
-    finish
-            -- Move cursor of target to last position.
-        do
-            target.finish
-        end
+	finish
+			-- Move cursor of `target' to last position.
+		do
+			target.finish
+		end
 
-    back
-            -- Move cursor of target backward one position.
-        do
-            target.back
-        end
+	back
+			-- Move cursor of `target' backward one position.
+		do
+			target.back
+		end
+
 end
 </code>
 
