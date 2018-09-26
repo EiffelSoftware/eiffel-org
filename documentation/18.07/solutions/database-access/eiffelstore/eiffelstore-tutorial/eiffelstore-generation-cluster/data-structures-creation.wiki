@@ -1,4 +1,4 @@
-[[Property:modification_date|Wed, 26 Sep 2018 16:38:00 GMT]]
+[[Property:modification_date|Wed, 26 Sep 2018 16:39:34 GMT]]
 [[Property:publication_date|Wed, 26 Sep 2018 16:04:05 GMT]]
 [[Property:title|Data structures creation]]
 [[Property:weight|1]]
@@ -315,7 +315,8 @@ The data structure generation system is implemented with 4 EiffelStore classes:
 Generation classes BON diagram
 
 ==3.EiffelStore wizard==
-{{Warning|The wizard is not delivered anymore}
+
+{{Warning|The wizard is not delivered anymore}}
 
 The EiffelStore wizard uses the [[#generation_system| EiffelStore generation system]]  described above to generate the data structures mapped to your database. 
 
