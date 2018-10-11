@@ -1,3 +1,5 @@
+[[Property:modification_date|Thu, 11 Oct 2018 20:09:39 GMT]]
+[[Property:publication_date|Thu, 11 Oct 2018 20:09:39 GMT]]
 [[Property:link_title|SQL injection]]
 [[Property:uuid|438C838C-C115-44B4-8480-05A825FE1047]]
 [[Property:weight|4]]
@@ -57,8 +59,7 @@ The following example shows an attempt to do an SQL Injection attack, but as we 
 		end
 </code>
 
-As you can observe in the previous example the binding to map the variable name <code>:datetime</code> to their value is done
-using feature <code> BD_SELECTION.set_map_name</code> and the API is responsible to do the necessary encoding.
+As you can observe in the previous example the binding to map the variable name <code>:datetime</code> to their value is done using feature <code> BD_SELECTION.set_map_name</code> and the API is responsible to do the necessary encoding.
 
 === Unsafe binding ===
 If you use your own binding to map variables names to values, for example using String replacement, EiffelStore does not ensure that your query is safe, because it will depend on how do you handle escaping inputs before adding them to the query.
