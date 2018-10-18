@@ -1,4 +1,4 @@
-[[Property:modification_date|Thu, 18 Oct 2018 15:18:11 GMT]]
+[[Property:modification_date|Thu, 18 Oct 2018 15:19:06 GMT]]
 [[Property:publication_date|Mon, 24 Sep 2018 12:04:18 GMT]]
 [[Property:uuid|6F78A05A-2054-4150-84FC-1D8663CA76E6]]
 [[Property:weight|5]]
@@ -64,7 +64,6 @@ postgres=#
  -- Exit postgresql
 postgres=# \q 
 </code>
-</br>
 
 * '''Install and Check ODBC Driver Manager and ODBC Driver for PostgreSQL'''
 <code lang="shell">
