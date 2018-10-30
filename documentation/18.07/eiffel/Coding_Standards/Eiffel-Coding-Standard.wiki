@@ -1,3 +1,5 @@
+[[Property:modification_date|Tue, 30 Oct 2018 14:56:21 GMT]]
+[[Property:publication_date|Tue, 30 Oct 2018 14:56:21 GMT]]
 [[Property:uuid|0CD0A1B2-42F8-48E0-B419-61B4DC076C1B]]
 [[Property:weight|2]]
 [[Property:title|Eiffel Coding Standard]]
@@ -80,7 +82,7 @@ else
     ...
 end</e>
 
-* For punctuation, we always have a space before '''(''' and a space after ''')''', ''',''', ''':''', or ''';''':
+* For punctuation, we always have no space before '''(''' and a space after ''')''', ''',''', ''':''', or ''';''':
 <e>require
    a_tag: query (a, b, c) or other_query (c, d)
 local
