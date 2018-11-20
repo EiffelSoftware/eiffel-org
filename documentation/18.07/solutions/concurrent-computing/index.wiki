@@ -1,10 +1,12 @@
+[[Property:modification_date|Tue, 20 Nov 2018 12:44:24 GMT]]
+[[Property:publication_date|Tue, 20 Nov 2018 12:44:24 GMT]]
 [[Property:link_title|Concurrency]]
 [[Property:title|Concurrency]]
 [[Property:weight|-10]]
 [[Property:uuid|E76EF4EE-0D90-4AEE-8521-0293A0086AA2]]
 == Building concurrent applications in Eiffel ==
 
-'''Concurrency''' is a system's ability to perform several tasks at a time, as with an email client that can download new messages while you are scrolling through previously donwloaded ones.
+'''Concurrency''' is a system's ability to perform several tasks at a time, as with an email client that can download new messages while you are scrolling through previously downloaded ones.
 
 
 Many applications need concurrency, either for convenience or out of sheer necessity. Operating systems provide a concurrency mechanism in the form of "threading": a program can start several concurrent lines of control, or threads, which run in parallel.
