@@ -1,4 +1,4 @@
-[[Property:modification_date|Thu, 29 Nov 2018 15:17:56 GMT]]
+[[Property:modification_date|Thu, 29 Nov 2018 17:51:14 GMT]]
 [[Property:publication_date|Mon, 26 Nov 2018 10:45:37 GMT]]
 [[Property:uuid|4452B417-C538-49AF-960F-C3C2473A3AF8]]
 [[Property:title|Release notes for EiffelStudio 18.11]]
@@ -11,10 +11,11 @@
 ===Improvements ===
 * The debugger has now a better support for class routine. For expression evaluation in the watch tool, but also by showing, in the call stack tool, a class icon for the non-object call.
 * The completion popup dialog shows now the associated target class (if any) before the list of choices.
-* For convenience, it is possible to recompile from scratch the current project from the EiffelStudio `Project>Compile from scratch` menu.
 * The class tool can now display the `description` indexing note of classes within the tool using a toggle button to show/hide this information.
-*There is a new experimental functionality to export and import editor tabs to and from text. It can be useful to restore open tabs from another machine (available in the hidden `menu>Service>Import/Export tabs...` , Ctrl+Alt+D).
+* Improved the diagram tool by scaling client-supplier lines with a minimum width of 3 pixels and a proportional increase of nested lines width and arrow size to the overall line width. And also use anti-aliasing when drawing (can be disabled via preferences).
 * After a refactoring operation, the editor will focus back on the related feature.
+* For convenience, it is possible to recompile from scratch the current project from the EiffelStudio `Project>Compile from scratch` menu.
+*There is a new experimental functionality to export and import editor tabs to and from a text. It can be useful to restore open tabs from another machine (available in the hidden `menu>Service>Import/Export tabs...` , Ctrl+Alt+D).
 
 ===User changes===
 
@@ -22,8 +23,15 @@
 * The compiler now supports conditions based on current void safety compilation mode (in addition to the platform, concurrency, version, ...).
 * When assertion tag is not specified, the expression is used for the tag and makes diagnostics of such assertion violations more efficient.
 * Fixed various issues related to the remote parent target in .ecf file. (i.e the possibility to extend a target from another .ecf file)
+* Added support for `-config_option concurrency:value` and `-config_option void_safety:value` command-line options to override concurrency and void safety settings when compiling a project.
+* Now the exception trace in final mode or workbench uses the same assertion indexes, wether assertions are kept or not during finalization.
 
 ==Libraries==
+* OpenSSL binding: Updated the OpenSSL wrapper with asymmetric algorithms (RSA). Updated to OpenSSL 1.1.1a .
+* JWT (JSON Web Token): made it possible to register simply new JWT algorithm. Added the `jwt_openssl_extension` library, that provides RSA based JWT signing algorithm (implemented with the OpenSSL binding).
+* JSON: Improved the memory and speed performance of the JSON Parser. Added convenient function `JSON_VALUE.chained_item (a_key): JSON_VALUE` to be able to do chained calls like `json @ "person" @ "address" @ "city" ` and to get an associated JSON value (if any) or JSON_NULL.
+* ROC CMS: Improved security by providing protection against XSS attack.
+* EiffelWeb: adopted nanoseconds timeout precision, especially for standalone connector settings (use ns, us, ms, s suffix when defining the timeout in the .ini file).
 
 ----
 
