@@ -1,16 +1,27 @@
-[[Property:modification_date|Mon, 26 Nov 2018 10:45:37 GMT]]
+[[Property:modification_date|Thu, 29 Nov 2018 15:17:56 GMT]]
 [[Property:publication_date|Mon, 26 Nov 2018 10:45:37 GMT]]
 [[Property:uuid|4452B417-C538-49AF-960F-C3C2473A3AF8]]
 [[Property:title|Release notes for EiffelStudio 18.11]]
 [[Property:link_title|18.11]]
 [[Property:weight|-1]]
 
+{{UnderConstruction}}
+
 ==Graphical environment==
 ===Improvements ===
+* The debugger has now a better support for class routine. For expression evaluation in the watch tool, but also by showing, in the call stack tool, a class icon for the non-object call.
+* The completion popup dialog shows now the associated target class (if any) before the list of choices.
+* For convenience, it is possible to recompile from scratch the current project from the EiffelStudio `Project>Compile from scratch` menu.
+* The class tool can now display the `description` indexing note of classes within the tool using a toggle button to show/hide this information.
+*There is a new experimental functionality to export and import editor tabs to and from text. It can be useful to restore open tabs from another machine (available in the hidden `menu>Service>Import/Export tabs...` , Ctrl+Alt+D).
+* After a refactoring operation, the editor will focus back on the related feature.
 
 ===User changes===
 
 ==Compiler==
+* The compiler now supports conditions based on current void safety compilation mode (in addition to the platform, concurrency, version, ...).
+* When assertion tag is not specified, the expression is used for the tag and makes diagnostics of such assertion violations more efficient.
+* Fixed various issues related to the remote parent target in .ecf file. (i.e the possibility to extend a target from another .ecf file)
 
 ==Libraries==
 
