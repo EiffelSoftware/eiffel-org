@@ -1,3 +1,5 @@
+[[Property:modification_date|Tue, 30 Oct 2018 14:59:36 GMT]]
+[[Property:publication_date|Tue, 30 Oct 2018 14:59:36 GMT]]
 [[Property:title|Testing: Background and basics]]
 [[Property:weight|0]]
 [[Property:uuid|12c2a2d4-9bf2-ba73-6647-cb9900666de1]]
@@ -34,7 +36,7 @@ The testing support classes are distributed with EiffelStudio and exist in the '
 The interface for AutoTest is accessible through the EiffelStudio development environment. You may find it already resident as a tab in the right hand pane next to Clusters, Features, and Favorites. If it's not there, then you can bring it up by following the menu path:
 
 <code lang=text>
-View --> Tools --> Testing Tool </code>
+View --> Tools --> AutoTest </code>
 
 
 ==Test classes and tests==

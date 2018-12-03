@@ -1,3 +1,5 @@
+[[Property:modification_date|Thu, 22 Nov 2018 19:50:45 GMT]]
+[[Property:publication_date|Thu, 22 Nov 2018 19:50:45 GMT]]
 [[Property:title|Example: Command line arguments]]
 [[Property:weight|0]]
 [[Property:uuid|ba852d83-3c02-4d38-088a-60b76fe5c63f]]
@@ -59,5 +61,8 @@ end
 Command line argument value for option 'c' is: alpha beta
 Command line argument value for option 'h' is: gamma
 </code>
+
+
+{{SeeAlso|[[Execution_profiles|How to run with arguments]]}}
 
 

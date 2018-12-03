@@ -1,3 +1,5 @@
+[[Property:modification_date|Wed, 12 Sep 2018 00:07:36 GMT]]
+[[Property:publication_date|Wed, 12 Sep 2018 00:07:36 GMT]]
 [[Property:title|Viewport Sample]]
 [[Property:weight|4]]
 [[Property:uuid|e8722685-0343-c411-83b1-32f0c4e0175b]]
@@ -27,9 +29,9 @@ This sample contains the following class:
 
 
 {{seealso|<br/>
-EV_VIEWPORT <br/>
-EV_SPIN_BUTTON <br/>
-[[ref:libraries/vision2/reference/ev_button_chart|EV_BUTTON]]  <br/>
+[[ref:libraries/vision2/ev_viewport_chart.html|EV_VIEWPORT]] <br/>
+[[ref:libraries/vision2/ev_spin_button_chart.html|EV_SPIN_BUTTON]] <br/>
+[[ref:libraries/vision2/reference/ev_button_chart|EV_BUTTON]] <br/>
 }}
 
 

@@ -1,7 +1,10 @@
+[[Property:modification_date|Wed, 26 Sep 2018 16:39:34 GMT]]
+[[Property:publication_date|Wed, 26 Sep 2018 16:04:05 GMT]]
 [[Property:title|Data structures creation]]
 [[Property:weight|1]]
 [[Property:uuid|d8845cb9-2581-f85d-aad1-460816711356]]
 ==1. Overview==
+{{Warning|The wizard is not delivered anymore}}
 
 EiffelStore enables to create data structures mapped to your own database. This part describes how the EiffelStore wizard generates these structures mapped to your database and how you can map your own classes to your database with EiffelStore.
 
@@ -312,6 +315,8 @@ The data structure generation system is implemented with 4 EiffelStore classes:
 Generation classes BON diagram
 
 ==3.EiffelStore wizard==
+
+{{Warning|The wizard is not delivered anymore}}
 
 The EiffelStore wizard uses the [[#generation_system| EiffelStore generation system]]  described above to generate the data structures mapped to your database. 
 
