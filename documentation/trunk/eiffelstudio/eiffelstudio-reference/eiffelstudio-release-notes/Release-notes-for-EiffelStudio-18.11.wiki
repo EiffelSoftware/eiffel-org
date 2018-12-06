@@ -1,4 +1,4 @@
-[[Property:modification_date|Thu, 06 Dec 2018 21:12:57 GMT]]
+[[Property:modification_date|Thu, 06 Dec 2018 21:20:26 GMT]]
 [[Property:publication_date|Mon, 26 Nov 2018 10:45:37 GMT]]
 [[Property:uuid|4452B417-C538-49AF-960F-C3C2473A3AF8]]
 [[Property:title|Release notes for EiffelStudio 18.11]]
@@ -25,7 +25,7 @@
 * '''OpenSSL''' binding: Updated the OpenSSL wrapper with asymmetric algorithms (RSA). Updated to OpenSSL 1.1.1a .
 * '''JWT (JSON Web Token)''': made it possible to register custom JWT algorithm (as addition to the provided HS256 and none). Added the `jwt_openssl_extension` library, that provides RSA based JWT signing algorithm (implemented with the OpenSSL binding).
 * '''JSON''': Improved the memory and speed '''performance''' of the JSON Parser (from 2x to 4x time faster). Added convenient function `JSON_VALUE.chained_item (a_key): JSON_VALUE` to be able to call `json @ "person" @ "address" @ "city" ` and get associated JSON value (if any) or JSON_NULL.
-* '''ROC CMS''': Implemented protection against XSS attack.
+* '''ROC CMS''': Implemented protection against '''XSS attack'''.
 * '''EiffelWeb''': Adopted '''nanoseconds timeout precision''', especially for standalone connector settings (use ns, us, ms, s suffix when defining the timeout in the .ini file).
 * '''EiffelWeb''': Properly use the '''socket.timeout''' settings in httpd (before it was ignored and the timeout was not correctly set, and among other potential issues, it was causing high CPU usage for WebSocket).
 
