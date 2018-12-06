@@ -1,11 +1,9 @@
-[[Property:modification_date|Thu, 06 Dec 2018 12:42:21 GMT]]
+[[Property:modification_date|Thu, 06 Dec 2018 20:58:00 GMT]]
 [[Property:publication_date|Mon, 26 Nov 2018 10:45:37 GMT]]
 [[Property:uuid|4452B417-C538-49AF-960F-C3C2473A3AF8]]
 [[Property:title|Release notes for EiffelStudio 18.11]]
 [[Property:link_title|18.11]]
 [[Property:weight|-1]]
-
-{{UnderConstruction}}
 
 ==Graphical environment==
 * The '''debugger''' has improved support '''class routine'''. Safer expression evaluation in the watch tool, but also the call stack tool now displays a class icon for the non-object call.
@@ -17,11 +15,11 @@
 *There is a new experimental functionality to '''export and import editor tabs to and from a text'''. It can be useful to restore open tabs from another machine (available in the hidden `menu>Service>Import/Export tabs...`, Ctrl+Alt+D).
 
 ==Compiler==
-* Assertion expressions are used as tags for assertions without explicit tags.
-* Concurrency and void-safety project settings can be overridden when compiling from the command line.
-* Project settings can use conditions based on void safety level.
+* '''Assertion expressions''' are used as '''tags''' for assertions without explicit tags.
+* Concurrency and void-safety project settings can be overridden when compiling from the command line using `-config_option ...`.
+* Project settings can use '''conditions''' based on void safety level.
 * Fixed a bug in handling an assigner command when checking for void safety of object initialization.
-* Exception traces in final and workbench mode use the same breakpoint indexes.
+* '''Exception traces''' in final and workbench mode use the same breakpoint indexes.
 
 ==Libraries==
 * '''OpenSSL''' binding: Updated the OpenSSL wrapper with asymmetric algorithms (RSA). Updated to OpenSSL 1.1.1a .
