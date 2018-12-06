@@ -1,4 +1,4 @@
-[[Property:modification_date|Thu, 06 Dec 2018 20:58:00 GMT]]
+[[Property:modification_date|Thu, 06 Dec 2018 21:10:09 GMT]]
 [[Property:publication_date|Mon, 26 Nov 2018 10:45:37 GMT]]
 [[Property:uuid|4452B417-C538-49AF-960F-C3C2473A3AF8]]
 [[Property:title|Release notes for EiffelStudio 18.11]]
@@ -12,7 +12,7 @@
 * Improved the '''diagram tool''' by scaling client-supplier lines with a minimum width of 3 pixels and a proportional increase of nested lines width and arrow size to the overall line width. And also use anti-aliasing when drawing (can be disabled via preferences).
 * After a '''refactoring''' operation, the editor will now focus back on the related feature as expected.
 * For convenience, it is possible to '''recompile from scratch''' the current project using the EiffelStudio `Project>Compile from scratch` menu.
-*There is a new experimental functionality to '''export and import editor tabs to and from a text'''. It can be useful to restore open tabs from another machine (available in the hidden `menu>Service>Import/Export tabs...`, Ctrl+Alt+D).
+*There is a new '''experimental''' functionality to '''export and import editor tabs to and from a text'''. It can be useful to restore open tabs from another machine (available in the hidden `menu>Service>Import/Export tabs...`, Ctrl+Alt+D).
 
 ==Compiler==
 * '''Assertion expressions''' are used as '''tags''' for assertions without explicit tags.
