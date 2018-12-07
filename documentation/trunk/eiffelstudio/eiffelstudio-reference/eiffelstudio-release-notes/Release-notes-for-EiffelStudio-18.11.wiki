@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 07 Dec 2018 07:46:27 GMT]]
+[[Property:modification_date|Fri, 07 Dec 2018 13:53:20 GMT]]
 [[Property:publication_date|Mon, 26 Nov 2018 10:45:37 GMT]]
 [[Property:uuid|4452B417-C538-49AF-960F-C3C2473A3AF8]]
 [[Property:title|Release notes for EiffelStudio 18.11]]
@@ -6,29 +6,41 @@
 [[Property:weight|-1]]
 
 ==Graphical environment==
-* The '''debugger''' has improved support '''class routine'''. Safer expression evaluation in the watch tool, but also the call stack tool now displays a class icon for the non-object call.
-* The '''completion popup dialog''' now shows the associated target class (if any) at the top of the dialog.
-* The '''class tool''' can now display the `description` indexing note of classes within the tool using a toggle button to show/hide this information.
-* Improved the '''diagram tool''' by scaling client-supplier lines with a minimum width of 3 pixels and a proportional increase of nested lines width and arrow size to the overall line width. And also use anti-aliasing when drawing (can be disabled via preferences).
-* After a '''refactoring''' operation, the editor will now focus back on the related feature as expected.
-* For convenience, it is possible to '''recompile from scratch''' the current project using the EiffelStudio `Project>Compile from scratch` menu.
-*There is a new '''experimental''' functionality to '''export and import editor tabs to and from a text'''. It can be useful to restore open tabs from another machine (available in the hidden `menu>Service>Import/Export tabs...`, Ctrl+Alt+D).
+* The debugger marks a class routine with a special icon in the call stack and prevents using non-class features in the watch tool inside a class routine.
+* The completion popup dialog shows the associated target class (if any) at the top of the dialog.
+* The class tool displays description of classes (if enabled).
+* The diagram tool has improved drawing of figures and connectors.
+* After refactoring, the editor restores current position as expected.
+* A project can be recompiled from scratch from the ''Project'' menu.
+* Editor tabs can be exported and imported via the hidden experimental menu ''Service > Import/Export tabs...'' ({{Key|Ctrl+Alt+D}}).
 
 ==Compiler==
 * Assertion expressions are used as tags for assertions without explicit tags.
 * Concurrency and void-safety project settings can be overridden when compiling from the command line.
 * Project settings can use conditions based on void safety level.
-* Fixed a bug in handling an assigner command when checking for void safety of object initialization.
+* Checks for void safety of object initialization take into account an assigner command.
 * Exception traces in final and workbench mode use the same breakpoint indexes.
+* Several code-generation and run-time bugs are fixed.
 
 ==Libraries==
-* '''OpenSSL''' binding: Updated the OpenSSL wrapper with asymmetric algorithms (RSA). Updated to OpenSSL 1.1.1a .
-* '''JWT (JSON Web Token)''': made it possible to register custom JWT algorithm (as addition to the provided HS256 and none). Added the `jwt_openssl_extension` library, that provides RSA based JWT signing algorithm (implemented with the OpenSSL binding).
-* '''JSON''': Improved the memory and speed '''performance''' of the JSON Parser (from 2x to 4x time faster). Added convenient function `JSON_VALUE.chained_item (a_key): JSON_VALUE` to be able to call `json @ "person" @ "address" @ "city" ` and get associated JSON value (if any) or JSON_NULL.
-* '''ROC CMS''': Implemented protection against '''XSS attack'''.
-* '''EiffelWeb''': Adopted '''nanoseconds timeout precision''', especially for standalone connector settings (use ns, us, ms, s suffix when defining the timeout in the .ini file).
-* '''EiffelWeb''': Properly use the '''socket.timeout''' settings in httpd (before it was ignored and the timeout was not correctly set, and among other potential issues, it was causing high CPU usage for WebSocket).
+* All container classes are now `ITERABLE` that allows for iterating over them with the `across` loop and simplifies conversions between different types of containers. {{Inline-Warning|Potential incompatibility}} for descendant classes that did not implement`new_cursor`.
+* `duplicate`, `duplicate_all` and related features of container classes are now obsolete to simplify inheritance from these classes in the future. The affected effective classes now have the feature `make_from_iterable`.
+* Figures in Vision can be drawn with anti-aliasing (on Windows).
+* `HASH_TABLE` now takes arguments of type `G` instead of `detachable G` and introduces a feature `definite_item` of type `G` (in addition to the existing feature `item` of type `detachable G`).
+* OpenSSL binding uses <code lang="text">OpenSSL 1.1.1a</code> and supports new asymmetric algorithms (RSA).
+* JWT (JSON Web Token) supports custom JWT algorithms. The associated extension library provides RSA signing algorithms.
+* Performance of the JSON parser is improved by 40% on large regular files.
+* The new function `JSON_VALUE.chained_item (a_key): JSON_VALUE` allows for expressions `json @ "person" @ "address" @ "city" ` to get associated JSON value.
+* ''ROC CMS'' implements protection against cross-site scripting attacks.
+* ''EiffelWeb'' adopts nanoseconds timeout precision and supports suffixes <code lang="text">ns</code>, <code lang="text">us</code>, <code lang="text">ms</code>, <code lang="text">s</code> for the standalone connector in the initialization file.
+* ''EiffelWeb'' correctly uses the setting <code lang="text">socket.timeout</code> for ''httpd'' (before the misuse of the setting caused high CPU usage for WebSocket).
+* Creation procedures of some container classes are now secret. {{Inline-Warning|Potential incompatibility}} for clients of the classes.
 
+==Tools==
+* Code analyzer does not report false positives for the rules about an unread variable (<code lang="text">CA020</code>) and replacement of a regular loop with an iterative form (<code lang="text">CA024</code>).
+
+==Examples==
+* `processor_pool` demonstrates how a pool of active SCOOP processors can be used to execute tasks from passive regions.
 ----
 
 See [https://dev.eiffel.com/EiffelStudio_18.11_Releases change log] for more details.
