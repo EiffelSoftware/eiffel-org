@@ -1,0 +1,763 @@
+[[Property:title|Criterion References]]
+[[Property:weight|12]]
+[[Property:uuid|52790486-55e8-86dc-67d7-5530d1b342a3]]
+==Text Criterion==
+
+'''name_is'''<br/>
+'''Syntax:''' name_is "pattern", matching strategy, case-sensitivity<br/>
+'''Applicable on:''' Target, Group, Class, Generic, Feature, Assertion, Argument, Local, Line<br/>
+'''Remark:''' This criterion will evaluate to True if name of the candidate code element matched the given pattern. For more details about matching strategy and case-sensitivity modifier, see the documentation of text criterion. 
+
+'''text_is'''<br/>
+'''Syntax:''' text_is "pattern", matching strategy, case-sensitivity<br/>
+'''Applicable on:''' Class, Generic, Feature, Assertion, Argument, Local, Line<br/>
+'''Remark:''' This criterion will evaluate to True if text of a candidate code element matches the given pattern. 
+
+'''top_indexing_contain'''<br/>
+'''Syntax:''' top_indexing_contain "pattern", matching strategy, case-sensitivity<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if text (indexing tags are not included) of the top indexing clause in the candidate class matches the given pattern. 
+
+'''top_indexing_has_tag'''<br/>
+'''Syntax:''' top_indexing_has_tag "pattern", matching strategy, case-sensitivity<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if tags of the top indexing clause in the candidate class matches the given pattern. 
+
+'''bottom_indexing_contain'''<br/>
+'''Syntax:''' bottom_indexing_contain "pattern", matching strategy, case-sensitivity<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:'''This criterion will evaluate to True if text (indexing tags are not included) of the bottom indexing clause in the candidate class matches the given pattern. 
+
+'''bottom_indexing_has_tag'''<br/>
+'''Syntax:''' bottom_indexing_has_tag "pattern", matching strategy, case-sensitivity<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:'''This criterion will evaluate to True if tags of the bottom indexing clause in the candidate class matches the given pattern. 
+
+'''indexing_contain'''<br/>
+'''Syntax:''' indexing_contain "pattern", matching strategy, case-sensitivity<br/>
+'''Applicable on:'''Class<br/>
+'''Remark:'''This criterion will evaluate to True if (top or bottom) indexing clause matches the given pattern. 
+
+'''indexing_has_tag'''<br/>
+'''Syntax:''' indexing_has_tag "pattern", matching strategy, case-sensitivity<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if tag of (top or bottom) indexing clause of the candidate class matches the given pattern. 
+
+==Path Criterion==
+
+'''path_in'''<br/>
+'''Syntax:''' path_in "path"<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if path (related to the class's written in group) of the class candidate is "path" or its subdirectory. "path" is in Unix format, i.e., different sections are separated by a "/". On Windows, path matching is case-sensitive, on other platforms, it's case-sensitive. 
+
+'''path_is'''<br/>
+'''Syntax:''' path_is "path"<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if path (related to the class's written in group) of the class candidate is "path". "path" is in Unix format, i.e., different sections are separated by a "/". On Windows, path matching is case-sensitive, on other platforms, it's case-sensitive. 
+
+==Relation Criterion==
+
+'''ancestor_is'''<br/>
+'''Syntax:''' ancestor_is {domain}<br/>
+'''Applicable on:''' Class, Feature<br/>
+'''Remark:''' This criterion will evaluate to True if candidate class (or feature) is descendant of any (if more than one are possible) of the class (or feature) specified in the criterion domain.<br/>
+For example, in a class metric, 
+{{sample|ancestor_is {<eiffel>STRING_8</eiffel>} }}
+<br/>
+will evaluate to True when a candidate class is a descendant of class <eiffel>STRING_8</eiffel>.<br/>
+In a class metric, 
+{{sample|ancestor_is {<eiffel>LINKED_LIST</eiffel>, <eiffel>DS_LINKED_LIST</eiffel>} }}
+will evaluate to True when a candidate class is a descendant of either <eiffel>LINKED_LIST</eiffel> or <eiffel>DS_LINKED_LIST</eiffel>. 
+
+'''proper_ancestor_is'''<br/>
+'''Syntax:''' proper_ancestor_is {domain}<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if a candidate class is a proper descendant of any of the classes in criterion domain. First, let's use the following figure to demonstrate the concepts of ancestor, proper ancestor, parent and indirect parent. (Note: the hierarchy is not complete) <br/>
+
+[[Image:class-hie|class hierarchy]]  
+Ancestors of <eiffel>STRING_32</eiffel> are: <eiffel>STRING_32</eiffel>, <eiffel>STRING_GENERAL</eiffel>, <eiffel>INDEXABLE</eiffel>, <eiffel>COMPARABLE</eiffel> and <eiffel>PART_COMPARABLE</eiffel>.<br/>
+Proper ancestors of <eiffel>STRING_32</eiffel> are <eiffel>STRING_GENERAL</eiffel>, <eiffel>INDEXABLE</eiffel>, <eiffel>COMPARABLE</eiffel> and <eiffel>PART_COMPARABLE</eiffel>.<br/>
+Parents of <eiffel>STRING_32</eiffel> are: <eiffel>STRING_GENERAL</eiffel> and <eiffel>INDEXABLE</eiffel><br/>
+Indirect parents of <eiffel>STRING_32</eiffel> are: <eiffel>COMPARABLE</eiffel> and <eiffel>PARTCOMPARABLE</eiffel><br/>
+The related concepts of descendants, proper descendants, heirs, indirect heirs follow the same rule but are in the reversed direction. <br/>
+
+
+'''descendant_is'''<br/>
+'''Syntax:''' descendant_is {domain}<br/>
+'''Applicable on:''' Class, Feature<br/>
+'''Remark:''' This criterion evaluates to True if candidate class is or feature is ancestor of any (if more than one are possible) of the class or feature specified in the criterion domain.<br/>
+
+
+'''proper_descendant_is'''<br/>
+'''Syntax:''' proper_descendant_is {domain}<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion evaluates to True if a candidate class is a proper ancestor of any of the classes in criterion domain.<br/>
+
+
+'''parent_is'''<br/>
+'''Syntax:''' parent_is {domain}<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion evaluates to True if a candidate class is a heir of any of the classes in criterion domain.<br/>
+
+
+'''indirect_parent_is'''<br/>
+'''Syntax:''' indirect_parent_is {domain}<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion evaluates to True if a candidate class is a indirect heir of any of the classes in criterion domain.<br/>
+
+
+'''heir_is'''<br/>
+'''Syntax:''' heir_is {domain}<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion evaluates to True if a candidate class is a parent of any of the classes in criterion domain.<br/>
+
+
+'''indirect_heir_is'''<br/>
+'''Syntax:''' indirect_heir_is {domain}<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion evaluates to True if a candidate class is a indirect parent of any of the classes in criterion domain.<br/>
+
+
+'''client_is'''<br/>
+'''Syntax:''' client_is {domain}, directness, normally_referenced, syntactically_referenced<br/>
+'''Applicable on:''' Class<br/>
+'''Remarks:''' This criterion evaluates to True if a candidate class is supplier of any of the classes in criterion domain. Directness modifier is boolean modifier, if it's True only direct suppliers are picked, if indirect modifier is set, only indirect suppliers are picked. normally_referenced and syntactically_referenced modifiers are both boolean modifiers, they enable to specify how one class is used by another class. Let's use an example to demonstrate these ideas, for example, in class A, there is a feature foo:<br/>
+<code>
+    foo 
+        local
+            l_str: STRING
+            l_file: FILE
+        do
+            create l_str.make_empty
+        end
+</code>
+<br/>
+Then both <eiffel>STRING</eiffel> and <eiffel>FILE</eiffel> are suppliers of class <eiffel>A</eiffel>. <eiffel>STRING</eiffel> is normal supplier because a feature make_empty in <eiffel>STRING</eiffel> is invoked in class <eiffel>A</eiffel>, but <eiffel>FILE</eiffel> is a syntactically referenced supplier because no feature from <eiffel>FILE</eiffel> is called from <eiffel>A</eiffel>. Classes explicitly listed in inherit clause of a class are also considered as syntactically referenced suppliers. 
+Concepts of direct/indirect, normally referenced/syntactically referenced clients follow the same rule except in the other direction.
+
+
+'''supplier_is'''<br/>
+'''Syntax:''' supplier_is {domain}, directness, normally_referenced, syntactically_referenced<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:'''<br/>
+This criterion evaluates to True if a candidate class is client of any of the classes in criterion domain.<br/>
+For more information of directness modifier, normally_referenced modifier and syntactically_referenced modifier, see document for relation criterion client_is<br/>
+
+
+'''callee_is'''<br/>
+'''Syntax:''' callee_is {domain}, only_current_version<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:'''<br/>
+This criterion evaluates to True if a candidate feature is calling any of the feature listed in criterion domain.<br/>
+only_current_verision modifier is a boolean modifier, if it's True, when the criterion is evaluated, only the candidate feature is taken into consideration, otherwise, the candidate feature and all its descendant versions are taken into consideration.<br/>
+
+
+'''caller_is'''<br/>
+'''Syntax:''' caller_is {domain}, only_current_version<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:'''<br/>
+This criterion evaluates to True if a candidate feature is called by any of the feature listed in criterion domain.<br/>
+only_current_verision modifier is a boolean modifier, if it's True, when the criterion is evaluated, only the candidate feature is taken into consideration, otherwise, the candidate feature and all its descendant versions are taken into consideration. <br/>
+
+
+'''assignee_is'''<br/>
+'''Syntax:''' assignee_is {domain}, only_current_version<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:'''<br/>
+This criterion evaluates to True if a candidate feature assigns to any of the feature listed in criterion domain.<br/>
+only_current_verision modifier is a boolean modifier, if it's True, when the criterion is evaluated, only the candidate feature is taken into consideration, otherwise, the candidate feature and all its descendant versions are taken into consideration.<br/>
+
+
+'''assigner_is'''<br/>
+'''Syntax:''' assigner_is {domain}, only_current_version<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:'''<br/>
+This criterion evaluates to True if a candidate feature assigns to any of the feature listed in criterion domain.<br/>
+only_current_verision modifier is a boolean modifier, if it's True, when the criterion is evaluated, only the candidate feature is taken into consideration, otherwise, the candidate feature and all its descendant versions are taken into consideration.<br/>
+
+
+'''createe_is'''<br/>
+'''Syntax:''' createe_is {domain}, only_current_version<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:'''<br/>
+This criterion evaluates to True if a candidate feature creates any of the feature (must be an attribute) listed in criterion domain.<br/>
+only_current_verision modifier is a boolean modifier, if it's True, when the criterion is evaluated, only the candidate feature is taken into consideration, otherwise, the candidate feature and all its descendant versions are taken into consideration.<br/>
+
+
+'''creator_is'''<br/>
+'''Syntax:''' creator_is {domain}, only_current_version<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:'''<br/>
+This criterion evaluates to True if a candidate feature (must be an attribute) is created by any of the feature listed in criterion domain.<br/>
+only_current_verision modifier is a boolean modifier, if it's True, when the criterion is evaluated, only the candidate feature is taken into consideration, otherwise, the candidate feature and all its descendant versions are taken into consideration.<br/>
+
+
+'''is_exported_to'''<br/>
+'''Syntax:''' is_exported_to {domain}<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class is exported to all the classes listed in criterion domain.<br/>
+
+
+'''is_implementors_of'''<br/>
+'''Syntax:''' is_implementors_of {domain}<br/>
+'''Applicable on:''' Feature<br/>
+
+
+'''Remark:''' This criterion will evaluate to True if the candidate feature is an implementer of some features listed in criterion domain.<br/>
+
+
+'''return_type_is'''<br/>
+'''Syntax:''' return_type_is {domain}<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if associated class of the return type of the candidate feature is listed in criterion domain.<br/>
+
+
+==Value Criterion==
+
+''' value_of_metric_is'''<br/>
+'''Syntax:''' value_of_metric_is '''Metric''', {domain}, value_tester<br/>
+''' Applicable on:''' Target, Group, Class, Generic, Feature, Assertion, Argument, Local, Line<br/>
+'''Remark:'''The '''Metric''' modifier will be a specified metric name. This criterion will evaluate to True if the calculated metric (from metric modifier) over input domain (from criterion domain) satisfies some given value tester (from value_tester modifier). 
+For example, if we want to find classes whose code is over 1000 lines, we can create the following metric and run it over input domain {Application target}:
+
+[[Image:value-of-metric-is|Actual semantic for input domain item]]  
+
+[[Image:value-tester|Actual semantic for input domain item]]  
+
+In the above dialog, you can customize the value_of_metric_is criterion. A metric needs to be specified as well as its input domain. Sometimes, "Delayed item" is set in the input domain meaning that no matter what the current candidate code element is, use it as input domain to the selected metric and calculate that metric to see if it's value satisfies the given value testers which are also set in this dialog.
+
+You can specify more than one value tester and they can be anded (when "Match all" is selected) or ored (when "Match any" is selected). if no value tester is set, the value_of_metric_is criterion always evaluates to True.
+
+This metric reads, for every class from application target, calculate metric '''Lines of code''' over that class (this is the usage of "Delayed item"), and if the value of '''Lines of code''' over that class is larger than 1000, that class satisfies the '''value_of_metric_is''' criterion thus it's included in the result.
+
+Let's see another example of value_of_metric_is criterion which is more complicated and involves the use of the "Use external delayed domain" option.
+
+Suppose we are to construct a metric called '''Unused features''' which can finds unused features. First, it must be a feature metric because we want features in the result. Second, for every feature candidate, we want a predicate which evaluates to True if that candidate feature is not called by any feature.
+
+And this predicate is semantically equal to say: count all callers of the candidate feature and check if the value is zero. So now, we realize that we need a metric which returns the number of callers of a given feature.
+
+We can construct this feature metric as follows:
+
+[[Image:callee-is|value criterion]]  
+
+Let's call it "callee_is" (note: here callee_is is a metric name instead of a criterion name). It uses "Delayed item" because we want that "Delayed item" to be replaced by the actual candidate feature at run-time.
+
+Then we can construct our '''Unused features''' metric as follows:
+
+[[Image:unused-feature|value criterion]]  
+
+[[Image:unused-feature-criterion|value criterion]]  
+
+In this dialog, note that the "Use external delayed domain" option is checked. It has to be checked. Let's see why.
+
+This value_of_metric_is criterion should check this: for every candidate feature, test if the number of callers of that feature in current application target scope is zero.
+
+Suppose now a feature named foo is the candidate feature.
+
+If the "Use external delayed domain" is not checked, then the metric '''callee_is''' is calculated over input domain {application target}. 
+
+So when calculate callee_is metric, every feature (let's call the current candidate feature <eiffel>APPLICATION</eiffel>.<eiffel>goo</eiffel>) from current application target is checked to see if it satisfies the criterion: callee_is {<eiffel>APPLICATION</eiffel>.<eiffel>goo</eiffel>} (the "Delayed item" is replaced by the current candidate feature). This is actually checking if a feature is called by itself.
+
+As you can see, if "Use external delayed domain" option is not checked, during the period of value_of_metric_is criterion evaluation, the current feature candidate from the '''Unused features''' metrics is never involved. This of course yields wrong result.
+
+Now we select the "Use external delayed domain" option. Recall that current candidate feature of metric '''Unused features''' is <eiffel>APPLICATION</eiffel>.<eiffel>foo</eiffel>.
+
+When the value_of_metric_is criterion is evaluated, the delayed item from metric '''callee_is''' is replaced by <eiffel>APPLICATION</eiffel>.<eiffel>foo</eiffel>. So the metric '''callee_is''' now is equal to:
+
+[[Image:fake-callee-is|value criterion]]  
+
+which reads: calculate the number of callers of feature <eiffel>APPLICATION</eiffel>.<eiffel>foo</eiffel>. And the value_of_metric_is criterion is now semantically equal to: test if number of callers of <eiffel>APPLICATION</eiffel>.<eiffel>foo</eiffel> is zero. This is what we want.
+
+As we can see, when the option "Use external delayed domain" is selected, the delayed item from the criterion metric will be replaced by the current candidate code element. Otherwise, it will be replaced by the candidate element from criterion metric input domain when criterion metric is calculated.
+
+
+==Normal Criterion==
+
+'''false'''<br/>
+'''Syntax:''' false<br/>
+'''Applicable on:''' Target, Group, Class, Generic, Feature, Assertion, Argument, Local, Line<br/>
+'''Remark:''' This criterion will always evaluate to False.<br/>
+
+
+'''has_argument'''<br/>
+'''Syntax:''' has_argument<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature has arguments.<br/>
+
+
+'''has_assertion'''<br/>
+'''Syntax:''' has_assertion<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature has any precondition or postcondition.<br/>
+
+
+'''has_assigner'''<br/>
+'''Syntax:''' has_assigner<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature (must be an attribute then) has assigner.<br/>
+
+
+'''has_bottom_indexing'''<br/>
+'''Syntax:''' has_bottom_indexing<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if candidate class has bottom indexing. <br/>
+
+
+'''has_comment'''<br/>
+'''Syntax:''' has_comment<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if candidate feature has header comment.<br/>
+
+
+'''has_constraint'''<br/>
+'''Syntax:''' has_constraint<br/>
+'''Applicable on:''' Generic<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate generic has constraint.<br/>
+
+
+'''has_creation_constraint'''<br/>
+'''Syntax:''' has_creation_constraint<br/>
+'''Applicable on:''' Generic<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate generic has creation constraint<br/>
+
+
+'''has_expression'''<br/>
+'''Syntax:''' has_expression<br/>
+'''Applicable on:''' Assertion<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate assertion has associated expression.<br/>
+
+
+'''has_indexing'''<br/>
+'''Syntax:''' has_indexing<br/>
+'''Applicable on:''' Class, Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class or feature has indexing clause.<br/>
+
+
+'''has_immediate_invariant'''<br/>
+'''Syntax:''' has_immediate_invariant<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class has immediate invariant clause (not inherited invariant clause).<br/>
+
+
+'''has_local'''<br/>
+'''Syntax:''' has_local<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature has locals defined in it.<br/>
+
+
+'''has_postcondition'''<br/>
+'''Syntax:''' has_postcondition<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature has immediate postconditions.<br/>
+
+
+'''has_precondition'''<br/>
+'''Syntax:''' has_precondition<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature has immediate preconditions.<br/>
+
+
+'''has_rescue'''<br/>
+'''Syntax:''' has_rescue<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature has rescue clause.<br/>
+
+
+'''has_tag'''<br/>
+'''Syntax:''' has_tag<br/>
+'''Applicable on:''' Assertion<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate has a descriptive tag associated with it.<br/>
+
+
+'''has_top_indexing'''<br/>
+'''Syntax:''' has_top_indexing<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class has top indexing clause.<br/>
+
+
+'''is_always_compiled'''<br/>
+'''Syntax:''' is_always_compiled<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class is an always compiled class. Some basic class such as <eiffel>INTEGER</eiffel>, <eiffel>REAL</eiffel> are always compiled no matter whether they are used in an application. These class will cause is_always_compiled criterion evaluate to True.<br/>
+
+
+'''is_assembly'''<br/>
+'''Syntax:''' is_assembly<br/>
+'''Applicable on:''' Group<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate group is an assembly.<br/>
+
+
+'''is_attribute'''<br/>
+'''Syntax:''' is_attribute<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is an attribute.<br/>
+
+
+'''is_blank'''<br/>
+'''Syntax:''' is_blank<br/>
+'''Applicable on:''' Line<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate line is blank.<br/>
+
+
+'''is_cluster'''<br/>
+'''Syntax:''' is_cluster<br/>
+'''Applicable on:''' Group<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate group is a cluster.<br/>
+
+
+'''is_command'''<br/>
+'''Syntax:''' is_command<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is a command.<br/>
+
+
+'''is_comment'''<br/>
+'''Syntax:''' is_comment<br/>
+'''Applicable on:''' Line<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate line is comment line.<br/>
+
+
+'''is_compiled'''<br/>
+'''Syntax:''' is_compiled<br/>
+'''Applicable on:''' Target, Group, Class, Generic, Feature, Assertion, Argument, Local, Line<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate code element is compiled. Target, group are considered to be compiled once they are referenced by the application. Class (if it is not an always-compiled class) is considered to be compiled if it's used somewhere in the application. always-compiled class are always compiled. and the compilation status of generic, feature, assertion, argument local and line are determined by the compilation status of their written in class.<br/>
+
+
+'''is_constant'''<br/>
+'''Syntax:''' is_constant<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is a constant.<br/>
+
+
+'''is_creator'''<br/>
+'''Syntax:''' is_creator<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is a creator feature.<br/>
+
+
+'''is_deferred'''<br/>
+'''Syntax:''' is_deferred<br/>
+'''Applicable on:''' Class, Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is deferred<br/>
+
+
+'''is_effective'''<br/>
+'''Syntax:''' is_effective<br/>
+'''Applicable on:''' Class, Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class or feature is effective.<br/>
+
+
+'''is_ensure'''<br/>
+'''Syntax:''' is_ensure<br/>
+'''Applicable on:''' Assertion<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate assertion is in ensure clause.<br/>
+
+
+'''is_ensure_then'''<br/>
+'''Syntax:''' is_ensure_then<br/>
+'''Applicable on:''' Assertion<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate assertion is in ensure then clause.<br/>
+
+
+'''is_enum'''<br/>
+'''Syntax:''' is_enum<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class is an enumeration. Only has effect on .NET platform, on other platforms, this criterion always evaluates to False.<br/>
+
+
+'''is_expanded'''<br/>
+'''Syntax:''' is_expanded<br/>
+'''Applicable on:''' Class, Generic<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class or generic is expanded.<br/>
+
+
+'''is_exported'''<br/>
+'''Syntax:''' is_exported<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is exported to ANY.<br/>
+
+
+'''is_external'''<br/>
+'''Syntax:''' is_external<br/>
+'''Applicable on:''' Class, Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class or feature is external.<br/>
+
+
+'''is_feature'''<br/>
+'''Syntax:''' is_feature<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is real feature. In metrics tool, invariant is treated as a special kind of feature. So if you count features in a class, it's invariant clause will be included. is_feature criterion is used to filter invariant clause out.<br/>
+
+
+'''is_from_any'''<br/>
+'''Syntax:''' is_from_any<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is from class <eiffel>ANY</eiffel>.<br/>
+
+
+'''is_frozen'''<br/>
+'''Syntax:''' is_frozen<br/>
+'''Applicable on:''' Class, Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is frozen.<br/>
+
+
+'''is_function'''<br/>
+'''Syntax:''' is_function<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate is a function.<br/>
+
+
+'''is_generic'''<br/>
+'''Syntax:''' is_generic<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class is a generic class.<br/>
+
+
+'''is_hidden'''<br/>
+'''Syntax:''' is_hidden<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is exported to <eiffel>NONE</eiffel>.<br/>
+
+
+'''is_immediate'''<br/>
+'''Syntax:''' is_immediate<br/>
+'''Applicable on:''' Feature, Assertion, Argument, Local<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate code element is immediate instead of inherited.<br/>
+
+
+'''is_implementation_comment'''<br/>
+'''Syntax:''' is_implementation_comment<br/>
+'''Applicable on:''' Line<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate line is implementation comment. Implementation comment is also called commented code. In Eiffel, the convention is that if the comment indicator "--" starts from the first column of a line, that line is an implementation comment line.<br/>
+
+
+'''is_infix'''<br/>
+'''Syntax:''' is_infix<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is infix.<br/>
+
+
+'''is_invariant'''<br/>
+'''Syntax:''' is_invariant<br/>
+'''Applicable on:''' Assertion<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate assertion is from invariant clause.<br/>
+
+
+'''is_invariant_feature'''<br/>
+'''Syntax:''' is_invariant_feature<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is an invariant. See the description of criterion is_feature for more detail.<br/>
+
+
+'''is_library'''<br/>
+'''Syntax:''' is_library<br/>
+'''Applicable on:''' Group<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate group is a library.<br/>
+
+
+'''is_obsolete'''<br/>
+'''Syntax:''' is_obsolete<br/>
+'''Applicable on:''' Class, Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class or feature is obsolete.<br/>
+
+
+'''is_once'''<br/>
+'''Syntax:''' is_once<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is once.<br/>
+
+
+'''is_origin'''<br/>
+'''Syntax:''' is_origin<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is origin instead of a inherited one.<br/>
+
+
+'''is_override'''<br/>
+'''Syntax:''' is_override<br/>
+'''Applicable on:''' Group<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate group overrides some other group.<br/>
+
+
+'''is_overriden'''<br/>
+'''Syntax:''' is_overriden<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class is overridden by some other class.<br/>
+
+
+'''is_overrider'''<br/>
+'''Syntax:''' is_overrider<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class overrides some other class.<br/>
+
+
+'''is_partial'''<br/>
+'''Syntax:''' is_partial<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class is partical class. Only has effect on .NET platform, on other platforms, this criterion always evaluates to False.<br/>
+
+
+'''is_postcondition'''<br/>
+'''Syntax:''' is_postcondition<br/>
+'''Applicable on:''' Assertion<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate assertion is a postcondition.<br/>
+
+
+'''is_precompiled'''<br/>
+'''Syntax:''' is_precompiled<br/>
+'''Applicable on:''' Class<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class is precompiled.<br/>
+
+
+'''is_precondition'''<br/>
+'''Syntax:''' is_precondition<br/>
+'''Applicable on:''' Assertion<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate assertion is a precondition.<br/>
+
+
+'''is_prefix'''<br/>
+'''Syntax:''' is_prefix<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate is a prefix.<br/>
+
+
+'''is_procedure'''<br/>
+'''Syntax:''' is_procedure<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is a procedure.<br/>
+
+
+'''is_query'''<br/>
+'''Syntax:''' is_query<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is a query.<br/>
+
+
+'''is_read_only'''<br/>
+'''Syntax:''' is_read_only<br/>
+'''Applicable on:''' Class <br/>
+'''Remark:''' This criterion will evaluate to True if the candidate class is read-only.<br/>
+
+
+'''is_reference'''<br/>
+'''Syntax:''' is_reference<br/>
+'''Applicable on:''' Generic<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate generic is reference.<br/>
+
+
+'''is_require'''<br/>
+'''Syntax:''' is_require<br/>
+'''Applicable on:''' Assertion<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate assertion is in require clause.<br/>
+
+
+'''is_require_else'''<br/>
+'''Syntax:''' is_require_else<br/>
+'''Applicable on:''' Assertion<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate assertion is in require else clause.<br/>
+
+
+'''is_satisfied_by'''<br/>
+'''Syntax:''' is_satisfied_by command specification<br/>
+'''Applicable on:''' Target, Group, Class, Generic, Feature, Assertion, Argument, Local, Line<br/>
+'''Remark:''' 
+This criterion will invoke external command given in command specification to decide whether current item is evaluated to True. Placeholders are used as interface between current item and the external command. The following placeholders are supported:
+
+* $class_name: this will be replaced by class name of current item
+* $directory_name: this will be replaced by the directory location of current item
+* $file: this will be replaced by file name part, i.e., without heading directory, of $path of current item
+* $file_name: this will be replaced by the path of current item
+* $f_code: this will be replaced by the F_code directory of current target, if defined
+* $group_directory: this will be replaced by the directory of the group of current item
+* $group_name: this will be replaced by the group name of current item
+* $path: same as $file_name
+* $project_directory: this will be replaced by the directory of current project, if defined
+* $target_directory: this will be replaced by the directory of current target, if defined
+* $target_name: this will be replaced by name of current target, if defined
+* $w_code: this will be replaced by the W_code directory of current target, if defined
+
+
+Command specification can be set in the dialog associated to this criterion, shown in the following picture:  [[Image:is-satisfied-by|system hierarchy]]  
+
+'''Command name'''<br/>
+External command is specified here. <br/>
+The command shown in the picture will test the subversion status of the current class (suppose we are running a class metric). The class path is given by "$path". And the output of the "svn stat $path" command is redirected to grep so we can check if the output starts with a letter "M" which indicates tha the class is changed locally. 
+
+'''Workding directory'''<br/>
+Working directory for the command is set here. 
+
+'''Input'''<br/>
+Input, if any, of the command is set here. <br/>
+If the option "As file name" is checked, the text specified is treated as a file name in which actual input is stored. 
+
+'''Output'''<br/>
+Expected output, if any, of the command is set here.<br/>
+If the option "As file name" is checked, the text specified is treated as a file name in which actual output is stored.<br/>
+If the option "Enabled" is not checked, the output will be ignored. 
+
+'''Error'''<br/>
+Expected error, if any, of the command is set here. <br/>
+If the option "As file name" is checked, the text specified is treated as a file name in which actual error is stored. <br/>
+If the option "Enabled" is not checked, the error will be ignored.<br/>
+If the option "Redirected to output" is checked, error of the command will be redirected to output. 
+
+'''Exit code'''<br/>
+Expected exit code of the command is set here.<br/>
+If the option "Enabled" is not checked, the exit code will be ignored.<br/>
+
+
+In the above output, error, exit code sections, if more than one are enabled, they are treated as "and-ed". For example if output and exit code are enabled, this criterion is evaluated to True only if the actual output from the command matches the expected output and the exit code from the command matches the expected exit code. 
+
+
+'''is_unique'''<br/>
+'''Syntax:''' is_unique<br/>
+'''Applicable on:''' Feature<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate feature is an unique feature.<br/>
+
+
+'''is_used'''<br/>
+'''Syntax:''' is_used<br/>
+'''Applicable on:''' Local<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate local is used.<br/>
+
+
+'''is_used_in_library'''<br/>
+'''Syntax:''' is_used_in_library<br/>
+'''Applicable on:''' Group<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate group is used in some library instead of only referenced by current application.<br/>
+
+
+'''is_visible'''<br/>
+'''Syntax:''' is_visible<br/>
+'''Applicable on:''' Class, Generic, Feature, Assertion, Argument, Local<br/>
+'''Remark:''' This criterion will evaluate to True if the candidate code element is visible from the input domain of current calculated metric.<br/>
+Visibility of a class means that if that element is visible from the input domain of the metric. To explains it more clearly, let's see an example: <br/>
+
+[[Image:system-hierarchy|system hierarchy]]  
+
+The figure shows the group hierarchy of a Vision2 application. library <eiffel>base</eiffel> and <eiffel>vision2</eiffel> are used by the application. And notice that library <eiffel>wel</eiffel> is used internally by <eiffel>vision2</eiffel> library but not by the application. This means that classes defined in <eiffel>wel</eiffel> library is not visible to the application thus one cannot use those <eiffel>wel</eiffel> classes in application.
+
+And if we create the following basic metric and run it with current application target as input domain:
+
+[[Image:visible-metric|visible]]  
+
+We'll get all classes in the application including those classes in <eiffel>wel</eiffel> library because every class is descendant of class <eiffel>ANY</eiffel>.
+
+But if we do things a little bit differently, we create the following metric and run it with current application target as input domain:
+
+[[Image:visible-metric2|visible]]  
+
+Then we will get all visible classes in current application target. i.e., those classes in <eiffel>wel</eiffel> library (any maybe some other invisible classes as well) are filtered out.
+
+Visibility of a generic, feature, assertion, argument, local is determined by its written in class. 
+
+
+'''true'''<br/>
+'''Syntax:''' true<br/>
+'''Applicable on:''' Target, Group, Class, Generic, Feature, Assertion, Argument, Local, Line<br/>
+'''Remark:''' This criterion always evaluates to True.<br/>
+
+
+
+
+

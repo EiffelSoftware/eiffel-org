@@ -1,0 +1,22 @@
+[[Property:title|Setting the command line arguments]]
+[[Property:weight|6]]
+[[Property:uuid|4aed0363-4aa9-89ce-aaa7-6dce00410afb]]
+To debug a program that uses command line parameters, it is possible to have the debugger call the generated program with certain command line arguments automatically.
+
+To change the command line arguments used when debugging:
+* Open the menu entry <code>Execution > Execution Parameters ..</code>
+* In this dialog, you can change the current arguments, working directory, and add, change or remove environment variables.
+** Use the <code>[Add]</code> button to add a new execution profile.
+** Select the '''Arguments''' line, and press '''[Enter]''' to set the arguments value (or double click on the related grid cell).
+** Same for Working directory
+** To change the environment variable, follow the instructions, i.e double click or press enter to Add a variable, or right click to select from existing variable list. Once the variable line is added, by Right-clicking on the variable line, it is possible to:
+*** fill with current variable value (if any),
+*** unset it (this way, at execution time, the variable will not be set)
+* Click '''[Run]''' to launch the execution in the EiffelStudio debugger.
+* It is also possible to launch the execution outside EiffelStudio using the '''[Run Workbench]''' button.
+
+{{tip|To get the command line arguments in a program, it is possible to either define the root feature as taking an array of [[ref:libraries/base/reference/string_8_chart|STRING_8]]  objects, or to use the [[ref:libraries/base/reference/arguments_chart|ARGUMENTS]]  class, which provides a lot of functionality linked with command line arguments. }}
+
+
+
+

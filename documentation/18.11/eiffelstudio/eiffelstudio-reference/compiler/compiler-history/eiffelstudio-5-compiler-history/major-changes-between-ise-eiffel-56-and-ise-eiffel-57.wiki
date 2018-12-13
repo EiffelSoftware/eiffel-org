@@ -1,0 +1,68 @@
+[[Property:title|Major changes between ISE Eiffel 5.6 and ISE Eiffel 5.7]]
+[[Property:link_title|5.7]]
+[[Property:weight|-14]]
+[[Property:uuid|fc50f98f-4dfd-0173-23d4-9db219dde0cf]]
+==What's new==
+
+{{seealso|See also: [[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
+* Support for new expanded semantics defined in ECMA-367. The current limitations are: no copy semantics in the .NET code generation, and still no generic conformance.
+* Inline agents as defined in ECMA-367 with the limitation to only accept the do form.
+* Added possibility to define agents on attributes or externals.
+* Named tuples as defined in ECMA-367.
+* Added <eiffel>PREDICATE</eiffel> class for agent based on boolean queries.
+* Added <eiffel>CHARACTER_32</eiffel> for Unicode support.
+
+==Improvements==
+* Improved memory management: 
+** Ensure that if a block of allocated memory is not used it will eventually be freed. Before it will only be freed if it was the last allocated block.
+** Compaction is actually working. Before it was working if you had a lot of dead objects, now it will compact even if all you have is alive objects and that the memory is fragmented.
+** For large memory heap (i.e. larger than 1GB) improved speed of collections where there is a lot of dead objects.
+
+* Changed the way we search melted file, it is done in the following order: 
+** Directory specified by environment parameter MELT_PATH
+** Current working directory
+** Directory where application is launched
+** Original directory where .melted file was generated the first time.
+
+* Improved speed of initial compilation of .NET projects as well as the speed for incremental compilation at degree 6 which went from a few seconds to no time if no new assemblies have been added to the system.
+* No freeze is required when adding an agent, saving you time since C compilation can be long for very large project.
+* Reduced the required disk space for a workbench compilation in classic mode (went from 1.8 GB to 1GB for a very large project).
+* Improved speed of agent calls in classic mode.
+* Support use of IL enumerations with underlying integer types different from System.Int32. In particular, the built-in features `to_integer` and `from_integer` now use the underlying type rather than System.Int32.
+* Support generation of IL properties as well as custom attributes for them.
+* Support the new syntax without the <code>is</code> keyword in the feature declaration.
+* Allowed bracket expressions to be used as a target of a qualified feature call (this is an extension to ECMA standard that does not permit this syntax at the moment).
+* Added checks for <code>VYCP(2,3)</code> and <code>VYCQ(2,3)</code> (validity rules for conversion features to prohibit conversion to conforming types).
+
+==Changes==
+* <code>VWEQ</code> is not an error, but a warning that can be triggered or not depending on your configuration.
+* Inherited assertions are rechecked each time that a feature is redefined, meaning that some errors that were not previously detected by the compiler can now be found.
+
+==Bug fixes==
+* Fixed an issue with x2c if you had inlined C code which contains comments with single or double quote. Then it will not properly convert .x into .c file.
+* Fixed bugs in code generation for once manifest strings that caused "index out of bounds" exception, void results.
+* Fixed a bug in processing synonyms of a routine with an indexing clause that might cause a compiler crash, in particular this could happen for synonyms of a global once routine.
+* Fixed a bug in recompilation of a once routine that changes its process-relative status into thread-relative one or back in multithreaded finalized mode that can cause C compilation to fail due to unresolved externals.
+* Corrected inlining of routines redeclared into attributes or into routines with a different internal/external status.
+* Fixed a bug in incremental recompilation of queries with assigner commands.
+* Added detection of a <code>VUEX</code> error for static feature calls used in intervals of a multibranch instruction.
+
+===Compiler issues===
+* Added a new validity error <code>VTEC(3)</code> to report unsupported inheritance hierarchy under .NET when an expanded type is based on a class with an external ancestor.
+* Not supported reverse attachment of boxed built-in .NET value types to Eiffel reference types such as <eiffel>NUMERIC</eiffel>, <eiffel>HASHABLE</eiffel>, etc.
+
+===Runtime/code generation issues===
+* Ensured that our runtime is async-safe for signals for all the runtime routines using some locking mechanisms.
+* Fixed a memory corruption issue in <eiffel>arycpy</eiffel> if a GC cycle was triggered as part of the processus of reallocating the SPECIAL object.
+* Fixed a bug with allocating memory for once routines that caused "no memory" exception at program startup when Borland run-time is used.
+
+===.NET issues===
+* Removed limitation to inherit an Eiffel class which inherited from a .NET class.
+
+===Store/Retrieve issues===
+* Fixed a memory leak in the recoverable retrieval when an exception is raised from a <eiffel>correct_mismatch</eiffel> routine call.
+* Fixed test#store008 regarding a crash when retrieving a type that does not exist in retrieved system.
+
+
+
+
