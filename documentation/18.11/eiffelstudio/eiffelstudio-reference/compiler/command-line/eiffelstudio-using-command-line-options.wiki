@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 24 Dec 2018 08:45:22 GMT]]
+[[Property:modification_date|Mon, 24 Dec 2018 08:49:05 GMT]]
 [[Property:publication_date|Mon, 24 Dec 2018 08:45:22 GMT]]
 [[Property:title|EiffelStudio: Using command line options]]
 [[Property:link_title|Using command line options]]
@@ -21,8 +21,8 @@ The usage and options display gives you information about which options are vali
 
 Usage and options of the command line compiler vary from version to version in order to accommodate new and changed features. Here is an example of the command line help from the latest version of EiffelStudio:
 
-<code lang="text">
-ISE EiffelStudio version 14.05.9.5158 GPL Edition - win64
+<code lang="none">
+ISE EiffelStudio version 18.11.10.2549 GPL Edition - win64
 
 Usage:
 	ec [-help | [-compat | -experiment] | -version | -full
@@ -42,22 +42,24 @@ Usage:
 	-implementers [-filter filtername] class feature |
 	-callers [-filter filtername] [-show_all] [-assigners | -creators] class feature |
 	-callees [-filter filtername] [-show_all] [-assignees | -creators] class feature |
-	[[-config config.ecf] [-target target] |
-		-ace Ace (obsolete) | -project Project_file_name (obsolete)] |
+	[[-config config.ecf] [-target target] [-config_option option]|
 	[class_file.e [-library library_name]] |
 	-stop | -no_library |
 	-project_path Project_directory_path | -file File |
-	-code-analysis [-cadefaults | -caloadprefs pref_file | -caclasses class ...] | 
+	-ca_class (-all | class) | -ca_default | -ca_rule rule | -ca_setting file |
 	-gc_stats]
 
 Options:
 	default (no option): quick melt the system.
 
-	-ace: specify the Ace file (obsolete).
 	-ancestors: show the ancestors of a class.
 	-aversions: show the ancestor versions of a feature.
 	-batch: launch the compilation without user request.
 	-c_compile: launch C compilation if needed.
+	-ca_class: analyze code of a class or of all non-library classes (-all).
+	-ca_default: restore default code analyzer preferences.
+	-ca_rule: activate code analyzer rule(s) (with settings).
+	-ca_setting: load code analyzer preferences from a file.
 	-callees: show the callees of a feature.
 	-callers: show the callers of a feature.
 	-class_file.e: specify a class file for single file compilation.
@@ -65,6 +67,7 @@ Options:
 	-clients: show the clients of a class.
 	-compat: enable pre-attached type compatibility.
 	-config: specify the configuration (ECF) file.
+	-config_option: override configuration options of a target.
 	-debug: debug the system as a command loop.
 	-descendants: show the descendants of a class.
 	-dversions: show the descendant versions of a feature.
