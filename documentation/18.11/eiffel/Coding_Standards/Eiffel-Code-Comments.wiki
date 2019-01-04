@@ -1,4 +1,4 @@
-[[Property:modification_date|Thu, 03 Jan 2019 18:00:43 GMT]]
+[[Property:modification_date|Fri, 04 Jan 2019 15:06:26 GMT]]
 [[Property:publication_date|Thu, 03 Jan 2019 18:00:43 GMT]]
 [[Property:uuid|146E241E-C367-4F16-9CCE-6F11E5F7860A]]
 [[Property:weight|1]]
@@ -16,17 +16,19 @@ To mark up a class reference, surround the class name in an open (` { `) and mat
     -- See {DEBUG_OUTPUT} for more information.
 </e>
 
-To mark up a feature reference, implemented in the same class or parent, surround the name with two single back quotes (`` `...` ``), or in a single back quote and a matching closing single quote (`` `...' ``):
+To mark up a feature reference, implemented in the same class or parent, surround the name with two single back quotes (`` `...` ``):
 
 <e>
     -- See `debug_output` for more information.
 </e>
 
-or
+The earlier convention, which you will still find in much existing code, used a single back  quote for opening and a matching normal quote for closing, as in 
 
 <e>
     -- See `debug_output' for more information.
 </e>
+
+The new convention, with back quotes both for opening and for closing, is the recommended one.
 
 
 In the case where a reference to a feature is not accessible to the containing class directly, use a combination of the class reference mark up and a feature name, ''sans'' quotation marks:
