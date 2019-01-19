@@ -1,4 +1,4 @@
-[[Property:modification_date|Sat, 19 Jan 2019 16:28:41 GMT]]
+[[Property:modification_date|Sat, 19 Jan 2019 20:13:38 GMT]]
 [[Property:publication_date|Mon, 26 Nov 2018 12:09:44 GMT]]
 [[Property:uuid|FF51774B-2EB9-4EDF-8A0C-0F71A96D391F]]
 [[Property:weight|0]]
@@ -12,3 +12,5 @@ The Eiffel compiler helps you through out: at each step of the transformation fr
 For reading convenience the tutorial is in PDF format. It includes all the links to the code to be downloaded. 
 
 Read the tutorial by clicking [https://www.eiffel.org/files/uploads/scoop_tutorial_%281%29.pdf this link].
+
+Also note the [https://www.eiffel.org/doc/version/18.11/solutions/Concurrency/edit ACM webinar on SCOOP] which provides a general introduction to SCOOP and also relies on this example. 
