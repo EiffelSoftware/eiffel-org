@@ -1,4 +1,4 @@
-[[Property:modification_date|Thu, 03 Jan 2019 07:54:41 GMT]]
+[[Property:modification_date|Sat, 19 Jan 2019 15:46:52 GMT]]
 [[Property:publication_date|Thu, 06 Sep 2018 15:10:13 GMT]]
 [[Property:title|Documentation]]
 [[Property:description|Central repository of information about Eiffel and the products and technologies of Eiffel Software]]
@@ -18,7 +18,7 @@ This is the Eiffel documentation site, with a wealth of resources on how to unle
 ** [[EiffelStudio tutorials]]
 ** [[Technical papers about EiffelStudio|Technical papers]] on specific concepts and tools
 * [[Solutions]]. EiffelStudio comes with numerous libraries, packages, and tools. The Solutions book includes:
-** Libraries: data structures, graphics, networking...
+** Libraries: data structures, graphics, concurrency (SCOOP), networking...
 ** Packages
 ** Tools
 * [[Glossary]]: clear definitions of the concepts underlying Eiffel:  feature, routine, attribute, contract...
