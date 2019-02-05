@@ -1,4 +1,4 @@
-[[Property:modification_date|Wed, 19 Dec 2018 12:19:52 GMT]]
+[[Property:modification_date|Tue, 05 Feb 2019 11:19:29 GMT]]
 [[Property:publication_date|Mon, 24 Sep 2018 12:04:18 GMT]]
 [[Property:uuid|6F78A05A-2054-4150-84FC-1D8663CA76E6]]
 [[Property:weight|5]]
@@ -143,9 +143,9 @@ encoding name too long
 
 * '''Compile C code of the Eiffel library store:'''
 
-<code>cd $ISE_EIFFEL/library/store/dbms/rdbms/odbc/Clib finish_freezing -library</code>
+<code>cd $ISE_EIFFEL/library/store/dbms/rdbms/odbc/Clib; finish_freezing -library</code>
 
-{{note|On debian at least before finish_freezing log in as superuser doing a '''sudo -i''' }}
+{{note|On debian at least before finish_freezing log in as superuser doing a '''sudo -i''' depending on the right and user setted for $ISE_EIFFEL/Eiffel_18.07 directory }}
 
 * '''Open EiffelStudio eSQL example and run it'''
 The example is located on `$ISE_EIFFEL/examples/store/esql/`
