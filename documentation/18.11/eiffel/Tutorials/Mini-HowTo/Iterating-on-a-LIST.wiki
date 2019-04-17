@@ -1,4 +1,4 @@
-[[Property:modification_date|Thu, 06 Sep 2018 15:21:39 GMT]]
+[[Property:modification_date|Wed, 17 Apr 2019 14:09:18 GMT]]
 [[Property:publication_date|Thu, 06 Sep 2018 15:17:57 GMT]]
 [[Property:uuid|96077603-DD2D-4D8C-A486-AF4BD066613A]]
 [[Property:weight|2000]]
@@ -18,7 +18,7 @@ The `across` can be used on every `ITERABLE` object (including `LIST` objects).
 		end
 </code>
 
-Note that the temporary variable (`ic` in the example) represent an iterator of the `ITERABLE` object, and not directly an element like in many other languages (like the `for` structure in Python for example).
+Note that the temporary variable (`ic` in the example) represents an iterator of the `ITERABLE` object, and not directly an element like in many other languages (like the `for` structure in Python for example).
 
 === the `from until` loop syntax===
 This syntax offer more possibilities than the `across` loop, but is riskier.
