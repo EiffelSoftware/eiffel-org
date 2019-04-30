@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 29 Apr 2019 14:08:51 GMT]]
+[[Property:modification_date|Tue, 30 Apr 2019 07:27:55 GMT]]
 [[Property:publication_date|Mon, 29 Apr 2019 14:08:51 GMT]]
 [[Property:title|Eiffel programming language syntax]]
 [[Property:link_title|Syntax]]
@@ -100,8 +100,12 @@ A simple string -- specimen of Simple_string -- is a [[#Strings|String]] consist
 | } || %> || Closing brace
 |}
 
-* %/123/  represents the character with decimal code 123 .
-* %/0x2200/  represents the character with hexadecimal code U+2200 = '∀' (note `'%/0x2200/' = '%/8704/'` )
+* `%/123/` represents the character with decimal code `123` .
+* And only for manifest character (for now)
+** `'%/0x2200/'`  represents the character with hexadecimal code U+2200 = '∀' (note `'%/0x2200/' = '%/8704/'` )
+** `'%/0c21000/'` in octal
+** `'%/0b10001000000000/'` in binary
+
 
 ===Line wrapping parts===
 
