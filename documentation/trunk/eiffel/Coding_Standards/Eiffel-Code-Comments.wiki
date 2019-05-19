@@ -1,3 +1,5 @@
+[[Property:modification_date|Fri, 04 Jan 2019 15:06:26 GMT]]
+[[Property:publication_date|Thu, 03 Jan 2019 18:00:43 GMT]]
 [[Property:uuid|146E241E-C367-4F16-9CCE-6F11E5F7860A]]
 [[Property:weight|1]]
 [[Property:title|Eiffel Code Comments]]
@@ -8,22 +10,31 @@ The Eiffel compiler and EiffelStudio's code browsing tools support a special, li
 ===Syntax===
 The syntax for marking up classes and features is very compact, to ensure retained legibility. You'll see no need for XML or other types of verbose mark up found in other languages, which can impede the comment's very nature as a quick reference.
 
-To mark up a class reference, surround the class name in an open ('''{''') and matching closing ('''}''') brace:
+To mark up a class reference, surround the class name in an open (` { `) and matching closing (` } `) brace:
 
 <e>
--- See {DEBUG_OUTPUT} for more information.
+    -- See {DEBUG_OUTPUT} for more information.
 </e>
 
-To mark up a feature reference, implemented in the same class or parent, surround the feature name in a single back quote (`) and a matching closing single quote ('):
+To mark up a feature reference, implemented in the same class or parent, surround the name with two single back quotes (`` `...` ``):
 
 <e>
--- See `debug_output' for more information.
+    -- See `debug_output` for more information.
 </e>
+
+The earlier convention, which you will still find in much existing code, used a single back  quote for opening and a matching normal quote for closing, as in 
+
+<e>
+    -- See `debug_output' for more information.
+</e>
+
+The new convention, with back quotes both for opening and for closing, is the recommended one.
+
 
 In the case where a reference to a feature is not accessible to the containing class directly, use a combination of the class reference mark up and a feature name, ''sans'' quotation marks:
 
 <e>
--- See {DEBUG_OUTPUT}.debug_output for more information.
+    -- See {DEBUG_OUTPUT}.debug_output for more information.
 </e>
 
 The rules that apply for comments, as described above, can also be utilized in any manifest or verbatim string:
@@ -49,8 +60,8 @@ feature -- Query
   test (a_arg: INTEGER): BOOLEAN
       -- Comments for a feature.
       --
-      -- `a_arg': An integer value.
-      -- `Result': Could be True or False.
+      -- `a_arg`: An integer value.
+      -- `Result`: Could be True or False.
     deferred
     end
 
@@ -99,8 +110,8 @@ Using the code browsing facilities of [[EiffelStudio]] the reader will be presen
 --
 -- Comments for a feature.
 --
--- `a_arg': An integer value.
--- `Result': Could be True or False.
+-- `a_arg`: An integer value.
+-- `Result`: Could be True or False.
 --
 -- Some additional comments.
 </e>
@@ -111,8 +122,8 @@ For clarity it is a good idea to separate the agumented comments from the precur
 -- Comments before the original comments from {BASE}.
 -- Comments for a feature.
 --
--- `a_arg': An integer value.
--- `Result': Could be True or False.
+-- `a_arg`: An integer value.
+-- `Result`: Could be True or False.
 -- Some additional comments.
 </e>
 

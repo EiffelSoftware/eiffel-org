@@ -1,3 +1,5 @@
+[[Property:modification_date|Sat, 12 Jan 2019 18:39:06 GMT]]
+[[Property:publication_date|Sat, 12 Jan 2019 18:34:23 GMT]]
 [[Property:title|Inheritance]]
 [[Property:weight|3]]
 [[Property:uuid|7e4cb7ba-fda6-8eac-3e27-bbb8fafd8673]]
@@ -120,7 +122,7 @@ inherit
             extend,
             force,
             is_inserted
-            redefine
+        redefine
             duplicate,
             linear_representation
         select
@@ -200,7 +202,7 @@ So, in this example the implementation for <code>linear_representation</code>, f
             remove
 </code>
 
-The select part is used only under special circumstances. The case in which select is required involves a situation called "repeated" inheritance. Repeated inheritance occurs when an heir inherits more than once from the same ancestor. Usually this means it has two or more parents who have a common proper ancestor (but it can occur directly). The features from the common ancestor are inherited by each of the parents and passed on to the heir. The rules and effects of repeated inheritance occupy an entire chapter in the official Eiffel programming language reference and will not be reproduced here. Justunderstand at this point that it is sometimes necessary to use <code>select</code> to provide the dynamic binding system with an unambiguous choice of features in the presence of polymorphic attachment. 
+The select part is used only under special circumstances. The case in which select is required involves a situation called "repeated" inheritance. Repeated inheritance occurs when an heir inherits more than once from the same ancestor. Usually this means it has two or more parents who have a common proper ancestor (but it can occur directly). The features from the common ancestor are inherited by each of the parents and passed on to the heir. The rules and effects of repeated inheritance occupy an entire chapter in the official Eiffel programming language reference and will not be reproduced here. Just understand at this point that it is sometimes necessary to use <code>select</code> to provide the dynamic binding system with an unambiguous choice of features in the presence of polymorphic attachment. 
 
 You should note also that repeated inheritance can and does occur often without causing any problem at all. In fact it happens in every case of multiple inheritance, due to the fact that all classes inherit from class ANY and receive its features as a result. The reason it is not a problem is that in the case that any feature makes it from the original common ancestor along multiple paths to the heir with its name and implementation still intact, it will arrive as only one feature heir. This is called sharing and nothing special needs to be done to make it happen.
 

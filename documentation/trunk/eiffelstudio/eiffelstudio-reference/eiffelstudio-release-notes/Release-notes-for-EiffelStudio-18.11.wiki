@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 07 Dec 2018 13:53:20 GMT]]
+[[Property:modification_date|Fri, 04 Jan 2019 15:52:42 GMT]]
 [[Property:publication_date|Mon, 26 Nov 2018 10:45:37 GMT]]
 [[Property:uuid|4452B417-C538-49AF-960F-C3C2473A3AF8]]
 [[Property:title|Release notes for EiffelStudio 18.11]]
@@ -23,14 +23,14 @@
 * Several code-generation and run-time bugs are fixed.
 
 ==Libraries==
-* All container classes are now `ITERABLE` that allows for iterating over them with the `across` loop and simplifies conversions between different types of containers. {{Inline-Warning|Potential incompatibility}} for descendant classes that did not implement`new_cursor`.
-* `duplicate`, `duplicate_all` and related features of container classes are now obsolete to simplify inheritance from these classes in the future. The affected effective classes now have the feature `make_from_iterable`.
+* All container classes are now <e>ITERABLE</e> that allows for iterating over them with the <e>across</e> loop and simplifies conversions between different types of containers. {{Inline-Warning|Potential incompatibility}} for descendant classes that did not implement <e>new_cursor</e>.
+* <e>duplicate</e>, <e>duplicate_all</e> and related features of container classes are now obsolete to simplify inheritance from these classes in the future. The affected effective classes now have the feature <e>make_from_iterable</e>.
 * Figures in Vision can be drawn with anti-aliasing (on Windows).
-* `HASH_TABLE` now takes arguments of type `G` instead of `detachable G` and introduces a feature `definite_item` of type `G` (in addition to the existing feature `item` of type `detachable G`).
+* <e>HASH_TABLE</e> now takes arguments of type <e>G</e> instead of <e>detachable G</e> and introduces a feature <e>definite_item</e> of type <e>G</e> (in addition to the existing feature <e>item</e> of type <e>detachable G</e>).
 * OpenSSL binding uses <code lang="text">OpenSSL 1.1.1a</code> and supports new asymmetric algorithms (RSA).
 * JWT (JSON Web Token) supports custom JWT algorithms. The associated extension library provides RSA signing algorithms.
 * Performance of the JSON parser is improved by 40% on large regular files.
-* The new function `JSON_VALUE.chained_item (a_key): JSON_VALUE` allows for expressions `json @ "person" @ "address" @ "city" ` to get associated JSON value.
+* The new function <e>JSON_VALUE.chained_item (a_key): JSON_VALUE</e> allows for expressions <e>json @ "person" @ "address" @ "city" </e> to get associated JSON value.
 * ''ROC CMS'' implements protection against cross-site scripting attacks.
 * ''EiffelWeb'' adopts nanoseconds timeout precision and supports suffixes <code lang="text">ns</code>, <code lang="text">us</code>, <code lang="text">ms</code>, <code lang="text">s</code> for the standalone connector in the initialization file.
 * ''EiffelWeb'' correctly uses the setting <code lang="text">socket.timeout</code> for ''httpd'' (before the misuse of the setting caused high CPU usage for WebSocket).
@@ -40,7 +40,7 @@
 * Code analyzer does not report false positives for the rules about an unread variable (<code lang="text">CA020</code>) and replacement of a regular loop with an iterative form (<code lang="text">CA024</code>).
 
 ==Examples==
-* `processor_pool` demonstrates how a pool of active SCOOP processors can be used to execute tasks from passive regions.
+* <e>processor_pool</e> demonstrates how a pool of active SCOOP processors can be used to execute tasks from passive regions.
 ----
 
 See [https://dev.eiffel.com/EiffelStudio_18.11_Releases change log] for more details.
