@@ -1,0 +1,27 @@
+[[Property:modification_date|Sat, 19 Jan 2019 15:46:52 GMT]]
+[[Property:publication_date|Thu, 06 Sep 2018 15:10:13 GMT]]
+[[Property:title|Documentation]]
+[[Property:description|Central repository of information about Eiffel and the products and technologies of Eiffel Software]]
+[[Property:weight|10]]
+[[Property:uuid|E79DA6D4-70AD-4542-8E9B-EEFC813EC748]]
+
+This is the Eiffel documentation site, with a wealth of resources on how to unleash the power of Eiffel. It is organized as a set of '''books''':
+
+* [[Eiffel]]: the language and method. The Eiffel book includes:
+** [[Eiffel Overview|Eiffel overview]]: to get a general idea of Eiffel, or refresh it if you haven't followed recent evolution.
+** [[Eiffel Tutorials|Eiffel tutorials]]: step-by-step presentation of Eiffel concepts and constructs, including:
+** [[Language reference|Language reference]]: Precise construct-by-construct descriptions.
+** [[Technical papers about Eiffel|Eiffel technical papers]]: tutorial presentations of specific Eiffel highlights, such as void safety and SCOOP (the concurrency mechanism).
+* [[EiffelStudio]]: the multi-platform development environment. The EiffelStudio book includes:
+** [[Introducing EiffelStudio]].
+** [[Setup and installation]].
+** [[EiffelStudio tutorials]]
+** [[Technical papers about EiffelStudio|Technical papers]] on specific concepts and tools
+* [[Solutions]]. EiffelStudio comes with numerous libraries, packages, and tools. The Solutions book includes:
+** Libraries: data structures, graphics, concurrency (SCOOP), networking...
+** Packages
+** Tools
+* [[Glossary]]: clear definitions of the concepts underlying Eiffel:  feature, routine, attribute, contract...
+* [[FAQ]]: everything you always wanted to ask about Eiffel.
+
+A number of sites outside of eiffel.org contain useful Eiffel resources. You can find a partial list on the [https://www.eiffel.org/contribute "contribute" page].

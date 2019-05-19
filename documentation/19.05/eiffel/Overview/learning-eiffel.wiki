@@ -1,0 +1,58 @@
+[[Property:modification_date|Fri, 22 Mar 2019 14:53:52 GMT]]
+[[Property:publication_date|Fri, 22 Mar 2019 14:53:52 GMT]]
+[[Property:title|Learning Eiffel]]
+[[Property:weight|3]]
+[[Property:uuid|a30e29fe-841d-4634-ded2-88ae1754e5fd]]
+If you are new to Eiffel and are interested in learning the technology, you might consider some of the following resources. Remember that Eiffel, unlike other programming languages, is not just a programming language. Instead, it is a full life-cycle framework for software development. As a consequence, learning Eiffel implies learning the Eiffel Method and the Eiffel programming Language. Additionally, the Eiffel development environment EiffelStudio is specifically designed to support the method and language. So having an understanding of the method and language helps you to appreciate the capabilities and behavior of EiffelStudio.
+
+
+=Online presentations=
+
+Your first stop in getting acquainted with Eiffel might be the collection of [http://eiffel.com/developers/presentations/ online presentations] on the [http://eiffel.com eiffel.com] website. These presentations each usually take less than an hour to view, and give an introduction to Eiffel concepts including Design by Contract, the EiffelStudio development environment, and includes several presentations that describe selected Eiffel features in relation to those of other other development tools.
+
+=Online documentation set=
+
+The [http://docs.eiffel.com docs.eiffel.com] site contains the online documentation for the Eiffel method, tools, and language. Within the documentation set are tutorials to help you learn about the Eiffel programming language and tools.
+
+==The Eiffel Tutorial==
+
+A [[An Eiffel Tutorial (ET)|tutorial]] that covers the Eiffel Method and much of the Eiffel programming language.
+
+==The EiffelStudio Guided Tour==
+
+This [[Introducing EiffelStudio]] page is good way to get a feel for what EiffelStudio can do.
+
+=Academic materials available online=
+
+Many colleges and universities use Eiffel to teach "best practices" in software engineering. Often the materials used in courses are available on the worldwide web. For example, the teaching materials for courses at the Swiss Federal Institute of Technology in Zurich are available at [http://se.inf.ethz.ch/courses/ this web address] (warning: old content).
+
+If you search the web, you can find similar materials at other academic institutions.
+
+<!--
+=Learning maps=
+
+For certain specific areas of learning, the eiffel.com website includes conceptual [http://eiffel.com/developers/learning_maps/ learning maps]. These are graphical maps that link concepts with their relationships. Each concept can have multiple learning resources attached to it. One of the most prevalent types of resources is the "Learnlet", a short online presentation (less than 30 minutes) covering a specific concept. 
+-->
+
+=Books=
+
+To find information about the most up-to-date books about Eiffel, look [[Books about the Eiffel Method and Language|here]].
+
+=Examples and sample code=
+
+Throughout the documentation site, there are many code snippets designed to illustrate certain language features or design principles. For example, the code snippet [[ET: Inheritance#Redefinition|here]] shows the mechanics of redefining an inherited feature. 
+
+In the EiffelStudio distribution you will find a subdirectory "<code>examples</code>" which contains many examples of using Eiffel, primarily with the Eiffel class libraries.
+
+A third source of examples is the [[Examples]] book in the documentation pages. 
+
+=Eiffel Programming Language Syntax=
+
+The documentation site includes a summary of the [[Quick reference to the Eiffel programming language|syntax of Eiffel]] the language. This summary is intended to reflect the state of the current official [[ECMA Standard 367|ISO/ECMA Eiffel standard document]]. 
+
+However, usually you will find that there are differences in the syntax supported by EiffelStudio's compiler and that defined in the current standard. The differences between the standard and the EiffelStudio implementation are summarized in the [[EiffelStudio release notes]] and in a [[Differences between standard ECMA-367 and Eiffel Software implementation|documentation page]] that is specific to that purpose.
+
+
+
+
+

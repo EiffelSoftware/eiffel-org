@@ -1,0 +1,91 @@
+[[Property:title|ET: Once routines and shared objects]]
+[[Property:weight|-5]]
+[[Property:uuid|bc42c52f-c668-6036-9540-55d0f48b05cb]]
+==About ''once'' routines==
+
+The Eiffel's method obsession with extendibility, reusability and maintainability yields, as has been seen, modular and decentralized architectures, where inter-module coupling is limited to the strictly necessary, interfaces are clearly delimited, and all the temptations to introduce obscure dependencies, in particular global variables, have been removed. There is a need, however, to let various components of a system access common objects, without requiring their routines to pass these objects around as arguments (which would only be slightly better than global variables). For example various classes may need to perform output to a common "console window", represented by a shared object. 
+
+Eiffel addresses this need through an original mechanism that also takes care of another important issue, poorly addressed by many design and programming approaches: initialization. The idea is simple: if instead of <code>do</code> the implementation of an effective routine starts with the keyword <code>once</code>, it will only be executed the first time the routine is called during a system execution (or, in a multi-threaded environment, the first time in each thread), regardless of what the caller was. Subsequent calls from the same caller or others will have no effect; if the routine is a function, it will always return the result computed by the first call -- object if an expanded type, reference otherwise. 
+
+In the case of procedures, this provides a convenient initialization mechanism. A delicate problem in the absence of a <code>once</code> mechanism is how to provide the users of a library with a set of routines which they can call in any order, but which all need, to function properly, the guarantee that some context had been properly set up. Asking the library clients to precede the first call with a call to an initialization procedure <code>setup</code> is not only user-unfriendly but silly: in a well-engineered system we will want to check proper set-up in every one of the routines, and report an error if necessary; but then if we were able to detect improper set-up we might as well shut up and set up ourselves (by calling <code>setup</code>). This is not easy, however, since the object on which we call <code>setup</code> must itself be properly initialized, so we are only pushing the problem further. Making <code>setup</code> a <code>once</code> procedure solves it: we can simply include a call 
+<code>
+            setup
+</code>
+
+at the beginning of each affected routine; the first one to come in will perform the needed initializations; subsequent calls will have, as desired, no effect.
+
+Once functions will give us shared objects. A common scheme is
+<code>
+    console: WINDOW
+            -- Shared console window
+        once
+            create Result.make (...)
+        end
+</code>
+
+Whatever client first calls this function will create the appropriate window and return a reference to it. Subsequent calls, from anywhere in the system, will return that same reference. The simplest way to make this function available to a set of classes is to include it in a class <code>SHARED_STRUCTURES</code> which the classes needing a set of related shared objects will simply inherit. 
+
+For the classes using it, <code>console</code>, although a function, looks very much as if it were an attribute -- only one referring to a shared object. 
+
+The "[[ET: Hello World|Hello World]]" system at the beginning of this discussion used an output instruction of the form <code>io</code>. <code>put_string (some_string)</code>. This is another example of the general scheme illustrated by <code>console</code>. Feature <code>io</code>, declared in <code>ANY</code> and hence usable by all classes, is a once function that returns an object of type <code>STANDARD_FILES</code> (another Kernel Library class) providing access to basic input and output features, one of which is procedure <code>put_string</code>. Because basic input and output must all work on the same files, <code>io</code> should clearly be a <code>once</code> function, shared by all classes that need these mechanisms. 
+
+==Adjusting once semantics with "once keys"==
+
+Sometimes it is helpful to adjust the way that once routines work, and that is done by applying '''once keys'''. For example, in multithreaded mode, it is reasonable most often for once routines to be executed once per ''thread'', versus once per ''process''. Therefore, the default <code>once</code> syntax, as shown in the example above, would behave as once per thread in multithreaded mode. 
+
+Sometimes, however, it is useful in multithreaded mode to create an object which can be shared among threads. To do this, once per process is needed. To create effects like this which are outside the default behavior, we can use once "keys". In following example, a once key is used to specify that the once routine is executed only once per process:
+
+<code>
+    shared_object: SOME_TYPE
+            -- An object that can be shared among threads
+            -- without being reinitialized.
+        once ("PROCESS")
+            create Result.make (...)
+        end
+</code>
+
+Other valid once keys are "THREAD" and "OBJECT". Of course, "THREAD" ensures that the once routine executes only the first time it is called during the execution of a particular process thread. "OBJECT" is used when it is desirable to have a once routine executed on a once per object basis. 
+
+
+{| border="2"
+|+ '''How once keys affect once routine execution'''
+! Once key ... !! Routine executed the first time it is called ... 
+|-
+| PROCESS || During process execution 
+|-
+| THREAD || During each process thread execution 
+|-
+| OBJECT || By each instance  
+|}
+
+
+THREAD is the default once key if none is specified (which for single threaded systems will have the same effect as PROCESS).
+
+The concept of once keys is open ended, so additional keys may become supported in the future to allow even finer grained control of once routine behavior.
+
+==Once per object internal implementation warning ==
+
+{{warning|As of version 6.6, once per object is implemented using 2 or 3 implementation attributes (these are used to store whether the once routine has already called or not, the eventual exception if any, and the result value if any).<br/><br/>The implementation attributes are named starting with an underscore '_', and if you use the class <code>INTERNAL</code>, the implementation attributes will be included in the <code>field_count</code>, and available through the <code>INTERNAL</code> features. <br/>However this might change in the future, and the implementation attributes might be hidden, so you should not rely on them for your applications. <br/>One last technical detail is that for now a once per object is transient (i.e the associated implementation attributes are [[ET: The Dynamic Structure: Execution Model#Transient attributes|transient]]).<br/>}}
+
+
+==Once routines and exceptions==
+
+It is possible that during the execution that happens when a once routine is called for the first time, an exception may occur. If this happens, then the '''same exception will be raised on each subsequent''' call to the once routine. 
+
+==Syntax from previous versions==
+
+The syntax shown above is the current standard syntax. However in Eiffel code written for previous versions, you may run across once keys for multithreaded systems which are expressed in a different syntax. Specifically, the older syntax used a feature's <code>note</code> clause to specify a once key, as in the following example.
+
+<code>
+    shared_object: SOME_TYPE
+            -- Obsolete syntax
+            -- An object that can be shared among threads
+            -- without being reinitialized.
+        note
+            once_status: global
+        once 
+            create Result.make (...)
+        end
+</code>
+
+

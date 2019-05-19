@@ -1,0 +1,53 @@
+[[Property:modification_date|Mon, 24 Dec 2018 07:52:18 GMT]]
+[[Property:publication_date|Mon, 24 Dec 2018 07:52:18 GMT]]
+[[Property:title|Code Analyzer: Customization]]
+[[Property:link_title|Customization]]
+[[Property:weight|-12]]
+[[Property:uuid|ed86093e-fed0-04b8-6fd4-b05d5de849fc]]
+= General Preferences =
+
+The ''Preferences'' button in the toolbar opens a dialog containing all preferences for the Code Analyzer. There you can enable and disable all rules of a certain severity, you can choose colors for the results, and there are many preferences that control the behavior of individual rules.
+
+[[Image:CA Preference Dialog|center|640px|Preferences]]
+
+= Rule-specific Preferences =
+
+The rule-specific preferences are located in the ''Rules'' subfolder. Two preferences can be found for every rule: ''Enabled/disabled'' and the ''severity score''. Some rules have additional integer or boolean preferences like thresholds.
+
+[[Image:CA Rule Preferences|center|572px|Rule-specific Preferences]]
+
+= Exporting and Importing Preference Profiles =
+
+Using the buttons in the preferences dialog one can export these preferences to an XML file or import them. This can be used for creating profiles that stretch across multiple machines. Just set the desired preferences on one machine, export them to a file, distribute this file, and import it.
+
+{{note| The Code Analyzer preferences are separate from the general EiffelStudio preferences. Pressing ''Restore Defaults'', ''Import ...'', or ''Export ...'' ''only'' affects preferences for the Code Analyzer.''}}
+
+= Class Options =
+
+There are cases in which you might want to customize the Code Analyzer for ''parts of your code'' only. The Code Analyzer provides a way to set options ''per class''. You can exclude a class from being checked by certain rules. Also you can declare a class to be a ''library'' or a ''non-library'' class. All class-wide options for the Code Analyzer are set in the ''note clause'' (after the <e>note</e> keyword).
+
+== Library and Non-Library Classes ==
+
+If the programmer uses the default values then a rule checks all classes. But a rule can be defined (hard-coded) not to check either ''library'' or ''non-library'' classes. How does the Code Analyzer now know which classes are ''library'' classes and which classes are ''non-library'' classes? This is defined by the user. If, for a certain class, the user does ''not'' define anything then the class will be analyzed in every case. Only if the user declares a class to be a ''library'' class then this class will not be checked by a rule that has disabled checking library classes. The same goes for classes that are declared as ''non-library''.
+
+* To declare a class to be a ''library'' class add <e>ca_library : "true"</e> to the (top or bottom) indexing clause.
+* To declare a class to be a ''non-library'' class add <e>ca_library : "false"</e> to the (top or bottom) indexing clause.
+
+<e>note
+	ca_library: true
+class TEST
+end
+</e>
+
+== Classes Ignored by Rules ==
+
+You can declare a class to be ''ignored'' by certain rules, which is equivalent to saying that some rules shall be ''disabled'' for a class.
+
+To let a class be ignored by certain rules, add the <e>ca_ignoredby</e> tag to the (top or bottom) note clause. Then put all the relevant ''rule IDs'' separated by commas in the content. It may look like this:
+
+<e>note
+	ca_ignoredby : "CA005, CA092"
+class TEST
+end</e>
+
+

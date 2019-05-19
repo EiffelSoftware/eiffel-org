@@ -1,0 +1,63 @@
+[[Property:title|Release notes for EiffelStudio 6.1]]
+[[Property:link_title|6.1]]
+[[Property:weight|-8]]
+[[Property:uuid|29bc2a0b-3327-dbd1-9d64-51484da2c40c]]
+==Graphical environment==
+
+===What's new===
+* New default layout for EiffelStudio tools to highlight the most common used tools whereas other tools are still available at the bottom or via the View menu.
+* New Errors and Warnings tool. It replaces the former Errors tool and Warnings tool and provides a nicer way to show errors and filtering them.
+* Revisited all the dialogs to provide a nicer and consistent look and feel.
+* Multiple errors are reported for each compilation degree.
+
+===Improvements===
+* Use the default OS font for displaying tooltips.
+* C compilation failure will now show up as an error in the new Errors and Warnings tool.
+* Completion list will now show immediately after pressing '.' when the completion list is active.
+* Added ability to submit a problem report within EiffelStudio when it quits unexpectedly.
+
+===Changes===
+* Support for the MinGW C compiler on Windows 32-bit. Borland is officially not supported anymore.
+* Completion list no longer shows obsolete items by default (set via a preference option).
+
+===Bug fixes===
+* Fixed incorrect results when using the profiler with a finalized system.
+* More bug fixes can be seen at [http://dev.eiffel.com/EiffelStudio_6.1_Releases the EiffelStudio open source site] .
+
+==Compiler==
+* Click [[Major changes between ISE Eiffel 6.0 and ISE Eiffel 6.1|here]]  for the compiler release notes.
+
+==Debugger==
+===Graphical environment===
+* Added debuggee object storage. This allow to store and retrieve debuggee's object.
+* Added basic execution replay mechanism. This allows to record the execution, and replay the recording in EiffelStudio and see/browse the recorded values.
+* Rename "debugging" into "execution" in EiffelStudio's message and title.
+* Better dialog to change the layout of the Objects tool grid. It is possible to easily change the order of 'Current, arguments, locals, ...'.
+
+===Debugger engine===
+* Added support for creation of SPECIAL instances.
+* Added support for creation of TYPE instances. (i.e: {FOO} will return a instance of TYPE [FOO])
+
+==EiffelBuild==
+* Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.
+
+==Libraries==
+
+===EiffelBase===
+* <eiffel>BINARY_SEARCH_TREE</eiffel>: Added <eiffel>tree_item</eiffel> which matches the item being searched.
+* <eiffel>LINEAR</eiffel>: Added <eiffel>item_for_iteration</eiffel> as a synonym of <eiffel>item</eiffel>.
+* <eiffel>STRING_8</eiffel> and <eiffel>STRING_32</eiffel>: 
+** Improved speed of the <eiffel>to_xxx</eiffel> routines.
+** Added <eiffel>starts_with</eiffel> and <eiffel>ends_with</eiffel>.
+
+* <eiffel>GC_INFO</eiffel>: Fixed non working computation of CPU time usage on Windows and added two new queries (<eiffel>cpu_total_time</eiffel> and <eiffel>sys_total_time</eiffel>) to find out the total CPU execution time of the program at the last GC cycle.
+* <eiffel>MEMORY</eiffel>: Added <eiffel>execute_without_collection</eiffel> to execute a procedure with no GC.
+
+===EiffelVision2===
+* [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
+
+[[EiffelStudio release notes|Click here to check out what was new in other versions]]  
+
+
+
+

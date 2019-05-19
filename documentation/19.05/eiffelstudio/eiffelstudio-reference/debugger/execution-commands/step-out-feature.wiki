@@ -1,0 +1,13 @@
+[[Property:title|Step out of a feature]]
+[[Property:weight|-8]]
+[[Property:uuid|4d3b068d-cbeb-be94-94c9-f73eb12b6c0e]]
+If no application was already running, this command launches an application compiled in Work Bench mode and stops at its first line.
+
+If an application was stopped, it attempts to exit the feature where the application is stopped.
+
+It is accessible through the '''project''' toolbar (  [[Image:debug-step-out-icon]]  ) or through the '''debug''' menu. 
+
+{{seealso| [[Execution commands]], [[Generating executables|Compiling in Workbench mode]]  }}
+
+
+
