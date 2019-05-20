@@ -1,20 +1,23 @@
-[[Property:modification_date|Mon, 20 May 2019 09:36:30 GMT]]
+[[Property:modification_date|Mon, 20 May 2019 10:23:35 GMT]]
 [[Property:publication_date|Mon, 20 May 2019 09:36:03 GMT]]
 [[Property:uuid|D93ADD85-1053-419B-87DA-6079B891BE47]]
 [[Property:weight|-2]]
 [[Property:title|Release notes for EiffelStudio 19.05]]
 [[Property:link_title|19.05]]
 ==Graphical environment==
-* 
+* You can now easily add unicode symbol (mostly for mathematical operators) using the feature completion dialog. Either type the first 2 letters of the wanted operator, or use `Ctrl+space` to switch to the corresponding panel. (See $ISE_EIFFEL/eifinit/unicode_symbols.cfg ).
+* The IDE has now a basic support for HiDPI resolution.
 
 ==Compiler==
 * 
 
 ==Libraries==
-* 
+* A few improvements when dealing with file names, and temporary files. The class `FILE_NAME` is now marked as obsolete. It is recommanded to use class `PATH` instead to build file name (support unicode). And for temporary files, use `make_open_temporary` and `make_open_temporary_with_prefix` from class `FILE`. A new function `null_path` was also added to`FILE` to ease portability among platforms.
+* The `URI`class supports now IDNA (Internationalized Domain Names in Applications).
 
 ==Tools==
 * 
+
 ==Examples==
 
 ----
