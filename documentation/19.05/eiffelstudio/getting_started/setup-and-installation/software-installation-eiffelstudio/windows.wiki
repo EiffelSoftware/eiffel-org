@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 02 Jul 2019 10:53:22 GMT]]
+[[Property:modification_date|Tue, 02 Jul 2019 11:08:53 GMT]]
 [[Property:publication_date|Tue, 02 Jul 2019 10:53:22 GMT]]
 [[Property:title|Windows]]
 [[Property:weight|9]]
@@ -54,14 +54,14 @@ This probably means that EiffelStudio was not properly installed using the '''se
 == Installing EiffelStudio from the .7z archive ==
 Installing the GPL version using the 7z archive is an alternative, even if the recommended solution remains using the MSI installer.
 The procedure is quite similar to Linux, see [[Linux#Setting_up_EiffelStudio]]:
-- Extract the .7z archive in a folder
-- set the `ISE_EIFFEL` variable to the location of the extracted Eiffel_X.Y folder
-- set the `ISE_PLATFORM` variable to `win64` or `windows`
-- set the `ISE_C_COMPILER` variable to `msc_vc140` , or `msc` if you use VisualStudio 2012 or before
-- And add to your PATH variable the values:
-    - `%ISE_EIFFEL%\studio\spec\%ISE_PLATFORM%\bin`
-    - `%ISE_EIFFEL%\tools\spec\%ISE_PLATFORM%\bin`
-    - `%ISE_EIFFEL%\library\gobo\spec\%ISE_PLATFORM%\bin`
+* Extract the .7z archive in a folder
+* set the `ISE_EIFFEL` variable to the location of the extracted Eiffel_X.Y folder
+* set the `ISE_PLATFORM` variable to `win64` or `windows`
+* set the `ISE_C_COMPILER` variable to `msc_vc140` , or `msc` if you use VisualStudio 2012 or before
+* And add to your PATH variable the values:
+** `%ISE_EIFFEL%\studio\spec\%ISE_PLATFORM%\bin`
+** `%ISE_EIFFEL%\tools\spec\%ISE_PLATFORM%\bin`
+** `%ISE_EIFFEL%\library\gobo\spec\%ISE_PLATFORM%\bin`
 ```text
 set PATH=%ISE_EIFFEL%\studio\spec\%ISE_PLATFORM%\bin;%ISE_EIFFEL%\tools\spec\%ISE_PLATFORM%\bin;%ISE_EIFFEL%\library\gobo\spec\%ISE_PLATFORM%\bin;%PATH%
 ```
