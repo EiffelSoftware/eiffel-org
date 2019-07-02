@@ -1,3 +1,5 @@
+[[Property:modification_date|Tue, 02 Jul 2019 10:53:22 GMT]]
+[[Property:publication_date|Tue, 02 Jul 2019 10:53:22 GMT]]
 [[Property:title|Windows]]
 [[Property:weight|9]]
 [[Property:uuid|d177e0bc-63e6-63b3-7fdb-5e7136945e21]]
@@ -48,6 +50,29 @@ You may receive the following dialog when launching EiffelStudio:
 <center> [[Image:56--windows-registration-error|Registration incomplete]] </center>
 
 This probably means that EiffelStudio was not properly installed using the '''setup.exe''' program. Uninstall EiffelStudio and rerun the installation procedure by making sure to launch '''setup.exe''' and enter your '''Username''' and '''CD Key'''.
+
+== Installing EiffelStudio from the .7z archive ==
+Installing the GPL version using the 7z archive is an alternative, even if the recommended solution remains using the MSI installer.
+The procedure is quite similar to Linux, see [[Linux#Setting_up_EiffelStudio]]:
+- Extract the .7z archive in a folder
+- set the `ISE_EIFFEL` variable to the location of the extracted Eiffel_X.Y folder
+- set the `ISE_PLATFORM` variable to `win64` or `windows`
+- set the `ISE_C_COMPILER` variable to `msc_vc140` , or `msc` if you use VisualStudio 2012 or before
+- And add to your PATH variable the values:
+    - `%ISE_EIFFEL%\studio\spec\%ISE_PLATFORM%\bin`
+    - `%ISE_EIFFEL%\tools\spec\%ISE_PLATFORM%\bin`
+    - `%ISE_EIFFEL%\library\gobo\spec\%ISE_PLATFORM%\bin`
+```text
+set PATH=%ISE_EIFFEL%\studio\spec\%ISE_PLATFORM%\bin;%ISE_EIFFEL%\tools\spec\%ISE_PLATFORM%\bin;%ISE_EIFFEL%\library\gobo\spec\%ISE_PLATFORM%\bin;%PATH%
+```
+
+The environment variables can be set for your system, or for each DOS console, a simple way is to create a file "setup.bat", within the Eiffel_X.Y folder, with the following content:
+```text
+set ISE_EIFFEL=%~dp0
+set ISE_PLATFORM=win64
+set ISE_C_COMPILER=msc_vc140
+set PATH=%ISE_EIFFEL%\studio\spec\%ISE_PLATFORM%\bin;%ISE_EIFFEL%\tools\spec\%ISE_PLATFORM%\bin;%ISE_EIFFEL%\library\gobo\spec\%ISE_PLATFORM%\bin;%PATH%
+```
 
 ==.NET Support==
 
