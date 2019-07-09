@@ -1,3 +1,5 @@
+[[Property:modification_date|Tue, 09 Jul 2019 08:25:22 GMT]]
+[[Property:publication_date|Tue, 09 Jul 2019 08:25:22 GMT]]
 [[Property:title|Differences between ETL 2nd printing and  Eiffel Software  implementation]]
 [[Property:link_title|ETL 2nd printing vs implementation]]
 [[Property:weight|-9]]
@@ -54,7 +56,7 @@
 local
 	a: STRING
 do
-	!! a.make (10)
+	‼ a.make (10)
 	f (a)
 end
 </code>
