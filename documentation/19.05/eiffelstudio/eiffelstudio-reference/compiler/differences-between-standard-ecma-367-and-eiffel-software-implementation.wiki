@@ -1,3 +1,5 @@
+[[Property:modification_date|Tue, 09 Jul 2019 09:46:53 GMT]]
+[[Property:publication_date|Tue, 09 Jul 2019 09:46:53 GMT]]
 [[Property:title|Differences between standard ECMA-367 and Eiffel Software implementation]]
 [[Property:link_title|ECMA-367 vs implementation]]
 [[Property:weight|-10]]
@@ -116,10 +118,10 @@ for free operator names
 | Yes
 |- 
 | Bang-bang syntax
-|  <code>!! a</code><br/>
-<code>!! a.make</code><br/>
-<code>!B! a</code><br/>
-<code>!B! a.make</code> 
+|  &#33;&#33; a<br/>
+&#33;&#33; a.make<br/>
+&#33;B&#33; a<br/>
+&#33;B&#33; a.make
 | Yes
 | No
 | Yes, marked as obsolete
