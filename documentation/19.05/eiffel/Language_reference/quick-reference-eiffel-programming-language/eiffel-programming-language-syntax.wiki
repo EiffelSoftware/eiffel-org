@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 29 Jul 2019 06:08:05 GMT]]
+[[Property:modification_date|Mon, 29 Jul 2019 06:28:13 GMT]]
 [[Property:publication_date|Mon, 29 Apr 2019 14:08:51 GMT]]
 [[Property:title|Eiffel programming language syntax]]
 [[Property:link_title|Syntax]]
@@ -709,6 +709,7 @@ Close_bracket ::= "]" | "}"
 
 Line_sequence ::=  {[[#Simple strings|Simple_string]] [[#New line|New_line]] ...}+
 
+{{Note|Exactly the same [[#Simple strings|Simple_string]] (including embedded white space, if any) should be used in ''Verbatim_string_opener'' and ''Verbatim_string_closer'' of the same verbatim string.}}
 
 ===External routines ===
 External ::= <code>external</code> External_language <nowiki>[External_name]</nowiki>
