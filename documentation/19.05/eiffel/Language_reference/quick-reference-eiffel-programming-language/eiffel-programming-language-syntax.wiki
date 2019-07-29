@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 30 Apr 2019 07:27:55 GMT]]
+[[Property:modification_date|Mon, 29 Jul 2019 06:08:05 GMT]]
 [[Property:publication_date|Mon, 29 Apr 2019 14:08:51 GMT]]
 [[Property:title|Eiffel programming language syntax]]
 [[Property:link_title|Syntax]]
@@ -118,6 +118,9 @@ A sequence of characters consisting of the following, in order:
 
 Line wrapping parts are used as separators between one [[#Simple strings|Simple_string]] and the next in a [[#Manifest strings|Basic_manifest_string]] so that the string can be split across lines.
 
+===New line===
+
+A specimen of New_line is a New Line. 
 
 
 ==Eiffel BNF-E Syntax==
@@ -702,15 +705,9 @@ Verbatim_string_closer ::= Close_bracket <nowiki>[</nowiki>[[#Simple strings|Sim
 
 Open_bracket ::= <nowiki>"[" | "{"</nowiki> 
 
-Close_bracket ::= "]" | "}"Verbatim_string ::= Verbatim_string_opener Line_sequence Verbatim_string_closer 
+Close_bracket ::= "]" | "}"
 
-Verbatim_string_opener ::= ' " ' <nowiki>[</nowiki>[[#Simple strings|Simple_string]]<nowiki>]</nowiki> Open_bracket 
-
-Verbatim_string_closer ::= Close_bracket <nowiki>[</nowiki>[[#Simple strings|Simple_string]]<nowiki>]</nowiki> ' " ' 
-
-Open_bracket ::= <nowiki>"[" | "{" </nowiki>
-
-Close_bracket ::= <nowiki>"]" | "}" </nowiki>
+Line_sequence ::=  {[[#Simple strings|Simple_string]] [[#New line|New_line]] ...}+
 
 
 ===External routines ===
