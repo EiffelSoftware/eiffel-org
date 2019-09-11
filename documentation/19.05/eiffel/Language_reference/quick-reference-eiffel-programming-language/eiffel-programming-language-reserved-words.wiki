@@ -1,3 +1,5 @@
+[[Property:modification_date|Wed, 11 Sep 2019 14:10:27 GMT]]
+[[Property:publication_date|Wed, 11 Sep 2019 14:10:27 GMT]]
 [[Property:title|Eiffel programming language reserved words]]
 [[Property:link_title|Reserved words]]
 [[Property:weight|1]]
@@ -152,7 +154,7 @@ Introduces a sequence of instructions as a routine body, as shown in the [[ET: H
 
 ===else===
 
-Used in [[ET: Other Mechanisms#Conditional|conditional]] and [[ET: Other Mechanisms#Multi-branch|multi-branch]] instructions to introduce a sequence of instructions to be executed in the case that no specified conditions are met.
+Used in [[ET: Other Mechanisms#Conditional|conditional]] and [[ET-_Instructions#Multi-branch|multi-branch]] instructions to introduce a sequence of instructions to be executed in the case that no specified conditions are met.
 
 :[[Eiffel programming language syntax#Conditionals|Conditional syntax.]]
 
@@ -277,7 +279,7 @@ Used in an [[ET: Inheritance|inherit]] clause.
 
 ===inspect===
 
-Introduces a [[ET: Other Mechanisms#Multi-branch|multi-branch]] instruction.
+Introduces a [[ET-_Instructions#Multi-branch|multi-branch]] instruction.
 
 :[[Eiffel programming language syntax#Multi-branch instructions|Syntax.]]
 
@@ -437,7 +439,7 @@ Reserved for future use.
 
 ===then===
 
-Used in [[ET: Other Mechanisms#Conditional|conditional]] and [[ET: Other Mechanisms#Multi-branch|multi-branch]] instructions to introduce a sequence of instructions to be executed in the case that a condition is met.
+Used in [[ET: Other Mechanisms#Conditional|conditional]] and [[ET-_Instructions#Multi-branch|multi-branch]] instructions to introduce a sequence of instructions to be executed in the case that a condition is met.
 
 :[[Eiffel programming language syntax#Conditionals|Conditional syntax.]]
 
@@ -494,7 +496,7 @@ A predefined entity name representing a [[ET: The Dynamic Structure: Execution M
 
 ===when===
 
-Used in a [[ET: Other Mechanisms#Multi-branch|multi-branch instruction]] to introduce cases.
+Used in a [[ET-_Instructions#Multi-branch|multi-branch instruction]] to introduce cases.
 
 :[[Eiffel programming language syntax#Multi-branch instructions|Syntax.]]
 
