@@ -1,10 +1,26 @@
-[[Property:modification_date|Wed, 11 Sep 2019 02:35:03 GMT]]
+[[Property:modification_date|Thu, 12 Sep 2019 00:39:05 GMT]]
 [[Property:publication_date|Wed, 11 Sep 2019 01:44:42 GMT]]
 [[Property:uuid|8A382DA4-C45F-4CBB-A2B6-44447C63EFB0]]
 [[Property:weight|0]]
 [[Property:title|Reusable Software: The Base Object-Oriented Component Libraries]]
 [[Property:link_title|OO Component Libraries]]
+{{UnderConstruction|PLACE HOLDER FOR WORK IN PROGRESS}}
 
-&copy; 1994 by Bertrand Meyer
+[[File:OOComponentLibrariesSmall.jpg|OO Component Libraries]]
 
-{{warning|PLACHOLDER FOR WORK IN PROGRESS}}
+:by '''Bertrand Meyer'''
+
+:Prentice Hall, 1994 
+
+:ISBN-10: 0132454998
+:ISBN-13: 978-0132454995
+
+First reviews the principles of library construction and the object-oriented techniques that make it possible to build high-quality libraries - e.g., finding the right objects and classes, choosing the proper names, using inheritance properly, determining the ideal class size, etc. 
+
+Then provides detailed usage descriptions of hundreds of reusable components, offering thousands of directly usable operations. The components, written in Eiffel, cover such areas as lists, chains, queues, stacks, trees of various kinds, sorted structures, lexical analysis, parsing, and many other fundamental data structures and algorithms. 
+
+For both the users of reusable software libraries and for developers who are interested in building their own libraries of reusable software.
+
+{{Info|The last half of the book is taken up by a reprint of the contract form of the libraries as per printing time therefore not current.
+
+use the documentation here ... }}
