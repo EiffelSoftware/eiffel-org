@@ -1,10 +1,9 @@
-[[Property:modification_date|Wed, 18 Sep 2019 08:01:37 GMT]]
+[[Property:modification_date|Wed, 18 Sep 2019 13:10:45 GMT]]
 [[Property:publication_date|Wed, 11 Sep 2019 01:44:42 GMT]]
 [[Property:uuid|8A382DA4-C45F-4CBB-A2B6-44447C63EFB0]]
 [[Property:weight|5]]
 [[Property:title|Reusable Software: The Base Object-Oriented Component Libraries]]
 [[Property:link_title|OO Component Libraries]]
-{{UnderConstruction|PLACE HOLDER FOR WORK IN PROGRESS}}
 
 :[[Image:/files/uploads/OOComponentLibrariesSmall.jpg|OO Component Libraries]] 
 
@@ -24,7 +23,7 @@ Then provides detailed usage descriptions of hundreds of reusable components, of
 
 For both the users of reusable software libraries and for developers who are interested in building their own libraries of reusable software.
 
-Content:
+''Content:''
 
 1. Introduction to the Base libraries -- 2. Building libraries: techniques -- 3. Principles of library design -- 4. Abstract container structures: the taxonomy -- 5. Mathematical properties -- 6. Linear structures: sequences, chains, lists, circular chains -- 7. Dispenser structures: stacks, queues, priority lists -- 8. Trees -- 9. Sets and hash tables -- 10. Iteration -- 11. Lexical analysis: the Lex library -- 12. Parsing: The Parse Library -- 13. The Kernel Library -- 14. Classes for abstract container structures -- 15. Classes for mathematical properties -- 16. Classes for linear structures -- 17. Dispenser classes -- 18. Tree classes -- 19. Set and hash table classes -- 20. Iteration classes -- 21. Lexical analysis classes -- 22. Parsing classes -- 23. Kernel library classes
 
