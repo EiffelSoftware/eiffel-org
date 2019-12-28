@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 22 Mar 2019 14:53:52 GMT]]
+[[Property:modification_date|Thu, 19 Sep 2019 23:24:40 GMT]]
 [[Property:publication_date|Fri, 22 Mar 2019 14:53:52 GMT]]
 [[Property:title|Learning Eiffel]]
 [[Property:weight|3]]
@@ -12,7 +12,7 @@ Your first stop in getting acquainted with Eiffel might be the collection of [ht
 
 =Online documentation set=
 
-The [http://docs.eiffel.com docs.eiffel.com] site contains the online documentation for the Eiffel method, tools, and language. Within the documentation set are tutorials to help you learn about the Eiffel programming language and tools.
+The [http://eiffel.org/documentation|eiffel.org/documentation] section contains the online documentation for the Eiffel method, tools, and language. Within the documentation set are tutorials to help you learn about the Eiffel programming language and tools.
 
 ==The Eiffel Tutorial==
 
@@ -52,6 +52,7 @@ The documentation site includes a summary of the [[Quick reference to the Eiffel
 
 However, usually you will find that there are differences in the syntax supported by EiffelStudio's compiler and that defined in the current standard. The differences between the standard and the EiffelStudio implementation are summarized in the [[EiffelStudio release notes]] and in a [[Differences between standard ECMA-367 and Eiffel Software implementation|documentation page]] that is specific to that purpose.
 
+Another [[Differences_between_ETL_2nd_printing_and__Eiffel_Software__implementation|a documentation page]] summarizes changes to the pre-ECMA definition of Eiffel as described  in  [[Eiffel-_The_Language|ETL-2 "Eiffel: The Language"]].
 
 
 

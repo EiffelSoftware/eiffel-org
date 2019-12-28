@@ -1,3 +1,5 @@
+[[Property:modification_date|Wed, 11 Sep 2019 02:15:25 GMT]]
+[[Property:publication_date|Wed, 11 Sep 2019 02:15:25 GMT]]
 [[Property:title|Starting To Browse]]
 [[Property:weight|-10]]
 [[Property:uuid|cb6c2e52-d238-9b55-0b78-ab3af9568550]]
@@ -64,7 +66,7 @@ The most extensive subcluster of the EiffelBase library is <code>structures</cod
 
 {{note|If you initially don't see as many details as shown on this figure, you may get them by resizing the window, moving the vertical pane boundary, and/or scrolling.}}
 
-The EiffelBase Data Structure library and its subclusters are described in the book [http://www.eiffel.com/services/training/books.html Reusable Software]. Let's go to one of the most frequently used subclusters, <code>list</code>, containing implementations of list structures. Expand the subcluster <code>list</code>. This time, since list is a terminal cluster, it's not subclusters you'll see, but '''classes''', identified by small ellipses ([[Image:class-normal-icon]]): 
+The EiffelBase Data Structure library and its subclusters are described in the book [[Reusable_Software-_The_Base_Object-Oriented_Component_Libraries|"Reusable Software: The Base Object-Oriented Component Libraries" ]] . Let's go to one of the most frequently used subclusters, <code>list</code>, containing implementations of list structures. Expand the subcluster <code>list</code>. This time, since list is a terminal cluster, it's not subclusters you'll see, but '''classes''', identified by small ellipses ([[Image:class-normal-icon]]): 
 
 [[Image:es gt groups tool 03]]
 

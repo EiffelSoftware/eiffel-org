@@ -1,3 +1,5 @@
+[[Property:modification_date|Mon, 29 Jul 2019 05:54:09 GMT]]
+[[Property:publication_date|Tue, 09 Jul 2019 08:25:22 GMT]]
 [[Property:title|Differences between ETL 2nd printing and  Eiffel Software  implementation]]
 [[Property:link_title|ETL 2nd printing vs implementation]]
 [[Property:weight|-9]]
@@ -7,68 +9,46 @@
 "ETL 2nd printing" refers to the book "Eiffel: The Language" (2nd printing), published by Prentice Hall.
 
 ==Added classes==
-* New basic classes have been added: <eiffel>INTEGER_8</eiffel>, <eiffel>INTEGER_16</eiffel>, <eiffel>INTEGER_64</eiffel> and <eiffel>WIDE_CHARACTER</eiffel>.{{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]]  }}
-
-==Added classes==
-* New basic classes have been added: <eiffel>INTEGER_8</eiffel>, <eiffel>INTEGER_16</eiffel>, <eiffel>INTEGER_64</eiffel> and <eiffel>WIDE_CHARACTER</eiffel>. <eiffel>INTEGER</eiffel> is now specified as having a 32 bits representation
-* New <eiffel>TUPLE</eiffel>, <eiffel>ROUTINE</eiffel>, <eiffel>PROCEDURE</eiffel> and <eiffel>FUNCTION</eiffel> classes required by the agent mechanism.
+* New basic classes have been added: <eiffel>INTEGER_8</eiffel>, <eiffel>INTEGER_16</eiffel>, <eiffel>INTEGER_64</eiffel>, <eiffel>CHARACTER_32</eiffel>. <eiffel>INTEGER</eiffel>, <eiffel>CHARACTER</eiffel>, <eiffel>REAL</eiffel>, <eiffel>DOUBLE</eiffel> are aliases to <eiffel>INTEGER_32</eiffel>, <eiffel>CHARACTER_8</eiffel>, <eiffel>REAL_32</eiffel>, <eiffel>REAL_64</eiffel>. {{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]]}}
+* New <eiffel>TUPLE</eiffel>, <eiffel>ROUTINE</eiffel>, <eiffel>PROCEDURE</eiffel>, <eiffel>FUNCTION</eiffel>,  <eiffel>PREDICATE</eiffel> classes required by the agent mechanism.
 
 ==Added keywords==
-* <code>Precursor</code>
-* <code>reference</code>: new keyword to specify that a type is used as a reference type.
-*  <code> agent</code>: new keyword used by the agent mechanism.
-* <code>create</code>: Instead of using the famous exclamation mark to create an instance of a class, you can use the keyword <code>create</code>. Below you will find a correspondence table between the old and the new syntaxes. The old syntax is still valid, but at some points Eiffel Software will remove it from its implementation: 
-{| 
-|- 
-| Old syntax
-| New syntax
-|- 
-| !! a
-| <code>create</code> a
-|- 
-| !! a.make
-| <code>create</code> a.make
-|- 
-| !<eiffel>B</eiffel>! a
-| <code>create</code> {<eiffel>B</eiffel>} a
-|- 
-| !<eiffel>B</eiffel>! a.make
-| <code>create</code> {<eiffel>B</eiffel>} a.make
-|}
-*  <code>note</code>: replacement for the keyword <code>indexing</code>.
-*  <code>attribute</code>: new keyword to declare attribute body.
-*  <code>attached</code>: new keyword to specify attached types and object tests.
-*  <code>detachable</code>: new keyword to specify detachable types.
+* <eiffel>Precursor</eiffel>
+* <eiffel>reference</eiffel> (now obsolete): a keyword to specify that a type is used as a reference type.
+* <eiffel>agent</eiffel>: a keyword used by the agent mechanism.
+* <eiffel>create</eiffel>: Instead of using the famous exclamation mark to create an instance of a class, you can use the keyword <eiffel>create</eiffel>. Below you will find a correspondence table between the old and the new syntaxes. The old syntax is still valid, but at some points Eiffel Software will remove it from its implementation: 
 
+** Old syntax `!! a` => new syntax `create a`
+** Old syntax `!! a.make` => new syntax `create a.make`
+** Old syntax `!B! a` => new syntax `create {B} a`
+** Old syntax `!B! a.make` => new syntax `create {B} a.make`
+
+*  <eiffel>note</eiffel>: replacement for the keyword <code>indexing</code>.
+*  <eiffel>attribute</eiffel>: a keyword to declare attribute body.
+*  <eiffel>attached</eiffel>: a keyword to specify attached types and object tests.
+*  <eiffel>detachable</eiffel>: a keyword to specify detachable types.
 
 ==Added semantics==
 *  [[ET: Genericity and Arrays|Generic creation]]  
 * Expression creation: you can now create an object within an expression. For example, you want to create an object and pass it as an argument to a function. Whereas you had to create a local variable, create the object and pass it to the function, you now simply need to pass to the function the creation expression. Here is a small example: 
-{| 
-|- 
-| Old method
-| New method
-|- 
-| 
+** Old method:
 <code>
 local
 	a: STRING
 do
-	!! a.make (10)
+	‼ a.make (10)
 	f (a)
 end
 </code>
-
-| 
+** 'New method:
 <code>
 do
 	f (create {STRING}.make (10))
 end
 </code>
 
-|}
 This is also very useful since it can improve the power of assertions. 
-* Mutually recursive constraints: one can now write class A [H, G->H] or class B [H -> C, G -> ARRAY [H]]. As a result, the declaration A [D, E] is valid only if E is a descendant of D. Similarly, the declaration B [E, ARRAY [D]] is not valid, if E is a descendant of D.
+* Mutually recursive constraints: one can now write class `A [H, G->H]` or class `B [H -> C, G -> ARRAY [H]]`. As a result, the declaration `A [D, E]` is valid only if `E` is a descendant of `D`. Similarly, the declaration `B [E, ARRAY [D]]` is not valid, if `E` is a descendant of `D`.
 *  [[ET: Other Mechanisms|Tuples]]  
 *  [[ET: Agents|Agents]]  
 * Feature access: <br/>
@@ -83,13 +63,11 @@ end
 The previous call is valid, if and only if: 
 **  <eiffel>value</eiffel> is a feature representing a constant of a basic type (<eiffel>INTEGER</eiffel>, <eiffel>DOUBLE</eiffel> or <eiffel>CHARACTER</eiffel>)
 **  <eiffel>value</eiffel> is a C/C++/DLL external feature 
-**  <eiffel>value</eiffel> is an IL static external feature 
+**  <eiffel>value</eiffel> is an IL static external feature
 
+==Obsolete constructs==
+* Explicit values should be used to specify constant attributes instead of keyword `unique`.
 
 ==Added external support==
 
 Look at the page for [[C externals|C]]  and [[C++ Externals|C++]]  with the introduction of `struct` and C++ external features encapsulation.
-
-
-
-

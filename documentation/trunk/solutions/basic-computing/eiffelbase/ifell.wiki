@@ -1,4 +1,7 @@
-[[Property:title|IFELL]]
+[[Property:link_title|Free Eiffel Library License]]
+[[Property:modification_date|Wed, 18 Sep 2019 08:13:12 GMT]]
+[[Property:publication_date|Wed, 11 Sep 2019 01:54:10 GMT]]
+[[Property:title|Eiffel Software Free Eiffel Library License (IFELL)]]
 [[Property:weight|4]]
 [[Property:uuid|34079f13-741d-a937-e492-9ccfe235efeb]]
 This license describes the terms applicable to the open-source EiffelBase libraries. For the EiffelStudio and other libraries license terms, please refer to the Eiffel Software end-user license.
@@ -11,7 +14,7 @@ We hope that others will be inspired by this example to release their own reusab
 ==Preamble==
 (This Preamble is not part of the license.) 
 
-EiffelBase is one of the principal contributions of Eiffel: a library of fundamental structures and algorithms covering the basics of computing, and resulting from a "Linnaean" effort at a general-purpose taxonomy of computing structures. We believe that EiffelBase is one of the most carefully designed and extensively used libraries in the object-oriented industry. The library and its design principles are described in detail in the book [http://www.eiffel.com/services/training/books.html  ''Reusable Software: The Base Object-Oriented Component Libraries'' ] . 
+EiffelBase is one of the principal contributions of Eiffel: a library of fundamental structures and algorithms covering the basics of computing, and resulting from a "Linnaean" effort at a general-purpose taxonomy of computing structures. We believe that EiffelBase is one of the most carefully designed and extensively used libraries in the object-oriented industry. The library and its design principles are described in detail in the book [[Reusable_Software-_The_Base_Object-Oriented_Component_Libraries|"Reusable Software: The Base Object-Oriented Component Libraries" ]] . 
 
 EiffelBase is at the center of Eiffel Software's Eiffel and has been among the major factors attracting users to the technology. In spite of this competitive advantage, Eiffel Software officially announced in June of 1998 that it would release the library to the public in source form, under the terms of the license below. There are two main reasons for this initiative:
 * As the software industry seems poised to adopt the idea of reusable components, we feel that EiffelBase provides an ideal basis and are happy to contribute it to the community.
@@ -65,7 +68,7 @@ This is the official license text.
 '''4.'''If you produce new classes based on the Library or extending the Library, you are encouraged, but not required, to make them available in the same way. 
 
 '''5.''' If you use the Library (2.1) in source or object form for producing software that you distribute, you are encouraged, but not required, to include the following mention (or its translation into the language of the rest of the distribution, if other than English) in the documentation of your software, including textual documentation as well as online documentation such as "About..." entries: 
-*  ''This product includes EiffelBase software from Interactive Software Engineering, used according to the terms of the Eiffel Software Free Eiffel Library License (IFELL). ''See [http://eiffel.com/ http://eiffel.com]  and, for the license terms, [http://eiffel.com/products/base/license.html http://eiffel.com/products/base/license.html] . 
+*  ''This product includes EiffelBase software from Interactive Software Engineering, used according to the terms of the Eiffel Software Free Eiffel Library License (IFELL). ''See [https://eiffel.com/ https://eiffel.com]  and, for the license terms, [https://www.eiffel.com/eiffelstudio/licensing/ https://www.eiffel.com/eiffelstudio/licensing/] . 
 
 
 '''6.''' If you distribute the source code of part or all of the Library (2.2) you must: 
@@ -73,7 +76,7 @@ This is the official license text.
 * Retain, in the distributed version, the entire copyright notice of these classes.
 * If you need to make any modification to the classes, mark those modifications clearly in the class texts.
 *  <span id="valid_eiffel"></span> Ensure that the text remains valid Eiffel. Note that this license does not authorize you to distribute versions of the Library restated in other programming, analysis or design languages, except if mechanically translated from the source form by an Eiffel compiler, in which case they fall under "object form". For any non-mechanical adaptation to other languages you must obtain authorization from Eiffel Software. "Valid Eiffel" includes the language described in the latest edition or printing of the book ''[[Eiffel: The Language]]'' (Prentice Hall), plus any changes or extensions that have been approved by the Nonprofit International Consortium for Eiffel (NICE) or have been accepted for discussion by the Language Committee of NICE, provided they are accepted by the reference implementation. 
-*  <span id="obsolete_version"></span> If Eiffel Software releases a new version of the Library, you must, no later than six months after the release of that version, either: (A) update your distribution to the new version; (B) add the following notice to all files in your distribution:" ''This is an obsolete version of EiffelBase. The latest version is available from http://eiffel.com''"; or (C) cease distributing your version. 
+*  <span id="obsolete_version"></span> If Eiffel Software releases a new version of the Library, you must, no later than six months after the release of that version, either: (A) update your distribution to the new version; (B) add the following notice to all files in your distribution:" ''This is an obsolete version of EiffelBase. The latest version is available from https://eiffel.com''"; or (C) cease distributing your version. 
 
 
 You may not charge any fee for the distribution of the Library (source or binary), although you may charge for software that includes the Library in whole or in part as per the other provisions of this Agreement.

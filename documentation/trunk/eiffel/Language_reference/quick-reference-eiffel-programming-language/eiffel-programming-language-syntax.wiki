@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 30 Apr 2019 07:27:55 GMT]]
+[[Property:modification_date|Mon, 29 Jul 2019 16:52:51 GMT]]
 [[Property:publication_date|Mon, 29 Apr 2019 14:08:51 GMT]]
 [[Property:title|Eiffel programming language syntax]]
 [[Property:link_title|Syntax]]
@@ -118,6 +118,9 @@ A sequence of characters consisting of the following, in order:
 
 Line wrapping parts are used as separators between one [[#Simple strings|Simple_string]] and the next in a [[#Manifest strings|Basic_manifest_string]] so that the string can be split across lines.
 
+===New line===
+
+A specimen of New_line is a New Line. 
 
 
 ==Eiffel BNF-E Syntax==
@@ -334,11 +337,13 @@ Assertion ::= {Assertion_clause ";" ...}*
 
 Assertion_clause ::= <nowiki>[</nowiki>Tag_mark<nowiki>]</nowiki> Unlabeled_assertion_clause 
 
-Unlabeled_assertion_clause ::= [[#Expressions|Boolean_expression]] | [[#Comments|Comment]] 
+Unlabeled_assertion_clause ::= [[#Expressions|Boolean_expression]] | [[#Comments|Comment]] | `class`
 
 Tag_mark ::= Tag ":" 
 
 Tag ::= [[#Identfiers|Identifier]] 
+
+{{Note|Unlabeled_assertion_clause of the form `class` can be used only in a postcondition. It marks a feature that does not depend on object state and can be called without a target object using non-object call of the form `{CLASS_NAME}.feature_name (arguments)`.}}
 
 
 ==="Old" postcondition expressions ===
@@ -702,16 +707,11 @@ Verbatim_string_closer ::= Close_bracket <nowiki>[</nowiki>[[#Simple strings|Sim
 
 Open_bracket ::= <nowiki>"[" | "{"</nowiki> 
 
-Close_bracket ::= "]" | "}"Verbatim_string ::= Verbatim_string_opener Line_sequence Verbatim_string_closer 
+Close_bracket ::= "]" | "}"
 
-Verbatim_string_opener ::= ' " ' <nowiki>[</nowiki>[[#Simple strings|Simple_string]]<nowiki>]</nowiki> Open_bracket 
+Line_sequence ::=  {[[#Simple strings|Simple_string]] [[#New line|New_line]] ...}+
 
-Verbatim_string_closer ::= Close_bracket <nowiki>[</nowiki>[[#Simple strings|Simple_string]]<nowiki>]</nowiki> ' " ' 
-
-Open_bracket ::= <nowiki>"[" | "{" </nowiki>
-
-Close_bracket ::= <nowiki>"]" | "}" </nowiki>
-
+{{Note|Exactly the same [[#Simple strings|Simple_string]] (including embedded white space, if any) should be used in ''Verbatim_string_opener'' and ''Verbatim_string_closer'' of the same verbatim string.}}
 
 ===External routines ===
 External ::= <code>external</code> External_language <nowiki>[External_name]</nowiki>

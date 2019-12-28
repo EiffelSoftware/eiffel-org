@@ -1,3 +1,5 @@
+[[Property:modification_date|Mon, 02 Sep 2019 08:02:24 GMT]]
+[[Property:publication_date|Mon, 02 Sep 2019 08:02:24 GMT]]
 [[Property:uuid|7CCF602E-0B79-49C2-93FE-39C90CBE4E35]]
 [[Property:link_title|Code Templates]]
 [[Property:title|Code Templates]]
@@ -98,7 +100,7 @@ It is very easy to define a template. It is all done in Eiffel, of course. You s
 To offer templates as part of code completion, EiffelStudio looks in two locations:
 * Standard templates, found in: 
 ** Linux: <code>$ISE_EIFFEL/studio/templates/code</code>
-** Eiffel:  <code>%ISE_EIFFEL%/studio/templates/code</code>
+** Windows:  <code>%ISE_EIFFEL%/studio/templates/code</code>
 * User-defined templates, which you can add at:
 ** Linux: <code> ~/.es/eiffel_user_files/16.11/templates/code</code>
 ** Windows: <code>C:/Users/your_user_name/Documents/Eiffel User Files/16.11/templates/code</code>

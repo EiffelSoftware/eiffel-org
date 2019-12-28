@@ -1,3 +1,5 @@
+[[Property:modification_date|Wed, 11 Sep 2019 18:53:32 GMT]]
+[[Property:publication_date|Wed, 11 Sep 2019 14:10:27 GMT]]
 [[Property:title|Eiffel programming language reserved words]]
 [[Property:link_title|Reserved words]]
 [[Property:weight|1]]
@@ -152,11 +154,15 @@ Introduces a sequence of instructions as a routine body, as shown in the [[ET: H
 
 ===else===
 
-Used in [[ET: Other Mechanisms#Conditional|conditional]] and [[ET: Other Mechanisms#Multi-branch|multi-branch]] instructions to introduce a sequence of instructions to be executed in the case that no specified conditions are met.
+Used in [[ET-_Instructions#Conditional|conditional]] and [[ET-_Instructions#Multi-branch|multi-branch]] instructions to introduce a sequence of instructions to be executed in the case that no specified conditions are met.
 
 :[[Eiffel programming language syntax#Conditionals|Conditional syntax.]]
 
 :[[Eiffel programming language syntax#Multi-branch instructions|Multi-branch syntax.]]
+
+Used in a [[Conditional_expression|conditional expression]] to compute a value in the case that no specified conditions are met.
+
+:[[Eiffel programming language syntax#Conditionals|Conditional expression syntax.]]
 
 Used as part of the double reserved word <code>or else</code>, the semi-strict disjunction operator.
 
@@ -169,9 +175,13 @@ Used after the reserved word [[#require|<code>require</code>]] as a precondition
 
 ===elseif===
 
-Used in [[ET: Other Mechanisms#Conditional|conditional]] instructions to effect a "multi-branch" choice instruction.
+Used in [[ET-_Instructions#Conditional|conditional]] instructions to effect a "multi-branch" choice instruction.
 
 :[[Eiffel programming language syntax#Conditionals|Syntax.]]
+
+Used in a [[Conditional_expression|conditional expression]] to effect a "multi-branch" choice to compute of a value.
+
+:[[Eiffel programming language syntax#Conditionals|Conditional expression syntax.]]
 
 
 ===end===
@@ -186,6 +196,7 @@ Serves to terminate several Eiffel programming language constructs.
 ::[[Eiffel programming language syntax#Generic constraints|Generic constraints: renaming and constraint creators]]
 ::[[Eiffel programming language syntax#Conditionals|Conditional instructions]]
 ::[[Eiffel programming language syntax#Multi-branch instructions|Multi-branch instructions]]
+::[[Eiffel programming language syntax#Conditionals|Conditional expressions]]
 ::[[Eiffel programming language syntax#Loops|Loops]]
 ::[[Eiffel programming language syntax#Debug instructions|Debug instructions]]
 
@@ -258,9 +269,13 @@ Used with a formal generic parameter to indicate that conformance of generic der
 
 ===if===
 
-Introduces a [[ET: Other Mechanisms#Conditional|conditional]].
+Used to introduce a [[ET-_Instructions#Conditional|conditional]].
 
-:[[Eiffel programming language syntax#Conditionals|Syntax.]]
+:[[Eiffel programming language syntax#Conditionals|Conditional syntax.]]
+
+Used to introduce a [[Conditional_expression|Conditional expression]].
+
+:[[Eiffel programming language syntax#Conditionals|Conditional expression syntax.]]
 
 
 ===implies===
@@ -277,7 +292,7 @@ Used in an [[ET: Inheritance|inherit]] clause.
 
 ===inspect===
 
-Introduces a [[ET: Other Mechanisms#Multi-branch|multi-branch]] instruction.
+Introduces a [[ET-_Instructions#Multi-branch|multi-branch]] instruction.
 
 :[[Eiffel programming language syntax#Multi-branch instructions|Syntax.]]
 
@@ -437,11 +452,15 @@ Reserved for future use.
 
 ===then===
 
-Used in [[ET: Other Mechanisms#Conditional|conditional]] and [[ET: Other Mechanisms#Multi-branch|multi-branch]] instructions to introduce a sequence of instructions to be executed in the case that a condition is met.
+Used in [[ET-_Instructions#Conditional|conditional]] and [[ET-_Instructions#Multi-branch|multi-branch]] instructions to introduce a sequence of instructions to be executed in the case that a condition is met.
 
 :[[Eiffel programming language syntax#Conditionals|Conditional syntax.]]
 
 :[[Eiffel programming language syntax#Multi-branch instructions|Multi-branch syntax.]]
+
+Used in a [[Conditional_expression|conditional expression]] to compute of a value in the case that a condition is met.
+
+:[[Eiffel programming language syntax#Conditionals|Conditional expression syntax.]]
 
 Used as part of the double reserved word <code>and then</code>, the semi-strict conjunction operator.
 
@@ -494,7 +513,7 @@ A predefined entity name representing a [[ET: The Dynamic Structure: Execution M
 
 ===when===
 
-Used in a [[ET: Other Mechanisms#Multi-branch|multi-branch instruction]] to introduce cases.
+Used in a [[ET-_Instructions#Multi-branch|multi-branch instruction]] to introduce cases.
 
 :[[Eiffel programming language syntax#Multi-branch instructions|Syntax.]]
 

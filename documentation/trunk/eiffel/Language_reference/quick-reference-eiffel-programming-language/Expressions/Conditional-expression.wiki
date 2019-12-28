@@ -1,9 +1,11 @@
+[[Property:modification_date|Wed, 11 Sep 2019 23:28:26 GMT]]
+[[Property:publication_date|Wed, 11 Sep 2019 23:28:26 GMT]]
 [[Property:uuid|C652AC71-8BAD-4387-A46C-21C9F5C3A68F]]
 [[Property:weight|0]]
 [[Property:title|Conditional expression]]
 [[Property:link_title|Conditional]]
 
-[[Eiffel%20Programming%20Language%20Syntax#Conditionals|Conditional expressions]] compute a value using different expressions depending on one or more conditions. If all expressions have the same type, the conditional expression as a whole has this type as well:
+[[Eiffel_programming_language_syntax#Conditionals|Conditional expressions]] compute a value using different expressions depending on one or more conditions. If all expressions have the same type, the conditional expression as a whole has this type as well:
 
 <e>
    if time < noon then
@@ -17,7 +19,7 @@
 
 has type `STRING`.
 
-If the types of the expressions are different, the [[Types#Common ancestor types|common ancestor type]] is used as a type of the whole expression.
+If the types of the expressions are different, the [[Types#Common_ancestor_types|common ancestor type]] is used as a type of the whole expression.
 
 <e>
    if time < noon then

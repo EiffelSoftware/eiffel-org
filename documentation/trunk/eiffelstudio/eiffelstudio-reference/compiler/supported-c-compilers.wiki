@@ -1,3 +1,5 @@
+[[Property:modification_date|Mon, 11 Nov 2019 19:13:26 GMT]]
+[[Property:publication_date|Mon, 11 Nov 2019 19:13:26 GMT]]
 [[Property:title|Supported C compilers]]
 [[Property:weight|-14]]
 [[Property:uuid|4d4a70fa-b6da-cecb-83e0-dcc18d6ed54a]]
@@ -52,7 +54,22 @@ Alternatively, you can set the environment variable <code lang="text">ISE_C_COMP
 | Microsoft Visual Studio C++ 2015 (v14.0)
 | `msc_vc140`
 |-
-| Microsoft Visual Studio C++ 2017 (v15.0)
+| Microsoft Visual Studio C++ 2017 (v14.1)
+| `msc_vc140`
+|-
+| Microsoft Visual Studio C++ 2019 (v14.2)
 | `msc_vc140`
 |-
 |}
+
+===Availability of free compilers===
+
+'' Microsoft ''
+
+Download the free [https://visualstudio.microsoft.com/vs/community/|Visual Studio Community Edition]
+
+If required  download [https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads|Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019]. 
+
+'' MinGW ''
+
+Copy included with the Eiffel Software distribution.

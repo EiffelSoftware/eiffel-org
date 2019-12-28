@@ -1,3 +1,5 @@
+[[Property:modification_date|Tue, 10 Sep 2019 23:07:44 GMT]]
+[[Property:publication_date|Tue, 10 Sep 2019 23:07:44 GMT]]
 [[Property:title|ET: Other Mechanisms]]
 [[Property:weight|-4]]
 [[Property:uuid|c0a01664-194c-4e84-0517-8e7c1ca61dec]]
@@ -14,7 +16,7 @@ Sometimes we want to provide in software text a self-denoting value of a particu
 
 In this case we used a manifest constant, <code>1</code>, to provide an initial value for <code>my_index</code>. In particular, this is a manifest integer. 
 
-Eiffel also supports [[Eiffel Programming Language Syntax#Manifest constants|manifest constants]] for real (and double) numbers (ex: <code>3.1415</code>), boolean values (ex: <code>True</code>, <code>False</code>), and characters (ex: <code>'A'</code>, with [[Eiffel programming language syntax#Special characters|special characters]] expressed using a percent sign as in <code>'%N'</code> for new line, <code>'%B'</code> for backspace, <code>'%"'</code> for double quote, and <code>'%U'</code> for null). 
+Eiffel also supports [[Eiffel_programming_language_syntax#Manifest_constants|manifest constants]] for real (and double) numbers (ex: <code>3.1415</code>), boolean values (ex: <code>True</code>, <code>False</code>), and characters (ex: <code>'A'</code>, with [[Eiffel programming language syntax#Special characters|special characters]] expressed using a percent sign as in <code>'%N'</code> for new line, <code>'%B'</code> for backspace, <code>'%"'</code> for double quote, and <code>'%U'</code> for null). 
 
 Manifest constants are also available for strings, using double quotes as in: <code>"Hello world!"</code>. As with character constants, special characters are denoted using the <code>%</code> codes.
 
