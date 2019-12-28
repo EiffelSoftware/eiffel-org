@@ -1,0 +1,13 @@
+[[Property:title|Precondition]]
+[[Property:weight|4]]
+[[Property:uuid|29b32f9e-799d-de91-d62d-79bdb509144b]]
+Enter a precondition in the <code>require</code> field. A precondition clause will be added to the feature: 
+<code>
+    ...
+        require
+            n >= 0
+    ...</code>
+
+
+
+

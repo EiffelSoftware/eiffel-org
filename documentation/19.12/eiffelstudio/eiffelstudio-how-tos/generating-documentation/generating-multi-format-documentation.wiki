@@ -1,0 +1,49 @@
+[[Property:title|Generating multi-format documentation]]
+[[Property:weight|0]]
+[[Property:uuid|37a81bfb-004f-a1f9-7cc8-140639e96e9f]]
+EiffelStudio can generate documentation for a system using many different formats.
+
+The '''Documentation Wizard''', which helps you to get the documentation you want, is available in the '''Project''' menu, under the entry '''Generate Documentation'''. 
+
+The first page of the Documentation Wizard lets you choose between the available formats for the documentation:
+
+[[Image:index-37]]  
+
+{{tip|The nicest output is produced by the '''html-stylesheet''' format. }}
+
+
+Now the wizard asks you to select the clusters you want to produce documentation for:
+
+[[Image:index-38]]  
+
+
+In the next page you can specify indexing items on which HTML metatags will be based:
+
+[[Image:index-39]]  
+
+{{note|This page is only available for HTML documentation. }}
+
+
+You can then pick the formats you need among those available. For example, you might need a file containing the '''Cluster hierarchy''' of your system or, for each class, a file containing the '''Contracts''' of that class. At this point you can also decide to generate BON diagrams for the clusters selected in the previous page. 
+
+[[Image:index-40]]  
+
+
+If you have checked '''Cluster diagrams''' in the previous page, you will now be able to choose a view for each diagram that is going to be generated. You have the choice between an automatically arranged view and all of the [[Views|views ]] you may have manually arranged with the [[Diagram tool|Diagram Tool]] . 
+
+[[Image:index-41]]  
+
+{{note|Cluster diagrams are only available for HTML documentation. }}
+
+
+Here comes the last page; you can choose the directory where the documentation is going to be generated:
+
+[[Image:index-42]]  
+
+
+{{seealso|<br/>
+[[Generating XMI documentation|Generating XMI documentation]]  }}
+
+
+
+
