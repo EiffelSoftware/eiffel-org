@@ -1,5 +1,0 @@
-[[Property:title|EIS: Incoming]]
-[[Property:weight|3]]
-[[Property:uuid|cf25a603-5446-9964-892c-227c4077a829]]
-The EIS incoming mechanism is based on URI, and introduces a new URI scheme: '''eiffel'''. By entering the URI into the address field of a browser, or clicking on the hyperlink, an existing EiffelStudio instance or new EiffelStudio instance will try to resolve the URI and display corresponding resources.
-

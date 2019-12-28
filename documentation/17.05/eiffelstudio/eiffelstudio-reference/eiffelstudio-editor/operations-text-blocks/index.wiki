@@ -1,9 +1,0 @@
-[[Property:title|Operations on text blocks]]
-[[Property:weight|7]]
-[[Property:uuid|b8fccb5b-a3b4-ba11-0781-aa63cef5028e]]
-Editing the text of classes sometimes implies highly repetitive tasks, such as commenting or indenting several lines at the same time.
-
-The commands of the editor of EiffelStudio should allow the user to perform these tasks faster and more easily. In addition to text block [[Comment and uncomment lines|commenting]]  and [[Indent and unindent selection|indenting]], EiffelStudio editor makes it possible with one click to [[Embed lines in 'if then...end' or in 'debug...end'|embed]]  several lines of code in "if ... then ... end" or "debug ... end" structures. 
-
-
-
