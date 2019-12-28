@@ -1,6 +1,0 @@
-[[Property:title|Eiffel Inspector]]
-[[Property:weight|-9]]
-[[Property:uuid|3d9edb08-a7dd-7df9-2b1e-b5c30add6529]]
-The Inspector Eiffel is a static analyzer that will help maintain a high code quality. It is capable of detecting many different kinds of issues in the source code. These issues relate to possibly dangerous run-time behavior, performance problems, coding style, and more.
-
-

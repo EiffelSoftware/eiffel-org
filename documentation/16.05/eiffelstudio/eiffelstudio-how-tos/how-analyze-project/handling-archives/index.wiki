@@ -1,7 +1,0 @@
-[[Property:title|Handling archives]]
-[[Property:weight|3]]
-[[Property:uuid|1a2bc120-2f9d-0cc3-4883-a98c5999b12d]]
-The archive file for a system contains all the values of measures resulting from evaluating selected metrics. It also contains the definitions of non elementary metrics (the one user has [[Defining new metrics|defined]]) in order to be sure of what is being measured. 
-
-The archive files are entitled to achieve comparisons between systems. And then, user can compare systems to evaluate their own projects.
-

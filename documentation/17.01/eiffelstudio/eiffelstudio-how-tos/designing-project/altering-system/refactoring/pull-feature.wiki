@@ -1,9 +1,0 @@
-[[Property:title|Pull up Feature]]
-[[Property:weight|5]]
-[[Property:uuid|445f93dc-b81a-29ea-440b-42e394038c53]]
-# Start the '''Pull up feature''' refactoring action by either:
-## Selecting '''Refactor->Pull up''' from the context menu associated with the feature you want to relocate.
-## Picking the feature and dropping its pebble in the '''Pull up''' hole ([[Image:refactor-feature-up-icon]]) on the [[Main toolbars|refactoring toolbar]].  
-# After a compilation the '''Select Class''' dialog appears. You can choose the parent where to pull the feature. 
-# Click '''OK'''. 
-

@@ -1,6 +1,0 @@
-[[Property:title|Platform specifics]]
-[[Property:description|Eiffel's facilities, tools, and libraries that are targeted to specific operation systems]]
-[[Property:weight|12]]
-[[Property:uuid|fe9cb24b-3f0f-cb79-8ef0-27c34c851dfe]]
-Although the majority of Eiffel is completely platform independent, Eiffel does provide solutions for some development needs that are strictly related to the capabilities of specific operating systems. This book documents Eiffel's facilities, tools, and libraries that are targeted to specific operation systems.
-
