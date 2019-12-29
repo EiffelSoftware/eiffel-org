@@ -1,17 +1,23 @@
-[[Property:modification_date|Fri, 20 Dec 2019 15:01:15 GMT]]
+[[Property:modification_date|Sun, 29 Dec 2019 12:53:16 GMT]]
 [[Property:publication_date|Fri, 20 Dec 2019 15:01:15 GMT]]
 [[Property:uuid|F2F1B309-E9F6-4E63-9E74-E551CF1A6E1C]]
 [[Property:title|Release notes for EiffelStudio 19.12]]
 [[Property:link_title|19.12]]
 [[Property:weight|-3]]
 ==Graphical environment==
-* 
+* New dialog to insert Unicode character (`Ctrl+Alt+Space`), useful for alias operators.
+* The auto-completion provides Unicode operators for alias name.
 
 ==Compiler==
-* 
+* It is now possible to use multiple aliases for the same feature.
+* Removed `infix` and `prefix` support from the compiler (they were removed already from the language)
+* Manifest strings, and string constants can now also use IMMUTABLE_STRING_(8|32) types.
+* It is now possible to use non-decimal character codes in manifest strings (for instance: decimal %/8704/, hexadecimal %/0x2200/, octal %/0c21000/ and binary %/0b0010001000000000/ can be used)
 
 ==Libraries==
-* 
+* Removed `infix` and `prefix` from the libraries.
+* Added Unicode aliases in classes SET and SUBSET.
+* Improved implementation of cgi and proxy handlers in the EiffelWeb framework.
 
 ----
 
