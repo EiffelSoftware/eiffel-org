@@ -1,3 +1,5 @@
+[[Property:modification_date|Fri, 14 Feb 2020 16:15:31 GMT]]
+[[Property:publication_date|Fri, 14 Feb 2020 16:15:31 GMT]]
 [[Property:title|EiffelStudio: Project settings window]]
 [[Property:link_title|Project Settings]]
 [[Property:weight|-10]]
@@ -13,7 +15,7 @@ This is where settings regarding your project are going to be made. In here you 
 * what kind of tasks should be executed before or after a compilation
 * various other options such as multithreading
 
-
+A target represents the active part of the project being compiled. A project can be made of several targets (only one being active) and targets can extend other targets. For example, one target could be a set of common libraries and clusters, and then you have two targets extending it, one for the command line application and the other for the GUI application. Read more about targets at [[General Target Options|Target Options]].
 
 The window is organized in eleven sections:
 *  [[System Options|System Options]]  
