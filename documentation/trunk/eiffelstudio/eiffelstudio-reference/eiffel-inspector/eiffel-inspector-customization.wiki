@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 24 Dec 2018 07:52:18 GMT]]
+[[Property:modification_date|Fri, 22 May 2020 06:23:20 GMT]]
 [[Property:publication_date|Mon, 24 Dec 2018 07:52:18 GMT]]
 [[Property:title|Code Analyzer: Customization]]
 [[Property:link_title|Customization]]
@@ -43,10 +43,10 @@ end
 
 You can declare a class to be ''ignored'' by certain rules, which is equivalent to saying that some rules shall be ''disabled'' for a class.
 
-To let a class be ignored by certain rules, add the <e>ca_ignoredby</e> tag to the (top or bottom) note clause. Then put all the relevant ''rule IDs'' separated by commas in the content. It may look like this:
+To let a class be ignored by certain rules, add the <e>ca_ignore</e> tag to the (top or bottom) note clause. Then put all the relevant ''rule IDs'' separated by commas in the content. It may look like this:
 
 <e>note
-	ca_ignoredby : "CA005, CA092"
+	ca_ignore : "CA005", "CA092"
 class TEST
 end</e>
 
