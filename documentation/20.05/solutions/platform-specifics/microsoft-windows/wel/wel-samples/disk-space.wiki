@@ -1,0 +1,31 @@
+[[Property:title|Disk Space]]
+[[Property:weight|-8]]
+[[Property:uuid|09c90710-45c8-f674-376c-30ed0da738cd]]
+[[Image:diskspace|diskspace]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\diskspace\''. 
+* Choose ''diskspace.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+==Running==
+
+After launching the application, you will see text output showing the size and amount of free space available on each of your local drives. 
+
+==Under the Hood==
+
+<code>DISCSPACE_DEMO</code> contains a once feature, diskspace which returns an instance of [[ref:libraries/wel/reference/wel_disk_space_chart|WEL_DISK_SPACE]] , used to query the local drives.
+
+This sample contains only one class: 
+* <code>DISKSPACE_DEMO</code>
+
+
+
+
+

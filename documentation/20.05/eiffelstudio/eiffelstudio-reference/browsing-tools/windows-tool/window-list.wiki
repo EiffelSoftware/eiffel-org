@@ -1,0 +1,14 @@
+[[Property:title|Window list]]
+[[Property:weight|1]]
+[[Property:uuid|95058f0f-7c1b-841d-03df-dde4494afaf4]]
+The window list is the main part of the [[Windows tool|window tool]] . 
+
+[[Image:windows-tool]]  
+
+It displays all opened development windows. Left-clicking a development window in the list raises it so that it becomes the top-level window. Right-clicking one pops up a context menu.
+
+The four first commands, '''Close''', '''Minimize''', '''Maximize''' and '''Raise''', are relative to the clicked development window. The last command, '''New window''', creates a new development window. 
+
+
+
+

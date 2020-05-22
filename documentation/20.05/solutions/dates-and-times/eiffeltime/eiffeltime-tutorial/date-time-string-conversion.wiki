@@ -1,0 +1,110 @@
+[[Property:title|DATE TIME to STRING Conversion]]
+[[Property:weight|3]]
+[[Property:uuid|88972ba4-694b-8558-b0c8-87b1fc40afc4]]
+The classes <eiffel>TIME</eiffel>, <eiffel>DATE</eiffel>, and <eiffel>DATE_TIME</eiffel> provide a query <eiffel>formatted_out</eiffel> which can be used to retrieve a string containing the date or time in a format specified by a string or format conversion codes that the caller provides as an argument. The conversion is done in the <eiffel>DATE_TIME_CODE_STRING</eiffel> class. So for example, if a <eiffel>DATE</eiffel> instance referenced by <eiffel>my_date</eiffel> has a value of February 3, 2008, then applying the query:
+<eiffel>
+            my_date.formatted_out ("[0]dd mmm yyyy")
+</eiffel>
+will return the string:
+<code lang=text>
+03 FEB 2008
+</code>
+
+
+The following table lists format conversion codes. 
+{| 
+|- 
+| '''Code'''
+| '''Description'''
+|- 
+| dd
+| day - numeric
+|- 
+| <nowiki>[0]dd</nowiki>
+| day - numeric (padded with '0' to 2 figures)
+|- 
+| ddd
+| day - text (3 letters e.g "MON", "TUE")
+|- 
+| yyyy
+| year - numeric (4 figures)
+|- 
+| yy
+| year - numeric (2 figures)
+|- 
+| mm
+|  month - numeric
+|- 
+| <nowiki>[0]mm</nowiki>
+| month - numeric (padded with '0' to 2 figures)
+|- 
+| mmm
+| month - text (3 letters e.g "DEC", "JAN")
+|- 
+| hh
+| hour - numeric (24 hour clock scale by default)
+|- 
+| <nowiki>[0]hh</nowiki>
+| hour - numeric (padded with '0' to 2 figures)
+|- 
+| hh12
+| hour - numeric (12 hour clock scale)
+|- 
+| mi
+| minute - numeric
+|- 
+| <nowiki>[0]mi</nowiki>
+| minute - numeric (padded with '0' to 2 figures)
+|- 
+| ss
+| seconds - numeric
+|- 
+| <nowiki>[0]ss</nowiki>
+| seconds - numeric (padded with '0' to 2 figures)
+|- 
+| ff<n>
+| fractional seconds - numeric (precise to <n> figures)
+|- 
+| am
+| meridiem indicator. Includes "AM" for ante meridiem times (before noon) and "PM" for post meridiem times (after noon).
+|- 
+| ':', '/', '-' and ','
+| separators e.g. "03/FEB/08"
+|}
+
+
+These are some examples of output with their associated format code: 
+{| 
+|- 
+| '''Code'''
+| '''Output'''
+|- 
+| yy/mm/dd
+| 08/2/3
+|- 
+| <nowiki>mmm-[0]dd-yy</nowiki>
+| FEB-03-08
+|- 
+| dd,mm,yyyy
+| 3,2,2008
+|- 
+| hh-mi-ss
+| 13-6-32
+|- 
+| hh12,mi,ss
+| 1,6,32
+|- 
+| <nowiki>hh12:[0]mi:[0]ss:ff2 am</nowiki>
+| 1:06:32.25 PM
+|- 
+| <nowiki>[0]hh:[0]mi:[0]ss.ff3</nowiki>
+| 13:06:32.248
+|- 
+| <nowiki>[0]mm/dd/yy hh12:mi:ss.ff3</nowiki>
+| 02/3/08 1:6:32.248
+|}
+
+
+
+
+

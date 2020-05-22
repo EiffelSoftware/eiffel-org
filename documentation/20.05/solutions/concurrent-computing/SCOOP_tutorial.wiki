@@ -1,0 +1,16 @@
+[[Property:modification_date|Sun, 20 Jan 2019 12:52:42 GMT]]
+[[Property:publication_date|Mon, 26 Nov 2018 12:09:44 GMT]]
+[[Property:uuid|FF51774B-2EB9-4EDF-8A0C-0F71A96D391F]]
+[[Property:weight|0]]
+[[Property:title|SCOOP_tutorial]]
+[[Property:link_title|SCOOP Tutorial (hands-on): a small concurrent email system]]
+
+This tutorial comes with a full-fledged example: a simple email client system. It is hands-on, inviting you to look at the code of the sequential version of the system, then guiding you step-by-step to make it concurrent, and hence much nicer to use.
+
+The Eiffel compiler helps you through out: at each step of the transformation from sequential to concurrent, the error messages tell you what remains to be done.
+
+For reading convenience the tutorial is in PDF format. It includes all the links to the code to be downloaded. 
+
+Read the tutorial by clicking [https://www.eiffel.org/files/uploads/scoop_tutorial_%282%29.pdf this link].
+
+You should also note the [https://learning.acm.org/webinars/coop ACM webinar on SCOOP] which relies on this example to provide a general introduction to SCOOP. 

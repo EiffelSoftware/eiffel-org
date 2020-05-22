@@ -1,0 +1,126 @@
+[[Property:title|Separate Calls]]
+[[Property:weight|3]]
+[[Property:uuid|c030d521-1420-1570-b63e-9035332a3e26]]
+==Separate Calls==
+
+In the [[Regions and Processors | previous chapter]] we've learned that a concurrent SCOOP program consists of several ''regions'' that communicate via message passing.
+You may wonder how it is possible to pass a message to another processor, and the answer is simple:
+With the good old feature call.
+
+{{definition|Separate call|A feature call whose target is of a separate type.}}
+
+The ''separate call'' is the SCOOP way to pass messages from one region to another.
+A call such as this
+
+<code>
+	do_call (my_x: separate X)
+		do
+			my_x.f (42)
+		end
+</code>
+
+roughly corresponds to a message to the handler of <code>my_x</code> with the content:
+"Execute feature f on target my_x with argument 42."
+
+Note that there can be a difference between the time a message is sent and the time the feature is executed.
+In SCOOP we therefore distinguish between a ''feature call'' and a ''feature application''.
+
+{{definition|Feature call|Register a feature to be executed.}}
+{{definition|Feature application|Execute a feature.}}
+
+
+==Access to shared resources==
+
+The main issue with concurrent systems is the proper control of access to resources that can be shared among simultaneously executing processors. 
+
+Traditional solutions to the problem involve the use of “critical sections” of code.
+These are sections of code in which the shared resource is accessed.
+Only one thread is allowed to be executing the critical section at a time.
+So if one thread wants to execute the critical section and another is already doing so, then the first must wait.
+Thread synchronization schemes ensure this “mutual exclusion” of access to the critical section.
+
+Rather than using critical sections, SCOOP relies on the mechanism of argument passing to assure exclusive access.
+As a result, there is a restriction placed on separate calls. 
+
+{{Rule|name=Separate argument|text=A separate call <code>a_x.f (a)</code> is valid if <code>a_x</code> is an argument of the enclosing routine.}}
+
+So, according to this rule, for a separate call to be valid, the target of the call must be a formal argument of the routine in which the call occurs.
+The code below contains both an invalid separate call and a valid one.
+
+
+<code>
+    my_separate_attribute: separate SOME_TYPE
+
+                    ...
+    calling_routine
+            -- One routine
+        do
+            my_separate_attribute.some_feature   -- Invalid call: Feature call on separate attribute
+            enclosing_routine (my_separate_attribute) -- Separate attribute passed as argument
+        end
+
+    enclosing_routine (a_arg: separate SOME_TYPE)
+            -- Another routine
+        do
+            a_arg.some_feature    -- Valid call: Feature call on separate argument
+        end
+</code>
+
+
+In the code above, <code>my_separate_attribute</code> is a class attribute declared as a separate type. In the first line in <code>calling_routine</code> a direct feature call is made to apply <code>some_feature</code> to <code>my_separate_attribute</code>. This is an invalid separate call. The second line calls feature <code>enclosing_routine</code> and passes <code>my_separate_attribute</code> as an argument. <code>enclosing_routine</code> takes an argument of type <code>separate SOME_TYPE</code>. Within <code>enclosing_routine</code> it is valid to call <code>some_feature</code> on <code>a_arg</code>.
+
+{{info|Congratulations! You've just gained enough knowledge to write a small SCOOP program.
+You may want to have a look at the [[Dining Philosophers]] example, which does not use any of the advanced concepts.}}
+
+{{SeeAlso|The <code>launch_producer</code> feature of the [[Producer-consumer|producer-consumer]] example, a feature which exists for the purpose of compliance with the separate argument rule.}}
+ 
+
+==Synchronous and asynchronous feature calls==
+
+When we think of the execution of sequential Eiffel, we tend to equate feature call and feature application. That is, it is expected that for a sequence of two feature calls:
+
+
+<code>
+            x.f
+            y.g
+</code>
+
+
+that the feature application of <code>x.f</code> will complete before <code>y.g</code> begins.
+
+In concurrent Eiffel with SCOOP things are different. This is because a particular feature call, <code>x.f</code>, may occur on one processor, and the consequent feature application (of feature <code>f</code> to <code>x</code>) may occur on a different processor. 
+
+
+{{definition|Synchronous feature call|A feature call in which the execution of the calling client does not proceed until the feature application has completed. }}
+
+
+{{definition|Asynchronous feature call|A feature call which causes the “logging” of a request by a client for the associated feature application to be executed by the supplier’s processor. }}
+
+
+After an asynchronous feature call, the execution of the client proceeds immediately, possibly in parallel with the application of the feature on some other processor.
+
+
+===What makes a call synchronous or asynchronous?===
+
+First, every feature call is either a synchronous feature call or an asynchronous feature call. For a particular call, the following rules determine which it is:
+
+A feature call is always '''synchronous''' in the following cases:
+
+:S1  It is a non-separate call.
+:S2  It is a separate call to a query.
+
+A feature call may be '''asynchronous''' in the following case:
+:A1  It is a separate call to a command.
+
+Let’s look a little closer at those cases determining synchronous calls. 
+
+Case S1 is the case of typical sequential Eiffel, where all calls are non-separate, and therefore synchronous. Of course, even in concurrent Eiffel with SCOOP, plenty of non-separate calls will occur, and these will be synchronous.
+
+Case S2 says that if a separate call is a query it must be synchronous. This is because even though the feature application will probably occur on a different processor, the instructions following the query will likely depend up on the result of the query, so they must wait until the feature application completes. This situation is known as ''wait by necessity''.
+
+The case A1 is the only case where asynchrony is involved. But be careful with the wording - it says the call '''may be asynchronous''', because there are some exceptions. The exact rules are a bit complex and are described in [[Asynchronous Calls]]. As a general rule of thumb, a separate call is executed asynchronously when the client does not have exclusive access over an object which is needed by the target region.
+
+Asynchronous execution means that when a client processes the call to the command, it “logs” the need for its associated feature application. But then, rather than waiting for the feature application to complete, the client continues execution of instructions beyond the asynchronous call. 
+
+It is in this case that concurrent computation is achieved. The processor of the client object is free to continue processing while the processor handling the target of the asynchronous feature call applies that feature.
+

@@ -1,0 +1,21 @@
+[[Property:title|Defining ratio metrics]]
+[[Property:weight|3]]
+[[Property:uuid|40394359-600c-5392-8609-6f994920a3b1]]
+To define a ratio metric, you must select the '''Metric Definition''' tab and click the '''New metric''' button. A menu appears asking you the kind of metric you want to define. Select '''Ratio metric'''. Once done, you can perform the following steps:
+# Enter a name for the metric in the "Name" field. Next to the field you will see the type of metric as well as the unit for this metric.
+# Enter a description for the metric. The description is shown as a tooltip when you navigate the list of available metrics.
+# Select a metric for numerator in the "Metric" combo box of the "Numerator" frame to change the numerator in the "Ratio" field. 
+# Select a metric for denominator in the "Metric" combo box of the "Denominator" frame to change the denominator in the "Ratio" field. 
+# If you want to change again either numerator or denominator repeat operations 3. or 4. as many times as needed.
+# Once you have completed the metric definition you need to save your metric by clicking on the Save button.
+# If you want to define another ratio metric, repeat all the previous steps.
+
+A summary of the metric you just defined appears in a textual representation in the '''Expression''' text field.
+
+{{seealso|<br/>
+[[Managing new metrics|Managing metrics]]  <br/>
+}}
+
+
+
+

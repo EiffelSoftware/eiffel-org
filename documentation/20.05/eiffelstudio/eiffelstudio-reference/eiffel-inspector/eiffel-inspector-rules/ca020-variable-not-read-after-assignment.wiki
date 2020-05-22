@@ -1,0 +1,54 @@
+[[Property:title|CA020 - Variable not read after assignment]]
+[[Property:link_title|CA020]]
+[[Property:weight|0]]
+[[Property:uuid|8de22b33-be9c-b946-ce39-709cf42f01c5]]
+__NOTOC__
+=Description=
+An assignment to a local variable has not effect at all if the variable is not read after the assignment, or reassigned.
+{| class="doctable"
+|-
+| '''Scope'''
+| Instruction
+|-
+| '''Status'''
+| Enabled
+|-
+| '''Severity'''
+| Warning
+|-
+| '''Applicability'''
+| All
+|-
+| '''Score'''
+|  70
+|}
+
+
+=Example of violation=
+<e>
+local
+	x, y: INTEGER
+do
+	x := 3
+	y := some_height_query
+	x := some_width_query
+	...
+end
+</e>
+
+=Recommendation=
+Remove the assignment without effect.
+
+In the example, remove the first assignment to <e>x</e>:
+<e>
+local
+	x, y: INTEGER
+do
+	y := some_height_query
+	x := some_width_query
+	...
+end
+</e>
+
+{{SeeAlso | [[CA071 - Self-comparison]]}}
+

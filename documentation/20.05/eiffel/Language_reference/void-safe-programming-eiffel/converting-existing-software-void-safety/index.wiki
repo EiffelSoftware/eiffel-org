@@ -1,0 +1,335 @@
+[[Property:title|Converting existing software to void-safety]]
+[[Property:weight|6]]
+[[Property:uuid|eb901272-d405-2277-005d-e37275b9baa4]]
+If you have been using Eiffel for a while, you may be maintaining systems which were developed before Eiffel became void-safe. If that's the case, then you will probably want to make those systems void-safe. 
+
+In this section we will use the experience of converting a set of simple (but not too simple) legacy Eiffel classes to show the types of issues that you may encounter, and how to deal with them. 
+
+So in the discussion below, you will see references to these classes:
+
+
+{| border="1"
+|-
+! Class name
+! Description
+|-
+| APPLICATION
+| Simple root class containing declarations of types NVP and NVP_LIST
+|-
+| NVP
+| Class modeling name/value pairs of type STRING
+|-
+| NVP_LIST
+| Class modeling a list of NVP's with specialized behavior; heir of TWO_WAY_LIST [NVP]
+|}
+
+
+It's not important that you know much about the details of these classes. We will, however, look at certain parts of the classes in enough detail to resolve the conversion issues.
+
+
+=Conversion considerations=
+
+==To redesign or not to redesign==
+
+During the process of conversion of classes to void-safety, the compiler will point out problems which you will have to fix. Some of these will be straightforward, while others may be tricky. It is natural, or sometimes mandatory, at times to consider changing elements of the design of your software. 
+
+Also, as you sift through your existing software during the void-safe conversion, you may not get very far before you see things that you wish had been done differently. This occurs often during reviews of existing systems, not just because of the introduction of void-safety. 
+
+In the discussions that follow you will see these redesign opportunities arise, and the decisions that were made for these cases.
+
+==Be aware of changes to Eiffel libraries==
+
+The libraries distributed with EiffelStudio have been converted to support void-safety. Mostly the changes made will cause no problems for existing software. However a few changes have been identified as "breaking" changes. You may or may not encounter the effects of these changes, but you should be aware of how they could effect your software and what options you have for adapting to them. Breaking changes are described in the [[EiffelStudio release notes]] and in the page dedicated to [[Void-safe changes to Eiffel libraries]].
+
+=Conversion process=
+
+==Enable full class checking==
+
+First make sure your project will compile correctly under the configuration of EiffelStudio that you intend to use to convert to void-safe.
+
+Then set the project setting '''Full Class Checking''' to '''True'''. Do a ''[[Clean compile|clean compile]]'' of your system. 
+
+Full class checking will analyze your classes to make sure that in cases of inheritance, features of the parent classes are rechecked for validity in the heirs.
+
+Here's an example of the kind of error you might expect when compiling with full class checking:
+
+
+[[Image:VGCC error]]
+
+
+The situation here is that the feature <code>split</code> has been inherited (from class <code>TWO_WAY_LIST [G]</code>) by our class <code>NVP_LIST</code>. Feature <code>split</code> includes code to create and attach feature <code>sublist</code> which is typed <code>attached like Current</code> which in this case means <code>attached NVP_LIST</code>. To do this creation, <code>split</code> uses a creation procedure <code>make_sublist</code>. 
+
+Now here's the rub: <code>NVP_LIST</code> has not named <code>make_sublist</code> as a creation procedure: 
+<code>
+create
+    make, make_from_string, make_from_file_named
+</code>
+If we go to the <code>create</code> part of <code>NVP_LIST</code> and add <code>make_sublist</code> to its list of creation procedures, this will fix the problem:
+<code>
+create
+    make, make_from_string, make_from_file_named, make_sublist
+</code>
+
+So, fix any problems that arise out of turning on full class checking.
+
+==Enable other project settings==
+
+The second step in conversion of existing software is to change the values of the other void-safe related project settings and use the void-safe configurations for any delivered libraries and precompilations.
+
+In the project settings for the target in which you are working, set '''Void safety''' to '''Complete''', '''Transitional''' , '''Initialization''' or '''Conformance'''. 
+
+{{note|Remember that during a transitional period starting with v6.4, there will be multiple versions of the configuration files for Eiffel libraries and precompiles. For example, base.ecf (void-unsafe) and base-safe.ecf (void-safe). Starting with v16.11 there is only one configuration file for libraries (e.g., base.ecf) that works with both void-safe and void-unsafe client software, but if you are using a precompile, there could be different versions for void-safe and void-unsafe precompiles.}}
+
+If necessary, remove Eiffel libraries and any precompiled library that your project uses and re-add them with their void-safe configuration files. Because you've set your target to void-safety, when you click '''Add Library''', you should see only void-safe configurations by default. 
+You will see a check box on the dialog that you can uncheck if you want to see all available library configurations:
+
+
+[[Image:VoidSafeAddLibraryDialog]]
+  
+
+Now do a [[Clean compile|clean compile]].
+
+If you've replaced a precompiled library that you have not already built, EiffelStudio will offer to build it for you on the fly:
+
+
+[[Image:VoidSafePrecompileOffer]]
+
+
+Now you should see error messages representing any situation in your project in which the compiler determines that it cannot guarantee void-safety.
+
+This is what our legacy system produced:
+
+
+[[Image:VoidSafeErrorList]]
+
+
+==Fix the issues==
+
+Next you fix the problems that the compiler discovered. The compiler errors concerning void-safety typically will be of three varieties. 
+
+# VEVI: violations of the '''Variable initialization rule'''. An attached variable is not '''properly set'''.
+# VUTA: violations of the '''Target rule'''. The target of a feature call is not attached.
+# VJAR (and other related codes): violations of attached status considered in conformance. The attachment status of the source of an assignment (or an argument to a feature call) is not compatible with that of the target of the assignment (or the formal argument).
+
+Let's look at some specific cases and how fixing them unfolds.
+
+===Variables not properly set===
+
+[[Image:VoidSafeVEVI1]]
+
+
+There are two VEVI errors like this in class <code>APPLICATION</code> of our legacy system. They are probably the most obvious and easiest cases to handle. 
+
+<code>
+feature {NONE} -- Initialization
+
+    make
+            -- Run application.
+        do
+                ...
+        end
+
+feature -- Access
+
+    my_nvp: NVP
+            -- NVP for testing
+
+    my_nvp_list: NVP_LIST
+            -- NVP_LIST for testing
+</code>
+
+Here attribute declarations for <code>my_nvp</code> and <code>my_nvp_list</code> are made. These are assumed to be attached because of the project setting. But the create routine <code>make</code> fails to create objects and attach them. So by adding those creations, as shown below, the compiler is satisfied.
+
+<code>
+    make
+            -- Run application.
+        do
+            create my_nvp.make ("SomeName", "SomeValue")
+            create my_nvp_list.make
+                ...
+        end
+</code>
+
+
+In a second case, there is also an Initialization rule violation (VEVI), this time on <code>Result</code>, in this routine:
+
+<code>
+    at_first (nm: STRING): NVP
+            -- The first found NVP with name matching nm.
+            -- 	Or Void if not found
+        require
+            nm_valid: nm /= Void and then not nm.is_empty
+        local
+            tc: CURSOR
+        do
+            tc := cursor
+            start
+            name_search (nm)
+            if not exhausted then
+                Result := item
+            end
+            go_to (tc)
+        ensure
+            index_unchanged: index = old index
+        end
+</code>
+
+Here we cannot just ensure that <code>Result</code> is always attached, because, as indicated by the header comment, <code>Result</code> is allowed to be void by design. 
+
+So the least impact to this routine will be to declare its type as <code>detachable</code>:
+
+<code>
+    at_first (nm: STRING): detachable NVP
+            -- The first found NVP with name matching nm.
+            -- 	Or Void if not found
+</code>
+
+
+The same change is made in other routines that can return void by design, particularly including a routine called <code>value_at_first</code>, which gets our attention next.
+
+The case of <code>at_first</code> offered us an opportunity to redesign (or not). We might have been able to leave <code>at_first</code> attached. After all, in void-safe software, the fewer <code>detachable</code>s, the better. Maybe we could devise a way, possibly through preconditions and other queries, that would guarantee that <code>at_first</code> attempts to execute only when it can return a value. 
+
+But <code>at_first</code> is an exported query, so a consequence of such a change in the class design is that it would affect the class interface in such a way that existing clients would have to be modified to comply. In other words, it would be a "breaking" change. 
+
+
+===Source of assignment does not conform to target===
+
+The change to <code>at_first</code> satisfies the VEVI issue in <code>at_first</code>, but it introduces a previously unseen conformance issue (VJAR) in the routine <code>value_at_first</code>:
+
+
+[[Image:VoidSafeVJAR1]]
+
+
+<code>value_at_first</code> looks like this:
+
+<code>
+    value_at_first (nm: STRING): detachable STRING
+            -- Value from first found NVP with name matching nm
+            -- 	Or Void of not found
+        require
+            nm_valid: nm /= Void and then not nm.is_empty
+        local
+            tn: NVP
+        do
+            tn := at_first (nm)
+            if tn /= Void then
+                Result := tn.value
+            end
+        end
+</code>
+
+The problem is that the local variable <code>tn</code> is declared as <code>attached</code>, but we know that now the result of <code>at_first</code> is detachable, making this assignment invalid:
+<code>
+            tn := at_first (nm)
+</code>
+
+Here the '''attached syntax''' can fix the problem and streamline the routine:
+
+<code>
+    value_at_first (nm: STRING): detachable STRING
+            -- Value from first found NVP with name matching nm
+            -- 	Or Void of not found
+        require
+            nm_valid: nm /= Void and then not nm.is_empty
+        do
+            if attached at_first (nm) as tn then
+                Result := tn.value
+            end
+        end
+</code>
+
+In this version <code>tn</code> need not be declared as a local variable. Remember that the attached syntax provides a fresh local variable, if the expression is not void. 
+
+===Both VEVI and VJAR errors===
+
+A design issue in class <code>NVP_LIST</code> causes both conformance and initialization compiler errors. In the original design, an instance of the class NVP_LIST could traverse its contents NVP-by-NVP with inherited functionality.  Additionally, <code>NVP_LIST</code> has immediate functionality allowing an instance to traverse its contents in two different ways returning "sublists" based on recurring patterns of the <code>name</code> attributes of a sequence of name/value pairs. 
+
+These two traversal methods are referred to as "sequencing" and "segmenting". It's not important that you understand the details of what these traversals do. But it is important to know that a valid instance of <code>NVP_LIST</code> can either be in the process of sequencing or in the process of segmenting, or neither. It is invalid to be both sequencing ''and'' segmenting. 
+
+Two class attributes are maintained to store the recurring patterns of values of <code>{NVP}.name</code> that guide traversal:
+
+<code>
+feature {NONE} -- Implementation
+
+    sequence_array: ARRAY [STRING]
+            -- The current array of names being used for
+            --  sequence traversal
+
+    segment_array: ARRAY [STRING]
+            -- The current array of names being used to determine
+            --  the termination of list segments
+</code>
+
+In the original class design, each of these attributes would be void unless their corresponding traversal was active. So the class contains the following clauses in its invariant:
+
+<code>
+	not_sequencing_and_segmenting: not (segment_readable and sequence_readable)
+	sequence_traversal_convention: (sequence_array = Void) = (not sequence_readable)
+	segment_traversal_convention: (segment_array = Void) = (not segment_readable)
+</code>
+
+Of course by default these attributes are considered to be attached. So, because they are not initialized during creation, we see initialization errors. Because elements of the class intentionally set them to <code>Void</code>, we see conformance errors. 
+
+Here we have another opportunity to redesign (or not). We could mark the two arrays as <code>detachable</code>, recompile and fix any problems this causes (in fact, it causes eight errors: six Target rule violations, and two conformance issues). 
+
+However, because these attributes are not exported, we may be able to leave them attached and make changes to the implementation design without making breaking changes to the interface. 
+
+Those exported features which take arguments of the type <code>ARRAY [STRING]</code> which will serve as sequencing or segmenting control also require that the array contain at least one element. For example, the contract for feature <code>segment_start</code> contains these preconditions:
+
+<code>
+    segment_start (nms: ARRAY [STRING_8])
+            -- Place segment cursor on the first occurrence of a seqment of list which
+            -- 	begins at the current cursor position and
+            -- 	terminates in a sequence with names equivalent to and ordered the same as `nms'.
+            -- If no such sequence exists, then ensure exhausted
+        require
+            nms_valid: nms /= Void and then (nms.count > 0)
+            not_sequencing: not sequence_readable
+</code>
+
+Because the restriction always exists that a valid <code>sequence_array</code> or <code>segment_array</code> must contain at least one element, it is possible to redesign the implementation of the class such that an empty <code>sequence_array</code> and <code>segment_array</code> could serve the same purpose as a <code>Void</code> one does in the original design.
+
+So the invariant clauses that we saw above would now become:
+
+<code>
+	not_sequencing_and_segmenting: not (segment_readable and sequence_readable)
+	sequence_traversal_convention: (sequence_array.is_empty) = (not sequence_readable)
+	segment_traversal_convention: (segment_array.is_empty) = (not segment_readable)
+</code>
+
+We already have compiler errors (VJAR's) that point us to those places in which we have code that sets either <code>sequence_array</code> or <code>segment_array</code> to <code>Void</code>. Like this:
+
+<code>
+            segment_array := Void
+</code>
+
+These instances need to be changed to attach an empty array, maybe like this:
+
+<code>
+            create segment_array.make (1, 0)
+</code>
+
+Additionally, some postconditions which reference the implementation features <code>sequence_array</code> and/or <code>segment_array</code> would have to be changed. Looking at the postcondition clauses for <code>segment_start</code> we see that <code>segment_array</code> is expected (or not) to be <code>Void</code>:
+
+<code>
+    ensure
+        started: (not exhausted) implies (segment_readable and (segment_array /= Void) and (last_segment_element_index > 0))
+        not_started: exhausted implies ((not segment_readable) and (segment_array = Void) and (last_segment_element_index = 0))
+</code>
+
+To support the "empty array" design, <code>segment_start</code>'s postcondition clauses would be:
+
+<code>
+    ensure
+        started: (not exhausted) implies (segment_readable and (not segment_array.is_empty) and (last_segment_element_index > 0))
+        not_started: exhausted implies ((not segment_readable) and (segment_array.is_empty) and (last_segment_element_index = 0))
+</code>
+
+
+
+{{SeeAlso|<br/>[[Converting EiffelVision 2 Systems to Void-Safety]]<br/>[[Void-safe changes to Eiffel libraries]]}}
+
+
+
+
+

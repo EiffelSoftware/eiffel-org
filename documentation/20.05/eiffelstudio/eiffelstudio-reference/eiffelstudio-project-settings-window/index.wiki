@@ -1,0 +1,39 @@
+[[Property:modification_date|Fri, 14 Feb 2020 16:15:31 GMT]]
+[[Property:publication_date|Fri, 14 Feb 2020 16:15:31 GMT]]
+[[Property:title|EiffelStudio: Project settings window]]
+[[Property:link_title|Project Settings]]
+[[Property:weight|-10]]
+[[Property:uuid|10b907f5-bd50-09e0-af40-68988fe93df1]]
+This is where settings regarding your project are going to be made. In here you can specify:
+* the different targets your project consists of
+* the clusters that contain your classes
+* the libraries and/or assemblies that you use
+* which assertion level you want to check
+* which debug clauses will be activated
+* which warnings will be reported
+* which C/C++ externals your project needs
+* what kind of tasks should be executed before or after a compilation
+* various other options such as multithreading
+
+A target represents the active part of the project being compiled. A project can be made of several targets (only one being active) and targets can extend other targets. For example, one target could be a set of common libraries and clusters, and then you have two targets extending it, one for the command line application and the other for the GUI application. Read more about targets at [[General Target Options|Target Options]].
+
+The window is organized in eleven sections:
+*  [[System Options|System Options]]  
+*  [[General Target Options|Target Options]]  
+**  [[Assertion Options|Assertions]]  
+**  [[Group Options|Groups]]  
+**  [[Advanced Options|Advanced Options]]  
+***  [[Warning Options|Warnings]]  
+***  [[Debug Options|Debug]]  
+***  [[Externals Options|Externals]]  
+***  [[Tasks Options|Tasks]]  
+***  [[Variables|Variables]]  
+***  [[Type mapping|Type Mapping]]  
+
+
+
+The changes you make are taken into account the next time you recompile your project. Instead of automatically performing the compilation each time you click Ok or Apply we decided to save the modifications and let the user decide when to recompile.
+
+
+
+
