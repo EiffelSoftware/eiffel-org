@@ -1,3 +1,5 @@
+[[Property:modification_date|Thu, 13 Feb 2020 16:00:53 GMT]]
+[[Property:publication_date|Thu, 13 Feb 2020 16:00:53 GMT]]
 [[Property:title|Asynchronous Calls]]
 [[Property:weight|6]]
 [[Property:uuid|d3d3873c-5c84-7566-547e-1ede38544081]]
@@ -87,13 +89,10 @@ end
 </code>
 
 You might notice a problem here:
-In the feature <code>{EXAMPLE}.run</code>, exclusive access to 'a_hash_storage' and 'a_string' is guaranteed by the SCOOP semantics.
-Or in other words, the corresponding regions are ''locked''. The feature <code>{HASH_STORAGE}.set_hash_code</code> however needs access to ''a_string'' as well.
-In the SCOOP model, as seen so far, this would result in a deadlock. The handler of the <code>HASH_STORAGE</code> object waits for exclusive access on the string object, and the <code>EXAMPLE</code> object waits for the query <code>{HASH_STORAGE}.hash_code</code> to return.
+In the feature <code>{EXAMPLE}.run</code>, exclusive access to 'a_hash_storage' and 'a_string' is guaranteed by the SCOOP semantics. 
+Or in other words, the corresponding regions are ''locked''. The feature <code>{HASH_STORAGE}.set_hash_code</code> however needs access to ''a_string'' as well. In the SCOOP model, as seen so far, this would result in a deadlock. The handler of the <code>HASH_STORAGE</code> object waits for exclusive access on the string object, and the <code>EXAMPLE</code> object waits for the query <code>{HASH_STORAGE}.hash_code</code> to return.
 
-To resolve this problem, SCOOP implements a technique called ''Lock Passing''.
-Locks on regions can be passed to the handler of the target of a separate call.
-Lock passing happens whenever the client processor (the handler of the <code>EXAMPLE</code> object) has locked a region that holds an object which is passed as an actual argument to a separate call. Note that this also includes non-separate reference objects, because a processor always holds a lock over its own region.
+To resolve this problem, SCOOP implements a technique called ''Lock Passing''. Locks on regions can be passed to the handler of the target of a separate call. Lock passing happens whenever the client processor (the handler of the <code>EXAMPLE</code> object) has locked a region that holds an object which is passed as an actual argument to a separate call. Note that this also includes non-separate reference objects, because a processor always holds a lock over its own region.
 
 When a client has passed its locks to the supplier processor, it cannot continue execution until the called feature has been applied by the supplier processor, and the supplier processor has given back the locks to the client. Therefore, this type of call must be synchronous.
 
