@@ -1,3 +1,5 @@
+[[Property:modification_date|Tue, 23 Jun 2020 07:13:21 GMT]]
+[[Property:publication_date|Tue, 23 Jun 2020 07:13:21 GMT]]
 [[Property:title|Expression evaluation]]
 [[Property:weight|-10]]
 [[Property:uuid|e55442ac-7861-1995-d315-baeed6c49223]]
@@ -16,7 +18,7 @@ If the expression has an error, or if the evaluation raised an exception, you ca
 
 {{caution|During the evaluation of an expression, all features that are necessary to obtain the result are called. Therefore, you should avoid calling queries that have side-effects, since doing so may alter the program execution. The Eiffel methodology recommends against creating queries with side-effects for other important reasons, as well. }}
 
-{{caution|Eiffel ''agents'' (for example: <code>agent my_function</code>) are not supported is not supported. }}
+{{caution|Eiffel ''agents'' (for example: <code>agent my_function</code>) is not supported. }}
 
 {{caution|The evaluation ignores void-safety checking, a side effect is that expression <code>{FOO}</code> is interpreted as <code>{detachable FOO}</code> even if your application is void-safe. Thus keep this in mind when your expression implies <code>TYPE</code> objects. }}
 
