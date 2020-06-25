@@ -1,3 +1,5 @@
+[[Property:modification_date|Thu, 25 Jun 2020 07:27:10 GMT]]
+[[Property:publication_date|Thu, 25 Jun 2020 07:27:10 GMT]]
 [[Property:title|Criterion References]]
 [[Property:weight|12]]
 [[Property:uuid|52790486-55e8-86dc-67d7-5530d1b342a3]]
@@ -48,12 +50,12 @@
 '''path_in'''<br/>
 '''Syntax:''' path_in "path"<br/>
 '''Applicable on:''' Class<br/>
-'''Remark:''' This criterion will evaluate to True if path (related to the class's written in group) of the class candidate is "path" or its subdirectory. "path" is in Unix format, i.e., different sections are separated by a "/". On Windows, path matching is case-sensitive, on other platforms, it's case-sensitive. 
+'''Remark:''' This criterion will evaluate to True if path (related to the class's written in group) of the class candidate is "path" or its subdirectory. "path" is in Unix format, i.e., different sections are separated by a "/". On Windows, path matching is case-insensitive, on other platforms, it's case-sensitive. 
 
 '''path_is'''<br/>
 '''Syntax:''' path_is "path"<br/>
 '''Applicable on:''' Class<br/>
-'''Remark:''' This criterion will evaluate to True if path (related to the class's written in group) of the class candidate is "path". "path" is in Unix format, i.e., different sections are separated by a "/". On Windows, path matching is case-sensitive, on other platforms, it's case-sensitive. 
+'''Remark:''' This criterion will evaluate to True if path (related to the class's written in group) of the class candidate is "path". "path" is in Unix format, i.e., different sections are separated by a "/". On Windows, path matching is case-insensitive, on other platforms, it's case-sensitive. 
 
 ==Relation Criterion==
 
