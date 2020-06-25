@@ -1,0 +1,22 @@
+[[Property:modification_date|Tue, 02 Jun 2020 08:56:25 GMT]]
+[[Property:publication_date|Fri, 22 May 2020 15:44:58 GMT]]
+[[Property:uuid|99393109-3E37-4A3C-82FC-6509444BC948]]
+[[Property:title|Release notes for EiffelStudio 20.05]]
+[[Property:link_title|20.05]]
+[[Property:weight|-4]]
+==Graphical environment==
+* The editor search functionality now supports Unicode text.
+* Improve code completion to include sequence of Unicode symbol for new Eiffel syntax.
+* The new command line option `-reset_ide_layout` reset any IDE layout settings (docking, tools, ...). 
+
+==Compiler==
+* 
+
+==Libraries==
+* There is now a simpler way to output Unicode text into the Console, using the new`PLAIN_TEXT_FILE.put_string_32 (text)` (note: for now only `put_string_32` is using the related encoding).
+* Many web related libraries were updated to better follow recommendations and specifications (wikitext, feed with atom and rss, xml, and CMS xhtml page generation).
+* Most (if not all) of the ISE specific codes are now in the ISE_RUNTIME class.
+* Thanks to the new `wrap_c` tool, there are a bunch of new C wrapper library available via `iron`, such as yaml, sdl, libusb, quirc, libqrencode, libgit2, gsl, tiday, ... check [https://iron.eiffel.com/repository/20.05/package/?query=tag%3Awrapc] for the complete list.
+----
+
+See [https://dev.eiffel.com/EiffelStudio_20.05_Releases change log] for more details.
