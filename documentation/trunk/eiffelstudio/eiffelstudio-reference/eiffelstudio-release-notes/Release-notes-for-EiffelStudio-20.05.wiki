@@ -1,22 +1,26 @@
-[[Property:modification_date|Tue, 02 Jun 2020 08:56:25 GMT]]
+[[Property:modification_date|Fri, 26 Jun 2020 11:00:55 GMT]]
 [[Property:publication_date|Fri, 22 May 2020 15:44:58 GMT]]
 [[Property:uuid|99393109-3E37-4A3C-82FC-6509444BC948]]
 [[Property:title|Release notes for EiffelStudio 20.05]]
 [[Property:link_title|20.05]]
 [[Property:weight|-4]]
 ==Graphical environment==
-* The editor search functionality now supports Unicode text.
-* Improve code completion to include sequence of Unicode symbol for new Eiffel syntax.
-* The new command line option `-reset_ide_layout` reset any IDE layout settings (docking, tools, ...). 
+* Supported search for Unicode strings in the editor.
+* Extended code completion with Unicode symbols.
+* Added a command line option `-reset_ide_layout` to reset IDE layout.
 
 ==Compiler==
-* 
+* Supported multi-branch expressions that are similar to multi-branch instructions, but `Then_part`s and `Else_part` contain expressions instead of instruction sequences.
+* Changed evaluation of untyped manifest strings to treat them as being of type <code lang="eiffel">STRING_32</code> if they contain characters with code points above 255.
 
 ==Libraries==
-* There is now a simpler way to output Unicode text into the Console, using the new`PLAIN_TEXT_FILE.put_string_32 (text)` (note: for now only `put_string_32` is using the related encoding).
-* Many web related libraries were updated to better follow recommendations and specifications (wikitext, feed with atom and rss, xml, and CMS xhtml page generation).
-* Most (if not all) of the ISE specific codes are now in the ISE_RUNTIME class.
-* Thanks to the new `wrap_c` tool, there are a bunch of new C wrapper library available via `iron`, such as yaml, sdl, libusb, quirc, libqrencode, libgit2, gsl, tiday, ... check [https://iron.eiffel.com/repository/20.05/package/?query=tag%3Awrapc] for the complete list.
+* Supported direct Unicode output to text files and console with <code lang="eiffel">{PLAIN_TEXT_FILE}.put_string_32</code>.
+* Updated web related libraries to be closer to recommendations and specifications (wikitext, feed with atom and rss, xml, and CMS xhtml page generation).
+* Generated many [https://iron.eiffel.com/repository/20.05/package/?query=tag%3Awrapc wrappers of C libraries] with `wrap_c` tool: yaml, sdl, libusb, quirc, libqrencode, libgit2, gsl, tidy, etc.
+* Added [https://www.eiffel.org/blog/Alexander%20Kogtenkov/2020/06/unicode-aliases Unicode aliases] for existing features in classes <code lang="eiffel">BOOLEAN</code>, <code lang="eiffel">COMPARABLE</code>, <code lang="eiffel">NUMERIC</code> and their descendants.
+* Changed behavior of <code lang="eiffel">{CHARACTER_8}.to_lower</code> and <code lang="eiffel">{CHARACTER_8}.to_upper</code> by interpreting <code lang="eiffel">STRING_8</code> as encoded according to ISO 8859-1.
+* Marked <code lang="eiffel">{READABLE_STRING_GENERAL}.plus</code> as obsolete to avoid potential data loss. Added sized variants of the feature in sized variants of string classes.
+* Added several implicit conversions from non-32-bit strings to <code lang="eiffel">STRING_32</code> and its variants.
 ----
 
 See [https://dev.eiffel.com/EiffelStudio_20.05_Releases change log] for more details.
