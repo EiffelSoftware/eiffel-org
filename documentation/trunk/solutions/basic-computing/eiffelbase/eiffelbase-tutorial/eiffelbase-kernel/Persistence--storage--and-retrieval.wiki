@@ -1,3 +1,5 @@
+[[Property:modification_date|Wed, 01 Jul 2020 08:14:12 GMT]]
+[[Property:publication_date|Wed, 01 Jul 2020 08:14:12 GMT]]
 [[Property:uuid|EA781CE6-3452-4EEF-BF05-47D94FC88A3D]]
 [[Property:weight|3]]
 [[Property:title|Persistence, storage, and retrieval]]
@@ -90,7 +92,7 @@ store_object (o: ANY; p: PATH)
     do
         create f.make_with_path (p)
         f.open_write
-        create writer.make_for_writing (l_file)
+        create writer.make_for_writing (f)
         store (o, writer)
         f.close
     end
