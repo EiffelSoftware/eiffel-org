@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 10 Sep 2019 21:54:55 GMT]]
+[[Property:modification_date|Wed, 01 Jul 2020 08:48:12 GMT]]
 [[Property:publication_date|Tue, 10 Sep 2019 21:54:55 GMT]]
 [[Property:title|ET: Instructions]]
 [[Property:weight|-6]]
@@ -392,7 +392,7 @@ There is, however, one form of <code>check</code> that continues to be monitored
 </code>
 Here <code>Assertion</code> is a list of assertions as above, and <code>Compound</code> is a list of zero or more executable instructions. 
 
-This variant is used often when ensuring [[Void-safe programming in Eiffel|void-safety]]. It is used make certain that certain detachable entities are actually attached to objects when expected, and to create a new void-safe scope for accessing the objects. For example:
+This variant is used often when ensuring [[Void-safe programming in Eiffel|void-safety]]. It is used to make certain that certain detachable entities are actually attached to objects when expected, and to create a new void-safe scope for accessing the objects. For example:
 <code>
             check attached my_detachable as l_temp then
                 l_temp.do_something
