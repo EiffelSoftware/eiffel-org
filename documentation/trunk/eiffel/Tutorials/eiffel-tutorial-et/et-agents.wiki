@@ -1,3 +1,5 @@
+[[Property:modification_date|Wed, 01 Jul 2020 08:52:09 GMT]]
+[[Property:publication_date|Wed, 01 Jul 2020 08:52:09 GMT]]
 [[Property:title|ET: Agents]]
 [[Property:weight|-3]]
 [[Property:uuid|ba49a80d-5ddf-8b30-4943-528974fd0ddd]]
@@ -131,7 +133,7 @@ The freedom to start from a routine with an arbitrary number of arguments, and c
 
 As another example of the mechanism's versatility, we saw above an integral function that could integrate a function of one variable over an interval, as in
 <code>
-            your_integrator.integral (agent your_function (0, 1))
+            your_integrator.integral (agent your_function, 0, 1)
 </code>
 
 Now assume that <code>function3</code> takes three arguments. To integrate <code>function3</code> with two arguments fixed, you don't need a new <code>integral</code> function; just use the same <code>integral</code> as before, judiciously selecting what to close and what to leave open: 
