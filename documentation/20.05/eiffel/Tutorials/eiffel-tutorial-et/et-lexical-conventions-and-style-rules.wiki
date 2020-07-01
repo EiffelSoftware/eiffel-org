@@ -1,3 +1,5 @@
+[[Property:modification_date|Wed, 01 Jul 2020 08:44:12 GMT]]
+[[Property:publication_date|Wed, 01 Jul 2020 08:44:12 GMT]]
 [[Property:title|ET: Lexical Conventions and Style Rules]]
 [[Property:weight|-2]]
 [[Property:uuid|60fdf029-8626-166d-cc4f-9069aacdda7f]]
@@ -40,9 +42,9 @@ Successive declarations or instructions may be separated by semicolons. Eiffel's
 | <code>frozen</code>
 | <code>if</code>
 | <code>implies</code>
-| <code>indexing</code>
+| <del><code>indexing</code></del>
 |- 
-| <code>infix</code>
+| <del><code>infix</code></del>
 | <code>inherit</code>
 | <code>inspect</code>
 | <code>invariant</code>
@@ -56,7 +58,7 @@ Successive declarations or instructions may be separated by semicolons. Eiffel's
 | <code>old</code>
 | <code>once</code>
 | <code>or</code>
-| <code>prefix</code>
+| <del><code>prefix</code></del>
 |- 
 | <code>Precursor</code>
 | <code>pure</code>
@@ -75,6 +77,7 @@ Successive declarations or instructions may be separated by semicolons. Eiffel's
 | <code>undefine</code>
 |}
 
+note: `infix`, `prefix` are not anymore reserved since version 19.12 , and `indexing` as well even before.
 
 Since this tutorial has covered all the essential mechanisms, you may ignore the keywords not encountered; they are reserved for future use. 
 

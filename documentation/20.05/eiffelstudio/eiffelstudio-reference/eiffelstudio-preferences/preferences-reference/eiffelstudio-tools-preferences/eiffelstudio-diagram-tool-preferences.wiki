@@ -1,3 +1,5 @@
+[[Property:modification_date|Wed, 01 Jul 2020 08:37:22 GMT]]
+[[Property:publication_date|Wed, 01 Jul 2020 08:37:22 GMT]]
 [[Property:title|EiffelStudio Diagram Tool Preferences]]
 [[Property:weight|2]]
 [[Property:uuid|6e2eed8e-b225-0dee-5ea0-e4c25a0c3d5a]]
@@ -13,7 +15,7 @@ This category gathers the preferences related to the EiffelStudio BON Diagram to
 | Show ancestors of a class up to a level of preference value.
 |- 
 | Autoscroll speed
-| Color for UML inheritance links.
+| Speed for scrolling when dragging figures from diagram near the edge of the diagram tool (a valid value is between 0 and 100).
 |- 
 | Client depth
 | Show clients of a class up to a level of preference value.
