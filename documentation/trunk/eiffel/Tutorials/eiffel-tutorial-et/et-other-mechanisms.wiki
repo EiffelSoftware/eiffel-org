@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 10 Sep 2019 23:07:44 GMT]]
+[[Property:modification_date|Thu, 02 Jul 2020 10:00:15 GMT]]
 [[Property:publication_date|Tue, 10 Sep 2019 23:07:44 GMT]]
 [[Property:title|ET: Other Mechanisms]]
 [[Property:weight|-4]]
@@ -191,7 +191,7 @@ The Eiffel model for object-oriented computation involves the application of som
 This type of feature call is known as an '''object call''' because it applies the feature to a target object, in this case <code>x</code>. However, under certain circumstances we may apply a feature of a class in a fashion that does not involve a target object. This type of call is a '''non-object call'''. In place of the target object, the syntax of the non-object call uses the type on which the feature can be found.
 
 <code>
-            circumference := radius * 2.0 * {MATH_CONST}.Pi
+            circumference := radius * 2.0 * {MATH_CONST}.pi
 </code>
 
 In the sample above, the call to feature <code>{MATH_CONST}.Pi</code> is a non-object call. This case illustrates one of the primary uses of non-object calls: constants. The library class <code>MATH_CONST</code> contains commonly used mathematical constants. Non-object calls make it possible to use the constants in <code>MATH_CONST</code> without having to create an instance of <code>MATH_CONST</code> or inherit from it.
@@ -202,8 +202,35 @@ The other primary use is for external features. One example is when we use Micro
             create my_file_stream.make ("my_file.txt", {FILE_MODE}.create_new)
 </code>
 
-The validity of a non-object call is restricted in ways that mirror these primary uses. That is, any feature called in a non-object call must be either a constant attribute or an external feature. See the [[ECMA Standard 367|ISO/ECMA Eiffel standard document]] for additional details.
+The validity of a non-object call is restricted in ways that mirror these primary uses. That is, any feature called in a non-object call must be either a constant attribute, an external feature, or a class feature. (See the [[ECMA Standard 367|ISO/ECMA Eiffel standard document]] for additional details.)
 
+=== Class feature ===
+
+A feature with a class postcondition is known as a class feature and can be used in non-object calls. A class postcondition consists of a single keyword <code lang="eiffel">class</code> (with an optional leading tag):
+
+<code>
+    disc_area (radius: REAL_32): REAL_32
+            -- Area of a disk of radius `radius`.
+        do
+            Result := radius * radius * {MATH_CONST}.pi
+        ensure
+             instance_free: class
+        end
+</code>
+
+A class feature can be used not only in object calls, but also in non-object calls. For example, assuming the feature above is defined in class <code lang="eiffel">GEOMETRY</code>, it can be called without creating an object:
+
+<code>
+            area := {GEOMETRY}.disc_area (r)
+</code>
+
+A class feature is valid only when it does not
+* access <code lang="eiffel">Current</code>;
+* access a variable attribute;
+* declare an unqualified agent;
+* make an unqualified call to a non-class feature.
+
+Although an external feature without assertions can be used in non-object calls, it is a good practice to add a class postcondition if such usage is expected. This guarantees that no added or inherited assertion violates the validity rule for a class feature.
 
 ==Convertibility==
 
