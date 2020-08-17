@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 17 Aug 2020 08:47:20 GMT]]
+[[Property:modification_date|Mon, 17 Aug 2020 18:49:38 GMT]]
 [[Property:publication_date|Mon, 17 Aug 2020 08:47:20 GMT]]
 [[Property:title|Absolute time]]
 [[Property:weight|0]]
@@ -8,7 +8,7 @@ The classes dealing with date and those dealing with time have many similarities
 [[ref:libraries/time/reference/date_chart|DATE]] , [[ref:libraries/time/reference/time_chart|TIME]]  and [[ref:libraries/time/reference/date_time_chart|DATE_TIME]]  inherit from the deferred class [[ref:libraries/time/reference/absolute_chart|ABSOLUTE]]. These classes model absolute temporal values, i.e., specific times and dates. Because <eiffel>ABSOLUTE</eiffel> inherits from <eiffel>COMPARABLE</eiffel>, the ordering functions <code><</code>, <code><=</code>, <code>></code>, and <code>>=</code> are available on instances of [[ref:libraries/time/reference/absolute_chart|ABSOLUTE]] and its descendants. 
 
 
-{{Note|The associated package is part of the distribution located at $ISE_LIBRARY\library\time\time.ecf and is also available by linking with the IRON repository.}}
+{{Note|The associated library "time" (also "time_german" and "time_french") are part of the distribution located at $ISE_LIBRARY\library\time\time.ecf and is also available by linking with the IRON repository.}}
 
 
 ==TIME==
