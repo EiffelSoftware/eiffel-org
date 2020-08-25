@@ -1,3 +1,5 @@
+[[Property:modification_date|Tue, 25 Aug 2020 20:25:04 GMT]]
+[[Property:publication_date|Tue, 25 Aug 2020 20:25:04 GMT]]
 [[Property:title|AutoTest]]
 [[Property:weight|-1]]
 [[Property:uuid|1d8cc843-238e-feaa-cfa6-629f080ffba7]]
@@ -21,8 +23,6 @@ When you use AutoTest, you control things by using two components: '''[[The Auto
 
 {{Caution|At this time, AutoTest will work only for project targets in the classic Eiffel environment. This means that projects targeted to Microsoft .Net will not be able to use AutoTest.}}
 
-
-{{Recommended|During the transition to void-safe Eiffel, projects can be built using '''experimental''' mode. This mode is as stable as '''non-experimental''' mode, but includes some facilities that might break existing code in a few circumstances. However, since version 6.5, EiffelStudio itself is built in experimental mode, so '''we recommend that you use AutoTest only on projects also built using experimental mode'''. Experimental mode can be invoked by using the "-experiment" option from the command line, or on Microsoft Windows by following the '''Start''' menu path to EiffelStudio and selecting experimental mode. }}
 
 
 {{SeeAlso|<br/>[[Using AutoTest]]  }}
