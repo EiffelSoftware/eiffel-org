@@ -1,0 +1,54 @@
+[[Property:title|Example: Sleep]]
+[[Property:weight|0]]
+[[Property:uuid|a846db1c-2096-43a9-bb8b-a233c9e21421]]
+==Description==
+
+Write a program that does the following in this order:
+# Input an amount of time to sleep in whatever units are most natural for your language (milliseconds, seconds, ticks, etc.). This unit should be noted in comments or in a description.
+# Print "Sleeping..."
+# Sleep the main thread for the given amount of time.
+# Print "Awake!"
+# End.
+
+==Notes==
+
+The feature <code lang="eiffel">sleep</code> is defined in the library class <code>EXECUTION_ENVIRONMENT</code>. So the demonstration class <code>APPLICATION</code> inherits from <code>EXECUTION_ENVIRONMENT</code> in order to make <code lang="eiffel">sleep</code> available. 
+
+<code lang="eiffel">sleep</code> takes an argument which declares the number of nanoseconds to suspend the thread's execution.
+
+==Source==
+
+Problem description from [http://rosettacode.org/wiki/Sleep Rosetta Code]
+
+==Solution==
+
+<code>
+class
+    APPLICATION
+inherit
+    EXECUTION_ENVIRONMENT
+create
+    make
+feature -- Initialization
+    make
+            -- Sleep for a given number of nanoseconds.
+        do
+            print ("Enter a number of nanoseconds: ")
+            io.read_integer_64
+            print ("Sleeping...%N")
+            sleep (io.last_integer_64)
+            print ("Awake!%N")
+        end
+end
+</code>
+
+
+==Output (sleeping 10 seconds)==
+
+<code lang="text">
+Enter a number of nanoseconds: 10000000000
+Sleeping...
+Awake!
+</code>
+
+

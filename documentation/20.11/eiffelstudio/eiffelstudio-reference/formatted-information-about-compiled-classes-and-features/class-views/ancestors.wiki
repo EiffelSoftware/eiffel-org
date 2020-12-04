@@ -1,0 +1,13 @@
+[[Property:title|Ancestors]]
+[[Property:weight|-9]]
+[[Property:uuid|b30f3c56-dbeb-06ac-4775-30a5f1d56966]]
+The ancestors view  [[Image:class-ancestors-icon]] displays all the classes from which the current class inherits, directly or not, using a tree-like indented layout. <br/>
+It is available through the '''Class''' tab of the [[EiffelStudio window overview|context tool]]. 
+
+
+{{seealso|<br/>
+[[Descendants|Descendants]]  }}
+
+
+
+

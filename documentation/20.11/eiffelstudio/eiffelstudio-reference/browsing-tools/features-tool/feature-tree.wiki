@@ -1,0 +1,25 @@
+[[Property:title|Feature tree]]
+[[Property:weight|1]]
+[[Property:uuid|6b5e1448-4547-2d4d-ef5d-165d5dbaedc1]]
+[[Image:feature-tree]]  
+
+The feature tree gives a summary of all the features of the currently edited class. They are in the same order as they are in the class file, and they are grouped by their feature clause.
+
+The icon relative to the feature clause indicates the export status of the features inside it:
+*   [[Image:folder-features-all-icon]] means features are exported to all classes 
+*   [[Image:folder-features-some-icon]] means features are exported to some classes 
+*   [[Image:folder-features-none-icon]] means features are not exported 
+
+The icon on the features indicates the nature of the feature:
+*   [[Image:feature-attribute-icon]] for attributes 
+*   [[Image:feature-once-icon]] for once and constant features 
+*   [[Image:feature-deferred-icon]] for deferred features 
+*   [[Image:feature-external-icon]] for external features 
+*   [[Image:feature-frozen-routine-icon]] for frozen features 
+*   [[Image:feature-routine-icon]] for normal Eiffel routines 
+
+Clicking a feature or a feature clause in the tree centers the editor on it. Key navigation is also available. All features can be [[Pick-and-drop mechanism|picked]] , to [[Pick-and-drop mechanism|be dropped]]  them into any component of the interface that accepts features. 
+
+
+
+

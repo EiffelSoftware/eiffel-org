@@ -1,0 +1,13 @@
+[[Property:title|Descendants]]
+[[Property:weight|-8]]
+[[Property:uuid|c3f44d3d-a3ea-9776-9626-1ecc090fd513]]
+The descendants view  [[Image:class-descendents-icon]]  displays all the classes which inherit from the current class,directly or not, using a tree-like indented layout. <br/>
+It is available through the '''Class''' tab of the [[EiffelStudio window overview|context tool]]. 
+
+
+{{seealso|<br/>
+[[Ancestors|Ancestors]]  }}
+
+
+
+

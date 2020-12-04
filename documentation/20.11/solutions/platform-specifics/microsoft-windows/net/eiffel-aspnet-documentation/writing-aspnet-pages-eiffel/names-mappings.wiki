@@ -1,0 +1,34 @@
+[[Property:title|Names Mappings]]
+[[Property:weight|4]]
+[[Property:uuid|fa212869-ffb0-0a6a-cbd0-7a184b11491d]]
+Maybe the most striking difference when writing pages in Eiffel comes from the name of the .NET types and methods. Because of different naming conventions, overloading and differences in identifier validity rules, .NET identifiers cannot be mapped directly to Eiffel identifiers. As a consequence, the Eiffel compiler creates XML mapping files in the ''Eiffel Metadata Cache''. These files are created only once for each referenced assembly. 
+{{note|The ASP.NET installation program pre-generates the Eiffel Metadata Cache for all assemblies required by ASP.NET by default. }}
+The name mapping algorithm is quite complex but it is possible to guess the Eiffel identifier from the .NET identifier in most cases. The following simple steps can be followed to retrieve the Eiffel identifier corresponding to a .NET type: 
+#  Only the simple type name is used, the namespace isn't used by the Eiffel identifier:
+<code>System.Xml.NameTable -> NameTable</code>
+
+#  Underscores are introduced in between words (prior to upper case letters other than the first character):
+<code>NameTable -> Name_Table</code>
+
+#  Eiffel class names are always upper case: 
+<code>Name_Table -> NAME_TABLE</code>
+
+#  If the assembly containing the type is associated with a prefix in the Eiffel system then the prefix gets prepended to the name: 
+<code>NAME_TABLE -> XML_NAME_TABLE</code>
+
+The steps to follow to retrieve the Eiffel identifier corresponding to a .NET member are simpler: 
+#  For property getters, the "get_" prefix is removed: 
+<code>get_MaxOccursString -> MaxOccursString</code>
+
+#  Underscores are introduced in between words (prior to upper case letters other than the first character):
+<code>MaxOccursString -> Max_Occurs_String</code>
+
+#  Eiffel feature names are always lower case: 
+<code>Max_Occurs_String -> max_occurs_string</code>
+
+Although these simplified steps will work in most cases there are certain .NET identifiers that require additional manipulation to be translated into Eiffel. The [[Name Mapper|Name Mapper]]  utility should be used when such cases arise. 
+{{seealso|[[Name Mapper|Name Mapper]]  }}
+
+
+
+

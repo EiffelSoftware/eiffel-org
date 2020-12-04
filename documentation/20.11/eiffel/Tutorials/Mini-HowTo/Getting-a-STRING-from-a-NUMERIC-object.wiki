@@ -1,0 +1,17 @@
+[[Property:modification_date|Mon, 10 Sep 2018 09:09:25 GMT]]
+[[Property:publication_date|Mon, 10 Sep 2018 09:09:25 GMT]]
+[[Property:uuid|B74D374E-895C-4F22-B95F-656BD78ECD03]]
+[[Property:weight|1000]]
+[[Property:title|Getting a STRING from a NUMERIC object]]
+[[Property:link_title|NUMERIC to STRING]]
+Every class has the `out` method that can be used to get a text version of the object. For a lot of classes, this method returns internal information that is not really useful for the end user. But for every `NUMERIC` class, the `out` method returns a text representation of the number that the `NUMERIC` object represents.
+
+<code>
+	print_integer (a_integer: INTEGER)
+			-- Print the value of `a_integer`.
+		do
+			print (a_integer.out + "%N")
+		end
+</code>
+
+Note that for more advanced conversion, you can also use a conversion class like `FORMAT_DOUBLE`.
