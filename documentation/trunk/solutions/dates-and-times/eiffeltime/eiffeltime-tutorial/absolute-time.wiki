@@ -1,9 +1,15 @@
+[[Property:modification_date|Mon, 17 Aug 2020 18:49:38 GMT]]
+[[Property:publication_date|Mon, 17 Aug 2020 08:47:20 GMT]]
 [[Property:title|Absolute time]]
 [[Property:weight|0]]
 [[Property:uuid|195849fc-1a9c-d734-2d2b-acae78133886]]
 The classes dealing with date and those dealing with time have many similarities. These classes descend from more abstract classes implementing the notion of value ([[ref:libraries/time/reference/time_value_chart|TIME_VALUE]] , [[ref:libraries/time/reference/date_value_chart|DATE_VALUE]] , [[ref:libraries/time/reference/date_time_value_chart|DATE_TIME_VALUE]] ). From this notion come two kinds of heirs which are the absolute notion of time (classes [[ref:libraries/time/reference/date_chart|DATE]] , [[ref:libraries/time/reference/time_chart|TIME]]  and [[ref:libraries/time/reference/date_time_chart|DATE_TIME]] ) and the notion of duration (classes [[ref:libraries/time/reference/date_duration_chart|DATE_DURATION]] , [[ref:libraries/time/reference/time_duration_chart|TIME_DURATION]] , [[ref:libraries/time/reference/date_time_duration_chart|DATE_TIME_DURATION]] ). 
 
 [[ref:libraries/time/reference/date_chart|DATE]] , [[ref:libraries/time/reference/time_chart|TIME]]  and [[ref:libraries/time/reference/date_time_chart|DATE_TIME]]  inherit from the deferred class [[ref:libraries/time/reference/absolute_chart|ABSOLUTE]]. These classes model absolute temporal values, i.e., specific times and dates. Because <eiffel>ABSOLUTE</eiffel> inherits from <eiffel>COMPARABLE</eiffel>, the ordering functions <code><</code>, <code><=</code>, <code>></code>, and <code>>=</code> are available on instances of [[ref:libraries/time/reference/absolute_chart|ABSOLUTE]] and its descendants. 
+
+
+{{Note|The associated library "time" (also "time_german" and "time_french") are part of the distribution located at $ISE_LIBRARY\library\time\time.ecf and is also available by linking with the IRON repository.}}
+
 
 ==TIME==
 
