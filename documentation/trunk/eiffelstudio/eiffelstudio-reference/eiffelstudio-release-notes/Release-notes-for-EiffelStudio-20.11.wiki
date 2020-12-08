@@ -1,16 +1,28 @@
-[[Property:modification_date|Tue, 08 Dec 2020 08:39:55 GMT]]
+[[Property:modification_date|Tue, 08 Dec 2020 10:06:55 GMT]]
 [[Property:publication_date|Tue, 08 Dec 2020 08:39:55 GMT]]
 [[Property:uuid|789BFB80-6C53-4E92-B061-C0C1758838DB]]
 [[Property:title|Release notes for EiffelStudio 20.11]]
 [[Property:link_title|20.11]]
 [[Property:weight|-5]]
 ==Graphical environment==
-*
+* AutoTest was updated to make it compatible with void safety.
+* Added a pretty printer notification when the current code  could be nicer.
+* Added preferences to control default values of CAT-call detection in the debugger and reporting in the console.
+*  Fixed the customized formater editor dialog.
+* Added a new WrapC wizard (C wrapping utility)
+* Made the code analyzer more pertinent for CA022 violations(unreachable code)
 
 ==Compiler==
-*
+* Support for once classes.
+* Extended the message about successful compilation with a notification if warnings were reported.
+* Dropped support for obsolete syntax with exclamation marks (creation, and type attachment marks).
+
 ==Libraries==
-*  
+*  All the *-safe.ecf were removed as they are obsolete due to the notion of capabilities introduced a few releases ago.
+* Improved the web CMS by removing various potential vulnerabilities, improving the web form api and the authentication system. Updated recaptcha support to version 3.
+* New library "uri_launcher" in library/runtime/process/uri_launcher
+* Extended the (unstable) base_extension library with classes for graphs, B-trees, and union-find.
+* 3 new wrappers for mpack, cairo, and rsvg C libraries (available via https://iron.eiffel.com/)
 
 ----
 
