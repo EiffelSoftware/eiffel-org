@@ -1,28 +1,27 @@
-[[Property:modification_date|Tue, 08 Dec 2020 10:06:55 GMT]]
+[[Property:modification_date|Mon, 14 Dec 2020 14:52:10 GMT]]
 [[Property:publication_date|Tue, 08 Dec 2020 08:39:55 GMT]]
 [[Property:uuid|789BFB80-6C53-4E92-B061-C0C1758838DB]]
 [[Property:title|Release notes for EiffelStudio 20.11]]
 [[Property:link_title|20.11]]
 [[Property:weight|-5]]
 ==Graphical environment==
-* AutoTest was updated to make it compatible with void safety.
-* Added a pretty printer notification when the current code  could be nicer.
+* Made AutoTest compatible with void safety settings.
+* Added a pretty printer notification when the pretty-printed code is different from the current one.
 * Added preferences to control default values of CAT-call detection in the debugger and reporting in the console.
-*  Fixed the customized formater editor dialog.
 * Added a new WrapC wizard (C wrapping utility)
-* Made the code analyzer more pertinent for CA022 violations(unreachable code)
 
 ==Compiler==
-* Support for once classes.
-* Extended the message about successful compilation with a notification if warnings were reported.
-* Dropped support for obsolete syntax with exclamation marks (creation, and type attachment marks).
+* Supported once classes.
+* Extended the message about successful compilation with a notification if warnings were detected.
+* Dropped obsolete syntax with exclamation marks (creation instruction and type attachment marks).
+* Decreased the number of false positives reported by the code analyzer for `CA022` (unreachable code) violations.
 
 ==Libraries==
-*  All the *-safe.ecf were removed as they are obsolete due to the notion of capabilities introduced a few releases ago.
-* Improved the web CMS by removing various potential vulnerabilities, improving the web form api and the authentication system. Updated recaptcha support to version 3.
-* New library "uri_launcher" in library/runtime/process/uri_launcher
-* Extended the (unstable) base_extension library with classes for graphs, B-trees, and union-find.
-* 3 new wrappers for mpack, cairo, and rsvg C libraries (available via https://iron.eiffel.com/)
+* Removed all the `*-safe.ecf` configuration files as they were obsoleted by capabilities introduced a few releases ago.
+* Improved the web CMS by removing various potential vulnerabilities, improving the web form API and the authentication system. Updated reCAPTCHA support to version 3.
+* Added a new library `uri_launcher` in `library/runtime/process`.
+* Extended the (unstable) `base_extension` library with classes for graphs, B-trees, and union-find.
+* Added 3 new wrappers for mpack, cairo, and rsvg C libraries (available via <a href="https://iron.eiffel.com/">iron</a>).
 
 ----
 
