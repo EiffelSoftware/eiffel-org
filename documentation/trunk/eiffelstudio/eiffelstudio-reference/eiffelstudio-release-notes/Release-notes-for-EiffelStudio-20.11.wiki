@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 14 Dec 2020 14:52:10 GMT]]
+[[Property:modification_date|Tue, 15 Dec 2020 07:23:22 GMT]]
 [[Property:publication_date|Tue, 08 Dec 2020 08:39:55 GMT]]
 [[Property:uuid|789BFB80-6C53-4E92-B061-C0C1758838DB]]
 [[Property:title|Release notes for EiffelStudio 20.11]]
@@ -11,7 +11,7 @@
 * Added a new WrapC wizard (C wrapping utility)
 
 ==Compiler==
-* Supported once classes.
+* Supported [https://www.eiffel.org/blog/Alexander%20Kogtenkov/2020/12/once-classes once classes].
 * Extended the message about successful compilation with a notification if warnings were detected.
 * Dropped obsolete syntax with exclamation marks (creation instruction and type attachment marks).
 * Decreased the number of false positives reported by the code analyzer for `CA022` (unreachable code) violations.
