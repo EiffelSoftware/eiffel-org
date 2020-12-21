@@ -8,6 +8,7 @@
 * Supported search for Unicode strings in the editor.
 * Extended code completion with Unicode symbols.
 * Added a command line option `-reset_ide_layout` to reset IDE layout.
+* The standard edition requires an account to sign in (see https://account.eiffel.com/).
 
 ==Compiler==
 * Supported multi-branch expressions that are similar to multi-branch instructions, but `Then_part`s and `Else_part` contain expressions instead of instruction sequences.
