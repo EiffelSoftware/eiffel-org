@@ -9,6 +9,7 @@
 * Added a pretty printer notification when the pretty-printed code is different from the current one.
 * Added preferences to control default values of CAT-call detection in the debugger and reporting in the console.
 * Added a new WrapC wizard (C wrapping utility)
+* The standard edition requires an account to sign in (see https://account.eiffel.com/).
 
 ==Compiler==
 * Supported [https://www.eiffel.org/blog/Alexander%20Kogtenkov/2020/12/once-classes once classes].
