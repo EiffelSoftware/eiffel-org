@@ -1,4 +1,4 @@
-[[Property:modification_date|Thu, 13 Feb 2020 16:00:53 GMT]]
+[[Property:modification_date|Fri, 29 Jan 2021 15:22:03 GMT]]
 [[Property:publication_date|Thu, 13 Feb 2020 16:00:53 GMT]]
 [[Property:title|Asynchronous Calls]]
 [[Property:weight|6]]
@@ -66,7 +66,7 @@ Note the difference between ''controlled'' and ''locked'':
 
 {{note|In terms of implementation, a ''lock'' corresponds to an open call queue to a region.}}
 
-Now consider a small classes <code>HASH_STORAGE</code> and <code>EXAMPLE</code>:
+Now consider small classes <code>HASH_STORAGE</code> and <code>EXAMPLE</code>:
 <code>
 class HASH_STORAGE feature
 
