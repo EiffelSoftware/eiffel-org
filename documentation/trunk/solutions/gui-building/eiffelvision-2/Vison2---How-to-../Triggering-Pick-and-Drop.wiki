@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 09 Feb 2021 18:40:35 GMT]]
+[[Property:modification_date|Tue, 09 Feb 2021 18:49:01 GMT]]
 [[Property:publication_date|Tue, 09 Feb 2021 18:31:11 GMT]]
 [[Property:uuid|53571D42-854B-40C2-A98D-A1A5EF5DDA3B]]
 [[Property:weight|0]]
@@ -63,7 +63,7 @@ The pick-and-dropable element is also the element through which a custom trigger
 
 For the most part, the classes that would be involved in a typical Eiffel graphical application are the ones being used. For custom invocation, there is one more class that needs to be considered: `EV_PICK_AND_DROPABLE_IMP`. It is via an instance of this class that invocation can be triggered.
 
-[[Image:trigger_pnd_img0.png]]
+[[Image:trigger_pnd_img0]]
 
 ''The diagram uses an adaptation of BON. Notably, the dashed supplier links denote detachable references and the feature names with leading asterisks denote features deferred at that level of the hierarchy.''
 
@@ -97,7 +97,7 @@ For example, there might be an image (a pixmap) presenting multiple items. Unlik
 
 For a rather simplistic example, use a 100 pixels square pixmap with 4 distinct items presented in it, each in its own 50x50 area, resembling (but not actually ''being'') a 2x2 matrix.
 
-[[Image:trigger_pnd_img1.png]]
+[[Image:trigger_pnd_img1]]
 
 By capturing the coordinates of the mouse click, the application can determine which information or element is associated with that position.
 
