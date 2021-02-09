@@ -1,0 +1,224 @@
+[[Property:modification_date|Tue, 09 Feb 2021 18:31:11 GMT]]
+[[Property:publication_date|Tue, 09 Feb 2021 18:31:11 GMT]]
+[[Property:uuid|53571D42-854B-40C2-A98D-A1A5EF5DDA3B]]
+[[Property:weight|0]]
+[[Property:title|Triggering Pick-and-Drop]]
+[[Property:link_title|Triggering PnD]]
+= Triggering Eiffel's Pick-and-Drop Mechanism =
+
+== Introduction ==
+
+Pick-and-Drop (“P&D”) is a mechanism built into the components of the Eiffel language's graphical user interface library (EiffelVision2). The mechanism supports transportation of user interface elements and data within an Eiffel application.
+
+Pick-and-Drop has some advantages over the more common Drag-and-Drop mechanism, including being kinder to one's hand muscles, joints, and connective tissue. P&D eliminates the need to hold down the mouse while moving it to the desired position. For the developer, it can also simplify some aspects of event handling, as the pick is a distinct action, whereas a drag requires capturing pointer press, move and release events (and intervening events that might interrupt the process). Additionally, P&D, as with most of Eiffel, is platform-independent, obviating, for example, the need to work the OLE on Windows platforms.
+
+Normally, P&D is triggered (unless disabled) by a select event from button 3 on the pointing device (a.k.a. "right click"). This serves most applications well, and is sufficiently distinct from button 1 events like select and open (single and double-click), to avoid any significant confusion, though some users still might prefer the more familiar drag-and-drop.
+
+Within an Eiffel application, it is possible to disable pick-and-drop and to interpret the button 3 events differently. It is also possible to have different aspects of the application have different interpretations (e.g. have P&D for everything but a few popup menus).
+
+== The Challenge ==
+
+So, what's the problem?
+
+What if a developer wants to trigger the P&D transport mechanism, but from a different event, perhaps from a completely different widget?
+
+For example, the application might have a dialog that presents a variety of application elements (chunks of, or representations of data). The desire is to be able to copy (or move) an element to another location, possibly in a different window (e.g. the main window).
+
+The destination (the location to which to transport the element) might be anything from a text widget to a model world, though the text widget does not seem to need such a mechanism (there are easier ways to deal with that).
+
+In a model world, the drop position might need to be more precise than simply "on the world"; perhaps a specific position, or perhaps a model within the world.
+
+Transporting models between worlds using P&D is not currently built into the world-related classes, but is relatively straightforward to add, using the default activation behavior (the right-click, right-click pair).
+
+On some systems, and for some users, right-click might present a challenge. It can be helpful, in such cases, to offer a different trigger, like a tap, or even a voice command. That is the motivation for this twist on the Pick-and-Drop mechanism.
+
+== The P&D Mechanism ==
+
+At the heart of the P&D model is the notion of class (i.e. type).
+
+A "pebble" has a type, and an accepting component (a “hole”) has a routine that accepts an element of the same type.
+
+An element is selected at the start of the sequence and has an associated pebble. The pebble can be, but need not be the element receiving or triggering the initiating event (e.g. the right-click). In the model world example, the model makes for a good candidate.
+
+If the mechanism is initiated successfully, a cursor change can occur, to help convey the current state. By default, the cursor changes to the `EV_POINTER_STYLE`.
+
+Ideally, the `accept_cursor` conveys transport state, and the nature of the pebble. It might be as generic as a bull's eye or crosshairs, but it can be anything that is acceptable as a cursor image.
+
+The major elements needed to complete a pick-and-drop arrangement are:* <div style="margin-left:0.3799in;margin-right:0in;">A pick-and-drop-able element</div>
+
+* Needed for assignment of the pebble or pebble function
+* Need not <u>be</u> the pebble to be transported
+
+* <div style="margin-left:0.3799in;margin-right:0in;">A drop handler</div>
+
+* A routine that will be called as the target of a drop
+
+* <div style="margin-left:0.3799in;margin-right:0in;">A pebble <u>or</u> a pebble function</div>
+
+* Pebble:
+
+* An instance of the class defined as argument to the drop handler
+* Should be distinct; unique within the context (it needs to make sense)
+
+* Pebble function:
+
+* A function whose Result is an appropriate pebble, or <span style="color:#1f497d;">Void</span>
+
+
+
+The pick-and-dropable element is also the element through which a custom trigger (i.e. other than the right-click) is initiated. More on that later.
+
+== The Classes Involved ==
+
+For the most part, the classes that would be involved in a typical Eiffel graphical application are the ones being used. For custom invocation, there is one more class that needs to be considered: `EV_PICK_AND_DROPABLE_IMP`. It is via an instance of this class that invocation can be triggered.
+
+<div style="text-align:center;">[[Image:Picture 1.png|top]]</div>
+
+''The diagram uses an adaptation of BON. Notably, the dashed supplier links denote detachable references and the feature names with leading asterisks denote features deferred at that level of the hierarchy.''
+
+== What Should the Pebble Be? ==
+
+Whether setting `pebble` directly or via `pebble_function`, some thought should be invested in the choice of pebble. The first decision point is the class of the pebble. Though it's unconstrained at the abstract level (`ANY`), the drop handler (the routine that accepts the drop) will have a signature that includes the pebble type as argument.
+
+Examples:
+
+```eiffel
+on_model_drop (v: EV_MODEL)
+```
+
+```eiffel
+on_message_drop (v: STRING)
+```
+
+```eiffel
+on_id_drop (v: INTEGER)
+```
+
+The pebble does not have to be the widget, figure, model, or item that is the
+instance of `EV_PICK_AND_DROPABLE`
+whence the pick originates. In some cases, as in moving a model from one model world to another, it very well might be `on_model_drop` example, above). But it need not be, as long as the type of the pebble is consistent with the signature of the drop handler, and the value of the pebble means something to the drop handler.
+
+== Using a Pebble Function ==
+
+In some cases, even when invocation will be using the default right-click event, the actual pebble might not be known until run time, and even then it might be state-dependent. That is where the pebble ''function'' comes in. Rather than set the pebble in advance, a function can be defined that will provide the correct pebble, at the time of invocation. This feature adds significant flexibility.
+
+For example, there might be an image (a pixmap) presenting multiple items. Unlike in a figure world or model world, the items depicted in the image cannot have preset pebbles. They are not individual components – they're just a bunch of pixels in an area in a pixmap. This situation, in a browser-based interface, would call for an ''image map''. A similar approach is possible, thanks to the pebble function option, for P&D.
+
+For a rather simplistic example, use a 100 pixels square pixmap with 4 distinct items presented in it, each in its own 50x50 area, resembling (but not actually ''being'') a 2x2 matrix.
+
+<div style="text-align:center;">[[Image:Picture 2.png|top]]</div>
+
+By capturing the coordinates of the mouse click, the application can determine which information or element is associated with that position.
+
+Let `pm` be the pixmap.
+
+```eiffel
+pm.set_pebble_function (agent pm_pebble (?,?, pm))
+pm.set_accept_cursor (a_new_cursor)
+```
+
+In the pebble function, the part of the image (the item being presented there) is determined from the coordinates passed to the function. A little integer arithmetic is all that's required in this case.
+
+```eiffel
+pm_pebble (xp, yp: INTEGER; pm: EV_PIXMAP): SOME_THING
+  local
+    rn, cn: INTEGER
+  do
+    rn := (yp + 49) // 50
+    cn := (xp + 49) // 50
+    Result := things.item (rn, cn)
+    Result.set_pixmap (pm)
+  end
+```
+
+Note that, in this example a third argument is passed to the pebble function, that being the pixmap. This would be unnecessary if the pixmap in question were unique to the context, but serves to illustrate the option. Here, the pixmap is passed to <span style="color:#1f497d;">Result</span>, but this is just as an example. The pebble function can do whatever is necessary to support the intended behavior.
+
+The type of the `Result` of the pebble function must be the same as the type expected by the drop handler routine. In this example, the `Result` would be an instance of class `SOME_THING`, it representing the item depicted in that area of the pixmap.
+
+The drop handler would need to have a compatible signature and the destination context would need to define its `drop_actions` to include that handler.
+
+```eiffel
+drop_actions.extend (agent on_thing_drop)
+```
+
+The drop handler then might look like this:
+
+```eiffel
+on_thing_drop (v: SOME_THING)
+  do
+    if attached {FLOWER_THING} v as tft then
+      -- deal with a flower thing drop
+    elseif attached {CAR_THING} v as tct then
+      -- deal with a car thing drop
+    elseif attached {OCEAN_THING} v as toc then
+       -- deal with an ocean thing drop
+    elseif attached {REINDEER_THING} v as trc then
+      -- deal with a reindeer thing drop
+    else
+      -- deal with “some_thing unexpected”
+    end
+  end
+```
+
+If the type signature of the handler is more specific, the type attachment tests would be unnecessary, but they are shown here to illustrate using a slightly more generic type signature, and letting the handler sort it all out. It's a balance.
+
+== The Custom Event Trigger ==
+
+Before handling any triggering events, the event handlers must be defined. In the origination context (whence the pick occurs), define the event that will trigger the P&D sequence.
+
+A widget of some kind is being used as an example.
+
+```eiffel
+widget.select_actions.extend (agent on_widget_select)
+```
+
+Next, set the pebble function.
+
+```eiffel
+widget.set_pebble_function (agent widget_pebble)
+```
+
+The pebble function, in this example, will have a `Result` of type `STRING` (recall that it need not be the triggering component). The arguments passed to the pebble function are the context-relative X and Y coordinates of the triggering event.
+
+```eiffel
+widget_pebble (xp, yp: INTEGER): STRING
+  do
+    -- some logic to determine the appropriate result
+  end
+```
+
+Rounding out the origination context is the event handler routine - the one that ''starts'' the sequence.
+
+```eiffel
+on_widget_select
+  do
+    if state_is_pick_worthy then
+      if attached {EV_WIDGET_IMP} widget.implementation as pdi then
+        pdi.set_accept_cursor (a_new_cursor)
+        pdi.pnd_press (xp, yp, {EV_POINTER_CONSTANTS}.right, sx, sy)
+      end
+    end
+  end
+```
+
+'''''Note well that the 3<sup>rd</sup> argument to the `pnd_press` routine is the symbolic constant representing the right pointer button. P&D expects origination from a right button (button 3) event, so that value is necessary, regardless of the actual button, or event that triggered this call.'''''
+
+The `a_new_cursor` function returns an appropriate instance of `EV_POINTER_STYLE`.
+
+In the destination context, a drop handler must be defined. The pebble type has been defined as `STRING` and that is the type of the argument to the drop handler.
+
+```eiffel
+on_drop (v: STRING)
+    -- Handle a P&D drop on Current
+  do
+    -- analyze `v` and do something with it
+  end
+```
+
+As in the image map example, the drop handler needs to be added to the drop actions in the destination context.
+
+```eiffel
+drop_actions.extend (agent on_drop)
+```
+
+In a scenario in which the pebble has a more complex type, there could be information in the pebble that guides the subsequent logic. For example, if the pebble were a widget, the widget's `data` attribute could be used to convey specific information.
