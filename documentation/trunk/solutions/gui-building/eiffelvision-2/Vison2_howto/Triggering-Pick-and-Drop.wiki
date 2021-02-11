@@ -1,4 +1,4 @@
-[[Property:modification_date|Thu, 11 Feb 2021 17:57:41 GMT]]
+[[Property:modification_date|Thu, 11 Feb 2021 18:02:19 GMT]]
 [[Property:publication_date|Tue, 09 Feb 2021 18:31:11 GMT]]
 [[Property:uuid|53571D42-854B-40C2-A98D-A1A5EF5DDA3B]]
 [[Property:weight|0]]
@@ -105,10 +105,9 @@ Let `pm` be the pixmap.
 
 ```eiffel
 pm.set_pebble_function (agent pm_pebble (?,?, pm))
-pm.set_accept_cursor (a_new_cursor)
 ```
 
-In the pebble function, the part of the image (the item being presented there) is determined from the coordinates passed to the function. A little integer arithmetic is all that's required in this case.
+For this example, setting the accept cursor is deferred to pebble function, and the part of the image (the item being presented there) is determined from the coordinates passed to the function.  A little integer arithmetic is all that’s required in this case.
 
 ```eiffel
 pm_pebble (xp, yp: INTEGER; pm: EV_PIXMAP): SOME_THING
@@ -119,10 +118,12 @@ pm_pebble (xp, yp: INTEGER; pm: EV_PIXMAP): SOME_THING
     cn := (xp + 49) // 50
     Result := things.item (rn, cn)
     Result.set_pixmap (pm)
+    pm.set_accept_cursor (a_new_thing_cursor (Result))
   end
 ```
 
-Note that, in this example a third argument is passed to the pebble function, that being the pixmap. This would be unnecessary if the pixmap in question were unique to the context, but serves to illustrate the option. Here, the pixmap is passed to `Result`, but this is just as an example. The pebble function can do whatever is necessary to support the intended behavior.
+Note that, in this example a third argument is passed to the pebble function, that being the pixmap.  This would be unnecessary if the pixmap in question were unique to the context, but serves to illustrate the option.  Here, the pixmap is passed to Result, but this is just as an example.  The pebble function can do whatever is necessary to support the intended behavior.
+Note also that the accept_cursor for the pixmap is being set here, within the pebble function, and not at the point the pebble function is assigned to the pixmap.  This enables the accept_cursor to be more specific to the pebble (e.g. for different sized "things").
 
 The type of the `Result` of the pebble function must be the same as the type expected by the drop handler routine. In this example, the `Result` would be an instance of class `SOME_THING`, it representing the item depicted in that area of the pixmap.
 
