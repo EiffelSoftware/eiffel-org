@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 09 Feb 2021 18:49:01 GMT]]
+[[Property:modification_date|Thu, 11 Feb 2021 17:57:41 GMT]]
 [[Property:publication_date|Tue, 09 Feb 2021 18:31:11 GMT]]
 [[Property:uuid|53571D42-854B-40C2-A98D-A1A5EF5DDA3B]]
 [[Property:weight|0]]
@@ -213,3 +213,5 @@ drop_actions.extend (agent on_drop)
 ```
 
 In a scenario in which the pebble has a more complex type, there could be information in the pebble that guides the subsequent logic. For example, if the pebble were a widget, the widget's `data` attribute could be used to convey specific information.
+
+{{note|This documentation page was contributed by Roger Osmond}}
