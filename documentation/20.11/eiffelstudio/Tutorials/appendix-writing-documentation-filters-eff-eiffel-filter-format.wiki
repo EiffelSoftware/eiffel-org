@@ -1,3 +1,5 @@
+[[Property:modification_date|Thu, 11 Feb 2021 07:55:20 GMT]]
+[[Property:publication_date|Thu, 11 Feb 2021 07:55:20 GMT]]
 [[Property:title|Appendix: Writing Documentation Filters with EFF, the Eiffel Filter Format]]
 [[Property:weight|6]]
 [[Property:uuid|0d17d433-3d4f-9575-49f7-d97eccb1a5b1]]
@@ -19,7 +21,7 @@ To make a new filter available to yourself and other users of this installation,
 
 ==Filter basics==
 
-An EFF filter follows a very simple structure. As with all other Eiffel-related notations (such as Eiffel itself and Lace, the control language for Eiffel systems), any line or part of a line beginning with two consecutive dashes <code>--</code> is a comment, except if it immediately follows a percent sign since, as will be seen below, <code>- %-</code> is used to denote an Eiffel comment in the class text. Blank lines are also permitted. Comments and blank lines carry no semantic value. 
+An EFF filter follows a very simple structure. As with all other Eiffel-related notations any line or part of a line beginning with two consecutive dashes <code>--</code> is a comment, except if it immediately follows a percent sign since, as will be seen below, <code>- %-</code> is used to denote an Eiffel comment in the class text. Blank lines are also permitted. Comments and blank lines carry no semantic value. 
 
 Except for comments and blank lines, a filter is a sequence of entries, all of the form
 <code>Construct | Replacement</code>
