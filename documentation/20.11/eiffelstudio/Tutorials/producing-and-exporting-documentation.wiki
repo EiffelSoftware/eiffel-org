@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 12 Feb 2021 14:57:41 GMT]]
+[[Property:modification_date|Fri, 12 Feb 2021 15:00:42 GMT]]
 [[Property:publication_date|Mon, 08 Feb 2021 02:10:40 GMT]]
 [[Property:title|Producing and Exporting Documentation]]
 [[Property:weight|-7]]
@@ -153,7 +153,7 @@ We'll stop this brief review here but you may continue browsing through the HTML
 
 ==Customization==
 
-As shown above in section [[#Documentation_filters|Documentation Filters]] the generation mechanisms can produce a number of output formats. The format definition files have an extension <code>.fil</code> and are stored in the installation path <code>\studio\filters\format.fil-template</code>
+As shown above in section [[#Documentation_filters|Documentation Filters]] the generation mechanisms can produce a number of output formats. The format definition files have an extension <code>.fil</code> and are stored in the directory <code>$ISE_EIFFEL/studio/filters</code>
 
 Although we suggest staying with the standard, you can easily add or change any definition that doesn't match your own preferences.
 
