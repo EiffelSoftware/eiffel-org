@@ -1,5 +1,5 @@
 [[Property:link_title|Writing Documentation FiltersFilters with EFF, the Eiffel Filter Format]]
-[[Property:modification_date|Fri, 12 Feb 2021 21:00:35 GMT]]
+[[Property:modification_date|Fri, 12 Feb 2021 23:49:07 GMT]]
 [[Property:publication_date|Thu, 11 Feb 2021 07:55:20 GMT]]
 [[Property:title|Writing Documentation Filters with EFF, the Eiffel Filter Format]]
 [[Property:weight|6]]
@@ -16,6 +16,80 @@ If you have a favorite format that you'd like EiffelStudio to use for producing 
 * Producing documentation that purposely omit some parts of Eiffel texts, in line with the ideas applied by the Contract and Flat Contract forms.
 
 Note that in practice the best way to write an EFF filter is usually not from scratch, but by copying an existing filter -- one that seems closest to your needs -- and adapting the copy.
+
+==Available Standard Filters==
+{{UnderConstruction|Tables are work in progress}}
+{| class="wikitable"
+|+ ''Filter Files Overview''
+|-
+! Documentation<br />Type !! Generated File<br />Extension  !! Filter File !! Remarks
+|-
+| ASCII || txt || ASCII.fil || Plain text
+|-
+| Build || ? || build.fil || EiffelBuild - possibly outdated, around year 2000
+|-
+| Cayenne|| cj || cayenne.fil || Cayenne Software as of Aug. 1998 Sterling Software, Inc. (?)
+|-
+| COM || ? || com.fil || Microsoft COM definitions
+|-
+| Cool Jex || cj || cool_jex.fil || UML modelling by IBM Rational Software (2008, formerly Telelogic March 2000, formerly Sterling Software )
+|-
+| Eiffel || e || eiffel.fil || replicates Eiffel source
+|-
+| HTML || html || html.fil || Web page simple formatting with tags
+|-
+| HTML ||html-classic.fil || web page old version plain
+|-
+| HTML || documentation.fil || web page with default.css
+|-
+| HTML  ||html-stylesheet.fil || web page with default.css
+|-
+| Index || index || index.fil || source file names for inclusion into web pages
+|-
+| MML || mml || MML.fil || Adobe FrameMaker
+|-
+| PostScript || ps || PostScript.fil || Printer ready
+|-
+| RTF || rtf || RTF.fil || Rich Text Format for Word Processors
+|-
+| TeX 1|| tex || TeX1.fil || *ix printing, requires `cmbxti10' font
+|-
+| TeX 2|| tex || TeX2.fil || *ix printing
+|-
+| Troff || troff || troff.fil || *ix printing 
+|-
+| XML || xml || xml.fil || 
+|}
+{| class="wikitable"
+|+ ''Variants''
+|-
+! Documentation<br />Type !! Filter File !! Remarks
+|-
+| HTML ||html-classic.fil || web page old version plain
+|-
+| HTML || documentation.fil || web page with default.css
+|-
+| HTML  ||html-stylesheet.fil || web page with default.css
+|-
+|}
+
+{| class="wikitable"
+|+ ''Assisting''
+|-
+! Documentation<br />Type !! File !! Remarks
+|-
+| HTML ||default.css || default web page formatting
+|-
+|}
+
+{| class="wikitable"
+|+ ''Special''
+|-
+! Documentation<br />Type !!  File !! Remarks
+|-
+| EFF Formatting || format.fil-template || Listing of recognized tags
+|-
+|}
 
 ==Where to put filters==
 
