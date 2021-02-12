@@ -1,16 +1,17 @@
-[[Property:modification_date|Thu, 11 Feb 2021 07:55:20 GMT]]
+[[Property:link_title|Writing Documentation FiltersFilters with EFF, the Eiffel Filter Format]]
+[[Property:modification_date|Fri, 12 Feb 2021 12:35:43 GMT]]
 [[Property:publication_date|Thu, 11 Feb 2021 07:55:20 GMT]]
-[[Property:title|Appendix: Writing Documentation Filters with EFF, the Eiffel Filter Format]]
+[[Property:title|Writing Documentation Filters with EFF, the Eiffel Filter Format]]
 [[Property:weight|6]]
 [[Property:uuid|0d17d433-3d4f-9575-49f7-d97eccb1a5b1]]
-This appendix provides reference information, not needed in simple uses of EiffelStudio.
+This chapter provides reference information, not needed in simple uses of EiffelStudio.
 
 We saw in the [[PRODUCING AND EXPORTING DOCUMENTATION|section on documentation]]  that you can output documentation about your system in many different formats. A number of predefined formats are available, from Postscript to Microsoft's Rich Text Format, FrameMaker, HTML with and without style sheets, TEX and others. There's nothing special about these formats: they just make their conventions known to EiffelStudio through a '''filter''' expressed in a simple notation called EFF, or Eiffel Filter Format. If you have a favorite format that you'd like EiffelStudio to use for producing documentation, you can define your own filter in EFF. Applications include: 
 * Producing a variant of an existing format, to support some "house style" that you have defined, such as a different formatting or fonts.
 * Producing documentation for a text processing tool that's not among those supported by default.
 * Producing documentation that purposely omit some parts of Eiffel texts, in line with the ideas applied by the Contract and Flat Contract forms.
 
-This appendix describes EFF and its conventions, enabling you to write filters. Note that in practice the best way to write an EFF filter is usually not from scratch, but by copying an existing filter -- one that seems closest to your needs -- and adapting the copy.
+This chapter describes EFF and its conventions, enabling you to write filters. Note that in practice the best way to write an EFF filter is usually not from scratch, but by copying an existing filter -- one that seems closest to your needs -- and adapting the copy.
 
 ==Where to put filters==
 
