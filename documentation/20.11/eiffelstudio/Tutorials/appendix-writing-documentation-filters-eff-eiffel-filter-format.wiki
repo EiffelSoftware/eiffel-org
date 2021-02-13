@@ -1,5 +1,5 @@
 [[Property:link_title|Writing Documentation FiltersFilters with EFF, the Eiffel Filter Format]]
-[[Property:modification_date|Sat, 13 Feb 2021 06:28:37 GMT]]
+[[Property:modification_date|Sat, 13 Feb 2021 06:43:57 GMT]]
 [[Property:publication_date|Thu, 11 Feb 2021 07:55:20 GMT]]
 [[Property:title|Writing Documentation Filters with EFF, the Eiffel Filter Format]]
 [[Property:weight|6]]
@@ -19,44 +19,44 @@ Note that in practice the best way to write an EFF filter is usually not from sc
 
 ==Available Standard Filters==
 {{UnderConstruction|Tables are work in progress}}
-{| class="wikitable" style="width: 60%;"
+{| class="wikitable" style="width: 80%;"
 |+ '''''Filter Files Overview'''''
 |-
 ! Documentation<br />Type !! Generated File<br />Extension  !! Filter File !! Remarks
 |-
-|| ASCII || txt || ASCII.fil || Plain text
+|| ASCII || txt || ASCII.fil || Plain text, no formatting codes.
 |- 
 | Build || ? || build.fil || EiffelBuild - possibly outdated, around year 2000
 |-
 | Cayenne|| cj || cayenne.fil || Cayenne Software as of Aug. 1998 Sterling Software, Inc. (?)
 |-
-| COM || ? || com.fil || Microsoft COM definitions
+| COM || ? || com.fil || Class specifications in the form of an Interface Description Language (IDL) interface for Microsoft's COM component model.
 |-
 | Cool Jex || cj || cool_jex.fil || UML modelling by IBM Rational Software (2008, formerly Telelogic March 2000, formerly Sterling Software )
 |-
-| Eiffel || e || eiffel.fil || replicates Eiffel source
+| Eiffel || e || eiffel.fil || Replicates Eiffel source, essentially the same as ASCII; useful if you want EiffelStudio to pretty-print your class texts and replace the originals.
 |-
 | HTML || html || html.fil || Web page simple formatting with tags
 |-
-| HTML ||html || html-classic.fil || web page old version plain
+| HTML ||html || html-classic.fil || Web page old version plain no style sheets.
 |-
-| HTML || html || documentation.fil || web page with default.css
+| HTML || html || documentation.fil || Web page with  style sheet.
 |-
-| HTML  ||html || html-stylesheet.fil || web page with default.css
+| HTML  ||html || html-stylesheet.fil || Web page with  style sheet.
 |-
-| Index || index || index.fil || source file names for inclusion into web pages
+| Index || index || index.fil || Source file names for inclusion into web pages
 |-
-| MML || mml || MML.fil || Adobe FrameMaker
+| MML || mml || MML.fil || Internal format for Adobe FrameMaker.
 |-
-| PostScript || ps || PostScript.fil || Printer ready
+| PostScript || ps || PostScript.fil || Adobe Postscript output, suitable for printing on a Postscript printer, display on a Postscript previewer such as Ghostscript, or distilling to Adobe PDF.
 |-
-| RTF || rtf || RTF.fil || Rich Text Format for Word Processors
+| RTF || rtf || RTF.fil || Microsoft's Rich Text Format, used in particular for Windows "Help" files.
 |-
-| TeX 1|| tex || TeX1.fil || *ix printing, requires `cmbxti10' font
+| TeX 1|| tex || TeX1.fil || Donald Knuth's TEX processing format. requires `cmbxti10' font.
 |-
-| TeX 2|| tex || TeX2.fil || *ix printing
+| TeX 2|| tex || TeX2.fil || Donald Knuth's TEX processing format.
 |-
-| Troff || troff || troff.fil || *ix printing 
+| Troff || troff || troff.fil || A traditional text-processing format available on Unix systems. Also works for the gtroff variant. 
 |-
 | XML || xml || xml.fil || 
 |}
@@ -169,12 +169,12 @@ The following is a replica of the EFF template file as distributed with EiffelSt
 Location: <code>$ISE_EIFFEL/studio/filters/format.fil-template</code>
 
 Timestamp:
-<code>--! $Date: 2013-04-18 20:30:43 +0000 (Thu, 18 Apr 2013) $
---! $Revision: 92456 $</code>
+<code>$Date: 2013-04-18 20:30:43 +0000 (Thu, 18 Apr 2013) $
+$Revision: 92456 $</code>
 
 ===Generator provided Items===
 
-Several extra items may be defined and accessed through: $item$.
+Several extra items may be used and accessed through: $item$.
 
 In every construct, the following items are defined:
 <code>
