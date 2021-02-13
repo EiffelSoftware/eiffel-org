@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 12 Feb 2021 15:00:42 GMT]]
+[[Property:modification_date|Sat, 13 Feb 2021 06:17:06 GMT]]
 [[Property:publication_date|Mon, 08 Feb 2021 02:10:40 GMT]]
 [[Property:title|Producing and Exporting Documentation]]
 [[Property:weight|-7]]
@@ -46,7 +46,7 @@ The filter names correspond to major documentation formats which EiffelStudio su
 Not only do these predefined filters provide support for a number of important industry formats; better yet, if you want <span>another</span> format not represented on the list, or would like to adapt an existing format to your own style preferences, it's easy to define a new filter. The list that EiffelStudio displays comes from the files with a <code>.fil</code> extension that it finds in a subdirectory of the installation: 
 <code>$ISE_EIFFEL/studio/filters</code>
 
-To define a new filter, simply add a file to this directory. Filters are expressed in a simple notation called EFF ( <span>Eiffel Filter Format</span> ), general enough to support a wide variety of tools for text processing, project management, Web publishing etc. The best way to define a new filter is usually to start from an existing one and adapt it. You will find the specification of EFF at the end of this manual, [[APPENDIX: WRITING DOCUMENTATION FILTERS WITH EFF, THE EIFFEL FILTER FORMAT|here]] . 
+To define a new filter, simply add a file to this directory. Filters are expressed in a simple notation called EFF ( <span>Eiffel Filter Format</span> ), general enough to support a wide variety of tools for text processing, project management, Web publishing etc. The best way to define a new filter is usually to start from an existing one and adapt it. More on customization [[#Customization|below]] . 
 
 ==Generating an HTML record of your project==
 
