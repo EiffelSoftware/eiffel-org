@@ -1,5 +1,5 @@
 [[Property:link_title|Writing Documentation FiltersFilters with EFF, the Eiffel Filter Format]]
-[[Property:modification_date|Sat, 13 Feb 2021 04:49:50 GMT]]
+[[Property:modification_date|Sat, 13 Feb 2021 06:28:37 GMT]]
 [[Property:publication_date|Thu, 11 Feb 2021 07:55:20 GMT]]
 [[Property:title|Writing Documentation Filters with EFF, the Eiffel Filter Format]]
 [[Property:weight|6]]
@@ -107,39 +107,20 @@ Similarly, in an HTML format, the entry <code>External |<B> * </B></code> means 
 Here you can also write the right-hand side without the asterisks, as <code><B>external</B></code>. If, however, all keywords are to use boldface, it is preferable to write a single entry  <code>Keyword |<B> * </B></code> which, thanks to the asterisk, will govern all construct specimens of the <code>Keyword</code> category. You can still override this specification for an individual keyword by including a specific entry for it. 
 
 ==Constructs==
+{{UnderConstruction|making it match the latest definitions in distribution}}
 
-The following general syntactic constructs may appear as the left-hand side, <code>Construct</code>, of an entry: 
-<code>
-Class_declaration
-Class_end
-Class_header
-Class_name
-Comment
-Creators
-Escape
-Feature_clause
-Feature_declaration
-Features
-Formal_generics
-Indexing_clause
-Inheritance
-Invariant_clause
-Keyword
-New_line
-Obsolete_clause
-Suffix
-Symbol
-Tab
-</code>
+The general syntactic constructs may appear as the left-hand side, <code>Construct</code>, of an entry: 
 
-Most of these denote Eiffel constructs as they appear in the official language reference, the book <span> [[Eiffel: The Language]] </span>. Since the Eiffel construct names <code>Feature</code>, <code>Invariant</code> and <code>Obsolete</code> are also keywords and EFF, like Eiffel, is case-insensitive, the EFF construct names use the suffix <code>_clause</code>, for example <code>Feature_clause</code>. 
+Most EFF constructs denote Eiffel constructs as they appear in the official language reference, the book  [[Eiffel: The Language]] respective in the more recent  [[/doc/eiffel/ECMA_Standard_367|ECMA Standard]].
+
+Since certain construct names <code>Feature</code>, <code>Invariant</code> and <code>Obsolete</code> are also Eiffel keywords and EFF, like Eiffel, is case-insensitive, the EFF construct names use the suffix <code>_clause</code>, for example <code>Feature_clause</code>. 
 
 The constructs corresponding to syntactic constructs are self-explanatory. The others are:
 *  <code>Class_end</code>, denoting the final end of a class text. 
-*  <code>Keyword</code>, denoting any Eiffel keyword among those listed in boldface in the corresponding appendix in <span> [[Eiffel: The Language]] </span> 
+*  <code>Keyword</code>, denoting any Eiffel keyword among those listed in boldface in the the official language reference.
 *  <code>New_line</code>, denoting any passage to a new line in the class text. 
 *  <code>Suffix</code>, used to introduce the file extension for the generated documentation files. If you don't specify this, EiffelStudio will use the filter's name as extension. 
-*  <code>Symbol</code>, denoting any of the Eiffel symbols listed in the corresponding appendix of <span> [[Eiffel: The Language]] </span>. 
+*  <code>Symbol</code>, denoting any of the Eiffel symbols listed in the official language reference. 
 *  <code>Escape</code>, to protect special characters of the external tool, as explained below. 
 *  <code>Tab</code>, denoting any tab character appearing in the class text. 
 
@@ -180,3 +161,34 @@ If <code>c</code> is not one of the characters for which special conventions hav
 
 A multi-line entry uses the Eiffel convention for string continuations: <code>%</code> at the end of a line to signal that there is a continuation; a continuation line begins with zero or more spaces and tabs followed by a <code>%</code> ; the characters after the <code>%</code> are the continuation of the string. 
 
+==The EFF Template File==
+{{UnderConstruction|making it match the latest definitions in distribution}}
+
+The following is a replica of the EFF template file as distributed with EiffelStudio v20.11.
+
+Location: <code>$ISE_EIFFEL/studio/filters/format.fil-template</code>
+
+Timestamp:
+<code>--! $Date: 2013-04-18 20:30:43 +0000 (Thu, 18 Apr 2013) $
+--! $Revision: 92456 $</code>
+
+===Generator provided Items===
+
+Several extra items may be defined and accessed through: $item$.
+
+In every construct, the following items are defined:
+<code>
+$generator$		"ISE EiffelStudio version x.x.x"
+
+$html_meta$	HTML specific. Entire indexing clause defined as meta data.
+					Example: "<META NAME="keywords" CONTENT="eiffel, O-O">".
+
+$class$			Classname in uppercase. If currently processed file does
+					not represent an Eiffel class, is empty.
+
+$title$			Title for current document.
+					Example: "EV_ANY Text".
+
+$root$			Relative base directory of generated documentation.
+					Example: "../../../../"
+</code>
