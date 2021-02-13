@@ -1,5 +1,5 @@
 [[Property:link_title|Writing Documentation FiltersFilters with EFF, the Eiffel Filter Format]]
-[[Property:modification_date|Sat, 13 Feb 2021 03:08:58 GMT]]
+[[Property:modification_date|Sat, 13 Feb 2021 03:10:13 GMT]]
 [[Property:publication_date|Thu, 11 Feb 2021 07:55:20 GMT]]
 [[Property:title|Writing Documentation Filters with EFF, the Eiffel Filter Format]]
 [[Property:weight|6]]
@@ -60,7 +60,7 @@ Note that in practice the best way to write an EFF filter is usually not from sc
 |-
 | XML || xml || xml.fil || 
 |}
-{| class="wikitable"
+{| class="wikitable" style="width: 60%;"
 |+ '''''Variants'''''
 |-
 ! Documentation<br />Type !! Filter File !! Remarks
@@ -73,7 +73,7 @@ Note that in practice the best way to write an EFF filter is usually not from sc
 |-
 |}
 
-{| class="wikitable"
+{| class="wikitable" style="width: 60%;"
 |+ '''''Assisting'''''
 |-
 ! Documentation<br />Type !! File !! Remarks
@@ -82,7 +82,7 @@ Note that in practice the best way to write an EFF filter is usually not from sc
 |-
 |}
 
-{| class="wikitable"
+{| class="wikitable" style="width: 60%;"
 |+ '''''Special'''''
 |-
 ! Documentation<br />Type !!  File !! Remarks
