@@ -1,5 +1,5 @@
 [[Property:link_title|Writing Documentation FiltersFilters with EFF, the Eiffel Filter Format]]
-[[Property:modification_date|Sat, 13 Feb 2021 03:10:13 GMT]]
+[[Property:modification_date|Sat, 13 Feb 2021 04:49:50 GMT]]
 [[Property:publication_date|Thu, 11 Feb 2021 07:55:20 GMT]]
 [[Property:title|Writing Documentation Filters with EFF, the Eiffel Filter Format]]
 [[Property:weight|6]]
@@ -61,19 +61,6 @@ Note that in practice the best way to write an EFF filter is usually not from sc
 | XML || xml || xml.fil || 
 |}
 {| class="wikitable" style="width: 60%;"
-|+ '''''Variants'''''
-|-
-! Documentation<br />Type !! Filter File !! Remarks
-|-
-| HTML ||html-classic.fil || web page old version plain
-|-
-| HTML || documentation.fil || web page with default.css
-|-
-| HTML  ||html-stylesheet.fil || web page with default.css
-|-
-|}
-
-{| class="wikitable" style="width: 60%;"
 |+ '''''Assisting'''''
 |-
 ! Documentation<br />Type !! File !! Remarks
@@ -110,18 +97,14 @@ For readability, there may be any number of blanks or tabs between the <code>Con
 
 ==The asterisk==
 
-In the <code>Replacement</code> part, you may use the symbol <code>*</code> (asterisk) to denote the construct specimen itself. So for example the entry 
-<code>Feature_clause | %N%N*%N%N</code>
+In the <code>Replacement</code> part, you may use the symbol <code>*</code> (asterisk) to denote the construct specimen itself. 
 
-specifies the following formatting for any <code>Feature_clause</code>: two successive blank lines (expressed as <code>%N</code>, New Line, a convention taken from Eiffel); the feature clause itself; two blank lines. 
+So for example the entry <code>Feature_clause | %N%N*%N%N</code> specifies the following formatting for any <code>Feature_clause</code>: 
+two successive blank lines (expressed as <code>%N</code>, New Line); the feature clause itself; two blank lines. 
 
-Similarly, in an HTML format, the entry
-<code>External |<B> * </B></code>
+Similarly, in an HTML format, the entry <code>External |<B> * </B></code> means that the Eiffel keyword <code>external</code> must appear in the filtered form immediately preceded by <code><B></code>, the HTML code for switching to boldface, and immediately followed by <code></B></code>, the code for reverting to the previous setup. 
 
-means that the Eiffel keyword <code>external</code> must appear in the filtered form immediately preceded by <code><B></code>, the HTML code for switching to boldface, and immediately followed by <code></B></code>, the code for reverting to the previous setup. Here you can also write the right-hand side without the asterisks, as <code><B>external</B></code>. If, however, all keywords are to use boldface, it is preferable to write a single entry 
-<code>Keyword |<B> * </B></code>
-
-which, thanks to the asterisk, will govern all construct specimens of the <code>Keyword</code> category. You can still override this specification for an individual keyword by including a specific entry for it. 
+Here you can also write the right-hand side without the asterisks, as <code><B>external</B></code>. If, however, all keywords are to use boldface, it is preferable to write a single entry  <code>Keyword |<B> * </B></code> which, thanks to the asterisk, will govern all construct specimens of the <code>Keyword</code> category. You can still override this specification for an individual keyword by including a specific entry for it. 
 
 ==Constructs==
 
