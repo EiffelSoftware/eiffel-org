@@ -1,5 +1,5 @@
 [[Property:link_title|Writing Documentation FiltersFilters with EFF, the Eiffel Filter Format]]
-[[Property:modification_date|Fri, 12 Feb 2021 23:49:07 GMT]]
+[[Property:modification_date|Sat, 13 Feb 2021 03:08:58 GMT]]
 [[Property:publication_date|Thu, 11 Feb 2021 07:55:20 GMT]]
 [[Property:title|Writing Documentation Filters with EFF, the Eiffel Filter Format]]
 [[Property:weight|6]]
@@ -19,13 +19,13 @@ Note that in practice the best way to write an EFF filter is usually not from sc
 
 ==Available Standard Filters==
 {{UnderConstruction|Tables are work in progress}}
-{| class="wikitable"
-|+ ''Filter Files Overview''
+{| class="wikitable" style="width: 60%;"
+|+ '''''Filter Files Overview'''''
 |-
 ! Documentation<br />Type !! Generated File<br />Extension  !! Filter File !! Remarks
 |-
-| ASCII || txt || ASCII.fil || Plain text
-|-
+|| ASCII || txt || ASCII.fil || Plain text
+|- 
 | Build || ? || build.fil || EiffelBuild - possibly outdated, around year 2000
 |-
 | Cayenne|| cj || cayenne.fil || Cayenne Software as of Aug. 1998 Sterling Software, Inc. (?)
@@ -38,11 +38,11 @@ Note that in practice the best way to write an EFF filter is usually not from sc
 |-
 | HTML || html || html.fil || Web page simple formatting with tags
 |-
-| HTML ||html-classic.fil || web page old version plain
+| HTML ||html || html-classic.fil || web page old version plain
 |-
-| HTML || documentation.fil || web page with default.css
+| HTML || html || documentation.fil || web page with default.css
 |-
-| HTML  ||html-stylesheet.fil || web page with default.css
+| HTML  ||html || html-stylesheet.fil || web page with default.css
 |-
 | Index || index || index.fil || source file names for inclusion into web pages
 |-
@@ -61,7 +61,7 @@ Note that in practice the best way to write an EFF filter is usually not from sc
 | XML || xml || xml.fil || 
 |}
 {| class="wikitable"
-|+ ''Variants''
+|+ '''''Variants'''''
 |-
 ! Documentation<br />Type !! Filter File !! Remarks
 |-
@@ -74,7 +74,7 @@ Note that in practice the best way to write an EFF filter is usually not from sc
 |}
 
 {| class="wikitable"
-|+ ''Assisting''
+|+ '''''Assisting'''''
 |-
 ! Documentation<br />Type !! File !! Remarks
 |-
@@ -83,7 +83,7 @@ Note that in practice the best way to write an EFF filter is usually not from sc
 |}
 
 {| class="wikitable"
-|+ ''Special''
+|+ '''''Special'''''
 |-
 ! Documentation<br />Type !!  File !! Remarks
 |-
