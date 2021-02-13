@@ -1,5 +1,5 @@
 [[Property:link_title|Writing Documentation FiltersFilters with EFF, the Eiffel Filter Format]]
-[[Property:modification_date|Sat, 13 Feb 2021 06:43:57 GMT]]
+[[Property:modification_date|Sat, 13 Feb 2021 06:57:35 GMT]]
 [[Property:publication_date|Thu, 11 Feb 2021 07:55:20 GMT]]
 [[Property:title|Writing Documentation Filters with EFF, the Eiffel Filter Format]]
 [[Property:weight|6]]
@@ -172,7 +172,7 @@ Timestamp:
 <code>$Date: 2013-04-18 20:30:43 +0000 (Thu, 18 Apr 2013) $
 $Revision: 92456 $</code>
 
-===Generator provided Items===
+====Generator provided Items====
 
 Several extra items may be used and accessed through: $item$.
 
@@ -191,4 +191,75 @@ $title$			Title for current document.
 
 $root$			Relative base directory of generated documentation.
 					Example: "../../../../"
+</code>
+
+====Properties====
+
+<code>
+suffix			|html
+				Used to specify suffix used for this format.
+					Examples: html, txt, ps, e, etc.
+
+file_separator	|/
+				Specify when format requires a specific file separator.
+					For HTML, specify '/'. If this symbol is omitted, the separator
+					specific for the platform is used.
+</code>
+
+====Basic Text====
+
+<code>
+basic			|*
+				Basic text
+</code>
+
+====Hyperlinking items====
+
+<code>
+menu_bar		|*
+				Contains the different menu items.
+
+menu_item		|*
+				Any of the global menu items, "Classes", "Clusters", etc.
+					If not specified, no text is processed, since without hyperlinking
+					menu items are useless.
+					Symbol: $file$
+
+class_menu_item	|*
+				A link to one of the specified class formats.
+					If not specified, no text is processed.
+					Symbol: $file$
+
+menu_item_disabled	|*
+					The current format.
+
+class_menu_item_disabled|*
+	-- The current format.
+
+cluster_name			|*
+	-- Symbol: $file$.
+
+tooltip					|*
+	-- Text contained within this construct requests a tooltip.
+	-- Symbol: $tooltip$.
+	-- HTML Example: <SPAN TITLE="$tooltip$">*</SPAN>
+
+origin_comment			|*
+	-- Text describing the written class of a feature.
+	-- Example: -- from ANY
+</code>
+
+====xxx====
+
+<code>
+</code>
+
+====xxx====
+
+<code>
+</code>
+
+====xxx====
+
+<code>
 </code>
