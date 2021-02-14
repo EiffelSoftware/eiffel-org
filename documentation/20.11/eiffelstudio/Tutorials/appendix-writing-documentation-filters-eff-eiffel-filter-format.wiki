@@ -1,5 +1,5 @@
 [[Property:link_title|Writing FiltersFilters with EFF]]
-[[Property:modification_date|Sun, 14 Feb 2021 04:47:20 GMT]]
+[[Property:modification_date|Sun, 14 Feb 2021 05:03:11 GMT]]
 [[Property:publication_date|Thu, 11 Feb 2021 07:55:20 GMT]]
 [[Property:title|Writing Documentation Filters with EFF, the Eiffel Filter Format]]
 [[Property:weight|6]]
@@ -166,11 +166,12 @@ A multi-line entry uses the Eiffel convention for string continuations: <code>%<
 
 The following is a replica of the EFF template file as distributed with EiffelStudio v20.11.
 
-Location: <code>$ISE_EIFFEL/studio/filters/format.fil-template</code>
+<code>
+Location:						$ISE_EIFFEL/studio/filters/format.fil-template
 
-Timestamp:
-<code>$Date: 2013-04-18 20:30:43 +0000 (Thu, 18 Apr 2013) $
-$Revision: 92456 $</code>
+Timestamp:						$Date: 2013-04-18 20:30:43 +0000 (Thu, 18 Apr 2013) $
+								$Revision: 92456 $
+</code>
 
 ====Generator provided Items====
 
@@ -180,7 +181,7 @@ In every construct, the following items are defined:
 <code>
 $generator$					"ISE EiffelStudio version x.x.x"
 
-$html_meta$				HTML specific. Entire indexing clause defined as meta data.
+$html_meta$					HTML specific. Entire indexing clause defined as meta data.
 								Example: "<META NAME="keywords" CONTENT="eiffel, O-O">".
 
 $class$						Classname in uppercase. If currently processed file does
@@ -233,7 +234,7 @@ class_menu_item				|*
 menu_item_disabled			|*
 							The current format.
 
-class_menu_item_disabled		|*
+class_menu_item_disabled	|*
 							The current format.
 
 cluster_name				|*
@@ -252,7 +253,7 @@ origin_comment				|*
 ====Major syntactical constructs====
 
 <code>
-class_declaration				|*
+class_declaration			|*
 							Contains entire document.
 								HTML Example: <HTML><BODY>*</BODY></HTML>
 
@@ -284,190 +285,190 @@ class_end					|*
 ====Eiffel syntax items====
 
 <code>
-features				|*
-						Eiffel feature reference. Symbols:
-							$feature$ actual feature name of feature in class where it is written.
-							$file$ link to class where feature is written.
-							HTML example: <A HREF="$file$#$feature$">*</A>
+features					|*
+							Eiffel feature reference. Symbols:
+								$feature$ actual feature name of feature in class where it is written.
+								$file$ link to class where feature is written.
+								HTML example: <A HREF="$file$#$feature$">*</A>
 
-keyword					|*
-						Processed when a keyword is encountered but it is not explicitly specified.
+keyword						|*
+							Processed when a keyword is encountered but it is not explicitly specified.
 
-keyword_features		|*
-						Operator keyword or "Precursor"
-							If not specified, "keyword" is processed.
-							$file$ and $feature$ are defined, like for "features".
+keyword_features			|*
+							Operator keyword or "Precursor"
+								If not specified, "keyword" is processed.
+								$file$ and $feature$ are defined, like for "features".
 
-symbol					|*
-						Processed when a symbol is encountered but it is not explicitly specified.
+symbol						|*
+							Processed when a symbol is encountered but it is not explicitly specified.
 
-symbol_features			|*
-						Operator symbol. If not specified, "symbol" is processed.
-							$file$ and $feature$ are defined, like for "features".
+symbol_features				|*
+							Operator symbol. If not specified, "symbol" is processed.
+								$file$ and $feature$ are defined, like for "features".
 
-reserved_word			|*
-						`Result' or `Current'.
+reserved_word				|*
+							`Result' or `Current'.
 
-comment					|*
-						Example.
+comment						|*
+							Example.
 
-comment_url				|*
-						A URL in a comment. If not specified, "comment" is processed.
-							Symbol $file$ contains the URL.
+comment_url					|*
+							A URL in a comment. If not specified, "comment" is processed.
+								Symbol $file$ contains the URL.
 
-string					|*
-						Eiffel literal string.
+string						|*
+							Eiffel literal string.
 
-string_url				|*
-						A URL inside an Eiffel string. If not specified, "string" is processed.
-							Symbol $file$ contains the URL.
+string_url					|*
+							A URL inside an Eiffel string. If not specified, "string" is processed.
+								Symbol $file$ contains the URL.
 
-quoted					|*
+quoted						|*
 
-character				|*
+character					|*
 
-number					|*
+number						|*
 
-local_symbol			|*
+local_symbol				|*
 
-assertion_tag			|*
+assertion_tag				|*
 
-indexing_tag			|*
+indexing_tag				|*
 
-generic					|*
-						Formal generic class.
+generic						|*
+							Formal generic class.
 </code>
 
 ====Whitespace processing====
 
 <code>
-tab						|*
-						HTML Example: "&nbsp%;&nbsp%;&nbsp%;&nbsp%;".
+tab							|*
+							HTML Example: "&nbsp%;&nbsp%;&nbsp%;&nbsp%;".
 
-new_line				|*
-						HTML Example: "<BR>".
+new_line					|*
+							HTML Example: "<BR>".
 
-multiple_spaces			|*
-						In case a sequence of spaces are encountered, this symbol is used for all subsequent spaces.
-							HTML Example: "&nbsp%;".
+multiple_spaces				|*
+							In case a sequence of spaces are encountered, this symbol is used for all subsequent spaces.
+								HTML Example: "&nbsp%;".
 </code>
 
 ====Eiffel keywords====
 
 <code>
-interface				|*
-						Appended to keyword "class" in short and flat-short forms.
+interface					|*
+							Appended to keyword "class" in short and flat-short forms.
 
-alias					|*
-all						|*
-as						|*
-check					|*
-class					|*
-create					|*
-debug					|*
-deferred				|*
-do						|*
-else					|*
-elseif					|*
-end						|*
-ensure					|*
-expanded				|*
-export					|*
-external				|*
-false					|*
-feature					|*
-from					|*
-frozen					|*
-if						|*
-indexing				|*
-infix					|*
-inherit					|*
-inspect					|*
-invariant				|*
-is						|*
-like					|*
-local					|*
-loop					|*
-obsolete				|*
-old						|*
-once					|*
-precursor				|*
-prefix					|*
-redefine				|*
-rename					|*
-require					|*
-rescue					|*
-retry					|*
-select					|*
-separate				|*
-strip					|*
-then					|*
-true					|*
-undefine				|*
-unique					|*
-until					|*
-variant					|*
-when					|*
+alias						|*
+all							|*
+as							|*
+check						|*
+class						|*
+create						|*
+debug						|*
+deferred					|*
+do							|*
+else						|*
+elseif						|*
+end							|*
+ensure						|*
+expanded					|*
+export						|*
+external					|*
+false						|*
+feature						|*
+from						|*
+frozen						|*
+if							|*
+indexing					|*
+infix						|*
+inherit						|*
+inspect						|*
+invariant					|*
+is							|*
+like						|*
+local						|*
+loop						|*
+obsolete					|*
+old							|*
+once						|*
+precursor					|*
+prefix						|*
+redefine					|*
+rename						|*
+require						|*
+rescue						|*
+retry						|*
+select						|*
+separate					|*
+strip						|*
+then						|*
+true						|*
+undefine					|*
+unique						|*
+until						|*
+variant						|*
+when						|*
 
 Operators:
 
-and						|*
-and then				|*
-implies					|*
-not						|*
-or						|*
-or else					|*
-xor						|*
+and							|*
+and then					|*
+implies						|*
+not							|*
+or							|*
+or else						|*
+xor							|*
 </code>
 
 ====Eiffel symbols====
 
 <code>
-:=						|*
-:						|*
-%,						|*
-->						|*
-%--						|*
-$						|*
-.						|*
-..						|*
-"						|*
-=						|*
-!						|*
->						|*
->=						|*
-<<						|*
-[						|*
-{						|*
-(						|*
-<						|*
-<=						|*
-'						|*
->>						|*
-]						|*
-}						|*
-)						|*
-?=						|*
-;						|*
-~						|*
+:=							|*
+:							|*
+%,							|*
+->							|*
+%--							|*
+$							|*
+.							|*
+..							|*
+"							|*
+=							|*
+!							|*
+>							|*
+>=							|*
+<<							|*
+[							|*
+{							|*
+(							|*
+<							|*
+<=							|*
+'							|*
+>>							|*
+]							|*
+}							|*
+)							|*
+?=							|*
+;							|*
+~							|*
 
 Operators:
 
-+						|*
--						|*
-%*						|*
-/						|*
-//						|*
-\\						|*
-^						|*
-/=						|*
++							|*
+-							|*
+%*							|*
+/							|*
+//							|*
+\\							|*
+^							|*
+/=							|*
 </code>
 
 ====Obsolete filter constructs====
 
 <code>
-!!						|*
-creation				|*
-cluster_declaration		|*
-cluster_header			|*
+!!							|*
+creation					|*
+cluster_declaration			|*
+cluster_header				|*
 </code>
