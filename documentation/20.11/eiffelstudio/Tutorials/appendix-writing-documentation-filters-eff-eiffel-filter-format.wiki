@@ -1,5 +1,5 @@
 [[Property:link_title|Writing FiltersFilters with EFF]]
-[[Property:modification_date|Sun, 14 Feb 2021 05:24:06 GMT]]
+[[Property:modification_date|Sun, 14 Feb 2021 05:57:28 GMT]]
 [[Property:publication_date|Thu, 11 Feb 2021 07:55:20 GMT]]
 [[Property:title|Writing Documentation Filters with EFF, the Eiffel Filter Format]]
 [[Property:weight|6]]
@@ -16,6 +16,8 @@ If you have a favorite format that you'd like EiffelStudio to use for producing 
 * Producing documentation that purposely omit some parts of Eiffel texts, in line with the ideas applied by the Contract and Flat Contract forms.
 
 Note that in practice the best way to write an EFF filter is usually not from scratch, but by copying an existing filter -- one that seems closest to your needs -- and adapting the copy.
+
+----
 
 ==Available Standard Filters==
 
@@ -86,6 +88,8 @@ Note that in practice the best way to write an EFF filter is usually not from sc
 | EFF Formatting || || format.fil-template || Listing of recognized tags
 |-
 |}
+
+----
 
 ==Where to put filters==
 
@@ -170,16 +174,18 @@ If <code>c</code> is not one of the characters for which special conventions hav
 
 A multi-line entry uses the Eiffel convention for string continuations: <code>%</code> at the end of a line to signal that there is a continuation; a continuation line begins with zero or more spaces and tabs followed by a <code>%</code> ; the characters after the <code>%</code> are the continuation of the string. 
 
+----
+
 ==The EFF Template File==
-{{UnderConstruction|making it match the latest definitions in distribution}}
+
 
 The following is a replica of the EFF template file as distributed with EiffelStudio v20.11.
 
-<code>
-Location:						$ISE_EIFFEL/studio/filters/format.fil-template
+<code lang=text >
+Location:					$ISE_EIFFEL/studio/filters/format.fil-template
 
-Timestamp:						$Date: 2013-04-18 20:30:43 +0000 (Thu, 18 Apr 2013) $
-								$Revision: 92456 $
+Timestamp:					$Date: 2013-04-18 20:30:43 +0000 (Thu, 18 Apr 2013) $
+							$Revision: 92456 $
 </code>
 
 ====Generator provided Items====
@@ -187,7 +193,7 @@ Timestamp:						$Date: 2013-04-18 20:30:43 +0000 (Thu, 18 Apr 2013) $
 Several extra items may be used and accessed through: $item$.
 
 In every construct, the following items are defined:
-<code>
+<code lang=text >
 $generator$					"ISE EiffelStudio version x.x.x"
 
 $html_meta$					HTML specific. Entire indexing clause defined as meta data.
@@ -205,7 +211,7 @@ $root$						Relative base directory of generated documentation.
 
 ====Properties====
 
-<code>
+<code lang=text >
 suffix						|html
 							Used to specify suffix used for this format.
 								Examples: html, txt, ps, e, etc.
@@ -218,14 +224,14 @@ file_separator				|/
 
 ====Basic Text====
 
-<code>
+<code lang=text>
 basic						|*
 							Basic text
 </code>
 
 ====Hyperlinking items====
 
-<code>
+<code lang=text>
 menu_bar					|*
 							Contains the different menu items.
 
@@ -261,7 +267,7 @@ origin_comment				|*
 
 ====Major syntactical constructs====
 
-<code>
+<code lang=text>
 class_declaration			|*
 							Contains entire document.
 								HTML Example: <HTML><BODY>*</BODY></HTML>
@@ -293,7 +299,7 @@ class_end					|*
 
 ====Eiffel syntax items====
 
-<code>
+<code lang=text>
 features					|*
 							Eiffel feature reference. Symbols:
 								$feature$ actual feature name of feature in class where it is written.
@@ -350,7 +356,7 @@ generic						|*
 
 ====Whitespace processing====
 
-<code>
+<code lang=text>
 tab							|*
 							HTML Example: "&nbsp%;&nbsp%;&nbsp%;&nbsp%;".
 
@@ -364,7 +370,7 @@ multiple_spaces				|*
 
 ====Eiffel keywords====
 
-<code>
+<code lang=text>
 interface					|*
 							Appended to keyword "class" in short and flat-short forms.
 
@@ -432,7 +438,7 @@ xor							|*
 
 ====Eiffel symbols====
 
-<code>
+<code lang=text>
 :=							|*
 :							|*
 %,							|*
@@ -475,9 +481,11 @@ Operators:
 
 ====Obsolete filter constructs====
 
-<code>
+<code lang=text>
 !!							|*
 creation					|*
 cluster_declaration			|*
 cluster_header				|*
 </code>
+
+----
