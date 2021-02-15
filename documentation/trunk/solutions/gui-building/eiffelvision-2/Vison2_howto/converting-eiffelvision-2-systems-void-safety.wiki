@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 15 Feb 2021 09:18:59 GMT]]
+[[Property:modification_date|Mon, 15 Feb 2021 11:55:27 GMT]]
 [[Property:publication_date|Mon, 15 Feb 2021 09:18:59 GMT]]
 [[Property:link_title|... make void-safe]]
 [[Property:title|Converting EiffelVision 2 Systems to Void-Safety]]
@@ -6,7 +6,7 @@
 [[Property:uuid|96e01318-700b-da6e-42d1-14fee219daf5]]
 ==Introduction==
 
-In order to convert systems that employ EiffelVision 2 (Vision2) to [[Void-safe Programming in Eiffel|void-safety]], some adjustments may be needed depending on its usage.  This page describes the various usage scenarios of Vision2 that will need to be converted in order to adhere to void-safety.
+In order to convert systems that employ EiffelVision 2 (Vision2) to [[Void-safe Programming in Eiffel|Void-safe programming]], some adjustments may be needed depending on its usage.  This page describes the various usage scenarios of Vision2 that will need to be converted in order to adhere to void-safety.
 <!--break-->
 ==Inheritance Purely from an Interface Class==
 
