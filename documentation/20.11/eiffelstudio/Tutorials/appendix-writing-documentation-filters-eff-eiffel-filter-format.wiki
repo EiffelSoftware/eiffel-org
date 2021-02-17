@@ -1,5 +1,5 @@
 [[Property:link_title|Writing Filters with EFF]]
-[[Property:modification_date|Sun, 14 Feb 2021 06:05:30 GMT]]
+[[Property:modification_date|Wed, 17 Feb 2021 22:07:19 GMT]]
 [[Property:publication_date|Thu, 11 Feb 2021 07:55:20 GMT]]
 [[Property:title|Writing Documentation Filters with EFF, the Eiffel Filter Format]]
 [[Property:weight|6]]
@@ -96,6 +96,24 @@ Note that in practice the best way to write an EFF filter is usually not from sc
 When you choose to generate documentation, EiffelStudio will ask you to select a filter from a list it obtains by looking up the files of extension <code>.fil</code> in the directory <code>$ISE_EIFFEL/studio/filters</code>
 
 To make a new filter available to yourself and other users of this installation, just add the corresponding file <code>some_name.fil</code> to this directory. Make sure to choose the appropriate <code>name</code>, since this is what the menu of available filters will display. 
+
+==Output generated==
+
+The output will be placed in the directory specified in the "Project>Generate Documentation" dialog of EiffelStudio.
+
+The output type is determined by the <code>suffix</code> construct in the filter file.
+
+Output type 1 - <code>suffix</code> is HTML: 
+* HTML formatted web pages with file extension <code>.HTML</code>
+* with a copy of the stylesheet <code>default.css</code> copied to the Documentation directory
+* with a generated menu <code>goto.html</code> placed into the Documentation directory with submenu directories as required
+* any other supporting files (stylesheets, javascript) must manually be placed in the Documentation directory
+* the filter must define a major construct, eg <code>class_declaration</code>,  <code>cluster_declaration</code>, to contain a complete HTML skeleton of a webpage
+
+Output type 2 - <code>suffix</code>  is any other: 
+* if <code>suffix</code> is missing the output will produced with a <code>.TXT</code> file extension
+* if <code>suffix</code> is defined the output will produced with the given file extension
+* as needed the filter must define a major construct, eg <code>class_declaration</code>,  <code>cluster_declaration</code>, to contain a complete skeleton for the desired output target 
 
 ==Filter basics==
 
@@ -306,7 +324,8 @@ features					|*
 								HTML example: <A HREF="$file$#$feature$">*</A>
 
 keyword						|*
-							Processed when a keyword is encountered but it is not explicitly specified.
+							Processed when a keyword is encountered but it is not 
+							explicitly specified.
 
 keyword_features			|*
 							Operator keyword or "Precursor"
@@ -314,7 +333,8 @@ keyword_features			|*
 								$file$ and $feature$ are defined, like for "features".
 
 symbol						|*
-							Processed when a symbol is encountered but it is not explicitly specified.
+							Processed when a symbol is encountered but it is not 
+							explicitly specified.
 
 symbol_features				|*
 							Operator symbol. If not specified, "symbol" is processed.
