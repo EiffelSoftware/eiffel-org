@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 21 Aug 2018 18:55:21 GMT]]
+[[Property:modification_date|Tue, 14 Sep 2021 13:19:59 GMT]]
 [[Property:publication_date|Tue, 21 Aug 2018 18:55:21 GMT]]
 [[Property:title|Customizing the tools layout and toolbars]]
 [[Property:weight|-8]]
@@ -35,6 +35,16 @@ You can try this now and see the effect. Your tools layout will probably not cha
 
 You can see in the image above that you would also follow that menu path in order to save a tools layout or to activate one that you had previously saved.
 
+==Reverting to the default layout using the command line ==
+
+From the command line, it is also possible to reset the IDE layout
+
+```sh
+ec -reset_ide_layout
+```
+
+From the command line, you may need to set the ISE_EIFFEL, and ISE_PLATFORM environment variable.
+The `ec` executable is located in `$ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin`.
 
 ==Minimizing, maximizing, restoring, and closing tools==
 
