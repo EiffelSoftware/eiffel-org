@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 14 Sep 2021 13:19:59 GMT]]
+[[Property:modification_date|Tue, 14 Sep 2021 19:26:17 GMT]]
 [[Property:publication_date|Tue, 21 Aug 2018 18:55:21 GMT]]
 [[Property:title|Customizing the tools layout and toolbars]]
 [[Property:weight|-8]]
@@ -37,7 +37,7 @@ You can see in the image above that you would also follow that menu path in orde
 
 ==Reverting to the default layout using the command line ==
 
-From the command line, it is also possible to reset the IDE layout
+From the command line, since version 20.05, it is also possible to reset the IDE layout
 
 ```sh
 ec -reset_ide_layout
