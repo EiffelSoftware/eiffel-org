@@ -1,0 +1,164 @@
+[[Property:title|Retargeting Through Pick-and-Drop]]
+[[Property:weight|-5]]
+[[Property:uuid|a3789781-153b-7f4d-bb94-4bdf8923fb56]]
+
+You now know quite a few ways of re-targeting a Development Window to a "development object" -- a class or a feature -- but haven't yet seen one of the most important: "Pick-and-Drop", which lets you pick a development object that you have spotted anywhere in the display, and retarget the current tool, or another, to it.
+
+
+==Trying Pick-and-Drop==
+
+We restart from the last state, with a Development Window target to feature <code>forth</code> of class <code>LIST</code>. The next figure shows the whole window; it should look like what you see as a result of the last operations. We'll use the <code>Descendant versions</code> view of the <code lang=text>Feature </code>Tab. 
+
+If for some reason the window doesn't look like the next figure, it's easy to reconstruct it: make sure both the Cluster tree and the Feature tree are visible (if not, make visible using the instructions given in [[Viewing Classes#Making some room|Viewing Classes]]); target the tool to class <code>LIST</code>; target further to its feature <code>forth</code> by clicking that feature name in the Features tool's roll of the features of <code>LIST</code>; make sure both the top-left Editing tool and the bottom-left Feature tool are visible; in the Feature tool, select the <code>Descendant versions</code> format. 
+
+[[Image:es gt development window feature descendants 01|Descendant versions of forth]]
+
+In the Feature tool near the bottom, there is an entry that reads
+<code>
+	MULTI_ARRAY_LIST [G]      forth
+</code>
+
+referring to the version of feature <code>forth</code> in class <code>MULTI_ARRAY_LIST</code>. Let's assume you want to see what that version actually is. It suffices to retarget the tool to it. Of course you could type or copy-paste the class name <code>MULTI_ARRAY_LIST</code> in the Class field at the top of the window, and the feature name <code>forth</code> in the adjacent Feature field. But there is an easier way; after all, you have just seen a reference to the feature, through its name as it appears in the Descendant version format, so it's natural to use it directly from the graphical interface. 
+
+As we've seen before, you could control-right-click on the feature name at the place where it appears; this would create a new tab and retarget the Development Window to <code>forth</code> from <code>MULTI_ARRAY_LIST</code>. But you might not necessarily want a new tab. Instead you can use Pick-and-Drop to retarget the current window. 
+
+Here is how it works. Position the cursor on the desired feature reference: the word <code>forth</code> in the line <code>forth MULTI_ARRAY_LIST</code>. Right-click, that is to say click the rightmost mouse button and then release it. You will see a context menu that looks like the figure below.
+
+
+[[Image:es gt pnd context menu 01]]
+
+
+The item we want to choose from this menu is "Pick Feature 'forth'". So do that now, by left-clicking over the item.
+
+Now move the mouse around some, but ''without pressing any button'':
+ 
+
+[[Image:es gt picked forth 01]] 
+
+
+The cursor has changed into a new shape, a cross representing the type of development object that you have picked, a feature. For a class, as you may have guessed, it would be a small ellipse ("bubble"). Each kind of development object that you may create and manipulate during your work with EiffelStudio has its distinctive icon. When you '''pick''' an item, you'll notice that the item's icon stays connected to its origin by a dotted line that stretches or shrinks as you move the icon around.
+
+So, now you have '''picked''' the feature <code>forth</code>. You can '''drop''' it at any appropriate place to retarget the corresponding tool. Move your cursor (and the feature icon for <code>forth</code>) over the Editing tool now.
+
+To '''drop''', just '''right-click''' again. (That is to say, as before, press the rightmost mouse button and release it immediately.) Drop the icon representing <code>{MULTI_ARRAY_LIST}.forth</code> in the Editing tool. 
+
+This retargets the Development Window to the chosen feature, <code>forth</code> from the class <code>MULTI_ARRAY_LIST</code>. The Feature tool (assuming the Link Context tool option is selected), keeps its current view ( <code>Descendant versions</code> in the <code lang=text>Feature</code> tool) and now shows descendants of <code>{MULTI_ARRAY_LIST}.forth</code>. 
+
+
+[[Image:es gt development window multi array list forth 01|Retargeted to {MULTI_ARRAY_LIST}.forth]]
+
+
+==Bypassing the context menu==
+
+In the example above, when you right-clicked over an item, you were presented with a "context" menu, containing choices applicable for the item you clicked. We chose to pick the item. It's possible that if you use pick-and-drop quite a bit that you might rather not see the context menu each time you right click. You can make this happen in a couple of ways. First, if you use the context menu most of the time, but you want to pick directly at other times, you can '''shift-right-click''' to bypass the context menu and pick the item immediately. 
+
+The other option is used if you want a right-click to pick by default, and only use the context menu occasionally. To make this happen, you need to change the '''Pick and drop (pnd) mode'''  [[EiffelStudio Preferences|EiffelStudio preference]]. You can change this preference by following the menu path:
+<code lang="text">
+Tools --> Preferences...
+</code>
+When the preferences window opens, expand the '''General''' preferences folder. You'll see '''Pick and drop (pnd) mode''' is set to '''False''' by default. If you wish to change the behavior, then check the box and the value will change to '''True'''. Then you can exit the preferences window.
+
+With '''Pick and drop (pnd) mode''' set to '''True''', you will always get a pick when you right-click over an development object. If you occasionally wish to use the context menu, then you would shift-right-click, which would cause the context menu to appear.
+
+
+==How Pick-and-Drop works==
+
+
+The Pick-and-Drop mechanism is very simple. It consists of three steps:
+*  '''Pick''' step: find the development object and pick it: either through the context menu, or by shift-right-click, or by right-click, depending upon EiffelStudio's Pick and Drop Mode. 
+*  '''Move''' step: move the mouse to the desired drop point, <span>without pressing any button</span>. 
+*  '''Drop''' step: right-click (again releasing the button immediately) at the drop position. 
+
+During the Move step, you can at any time '''cancel the whole operation''' simply through a '''left-click'''. 
+
+The Move step is actually optional: if the current position is a valid drop target, as explained next, you can drop immediately after the pick without moving the mouse.
+
+
+==Pebbles, holes, drop targets and type compatibility==
+
+The Pick-and-Drop mechanism relies on the metaphor of '''pebbles and holes'''. When you pick a development object, the cursor changes into a '''pebble''' whose shape represents the type of the development object: cluster, class, feature, run-time object ... You may then drop it into a '''hole''', which can be a window, a tree view entry, or a hole-shaped icon. This performs the appropriate action such as retargeting a tool. 
+
+In the same way that Eiffel is a typed object-oriented language, the Pick-and-Drop mechanism is typed: you can only drop a pebble into a compatible hole. For example you may drop a class pebble into a Development Window, to retarget it to the chosen class. If you have picked a development object and have moved its pebble over an area which is an unacceptable place to drop it, you will notice that the pebble takes on its "disabled" form. An enabled class pebble ([[Image:context-class-cursor]]), for example, would become a disabled class pebble ([[Image:context-disabled-class-cursor]]) for the time that it's hovering over unfriendly territory.
+
+In Eiffel, type compatibility is not necessarily type identity, but is governed by ''conformance'', based on inheritance and polymorphism: to an entity of type <code>POLYGON</code>, you may assign not only an expression of that same type, but also one of type <code>RECTANGLE</code>, if class <code>RECTANGLE</code> inherits from -- conforms to -- class <code>POLYGON</code>. Similarly, EiffelStudio considers that the development type "feature" conforms to "class"; this means you may drop a feature into a Development Window targeted to a class; this will retarget the tool to the feature's class and the feature itself, with the text of the class scrolled to the position of the feature. 
+
+ 
+==Clickable formats==
+
+A good deal of the power of Pick-and-Drop comes from its connection with the various views of the Class and Feature tools ... and the Diagram tool which we will see later. As was mentioned when we saw these views, all the feature and class names or other graphical representations that appear in these views are '''clickable''' ; this means that you can select any of them as the source of a Pick-and-Drop. 
+
+As a result, you can quickly traverse a system and get to its essential properties by displaying the information of a class in any of the many available views -- the contract and flat contract of a class, its routines, its attributes, its clients, its ancestors, the ancestor and descendant versions of a feature, and so on -- then wherever you see a feature or class name follow the corresponding link. This '''proximity-based''' form of browsing, combined with the other techniques seen earlier, provides considerable help when you are dealing with a large, possibly complex system, and want to master its intricacies, be it for development, testing, debugging, maintenance or revision. 
+
+Other places where you can pick development objects include the icons representing classes and features in the Groups tool, Feature tool, and Favorites tool.
+
+
+==Semantic consistency==
+
+An important property of the pick-and-drop mechanism, shared by its cousin the right-click mechanism, has already been mentioned in this chapter: semantic consistency, which guarantees that the operations you can perform on a class, such as pick-and-drop, only depend on the ''development object'' to which you are applying the operation. It doesn't matter where you picked the object -- in any development tool under any view -- and in what form: textual, as a class or feature name; graphical representation, as a class bubble in the Diagram tool; or an icon, for example in the Groups tool, Features tool, Favorites tool. 
+
+The pebble that you see during the Move step of Pick-and-Drop represents the underlying development object -- such as a class or a feature -- regardless of how you got to it.
+
+ 
+==Behind the Pick-and-Drop conventions==
+
+Pick-and-Drop works differently from the usual Drag-and-Drop present on many computing platforms. The usual Drag-and-Drop retains a role within EiffelStudio (to move class bubbles around in the Diagram view) and you may of course have to use it for operating system functions such as copying files. But the key EiffelStudio operation is Pick-and-Drop. This technique is motivated by careful consideration of ergonomics and user comfort. In particular:
+* Pick-and-Drop is much less stressful. Drag-and-Drop requires you to maintain pressure throughout the move, being careful not to drop on the wrong place. With Pick-and-Drop there is no stress: you click and release; get a drop from your coffee cup if you like (optional step); move the cursor with no pressure from your fingers or on your mind; make sure, at your leisure, to find the right drop place; and right-click again on it. At the end of the day, after many such operations, the stress reduction can make a real difference.
+* With Drag-and-Drop, it's easy to lessen the pressure involuntarily and drop on the wrong place. The consequences can be damaging, especially since in such a case you may well <span>not know</span> where you dropped the element; after all, that wasn't intentional. It is possible, for example, to lose files that way. With Pick-and-Drop this is much less likely to happen. 
+* Pick-and-Drop makes it easy to cancel the operation if you change your mind: just left-click anywhere. With Drag-and-Drop you have to find an invalid place to drop; this may be difficult, or even impossible! (Sometimes pressing the Escape key works, but this is not universal.)
+
+If you are new to EiffelStudio you may find Pick-and-Drop surprising at first. We trust you will join the ranks of EiffelStudio users who consistently rate it among the most convenient features of the environment.
+
+
+==Pick-and-Drop miscellany==
+
+When you start repeatedly retargeting the Class and Feature tools -- especially when set to "unlinked" behavior -- you will notice the following properties:
+* In most cases, pick-and-dropping a ''class'' into the lower pane where the Class and Feature tools are docked will switch the view to the Class tool, and pick-and-dropping a <span>feature</span> switches to the Feature tool. This is true even if the pane is currently set to the Outputs tool or another unrelated tool.
+* The view displayed in each case -- for example <code>Ancestors</code> for the ''Class'' tool and <code>Flat</code> for the ''Feature'' tool -- is default view for the corresponding tool. 
+
+You know by now that if you pick an object and drop in into the Editing tool it will retarget the Development Window and will evict the previous occupant of the current Editing tool tab and display the dropped object in that tab. But, you can also use Pick-and-Drop to create new tabs in the Editing tool. Instead of dropping into a tab, drop the pebble instead in the tab bar of the Editing tool next to existing tabs, or on the "New Tab" icon ([[Image:new-document-icon]]) in the Standard buttons toolbar. 
+
+
+==The many paths to retargeting==
+
+As a conclusion to this review of Pick-and-Drop let's recapitulate the various ways we've seen for retargeting a whole Development Window or a tool to a class:
+{| border="2"
+|- 
+|  '''How to retarget''' 
+|  '''Same window/tab/tool, or new?''' 
+|  '''Where described''' 
+|- 
+| Type class name, then Enter, in class field at top-left of tool 
+| Same
+|  [[Starting to Browse#Retargeting by name|"Retargeting by name" in the chapter "Starting To Browse".]]  
+|- 
+| Choose class in Cluster tree
+| Same
+|  [[Starting to Browse#Retargeting from the Groups tool|"Retargeting from the Groups tool" in the chapter "Starting To Browse". ]]  
+|- 
+| Choose class in Favorites 
+| Same
+|  [[Starting to Browse#Adding to Favorites|"Adding to Favorites" in the chapter "Starting To Browse".]]  
+|- 
+| "Back" button 
+| Same
+|  [[Starting to Browse#Moving back and forth|"Moving back and forth" in the chapter "Starting To Browse".]]  
+|- 
+| "Forth" button 
+| Same
+|  [[Starting to Browse#Moving back and forth|"Moving back and forth" in the chapter "Starting To Browse".]]  
+|- 
+| Pick class from history list 
+| Same
+|  [[Starting to Browse#The Target History|"The Target History" in the chapter "Starting To Browse".]]  
+|- 
+| Pick-and-drop
+| Existing or new (depending upon drop target) 
+|  [[Retargeting Through Pick-and-Drop|Chapter "Retargeting Through Pick-and-Drop".]]  
+|- 
+| Control-right-click on class name or graphical representation found in any tool 
+| New tab
+|  [[Starting to Browse|"Starting a new tool" in the chapter "Starting To Browse".]]  
+|}
+
+
+

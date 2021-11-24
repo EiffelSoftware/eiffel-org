@@ -1,0 +1,15 @@
+[[Property:title|Header comment]]
+[[Property:weight|3]]
+[[Property:uuid|45ecda88-003d-fe59-5d4c-3a84d488b6a2]]
+In the header comment field you can type a description of the feature. For style guidelines in writing a header comment, see [[Object-Oriented Software Construction, 2nd Edition]], chapter 26, section 4. The description should be informative, clear and terse. 
+
+For example, suppose you have an attribute <eiffel>count</eiffel>. You can enter the following header comment: 
+<div>  [[Image:feature-wizard-comment]]  </div><br/>
+When clicking '''OK''' this code is generated: <br/>
+<code>
+    count: INTEGER
+            -- Number of students in course</code>
+
+
+
+

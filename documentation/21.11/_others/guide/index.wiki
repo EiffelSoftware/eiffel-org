@@ -1,0 +1,186 @@
+[[Property:title|Guide]]
+[[Property:description|Central repository of information about Eiffel and the products and technologies of Eiffel Software]]
+[[Property:link_title|Information Guide]]
+[[Property:weight|10]]
+[[Property:uuid|68b37685-64e9-f564-9258-29e709a55f44]]
+'''Guide to Eiffel Information'''
+
+These pages are the central repository of information about Eiffel and the products and technologies of Eiffel Software. They cover the online documentation, but also link to many valuable resources outside the documentation set.
+
+If you are interested in [[Learning Eiffel|learning Eiffel, there is a list of resources]] dedicated to that purpose. 
+
+The online documentation is organized into virtual books. Each book covers an important aspect of the world of Eiffel. For cases in which it is not always possible to use the online version of the documentation, all or selected parts of the documentation set can be [[Offline use of the Eiffel documentation|downloaded for offline use]].
+
+* [[Guide]] -- Guide to Eiffel Information
+* [[EiffelStudio]] -- The EiffelStudio Interactive Development Environment
+* [[Solutions]] -- Eiffel Solutions, Technologies, and Class Libraries
+* [[Platform specifics]] -- Specific support for particular platforms, e.g., Microsoft Windows 
+* [[Method|Method and Language]] -- The Eiffel Method and Language
+* [[Why Eiffel?]] -- Why Eiffel?
+* [[Papers]] -- Technical and position papers relating to Eiffel and the engineering of high quality software
+* [[Examples]] -- Contributor supported examples of Eiffel solutions to common programming problems
+* [[Community]] -- Community Contributions
+<!--break-->
+Sources of information on Eiffel include:
+
+==Books in the Eiffel Documentation==
+----
+
+===[[Guide]] -- Guide to Eiffel Information===
+
+:You are reading this book now.
+
+===[[EiffelStudio]] -- The EiffelStudio Interactive Development Environment===
+
+:Information about installing and using EiffelStudio
+
+===[[Solutions]] -- Eiffel Solutions, Technologies, and Class Libraries===
+
+:Technologies available with Eiffel provide solutions to many ordinary development needs ... and some extraordinary needs too. This book addresses these requirements and the Eiffel technologies that satisfy them.
+
+===[[Platform specifics]] -- Support for particular operating systems===
+
+:Although most  Eiffel technology is completely platform-independent, Eiffel also provides important platform-specific solutions, described in this book.
+
+===[[Method|Method and Language]] -- The Eiffel Method and Language===
+
+:Materials promoting the understanding of the Eiffel software development method and the Eiffel programming language.
+
+===[[Why Eiffel?]] -- Why Eiffel? ===
+
+:A summary of the arguments for using Eiffel.
+
+===[[Papers]] -- Technical and position papers relating to Eiffel===
+
+:This book is a place for white papers which provide background, foundation, or supplemental information about the the Eiffel method and language as well as the goal of engineering high quality software. 
+
+===[[Examples]] -- Contributor supported examples of Eiffel solutions to common programming problems===
+
+:Let's build a set of examples that can be shared on popular WWW program chrestomathies. 
+
+===[[Community]] -- You can contribute to the documentation!===
+
+:EiffelStudio documentation is available in a convenient Wiki format. This makes it possible to improve the documentation continuously and make sure it is always up to date.
+
+
+
+'''Community input''' is welcome. If you are interested in improving and developing EiffelStudio documentation, you can become a ''contributor'' or ''editor'':
+
+* Contributors can edit existing pages in any book and add pages to Community Contributions books.
+
+* Editors can modify and add pages in any book (including adding Community Contribution pages to an existing book).
+
+To become a contributor, you should be proficient in Eiffel technology and have good written English skills. To become an editor, you should already have made significant improvements or additions as a contributor.
+
+If you are interested in becoming a contributor, please send an email to info@eiffel.com with a short description of your Eiffel experience and any other relevant background. We look forward to your contributions!
+
+
+
+----
+
+==Other sources of information on Eiffel==
+
+----
+
+
+===The [http://eiffel.com Eiffel.com] website===
+
+Eiffel Software's website [http://eiffel.com Eiffel.com] contains an enormous amount of information about Eiffel. There are product descriptions, special pages for developers and their managers, case studies and testimonials, the latest Eiffel news, and much more.
+
+
+----
+
+===[http://eiffel.com/developers/presentations/ Web Presentations] on Eiffel.com===
+
+Learn quickly about Eiffel and the things that help make it special, like Design by Contract and EiffelStudio. Learn how Eiffel fits in with and compares to other popular technologies. All this and more is available on the [http://eiffel.com/developers/presentations/ presentations page] on Eiffel.com. 
+
+
+----
+
+===[http://eiffel.com/developers/learning_maps/ Learning Maps] on Eiffel.com===
+
+Get an in-depth view of topics by navigating the [http://eiffel.com/developers/learning_maps/ Eiffel Learning Maps]. Learning maps represent knowledge as a network of interrelated concepts. Attached to the concepts you may find links to additional resources. These resources can be just about anything. You'll find plain text files, web pages, screen shots, and even Eiffel Learnlets. Learnlets are small units of learning in web presentation form that are designed to take no more than 30 minutes to view ... just right for your lunch break.
+
+
+----
+
+===The [http://www.eiffelroom.com/ EiffelRoom] Website===
+
+[http://www.eiffelroom.com/ EiffelRoom] is an Eiffel community website on which Eiffel developers from across the globe come together and share their experiences ... and their products. You'll find how-to articles, tips and tricks, example code, whole libraries of EIffel classes, and specialized products. It is easy to contribute to EiffelRoom and start giving back to the community.
+
+
+----
+
+===The Eiffel Software User Group===
+
+The Eiffel Software Users' Group is a focus group for those who use the products of Eiffel Software. Its primary communication vehicle is a [http://groups.eiffel.com/ collaborative discussion group]. The group mailing list is monitored by Eiffel Software developers and many highly experienced Eiffel programmers. So if you have questions or comments about Eiffel Software products, this is a good place to be.
+
+
+----
+
+===The EiffelWorld Newsletter===
+
+A few times a year, we send out an email newsletter containing announcements of new versions of products, upcoming events, newly added technologies, website changes, editorials, and contributions from the community. To subscribe send a request to [mailto:info@eiffel.com info@eiffel.com].
+
+
+----
+
+===[[Object-Oriented Software Construction, 2nd Edition]]===
+
+There is no better place to gain an in-depth understanding of the Eiffel software development method than [[Object-Oriented Software Construction, 2nd Edition]], by Bertrand Meyer, published by Prentice Hall. It is the world's most complete guide to building great object-oriented software.
+
+
+----
+
+===Other [[Books about the Eiffel Method and Language|books about the Eiffel Method and Language]]===
+
+
+----
+
+===The Standard:  ''Eiffel: Analysis, Design, and Programming Language''===
+
+Eiffel has been standardized under ISO and ECMA. The comprehensive description of the standard Eiffel programming language is presented in [http://www.ecma-international.org/publications/standards/Ecma-367.htm Standard ECMA-367].
+
+
+
+----
+
+===Contribute to Eiffel===
+
+You can help Eiffel by contributing your time, expertise, and products. Here are some websites that you can visit to see what's up with the development of Eiffel Software products. 
+
+====[http://dev.eiffel.com dev.eiffel.com]====
+
+:This [http://dev.eiffel.com wiki site] is the hub of development activity for the EiffelStudio interactive development environment. Even if you do not plan to contribute, dev.eiffel.com is a valuable source of information concerning where EiffelStudio is going ... and, if you're curious, where it has been.
+
+====[http://eiffelstudio.origo.ethz.ch/ EiffelStudio on Origo]====
+
+:[http://eiffelstudio.origo.ethz.ch/ EiffelStudio on Origo] contains blogs and forums focusing on Eiffel and EiffelStudio topics.
+
+
+
+
+
+----
+
+==[[uuid:b8c10baa-4f50-adfe-a6f8-9cb56a8f1917|Glossary of Object Technology]]==
+
+----
+
+
+This is a relatively comprehensive glossary of terms used in Object-Oriented Analysis, Design, and programming, but are not specific to the Eiffel Language, since object-oriented principles can be applied to any programming language.  It contains all the terms from the glossary in [[Object-Oriented Software Construction, 2nd Edition]], plus others used in this website, added for clarity and ease of reference.
+
+This glossary is useful all by itself, since a review of it can serve as a refresher (in case you have been away from Object Technology for a while).  It is used in this website to assist the reader by providing easy links to technical terms that are used throughout the website.
+
+Additionally, it is possible to link to terms in this glossary from other websites by using links that look like this:
+
+:<nowiki>http://docs.eiffel.com/book/guide/glossary-object-technology#Attribute</nowiki>
+
+or a version that will survive the page being moved:
+
+:<nowiki>http://docs.eiffel.com/isedoc/uuid/b8c10baa-4f50-adfe-a6f8-9cb56a8f1917#Attribute</nowiki>
+
+Note that the anchor (the part after the "#") has to be spelled and capitalized exactly like the term on the page.  (Use underscore characters to replace spaces.)
+
+----
+

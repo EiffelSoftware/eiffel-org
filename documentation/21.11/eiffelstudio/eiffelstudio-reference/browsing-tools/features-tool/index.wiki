@@ -1,0 +1,15 @@
+[[Property:title|Features tool]]
+[[Property:weight|3]]
+[[Property:uuid|bc9b2ef1-b4c4-773a-9ba8-97143fb2727a]]
+{| border="0" 
+|- 
+|   [[Image:feature-tool]]  
+|  
+And if you click on  [[Image:feature-tool-signature-button|[S]]]  the signature toggle button. <br/>
+You will see the signature for each feature 
+
+|   [[Image:feature-tool-signature]]  
+|}
+The Features tool gives a summary of all immediate (written-in) features of the currently edited class. They are listed in a [[Feature tree|tree representation]] , where the nodes are the feature clauses, and the leaves are the features. 
+In the tool mini-toolbar, a [[New feature command|new feature command]]  is available, which adds a new feature in the edited class. 
+
