@@ -1,3 +1,5 @@
+[[Property:modification_date|Sat, 13 Feb 2021 06:17:06 GMT]]
+[[Property:publication_date|Mon, 08 Feb 2021 02:10:40 GMT]]
 [[Property:title|Producing and Exporting Documentation]]
 [[Property:weight|-7]]
 [[Property:uuid|ca43a3c2-9e1a-a69f-81cf-55d0b12294ea]]
@@ -12,6 +14,7 @@ EiffelStudio provides unique facilities to make such distributed development pos
 * For existing formats, they must have a way to tune the output easily to any specific style standards, company policies, local variants.
 
 EiffelStudio's documentation generation satisfies all these requirements.
+
 
 ==Documentation filters==
 
@@ -43,7 +46,7 @@ The filter names correspond to major documentation formats which EiffelStudio su
 Not only do these predefined filters provide support for a number of important industry formats; better yet, if you want <span>another</span> format not represented on the list, or would like to adapt an existing format to your own style preferences, it's easy to define a new filter. The list that EiffelStudio displays comes from the files with a <code>.fil</code> extension that it finds in a subdirectory of the installation: 
 <code>$ISE_EIFFEL/studio/filters</code>
 
-To define a new filter, simply add a file to this directory. Filters are expressed in a simple notation called EFF ( <span>Eiffel Filter Format</span> ), general enough to support a wide variety of tools for text processing, project management, Web publishing etc. The best way to define a new filter is usually to start from an existing one and adapt it. You will find the specification of EFF at the end of this manual, [[APPENDIX: WRITING DOCUMENTATION FILTERS WITH EFF, THE EIFFEL FILTER FORMAT|here]] . 
+To define a new filter, simply add a file to this directory. Filters are expressed in a simple notation called EFF ( <span>Eiffel Filter Format</span> ), general enough to support a wide variety of tools for text processing, project management, Web publishing etc. The best way to define a new filter is usually to start from an existing one and adapt it. More on customization [[#Customization|below]] . 
 
 ==Generating an HTML record of your project==
 
@@ -112,8 +115,6 @@ You may, however, select any other location you like. In the case of HTML genera
 
 To continue the Guided Tour, you do '''not''' need to complete the generation now unless you want to. If you are happy to continue without generating the documentation at the moment then click <code>Cancel</code> on the last dialog. 
 
-{{note|If you do prefer to produce your own local version of the full documentation for the guided tour system, click "Finish". The process takes 7 minutes on the Thinkpad configuration mentioned earlier, and generates a documentation directory of about 220 megabytes. }}
-
 ==Browsing generated documentation==
 
 Let's take a look at the generated documentation. We start with the root of the generated documentation, <code>Documentation/index.html</code> : 
@@ -150,12 +151,14 @@ The top row of hyperlinks now includes class formats corresponding to those we d
 
 We'll stop this brief review here but you may continue browsing through the HTML pages if you like. Note how closely the appearance of the class texts, flat forms, contract forms, diagrams and other forms of documentation matches the corresponding formats under EiffelStudio.
 
-Although we suggest staying with the standard, you can easily change any convention that doesn't match your own preferences:
-* For the EiffelStudio appearance, use <code lang=text>Tools --> Preferences</code>. 
-* For the HTML appearance, if you know about Cascading Style Sheets (CSS) for HTML, edit the style sheet <code>default.css</code>. You will find this file in the generated documentation directory; alternatively, to ensure the changes are applicable to the generated documentation of all future projects, edit <code>defaults.css</code> in the directory after backing it up. For more profound changes in the structure of the generated HTML, you may also backup and edit the Eiffel Filter Format file <code>html-stylesheet.fil</code> in the same directory. EFF is described in the [[APPENDIX: WRITING DOCUMENTATION FILTERS WITH EFF, THE EIFFEL FILTER FORMAT|Appendix]] . 
-<code>
-	$ISE_EIFFEL/studio/filters</code>
+==Customization==
+
+As shown above in section [[#Documentation_filters|Documentation Filters]] the generation mechanisms can produce a number of output formats. The format definition files have an extension <code>.fil</code> and are stored in the directory <code>$ISE_EIFFEL/studio/filters</code>
+
+Although we suggest staying with the standard, you can easily add or change any definition that doesn't match your own preferences.
+
+The format of the filter files is described in [[/doc/eiffelstudio/Writing_Documentation_Filters_with_EFF%2C_the_Eiffel_Filter_Format|Writing Documentation Filters with EFF]] . 
 
 
-The documentation generation mechanisms, using HTML or other formats, let you publish your designs, at the level of detail you desire, on an Intranet, the Internet, or as part of documents you release. They are an important part of the power of EiffelStudio for quality software development.
+{{Note|to adapt the presentation format within the EiffelStudio editors, use Tools --> Preferences.}}
 
