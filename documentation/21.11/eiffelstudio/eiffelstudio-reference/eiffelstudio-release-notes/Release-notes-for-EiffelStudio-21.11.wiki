@@ -1,13 +1,18 @@
-[[Property:modification_date|Tue, 09 Nov 2021 08:30:45 GMT]]
+[[Property:modification_date|Tue, 30 Nov 2021 14:35:49 GMT]]
 [[Property:publication_date|Tue, 09 Nov 2021 08:30:45 GMT]]
 [[Property:uuid|832C4922-780A-4A17-BA9C-61A9211EF6FF]]
 [[Property:title|Release notes for EiffelStudio 21.11]]
 [[Property:link_title|21.11]]
 [[Property:weight|-6]]
 ==Graphical environment==
+* On non Windows platforms (linux, macosx, ...), EiffelStudio is now using '''GTK3''' (instead of the older GTK2).
+* The new '''Source Control''' tool provides basic '''GIT''' and '''subversion''' operations (status, diff, commit, ...). The related tools have to be installed on your machine, as the Source Control tool relies on the executable `git` and `svn` commands.
+
 ==Compiler==
 
 ==Libraries==
+* The vision2 library is now using GTK3 by default on non Windows platforms (linux, macosx, ...). To compile using GTK2, set the variable `vision_implementation=gtk2`.
+
 
 ==Known issues==
 === EiffelStudio IDE===
