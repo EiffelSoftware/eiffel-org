@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 30 Nov 2021 14:35:49 GMT]]
+[[Property:modification_date|Tue, 30 Nov 2021 14:49:08 GMT]]
 [[Property:publication_date|Tue, 09 Nov 2021 08:30:45 GMT]]
 [[Property:uuid|832C4922-780A-4A17-BA9C-61A9211EF6FF]]
 [[Property:title|Release notes for EiffelStudio 21.11]]
@@ -12,7 +12,8 @@
 
 ==Libraries==
 * The vision2 library is now using GTK3 by default on non Windows platforms (linux, macosx, ...). To compile using GTK2, set the variable `vision_implementation=gtk2`.
-
+* The JSON library was improved with a new date time serializer, and the possibility to use the reflector serializer with JSON_BASIC_SERIALIZATION.
+* Various bug fixes and improvements on the EiffelWeb library, and the Eiffel CMS solution.
 
 ==Known issues==
 === EiffelStudio IDE===
