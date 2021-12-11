@@ -1,4 +1,4 @@
-[[Property:modification_date|Sat, 11 Dec 2021 21:57:25 GMT]]
+[[Property:modification_date|Sat, 11 Dec 2021 21:58:38 GMT]]
 [[Property:publication_date|Sat, 11 Dec 2021 21:57:25 GMT]]
 [[Property:title|Mac OS X]]
 [[Property:weight|5]]
@@ -52,7 +52,7 @@ sudo port install adwaita-icon-theme
 </pre>
 
 ==Installing EiffelStudio from a compressed package==
-This section only applies if you have installed all the required prerequisites. If you are not sure, use the installation from MacPorts as described in the previous section.
+This section only applies if you have installed all the required prerequisites. 
 
 After downloading the compressed package, you should manually extract its contents to your hard drive. For example, you can extract it into /usr/local using the following commands (assuming that you have permission to /usr/local and that the installation package was saved in /tmp/Eiffel_X.Y.tar.bz2, where X.Y stands for the EiffelStudio version):
 <code>
