@@ -1,3 +1,5 @@
+[[Property:modification_date|Sat, 11 Dec 2021 21:57:25 GMT]]
+[[Property:publication_date|Sat, 11 Dec 2021 21:57:25 GMT]]
 [[Property:title|Mac OS X]]
 [[Property:weight|5]]
 [[Property:uuid|7cf4e0e5-0858-58bb-351e-52becea59ede]]
@@ -29,22 +31,24 @@
 
 *You will need to install '''Xcode''' from the App Store.After installing Xcode, make sure to install the command line tools by going to the Xcode preferences and under '''Downloads''' install the '''Command Line Tools''' components.
 
-*You also need to install X11 from http://xquartz.macosforge.org.
+*You also need to install X11 from  [http://xquartz.macosforge.org http://xquartz.macosforge.org].
 
-==Installing the GPL Edition==
+==Installing required dependencies of EiffeStudio==
 
 MacPorts is a tool that allows you to use many Unix applications on the Mac. We have created a package in the MacPorts repository that allows you to to install Eiffel Studio with all dependencies in a convenient way. First, install [http://guide.macports.org/#installing MacPorts].
 
 Now simply type (from a bash [http://guides.macrumors.com/Terminal terminal]):
 <pre>
-sudo port install eiffelstudio
+sudo port install pkgconfig
+sudo port install bzip2
+sudo port install xorg-libXtst
+sudo port install gtk3                              
+
 </pre>
 
-
-When a new release of the same version EiffelStudio becomes available, you can upgrade like so:
+New required dependency for GTK3
 <pre>
-sudo port selfupdate
-sudo port upgrade outdated
+sudo port install adwaita-icon-theme
 </pre>
 
 ==Installing EiffelStudio from a compressed package==
