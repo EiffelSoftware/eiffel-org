@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 04 Jan 2019 15:06:26 GMT]]
+[[Property:modification_date|Mon, 13 Dec 2021 12:41:29 GMT]]
 [[Property:publication_date|Thu, 03 Jan 2019 18:00:43 GMT]]
 [[Property:uuid|146E241E-C367-4F16-9CCE-6F11E5F7860A]]
 [[Property:weight|1]]
@@ -90,7 +90,7 @@ end
 <e>TEST</e> instead of replicating the comment makes use of the precursor comment declaration (<e>-- <Precursor></e>), which supporting code browsing tool will expand to show the precursor feature's contracts. The declaration is optional but is only supported for existing code out there that do not have comments due to lax implementation. Even though optional, it is strongly recommended that you use <e>-- <Precursor></e> comment declaration, as it indicates to any reader the feature is a redefinition or effective implementation of a parent feature declaration.
 
 === Comment Augmentation ===
-The precursor comments declaration also supports augmentation. All a comment author has to do is to write additional comments before and/or after the precursor comment declaration. As a requirement, the precursor comment declaration must appear on a separate line for no other purpose except for clarity. Failure to do so will results in the rendering of the comments as they are declared in the feature, i.e. with <e>-- <Precursor></e> as is.
+The precursor comments declaration also supports augmentation. All a comment author has to do is to write additional comments before and/or after the precursor comment declaration. As a requirement, the precursor comment declaration must appear on a separate line for no other purpose except for clarity. Failure to do so will result in the rendering of the comments as they are declared in the feature, i.e., with <e>-- <Precursor></e> as is.
 
 <e>
 test (a_arg: INTEGER): BOOLEAN
@@ -116,7 +116,7 @@ Using the code browsing facilities of [[EiffelStudio]] the reader will be presen
 -- Some additional comments.
 </e>
 
-For clarity it is a good idea to separate the agumented comments from the precursor comment declaration. Using the same example above but removing the one line spacing above and below the precursor comment declaration would results in the following, less readable comment:
+For clarity, it is a good idea to separate the augmented comments from the precursor comment declaration. Using the same example above but removing the one line spacing above and below the precursor comment declaration would result in the following, less readable comment:
 
 <e>
 -- Comments before the original comments from {BASE}.
@@ -127,14 +127,14 @@ For clarity it is a good idea to separate the agumented comments from the precur
 -- Some additional comments.
 </e>
 
-However, that said, it is pure discretion to use additional spacing or not. Some situation do not call for, other do and some might (when the original comment changes.)
+However, that said, it is pure discretion to use additional spacing or not. Some situations do not call for, other do and some might (when the original comment changes.)
 
 === Multiple Redefinitions and Selection ===
 With Eiffel supporting multiple inheritance, a scenario will arise where two inherited redefine features are joined in a descendant.
 
-By default the precursor comment declaration is replaced by the first located inherited feature comment, which may cause documentation irregularities. Because precursor comments are not signification to compilation they are not checked during compilation, such as is the way with the use of <e>Precursor</e>, resulting a compile time error when not selecting the parent class to call into. This can cause documentation irregularities because there is no guarantee that they feature comments viewed one project will be the same in another.
+By default, the precursor comment declaration is replaced by the first located inherited feature comment, which may cause documentation irregularities. Because precursor comments are not signification to compilation they are not checked during compilation, such as is the way with the use of <e>Precursor</e>, resulting in a compile-time error when not selecting the parent class to call into. This can cause documentation irregularities because there is no guarantee that the feature comments viewed in one project will be the same in another.
 
-To facilitate correct documentation the precursor comment declaration can use an optional select clause, just like using <e>Precursor</e> in the Eiffel code.
+To facilitate correct documentation, the precursor comment declaration can use an optional select clause, just like using <e>Precursor</e> in the Eiffel code.
 
 <e>
 f (a_arg: INTEGER): BOOLEAN
@@ -143,13 +143,13 @@ f (a_arg: INTEGER): BOOLEAN
      end
 </e>
 
-This will have exactly the same effect as using <e>-- <Precursor></e> when <e>f</e> is made effective/redefined from a single parent. However, when making effective/redefining from multiple parents then comments will come from the parent class declaration in <e>BASE</e>.
+This will have exactly the same effect as using <e>-- <Precursor></e> when <e>f</e> is made effective/redefined from a single parent. However, when making effective/redefining from multiple parents, then comments will come from the parent class declaration in <e>BASE</e>.
 
-Again, because precursor comments do not affect compilation they are not checked at compile time. Specifying an incorrect class will yield a warning message in [[EiffelStudio]]'s code browsing tools, to the effect:
+Again, because precursor comments do not affect compilation, they are not checked at compile time. Specifying an incorrect class will yield a warning message in [[EiffelStudio]]'s code browsing tools, to the effect:
 
 <e>
 -- Unable to retrieve the comments from redefinition of {CLASS_NAME}.
 </e>
 
 === Library Documentation Generation ===
-Precursor comments are supported in all code browsing/documentation facilities, whether is be the integrated [[Contract Viewer]], the [[Feature Relation Tool]] or the Eiffel documentation generation facilities. Using <e>-- <Precursor></e> will ensure the comments are brought up from a parent declaration.
+Precursor comments are supported in all code browsing/documentation facilities, whether it be the integrated [[Contract Viewer]], the [[Feature Relation Tool]] or the Eiffel documentation generation facilities. Using <e>-- <Precursor></e> will ensure the comments are brought up from a parent declaration.
