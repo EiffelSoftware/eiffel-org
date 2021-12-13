@@ -1,26 +1,24 @@
-[[Property:modification_date|Thu, 09 Dec 2021 16:03:17 GMT]]
+[[Property:modification_date|Mon, 13 Dec 2021 09:17:35 GMT]]
 [[Property:publication_date|Tue, 09 Nov 2021 08:30:45 GMT]]
 [[Property:uuid|832C4922-780A-4A17-BA9C-61A9211EF6FF]]
 [[Property:title|Release notes for EiffelStudio 21.11]]
 [[Property:link_title|21.11]]
 [[Property:weight|-6]]
 
-{{UnderConstruction|This page is currently edited. Come back soon or check the changelog }}
-
-
 ==Graphical environment==
 * On non Windows platforms (linux, macosx, ...), EiffelStudio is now using '''GTK3''' (instead of the older GTK2).
 * The new '''Source Control''' tool provides basic '''GIT''' and '''subversion''' operations (status, diff, commit, ...). The related tools have to be installed on your machine, as the Source Control tool relies on the executable `git` and `svn` commands.
 
 ==Compiler==
+* Supported a unified syntax to access loop cursor features inside an iteration form of a loop for both keyword-based and Unicode-based loop variants. The current item is accessed by the cursor name. The cursor feature is accessed by preceding the cursor name with the symbol `@`.
+* Fixed multiple bugs related to non-conforming inheritance, making the latter usable in production code (note: the semantics of non-conforming inheritance changed by removing automatic replication of inherited features).
 
 ==Libraries==
 * The vision2 library is now using GTK3 by default on non Windows platforms (linux, macosx, ...). To compile using GTK2, set the variable `vision_implementation=gtk2`.
 * The JSON library was improved with a new date time serializer, and the possibility to use the reflector serializer with JSON_BASIC_SERIALIZATION.
 * Various bug fixes and improvements on the EiffelWeb library, and the Eiffel CMS solution.
-
-==Known issues==
-=== EiffelStudio IDE===
+* Marked `make_from_iterable` as a conversion procedure from `ARRAY` for some container classes to enable initialization of the corresponding entities from manifest arrays of elements by reattachment. 
+* Added `{HASH_TABLE}.make_from_iterable_tuples` as a creation and conversion procedure from `ARRAY` to enable initialization from manifest arrays of tuples.
 
 ----
 
