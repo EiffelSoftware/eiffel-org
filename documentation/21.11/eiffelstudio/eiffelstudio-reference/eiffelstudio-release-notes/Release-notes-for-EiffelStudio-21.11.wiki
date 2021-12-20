@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 20 Dec 2021 14:46:18 GMT]]
+[[Property:modification_date|Mon, 20 Dec 2021 14:46:59 GMT]]
 [[Property:publication_date|Tue, 09 Nov 2021 08:30:45 GMT]]
 [[Property:uuid|832C4922-780A-4A17-BA9C-61A9211EF6FF]]
 [[Property:title|Release notes for EiffelStudio 21.11]]
@@ -34,7 +34,7 @@
 	y: HASH_TABLE [INTEGER, STRING]
 	...
 	x := <<1, 1, 2, 3, 5, 8>> -- Create a list with elements 1, 1, 2, 3, 5, 8.
-	y := <<[23, "Peter"], [19, "Mary"], [36, "Tom"], [32, "Alice"]>> -- Indexed by person name.
+	y := <<[23, "Peter"], [19, "Mary"], [36, "Tom"], [32, "Alice"]>> -- Indexed by name.
 
 ```
 
