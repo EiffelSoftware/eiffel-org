@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 13 Dec 2021 09:17:35 GMT]]
+[[Property:modification_date|Mon, 20 Dec 2021 14:40:14 GMT]]
 [[Property:publication_date|Tue, 09 Nov 2021 08:30:45 GMT]]
 [[Property:uuid|832C4922-780A-4A17-BA9C-61A9211EF6FF]]
 [[Property:title|Release notes for EiffelStudio 21.11]]
@@ -10,7 +10,18 @@
 * The new '''Source Control''' tool provides basic '''GIT''' and '''subversion''' operations (status, diff, commit, ...). The related tools have to be installed on your machine, as the Source Control tool relies on the executable `git` and `svn` commands.
 
 ==Compiler==
-* Supported a unified syntax to access loop cursor features inside an iteration form of a loop for both keyword-based and Unicode-based loop variants. The current item is accessed by the cursor name. The cursor feature is accessed by preceding the cursor name with the symbol `@`.
+* Supported a unified syntax to access loop cursor features inside an iteration form of a loop for both keyword-based and Unicode-based loop variants. The current item is accessed by the cursor name. The cursor feature is accessed by preceding the cursor name with the symbol `@`:
+```
+	∀ x: array ¦ (@ x.target_index \\ 2 = 0 ⇒ x > 0) -- All elements at even positions are positive.
+ 
+		-- Print all elements of a table prefixed with their keys.
+	across table as y loop
+		print (@ y.key)
+		print (": ")
+		print (y)
+		io.put_new_line
+	end
+```
 * Fixed multiple bugs related to non-conforming inheritance, making the latter usable in production code (note: the semantics of non-conforming inheritance changed by removing automatic replication of inherited features).
 
 ==Libraries==
