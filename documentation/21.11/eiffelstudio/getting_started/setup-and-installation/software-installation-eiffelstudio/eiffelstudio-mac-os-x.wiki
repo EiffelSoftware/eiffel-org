@@ -1,4 +1,4 @@
-[[Property:modification_date|Sat, 11 Dec 2021 22:01:55 GMT]]
+[[Property:modification_date|Tue, 08 Mar 2022 13:06:11 GMT]]
 [[Property:publication_date|Sat, 11 Dec 2021 21:57:25 GMT]]
 [[Property:title|Mac OS X]]
 [[Property:weight|5]]
@@ -73,8 +73,18 @@ export ISE_EIFFEL=/usr/local/Eiffel_X.Y
 export ISE_PLATFORM=macosx-x86-64
 export PATH=$PATH:$ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin
 ```
-(Note: you can write this into your .profile file).
 
+=== Persisting Environment Variables ===
+Se them up in the .bash_profile file  once for good, so you don't need to set them up each time.
+```
+1. Open the profile file into a text editor
+2. Add the export command for every environment variable
+3. Save your changes.
+```
+To immediately apply all changes to .bash_profile, use the source command. 
+```
+source ~/.bash_profile
+```
 == Starting EiffelStudio ==
 
 Now everything should be properly installed and you should be able to run the compiler. Simply navigate to /Applications/MacPorts/Eiffel''XX'' and double click the EiffelStudio icon.
