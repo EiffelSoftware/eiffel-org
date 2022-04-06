@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 08 Mar 2022 13:06:11 GMT]]
+[[Property:modification_date|Wed, 06 Apr 2022 14:21:15 GMT]]
 [[Property:publication_date|Sat, 11 Dec 2021 21:57:25 GMT]]
 [[Property:title|Mac OS X]]
 [[Property:weight|5]]
@@ -87,7 +87,7 @@ source ~/.bash_profile
 ```
 == Starting EiffelStudio ==
 
-Now everything should be properly installed and you should be able to run the compiler. Simply navigate to /Applications/MacPorts/Eiffel''XX'' and double click the EiffelStudio icon.
+Now everything should be properly installed and you should be able to run the compiler. Simply navigate to `/usr/local/Eiffel_X.Y` and double click the EiffelStudio icon.
 
 Alternatively, you can also start EiffelStudio from the command line by entering the command '''estudio''' or use the command-line eiffel compiler '''ec'''.
 
