@@ -1,0 +1,10 @@
+[[Property:title|Refactoring]]
+[[Property:weight|2]]
+[[Property:uuid|08099f7b-aaf4-b629-17f6-b637c4efd63a]]
+Refactoring actions include renaming classes and features, and relocating features to an ancestor class. Refactoring actions start with a compilation and also end with a compilation. Refactoring has a separate undo functionality which allows you to undo a refactoring action as long as no changes have been made to the classes that have been refactored. 
+
+The [[Main toolbars|Refactoring toolbar]] contains holes for both the '''Rename''' ([[Image:refactor-rename-icon]]) and '''Pull up''' ([[Image:refactor-feature-up-icon]]) refactoring actions. So, if the Refactoring toolbar is visible, you can "pick" a feature, for example, and drop it onto one of the refactoring holes. If the Refactoring toolbar is not visible, you can [[Main toolbars|make it visible]] or you can access refactoring actions through the context menu associated with a class or feature name (right-click to see the context menu, or shift-right-click if you are in "pick-and-drop by default" mode). 
+
+
+
+

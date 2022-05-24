@@ -1,0 +1,42 @@
+[[Property:title|I2E: Event-Driven Programming and Agents]]
+[[Property:weight|-7]]
+[[Property:uuid|16fdab60-ae42-1bb8-f4bb-89e34d18a842]]
+The division of roles in object technology is clear: of the two principal constituents of a system, object types and operations, the first dominates. Classes, representing object types, determines the structure of the software; every routine, representing an operation, belongs to a class. 
+
+In some circumstances it is useful to define an object that denotes an operation. This is especially useful if you want to build an object structure that refers to operations, so that you can later traverse the structure and execute the operations encountered. A typical application is '''event-driven programming''' for Graphical User Interfaces (GUI), including Web programming. In GUI programming you will want to record properties of the form 
+<code>
+"When the user clicks this OK button, the system must update the file"
+</code>
+
+each involves a '''control''' (here the OK button), an '''event''' (mouse click) and an '''operation''' (update the file). This can be programmed by having an "event loop", triggered for each event, which performs massive decision-making (<code>if  "The latest event was `left mouse click on button 23'" then "Appropriate instructions" else if </code>... and so on with many branches); but this leads to bulky software architectures where introducing any new control or event requires updating a central part of the code. It's preferable to let any element of the system that encounters a new control-event-operation association 
+<code>
+[control, event, operation]
+</code>
+
+store it as a triple of objects into an object structure, such as an array or a list. Triples in that structure may come from different parts of the system; there is no central know-it-all structure. The only central element is a simple mechanism which can explore the object structure to execute each <code>operation</code> associated with a certain <code>control</code> and a certain <code>event</code>. The mechanism is not just simple; it's also independent of your application, since it doesn't need to know about any particular control, event or operation (it will find them in the object structure). So it can be programmed once and for all, as part of a library such as EiffelVision 2 for platform-independent graphics. 
+
+To build an object structure, we need objects. A <code>control</code>, an <code>event</code> are indeed objects. But an <code>operation</code> is not: it's program code -- a routine of a certain class. 
+
+Agents address this issue. An agent is an object that represents a routine, which can then be kept in an object structure. The simplest form of agent is written <code>agent r</code>, where <code>r</code> is a routine. This denotes an object. If <code>your_agent</code> is such an agent object, the call 
+<code>
+            your_agent.call ([a, b])
+</code>
+
+where <code>a</code> and <code>b</code> are valid arguments for <code>r</code>, will have the same effect as a direct call to <code>r</code> with arguments <code>a</code> and <code>b</code>. Of course, if you know that you want to call <code>r</code> with those arguments, you don't need any agents; just use the direct call <code>r (a, b)</code>. The benefit of using an agent is that you can store it into an object structure to be called '''later''', for example when an event-driven mechanism finds the agent in the object structure, associated with a certain control and a certain event. For this reason agents are also called '''delayed calls'''. 
+
+{{info|The notation <code>[a, b]</code> denotes a sequence of elements, or '''tuple'''. The reason <code>call</code> needs a tuple as argument, whereas the direct call <code>r (a, b)</code> doesn't, is that <code>call</code> is a general routine (from the EiffelBase class <code>ROUTINE</code>, representing agents) applicable to any agent, whereas the direct call refers explicitly to <code>r</code> and hence requires arguments <code>a</code> and <code>b</code> of specific types. The agent mechanism, however, is statically typed like the rest of the language; when you call <code>call</code>, the type checking mechanism ensures that the tuple you pass as argument contains elements <code>a</code> and <code>b</code> of the appropriate types. }}
+
+
+A typical use of agents with EiffelVision 2 is
+<code>
+            ok_button.select_actions.extend (agent your_routine)</code>
+
+which says: "add <code>your_routine</code> to the list of operations to be performed whenever a <code>select</code> event (left click) happens on <code>ok_button</code>". <code>ok_button.select_actions</code> is the list of agents associated with the button and the event; in list classes, procedure <code>extend</code> adds an item at the end of a list. Here, the object to be added is the agent. 
+
+This enables the EiffelVision 2 event-handling mechanism to find the appropriate agent when it processes an event, and call <code>call</code> on that agent to trigger the appropriate routine. EiffelVision 2 doesn't know that it's <code>your_routine</code>; in fact, it doesn't know anything about your application. It simply finds an agent in the list, and calls <code>call</code> on it. For your part, as the author of a graphical application, you don't need to know how EiffelVision 2 handles events; you simply associate the desired agents with the desired controls and events, and let EiffelVision 2 do the rest. 
+
+Agents extend to many areas beyond GUIs. In '''numerical computation''', you may use an agent to pass to an "integrator" object a numerical function to be integrated over a certain interval. In yet another area, you can use agents (as in the iteration library of EiffelBase) to program '''iterators''' : mechanisms that repetitively apply an arbitrary operation -- represented by an agent -- to every element of a list, tree or other object structure. More generally, agent embody properties of the associated routines, opening the way to mechanism for '''reflection''', also called "introspection": the ability, during software execution, to discover properties of the software itself. 
+
+
+
+

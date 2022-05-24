@@ -1,0 +1,14 @@
+[[Property:title|Pick-and-drop shortcut]]
+[[Property:weight|1]]
+[[Property:uuid|2cb70fcf-913c-0b74-d2a9-5928caa5904a]]
+Pressing the '''control''' key while right-clicking on a development object opens a new editor tab which is centered on the clicked object. 
+
+{{tip|The effect of control-picking is now configurable in the [[Preferences Reference|preferences]] . }}
+
+
+{{seealso|<br/>
+[[Pick-and-drop mechanism|Pick-and-drop mechanism]]  }}
+
+
+
+

@@ -1,0 +1,35 @@
+[[Property:title|Attributes, metrics and measures]]
+[[Property:weight|1]]
+[[Property:uuid|4e35583c-25e8-63e7-2c11-ea4d3ed2e2a3]]
+The most general notion is "attribute":
+
+{{definition|Attribute|An '''attribute''' is a property, qualitative or quantitative, of software products or processes. }}
+<!--break-->
+We may distinguish between the product and process cases:
+
+{{definition|Product attribute, process attribute|A '''product attribute''' is an attribute that characterizes a software product or set of products. A '''process attribute''' is an attribute that characterizes a software-related process, such as development, maintenance, documentation, management, or multiple instances of such a process. }}
+
+Examples of attributes include reliability (a product attribute, non-quantitative) and total project cost (process, quantitative).
+
+A metric is simply a quantitative attribute:
+
+{{definition|Metric|A '''metric''' is an attribute whose values are numbers (integers or reals), expressed relative to a certain '''unit''' specified as part of the metric definition. }}
+
+Examples of metrics include the number of source lines of a program (product) and the total cost of a project (process). The metric tool provides by default a set of metrics, they are available in the Metric Evaluation tab of the metric tool
+
+Attributes other than metrics will be called "qualitative":
+
+{{definition|Qualitative attribute|A '''qualitative attribute''' is an attribute other than a metric. }}
+
+An example of qualitative attribute is the reliability of a software product.
+
+The "process" vs. "product" distinction carries over to metrics:
+
+{{definition|Product metric, process metric|A metric is a '''product metric''' if it is a product attribute, a '''process metric''' if it is a process attribute. }}
+
+"Relevance", as defined in the previous section, suggests that the purpose of metrics is to help us gain information about attributes that are of direct interest to us. Often these will be qualitative; for example we may want to estimate the reliability of our software. Metrics provide us with numerical values that can serve to assess or predict such attributes.
+
+Applying a metric will give us measures:
+
+{{definition|Measure|A '''measure''' is the value of a metric for a certain process or product. }}
+
