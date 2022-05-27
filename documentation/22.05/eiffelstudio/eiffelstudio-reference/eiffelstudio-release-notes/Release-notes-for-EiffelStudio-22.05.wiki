@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 24 May 2022 20:45:34 GMT]]
+[[Property:modification_date|Fri, 27 May 2022 13:50:40 GMT]]
 [[Property:publication_date|Tue, 24 May 2022 13:07:27 GMT]]
 [[Property:uuid|32B3433A-9F76-4070-862D-288177C083E0]]
 [[Property:weight|-7]]
@@ -6,21 +6,22 @@
 [[Property:link_title|22.05]]
 
 ==Graphical environment==
-* Keep improving the Source Control tool by fixing issues, and enhancing the UI and the functionalities.
-* Under the hood improvements (clickable indexing note, additional tool supporting the zoom factor, ...)
-* Various bug fixes
+* Fixed some issues and enhanced UI of the '''Source Control''' tool.
+* Made some variants of feature indexing notes clickable.
+* Extended font zoom factor to grid and text-based tools.
+* Bug fixes.
 
 ==Compiler==
 * Improved support for recent Visual Studio version (2022) and future version.
-* Various bug fixes
+* Bug fixes.
 
 ==Tools==
 * Added support for remote target on `eiffel` and `compile_all` tools.
 * Improved the WrapC tool with updated type mapping, and internal optimization.
 
 ==Libraries==
-* Integrated new routines to convert INTEGER_* and NATURAL_* to binary and octal string representations.
-* Libraries improvements, especially for the json, jwt, cms and web libraries.
+* Integrated routines to convert values of `INTEGER_*` and `NATURAL_*` types to binary and octal string representations.
+* Extended '''json''', '''jwt''', '''cms''' and '''web''' libraries.
 
 ----
 
