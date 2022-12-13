@@ -1,16 +1,43 @@
-[[Property:modification_date|Tue, 09 Nov 2021 08:30:45 GMT]]
+[[Property:modification_date|Mon, 20 Dec 2021 14:57:10 GMT]]
 [[Property:publication_date|Tue, 09 Nov 2021 08:30:45 GMT]]
 [[Property:uuid|832C4922-780A-4A17-BA9C-61A9211EF6FF]]
 [[Property:title|Release notes for EiffelStudio 21.11]]
 [[Property:link_title|21.11]]
 [[Property:weight|-6]]
+
 ==Graphical environment==
+* On non Windows platforms (linux, macosx, ...), EiffelStudio is now using '''GTK3''' (instead of the older GTK2).
+* The new '''Source Control''' tool provides basic '''GIT''' and '''subversion''' operations (status, diff, commit, ...). The related tools have to be installed on your machine, as the Source Control tool relies on the executable `git` and `svn` commands.
+
 ==Compiler==
+* Supported a unified syntax to access loop cursor features inside an iteration form of a loop for both keyword-based and Unicode-based loop variants. The current item is accessed by the cursor name. The cursor feature is accessed by preceding the cursor name with the symbol `@`:
+```
+	∀ x: array ¦ (@ x.target_index \\ 2 = 0 ⇒ x > 0) -- All elements at even positions are positive.
+ 
+		-- Print all elements of a table prefixed with their keys.
+	across table as y loop
+		print (@ y.key)
+		print (": ")
+		print (y)
+		io.put_new_line
+	end
+```
+   The existing code can be updated with `syntax_updater` invoked with option `-i`.
+* Fixed multiple bugs related to non-conforming inheritance, making the latter usable in production code. (Note: the semantics of non-conforming inheritance is changed by removing automatic replication of inherited features.)
 
 ==Libraries==
+* The vision2 library is now using GTK3 by default on non Windows platforms (linux, macosx, ...). To compile using GTK2, set the variable `vision_implementation=gtk2`.
+* The JSON library was improved with a new date time serializer, and the possibility to use the reflector serializer with JSON_BASIC_SERIALIZATION.
+* Various bug fixes and improvements on the EiffelWeb library, and the Eiffel CMS solution.
+* Marked `make_from_iterable` and added `{HASH_TABLE}.make_from_iterable_tuples` as conversion procedures from `ARRAY` for some container classes to enable initialization from manifest arrays:
+```
+	x: LINKED_LIST [INTEGER]
+	y: HASH_TABLE [INTEGER, STRING]
+	...
+	x := <<1, 1, 2, 3, 5, 8>> -- Create a list with elements 1, 1, 2, 3, 5, 8.
+	y := <<[23, "Peter"], [19, "Mary"], [36, "Tom"], [32, "Alice"]>> -- Indexed by name.
 
-==Known issues==
-=== EiffelStudio IDE===
+```
 
 ----
 

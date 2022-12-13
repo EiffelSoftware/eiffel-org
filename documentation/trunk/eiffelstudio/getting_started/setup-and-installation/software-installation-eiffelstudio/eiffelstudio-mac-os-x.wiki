@@ -1,3 +1,5 @@
+[[Property:modification_date|Wed, 06 Apr 2022 14:21:15 GMT]]
+[[Property:publication_date|Sat, 11 Dec 2021 21:57:25 GMT]]
 [[Property:title|Mac OS X]]
 [[Property:weight|5]]
 [[Property:uuid|7cf4e0e5-0858-58bb-351e-52becea59ede]]
@@ -29,26 +31,28 @@
 
 *You will need to install '''Xcode''' from the App Store.After installing Xcode, make sure to install the command line tools by going to the Xcode preferences and under '''Downloads''' install the '''Command Line Tools''' components.
 
-*You also need to install X11 from http://xquartz.macosforge.org.
+*You also need to install X11 from  [http://xquartz.macosforge.org http://xquartz.macosforge.org].
 
-==Installing the GPL Edition==
+==Installing required dependencies of EiffeStudio==
 
-MacPorts is a tool that allows you to use many Unix applications on the Mac. We have created a package in the MacPorts repository that allows you to to install Eiffel Studio with all dependencies in a convenient way. First, install [http://guide.macports.org/#installing MacPorts].
+MacPorts is a tool that allows you to use many Unix applications on the Mac. Before we can proceed with the installation of EiffelStudio, we need to install the required dependencies of EiffeStudio. First, install [http://guide.macports.org/#installing MacPorts].
 
 Now simply type (from a bash [http://guides.macrumors.com/Terminal terminal]):
 <pre>
-sudo port install eiffelstudio
+sudo port install pkgconfig
+sudo port install bzip2
+sudo port install xorg-libXtst
+sudo port install gtk3                              
+
 </pre>
 
-
-When a new release of the same version EiffelStudio becomes available, you can upgrade like so:
+New required dependency for GTK3
 <pre>
-sudo port selfupdate
-sudo port upgrade outdated
+sudo port install adwaita-icon-theme
 </pre>
 
 ==Installing EiffelStudio from a compressed package==
-This section only applies if you have installed all the required prerequisites. If you are not sure, use the installation from MacPorts as described in the previous section.
+This section only applies if you have installed all the required prerequisites. 
 
 After downloading the compressed package, you should manually extract its contents to your hard drive. For example, you can extract it into /usr/local using the following commands (assuming that you have permission to /usr/local and that the installation package was saved in /tmp/Eiffel_X.Y.tar.bz2, where X.Y stands for the EiffelStudio version):
 <code>
@@ -69,11 +73,21 @@ export ISE_EIFFEL=/usr/local/Eiffel_X.Y
 export ISE_PLATFORM=macosx-x86-64
 export PATH=$PATH:$ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin
 ```
-(Note: you can write this into your .profile file).
 
+=== Persisting Environment Variables ===
+Se them up in the .bash_profile file  once for good, so you don't need to set them up each time.
+```
+1. Open the profile file into a text editor
+2. Add the export command for every environment variable
+3. Save your changes.
+```
+To immediately apply all changes to .bash_profile, use the source command. 
+```
+source ~/.bash_profile
+```
 == Starting EiffelStudio ==
 
-Now everything should be properly installed and you should be able to run the compiler. Simply navigate to /Applications/MacPorts/Eiffel''XX'' and double click the EiffelStudio icon.
+Now everything should be properly installed and you should be able to run the compiler. Simply navigate to `/usr/local/Eiffel_X.Y` and double click the EiffelStudio icon.
 
 Alternatively, you can also start EiffelStudio from the command line by entering the command '''estudio''' or use the command-line eiffel compiler '''ec'''.
 
