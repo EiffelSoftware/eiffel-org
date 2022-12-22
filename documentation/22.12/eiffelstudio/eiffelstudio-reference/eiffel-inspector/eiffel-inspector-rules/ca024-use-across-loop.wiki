@@ -1,0 +1,45 @@
+[[Property:title|CA024 - Use across loop]]
+[[Property:link_title|CA024]]
+[[Property:weight|0]]
+[[Property:uuid|d24ebe87-3a57-105e-7900-e77608cac47c]]
+__NOTOC__
+=Description=
+When iterating on an instance of <e>ITERABLE</e> with a traditional <e>from ... until ... loop ...end</e> from beginning to end you should use an across loop to avoid forgetting to advance the cursor.
+:{| class="doctable"
+|-
+| '''Scope'''
+| Instruction
+|-
+| '''Status'''
+| Enabled
+|-
+| '''Severity'''
+| Suggestion
+|-
+| '''Applicability'''
+| All
+|-
+| '''Score'''
+|  30
+|}
+
+
+=Example of violation=
+<e>from
+	list.start
+until
+	list.after
+loop
+	...
+	list.forth
+end
+</e>
+
+=Recommendation=
+Replace with an across loop. In the example it becomes:
+<e>across list as l loop
+	...
+end
+</e>
+
+

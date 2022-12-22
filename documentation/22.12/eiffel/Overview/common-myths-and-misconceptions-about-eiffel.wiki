@@ -1,0 +1,82 @@
+[[Property:modification_date|Tue, 09 Jul 2019 09:42:22 GMT]]
+[[Property:publication_date|Tue, 09 Jul 2019 09:42:22 GMT]]
+[[Property:title|Common myths and misconceptions about Eiffel]]
+[[Property:link_title|]]
+[[Property:weight|4]]
+[[Property:uuid|056c0ab0-8e44-571f-f126-0b1850980754]]
+Often, when we speak about Eiffel to prospective users, we hear them repeat misinformation about the method, the language, or the tools. Most of the time, the stories are familiar to us … and untrue. Here are a few of the myths that we hear most often, as recounted and debunked by the series entitled [http://eiffel.com/developers/presentations/ "Where Eiffel Fits"].
+
+
+==Eiffel is an "academic" language only:    ''Whoa, wrong! Twice!''==
+
+Recently, I was offered the opportunity to speak to a local technology group about Eiffel for Microsoft .Net. The leader of this group is part of a small commercially-oriented software development company. Concerning Eiffel, he said, “All I know about Eiffel is that it’s an academic language.”
+
+We hear that one a lot … and it’s wrong … in two unrelated ways.
+
+First, as you should know by now, Eiffel is a framework for software development. It has a full-lifecycle development method. The Eiffel method is supported by a notation we call the Eiffel programming language. The notation just happens to be designed such that when it contains sufficient detail, it can be compiled into a running software system. Additionally, the method and language are supported by a set of tools including an interactive development and compiler. So to refer to Eiffel only as a "language" is to do injustice to the complete framework of which the language is only one part.
+
+Secondly, I’m not sure what “academic language” means exactly, but if it means only used in an academic setting, or not fit for practical work, then this could not be farther from the truth. It is true that Bertrand Meyer who developed the original Eiffel concepts has academic background and is well-respected in the academic community. It’s also true that many of those Eiffel ideas evolved from work that was done by other academic computer scientists and mathematicians. And it’s true that many colleges and universities use Eiffel to teach the best practices of software development.
+
+But Eiffel is also used successfully in many commercial and government endeavors. If you have any doubts, pay a visit to [https://www.eiffel.com/company/customers/testimonials/ eiffel.com] and check out the success stories and customers testimonials. 
+
+
+==Eiffel is not for doing "real" work:     ''That's  a joke, right?''==
+
+Occasionally we’ve heard people say that Eiffel is only suitable for building “toy” systems.
+
+This is similar to the "academic language" argument and is just as false.
+
+In actuality, we see Eiffel being used often in situations in which other technologies fail. If anything it is the other commonly used technologies that tend to break down under stress.
+
+We see Eiffel being used instead of other technologies for systems in which scalability and reliability are essential.
+
+One of our customers is an organization that has developed a payroll system using Eiffel that every week pays over two hundred thousand employees in twenty thousand different institutions … the people in this organization would assure you that Eiffel is indeed industrial grade.
+
+
+==Not many people are using Eiffel:    ''You wouldn't want to share an elevator with them all!''==
+
+The answer to this one depends a bit upon your frame of reference. Some time ago Microsoft estimated that there were twenty million Visual Basic programmers world wide. 
+
+If this is true, then relatively speaking, we have to admit that Eiffel’s market share ''is'' considerably smaller than that of Visual Basic.
+
+Despite that, it’s not correct to say that not many people use Eiffel. Eiffel licenses world wide number in the tens of thousands. If you use Eiffel, you are not alone. These license-holders have formed a lasting worldwide quorum. Many world-class organizations are committed now, and will continue to be committed to the Eiffel framework. There is support through your maintenance contract with Eiffel Software. Help and information are available online in the form of the [https://www.eiffel.com/company/customers/ Eiffel Software users’ list] and websites like [https://www.eiffel.org/ Eiffel.org].
+
+Eiffel Software's dual licensing model gives developers the opportunity to learn Eiffel without a great initial financial commitment. 
+
+So, don’t worry about it, plenty of people use Eiffel … and those numbers are increasing constantly.
+
+
+==If we use Eiffel, we may not be able to find qualified programmers: ''Gimme a break.''==
+
+Through the years some potential Eiffel users have expressed to us a concern that if they embrace Eiffel, that they may not be able to find a sufficient number of qualified developers.
+
+This is of course incorrect.
+
+First, almost all Eiffel people were proficient in some other technology before they became Eiffel people. It turns out that this really works to your advantage. You see, Eiffel people want to stay Eiffel people. So an Eiffel programmer on the job market will be searching for an Eiffel position first, and would probably rather have a root canal than to go back to working in his or her previous technology.
+
+Additionally, it is important also to understand that Eiffel developers are easy to create. Because Eiffel is simple, clean, and elegant, it doesn’t take long to get people going with it. I teach a five-day course that contains fifteen programming exercises. Each time I’ve taught the course, almost every student has finished every exercise. Students leave with a good foundation for how to begin saving time and money for their organization by constructing quality software with Eiffel. These people can be fluent in Eiffel in as little as a couple of months. This can be contrasted with the other extreme ... a well-known Microsoft Windows expert told me a couple of years ago that he estimates it to take 5 to 7 years to become truly fluent in C++/COM programming on Windows. Programmers who are proficient in other technologies often experience Eiffel as a breath of fresh air.
+
+
+==Eiffel might not be around in five/eight/ten (choose one) years: ''Better recalibrate your crystal ball, Nostradamus!''==
+
+I think the first time I heard this one, it was about 1989.
+
+And of course, I’ve heard it many times in the years since. 
+
+And of course, it’s not true. 
+
+Eiffel is more complete and functionally superior in most ways to every other commercially viable software development technology … and there are enough people around who recognize this (that quorum of users I mentioned earlier) to ensure that Eiffel will be around for a long time to come.
+
+It’s possible that twenty-five years from now, there will be a significantly better software engineering idea … but certainly, there hasn’t been anything that’s come close since Eiffel’s original design in 1985. In most areas, other technologies are playing “catch-up” to Eiffel. 
+
+Besides, Eiffel constantly implements refinements and new capabilities with minimal impact on existing software. [[Void-safe programming in Eiffel|Void-safe programming]] is an excellent example of this. 
+
+You can get a feel for this issue by watching [http://channel9.msdn.com/posts/Charles/Emmanuel-Stapf-Eiffel-and-Contract-Oriented-Programming/ this video on Microsoft Developers Network Channel9]. Here you'll see Emmanuel Stapf, an engineer at Eiffel Software, speak with Mads Torgersen, one of Microsoft's C# language designers. You'll hear how Eiffel stays fresh and continues to set a technological standard worthy of the aspirations of other technologies.
+
+So, don’t worry about it. Eiffel will be here.
+
+
+
+
+ 
+

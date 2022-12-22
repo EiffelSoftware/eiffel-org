@@ -1,0 +1,20 @@
+[[Property:title|EiffelCOM Wizard Reference]]
+[[Property:weight|-12]]
+[[Property:uuid|d3564eb8-ef56-4ec1-599f-430b023fa7e8]]
+The '''EiffelCOM Wizard''' is delivered with EiffelStudio, but it is a '''standalone tool''' (i. e., not part of the EiffelStudio IDE). You can find the wizard by following the directory path: <code lang="text">$ISE_EIFFEL\wizards\com</code>. The executable file <code lang="text">com_wizard_launcher.exe</code> will launch the GUI version of the wizard. The executable file <code lang="text">com_wizard.exe</code> is a command line version of the wizard described [[Wizards: Command Line Options|here]].
+
+The EiffelCOM Wizard facilitates the creation of Eiffel projects implementing or reusing COM components. 
+
+*  [[How the EiffelCOM Wizard works|How the EiffelCOM Wizard works]]  describes the steps followed by the wizard when creating the Eiffel project. 
+*  [[Generated Files|Generated Files]]  describes the list of generated files and their usage. 
+*  [[Class Hierarchy|Class Hierarchy]]  describes the class hierarchy of the generated Eiffel project. 
+*  [[Eiffel Project Processing|Eiffel Project Processing]]  covers how to add a COM interface to an existing EiffelStudio project. 
+*  [[Reusing a COM Component|Accessing a COM Component]]  describes how to reuse an existing COM component. 
+*  [[Building a COM Component|Building a COM Component]]  describes how to build a new COM component. 
+*  [[Wizards: Command Line Options|Command Line Options]]  describes using the wizard from the command line. 
+
+{{seealso|<br/>
+[[EiffelCOM Wizard Introduction|Introduction]]  <br/>
+[[EiffelCOM Wizard Guided Tour|Guided Tour]]  }}
+
+

@@ -1,0 +1,16 @@
+[[Property:title|WEL Tutorial]]
+[[Property:weight|2]]
+[[Property:uuid|68faa545-c658-ad5e-ca6f-ab693a7aabf8]]
+WEL is shipped with a tutorial among its sample programs. This tutorial shows you how to develop a simple WEL application and contains eight different samples listed below: 
+*  [[Tutorial Step 1|Step1]]  - A Basic WEL Application. 
+*  [[Tutorial Step 2|Step2]]  - Responding to an event. 
+*  [[Tutorial Step 3|Step3]]  - Displaying output on a WEL_CLIENT_DC. 
+*  [[Tutorial Step 4|Step4]]  - A very basic drawing program. 
+*  [[Tutorial Step 5|Step5]]  - Using a WEL_MODAL_DIALOG. 
+*  [[Tutorial Step 6|Step6]]  - Re-drawing a window by redefining on_paint. 
+*  [[Tutorial Step 7|Step7]]  - Adding menus. 
+*  [[Tutorial Step 8|Step8]]  - Using a WEL_OPEN_FILE_DIALOG and a WEL_SAVE_FILE_DIALOG. 
+
+
+
+

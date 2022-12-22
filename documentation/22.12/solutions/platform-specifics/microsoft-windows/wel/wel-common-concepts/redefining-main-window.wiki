@@ -1,0 +1,9 @@
+[[Property:title|Redefining main_window]]
+[[Property:weight|1]]
+[[Property:uuid|f7bfd5d0-86ef-5387-ba79-5461a516bcf6]]
+When you inherit [[ref:libraries/wel/reference/wel_application_chart|WEL_APPLICATION]] , you will need to implement the deferred feature main_window as a once function. This will be the main window of your application, and can be any descendent of [[ref:libraries/wel/reference/wel_composite_window_chart|WEL_COMPOSITE_WINDOW]] . 
+
+{{note|. See [[Tutorial Step 2|step2]]  in the [[WEL Tutorial|tutorial]]  for a simple demonstration of how to do this. }}
+
+
+

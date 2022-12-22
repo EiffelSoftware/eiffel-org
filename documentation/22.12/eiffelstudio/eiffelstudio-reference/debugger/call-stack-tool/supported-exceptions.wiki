@@ -1,0 +1,48 @@
+[[Property:title|Supported exceptions]]
+[[Property:weight|3]]
+[[Property:uuid|f3b4498a-0772-32fb-041d-13428e258f52]]
+Here is a list of exceptions that may appear in the [[Call stack tool: Interface|call stack tool]] . When they are raised, a tag may be there to give more information, if necessary. All these exceptions are declared in <eiffel>EXCEPT_CONST</eiffel>. 
+
+'''Feature call on Void target''': An attempt was made to call a feature on an object that is Void. The tag indicates the name of the feature of the feature that could not be called. For instance if the code line is <eiffel>a.b.c</eiffel> and the tag is "c" then <eiffel>a.b</eiffel> was Void. 
+
+'''No more memory''': A memory allocation failed. 
+
+'''Precondition violated''': One of the conditions necessary prior to entering a feature is not verified. This may indicate either that the precondition is too strong, or that the call is invalid. The tag should give the name of the violated precondition, if any. 
+
+'''Postcondition violated''': One of the conditions checked when a feature exits is not verified. This may indicate either that the postcondition is too strong, or that the feature did not behave correctly. The tag should give the name of the violated postcondition, if any. 
+
+'''Class invariant violated''': One of the conditions that checks the validity of objects is not verified. This may indicate that an object was left in an invalid state after a method call. The tag should give the name of the violated invariant, if any. 
+
+'''Assertion violated''': An assertion was not verified. The tag should give the name of the violated assertion, if any. 
+
+'''Non-decreasing loop variant''': A loop variant does not vary. This may lead to stack overflows or erroneous results. 
+
+'''Loop invariant violated''': A condition that should be checked when executing a loop is not verified. The tag should give the name of the violated invariant. 
+
+'''Floating point exception''' (signal SIGFPE): An error occurred while processing floating point numbers. This may be for example a FPU overflow, a division by zero, or an invalid operation. 
+
+'''Unmatched inspect value''': An inspect clause couldn't find the value it was passed among the `when` clauses. If any value maybe passed to the `when` clause, adding an `else` clause will solve this problem. 
+
+'''I/O error''': An error occurred while accessing a stream. Examples of this are a missing file, or insufficient rights. 
+
+'''Retrieval error''': A file could not be retrieved. This maybe caused by an invalid header, or more generally by a corrupted data file. 
+
+'''Developer exception''': Developer exceptions can be raised by calling {<eiffel>EXCEPTIONS</eiffel>}.<eiffel>raise</eiffel>. They can indicate any kind of internal error. 
+
+'''Operating system signal''': The program received a signal from the operating system. 
+
+'''Exception in rescue clause''': An exception occurred within a rescue clause. 
+
+'''Void assigned to expanded''': An attempt was made to assign a Void value to an expanded object. 
+
+'''Run-time I/O error''': Exception raised by the run-time when encountering a I/O error internally. 
+
+'''External event''': On Unix, this happens when an operating system error occurs and does not set the `errno` variable. 
+
+'''Operating system error''': On Unix, this happens when an operating system error occurs and sets the `errno` variable. 
+
+'''COM error''': Raised when EiffelCOM encounters an error. 
+
+
+
+
