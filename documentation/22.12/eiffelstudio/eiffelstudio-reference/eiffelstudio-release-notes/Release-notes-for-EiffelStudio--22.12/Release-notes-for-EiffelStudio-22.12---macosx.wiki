@@ -1,4 +1,4 @@
-[[Property:modification_date|Wed, 04 Jan 2023 11:49:07 GMT]]
+[[Property:modification_date|Wed, 04 Jan 2023 12:34:39 GMT]]
 [[Property:publication_date|Wed, 04 Jan 2023 11:34:24 GMT]]
 [[Property:uuid|9545048C-03AF-4F8C-BE54-0DD7B7C31CF2]]
 [[Property:weight|0]]
@@ -15,11 +15,15 @@ First, be sure to use the default settings, otherwise text fields (and similar) 
 defaults write org.xquartz.X11 enable_render_extension 1
 ```
 
-However, in default settings, EiffelStudio has '''back''' blackground for a few widgets (menu, label, ...), when EiffelStudio has the focus, which makes it hard to use. EiffelStudio is not the only macosx application having this issue with XQuartz, and so far no workaround works well with EiffelStudio. We hope XQuartz will release in the future an update fixing that issue.
+However, in default settings, EiffelStudio has '''back''' blackground for a few widgets (menu, label, ...), when EiffelStudio has the focus, which makes it hard to use. 
 
-A dirty but acceptable workaround is to use custom css for the application:
-Using ~/.config/gtk-3.0/gtk.css  to use colors that would make EiffelStudio reading in normal mode, and in "black background annoyance" mode.
-```
+EiffelStudio is not the only macosx application having this bad issue with XQuartz, and so far no workaround works well with EiffelStudio. We hope XQuartz will release in the future an update fixing that issue.
+
+===A dirty but acceptable workaround: CSS ===
+
+Using ~/.config/gtk-3.0/gtk.css  to use colors that would make EiffelStudio reading in "normal" mode, and in "black background annoyance" mode.
+
+```css
 .background { background-color: #cccccc; color: white }
 widget, box, text, label { background-color: #cccccc; color: white }
 .titlebar { background-color: #ff0000 }
