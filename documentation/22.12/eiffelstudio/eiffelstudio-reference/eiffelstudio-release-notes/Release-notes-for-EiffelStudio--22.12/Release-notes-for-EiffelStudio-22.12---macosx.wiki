@@ -1,7 +1,28 @@
-[[Property:modification_date|Wed, 04 Jan 2023 11:34:24 GMT]]
+[[Property:modification_date|Wed, 04 Jan 2023 11:49:07 GMT]]
 [[Property:publication_date|Wed, 04 Jan 2023 11:34:24 GMT]]
 [[Property:uuid|9545048C-03AF-4F8C-BE54-0DD7B7C31CF2]]
 [[Property:weight|0]]
 [[Property:title|Release notes for EiffelStudio 22.12 - macosx]]
 [[Property:link_title|22.12 - macosx]]
-Coming soon ..
+
+Coming soon ...
+
+= Known issues =
+== GUI issues ==
+Vision2 UI apps have bad issue on macosx M1/M2 (arm architecture) with XQuartz.
+First, be sure to use the default settings, otherwise text fields (and similar) will not work properly for Vision2 application.
+```
+defaults write org.xquartz.X11 enable_render_extension 1
+```
+
+However, in default settings, EiffelStudio has '''back''' blackground for a few widgets (menu, label, ...), when EiffelStudio has the focus, which makes it hard to use. EiffelStudio is not the only macosx application having this issue with XQuartz, and so far no workaround works well with EiffelStudio. We hope XQuartz will release in the future an update fixing that issue.
+
+A dirty but acceptable workaround is to use custom css for the application:
+Using ~/.config/gtk-3.0/gtk.css  to use colors that would make EiffelStudio reading in normal mode, and in "black background annoyance" mode.
+```
+.background { background-color: #cccccc; color: white }
+widget, box, text, label { background-color: #cccccc; color: white }
+.titlebar { background-color: #ff0000 }
+window, menuitem { background-color: #cccccc; color: white }
+menuitem:hover { background-color: white; color: #cccccc }
+```
