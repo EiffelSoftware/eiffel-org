@@ -1,4 +1,4 @@
-[[Property:modification_date|Thu, 22 Dec 2022 14:08:38 GMT]]
+[[Property:modification_date|Wed, 04 Jan 2023 11:33:21 GMT]]
 [[Property:publication_date|Thu, 22 Dec 2022 13:40:15 GMT]]
 [[Property:uuid|EA73C2B4-1A89-4A2A-A53F-2E5617B140BA]]
 [[Property:title|Release notes for EiffelStudio 22.12]]
@@ -18,8 +18,8 @@
 ==Tools==
 * It is now possible to use the "emdc.exe" .Net md consumer, as an alternative to the COM md consumer from EiffelStudio, as a first step toward supporting .Net on non Windows platform.
 
-==Libraries==
-*  
+== Warning ==
+For Macos users on M1/M2 (arm) architecture, please read the specific note [[Release notes for EiffelStudio 22.12 - macosx]]
 
 ----
 
