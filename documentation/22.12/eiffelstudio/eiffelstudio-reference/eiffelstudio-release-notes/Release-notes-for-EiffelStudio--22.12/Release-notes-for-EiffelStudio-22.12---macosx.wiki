@@ -1,4 +1,4 @@
-[[Property:modification_date|Wed, 04 Jan 2023 12:34:39 GMT]]
+[[Property:modification_date|Wed, 04 Jan 2023 12:35:38 GMT]]
 [[Property:publication_date|Wed, 04 Jan 2023 11:34:24 GMT]]
 [[Property:uuid|9545048C-03AF-4F8C-BE54-0DD7B7C31CF2]]
 [[Property:weight|0]]
@@ -21,8 +21,8 @@ EiffelStudio is not the only macosx application having this bad issue with XQuar
 
 ===A dirty but acceptable workaround: CSS ===
 
-Using ~/.config/gtk-3.0/gtk.css  to use colors that would make EiffelStudio reading in "normal" mode, and in "black background annoyance" mode.
-
+Using `~/.config/gtk-3.0/gtk.css`  to use colors that would make EiffelStudio reading in "normal" mode, and in "black background annoyance" mode.
+For that, put the following text inside  `~/.config/gtk-3.0/gtk.css`
 ```css
 .background { background-color: #cccccc; color: white }
 widget, box, text, label { background-color: #cccccc; color: white }
