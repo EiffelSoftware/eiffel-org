@@ -1,11 +1,9 @@
-[[Property:modification_date|Wed, 04 Jan 2023 13:03:29 GMT]]
+[[Property:modification_date|Mon, 09 Jan 2023 13:42:55 GMT]]
 [[Property:publication_date|Wed, 04 Jan 2023 11:34:24 GMT]]
 [[Property:uuid|9545048C-03AF-4F8C-BE54-0DD7B7C31CF2]]
 [[Property:weight|0]]
 [[Property:title|Release notes for EiffelStudio 22.12 - macosx]]
 [[Property:link_title|22.12 - macosx]]
-
-Coming soon ...
 
 = Known GUI issues =
 Vision2 UI apps have bad issue on macosx M1/M2 (arm architecture) with XQuartz.
@@ -13,7 +11,7 @@ Vision2 UI apps have bad issue on macosx M1/M2 (arm architecture) with XQuartz.
 == Use the latest XQuartz version ===
 Be sure to use the latest XQuartz, as it gets improvement from time to time (currently version 2.8.4), and hopefully remaining EiffelStudio UI annoyance will disappear with future versions.
 
-== Do not disable Xqq rendering ===
+== Do not disable X11 rendering ===
 In other words, be sure to use the following default XQuartz setting:
 
 ```
@@ -29,6 +27,8 @@ When using default setting (`enable_render_extension = 1`), EiffelStudio has '''
 EiffelStudio is not the only macosx application having this bad issue with XQuartz (matlab, git gui, ...), and so far no workaround works well with EiffelStudio. 
 
 Let us hope that XQuartz fixes this issue in a future version update.
+
+Note: there is no such issue when using the interface via a remote application such as NoMachine.
 
 ===A dirty but acceptable workaround: CSS ===
 
