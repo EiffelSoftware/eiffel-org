@@ -1,3 +1,5 @@
+[[Property:modification_date|Mon, 23 Jan 2023 08:51:31 GMT]]
+[[Property:publication_date|Mon, 23 Jan 2023 08:51:31 GMT]]
 [[Property:title|I2E: Classes]]
 [[Property:weight|-11]]
 [[Property:uuid|218bead9-428e-f61d-1e45-7eea4291d895]]
@@ -40,7 +42,7 @@ These feature calls use dot notation, of the form <code>target_name.feature_name
 
 Routines are further divided into '''procedures''' (commands, which do not return a value) and '''functions''' (queries, returning a value). Here <code>may_withdraw</code> is a function returning a boolean; the other three-routines called are procedures. 
 
-{{info|A note on syntax: you may separate instructions by semicolons, and indeed you should when, as on the next-to-last line of the example, two or more instructions appear on a line. But the language's syntax has been designed so that the semicolon is almost always optional, regardless of the layout. Indeed the practice is to omit it between instructions or declarations on separate lines, as this results in lighter, clearer software texts. }}
+{{info|A note on syntax: you may separate instructions by semicolons, and indeed you should when, as on the next-to-last line of the example, two or more instructions appear on a line. But the language's syntax has been designed so that the semicolon is almost always optional, regardless of the layout. Indeed the practice is to omit it between instructions or declarations on separate lines, as this results in lighter, clearer software texts. Such as `acc.withdraw (3000); print (acc.balance)` }}
 
 In class <code>ACCOUNT</code>, is feature <code>balance</code> an attribute, or is it a function with no argument? The above extract of the client class <code>X</code> doesn't say, and this ambiguity is intentional. A client of <code>ACCOUNT</code> must not need to know how class <code>ACCOUNT</code> delivers an account's balance when requested: by looking up a field present in each account object, or by calling a function that computes the balance from other fields. Choosing between these techniques is the business of class <code>ACCOUNT</code>, not anybody else's. Because such implementation choices are often changed over the lifetime of a project, it is essential to protect clients against their effects. This is known as the '''Uniform Access Principle''', stating that the choice between representing a property through memory (an attribute) or through an algorithm (function) shall not affect how clients use it. 
 
