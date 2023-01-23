@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 23 Jan 2023 08:51:31 GMT]]
+[[Property:modification_date|Mon, 23 Jan 2023 08:53:11 GMT]]
 [[Property:publication_date|Mon, 23 Jan 2023 08:51:31 GMT]]
 [[Property:title|I2E: Classes]]
 [[Property:weight|-11]]
@@ -94,7 +94,7 @@ end -- ACCOUNT
 
 Let us examine the features in sequence. The <code>do</code> <code>...</code> <code>end</code> distinguishes routines from attributes. So here the class has implemented <code>balance</code> as an attribute, although, as noted, a function would also have been acceptable. Feature <code>owner</code> is also an attribute. 
 
-The language definition guarantees automatic initialization, so that the initial balance of an account object will be zero after a creation instruction. Each type has a default initial value: zero for <code>INTEGER</code> and <code>REAL</code>, false for <code>BOOLEAN</code>, null character for <code>CHARACTER</code>, and a void reference for reference types. The class designer may also provide clients with different initialization options, as will be seen below in a revised version of this example. 
+The language definition guarantees automatic initialization, so that the initial balance of an account object will be zero after a creation instruction. Each type has a default initial value: zero for <code>INTEGER</code> and <code>REAL</code>, false for <code>BOOLEAN</code>, NUL character for <code>CHARACTER</code>, and a void reference for reference types. The class designer may also provide clients with different initialization options, as will be seen below in a revised version of this example. 
 
 The other public features, <code>withdraw, deposit, open,</code> and <code>may_withdraw</code> are straight-forward routines. The special entity <code>Result</code>, used in <code>may_withdraw</code>, denotes the function result; it is initialized on function entry to the default value of the function's result type. You may only use <code>Result</code> in functions. 
 
