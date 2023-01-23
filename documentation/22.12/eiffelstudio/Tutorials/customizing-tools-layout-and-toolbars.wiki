@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 14 Sep 2021 19:26:17 GMT]]
+[[Property:modification_date|Mon, 23 Jan 2023 09:22:48 GMT]]
 [[Property:publication_date|Tue, 21 Aug 2018 18:55:21 GMT]]
 [[Property:title|Customizing the tools layout and toolbars]]
 [[Property:weight|-8]]
@@ -119,7 +119,7 @@ There are two tools panes. Docked in one are the Class, Feature, Outputs, and Er
 
 It turns out that there are actually two more tools panes in this layout. One contains the Diagrams tool and the other contains the Dependency, Metrics, and Info tools. These two panes are Auto Hidden so we only see the minimum evidence that they exist ... just their tabs. You can tell that these are two different panes by how the tabs are distributed. Diagram is somewhat "off by itself" whereas Dependency, Metrics and Info are grouped closely together.
 
-As we learned in [[Viewing Classes]] you can make one of these tool panes visible by moving your cursor over it, or clicking on one its tabs. The pane will expose itself for the length of time that the cursor remains over it, then recede into hiding again when the cursor is moved away. 
+As we learned in [[Viewing Classes]] you can make one of these tool panes visible by moving your cursor over it, or clicking on one of its tabs. The pane will expose itself for the length of time that the cursor remains over it, then recede into hiding again when the cursor is moved away. 
 
 Try this now with the Diagram tool. The pane housing the diagram tool appears from the bottom of the screen. Notice also that it has occluded the pane containing Class, Feature, Outputs, and Error List tools, and about half of the pane containing the Groups, Features, AutoTest, and Favorites tools.
 
@@ -151,9 +151,9 @@ So move your cursor over the Diagram tab and the pane should expand (if it does 
 Figure 6
 
 
-You may notice that a pane that is auto hidden may, when it expands, occlude other panes. However, when you turn of Auto Hide by pinning the pane open, any panes that it had occluded will become at least minimally visible. In the case of this example, the pane containing the Class tool was temporarily covered by the expanded Diagram pane, as was the row of tabs on the pane containing Groups. When you pin the Diagram pane open, the title bar for the pane with the Class tool becomes visible, and the pane with the Groups tool gets shortened to fit above the Diagram tool's pane.
+You may notice that a pane that is auto hidden may, when it expands, occlude other panes. However, when you turn off Auto Hide by pinning the pane open, any panes that it had occluded will become at least minimally visible. In the case of this example, the pane containing the Class tool was temporarily covered by the expanded Diagram pane, as was the row of tabs on the pane containing Groups. When you pin the Diagram pane open, the title bar for the pane with the Class tool becomes visible, and the pane with the Groups tool gets shortened to fit above the Diagram tool's pane.
 
-It is at this point that new EiffelStudio sometimes have problems understanding what's happening. So read the following description of what's going on before you actually try to move the pane ... and don't forget that you can always reset the tools layout if things don't go the way you intended.
+It is at this point that new EiffelStudio users sometimes have problems understanding what's happening. So read the following description of what's going on before you actually try to move the pane ... and don't forget that you can always reset the tools layout if things don't go the way you intended.
 
 Now that we've turned off Auto Hide for Diagram's pane, we can move the pane and either re-dock it somewhere else in the development window or, as is our intention, "float" it as a window separate from the Development Window. 
 
