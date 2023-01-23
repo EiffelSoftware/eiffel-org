@@ -1,3 +1,5 @@
+[[Property:modification_date|Mon, 23 Jan 2023 09:00:46 GMT]]
+[[Property:publication_date|Mon, 23 Jan 2023 09:00:46 GMT]]
 [[Property:title|I2E: Inheritance]]
 [[Property:weight|-5]]
 [[Property:uuid|acf84989-0e7c-f2f7-427a-19e7fce404ce]]
@@ -9,8 +11,7 @@ class ARRAYED_LIST [G]
     inherit
         LIST [G]
         ARRAY [G]
-
-    export ... See below ... end
+            export ... See below ... end
 
 feature
     ... Specific features of fixed-size lists ...
@@ -32,8 +33,7 @@ class ARRAYED_LIST [G]
     inherit
         LIST [G]
         ARRAY [G]
-
-    export {NONE} all end
+            export {NONE} all end
 
     ... The rest as above ...
 </code>
