@@ -1,3 +1,5 @@
+[[Property:modification_date|Mon, 23 Jan 2023 09:14:48 GMT]]
+[[Property:publication_date|Mon, 23 Jan 2023 09:14:48 GMT]]
 [[Property:title|ET: The Dynamic Structure: Execution Model]]
 [[Property:weight|-10]]
 [[Property:uuid|1f3f2707-9129-4dca-76c7-157143d7ae74]]
@@ -7,7 +9,7 @@ The properties of the run-time model are not just of interest to implementers; t
 
 ==Objects, fields, values, and references==
 
-A class was defined as the static description of a type of run-time data structures. The data structures described by a ca class are called '''instances''' of the class, which in turn is called their '''generating class''' (or just "generator"). An instance of <code>ACCOUNT</code> is a data structure representing a bank account; an instance of <code>LINKED_LIST</code> is a data structure representing a linked list. 
+A class was defined as the static description of a type of run-time data structures. The data structures described by a class are called '''instances''' of the class, which in turn is called their '''generating class''' (or just "generator"). An instance of <code>ACCOUNT</code> is a data structure representing a bank account; an instance of <code>LINKED_LIST</code> is a data structure representing a linked list. 
 
 An '''object''', as may be created during the execution of a system, is an instance of some class of the system. 
 
@@ -146,7 +148,7 @@ False
 
 | &nbsp;
 | 
-Null
+NUL
 
 |- 
 | 
