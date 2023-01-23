@@ -1,4 +1,4 @@
-[[Property:modification_date|Thu, 21 Jan 2021 13:42:09 GMT]]
+[[Property:modification_date|Mon, 23 Jan 2023 09:17:43 GMT]]
 [[Property:publication_date|Thu, 21 Jan 2021 13:42:09 GMT]]
 [[Property:title|ET: Design by Contract (tm), Assertions and Exceptions]]
 [[Property:weight|-8]]
@@ -116,9 +116,9 @@ Use a non-negative argument.
 Get deposits list and balance updated. 
 |- 
 |   '''Supplier''' 
-|  (Satisfy precondition:) <br/>
-Update deposits list and balance. 
 |  (From postcondition:) <br/>
+Update deposits list and balance. 
+|  (Satisfy precondition:) <br/>
 No need to handle negative arguments. 
 |}
 
@@ -322,7 +322,7 @@ Concretely, exceptions may result from the following events: <br/>
 *  Assertion violation, if for a system that runs with assertion monitoring on. 
 *  Attempt to call a feature on a void reference: <code>x.f (...)</code>, the fundamental computational mechanism, can only work if <code>x</code> is attached to an object, and will cause an exception otherwise. 
 *  Developer exception, as seen next. 
-*  Operating system signal:arithmetic overfolow; no memory available for a requested creation or twin -- even after garbage collection has rummaged everything to find some space. (But no C/C++-like "wrong pointer address", which cannot occur thanks to the statically typed nature of Eiffel.)
+*  Operating system signal:arithmetic overflow; no memory available for a requested creation or twin -- even after garbage collection has rummaged everything to find some space. (But no C/C++-like "wrong pointer address", which cannot occur thanks to the statically typed nature of Eiffel.)
 
 
 It is sometimes useful, when handling exceptions in <code>rescue</code> clauses, to ascertain the exact nature of the exception that got the execution there. For this it suffices to inherit from the Kernel Library class <code>EXCEPTIONS</code>, which provides queries such as <code>exception</code>, giving the code for the last exception, and symbolic names ( [[ET: Other Mechanisms#Constant_attributes|"Constant attributes"]] ) for all such codes, such as <code>No_more_memory</code>. You can then process different exceptions differently by testing <code>exception</code> against various possibilities. The method strongly suggests, however, that exception handling code should remain simple; a complicated algorithm in a <code>rescue</code> clause is usually a sign that the mechanism is being misused. Class <code>EXCEPTIONS</code> also provides various facilities for fine-tuning the exception facilities, such as a procedure <code>raise</code> that will explicitly trigger a "developer exception" with a code that can then be detected and processed. Exception handling helps produce Eiffel software that is not just correct but robust, by planning for cases that should not normally arise, but might out of Murphy's law, and ensuring they do not affect the software's basic safety and simplicity. 
