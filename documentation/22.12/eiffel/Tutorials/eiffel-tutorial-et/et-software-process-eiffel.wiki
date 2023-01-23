@@ -1,3 +1,5 @@
+[[Property:modification_date|Mon, 23 Jan 2023 09:10:19 GMT]]
+[[Property:publication_date|Mon, 23 Jan 2023 09:10:19 GMT]]
 [[Property:title|ET: The Software Process in Eiffel]]
 [[Property:weight|-13]]
 [[Property:uuid|eef7f31a-25de-93cc-9a33-41d991c51ccb]]
@@ -41,7 +43,7 @@ The last step of the cluster, Generalization, is unheard of in traditional model
 
 Recent object-oriented literature has used the term "refactoring" to describe a process of continuous improvement of released software. Generalization includes refactoring, but also pursues a more ambitious goal: helping turn program elements (software modules useful only as part of a certain program) into software components -- reusable parts with a value of their own, ready to be used by diverse programs that can benefit from their capabilities. 
 
-Of course not all companies using the method will be ready to include a Generalization phase in their. But those which do will see the reusability of their software greatly improved. 
+Of course not all companies using the method will be ready to include a Generalization phase in their process. But those which do will see the reusability of their software greatly improved. 
 
 ==Constant availability==
 
