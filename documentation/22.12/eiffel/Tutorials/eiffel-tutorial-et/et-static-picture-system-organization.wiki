@@ -1,3 +1,5 @@
+[[Property:modification_date|Mon, 23 Jan 2023 09:13:05 GMT]]
+[[Property:publication_date|Mon, 23 Jan 2023 09:13:05 GMT]]
 [[Property:title|ET: The Static Picture: System Organization]]
 [[Property:weight|-11]]
 [[Property:uuid|46d3f41e-d41c-a443-4574-403dfebb60aa]]
@@ -52,7 +54,8 @@ Any class that does not explicitly inherit from another is considered to inherit
 
 Classes are the only form of module in Eiffel. As will be explained in more detail, they also provide the basis for the only form of type. This module-type identification is at the heart of object technology and of the fundamental simplicity of the Eiffel method. 
 
-Above classes, you will find the concept of cluster. A cluster is a group of related classes. Clusters are a property of the method, enabling managers to organize the development into teams. As we have already seen (in [[ET: The Software Process in Eiffel|The Software Process in Eiffel]] ) they also play a central role in the lifecycle model. Clusters are an organizational concept, not a form of module, and do not require an Eiffel programming language construct. 
+Above classes, you will find the concept of cluster. A cluster is a collection of classes, (recursively) other clusters called its subclusters, or both. The
+cluster is said to contain directly these classes and subclusters.. Clusters are a property of the method, enabling managers to organize the development into teams. As we have already seen (in [[ET: The Software Process in Eiffel|The Software Process in Eiffel]] ) they also play a central role in the lifecycle model. Clusters are an organizational concept, not a form of module, and do not require an Eiffel programming language construct. 
 
 ==External software==
 
