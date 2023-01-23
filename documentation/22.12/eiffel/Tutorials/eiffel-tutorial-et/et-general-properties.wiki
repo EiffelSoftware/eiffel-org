@@ -1,3 +1,5 @@
+[[Property:modification_date|Mon, 23 Jan 2023 09:06:45 GMT]]
+[[Property:publication_date|Mon, 23 Jan 2023 09:06:45 GMT]]
 [[Property:title|ET: General Properties]]
 [[Property:weight|-14]]
 [[Property:uuid|1ad0b1d5-7ac6-9f55-92ec-ba6f42aee690]]
@@ -40,7 +42,7 @@ It is also useful, as in any design, to list some of what is '''not''' present i
 *  ''No in-class overloading'', which by assigning the same name to different features within a single context, causes confusions, errors, and conflicts with object-oriented mechanisms such as dynamic binding. (Dynamic binding itself is a powerful form of inter-class overloading, without any of these dangers.) 
 *  ''No goto instructions'' or similar control structures (break, exit, multiple-exit loops) which break the simplicity of the control flow and make it harder or impossible to reason about the software (in particular through loop invariants and variants). 
 *  ''No exceptions to the type rules''. To be credible, a type system must not allow unchecked "casts" converting from a type to another. (Safe cast-like operations are available through object test.) 
-*  ''No side-effect expression operators'' confusing computation and modification. 
+*  ''No side-effect expression operators'' (such as `+=`) confusing computation and modification. 
 *  ''No low-level pointers, no pointer arithmetic'', a well-known source of bugs. (There is however a type ''POINTER'', used for interfacing Eiffel with C and other languages.) 
 
 
