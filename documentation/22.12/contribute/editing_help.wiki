@@ -1,3 +1,6 @@
+[[Property:modification_date|Tue, 24 Jan 2023 15:52:04 GMT]]
+[[Property:publication_date|Tue, 24 Jan 2023 15:52:04 GMT]]
+[[Property:uuid|21D430EE-C9E0-46CC-8310-98521B77CA01]]
 [[Property:title|Help to edit documentation]]
 [[Property:link_title|Editing help]]
 [[Property:weight|3]]
@@ -5,6 +8,14 @@
 = Wikitext syntax =
 * Have a look at [https://en.wikipedia.org/wiki/Help:Wiki_markup Wikipedia markup] documentation.
 * The current website does not support the full Wikipedia syntax, but still most of the needed cases.
+
+* To add a link to another wiki page
+** `[[Wiki Page Title]]` or `[[Wiki Page Title|Custom text]]` (to use a specific text for the link)
+** for instance, a link to this current page would be `[[Help to edit documentation]]` : [[Help to edit documentation]]
+
+* To add a link to any URL
+** `[https://www.eiffel.com Eiffel.com]` (bracket, url, space text, bracket) 
+** Result: [https://www.eiffel.com Eiffel.com]
 
 * To embed inline code:
 ** `` `foo.bar` ``
