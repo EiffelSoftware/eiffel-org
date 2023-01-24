@@ -1,4 +1,4 @@
-[[Property:modification_date|Wed, 17 Apr 2019 14:09:18 GMT]]
+[[Property:modification_date|Tue, 24 Jan 2023 15:15:39 GMT]]
 [[Property:publication_date|Thu, 06 Sep 2018 15:17:57 GMT]]
 [[Property:uuid|96077603-DD2D-4D8C-A486-AF4BD066613A]]
 [[Property:weight|2000]]
@@ -39,7 +39,7 @@ This syntax offer more possibilities than the `across` loop, but is riskier.
 </code>
 
 === Using Eiffel agents and `{LIST}.do_all, ....` ===
-It is possible to use agents in conjunction with the `LIST` features `do_all`, `do_if`, `there_exists`, and `for_all` which are inherited from the class `LINEAR`.
+It is possible to use  [[ET-_Agents|agents]] in conjunction with the `LIST` features `do_all`, `do_if`, `there_exists`, and `for_all` which are inherited from the class `LINEAR`.
 <code>
 	list_traversal_agents
 			-- Example of traversing a list with do_all
