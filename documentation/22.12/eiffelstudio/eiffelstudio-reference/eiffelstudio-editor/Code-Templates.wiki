@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 02 Sep 2019 08:02:24 GMT]]
+[[Property:modification_date|Fri, 14 Apr 2023 08:22:51 GMT]]
 [[Property:publication_date|Mon, 02 Sep 2019 08:02:24 GMT]]
 [[Property:uuid|7CCF602E-0B79-49C2-93FE-39C90CBE4E35]]
 [[Property:link_title|Code Templates]]
@@ -106,6 +106,7 @@ To offer templates as part of code completion, EiffelStudio looks in two locatio
 ** Windows: <code>C:/Users/your_user_name/Documents/Eiffel User Files/16.11/templates/code</code>
 
 If you define templates for your own specific use, store them in the second location.
+The template file should be an Eiffel file (with `e` file extension).
 
 == Defining a targeted template ==
 Here is how we defined the template used in the above targeted example:
@@ -147,11 +148,34 @@ This class defines two targeted templates: ''maximum'' for the maximum of an ent
 To specify the target type, here arrays, just use it as the actual generic parameters of TEMPLATE (which is a generic class). Here indeed, the the definition starts as
 
 <code>
-	class ARRAY_TEMPLATE [T -> COMPARABLE] inherit
-    
-	    TEMPLATE [ARRAY [T]]
+class ARRAY_TEMPLATE [T -> COMPARABLE] 
+
+inherit   
+    TEMPLATE [ARRAY [T]]
 </code>
 
+Another example, without generic parameters:
+
+<code>
+class STRING_UTF_8_TEMPLATE [T -> READABLE_STRING_GENERAL]
+
+inherit
+    TEMPLATE [T]
+
+feature -- Templates
+
+    to_utf_8: STRING_8
+            -- STRING_8 string from `target'.
+        note
+            title: "To UTF-8 STRING"
+            tags: "Unicode, String, STRING"
+        do{UTF_CONVERTER}.utf_32_string_to_utf_8_string_8 (target)end
+
+end
+</code>
+(note: in that example, there is no space after the `do` and before the `end`, so the template is applied without adding extra unwanted spaces)
+
+== Integration within EiffelStudio ==
 
 The correspondence between what you write in the template definition and what appears in EiffelStudio, as shown in previous sections, is straightforward:
 
@@ -161,7 +185,6 @@ The correspondence between what you write in the template definition and what ap
 # Argument occurrences will appear as fields for the user to fill in.
 
 == Defining a targetless template ==
-
 
 For a targetless template, just just use TEMPLATE without a generic parameter:
 
