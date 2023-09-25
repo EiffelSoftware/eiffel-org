@@ -1,0 +1,57 @@
+[[Property:title|Layout constructor]]
+[[Property:weight|3]]
+[[Property:uuid|eb93c9bf-53b3-6718-5c30-d17133633c6f]]
+The layout constructor provides a view of the [[EiffelBuild Notation|objects]]  you have defined in your system, in which the [[EiffelBuild Notation|objects]]  may be manipulated. The root node of the tree is the object currently selected within the [[Widget selector|widget selector]]  and objects may be added/moved within the displayed widget structure by picking and dropping the objects as required. For example, in the screenshot below, you could add another list to the vertical box, by picking a list from the [[Type selector|type selector]]  and dropping it on the vertical box object. 
+
+
+[[Image:layout-constructor]]  
+
+
+Each item in the tree represents one object. The screenshot above represents the following [[EiffelVision Introduction|EiffelVision 2]]  interface definition - An EV_TITLED_WINDOW containing one child, of type EV_VERTICAL_BOX. Within the vertical box there is an EV_HORIZONTAL_BOX and an EV_LIST. The list is empty, but the horizontal box contains three different objects of type EV_BUTTON. 
+
+{{note|The widget displayed as the root of the Layout Constructor is the currently selected object in the [[Widget selector|Widget Selector]] . To edit the contents of a different widget, select the widget you wish to manipulate from the [[Widget selector|widget selector]] .}}
+
+The information displayed, only shows you the structure of the [[EiffelBuild Notation|objects]] , and although it gives you an indication of the final appearance of the interface you are building, you cannot see the details of the interface. i.e. color, sizes, tool tips etc. To view an accurate representation of the widget structure you are building, show the [[Display window|Layout window]] . 
+
+All [[EiffelBuild Notation|objects]]  displayed in the Layout Constructure are [[EiffelBuild Notation|pickable]] , so can be easily manipulated, e.g. [[Delete an object|deleted]]  or [[Reparent an Object|reparented]] . 
+
+{{note|If the [[EiffelBuild Notation|object]]  in the tree has the '''Name''' property set, then the text corresponds to the name, otherwise, the text is the type of the [[EiffelBuild Notation|object]] . }}
+
+If you have just started a new project, then the layout constructor will only contain one tree item, TITLED_WINDOW. 
+==Selection==
+
+The currently selected object within the Layout Constructor is automatically targetted to the docked [[Object editor|object editor]]  which is situated to the right hand side of the main EiffelBuild Window. This enables you to quickly and easily edit the properties of the selected object. Note that Ctrl-right clicking on an object in the Layout Constructor displays a floating [[Object editor|object editor]]  targeted to that object. 
+
+==Expanding/Collapsing==
+
+To Expand all of the items displayed in the layout constructor, select '''Expand layout tree''' from the '''View''' menu, or select the small cross icon displayed at the top of the tool. 
+
+Similarly, if you wish to collapse all of the items in the layout constructor, select '''Collapse layout tree''' from the '''View''' menu. 
+
+
+==Highlighting an Object==
+An [[EiffelBuild Notation|object]]  contained in a system may be highlighted in the Layout Constructor by [[EiffelBuild Notation|picking]]  it, and [[EiffelBuild Notation|dropping]]  on the button displayed at the top of the Layout Constructor. Clicking this button with the mouse has no effect. The ability to highlight an object in this fashion proves to be particularly useful when building directly into the [[Builder window|builder window]] , as a particular object may be quickly highlighted in the Layout Constructor, and its properties edited.
+
+==Locked Objects==
+
+Objects that are instances of other objects are displayed as locked objects within the Layout Constructor as illustrated below:
+
+
+[[Image:layout-constructor-locked]]  
+
+
+The object of type OK_CANCEL_BUTTONS is a locked instance of another object as illustrated by the locked icon displayed on top of it's type icon. As a locked object is simply an instance of another object, its internal structure may not be manipulated directly within the Layout Constructor. To change the structure of a locked object, you must directly change the object of which it is an instance. 
+To add a locked object to your interface, simply pick the object that you wish to re-use from the [[Widget selector|widget selector]]  and drop it into the desired parent object within the Layout Constructor. In this case, the instance of the OK_CANCEL_BUTTONS object is actually comprised of a number of widgets which may only be modified through manipulation of the original OK_CANCEL_BUTTONS_OBJECT. Changes made to this original object are then applied to all instances within your interface structures. 
+
+You may convert an existing widget structure into a locked instance of a widget by picking the object to be used as the root of the structure (may not be locked) and dropping it into the [[Widget selector|widget selector]] . This creates a new "top level" object within the [[Widget selector|widget selector]]  and places a locked instance of this at the original location in the widget structure where it was picked from. 
+
+{{note|Double clicking on a locked object within the Layout Constructor, targets the object of which it is an instance to the Layout Constructor. }}
+
+{{seealso|<br/>
+[[Builder window|Builder window]]  <br/>
+[[Object editor|Object editor]]  <br/>
+[[Display window|Layout window]]  }}
+
+
+
+

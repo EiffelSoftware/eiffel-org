@@ -1,0 +1,77 @@
+[[Property:title|Similar Types Occurring in Both Libraries]]
+[[Property:weight|5]]
+[[Property:uuid|4c9f6ad8-107b-af69-3eb3-3f076f2c936c]]
+==Whose String is it anyway?==
+
+Over the last 15 years or so, the Eiffel class libraries have been a source for reusable software components for developers. 
+
+The Eiffel Base library contains classes for commonly used objects like different kinds of numbers, strings, files, and data structures. 
+
+But there are also libaries of Eiffel classes for sophisticated purposes like lexical analysis and parsing, data access, and graphical user interface development. 
+
+Likewise .NET is delivered with assemblies containing thousands of powerful types with similar purposes. 
+
+===Working in Both Worlds===
+
+When we build software that has access to both the rich Eiffel libraries and the many useful .NET types, we inevitably run into types from both worlds that have similar names and purposes, but are still different types with different semantics. 
+
+===The Case of Strings===
+
+The example of these similar types which will almost certainly get in your face is the string types. You may remember that we looked briefly at the case of the string types in Naming Conventions and Name Handling. 
+
+The Eiffel Base Library contains class <code>STRING</code>; the .NET assembly contains type <code>System.String</code>, which Eiffel for .NETusers see as <code>SYSTEM_STRING</code>. At an abstract level both of these model sequences of characters. But they are not the same type. In fact, they are different in some important ways. For example, instances of <code>System.String</code> are immutable. So you cannot append to an instance of <code>System.String</code>. If you want to build a string by appending, you should use an instance of <code>System.Text.StringBuilder</code> to do the appending, then extract the instance of <code>System.String</code> from it. With <code>STRING</code> it is permissible to append, so you don't need a helper like the <code>System.Text.StringBuilder</code> type. 
+
+So the two types are similar at an abstract level, but different semantically. There are reasonable arguments for the design of each. 
+
+Many types in the delivered assemblies have properties which are strings or methods which return or take strings as arguments. In all these cases, the strings in question are instances of <code>System.String</code>. 
+
+Many classes in the delivered Eiffel libraries have features involving strings, that is attributes which are strings or routines which return or take strings as arguments. In all these cases, the strings are instances of <code>STRING</code> (except for those designed for .NET compliance). 
+
+In C# and VB.NET, if you specify a quoted string like <code>"Hello World!"</code> in your code, that string will conform to type <code>System.String</code>. If you do the same in Eiffel, then <code>"Hello World!"</code> will be an instance of <code>STRING</code>. In Eiffel terminology, <code>"Hello World!"</code> appearing in source code is a manifest string. 
+
+What all this means to you is that you cannot use an instance of <code>System.String</code> when an instance of <code>STRING</code> is called for, and vice versa. Three out of four of the executable lines in the following code sample are invalid: 
+<code>
+	local
+		my_string: STRING
+		my_system_string: SYSTEM_STRING
+	do
+		my_system_string := "Hello World!"           -- Invalid
+		my_string := "Hello World!"                  -- Valid
+		my_string := my_system_string                -- Invalid
+		my_system_string := my_string                -- Invalid
+			.
+			.
+	end
+</code>
+
+To handle this issue, the Eiffel for .NET class <code>STRING</code> has two features which can be used when a string of the other type is needed. 
+
+The first of these features is a query <code>to_cil</code> which returns an object of type <code>System.String</code> which has a sequence of characters equivalent to that of the <code>STRING</code> to which <code>to_cil</code> is applied. The <code>to_cil</code> can be applied to manifest strings by enclosing the manifest string in parentheses. 
+
+The other feature is a creation procedure named <code>make_from_cil</code> which takes as an argument an instance of <code>System.String</code> and initializes its target <code>STRING</code> with a sequence of characters equivalent to that of the argument. 
+
+In the following sample, we use these features of <code>STRING</code> to make all the lines from the previous sample valid. 
+<code>
+	local
+		my_string: STRING
+		my_system_string: SYSTEM_STRING
+	do
+		my_system_string := ("Hello World!").to_cil     -- Valid
+		my_string := "Hello World!"                     -- Valid
+		my_string.make_from_cil (my_system_string)      -- Valid
+		my_system_string := my_string.to_cil            -- Valid
+			.
+			.
+	end
+</code>
+
+{{note|As shown in the above example, it is necessary to apply <code>to_cil</code> to a manifest string if you are assigning it to a <code>System.String</code> or passing it as an argument where a <code>System.String</code> is called for. <br/>
+This is expected to change in a future release. It shall become unnecesary to apply <code>to_cil</code> to manifest strings. Instead, whether a <code>STRING</code> or <code>System.String</code> is needed will be determined by the context in which the manifest string is being used, and the proper type of object will be generated. }}
+
+===Other Similar Types===
+
+There are many other cases of types available from the .NET assemblies which have similar purpose and semantics to those found in the Eiffel libraries. Fortunately, there is none that you will have to deal with as often as strings. 
+
+
+
+
