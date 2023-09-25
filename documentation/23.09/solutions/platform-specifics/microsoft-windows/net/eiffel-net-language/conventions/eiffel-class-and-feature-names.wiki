@@ -1,3 +1,5 @@
+[[Property:modification_date|Mon, 25 Sep 2023 09:37:39 GMT]]
+[[Property:publication_date|Mon, 25 Sep 2023 09:37:39 GMT]]
 [[Property:title|Eiffel Class and Feature Names]]
 [[Property:weight|2]]
 [[Property:uuid|16e4a231-7aae-4b37-52fd-67876cc222ad]]
@@ -194,7 +196,7 @@ In order to use .NET types that include static members, a special syntax has bee
 		my_window.set_text (my_window_title)
 			.
 			.
-		feature {WINFORMS_APPLICATION}.run_form (my_window)
+		{WINFORMS_APPLICATION}.run_form (my_window)
 	end
 	
 </code>
