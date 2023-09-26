@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 26 Sep 2023 19:11:02 GMT]]
+[[Property:modification_date|Tue, 26 Sep 2023 19:11:29 GMT]]
 [[Property:publication_date|Tue, 26 Sep 2023 19:11:02 GMT]]
 [[Property:title|.NET Installation instructions]]
 [[Property:weight|0]]
@@ -6,7 +6,8 @@
 EiffelStudio supports .NETCore and only on Windows the .NET Framework (v4.0) .
 Before being able to compile an Eiffel .NET project, you need to install .NETCore or the .NET Framework.
 
-* '''.NETCore''': see [https://learn.microsoft.com/en-us/dotnet/core/install/]
+* '''.NETCore''': see [https://learn.microsoft.com/en-us/dotnet/core/install/]  (net6.0 or net7.0 are recommended)
+
 * '''.NET Framework (Windows only)''': see [https://learn.microsoft.com/en-us/dotnet/framework/install/] (you need to install either the .NET Framework, the .NET Framework SDK or Visual Studio .NET).
 
 If you do not have any of those installed, any Eiffel .NET compilation will report an error because no .NET features support are installed. 
