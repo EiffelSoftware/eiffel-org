@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 27 Jan 2023 19:53:59 GMT]]
+[[Property:modification_date|Thu, 28 Sep 2023 19:28:36 GMT]]
 [[Property:publication_date|Sat, 11 Dec 2021 21:57:25 GMT]]
 [[Property:title|Mac OS X]]
 [[Property:weight|5]]
@@ -75,7 +75,7 @@ export PATH=$PATH:$ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin
 ```
 
 === Persisting Environment Variables ===
-Se them up in the .bash_profile file  once for good, so you don't need to set them up each time.
+Set them up in the .bash_profile file  once for good, so you don't need to set them up each time.
 ```
 1. Open the profile file into a text editor
 2. Add the export command for every environment variable
@@ -93,4 +93,5 @@ Alternatively, you can also start EiffelStudio from the command line by entering
 
 If you are a new user to EiffelStudio, we recommend that you follow [[Introducing EiffelStudio|the EiffelStudio guided tour]].
 
-
+== Known issues ==
+* Please read carefully [https://www.eiffel.org/doc/eiffelstudio/Release_notes_for_EiffelStudio_22.12_-_macosx The 22.12 release notes] if you use EiffelStudio on M1 or M2.
