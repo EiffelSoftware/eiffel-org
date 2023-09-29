@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 29 Sep 2023 14:14:22 GMT]]
+[[Property:modification_date|Fri, 29 Sep 2023 14:45:20 GMT]]
 [[Property:publication_date|Wed, 27 Sep 2023 19:33:07 GMT]]
 [[Property:title|Eiffel for .NET Integration]]
 [[Property:weight|3]]
@@ -53,19 +53,15 @@ Eiffel for .NET implements a safe variant of covariance that will always perform
 
 Another advantage of Eiffel for .NET's implementation of covariance is that it can be easily understood by CLS-compliant consumer tools. These tools will actually benefit from the Eiffel for .NET covariance. 
 
-===Genericity===
+===Handling Eiffel and .NET genericity===
 
-The .NET Framework does not support generics at all, so that the following Eiffel for .NET classes:
-*  <code>LIST [ANY]</code> 
-*  <code>LIST [INTEGER]</code> 
+As noted above, Eiffel for .NET fully supports the powerful genericity mechanism of the Eiffel language. The interface with .NET's own genericity mechanism is, however, not complete in version 23.09. Specifically:
 
-will actually be generated as:
-*  <code>LIST_ANY</code> 
-*  <code>LIST_Int32</code> 
+* Generic classes in Eiffel will not yield generic classes in .NET. Instead, each generic derivation of a given Eiffel class will yield a different .NET class. So if we have a generic Eiffel class  <code>LIST [G]</code>, the type  <code>LIST [ANY]</code> will yield a .NET class <code>LIST_ANY</code>, and the type  <code>LIST [INTEGER]</code> will yield a class <code>LIST_Int32</code> .
 
-Meaning that if one wants to reuse an Eiffel generic class from another language than Eiffel for .NET, one has to use either <code>LIST_ANY</code> or <code>LIST_Int32</code>. 
+* If you want to use a generic .NET class (for example in C#), you have to use special techniques as described next.
 
-WARNING: The .NET Core has support for generics, however this is not yet integrated by Eiffel .NET (it will be part of future releases).
+===Using generic .NET classes through a Facade===
 
 ===Enum types===
 
