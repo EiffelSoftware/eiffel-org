@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 29 Sep 2023 12:03:49 GMT]]
+[[Property:modification_date|Fri, 29 Sep 2023 12:04:10 GMT]]
 [[Property:publication_date|Fri, 29 Sep 2023 12:02:25 GMT]]
 [[Property:title|Samples]]
 [[Property:weight|3]]
@@ -9,6 +9,6 @@ However, you should be familiar with Object-Oriented programming model. Almost a
 
 {{Caution|Those examples were initially built for Eiffel .NET framework and may not work with .NETCore (net6.0, net7.0, ...) }}
 
-{Recommended|Please visit the GitHub organization [https://github.com/EiffelNETCore] for more '''.NETCore examples''' (Machine Learning, ASP.NETCore, ...) using EiffelStudio .NET. }}
+{{Recommended|Visit the GitHub organization [https://github.com/EiffelNETCore] for more '''.NETCore examples''' (Machine Learning, ASP.NETCore, ...) using EiffelStudio .NET. }}
 
 
