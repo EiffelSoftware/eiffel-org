@@ -1,7 +1,14 @@
+[[Property:modification_date|Fri, 29 Sep 2023 12:02:25 GMT]]
+[[Property:publication_date|Fri, 29 Sep 2023 12:02:25 GMT]]
 [[Property:title|Samples]]
 [[Property:weight|3]]
 [[Property:uuid|c1dbfdb5-c4d0-f674-d818-00d56c431c6e]]
 In this chapter you will find a series of examples that will permit to you to understand the bases of programming with Dotnet.
 
 However, you should be familiar with Object-Oriented programming model. Almost all other examples can also be built for .NET if the dotnet target is choosen instead of classic.
+
+{{Caution|Those examples were initially built for Eiffel .NET framework and may not work with .NETCore (net6.0, net7.0, ...) }}
+
+{Recommended|Please visit the github organization [https://github.com/EiffelNETCore] for specific .NETCore examples using EiffelStudio .NET. }}
+
 
