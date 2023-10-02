@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 02 Oct 2023 10:32:43 GMT]]
+[[Property:modification_date|Mon, 02 Oct 2023 10:34:25 GMT]]
 [[Property:publication_date|Wed, 27 Sep 2023 19:33:07 GMT]]
 [[Property:title|Eiffel for .NET Integration]]
 [[Property:weight|3]]
@@ -73,7 +73,8 @@ Eiffel currently does not support the special `init` property that is only initi
 
 note: {{inline-info|this section is mostly for .NETCore 6.0 and above}}.
 
-====Workaround====
+'''Workaround''':
+
 A potential workaround is to create a C# library that uses a Factory pattern to build the required instance.
 
 ===Execution and publishing ===
@@ -81,4 +82,4 @@ Currently the EiffelStudio debugger supports only the Eiffel .NET Framework appl
 
 For .NETCore (net6.0, net7.0, ...) it is not yet available within the EiffelStudio IDE.
 
-{{recommanded|To learn more about how to publish, execute, debug, ... the Eiffel .NETCore application, read the [[Eiffel .NETCore execution]] page.}}
+{{recommended|Learn more how to publish, execute, debug, ... the Eiffel .NETCore application, with the [[Eiffel .NETCore execution]] page.}}
