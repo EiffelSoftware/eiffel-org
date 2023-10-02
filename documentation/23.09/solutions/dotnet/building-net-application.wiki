@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 26 Sep 2023 19:18:02 GMT]]
+[[Property:modification_date|Mon, 02 Oct 2023 14:00:06 GMT]]
 [[Property:publication_date|Tue, 26 Sep 2023 19:18:02 GMT]]
 [[Property:title|Building a .NET application]]
 [[Property:weight|1]]
@@ -8,6 +8,7 @@ Eiffel for .NET has some specific functionality meant to leverage necessary aspe
 For that reason, the [[EiffelStudio: Project settings window|project settings]]  for Eiffel for .NET introduces new options. These options include: 
 
 * Specifying whether the generated assembly should be an EXE or a DLL. 
+* Specifying the .NET runtime  (v4.0, net6.0, net7.0, ...)
 
 * (For .NET Framework only: choosing between generating verifiable or non verifiable IL code. Non verifiable IL code executes faster but requires high trust settings.)
 
