@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 02 Oct 2023 10:04:27 GMT]]
+[[Property:modification_date|Mon, 02 Oct 2023 10:20:43 GMT]]
 [[Property:publication_date|Wed, 27 Sep 2023 19:33:07 GMT]]
 [[Property:title|Eiffel for .NET Integration]]
 [[Property:weight|3]]
@@ -134,4 +134,4 @@ Eiffel currently does not support the special `init` property that is only initi
 A potential workaround is to create a C# library that uses a Factory pattern to build the required instance.
 
 ===Execution and publishing ===
-To learn more about how to publish, execute, debug, ... the Eiffel .NETCore application, read the [[Eiffel for .NETCore execution]] page.
+To learn more about how to publish, execute, debug, ... the Eiffel .NETCore application, read the [[Eiffel .NETCore execution]] page.
