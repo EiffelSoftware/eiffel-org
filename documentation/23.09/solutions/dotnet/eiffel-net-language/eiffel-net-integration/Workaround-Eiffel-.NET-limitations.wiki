@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 02 Oct 2023 10:25:19 GMT]]
+[[Property:modification_date|Mon, 02 Oct 2023 11:38:46 GMT]]
 [[Property:publication_date|Mon, 02 Oct 2023 10:22:20 GMT]]
 [[Property:uuid|AF5801CA-928B-4870-BCC4-53DCAB23AF96]]
 [[Property:weight|10]]
@@ -20,23 +20,28 @@ namespace ListOfString;
 /// </summary>
 public class ListOfString
 {
+    // Private list of strings
     private List<string> _list;
 
+    // Constructor that initialize the list
     public ListOfString()
     {
         _list = new List<string>();
     }
 
+    // Add an item to the list
     public void Add(string item)
     {
         _list.Add(item);
     }
 
+    // Check if the list contains a specific item
     public bool Contains(string item)
     {
         return _list.Contains(item);
     }
 
+    // Remove a specific item from the list
     public void Remove(string item)
     {
         _list.Remove(item);
