@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 02 Oct 2023 10:26:30 GMT]]
+[[Property:modification_date|Mon, 02 Oct 2023 10:28:06 GMT]]
 [[Property:publication_date|Wed, 27 Sep 2023 19:33:07 GMT]]
 [[Property:title|Eiffel for .NET Integration]]
 [[Property:weight|3]]
@@ -59,7 +59,7 @@ As noted above, Eiffel for .NET fully supports the powerful genericity mechanism
 
 * If you want to use a generic .NET class (for example in C#), you have to use special techniques as described next.
 
-{{info: Read the [[Workaround Eiffel .NET limitations]] page to learn how to workaround such limitation. }}
+{{Recommended|Read the [[Workaround Eiffel .NET limitations]] page to learn how to workaround such limitation. }}
 
 ===Enum types===
 Eiffel for .NET supports .NET enum types implicitly. From the point of view of Eiffel, they are just considered as expanded classes. The only difference is in the code generation. Eiffel for .NET cannot declare new enum types yet. 
