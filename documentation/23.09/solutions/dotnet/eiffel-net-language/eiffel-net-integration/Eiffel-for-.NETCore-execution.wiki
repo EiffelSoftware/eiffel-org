@@ -1,26 +1,28 @@
-[[Property:modification_date|Mon, 02 Oct 2023 10:57:30 GMT]]
+[[Property:modification_date|Mon, 02 Oct 2023 12:50:47 GMT]]
 [[Property:publication_date|Mon, 02 Oct 2023 10:00:56 GMT]]
 [[Property:uuid|1838ECEC-F411-46C7-926B-204ED0ACD0C6]]
 [[Property:weight|20]]
 [[Property:title|Eiffel .NETCore execution]]
 [[Property:link_title|NETCore execution]]
 
-At the moment, the EiffelStudio '''debugger has no support''' Eiffel .NET Core.
 
+This document provide a quick overview on how to execute Eiffel.NetCore applications. It covers various aspects including the wrapper project, execution, publishing, debugging in VisualStudio, and known limitations
+
+At the moment, the EiffelStudio '''debugger has no support''' Eiffel .NET Core.
 It is, however, possible to execute most of the Eiffel .NET Core application from the IDE using the `Run` command. The execution will be outside EiffelStudio.
 
 The generated executable can not be executed by itself and requires to be launched using the `dotnet` tool from the command line.
 {{note|Use the command: `dotnet <app_name>` or `dotnet run <app_name>`.}}
 
 == Wrapper project ==
-To help the user, the EiffelStudio compiler also generates a C# wrapper project  (in W_code or F_code directories). See the `wrapper_*.cs` and `wrapper_*.csproj` files. 
+To help the user, the EiffelStudio compiler also generates a C# wrapper project  (located in W_code or F_code directories). See the `wrapper_*.cs` and `wrapper_*.csproj` files. 
 This simple C# '''wrapper''' project is simply a way to include and instantiate the Eiffel .NETCore code.
 
 This "wrapper" project is useful for:
 * [[#Executing]] using profile
 * [[#Publishing|publishing]] the executable
 * [[#Debugging_in_VisualStudio|debugging]] using VisualStudio. 
-* any specific tool working with a C# project ...
+* Working with any specific tool that requires a C# project 
 
 See the next sections for more information.
 
