@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 02 Oct 2023 10:53:47 GMT]]
+[[Property:modification_date|Mon, 02 Oct 2023 10:54:57 GMT]]
 [[Property:publication_date|Mon, 02 Oct 2023 10:00:56 GMT]]
 [[Property:uuid|1838ECEC-F411-46C7-926B-204ED0ACD0C6]]
 [[Property:weight|20]]
@@ -90,11 +90,14 @@ In the current version, the EiffelStudio compiler will always generate a Microso
 For instance when using ASP.NETCore, it is expected to use `Microsoft.NET.Sdk.Web`.
 
 In such case, the generated `.csproj` file needs to be manually modified to set the expected SDK, and also the various package dependencies.
-For instance, replace the first line of the `.csproj` file by <code lang="xml"><Project Sdk="Microsoft.NET.Sdk.Web"></code> and in the `<ItemGroup>` section, list the package references such as <code lang="xml"><PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.10" /></code>
+
+For instance:
+* replace the first line of the `.csproj` file by <code lang="xml"><Project Sdk="Microsoft.NET.Sdk.Web"></code> 
+* and in the `<ItemGroup>` section, list the package references such as <code lang="xml"><PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.10" /></code>
 
 This allows the application to be run and, if necessary, debugged using VisualStudio.
 
-<<info|To learn more, check the Eiffel .NETCore examples at [[Eiffel .NET samples]].}}
+{{info|To learn more, check the Eiffel .NETCore examples at [[Eiffel .NET samples]].}}
 
 
 
