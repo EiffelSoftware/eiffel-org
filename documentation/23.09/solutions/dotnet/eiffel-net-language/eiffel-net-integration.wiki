@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 29 Sep 2023 19:16:46 GMT]]
+[[Property:modification_date|Mon, 02 Oct 2023 08:50:04 GMT]]
 [[Property:publication_date|Wed, 27 Sep 2023 19:33:07 GMT]]
 [[Property:title|Eiffel for .NET Integration]]
 [[Property:weight|3]]
@@ -46,7 +46,6 @@ Using the <code>metadata</code> tag is the most general way of applying a custom
 ==Differences between Eiffel for .NET and .NET==
 
 ===Covariance===
-
 The CLR (Common Language Runtime) does not support [[ET: Inheritance#Covariance and anchored declarations|covariance]] due to a different view of type safety (the issue is known known as a polymorphic [[ET: Inheritance#Catcalls|catcall]] in Eiffel). Catcalls are possible (although very rare) in Eiffel but not in .NET.
 
 Eiffel for .NET implements a safe variant of covariance that will always perform a check on the types to avoid a catcall. So when a catcall is going to be performed a `Invalid Cast Exception` will be raised by the CLR instead of an unexpected behavior as is the default behavior in classic Eiffel (i.e., the behavior without catcall detection explicitly enabled). 
@@ -54,21 +53,19 @@ Eiffel for .NET implements a safe variant of covariance that will always perform
 Another advantage of Eiffel for .NET's implementation of covariance is that it can be easily understood by CLS-compliant consumer tools. These tools will actually benefit from the Eiffel for .NET covariance. 
 
 ===Handling Eiffel and .NET genericity===
-
 As noted above, Eiffel for .NET fully supports the powerful genericity mechanism of the Eiffel language. The interface with .NET's own genericity mechanism is, however, not complete in version 23.09. Specifically:
 
 * Generic classes in Eiffel will not yield generic classes in .NET. Instead, each generic derivation of a given Eiffel class will yield a different .NET class. So if we have a generic Eiffel class  <code>LIST [G]</code>, the type  <code>LIST [ANY]</code> will yield a .NET class <code>LIST_ANY</code>, and the type  <code>LIST [INTEGER]</code> will yield a class <code>LIST_Int32</code> .
 
 * If you want to use a generic .NET class (for example in C#), you have to use special techniques as described next.
 
-===Using generic .NET classes through a Facade===
-
+===Using generic .NET classes through a facade===
 Currently, Eiffel does not support consuming generics from C# classes. This tutorial demonstrates a workaround for this limitation by creating a Facade for a `List<string>` in C#
 
-====Creating a Facade for a List====
+====Creating a facade for the List type====
 A Facade simplifies access to complex components. In this case, we will create a Facade to manage a list of strings. The Facade will encapsulate the list's functionality and expose a more straightforward interface. Here's how you can do it:
 
-<code>
+<code lang="cs">
 using System.Collections;
 namespace ListOfString;
 
@@ -106,12 +103,10 @@ public class ListOfString
 }
 </code>
 
-====Creating a C# Library====
-
+====Creating a C# library====
 To consume the Facade in Eiffel, we need to create a C# library. I recommend following the tutorial on creating a class library with C# and .NET on Microsoft’s official site. You can access it [https://learn.microsoft.com/en-us/dotnet/core/tutorials/library-with-visual-studio?pivots=dotnet-7-0 here]. This tutorial guides you through the process of creating a class library using C# and .NET.
 
-====Consuming the C# Library from Eiffel====
-
+====Consuming the C# library from Eiffel====
 Finally, we need to consume the C# library from Eiffel. 
 
 Open the Eiffel configuration file (.ecf) of your project and add the following entry
@@ -120,55 +115,41 @@ Open the Eiffel configuration file (.ecf) of your project and add the following 
 
 
 ====Conclusion====
-
 By creating a Facade for a `List<string>` in C#, we can effectively consume C# generic features in Eiffel. This approach can be extended to other generic types as well.
 
 ===Enum types===
-
 Eiffel for .NET supports .NET enum types implicitly. From the point of view of Eiffel, they are just considered as expanded classes. The only difference is in the code generation. Eiffel for .NET cannot declare new enum types yet. 
 
 ===ByRef===
 
 Eiffel does not have the notion of `byref` argument passing. At the moment, Eiffel for .NET cannot call nor can it redefine a feature that has a byref argument. 
 
-==Eiffel Compatibility with .NETCore 6.0 and Above ==
+==Eiffel compatibility with .NETCore 6.0 and above ==
 
 ===Limitations with "init" only setters===
-
 Eiffel currently does not support the special `init` property that is only initialized in a block of code as part of the object initialization. More details can be found in the [https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-9.0/init C# 9.0 proposal]
 
 ====Workaround====
-
 A potential workaround is to create a C# library that uses a Factory pattern to build the required instance.
 
-===Executing .NET applications from EiffelStudio: Limitations===
-
+===Executing .NET applications from EiffelStudio===
 Currently, some types of applications cannot be executed directly from the EiffelStudio IDE. For example Web APIs.
 
 ====Workaround====
+You can execute the application from the command line. Use the `dotnet` tool with the following syntax: `dotnet <app_name>`.
 
-As a workaround, you can execute the application from the command line. Use the `dotnet` tool with the following syntax: `dotnet <app_name>`.
-
-
-===Debugging .NET applications from EiffelStudio: Limitations===
-
+===Debugging .NET applications from EiffelStudio===
 At the moment, EiffelStudio does not provide any support for debugging Eiffel .NETCore directly from the IDE.
 
 ====Workaround====
-
 A potential solution is to use the C# wrapper project generated by the Eiffel compiler (in W_code or F_code directory). VisualStudio can open this C# wrapper (via the associated `.csproj` file), and thus the associated Eiffel output (dll or exe), and after configuring Debugging profile within VisualStudio  , it is possible to debug the code.
 
-
-===Eiffel .NETCore types of SDKs: Limitations===
-
+===Eiffel .NETCore types of SDKs===
 In the current version, Eiffel .NETCore does not support directly different types of SDKs such as `Microsoft.NET.Sdk.Web`. The generated C# wrapper only target `Microsoft.NET.Sdk`.
 
 ====Workaround====
-
 For other types of applications like Web APIs, you need to manually provide a `.csproj` file with the required SDKs and package dependencies. This allows the application to run and, if necessary, use VisualStudio to debug.
 
-
 ==Publishing the Eiffel solution: using the generated C# wrapper==
-
 To publish the Eiffel solution on current platform or targeting other platform, use the `dotnet` tool on the generated C# wrapper project.
 
