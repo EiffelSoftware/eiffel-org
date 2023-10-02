@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 02 Oct 2023 10:54:57 GMT]]
+[[Property:modification_date|Mon, 02 Oct 2023 10:57:30 GMT]]
 [[Property:publication_date|Mon, 02 Oct 2023 10:00:56 GMT]]
 [[Property:uuid|1838ECEC-F411-46C7-926B-204ED0ACD0C6]]
 [[Property:weight|20]]
@@ -72,7 +72,7 @@ Read more about the `dotnet` tool, and especially the `run` command at [https://
 The '''wrapper''' project is helpful to '''publish''' the executable to the current or other platforms, and have an executable that does not require the `dotnet` command. 
 It is also possible to include all dependencies (i.e: self contained) to ease deployment on machine without any dotnet runtime installed.
 
-{{note: use the `dotnet publish` tool on the generated C# wrapper project. See the documentation about `dotnet publish` at [https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-publish] .}}
+{{note| use the `dotnet publish`  tool on the generated wrapper project. See the documentation about `dotnet publish` at [https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-publish] .}}
 
 ==Debugging in VisualStudio==
 Even if EiffelStudio does not provide any support for debugging Eiffel .NETCore directly from the IDE. 
