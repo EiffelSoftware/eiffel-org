@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 02 Oct 2023 10:34:25 GMT]]
+[[Property:modification_date|Mon, 02 Oct 2023 14:35:53 GMT]]
 [[Property:publication_date|Wed, 27 Sep 2023 19:33:07 GMT]]
 [[Property:title|Eiffel for .NET Integration]]
 [[Property:weight|3]]
@@ -71,7 +71,7 @@ Eiffel does not have the notion of `byref` argument passing. At the moment, Eiff
 === Type with "init" only setters===
 Eiffel currently does not support the special `init` property that is only initialized in a block of code as part of the object initialization. More details can be found in the [https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-9.0/init C# 9.0 proposal]
 
-note: {{inline-info|this section is mostly for .NETCore 6.0 and above}}.
+Note: {{inline-info|this section is mostly for .NETCore 6.0 and above}}.
 
 '''Workaround''':
 
