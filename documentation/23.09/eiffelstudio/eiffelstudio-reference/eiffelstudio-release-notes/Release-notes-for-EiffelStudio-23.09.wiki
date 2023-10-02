@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 29 Sep 2023 14:16:46 GMT]]
+[[Property:modification_date|Mon, 02 Oct 2023 13:51:05 GMT]]
 [[Property:publication_date|Tue, 26 Sep 2023 14:40:08 GMT]]
 [[Property:uuid|7D788D2D-73A3-4C2E-8E58-E7A5FB60A618]]
 [[Property:title|Release notes for EiffelStudio 23.09]]
@@ -11,7 +11,7 @@
 * EiffelStudio for .NET makes it possible to develop applications that will deploy and run unchanged on a broad range of platforms, from desktops to Web-based applications on one side, and mobile platforms on the other.
 
 ==Graphical environment==
-* The execution output panel (debugger) has additional information such as the modified environment variables, and the timestamp for launcher/stopped/quit events.
+* The execution output panel (debugger) has additional information such as the modified environment variables, and the timestamp for launched/stopped/quit events.
 * Added "Toggle comment" to comment/uncomment the current line/selection using the standard Ctrl+/ shortcut.
 * Improved the impact of the Zoom factor on EiffelStudio tools.
 * Added a few preferences on the editor and on the tools that make it possible to customize EiffelStudio to have almost a dark mode.
