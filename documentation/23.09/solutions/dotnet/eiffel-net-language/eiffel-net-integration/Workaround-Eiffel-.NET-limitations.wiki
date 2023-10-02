@@ -1,9 +1,16 @@
-[[Property:modification_date|Mon, 02 Oct 2023 11:38:46 GMT]]
+[[Property:modification_date|Mon, 02 Oct 2023 13:38:24 GMT]]
 [[Property:publication_date|Mon, 02 Oct 2023 10:22:20 GMT]]
 [[Property:uuid|AF5801CA-928B-4870-BCC4-53DCAB23AF96]]
 [[Property:weight|10]]
 [[Property:title|Workaround Eiffel .NET limitations]]
 [[Property:link_title|Workarounds]]
+
+There are a [[Eiffel for .NET Integration|few limitations]] in the integration between Eiffel .NET and .NET solution.
+However, it is sometime possible to find workaround, a common technique is to use a C# facade project, and use it from the Eiffel .NET project.
+
+See in the following section, a way to use a facade C# project to workaround the current limitation on ".NET generic" compilation (i.e the fact the Eiffel compiler does not support yet the .NET generics).
+
+This technique can be adapted to bypass other limitations or annoyances.
 
 ==Using generic .NET classes through a facade==
 Currently, Eiffel does not support consuming generics from C# classes. This tutorial demonstrates a workaround for this limitation by creating a Facade for a `List<string>` in C#
@@ -67,5 +74,7 @@ Open the Eiffel configuration file (.ecf) of your project and add the following 
 
 ===Conclusion===
 By creating a Facade for a `List<string>` in C#, we can effectively consume C# generic features in Eiffel. 
-This approach can be extended to other generic types as well.
+Obviously, this approach can be extended to other generic types as well.
+
+
 
