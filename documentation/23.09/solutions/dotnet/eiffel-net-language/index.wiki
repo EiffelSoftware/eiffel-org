@@ -1,3 +1,5 @@
+[[Property:modification_date|Mon, 02 Oct 2023 14:01:34 GMT]]
+[[Property:publication_date|Mon, 02 Oct 2023 14:01:34 GMT]]
 [[Property:title|The Eiffel for .NET language]]
 [[Property:weight|2]]
 [[Property:uuid|ba6cd8d3-683c-4167-bdef-a0274c392f34]]
@@ -5,7 +7,7 @@ This section focuses on defining Eiffel for .NET. The key requirement for Eiffel
 
 Because not all Eiffel functionalities are present in .NET, the task of the Eiffel compiler is made more complicated since it has to emulate those mechanisms instead of reusing what .NET provides. For example the common language runtime of .NET does not support:
 * [[uuid:b8c10baa-4f50-adfe-a6f8-9cb56a8f1917#Multiple inheritance|multiple inheritance]]
-* [[uuid:b8c10baa-4f50-adfe-a6f8-9cb56a8f1917#Genericity|genericity]]
+* [[uuid:b8c10baa-4f50-adfe-a6f8-9cb56a8f1917#Genericity|genericity]] (only first versions of .NET)
 * [[uuid:b8c10baa-4f50-adfe-a6f8-9cb56a8f1917#Covariance|covariance]]
 * agents
 
