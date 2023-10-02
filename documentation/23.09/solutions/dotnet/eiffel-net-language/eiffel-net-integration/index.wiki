@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 02 Oct 2023 10:28:06 GMT]]
+[[Property:modification_date|Mon, 02 Oct 2023 10:32:43 GMT]]
 [[Property:publication_date|Wed, 27 Sep 2023 19:33:07 GMT]]
 [[Property:title|Eiffel for .NET Integration]]
 [[Property:weight|3]]
@@ -68,13 +68,17 @@ Eiffel for .NET supports .NET enum types implicitly. From the point of view of E
 
 Eiffel does not have the notion of `byref` argument passing. At the moment, Eiffel for .NET cannot call nor can it redefine a feature that has a byref argument. 
 
-==Eiffel compatibility with .NETCore 6.0 and above ==
-
 === Type with "init" only setters===
 Eiffel currently does not support the special `init` property that is only initialized in a block of code as part of the object initialization. More details can be found in the [https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-9.0/init C# 9.0 proposal]
+
+note: {{inline-info|this section is mostly for .NETCore 6.0 and above}}.
 
 ====Workaround====
 A potential workaround is to create a C# library that uses a Factory pattern to build the required instance.
 
 ===Execution and publishing ===
-To learn more about how to publish, execute, debug, ... the Eiffel .NETCore application, read the [[Eiffel .NETCore execution]] page.
+Currently the EiffelStudio debugger supports only the Eiffel .NET Framework application (i.e .Net framework v4.0).
+
+For .NETCore (net6.0, net7.0, ...) it is not yet available within the EiffelStudio IDE.
+
+{{recommanded|To learn more about how to publish, execute, debug, ... the Eiffel .NETCore application, read the [[Eiffel .NETCore execution]] page.}}
