@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 02 Oct 2023 10:24:06 GMT]]
+[[Property:modification_date|Mon, 02 Oct 2023 10:53:47 GMT]]
 [[Property:publication_date|Mon, 02 Oct 2023 10:00:56 GMT]]
 [[Property:uuid|1838ECEC-F411-46C7-926B-204ED0ACD0C6]]
 [[Property:weight|20]]
@@ -23,6 +23,45 @@ This "wrapper" project is useful for:
 * any specific tool working with a C# project ...
 
 See the next sections for more information.
+
+For an application named "app_netcore":
+* the C# code is quite simple:
+<code lang="cs">
+...
+public class wrap_app_netcore
+{
+    public static void Main()
+    {
+         MAIN.Main();
+    }
+}
+</code>
+Note: the `MAIN.Main()` is the main entry point of the Eiffel .NETCore application.
+
+* the `wrap_app_netcore.csproj` file looks like:
+<code lang="xml">
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+        None
+    </ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="app_netcore">
+      <HintPath>app_netcore.exe</HintPath>
+    </Reference>
+    <Reference Include="EiffelSoftware.Runtime">
+      <HintPath>Eiffelsoftware.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
+</code>
 
 ==Execution==
 It is possible that an application requires additional setting (for example web APIs application), in this case the `dotnet run` tool can use a specific '''profile''' using the syntax `--launch-profile <NAME>`.
@@ -51,8 +90,11 @@ In the current version, the EiffelStudio compiler will always generate a Microso
 For instance when using ASP.NETCore, it is expected to use `Microsoft.NET.Sdk.Web`.
 
 In such case, the generated `.csproj` file needs to be manually modified to set the expected SDK, and also the various package dependencies.
+For instance, replace the first line of the `.csproj` file by <code lang="xml"><Project Sdk="Microsoft.NET.Sdk.Web"></code> and in the `<ItemGroup>` section, list the package references such as <code lang="xml"><PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.10" /></code>
 
 This allows the application to be run and, if necessary, debugged using VisualStudio.
+
+<<info|To learn more, check the Eiffel .NETCore examples at [[Eiffel .NET samples]].}}
 
 
 
