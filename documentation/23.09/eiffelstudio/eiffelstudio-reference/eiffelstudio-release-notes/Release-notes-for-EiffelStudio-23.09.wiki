@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 06 Oct 2023 14:30:18 GMT]]
+[[Property:modification_date|Fri, 06 Oct 2023 15:12:07 GMT]]
 [[Property:publication_date|Tue, 26 Sep 2023 14:40:08 GMT]]
 [[Property:uuid|7D788D2D-73A3-4C2E-8E58-E7A5FB60A618]]
 [[Property:title|Release notes for EiffelStudio 23.09]]
@@ -24,7 +24,7 @@
 
 ===Warnings===
 * SCOOP is currently not supported by Eiffel .NET
-* For non Windows users, the Eiffel compiler is expecting the "dotnet" executable to be located at "/usr/bin/dotnet".
+* For non Windows users, the Eiffel compiler is expecting the "dotnet" executable to be located inside "/usr/lib/dotnet" (a simple workaround is the create a symbolic link).
 * For Macos users on M1/M2 (arm) architecture, please read the specific [[Release notes for EiffelStudio 22.12 - macosx|notes about macosx]]
 ----
 
