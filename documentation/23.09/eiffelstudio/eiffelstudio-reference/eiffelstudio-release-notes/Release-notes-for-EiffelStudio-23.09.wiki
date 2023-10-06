@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 06 Oct 2023 14:01:15 GMT]]
+[[Property:modification_date|Fri, 06 Oct 2023 14:30:18 GMT]]
 [[Property:publication_date|Tue, 26 Sep 2023 14:40:08 GMT]]
 [[Property:uuid|7D788D2D-73A3-4C2E-8E58-E7A5FB60A618]]
 [[Property:title|Release notes for EiffelStudio 23.09]]
@@ -23,9 +23,9 @@
 * Gobo Libraries were updated to latest version.
 
 ===Warnings===
-For Macos users on M1/M2 (arm) architecture, please read the specific [[Release notes for EiffelStudio 22.12 - macosx|notes about macosx]]
-
-For non Windows users, the Eiffel compiler is expecting the "dotnet" executable to be located at "/usr/bin/dotnet".
+* SCOOP is currently not supported by Eiffel .NET
+* For non Windows users, the Eiffel compiler is expecting the "dotnet" executable to be located at "/usr/bin/dotnet".
+* For Macos users on M1/M2 (arm) architecture, please read the specific [[Release notes for EiffelStudio 22.12 - macosx|notes about macosx]]
 ----
 
 See [https://dev.eiffel.com/EiffelStudio_23.09_Releases change log] for more details.
