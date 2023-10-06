@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 02 Oct 2023 14:35:53 GMT]]
+[[Property:modification_date|Fri, 06 Oct 2023 14:32:54 GMT]]
 [[Property:publication_date|Wed, 27 Sep 2023 19:33:07 GMT]]
 [[Property:title|Eiffel for .NET Integration]]
 [[Property:weight|3]]
@@ -16,6 +16,7 @@ Eiffel for .NET supports:
 * Genericity
 * Covariance
 * Compilation of any existing Eiffel libraries as long as it does not include C externals that call into the Eiffel Software C runtime
+* the [[Concurrent_programming_with_SCOOP|SCOOP]] capability is not support by the Eiffel.NET compiler
 
 However, there are a few limitations that are described later in this documentation.
 
