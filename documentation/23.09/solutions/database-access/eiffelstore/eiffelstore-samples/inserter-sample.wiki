@@ -1,3 +1,5 @@
+[[Property:modification_date|Thu, 04 Jan 2024 11:08:28 GMT]]
+[[Property:publication_date|Thu, 04 Jan 2024 11:08:28 GMT]]
 [[Property:title|Inserter Sample]]
 [[Property:weight|2]]
 [[Property:uuid|fa0b8601-ca7a-b1cc-384d-f366be33ac40]]
@@ -42,7 +44,7 @@ Name: smith@HANDSON
 Password: mypass
 </code>
 
-{{note|You must specify the Oracle User Name and Net Service Name with the syntax ''<user>@<service> ''where ''<user>'' stands for the User Name and ''<service>'' stands for the Net Service Name. }}
+{{note|You must specify the Oracle User Name and Net Service Name with the syntax `<user>@<service>` where `<user>` stands for the User Name and `<service>` stands for the Net Service Name. }}
 
 
 Then you can insert a book in the database, for instance: 
