@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 27 Jan 2023 19:53:59 GMT]]
+[[Property:modification_date|Fri, 08 Mar 2024 09:31:48 GMT]]
 [[Property:publication_date|Sat, 11 Dec 2021 21:57:25 GMT]]
 [[Property:title|Mac OS X]]
 [[Property:weight|5]]
@@ -92,5 +92,41 @@ Now everything should be properly installed and you should be able to run the co
 Alternatively, you can also start EiffelStudio from the command line by entering the command '''estudio''' or use the command-line eiffel compiler '''ec'''.
 
 If you are a new user to EiffelStudio, we recommend that you follow [[Introducing EiffelStudio|the EiffelStudio guided tour]].
+
+<span id="registering"></span> 
+==Registering the Enterprise Edition==
+
+This step assumes you have followed the instructions in the [[#Setting up EiffelStudio|Setting up EiffelStudio]]  section. Perform the following commands to start the registration process:
+<code>cd $ISE_EIFFEL
+./register</code>
+
+A dialog asking for your '''Username''' and '''CD Key''' should appear as it does below:
+
+<center> [[Image:56--unix-setup|Setup dialog]] </center>
+
+Enter the information located inside the box that contains your copy of the EiffelStudio Enterprise Edition. Once the information is correct, the '''Register''' button will be enabled. Click '''Register''' to actually register EiffelStudio.
+
+The first time you launch EiffelStudio, you will be asked for an activation key through the following dialog:
+
+<center> [[Image:56--unix-registration|Registration dialog]] </center>
+
+By clicking on the [http://activate.eiffel.com http://activate.eiffel.com]  URL, a new web browser will appear with the requested fields automatically filled in with the appropriate information. Simply click '''Activate''' and a new page with an activation code will appear. Copy and paste the activation code in the first field and the '''Activate''' button should be enabled to let you activate your copy.
+
+You can activate your copy up to three times. Once you have reached this threshold and need to reinstall your copy, contact Eiffel Software to request one more activation.
+
+If no web browser appears, it is most likely because firefox is not installed on your machine or is not in your path. Instead you should manually launch a new web browser, go to the page [http://activate.eiffel.com http://activate.eiffel.com] , and enter the information manually. Then follow the above instructions as if the browser had been properly launched.
+
+You may receive the following dialog when launching EiffelStudio:
+
+<center> [[Image:56--unix-registration-error|Registration incomplete]] </center>
+
+This probably means that the '''register''' program was not launched or did not succeed in storing data to the following file $'''ISE_EIFFEL'''/install/limand/.ec_license. To solve this, rerun the '''register''' program with a user account that has permissions to write at $'''ISE_EIFFEL'''/install/limand and enter your '''Username''' and '''CD Key'''.
+
+Once this is done, you can jump to the next section, [[#Using EiffelStudio|Using EiffelStudio]] .
+<span id="using"></span> 
+
+See the following video demonstrating how to activate EiffelStudio:
+* [https://www.youtube.com/watch?v=kjS3PQfe_Ig Activating EiffelStudio]
+
 
 
