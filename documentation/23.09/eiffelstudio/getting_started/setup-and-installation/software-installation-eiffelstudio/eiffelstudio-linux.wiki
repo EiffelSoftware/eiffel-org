@@ -1,4 +1,4 @@
-[[Property:modification_date|Sat, 11 Dec 2021 19:23:25 GMT]]
+[[Property:modification_date|Fri, 08 Mar 2024 09:28:01 GMT]]
 [[Property:publication_date|Sat, 11 Dec 2021 19:23:25 GMT]]
 [[Property:title|Linux]]
 [[Property:weight|4]]
@@ -130,6 +130,10 @@ This probably means that the '''register''' program was not launched or did not 
 
 Once this is done, you can jump to the next section, [[#Using EiffelStudio|Using EiffelStudio]] .
 <span id="using"></span> 
+
+See the following video demonstrating how to activate EiffelStudio:
+* [https://www.youtube.com/watch?v=kjS3PQfe_Ig Activating EiffelStudio]
+
 ==Using EiffelStudio==
 
 ===Starting EiffelStudio===
