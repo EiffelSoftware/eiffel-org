@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 03 Jun 2024 17:04:46 GMT]]
+[[Property:modification_date|Mon, 03 Jun 2024 19:46:36 GMT]]
 [[Property:publication_date|Mon, 03 Jun 2024 09:41:04 GMT]]
 [[Property:uuid|65E6D99C-616E-4335-9667-EF7FD82DA920]]
 [[Property:title|Release notes for EiffelStudio 24.05]]
@@ -14,7 +14,7 @@
 ** '''Eiffel .NETCore Debugging''': Integrated debugging facilities for Eiffel .NETCore directly within EiffelStudio (currently available only on Windows).
 
 ===Known Limitations===
-* Some limitations exist in the current release that will be addressed in future updates. For detailed information, please refer to the  [https://www.eiffel.org/doc/version/23.09/uuid/fe8a6a7d-4590-0db2-d59a-307082b18ecc Eiffel for .NET documentation].
+* Some .Net limitations exist in the current release that will be addressed in future updates. For detailed information, please refer to the  [https://www.eiffel.org/doc/version/23.09/uuid/fe8a6a7d-4590-0db2-d59a-307082b18ecc Eiffel for .NET documentation].
 
 ==Graphical environment==
 ===New Features===
