@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 03 Jun 2024 09:41:04 GMT]]
+[[Property:modification_date|Mon, 03 Jun 2024 17:04:46 GMT]]
 [[Property:publication_date|Mon, 03 Jun 2024 09:41:04 GMT]]
 [[Property:uuid|65E6D99C-616E-4335-9667-EF7FD82DA920]]
 [[Property:title|Release notes for EiffelStudio 24.05]]
@@ -6,14 +6,35 @@
 [[Property:weight|-10]]
 
 ==Compiler==
+===Major Improvements===
 
+* '''Enhanced .NETCore Compilation Support''': This version significantly enhances compilation support for .NETCore (versions net6.0, net7.0, and net8.0)
+**  '''Partial Support for .NET Generic Methods''': Improved handling and compatibility with .NET generic methods.
+**  '''PDB File Generation''': Enables debugging from external tools with generated Program Database (PDB) files.
+** '''Eiffel .NETCore Debugging''': Integrated debugging facilities for Eiffel .NETCore directly within EiffelStudio (currently available only on Windows).
 
+===Known Limitations===
+* Some limitations exist in the current release that will be addressed in future updates. For detailed information, please refer to the  [https://www.eiffel.org/doc/version/23.09/uuid/fe8a6a7d-4590-0db2-d59a-307082b18ecc Eiffel for .NET documentation].
 
 ==Graphical environment==
+===New Features===
+*  '''Composer Command Enhancements''': Eiffel 24.05 introduces new composer commands to streamline common editing operations:
+** '''Create Setter for an Attribute''': Easily generate setter methods for attributes.
+** '''Add New Creation Procedures''': Simplified process to add new creation procedures.
+** '''Remove Selected Feature''': Quickly remove selected features from your project.
+** Additional commands will be available in future releases.
+
+===New Authentication Method
+* '''Web Browser "Sign-in" Challenge''': Introduces a new authentication method using the "Sign-in" challenge via a web browser.
 
 ===Libraries===
+* Ensured EiffelBase, WEL, Vision2 libraries are supported by Eiffel .NETCore compilation.
+* Various bug fixes, and minor improvements.
 
 ===Warnings===
+* SCOOP is currently not supported by Eiffel .NET
+* For Macos users on M1/M2 (arm) architecture, please read the specific [[Release notes for EiffelStudio 22.12 - macosx|notes about macosx]]
 ----
 
 See [https://dev.eiffel.com/EiffelStudio_24.05_Releases change log] for more details.
+===
