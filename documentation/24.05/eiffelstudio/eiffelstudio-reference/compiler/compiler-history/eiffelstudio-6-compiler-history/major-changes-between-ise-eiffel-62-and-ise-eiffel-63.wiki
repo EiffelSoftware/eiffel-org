@@ -1,0 +1,62 @@
+[[Property:title|Major changes between ISE Eiffel 6.2 and ISE Eiffel 6.3]]
+[[Property:link_title|6.3]]
+[[Property:weight|-10]]
+[[Property:uuid|55a1c34d-5313-1bcc-924e-3a3a68905665]]
+==What's new==
+
+{{seealso|[[Differences between standard ECMA-367 and Eiffel Software implementation|Differences between standard ECMA-367 and Eiffel Software implementation]] }}
+
+* Implemented proper runtime conformance for attached types, that is to say A [!ANY] will conform to A [!ANY] or A [?ANY], but A [?ANY] will only conform to A [?ANY]. 
+* Added support for the new <eiffel>attribute</eiffel> keyword (support is  enabled when using the standard syntax option, i.e. the same option that allows you to use the <eiffel>note</eiffel> keyword.
+
+==Improvements==
+* Improved speed of compiler by about 10% overall.
+* Reduced memory usage at runtime of Eiffel applications (on EiffelStudio itself it is about 30MB over 100MB).
+
+==Changes==
+* Changed the way files are opened on Windows by ensuring that they cannot be inherited by child processes. This was necessary since one would need to wait for the child process to exit to remove files owned by the parent process.
+* Compiler now accepts the new syntax for variant in a loop (i.e. before the <eiffel>end</eiffel> keyword). 
+* Fixed missing detection of VREG and VRFT errors for labels of a named tuples which is used as an actual generic parameter of a type (fixes eweasel test#tuple012 and test#tuple013),  thus some of your code might be broken since the compiler failed to check this before.
+* Fixed eweasel test#valid222 where compiler properly detects VDRS-4 errors when you redefine a repeatedly inherited routine in at least one but not all branches, but fail to provide a local definition.
+* Now a formal generic parameter only conforms to a formal generic parameter, that is to say assignment to a formal generic parameter where the source is of type NONE (i.e <eiffel>Void</eiffel>) will now be rejected by the compiler.
+* Dropped support for older Microsoft C/C++ compilers on Windows platforms. We only support VS 2005 or greater.
+
+==Bug fixes==
+
+===Language issues===
+* Fixed compiler issues with handling of attached types.
+
+===Compiler issues===
+* Renamed `eif_com.h` from the compiler delivery into `eif_com_exception.h` as it conflicts with `eif_com.h` from the EiffelCOM library.
+* Fixed eweasel test#final061 and test#final063 where some kind of code could cause a crash of the compiler during degree -3 with inlining enabled.
+* Fixed eweasel test#final063 which caused a C compiler error when your code uses an inline agent in an assertion and the routine in which it is defined is deferred. 
+* Fixed Makefile code generation issue on machine with many cores which could cause a C compilation error because some dependencies are missing in the Makefile targets.
+* Fixed bug#13881 where if you have a VKCN error when using a routine whose return type is a like argument then it would crash instead of reporting the VKCN error. Improved VKCN error reporting by providing the instruction or expression which causes the problem.
+* Fixed eweasel test#rdtp001 and test#term158 where if TUPLE is not written using upper case characters, then the compiler will crash when trying to analyze the type. 
+* Fixed the issue found with GCC 4.x series where an assignment of the form *(a + x) = f() would first evaluate (a+x) and then `f` which could cause a memory corruption if `f` triggers a GC cycle. As far as we could tell, this kind of code generation was only done when `f` would return a basic type. See eweasel test#runtime007.
+* Fixed eweasel test#ccomp076 where C/C++ inlines did not get the protected object if any, but only the unprotected one which could cause some issue if the C/C++ inline code uses `eif_access` or `eif_adopt`. 
+* Fixed various issues with the `full class checking` option that would not work for inherited code involving conversion or labeled tuples (see eweasel test#svalid001, test#svalid007, test#svalid009 and test#svalid010). 
+* Fixed bug#14856 and test#final064 where if before generating the agent call/item routine we generated a call to a deferred routine without implementation we would not generate the arguments of the agent causing a C compilation error in finalized mode.
+* Fixed improper runtime semantics for creation of manifest tuples, arrays and agents (see eweasel test#tuple011, test#tuple014 and test#agent006)
+* Fixed eweasel test#term159 where the compiler would crash if there is a conversion for one of the closed argument of an agent creation. 
+* Fixed some inlining problem of routines that may return an expanded type (fixes eweasel test#final065 and test#exec147). 
+* Fixed C compilation error when using CECIL on system using gcc 3.4 or greater as the later generated an abort sequence rather than calling a feature. Partially improves eweasel test#ccomp063 behavior. 
+* Fixed eweasel test#agent005 where some large agent signature would cause a crash in the compiler. 
+* Fixed eweasel test#syntax050 where the compiler incorrectly valid code using an assigner where the target is a parenthesized expression (e.g. <eiffel>(create {A}).item := b</eiffel>). 
+* Fixed an issue with the DLL specification which would not allow hyphen in the name of a DLL.
+* Fixed eweasel test#exec287 where if you assigned a basic type (INTEGER, CHARACTER, ...) to a TUPLE entry expecting a reference type and that you were assigning it via its assigner (<eiffel>t.field := value</eiffel>) then it would generate incorrect code causing a crash at runtime. 
+
+===Runtime/code generation issues===
+* When registering externally created threads, make sure that the runtime does not exit them when no more Eiffel code needs to be run as it must be done by the code that created it. Also made sure that the runtime per thread data are reset to 0 to ensure that we can register/unregister the external thread as many times as needed. 
+* Fixed a buffer overflow that would occur on some Unix platforms when a signal was received by the application.
+* Fixed eweasel test#thread006 where if many threads allocate small objects which are quickly dying then we could break the runtime synchronization and cause a crash.
+* Added a cast to ensure that `eif_globals` can compile properly in C++ mode.
+* Fixed eweasel test#runtime008 where we have a leak on each created thread if invariants are monitored.
+* Fixed eweasel test#runtime009 where a reallocation of a SPECIAL object could cause a memory corruption.
+* Fixed various issues with exceptions (performance, failure when reporting invariant, added I/O  reason to exception object, extended stack traces up to the root class, rather than stopping at the first rescue clause).
+
+===Store/Retrieve issues===
+* Fixed a dead lock in a multithreaded application when a store operation fails to store data to a stream. 
+* Changed the independent store version number due to the usage of ! and ? in Eiffel code. Meaning that storables created by 6.3 cannot  be read by older versions of EiffelStudio.
+
+

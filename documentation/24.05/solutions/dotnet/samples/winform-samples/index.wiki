@@ -1,0 +1,10 @@
+[[Property:modification_date|Mon, 02 Oct 2023 10:37:38 GMT]]
+[[Property:publication_date|Mon, 02 Oct 2023 10:37:38 GMT]]
+[[Property:title|Winform Samples]]
+[[Property:weight|3]]
+[[Property:uuid|24cbeb3c-ba2b-1fea-ccec-89600bbf3256]]
+
+{{Caution|Those WinForm samples targets Eiffel .NET framework and are probably not compiling with .NETCore (net6.0, net7.0, ...) }}
+
+The following examples are classified generally from the easiest to the most complex. So, some notions are introduced in the few first examples and will not be explained again in the more complex examples! 
+

@@ -1,0 +1,19 @@
+[[Property:title|WEL Interface Content]]
+[[Property:weight|1]]
+[[Property:uuid|e779c244-ec00-6a80-41e6-3ff79eb1efdb]]
+WEL is an encapsulation of the Win32 Application Programming Interface (API), and provides users with a powerful means of creating Win32 Applications. 
+
+==Components==
+
+The WEL library includes the following clusters:
+*  [[windows cluster|<eiffel>windows</eiffel>]] cluster containing classes representing available windows types 
+*  [[controls cluster|<eiffel>controls</eiffel>]] cluster containing classes representing available controls 
+*  [[stddlgs cluster|<eiffel>stddlgs</eiffel>]] cluster containing classes representing standard Win32 dialogs 
+* <eiffel>consts</eiffel> cluster which contains constants used by WEL
+* <eiffel>gdi</eiffel> cluster which contains classes allowing access to WIN32 Graphics Device Interfaces
+* <eiffel>gdistock</eiffel> cluster which contains standard Graphic Device Interfaces used by WEL
+* <eiffel>messages</eiffel> cluster which contains classes encapsulating windows messages
+* <eiffel>shared</eiffel> cluster which contains classes encapsulating system wide shared
+* <eiffel>structs</eiffel> cluster which contains classes for data structures required by Win32
+* <eiffel>support</eiffel> cluster which contains many supporting classes
+

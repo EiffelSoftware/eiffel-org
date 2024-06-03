@@ -1,0 +1,288 @@
+[[Property:modification_date|Fri, 14 Apr 2023 08:22:51 GMT]]
+[[Property:publication_date|Mon, 02 Sep 2019 08:02:24 GMT]]
+[[Property:uuid|7CCF602E-0B79-49C2-93FE-39C90CBE4E35]]
+[[Property:link_title|Code Templates]]
+[[Property:title|Code Templates]]
+[[Property:weight|7]]
+
+
+
+EiffelStudio's code templates facilitate the programmer’s task by offering program schemes that correspond to typical programming needs. Templates are a simple idea (section 1); you can use templates that others have defined (section 2); you can define your own templates (section 3); and you can share them, so that they will become part of future EiffelStudio deliveries (section 4). 
+
+If all you need to know is how to use the template mechanism in EiffelStudio, you can just read sections 1 and 2.
+
+= 1. What are code templates and how do they help me? =
+
+Code templates are contextual: based on the properties of some part of your code, EiffelStudio  will offer a list of templates that could — just could! — do exactly what you need at that very place.
+
+For example, if you are using an integer array, EiffelStudio will offer a code template for a common operation: computing the array’s maximum. If you select the template, EiffelStudio will insert its code into your program, giving you the option of specifying the starting and ending indices (which it sets by default to the array’s bounds). You just have to specify the information relevant to your particular case; the template takes care of the implementation.
+
+EiffelStudio comes with a number of predefined templates; you can also contribute your own.
+There are two kinds of template:
+
+* '''Targeted''' templates apply to a certain target entity.  For example, if you have a variable of type <code>ARRAY [INTEGER]</code>, EiffelStudio will offer you templates that work on that array (the “target”).
+* '''Targetless''' templates, also called "global", are applicable in any context, without a target.
+
+Whether targeted or targetless, a template can be a fixed pattern or have '''arguments''' which enable you to parameterize to your needs.
+
+
+= 2. How do I use templates in EiffelStudio? =
+
+Code templates are part of EiffelStudio’s code completion mechanism. Code completion lets you choose a code template at the same place where it offers you features to call, typically after you type a dot character “.” after the name of an applicable local variable. attribute or function
+
+
+==Targeted templates==
+When you type a dot character “.” after the name of an applicable target, a menu appears:
+
+[[Image:target_template_1_0]]
+
+Figure 1. Auto-completion with code template option
+
+Except for the first one in this example, the entries of this menu list the ''features'' applicable to the current target. But if you are interested in templates, select the first entry, which only appears if there are any applicable templates, and says “Show templates (Ctrl+Space)”
+
+[[Image:target_template_1_1]] 
+
+Figure 2. Auto-completion gives list of code templates
+
+As suggested, you can also type Control-space again to get the same effect. (Click "Show features" if you decide to go back to showing the applicable features, rather than templates.)
+
+If you find a template that you like, just select it.
+
+<span id="targetless_templates"></span> 
+== Targetless templates ==
+It is also possible to use code templates without a target. When you type Control-Space, if there are any applicable targetless templates, the first entry says “Show templates (Ctrl+Space)”:
+
+[[Image:targetless_template_1_3]]
+
+If you click this "Show templates" 
+
+Figure 3. Targetless auto-completion with code template option 
+
+When you insert a template into your code, it will often have some highlighted fields, corresponding to the template arguments, for example, the lower and upper bounds of the part of an array or ("slice") whose minimum you seek:
+
+[[Image:targetless_template_1_4|680px]] 
+
+Figure 4. Targetless auto-completion with code templates option list.
+
+
+
+== Filling in arguments ==
+
+Some templates let you parameterize their code by filling ''arguments'' in a highlighted field. Initially, the field contains the corresponding argument's default value; you can leave that default, or override it with your own choice. If the template uses the argument several times, you can fill in the value in any of the corresponding fields, and all others will automatically be updated.
+
+In the menu of targeted array templates shown above, the template <code>slice_minimum </code> is an example of template with arguments. It looks like this:
+
+[[Image:target_template_with_input_parameters_1_0|680px]]
+
+Figure 5. A template with arguments
+
+This template, used to compute the minimum of a part, or "slice", of an array, has two arguments, representing the bounds of the slice. If you select the template, you will see two highlighted fields, initialized with the respective default values <code>default: "target.lower</code> and <code>target.upper"</code> of these arguments:
+
+[[Image:target_template_with_input_parameters_1_1]]
+
+Figure 6. Inserted template code, with highlighted argument fields
+
+The reason for these defaults is that much of the time you will want the minimum of the ''whole'' array. If you are happy with that default, just leave the fields as they are  But if you just need a different slice, for example from index 5 to index 10, just type the desired values in the corresponding fields:
+
+[[Image:target_template_with_defaults_overridden_1_1]]
+
+Figure 7. Inserted template code, with highlighted argument fields
+
+Note that each argument appears in two different fields; if you edit any of these fields, the other will get updated automatically.
+
+
+= 3. Can I define my own templates? =
+
+It is very easy to define a template. It is all done in Eiffel, of course. You simply define a class that inherits from TEMPLATE, with any number of routines, each of which introduces one template, applicable to targets of the corresponding type. If the routine has arguments, those will be the arguments of the template.
+
+== Where does EiffelStudio find the templates? ==
+
+To offer templates as part of code completion, EiffelStudio looks in two locations:
+* Standard templates, found in: 
+** Linux: <code>$ISE_EIFFEL/studio/templates/code</code>
+** Windows:  <code>%ISE_EIFFEL%/studio/templates/code</code>
+* User-defined templates, which you can add at:
+** Linux: <code> ~/.es/eiffel_user_files/16.11/templates/code</code>
+** Windows: <code>C:/Users/your_user_name/Documents/Eiffel User Files/16.11/templates/code</code>
+
+If you define templates for your own specific use, store them in the second location.
+The template file should be an Eiffel file (with `e` file extension).
+
+== Defining a targeted template ==
+Here is how we defined the template used in the above targeted example:
+
+<code>
+class ARRAY_TEMPLATE [T -> COMPARABLE] inherit
+    
+    TEMPLATE [ARRAY [T]]
+
+feature  -- Templates
+
+   maximum: T
+            -- Maximum of `target' array.  
+        note
+            tags: "Algorithm, Maximum, ARRAY"
+        do
+	    across target as element loop
+                Result := Result.max (element.item)
+            end
+        end
+
+     slice_minimum (low, high: INTEGER): T
+		-- Minimum of `target' array, where the interval is defined by default by target.lower |..| target.upper.
+	note
+		title: "Array slice minimum"
+		tags: "Algorithm, Minimum, ARRAY"
+		default: "target.lower, target.upper"
+	do
+		Result := low
+		across low |..| high as i loop
+			Result := Result.min (target [i.item])
+		end
+	end    
+end 
+</code>
+
+This class defines two targeted templates: ''maximum'' for the maximum of an entire array, and ''slice_minimum'' for the minimum of some contiguous part of that array.
+
+To specify the target type, here arrays, just use it as the actual generic parameters of TEMPLATE (which is a generic class). Here indeed, the the definition starts as
+
+<code>
+class ARRAY_TEMPLATE [T -> COMPARABLE] 
+
+inherit   
+    TEMPLATE [ARRAY [T]]
+</code>
+
+Another example, without generic parameters:
+
+<code>
+class STRING_UTF_8_TEMPLATE [T -> READABLE_STRING_GENERAL]
+
+inherit
+    TEMPLATE [T]
+
+feature -- Templates
+
+    to_utf_8: STRING_8
+            -- STRING_8 string from `target'.
+        note
+            title: "To UTF-8 STRING"
+            tags: "Unicode, String, STRING"
+        do{UTF_CONVERTER}.utf_32_string_to_utf_8_string_8 (target)end
+
+end
+</code>
+(note: in that example, there is no space after the `do` and before the `end`, so the template is applied without adding extra unwanted spaces)
+
+== Integration within EiffelStudio ==
+
+The correspondence between what you write in the template definition and what appears in EiffelStudio, as shown in previous sections, is straightforward:
+
+# The list of templates will display the name of the feature, e.g. slice_minimum
+# It will use the header comment as explanation in the tooltip (always write a header comment!)
+#.On selection of a template, EiffelStudio will insert the template’s body into the code.
+# Argument occurrences will appear as fields for the user to fill in.
+
+== Defining a targetless template ==
+
+For a targetless template, just just use TEMPLATE without a generic parameter:
+
+<code>
+class  TEMPLATE_READ_FILE_GLOBAL
+
+inherit
+	
+	TEMPLATE 
+	
+feature -- Templates
+
+	read_file_line_by_line
+			-- Read a file line by line., for binary files you can use {RAW_FILE}. 
+		note
+			title: "Read a file line by line"
+			tags: "Algorithm, Read, Files, Path"
+		local
+			l_file: FILE
+			l_path: PATH
+		do
+			create l_path.make_current
+			create {PLAIN_TEXT_FILE} l_file.make_with_path (l_path)
+			if l_file.exists and then l_file.is_readable then
+				l_file.open_read
+				from
+				until
+					l_file.end_of_file
+				loop
+					l_file.read_line
+					-- Use entry `l_file.last_string`  such as `io.put_string (l_file.last_string); io.put_new_line`
+				end
+				l_file.close
+			else
+				io.error.put_string ("Could not read, the file:[" + l_path.name + " ] does not exist")
+				io.put_new_line
+			end
+		end
+end
+
+</code>
+
+=4. Sharing code templates=
+You can share your code templates using Github.
+
+== Fork the project == 
+Clone your fork, and configure the remotes.Eiffel Studio github repository at:  [https://github.com/EiffelSoftware/EiffelStudio  https://github.com/EiffelSoftware/EiffelStudio ]
+
+# Clone your fork of the repository into the current directory: <code>git clone https://github.com/<your-username>/<repo-name></code>
+# Navigate to the newly cloned directory: <code>cd <repo-name></code>
+# Assign the original repository to a remote one called "upstream": <code>git remote add upstream https://github.com/<upstream-owner>/<repo-name></code>
+
+If you cloned a while ago, get the latest changes from upstream:
+
+<code>
+git checkout <dev-branch>
+git pull upstream <dev-branch>
+</code>
+
+<span id="branch"></span> 
+== New branch ==
+Create a new topic branch (off the main project development branch) to contain your new code template
+<code>git checkout -b <topic-branch-name></code>
+Commit your changes in logical chunks. Before to commit double check [http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html Tim Pope's A Note About Git Commit Messages].
+Use Git's interactive rebase feature to tidy up your commits before making them public.
+
+Locally merge (or rebase) the upstream development branch into your topic branch:
+
+<code>git pull [--rebase] upstream <dev-branch></code>
+
+Push your topic branch up to your fork:
+
+<code>git push origin <topic-branch-name></code>
+
+
+==Pull request== 
+Open a pull request with a clear title and description
+
+== Code template review ==
+For your work to be integrated into the project, the maintainers will review your work and either request changes or merge it.
+
+
+=Associating a user interface with a template definition=
+The following image shows the relationship between the template definition and how they will look in the GUI.
+
+[[Image:target_template_1_2|780px]] 
+Figure 8. UI and template relationship.
+
+
+* Feature name or metadata `title` if present will be used as the value in the list of completion possibilities.
+* Feature comment will be used in the tooltip description of a selected template.
+* Feature body will be used in the tooltip code preview.
+
+
+
+
+
+
+
+
+

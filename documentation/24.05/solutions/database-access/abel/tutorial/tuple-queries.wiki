@@ -1,0 +1,77 @@
+[[Property:title|Tuple queries]]
+[[Property:weight|-3]]
+[[Property:uuid|69046f75-708f-fc1e-b0be-1a17e22751e4]]
+Consider a scenario in which you just want to have a list of all first names of <e>CHILD</e> objects in the database. 
+Loading every attribute of each object of type <e>CHILD</e> might lead to a very bad performance, especially if there is a big object graph attached to each <e>CHILD</e> object.
+
+To solve this problem ABEL allows queries which return data in <e>TUPLE</e> objects.
+Tuple queries are executed by calling  <e>execute_tuple_query (a_tuple_query)</e> in either <e>PS_REPOSITORY</e> or <e>PS_TRANSACTION</e>, 
+where <e>a_tuple_query</e> is of type <e>PS_TUPLE_QUERY [G]</e>.
+The result is an iteration cursor over a list of tuples in which the attributes of an object are stored.
+
+==Tuple queries and projections==
+The <e>projection</e> feature in a <e>PS_TUPLE_QUERY</e> defines which attributes shall be included in the result <e>TUPLE</e>. 
+Additionally, the order of the attributes in the projection array is the same as the order of the elements in the result tuples.
+
+By default, a <e>PS_TUPLE_QUERY</e> object will only return values of attributes which are of a basic type, so no references are followed during a retrieve.
+You can change this default by calling <e>set_projection</e>.
+If you include an attribute name whose type is not a basic one, ABEL will actually retrieve and build the attribute object, and not just another tuple.
+
+==Tuple queries and criteria==
+You are restricted to use predefined criteria in tuple queries, because agent criteria expect an object and not a tuple. 
+You can still combine them with logical operators, and even include a predefined criterion on an attribute that is not present in the projection list.
+These attributes will be loaded internally to check if the object satisfies the criterion, and then they are discarded for the actual result.
+
+==Example==
+
+<code>
+	explore_tuple_queries
+			-- See what can be done with tuple queries.
+		local
+			query: PS_TUPLE_QUERY [CHILD]
+			transaction: PS_TRANSACTION
+			projection: ARRAYED_LIST [STRING]
+		do
+				-- Tuple queries are very similar to normal queries.
+				-- I.e. you can query for CHILD objects by creating
+				-- a PS_TUPLE_QUERY [CHILD]
+			create query.make
+
+				-- It is also possible to add criteria. Agent criteria 
+				-- are not supportedfor tuple queries however.
+				-- Lets search for CHILD objects with last name Doe.
+			query.set_criterion (criterion_factory ("last_name", criterion_factory.equals, "Doe"))
+
+				-- The big advantage of tuple queries is that you can 
+				-- define which attributes should be loaded. 
+				-- Thus you can avoid loading a whole object graph
+				-- if you're just interested in e.g. the first name.
+			create projection.make_from_array (<<"first_name">>)
+			query.set_projection (projection)
+
+				-- Execute the tuple query.
+			repository.execute_tuple_query (query)
+
+				-- The result of the query is a TUPLE containing the 
+				-- requested attribute.
+
+			print ("Print all first names using a tuple query:%N")
+			
+			across
+				query as cursor
+			loop
+					-- It is possible to downcast the TUPLE 
+					-- to a tagged tuple with correct type.
+				check attached {TUPLE [first_name: STRING]} cursor.item as tuple then
+					print (tuple.first_name + "%N")
+				end
+			end
+			
+			  -- Cleanup and error handling.
+			query.close
+			if query.has_error then
+				print ("An error occurred!%N")
+			end			
+		end
+</code>
+

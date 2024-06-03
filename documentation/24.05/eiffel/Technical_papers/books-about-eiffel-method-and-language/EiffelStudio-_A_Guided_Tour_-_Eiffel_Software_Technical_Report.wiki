@@ -1,0 +1,38 @@
+[[Property:modification_date|Wed, 18 Sep 2019 13:17:05 GMT]]
+[[Property:publication_date|Thu, 12 Sep 2019 15:07:05 GMT]]
+[[Property:uuid|BF3D5A25-A6C0-4645-956A-82807C41F073]]
+[[Property:weight|10]]
+[[Property:title|EiffelStudio: A Guided Tour - Eiffel Software Technical Report]]
+[[Property:link_title|EiffelStudio Guided Tour]]
+
+==Eiffel Software Technical Report TR-EI-68/GT ==
+
+First published 1993 as ''First Steps with EiffelBench'' (TR-EI-38/EB) and revised as a chapter of ''Eiffel: The Environment''  also available as [[#An_Object-Oriented_Environment|An Object-Oriented Environment]] (below). 
+
+Version 3.3.8, 1995.
+
+Version 4.1, 1997
+
+This version: July 2001. Corresponds to release 5.0 of the EiffelStudio environment.
+
+Full reference at [[Manual_identification_and_copyright|Manual identification and copyright]]
+
+==An Object-Oriented Environment ==
+
+:<big>'''Bertrand Meyer'''</big>
+
+:Prentice Hall, 1994 
+
+:ISBN 0-13-245-507-2
+
+The principles of object technology change the way we envision, design and use software development environments.
+
+This book explains what it means for an environment to be truly object-oriented, not just by having a modern user interface but by applying to its full extent the concept of data abstraction. It will provide precious material to anyone who is interested in finding out how an environment can support O-O development in its quest for software quality and productivity.
+
+''Content highlights: ''
+
+Introduces five design principles for object-oriented environments; presents a complete set of tools applying these principles, based on development object types rather than functional units; describes a novel approach to compilation: the Melting Ice Technology, which combines the fast development turnaround of interpreters with the safety of compiled approaches, and generates high-performance final code; discusses how to use C as a target language for efficiency and portable cross-development, without impairing the benefits of the O-O method; takes the reader through a detailed demonstration of the environment's object-oriented tools, showing their application to compiling, browsing and symbolic debugging; explains the principles and application of GUI (Graphical User Interface) Application Building, going from mere 'interface builders' to the interactive construction of entire applications - interface and semantics; and introduces the Context-Events-Command-State model of GUI application building and applies it to the interactive development of a complete mini-application.
+
+==The Guided Tour==
+
+{{Note|[[EiffelStudio_tutorials|The Guided Tour to EiffelStudio starts here]]}}

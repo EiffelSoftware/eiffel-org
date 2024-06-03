@@ -1,0 +1,64 @@
+[[Property:modification_date|Tue, 24 Jan 2023 15:15:39 GMT]]
+[[Property:publication_date|Thu, 06 Sep 2018 15:17:57 GMT]]
+[[Property:uuid|96077603-DD2D-4D8C-A486-AF4BD066613A]]
+[[Property:weight|2000]]
+[[Property:title|Iterating on a LIST]]
+There are three Eiffel mechanisms to iterate on every element of a `LIST`.
+
+=== the `across` loop ===
+The `across` can be used on every `ITERABLE` object (including `LIST` objects).
+
+<code>
+	print_elements (a_list: LIST[INTEGER])
+			-- Print every elements on `a_list`
+		do
+			across a_list as ic loop
+				print (ic.item.out + "%N")
+			end
+		end
+</code>
+
+Note that the temporary variable (`ic` in the example) represents an iterator of the `ITERABLE` object, and not directly an element like in many other languages (like the `for` structure in Python for example).
+
+=== the `from until` loop syntax===
+This syntax offer more possibilities than the `across` loop, but is riskier.
+
+<code>
+	print_elements (a_list:LIST[INTEGER])
+			-- Print every elements on `a_list`
+		do
+			from
+				a_list.start
+			until
+				a_list.exhausted
+			loop
+				print (a_list.item.out + "%N")
+				a_list.forth
+			end
+		end
+</code>
+
+=== Using Eiffel agents and `{LIST}.do_all, ....` ===
+It is possible to use  [[ET-_Agents|agents]] in conjunction with the `LIST` features `do_all`, `do_if`, `there_exists`, and `for_all` which are inherited from the class `LINEAR`.
+<code>
+	list_traversal_agents
+			-- Example of traversing a list with do_all
+		local
+			a_list: LINKED_LIST [STRING]
+		do
+				-- Insert some elements in a_list
+			create a_list.make
+			a_list.extend ("The Moon Is Full")
+			a_list.extend ("Master charge")
+			a_list.extend ("Black cat bone")
+			a_list.do_all (agent {STRING}.append (" - Albert Collins"))
+			a_list.do_all (agent print_element)
+		end
+
+	print_element (a_element: STRING)
+			-- Print `a_element` to standard output
+		do
+			io.put_string (a_element)
+			io.put_new_line
+		end
+</code>

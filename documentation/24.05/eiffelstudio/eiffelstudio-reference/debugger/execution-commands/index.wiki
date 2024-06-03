@@ -1,0 +1,28 @@
+[[Property:title|Execution commands]]
+[[Property:weight|-15]]
+[[Property:uuid|098e4d2b-18c5-6933-fe42-2d55e427f5fa]]
+While working on a project, you may want to launch it to see if it behaves as expected, and if not to find out where the problem is located.
+
+There are several ways to launch the application you are working on from EiffelStudio:
+*  [[Run a finalized executable|Run a finalized executable]]  [[Image:debug-run-finalized-icon]], where no debug is possible. 
+* Launch an application and enable its debugging 
+**  [[Run and stop at breakpoints|Launch and stop]] [[Image:debug-run-icon]] as soon as the application encounters a [[Breakpoints|breakpoint]]  
+**  [[Run without breakpoints|Launch and do not stop]] [[Image:debug-run-without-breakpoint-icon]] when encountering breakpoints 
+
+* Execute one step in the application 
+**  [[Step into a feature|Step into a feature]] [[Image:debug-step-into-icon]] 
+**  [[Execute one line at a time|Execute one line]] [[Image:debug-step-over-icon]] 
+**  [[Step out of a feature|Exit a feature]] [[Image:debug-step-out-icon]]
+
+
+Once the application is launched in debug mode, you can [[Pause an application|pause]] [[Image:debug-pause-icon]] it at any time to see its current state or you can [[Stop a debugged application|stop its execution]] [[Image:debug-stop-icon]] completely. 
+
+* In addition, you can also [[detach application|detach an application]] being debugged, and there is an experimental solution to [[attach application|attach]] the debugger to the Eiffel application launched outside EiffelStudio.
+
+All these commands are accessible either through the '''Execution''' menu, or through the '''project''' toolbar. 
+
+{{seealso| The Eiffel [[Compiler|Compiler]]  }}
+
+
+
+
