@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 14 Jun 2024 15:17:47 GMT]]
+[[Property:modification_date|Fri, 14 Jun 2024 15:56:11 GMT]]
 [[Property:publication_date|Mon, 03 Jun 2024 09:41:04 GMT]]
 [[Property:uuid|65E6D99C-616E-4335-9667-EF7FD82DA920]]
 [[Property:title|Release notes for EiffelStudio 24.05]]
@@ -22,6 +22,7 @@
 ** '''Create Setter for an Attribute''': Easily generate setter methods for attributes.
 ** '''Add New Creation Procedures''': Simplified process to add new creation procedures.
 ** '''Remove Selected Feature''': Quickly remove selected features from your project.
+** ''Note: the shortcuts `Ctrl+Shift+E, Ctrl+S` means, press `Ctrl+Shift+E` then `Ctrl+S` (i.e 2 step shortcut)''
 * [Ctrl]+[Up] and [Ctrl]+[Down] to scroll up or down the editor by one line.
 ** Additional commands will be available in future releases.
 
