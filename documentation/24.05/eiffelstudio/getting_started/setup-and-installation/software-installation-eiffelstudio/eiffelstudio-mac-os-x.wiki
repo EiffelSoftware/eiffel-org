@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 08 Mar 2024 09:31:48 GMT]]
+[[Property:modification_date|Mon, 24 Jun 2024 17:30:34 GMT]]
 [[Property:publication_date|Sat, 11 Dec 2021 21:57:25 GMT]]
 [[Property:title|Mac OS X]]
 [[Property:weight|5]]
@@ -37,7 +37,16 @@
 
 MacPorts is a tool that allows you to use many Unix applications on the Mac. Before we can proceed with the installation of EiffelStudio, we need to install the required dependencies of EiffeStudio. First, install [http://guide.macports.org/#installing MacPorts].
 
-Now simply type (from a bash [http://guides.macrumors.com/Terminal terminal]):
+
+==Installing  EiffeStudio using MacPorts==
+Since we already install MacPorts, now simply type (from a bash [http://guides.macrumors.com/Terminal terminal]):
+<pre>
+sudo port install eiffelstudio
+</pre>
+
+
+==Installing EiffelStudio manually==
+An alternative option is to install each dependency by hand using macPorts.
 <pre>
 sudo port install pkgconfig
 sudo port install bzip2
