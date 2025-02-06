@@ -1,0 +1,60 @@
+[[Property:title|External commands editor dialog]]
+[[Property:weight|4]]
+[[Property:uuid|9f8de904-3d17-7ce2-1df8-f4824fab5ae3]]
+From EiffelStudio, you can define up to 10 external commands. Those commands will execute and display their output in the [[Console tool]]. You can execute them through the Tools menu. A typical usage is to use those external commands to integrate with your source control management solution (e.g. CVS, Visual SourceSafe,...)
+
+
+==Defining external commands==
+
+To define your own command, select "External commands..." in the Tools menu. Then the following dialog will appear:
+
+
+[[Image:external-commands-dialog]]  
+
+
+With this dialog you can:
+* add new commands
+* edit existing commands
+* delete existing commands
+
+To add your first command, simply click on the "Add..." button and the following command editor will appear:
+
+
+[[Image:external-commands-dialog-editor]]  
+
+
+In this dialog you can give a name to the command, this name will be displayed in the Tools menu. The index (0 thru 9) is the position among the external commands of the command in the Tools menu. The command line is the command you want to execute. In order to execute correctly, the application you will execute needs to be in your PATH environment variable or if it is not you must provide an absolute path to the external command. And you can specify the working directory for that command.
+
+In addition to the external command name, you can pass as many options as you want. You can also use placeholders that will be translated before calling the external command. Some of those placeholders are:
+* $class_name: this will be replaced by the name in lower case of the targeted class in editor
+* $file_name: this will be replaced by the path to the targeted class in editor
+* $file: this will be replaced by the simple file name without the path
+* $directory_name: this will be replaced by the directory location of the targeted class in editor
+* $group_name: this will be replaced by the group name of the targeted class in editor
+* $line: this will be replaced by the line number of the cursor of the targeted class in editor
+* $w_code: this will be replaced by the W_code directory of current system, if defined
+* $f_code: this will be replaced by the F_code directory of current system, if defined
+You can see the complete [[Console tool#Placeholders|list]] in the Console tool documentation.
+
+==Executing external commands==
+
+When you look at the EiffelStudio '''Tools''' menu, you will see that the external commands that you have added have also been added to the bottom of the menu. In the figure below, you see the command we added at index 4:
+
+
+[[Image:External commands tools menu]]
+
+
+To execute that command, you can select it from the '''Tools''' menu, or you can use the keyboard shortcut provided. In this case the keyboard shortcut is the default value of '''Alt+4'''. 
+
+The shortcuts for the command indexes can be changed in the EiffelStudio preferences by following the preference path:
+<code>
+        shortcuts -> external_commands
+</code>
+
+External commands execute in the context of the [[Console tool]]. The Console tool should appear automatically, but you can make it visible by following the menu path:
+<code lang="text">
+        View -> Tools -> Console
+</code> 
+Then you can dock the console tool, if you would like to have it constantly visible.
+
+

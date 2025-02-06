@@ -1,0 +1,168 @@
+[[Property:weight|0]]
+[[Property:title|Eiffel compatibility options]]
+[[Property:uuid|66673f5d-bc21-563a-b228-e663ea1326f5]]
+=Introduction=
+
+Over the course of several releases, Eiffel Software has introduced a number of options and settings which allow users of EiffelStudio and the Eiffel command line compiler to choose the appropriate level of forward progress and/or backward compatibility for a particular application. 
+
+This is a summary of the motivation behind and the meanings of the various compatibility options.
+
+=Quick guide to project settings affecting compatibility with older Eiffel code=
+
+The table below shows project settings that, depending upon their values, can affect the compilation of Eiffel code produced under older standards. That is, certain values for some of these settings may cause older code to fail to compile due to non-compliance. However, other values may allow you to compile non-compliant code during a period in which you convert that code to the current Eiffel implementation.
+
+{| border="2" style="border-collapse: collapse; border-style: solid;"
+|+ 
+|- 
+! style="text-align: center; valign: center;" | Setting 
+! style="text-align: center; valign: center;" | Allowable values 
+! style="text-align: center; valign: center;" | Meaning 
+! style="text-align: center; valign: center;" | Default value in version: 
+|-
+| colspan="4" style="background: #E8E8E8" | 
+|-
+| rowspan="5" style="text-align: center" | [[Setting the syntax variant|Syntax]] 
+|-
+| [[Syntax level variant settings by version|Obsolete syntax]]
+| Favor obsolete syntax over standard.
+| [[Release notes for EiffelStudio 6.3 | 6.3]], [[Release notes for EiffelStudio 6.4 | 6.4]]
+|-
+| [[Syntax level variant settings by version|Transitional syntax]]
+| Favor standard syntax, but allow obsolete syntax when determinable by context.
+| [[Release notes for EiffelStudio 6.8 | 6.8]], [[Release notes for EiffelStudio 6.7 | 6.7]], [[Release notes for EiffelStudio 6.6 | 6.6]], [[Release notes for EiffelStudio 6.5 | 6.5]]
+|-
+| [[Syntax level variant settings by version|Standard syntax]]
+| Enforce current standard syntax.
+| [[Release notes for EiffelStudio 7.0 | 7.0]] and [[EiffelStudio release notes | more recent]]
+|-
+| [[Syntax level variant settings by version|Provisional syntax]]
+| Like Transitional syntax, but also allow not-yet-approved constructs.
+| 
+|-
+| colspan="4" style="background: #E8E8E8" | 
+|-
+| rowspan="3" style="text-align: center" | [[Creating a new void-safe project#Project settings for void-safe projects|Full class checking]]
+|-
+| True
+| Features of parent classes are rechecked for validity in heir classes.
+| [[Release notes for EiffelStudio 7.3 | 7.3]] and [[EiffelStudio release notes | more recent]]
+|-
+| False
+| No recheck performed.
+| [[Release notes for EiffelStudio 7.2 | 7.2]], [[Release notes for EiffelStudio 7.1 | 7.1]], [[Release notes for EiffelStudio 7.0 | 7.0]], [[Release notes for EiffelStudio 6.8 | 6.8]], [[Release notes for EiffelStudio 6.7 | 6.7]], [[Release notes for EiffelStudio 6.6 | 6.6]], [[Release notes for EiffelStudio 6.5 | 6.5]]
+|-
+| colspan="4" style="background: #E8E8E8" |
+|-
+|  rowspan="3" style="text-align: center" | [[Creating a new void-safe project#Project settings for void-safe projects|Are types attached by default?]]
+|-
+| True
+| <code>x: T</code> is treated like <code>x: attached T</code>
+| [[Release notes for EiffelStudio 7.0 | 7.0]] and [[EiffelStudio release notes | more recent]]
+|-
+| False
+| <code>x: T</code> is treated like <code>x: detachable T</code>
+| [[Release notes for EiffelStudio 6.8 | 6.8]], [[Release notes for EiffelStudio 6.7 | 6.7]], [[Release notes for EiffelStudio 6.6 | 6.6]], [[Release notes for EiffelStudio 6.5 | 6.5]]
+|-
+| colspan="4" style="background: #E8E8E8" |
+|-
+|  rowspan="6" style="text-align: center" | [[Creating a new void-safe project#Project settings for void-safe projects|Void-safety]]
+|-
+| No
+| No checking against any void-safety validity rules.
+| [[Release notes for EiffelStudio 7.2 | 7.2]], [[Release notes for EiffelStudio 7.1 | 7.1]], [[Release notes for EiffelStudio 7.0 | 7.0]], [[Release notes for EiffelStudio 6.8 | 6.8]], [[Release notes for EiffelStudio 6.7 | 6.7]], [[Release notes for EiffelStudio 6.6 | 6.6]], [[Release notes for EiffelStudio 6.5 | 6.5]]
+|-
+| Conformance
+| The attachment marks are not ignored for type conformance checks (with respect to VJAR/VBAR and related validity rules).
+|
+|-
+| Initialization
+| Validity rules are selectively checked. The initialization rule (VEVI) and the target rule (VUTA) are checked only for attached entities and attached call targets -- i.e., detachable cases are not checked.
+| 
+|-
+| Transitional
+| Checking against all void-safety validity rules using some potentially unsafe CAPs, assuming that all assertions are satisfied, and ignoring some complex cases like passing incompletely initialized Current from a creation procedure or creating agents when Current is not completely initialized.
+| [[Release notes for EiffelStudio 13.11 | 13.11]], [[Release notes for EiffelStudio 7.3 | 7.3]]
+|-
+| Complete
+| Complete checking against all void-safety validity rules ignoring any unsafe CAPs.
+| [[Release notes for EiffelStudio 14.05 | 14.05]] and [[EiffelStudio release notes | more recent]]
+|}
+
+
+=Discussion of compatibility issues=
+
+==Eiffel Software and the wheels of progress==
+
+The Eiffel analysis, design, and programming language has remained relatively static since its original specification in the mid-1980's. However, periodically it has become necessary to make certain changes in order to make certain language improvements and to enable new facilities. It is the policy of Eiffel Software, when such changes are made, to ensure that the changes have minimum impact upon existing software. For some changes, that means no impact at all, but for others it means that the new Eiffel is incompatible with the old Eiffel (the so-called "breaking changes" … those changes that break existing code). And that means that existing software will have to be changed to take advantage of the recent changes to Eiffel. Even so, Eiffel Software has been able to ease the transition from old to new by implementing certain compatibility options which allow existing software still to run as in previous versions during periods of transition. 
+
+==Sources of changes==
+
+The Eiffel programming language is standardized under the [http://www.iso.org/iso/catalogue_detail.htm?csnumber=42924 ISO] and [http://www.ecma-international.org/publications/standards/Ecma-367.htm ECMA] standardization organizations. So, it is not surprising that many of the changes that are implemented by Eiffel Software are driven by the work of the Eiffel standardization committee. 
+
+Still, the standard itself is a moving target, and there are always differences between what is in the current standard and what has been implemented by Eiffel Software. Also, only immediately after publication of the standard might there be complete agreement between the standard document itself and the perception of Eiffel by the standard committee. That is to say that a new version of the standard may be published once every few years, but the process of moving the language forward continues in the committee in the meantime.
+
+The diagram below attempts to characterize the relationship among the various factors that define Eiffel.
+
+
+[[Image:Eiffel implementation venn diagram]]
+
+
+It is easy to see the overlapping areas. The centermost represents that part of Eiffel that is at once implemented by Eiffel Software, exists in the current published version of the standard, and is anticipated to remain in the standard for the next version.
+
+The other areas represent Eiffel features that are supported by only one or a combination of two of these factors. 
+
+
+==Types of changes==
+
+There are many different types of changes that can effect existing code. Here are some examples of these.
+
+# '''Changes to the Eiffel library classes'''
+## Removal or obsoleting of classes or features. Example: <code>{SPECIAL}.make</code> is removed as void-unsafe.
+## Changing conformance. Example: <code>ARRAYED_LIST</code> no longer conforms to <code>ARRAY</code>.
+## Changing feature types. Example: <code>{ARRAYED_LIST}.count</code> and <code>{ARRAYED_LIST}.area</code> were changed from attributes to functions.
+# '''Language keyword changes'''
+## A word that was once a keyword is no longer a keyword (potentially allowing the word to be used as an identifier, and affecting software using it as a keyword). Example: <code>indexing</code> is no longer a keyword.
+## A word that was not a language keyword in previous versions, becomes one in the current version (potentially breaking any code that used that word as an identifier). Example: <code>attached</code>
+## A keyword (or notation) used in a particular context is retired from that context in favor of a more appropriate keyword. (potentially affecting all software using the old keyword in that context). Example: <code>indexing</code> is retired in favor of <code>note</code>.
+## The usage of an existing keyword in a new context (usually has no effect on existing software). Example: <code>as</code> used in <code>attached</code> syntax for object test (in addition to its traditional role in the <code>rename</code> part of the <code>inherit</code> clause.)
+# '''Language construct changes'''
+## Addition of new constructs or extensions to existing constructs. Example: [[ET: Instructions#Loop|iteration form]] of the loop construct.
+## Changes to existing constructs. Example: Object test syntax change: <code>attached {T} expr as u</code> versus <code>{u: T} expr</code>
+## Removal of obsolete constructs.
+
+==Types of compatibility options==
+
+===EiffelStudio and Eiffel compiler options===
+
+These "mode" options are selected when EiffelStudio is started up or when the command line Eiffel compiler is invoked. The following two mode options were introduced in version 6.3 on the eve of implementing [[Void-safe programming in Eiffel|void-safety]] as an integral feature of Eiffel. The mode options were intended to help developers deal with the [[Void-safe changes to Eiffel libraries|changes to the Eiffel libraries for void-safety]].
+
+* '''-compat''' runs EiffelStudio or the Eiffel compiler in "compatibility mode" so that compilation will use libraries that are compatible with older versions of Eiffel.
+* '''-experiment''' runs EiffelStudio or the Eiffel compiler in "experimental mode" so that compilation will use libraries based on an upcoming version of Eiffel.
+
+Implicit here is that there is also a "default" mode which is invoked when neither of compatibility nor experimental mode is used. Default mode assumes a "current" set of libraries. 
+
+Also, implied by these modes is a progression of their meanings over time. That is, as time passes and language changes are reflected in Eiffel Software's products, the "experimental" mode of today will likely be the "default" mode of tomorrow. And the "default" mode of today may become the "compatible" mode of tomorrow.
+
+===Project settings===
+
+These options are set in the EiffelStudio Project Settings dialog box.  
+
+The most important of these is the '''[[Setting the syntax variant|Syntax]]''' level variant setting. You can choose among a set of syntax level variants that let you control how the compiler views certain language changes. So, for example, if you are compiling classes that contain obsolete keywords, you would set the '''Syntax''' setting to the '''Obsolete syntax''' variant. 
+
+Bear in mind that the detail meanings of the various syntax variants may change from version to version. So, it's a good idea periodically to check the [[Syntax level variant settings by version|syntax level variant settings by version]].
+
+==Compatibility tools==
+
+===The syntax updater===
+
+The syntax updater is located in the EiffelStudio "tools" folder. It is a command line utility that will update certain syntax elements from obsolete syntax to current syntax. The syntax updater was introduced with EiffelStudio version 6.4.
+
+The tool makes the following updates to existing code:
+# Replaces obsolete "<code>!!</code>" syntax with <code>create</code> keyword syntax.
+# Replaces obsolete keyword <code>creation</code> with <code>create</code>.
+# Removes obsolete keyword <code>is</code> after routine signatures.
+# Replaces obsolete keyword <code>is</code> in constants with "<code>=</code>" (e. g., "<code>i: INTEGER is 5</code>" becomes <code>i: INTEGER = 5"</code>).
+# Replaces obsolete keyword <code>indexing</code> with <code>note</code>.
+# Replaces the June 2006 Standard object test syntax (e. g., "<code>{x: T} exp</code>") with the committee-approved provisional standard syntax (e. g., "<code>attached {T} exp as x</code>").
+# Replaces obsolete non-object feature call syntax with current syntax (e. g., "<code>feature {X}.f</code>" becomes "<code>{X}.f</code>").
+# Replaces attached and detachable type markers from June 2006 Standard with committee-approved provisional standard syntax (e. g., "<code>x: !T</code>" becomes "<code>x: attached T</code>" and "<code>x: ?T</code>" becomes "<code>x: detachable T</code>").

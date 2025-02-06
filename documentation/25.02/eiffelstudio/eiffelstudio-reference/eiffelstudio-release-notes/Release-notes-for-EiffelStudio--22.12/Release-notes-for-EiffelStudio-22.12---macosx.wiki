@@ -1,0 +1,59 @@
+[[Property:modification_date|Mon, 09 Jan 2023 13:42:55 GMT]]
+[[Property:publication_date|Wed, 04 Jan 2023 11:34:24 GMT]]
+[[Property:uuid|9545048C-03AF-4F8C-BE54-0DD7B7C31CF2]]
+[[Property:weight|0]]
+[[Property:title|Release notes for EiffelStudio 22.12 - macosx]]
+[[Property:link_title|22.12 - macosx]]
+
+= Known GUI issues =
+Vision2 UI apps have bad issue on macosx M1/M2 (arm architecture) with XQuartz.
+
+== Use the latest XQuartz version ===
+Be sure to use the latest XQuartz, as it gets improvement from time to time (currently version 2.8.4), and hopefully remaining EiffelStudio UI annoyance will disappear with future versions.
+
+== Do not disable X11 rendering ===
+In other words, be sure to use the following default XQuartz setting:
+
+```
+defaults write org.xquartz.X11 enable_render_extension 1
+```
+
+Otherwise, if `enable_render_extension = 0`,  text fields (and similar) will not work properly for EiffelStudio and any Vision2 application (and could even crash the application), in addition it degrades GUI application performance.
+
+== Black background annoyance ==
+
+When using default setting (`enable_render_extension = 1`), EiffelStudio has '''back blackground''' for a few widgets (menu, label, ...), especially when EiffelStudio has the focus, which makes it hard to use. 
+
+EiffelStudio is not the only macosx application having this bad issue with XQuartz (matlab, git gui, ...), and so far no workaround works well with EiffelStudio. 
+
+Let us hope that XQuartz fixes this issue in a future version update.
+
+Note: there is no such issue when using the interface via a remote application such as NoMachine.
+
+===A dirty but acceptable workaround: CSS ===
+
+Using `~/.config/gtk-3.0/gtk.css`  to use colors that would make EiffelStudio reading in "normal" mode, and in "black background annoyance" mode.
+
+For that, put the following text inside  `~/.config/gtk-3.0/gtk.css`
+
+```css
+.background { background-color: #cccccc; color: white }
+widget, box, text, label { background-color: #cccccc; color: white }
+.titlebar { background-color: #ff0000 }
+window, menuitem { background-color: #cccccc; color: white }
+menuitem:hover { background-color: white; color: #cccccc }
+```
+
+= C code consideration =
+On macosx, ```clang``` is the default C compiler.
+A few clang compiler optimizations were causing issues for Eiffel project, and the ARM architecture is less human friendly as x86. 
+
+As a consequence, the Eiffel generated C code was modified to avoid compilation optimization to be applied wrongly. 
+
+It was also the opportunity to improve part of the C code (mostly in the Eiffel runtime), to avoid ambiguous case between various C compilers (MS cl, GCC, CLANG, ...).
+
+== As a quick summary:==
+
+- if you write C code with Eiffel (i.e external C feature), be aware that clang may move local variable to registers as an optimization, so the C code compares the result of 2 C functions that may call the Eiffel GC (i.e manipulating Eiffel object), it is safer to store the result of the C functions in local C variables, and then compare the local variables.
+
+- When using C function pointer (declared with a typedef with `...` as last argument), the caller code should always use adapted ```function cast``` that declares all arguments, otherwise clang may consider the C function signature uses ```va_args``` (but this is not always the case), and the argument values will not be pushed to the stack as expected.

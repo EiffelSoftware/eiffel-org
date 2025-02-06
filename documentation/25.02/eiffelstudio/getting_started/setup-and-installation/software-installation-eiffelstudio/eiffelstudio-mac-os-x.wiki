@@ -1,0 +1,141 @@
+[[Property:modification_date|Mon, 24 Jun 2024 17:30:34 GMT]]
+[[Property:publication_date|Sat, 11 Dec 2021 21:57:25 GMT]]
+[[Property:title|Mac OS X]]
+[[Property:weight|5]]
+[[Property:uuid|7cf4e0e5-0858-58bb-351e-52becea59ede]]
+==Requirements==
+
+{| class="doctable"
+|- 
+| '''Computer/Processor'''
+| x86-64 or ARM
+|- 
+| '''Operating System'''
+| Mac OS X 10.12 or above
+|- 
+| '''C compiler'''
+| Xcode 8.2 or greater
+|- 
+| '''Memory'''
+| 4GB of RAM
+|- 
+| '''Hard Disk'''
+| 1GB of free space
+|- 
+| '''ISE_PLATFORM'''
+| '''macosx-x86''' for x86 based CPU,  '''macosx-x86-64''' for x64 based CPU and '''macosx-armv6''' for ARM based CPU. 
+|}
+
+
+==Prerequisites==
+
+*You will need to install '''Xcode''' from the App Store.After installing Xcode, make sure to install the command line tools by going to the Xcode preferences and under '''Downloads''' install the '''Command Line Tools''' components.
+
+*You also need to install X11 from  [http://xquartz.macosforge.org http://xquartz.macosforge.org].
+
+==Installing required dependencies of EiffeStudio==
+
+MacPorts is a tool that allows you to use many Unix applications on the Mac. Before we can proceed with the installation of EiffelStudio, we need to install the required dependencies of EiffeStudio. First, install [http://guide.macports.org/#installing MacPorts].
+
+
+==Installing  EiffeStudio using MacPorts==
+Since we already install MacPorts, now simply type (from a bash [http://guides.macrumors.com/Terminal terminal]):
+<pre>
+sudo port install eiffelstudio
+</pre>
+
+
+==Installing EiffelStudio manually==
+An alternative option is to install each dependency by hand using macPorts.
+<pre>
+sudo port install pkgconfig
+sudo port install bzip2
+sudo port install xorg-libXtst
+sudo port install gtk3                              
+
+</pre>
+
+New required dependency for GTK3
+<pre>
+sudo port install adwaita-icon-theme
+</pre>
+
+==Installing EiffelStudio from a compressed package==
+This section only applies if you have installed all the required prerequisites. 
+
+After downloading the compressed package, you should manually extract its contents to your hard drive. For example, you can extract it into /usr/local using the following commands (assuming that you have permission to /usr/local and that the installation package was saved in /tmp/Eiffel_X.Y.tar.bz2, where X.Y stands for the EiffelStudio version):
+<code>
+cd /usr/local
+tar xvfj /tmp/Eiffel_X.Y.tar.bz2</code>
+
+This will install EiffelStudio files into `/usr/local/Eiffel_X.Y` . Once this is done, jump to the [[#Setting up EiffelStudio|Setting up EiffelStudio]]  section in order to complete the installation of EiffelStudio.
+
+==  Setting up EiffelStudio ==
+Once the files have been installed, you should define the following environment variables in order to run EiffelStudio:
+* ISE_EIFFEL to `/usr/local/Eiffel_X.Y`
+* ISE_PLATFORM to `macosx-x86` for the 32 bits version or `macosx-x86-64` for the 64 bits version or `macosx-armv6` for the ARM version. We will be using `macosx-x86-64` in the examples below.
+and add `$ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin` to your PATH environment variable.
+
+Using sh or bash as a shell, it suffices to type the following commands:
+```shell
+export ISE_EIFFEL=/usr/local/Eiffel_X.Y
+export ISE_PLATFORM=macosx-x86-64
+export PATH=$PATH:$ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin
+```
+
+=== Persisting Environment Variables ===
+Se them up in the .bash_profile file  once for good, so you don't need to set them up each time.
+```
+1. Open the profile file into a text editor
+2. Add the export command for every environment variable
+3. Save your changes.
+```
+To immediately apply all changes to .bash_profile, use the source command. 
+```
+source ~/.bash_profile
+```
+== Starting EiffelStudio ==
+
+Now everything should be properly installed and you should be able to run the compiler. Simply navigate to `/usr/local/Eiffel_X.Y` and double click the EiffelStudio icon.
+
+Alternatively, you can also start EiffelStudio from the command line by entering the command '''estudio''' or use the command-line eiffel compiler '''ec'''.
+
+If you are a new user to EiffelStudio, we recommend that you follow [[Introducing EiffelStudio|the EiffelStudio guided tour]].
+
+<span id="registering"></span> 
+==Registering the Enterprise Edition==
+
+This step assumes you have followed the instructions in the [[#Setting up EiffelStudio|Setting up EiffelStudio]]  section. Perform the following commands to start the registration process:
+<code>cd $ISE_EIFFEL
+./register</code>
+
+A dialog asking for your '''Username''' and '''CD Key''' should appear as it does below:
+
+<center> [[Image:56--unix-setup|Setup dialog]] </center>
+
+Enter the information located inside the box that contains your copy of the EiffelStudio Enterprise Edition. Once the information is correct, the '''Register''' button will be enabled. Click '''Register''' to actually register EiffelStudio.
+
+The first time you launch EiffelStudio, you will be asked for an activation key through the following dialog:
+
+<center> [[Image:56--unix-registration|Registration dialog]] </center>
+
+By clicking on the [http://activate.eiffel.com http://activate.eiffel.com]  URL, a new web browser will appear with the requested fields automatically filled in with the appropriate information. Simply click '''Activate''' and a new page with an activation code will appear. Copy and paste the activation code in the first field and the '''Activate''' button should be enabled to let you activate your copy.
+
+You can activate your copy up to three times. Once you have reached this threshold and need to reinstall your copy, contact Eiffel Software to request one more activation.
+
+If no web browser appears, it is most likely because firefox is not installed on your machine or is not in your path. Instead you should manually launch a new web browser, go to the page [http://activate.eiffel.com http://activate.eiffel.com] , and enter the information manually. Then follow the above instructions as if the browser had been properly launched.
+
+You may receive the following dialog when launching EiffelStudio:
+
+<center> [[Image:56--unix-registration-error|Registration incomplete]] </center>
+
+This probably means that the '''register''' program was not launched or did not succeed in storing data to the following file $'''ISE_EIFFEL'''/install/limand/.ec_license. To solve this, rerun the '''register''' program with a user account that has permissions to write at $'''ISE_EIFFEL'''/install/limand and enter your '''Username''' and '''CD Key'''.
+
+Once this is done, you can jump to the next section, [[#Using EiffelStudio|Using EiffelStudio]] .
+<span id="using"></span> 
+
+See the following video demonstrating how to activate EiffelStudio:
+* [https://www.youtube.com/watch?v=kjS3PQfe_Ig Activating EiffelStudio]
+
+
+

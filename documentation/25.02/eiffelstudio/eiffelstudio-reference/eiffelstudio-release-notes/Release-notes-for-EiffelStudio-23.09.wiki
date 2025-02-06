@@ -1,0 +1,31 @@
+[[Property:modification_date|Fri, 06 Oct 2023 15:12:07 GMT]]
+[[Property:publication_date|Tue, 26 Sep 2023 14:40:08 GMT]]
+[[Property:uuid|7D788D2D-73A3-4C2E-8E58-E7A5FB60A618]]
+[[Property:title|Release notes for EiffelStudio 23.09]]
+[[Property:link_title|23.09]]
+[[Property:weight|-9]]
+
+==Compiler==
+* The major improvement with this version of EiffelStudio is the new compilation support for the '''.NETCore (net6.0, net7.0, ...)''' to '''Windows and unices (Linux, ...)'''. And only on Windows, the support for the  .NET framework (v4.0). There are a few limitations that should be addressed in the next releases. Please check the documentation for details [https://www.eiffel.org/doc/version/23.09/uuid/fe8a6a7d-4590-0db2-d59a-307082b18ecc Eiffel for .NET].
+
+* EiffelStudio for .NET makes it possible to develop applications that will deploy and run unchanged on a broad range of platforms, from desktops to Web-based applications on one side, and mobile platforms on the other.
+
+==Graphical environment==
+* The execution output panel (debugger) has additional information such as the modified environment variables, and the timestamp for launched/stopped/quit events.
+* Added "Toggle comment" to comment/uncomment the current line/selection using the standard Ctrl+/ shortcut.
+* Improved the impact of the Zoom factor on EiffelStudio tools.
+* Added a few preferences on the editor and on the tools that make it possible to customize EiffelStudio to have almost a dark mode.
+
+===Libraries===
+* Fixed issues related to the usage of IMMUTABLE strings in EiffelBase.
+* Fixed issues on LINEAR_SUBSET, TRAVERSABLE_SUBSET and SUBSET_STRATEGY_GENERIC in EiffelBase.
+* Made EiffelBase classes immune to default string/character size.
+* Gobo Libraries were updated to latest version.
+
+===Warnings===
+* SCOOP is currently not supported by Eiffel .NET
+* For non Windows users, the Eiffel compiler is expecting the "dotnet" executable to be located inside "/usr/lib/dotnet" (a simple workaround is the create a symbolic link).
+* For Macos users on M1/M2 (arm) architecture, please read the specific [[Release notes for EiffelStudio 22.12 - macosx|notes about macosx]]
+----
+
+See [https://dev.eiffel.com/EiffelStudio_23.09_Releases change log] for more details.

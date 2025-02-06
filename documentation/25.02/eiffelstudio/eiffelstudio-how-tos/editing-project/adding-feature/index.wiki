@@ -1,0 +1,5 @@
+[[Property:title|Adding a feature]]
+[[Property:weight|3]]
+[[Property:uuid|c65b3fd0-05fb-9b16-79b9-d4207bf42769]]
+To add a feature to a class, you can directly edit its text of course. EiffelStudio offers you other ways to do so. A dialog window has been designed to help you to add features. Once you make it appear, the [[Opening the new feature dialog|new feature dialog]]  allows you to choose what kind of feature you want to create and to set most of its characteristics. The process of creating the new feature is different if it is a [[Adding a procedure|procedure]] , a [[Adding a function|function]]  or an [[Adding an attribute|attribute]] . 
+

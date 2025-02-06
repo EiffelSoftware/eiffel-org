@@ -1,0 +1,72 @@
+[[Property:modification_date|Mon, 23 Jan 2023 09:00:46 GMT]]
+[[Property:publication_date|Mon, 23 Jan 2023 09:00:46 GMT]]
+[[Property:title|I2E: Inheritance]]
+[[Property:weight|-5]]
+[[Property:uuid|acf84989-0e7c-f2f7-427a-19e7fce404ce]]
+Inheritance, the other fundamental generalization mechanism, makes it possible to define a new class by combination and specialization of existing classes rather than from scratch. 
+
+The following simple example, from the Data Structure Library in EiffelBase, is typical. <code>LIST</code>, as noted, describes lists in any representation. One such representation if the lists have a fixed number of elements uses an array. We may define the corresponding class by combination of <code>LIST</code> and <code>ARRAY</code>, as follows: 
+<code>
+class ARRAYED_LIST [G]
+    inherit
+        LIST [G]
+        ARRAY [G]
+            export ... See below ... end
+
+feature
+    ... Specific features of fixed-size lists ...
+
+end -- ARRAYED_LIST
+</code>
+
+The <code>inherit</code> ... clause lists all the "parents" of the new class, which is said to be their "heir". (The "ancestors" of a class include the class itself, its parents, grandparents etc.; the reverse term is "descendant".) Declaring <code>ARRAYED_LIST</code> as shown ensures that all the features and properties of lists and arrays are applicable to arrayed lists as well. Since the class has more than one parent, this is a case of multiple inheritance. 
+
+Standard graphical conventions -- drawn from the Business Object Notation or BON, a graphical object-oriented notation based on concepts close to those of Eiffel, and directly supported by EiffelStudio -- illustrate such inheritance structures:
+
+
+[[Image:invitation-4]]  
+
+
+An heir class such as <code>ARRAYED_LIST</code> needs the ability to define its own export policy. By default, inherited features keep their export status (publicly available, secret, available to selected classes only); but this may be changed in the heir. Here, for example, <code>ARRAYED_LIST</code> will export only the exported features of <code>LIST</code>, making those of <code>ARRAY</code> unavailable directly to <code>ARRAYED_LIST</code> 's clients. The syntax to achieve this is straightforward: 
+<code>
+class ARRAYED_LIST [G]
+    inherit
+        LIST [G]
+        ARRAY [G]
+            export {NONE} all end
+
+    ... The rest as above ...
+</code>
+
+Another example of multiple inheritance comes from a windowing system based on a class <code>WINDOW</code>, close to actual classes in EiffelVision 2. Windows have '''graphical''' features: a height, a width, a position, routines to scale windows, move them, and other graphical operations. The system permits windows to be nested, so that a window also has '''hierarchical''' features: access to sub windows and the parent window, adding a sub window, deleting a sub window, attaching to another parent and so on. Rather than writing complex class that would contain specific implementations for all of these features, it is preferable to inherit all hierarchical features from <code>TREE</code> (a class in EiffelBase describing trees), and all graphical features from a class <code>RECTANGLE</code>. 
+
+Inheritance complements the "client" relation by providing another form of reuse that yields remarkable economies of effort -- for analysis, design, implementation, evolution -- and has a profound effect on the entire software development process. 
+
+The very power of inheritance demands adequate means to keep it under control. Multiple inheritance, in particular, raises the question of name conflicts between features inherited from different parents; this case will inevitably arise in practice, especially for classes contributed by independent developers. You may remove such a name conflict through '''renaming''', as in 
+<code>
+class C
+    inherit
+        A
+            rename
+                x as x1,
+                y as y1
+            end
+
+        B
+            rename
+                x as x2,
+                y as y2
+            end
+
+feature ...
+</code>
+
+Here, if both <code>A</code> and <code>B</code> have features named <code>x</code> and <code>y</code>, class <code>C</code> would be invalid without the renaming. 
+
+Renaming also serves to provide more appropriate feature names in descendants. For example, class <code>WINDOW</code> may inherit a routine <code>insert_subtree</code> from <code>TREE</code>. For clients of <code>WINDOW</code>, however, such a routine name is no longer appropriate. An application that uses this class needs coherent window terminology, and should have to concern itself with the inheritance structure that led to the class. So you may wish to rename <code>insert_subtree</code> as <code>add_subwindow</code> in the inheritance clause of <code>WINDOW</code>. 
+
+As a further protection against misusing multiple inheritance, the invariants of all parent classes automatically apply to a newly defined class. So classes may not be combined if their invariants are incompatible. 
+
+
+
+

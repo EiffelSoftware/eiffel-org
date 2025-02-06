@@ -1,0 +1,109 @@
+[[Property:title|SCOOP implementation]]
+[[Property:weight|9]]
+[[Property:uuid|eeb07907-e036-f3d6-5297-a7c44cfd1900]]
+
+
+The implementation of SCOOP is the result of many years of design and refinement of the model. This page describes specific properties of its current state, in particular ways in which it differs from some of the earlier publications about the model. 
+
+
+=Known limitations=
+
+
+==Supported concurrency mechanisms==
+
+At the core of the SCOOP model lies the notion of  [[Concurrent programming with SCOOP#Processors|processor]]:  a mechanism that can execute instructions sequentially. As a general model covering many forms of concurrency, SCOOP allows many possible implementations of this concept. In the EiffelStudio implementation, processors are implemented as <em>threads</em> of the operating system.
+
+
+==Maximum number of SCOOP processors==
+
+The maximum number of SCOOP processors per system is currently 1024.
+
+
+
+==Agents targeted to objects of separate types==
+
+Agents targeted on separate objects are currently not supported.
+
+
+=Workarounds=
+
+The first implementation of SCOOP, some things that we do commonly in sequential Eiffel become less fluid in the presence of SCOOP. Although not strictly limitations in the implementation of SCOOP principles, in order to make SCOOP programming easier, these are areas that should be improved in future releases. In the meantime, there are workarounds for some of these situations.
+
+
+==Printing a separate STRING ==
+
+Suppose you have declared a class attribute of type <code>separate STRING</code>:
+
+<code>
+    my_separate_string: separate STRING = "Hello Eiffel World!"
+</code>
+
+and you want to output that string using <code>io.put_string</code>. The solution you might use from sequential Eiffel would be:
+
+<code>
+            io.put_string (my_separate_string)
+</code>
+
+But the statement above results in a compile error because the argument type (<code>separate STRING</code>) is not compatible with the type (<code>STRING</code>) that <code>put_string</code> is expecting.
+
+In order to make printing of the content of separate instances of <code>STRING</code>, a creation procedure, <code>make_from_separate</code>, is available in the string classes which allows initialization of a non-separate instance of <code>STRING</code> from a separate <code>STRING</code>.  
+
+So, to print <code>my_separate_string</code>, you could create a non-separate instance of <code>STRING</code>, then print the non-separate instance, as shown below.
+
+<code>
+    local
+        l_temp: STRING
+                ...
+            create l_temp.make_from_separate (my_separate_string)
+            io.put_string (l_temp)
+</code>
+
+Or use a creation expression and avoid declaring the local variable:
+
+<code>
+            io.put_string (create {STRING}.make_from_separate (my_separate_string))
+</code>
+
+== Calling a separate agent ==
+
+Calling a separate agent is a bit tricky, especially if it's a <code>PROCEDURE</code> which should be executed asynchronously.
+If the agent does not take any arguments, you must pass Void, otherwise the compiler will generate an empty <code>TUPLE</code> which
+is on the same processor as the caller and thus triggers lock passing (see [[Asynchronous Calls]]):
+
+<code>
+do_call (proc: separate PROCEDURE [TUPLE])
+	do
+		proc.call (Void)	
+	end
+</code>
+
+If the agent does take arguments, things get a bit more tricky. If the call must be asynchronous, you have to do a workaround with the feature <code>{ROUTINE}.empty_operands</code> like this:
+
+<code>
+do_call (a_procedure: separate PROCEDURE [TUPLE[separate STRING]]; a_string: separate STRING)
+	local
+		l_tuple: separate TUPLE [separate STRING]
+	do
+		l_tuple := a_procedure.empty_operands
+		set_tuple_string (l_tuple, a_string)
+		a_procedure.call (l_tuple)
+	end
+
+set_tuple_string (a_tuple: separate TUPLE [str: separate STRING]; a_string: separate STRING)
+	do
+		a_tuple.str := a_string
+	end
+</code>
+
+
+=Implementation dependent behavior=
+
+
+==The Wait Rule==
+
+{{note | This only applies to EiffelStudio releases prior to 15.01}}
+
+The [[Concurrent programming with SCOOP#Access to shared resources|Wait Rule]] says: ''A routine call with separate arguments will execute when all corresponding processors are available and hold them exclusively for the duration of the routine.''
+
+In the EiffelStudio implementation prior to 15.01, a routine will not necessarily wait for all processors associated with its separate arguments to be available before it ''begins'' execution. The waiting on processors occurs in a "lazy" manner. Execution will only wait on the availability of one of the processors when it actually needs to use the argument associated with that processor. This means that if there are several instructions ahead of the first instruction that references a separate argument, then those several instructions will be executed immediately. Only at the point at which the separate argument's processor is needed will the routine pause and wait for the availability of the processor.
+

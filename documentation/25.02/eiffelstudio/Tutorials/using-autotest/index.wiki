@@ -1,0 +1,32 @@
+[[Property:modification_date|Tue, 25 Aug 2020 21:32:56 GMT]]
+[[Property:publication_date|Tue, 25 Aug 2020 21:32:56 GMT]]
+[[Property:title|Using AutoTest]]
+[[Property:weight|-1]]
+[[Property:uuid|6b900a65-85c6-9cd6-ef57-ccd4b8decbef]]
+{{note|The following few pages contain the AutoTest tutorial. This tutorial uses a different software example than the bulk of the EiffelStudio Guided Tour. If this is your first time through, you may want to delay the AutoTest tutorial until you have completed the rest of the Guided Tour, then come back to it when you're feeling more familiar with EiffelStudio.}}
+
+
+{{note| '''To users of V6.6 and later:''' As of V6.6, the New Eiffel test wizard panes have changed somewhat from this documentation. V6.6 introduces the ability to store certain preferred values for creating tests. The advantage is that one need not enter this information on wizard panes each time a test is created. Because preferred values can be stored, the panes containing the values more likely to change between test creations are presented earlier than other panes. In previous versions, these panes were presented later, as shown in this documentation. The documentation will be updated in the future to reflect the newer wizard sequences and pane layouts. }}
+
+
+==Introduction==
+
+AutoTest is a tool that helps you to create, manage, and run tests against your software. AutoTest is accessible directly as a part of EiffelStudio, but works to a large extent behind the scenes so that it doesn't get in the way of your development activities. In other words, even though you may be accumulating a substantial collection of test software along with your project software, you can still run and deliver your project software without going to a lot of trouble to separate the two. Tests managed by AutoTest stay handy and can be run any time to help make sure everything always stands up to the scrutiny of testing. 
+
+This tutorial will guide you through the use of AutoTest. A [[AutoTest|reference section]] for AutoTest is also available.
+
+
+{{Recommended|At least on your first viewing of this tutorial, take the sections in the order in which they are presented. There are three different types of tests supported by AutoTest. Each type of test is discussed on its own page. But to avoid repetition, the pages for the second and third types of tests omit some of the detail in the first and assume a familiarity with the example.  }}
+
+
+{{Caution|<br/> 1) At this time, AutoTest will work '''only''' for project targets in the '''classic Eiffel''' environment. This means that projects targeted to Microsoft .NET will not be able to use AutoTest.<br/> 2) Currently, the use of AutoTest should be '''restricted to projects built without void-safe settings'''.}}
+
+
+
+
+
+{{SeeAlso|<br />[[AutoTest]] reference }} 
+
+
+
+

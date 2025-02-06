@@ -1,0 +1,45 @@
+[[Property:title|eSplitter]]
+[[Property:weight|0]]
+[[Property:uuid|2cf7249c-fd1e-b8e0-08ab-c2995b2b8227]]
+This tool comes in two flavors: a command line only utility ''esplit.exe'' and a graphical tool ''esplitter.exe''. Both applications achieve the same goal: to produce standard Eiffel source files ('''.e''' files) from Eiffel CodeDom Provider generated source files ('''.es''' files). 
+==Command Line Utility (esplit.exe)==
+This utility is located in the ''Codedom\bin'' subfolder of the Eiffel for ASP.NET directory. The command line syntax is: 
+<code>
+Usage: esplit -f=FOLDER [-s -d=DESTINATION -v -h -m=REGEXP -n]
+  -d, --destination=DESTINATION
+       Folder where generated Eiffel class files should be created.
+	   If not specified, creates Eiffel class files in same folder as
+       corresponding Eiffel multi-class file.
+  -f, --folder=FOLDER
+       Folder containing Eiffel multi-class files.
+  -h, --help
+       Help on using this program.
+  -m, --match=REGEXP
+       Regular expression that file name must match to be processed, by default matches all files with extension '.es'.
+  -n, --nologo
+       Do not display copyright notice.
+  -s, --subfolders
+       Also process files in subfolders.
+  -v, --version
+       Version information.</code>
+So running: 
+<code>
+esplit -f .</code>
+will generate Eiffel source files from all the files with extension '.es' in the current folder and running: 
+<code>
+esplit -f "source" -m "C.*\.es" -d "destination" -s</code>
+will generate Eiffel source files from all the files with extension '.es' and whose filename starts with a 'C' located in the 'source' folder and all its subfolders. The Eiffel source files will be generated in the 'destination' folder. 
+==Graphical Utility (esplitter.exe)==
+The graphical utility includes two panes. The first pane allows setting different parameters: 
+*  '''Folder containing Eiffel multi-class file(s)''': this field gives the path to the folder which contains the files to be processed. The button to the right of the field allows to browse for the folder. This field corresponds to the '-f' parameter of the command line utility. 
+*  '''Only process files whose filename matches the following regular expression''': this field corresponds to the '-m' parameter of the command line utility. 
+*  '''Also process files in subfolder''': if this check box is checked then the utility will search for files whose filenames match the regular expression in the destination folder as well as in its subfolders. This check box corresponds to the '-s' switch of the command line utility. 
+*  '''Generate Eiffel class files in the same folder as the Eiffel multi-class files''': checking this radio button is equivalent to not providing a '-d' parameter to the command line utility. 
+*  '''Generate Eiffel class files in the following folder''': The content of the field below this radio button corresponds to the '-d' parameter of the command line utility. 
+Clicking on the '''Generate''' button switches to the output pane and starts the Eiffel class file generation. The output pane contains the text output resulting from the execution of the tool. It also contains two buttons: 
+*  '''Open Folder''': clicking on this button will open Windows Explorer in the folder where the Eiffel source files were generated. 
+*  '''Exit''': clicking this button will close the application. 
+
+
+
+

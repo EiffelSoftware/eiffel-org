@@ -1,0 +1,29 @@
+[[Property:modification_date|Tue, 23 Jun 2020 07:13:21 GMT]]
+[[Property:publication_date|Tue, 23 Jun 2020 07:13:21 GMT]]
+[[Property:title|Expression evaluation]]
+[[Property:weight|-10]]
+[[Property:uuid|e55442ac-7861-1995-d315-baeed6c49223]]
+[[Image:expression-evaluation-tool]]  
+
+The Expression evaluation tool (sometimes called the Watch tool) makes it possible to evaluate expressions while the application is stopped in the debugger. A typical use for it is the case in which you would like to know the result that an external feature would return. Since you do not have access to the C memory of the application, doing this would be impossible without the Expression evaluation tool. You might also want to know the result of an Eiffel feature whose body is too complex for you to evaluate.
+
+In these cases (and any other that suits you), you should use the dynamic expression evaluation. Simply [[New expression dialog|define the expression]] and its result will be immediately available in the [[Evaluation tool or Watch tool|list of expressions]] . 
+
+If you keep the mouse cursor over the expression cell of line, you get a tooltip describing the expression result. 
+
+You can disable the evaluation of the selected expression by clicking on  [[Image:general-toogle-icon]]  . After you do, the context value will display 'disabled'. 
+
+If the expression has an error, or if the evaluation raised an exception, you can obtain a more detailed description by double-clicking on the expression row. 
+
+
+{{caution|During the evaluation of an expression, all features that are necessary to obtain the result are called. Therefore, you should avoid calling queries that have side-effects, since doing so may alter the program execution. The Eiffel methodology recommends against creating queries with side-effects for other important reasons, as well. }}
+
+{{caution|Eiffel ''agents'' (for example: <code>agent my_function</code>) is not supported. }}
+
+{{caution|The evaluation ignores void-safety checking, a side effect is that expression <code>{FOO}</code> is interpreted as <code>{detachable FOO}</code> even if your application is void-safe. Thus keep this in mind when your expression implies <code>TYPE</code> objects. }}
+
+
+{{caution|Currently, for classic Eiffel systems, evaluating <code>Precursor</code> will result the current feature's result (not the precursor). }}
+
+
+
