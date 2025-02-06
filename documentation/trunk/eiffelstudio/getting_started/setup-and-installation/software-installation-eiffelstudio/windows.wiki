@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 02 Jul 2019 11:08:53 GMT]]
+[[Property:modification_date|Fri, 08 Mar 2024 09:26:49 GMT]]
 [[Property:publication_date|Tue, 02 Jul 2019 10:53:22 GMT]]
 [[Property:title|Windows]]
 [[Property:weight|9]]
@@ -50,6 +50,9 @@ You may receive the following dialog when launching EiffelStudio:
 <center> [[Image:56--windows-registration-error|Registration incomplete]] </center>
 
 This probably means that EiffelStudio was not properly installed using the '''setup.exe''' program. Uninstall EiffelStudio and rerun the installation procedure by making sure to launch '''setup.exe''' and enter your '''Username''' and '''CD Key'''.
+
+See the following video demonstrating how to activate EiffelStudio:
+* [https://www.youtube.com/watch?v=TMktPk_9Hok Activating EiffelStudio on Windows]
 
 == Installing EiffelStudio from the .7z archive ==
 Installing the GPL version using the 7z archive is an alternative, even if the recommended solution remains using the MSI installer.

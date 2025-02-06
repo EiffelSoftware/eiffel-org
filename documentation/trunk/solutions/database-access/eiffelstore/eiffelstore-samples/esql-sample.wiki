@@ -1,3 +1,5 @@
+[[Property:modification_date|Thu, 04 Jan 2024 11:07:42 GMT]]
+[[Property:publication_date|Thu, 04 Jan 2024 11:07:42 GMT]]
 [[Property:title|Esql Sample]]
 [[Property:weight|0]]
 [[Property:uuid|04d03117-fdb2-8b73-677f-9b1a0c333dc4]]
@@ -36,7 +38,7 @@ Name: smith@HANDSON
 Password: mypass
 					</code>
 
-{{note|You must specify the Oracle User Name and Net Service Name with the syntax ''<user>@<service> ''where ''<user>'' stands for the User Name and ''<service>'' stands for the Net Service Name. }}
+{{note|You must specify the Oracle User Name and Net Service Name with the syntax `<user>@<service>` where `<user>` stands for the User Name and `<service>` stands for the Net Service Name. }}
 
 
 Then you can enter standard SQL queries to interact with your database, for instance: 

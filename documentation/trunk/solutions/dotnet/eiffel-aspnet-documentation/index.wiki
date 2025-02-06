@@ -1,6 +1,11 @@
+[[Property:modification_date|Fri, 29 Sep 2023 11:57:59 GMT]]
+[[Property:publication_date|Fri, 29 Sep 2023 11:57:59 GMT]]
 [[Property:title|Eiffel for ASP.NET Documentation]]
 [[Property:weight|6]]
 [[Property:uuid|158e298e-e4b3-3246-651c-557f2f630957]]
+
+{{Caution|This section concerns only Eiffel .NET Framework, and not .NETCore}}
+
 CodeDom is a Microsoft .NET technology which allows representing source code programatically so that it may be rendered in different languages. The Eiffel CodeDom Provider is installed through Eiffel for ASP.NET which is available for download for free on the Eiffel Software web site ( [http://www.eiffel.com http://www.eiffel.com] ). <br/>
 The following documents cover different aspects of the Eiffel CodeDom Provider: 
 *  [[Writing ASP.NET pages in Eiffel|Writing ASP.NET pages in Eiffel]]  covers topics related to writing Eiffel pages in ASP.NET. 

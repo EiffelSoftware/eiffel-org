@@ -1,3 +1,5 @@
+[[Property:modification_date|Mon, 27 May 2024 08:42:15 GMT]]
+[[Property:publication_date|Mon, 27 May 2024 08:42:15 GMT]]
 [[Property:title|EiffelBase, Tables]]
 [[Property:weight|5]]
 [[Property:uuid|194a63a2-e440-18dc-c9d5-6959dbe169fb]]
@@ -8,7 +10,9 @@ The idea behind hash tables is to try to emulate the data structure that provide
 <code>
             a.put (x, i)
             x := a.item (i)
-            x := a @ i </code>
+
+            a [i] := x
+            x := a [i] </code>
 
 The first causes the value of a at index <eiffel>i</eiffel> to be <eiffel>x</eiffel>; the second (and the third, which is simply a syntactical variant) access the value at index <eiffel>i</eiffel> and assign it to <eiffel>x</eiffel>. With the usual computer architectures, these operations are very fast: because arrays items are stored contiguously in memory, a computer will need just one addition (base address plus index) and one memory access to perform a put or item. <br/>
 Not only are the operation times small; they are constant (or more precisely bounded by a constant). This is a great advantage over structures such as lists or trees which you must traverse at least in part to retrieve an item, so that access and modification times grow with the number of items. With an array, disregarding the influence of other factors such as memory paging, the time for a put or item is for all practical purposes the same whether the array has five items or five hundred thousand. These properties make arrays excellent data structures for keeping objects. Unfortunately, they are only applicable if the objects satisfy three requirements: 
@@ -54,6 +58,10 @@ The value of <eiffel>n</eiffel> indicates how many items the hash table is expec
 * If the number of items in the table grows beyond the initial allocation, the table will automatically be resized.
 
 It is useful, however, to use a reasonable upon creation: not too large to avoid wasting space, but not too small to avoid frequent applications of resizing, an expensive operation.
+
+==Specific case of STRING_TABLE==
+Hash tables, used to store items identified by string keys that are compared with or without case sensitivity.
+
 
 
 

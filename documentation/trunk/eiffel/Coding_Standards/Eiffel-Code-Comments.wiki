@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 13 Dec 2021 12:42:51 GMT]]
+[[Property:modification_date|Thu, 27 Jun 2024 10:45:27 GMT]]
 [[Property:publication_date|Thu, 03 Jan 2019 18:00:43 GMT]]
 [[Property:uuid|146E241E-C367-4F16-9CCE-6F11E5F7860A]]
 [[Property:weight|1]]
@@ -145,11 +145,12 @@ f (a_arg: INTEGER): BOOLEAN
 
 This will have exactly the same effect as using <e>-- <Precursor></e> when <e>f</e> is made effective/redefined from a single parent. However, when making effective/redefining from multiple parents, then comments will come from the parent class declaration in <e>BASE</e>.
 
-Again, because precursor comments do not affect compilation, they are not checked at compile time. Specifying an incorrect class will yield a warning message in [[EiffelStudio]]'s code browsing tools, to the effect:
+Again, because precursor comments do not affect compilation, they are not checked at compile time. Specifying an incorrect class will yield a warning message in [/doc/eiffelstudio/EiffelStudio EiffelStudio]'s code browsing tools, to the effect:
 
 <e>
 -- Unable to retrieve the comments from redefinition of {CLASS_NAME}.
 </e>
 
 === Library Documentation Generation ===
-Precursor comments are supported in all code browsing/documentation facilities, whether it be the integrated [[Contract Viewer]], the [[Feature Relation Tool]] or the Eiffel documentation generation facilities. Using <e>-- <Precursor></e> will ensure the comments are brought up from a parent declaration.
+Precursor comments are supported in all code browsing/documentation facilities, whether it be the integrated [/doc/eiffelstudio/Contract_Editor_tool Contract Viewer
+], the [https://www.eiffel.org/doc/eiffelstudio/Feature_views Feature Relation Tool] or the Eiffel documentation generation facilities. Using <e>-- <Precursor></e> will ensure the comments are brought up from a parent declaration.
