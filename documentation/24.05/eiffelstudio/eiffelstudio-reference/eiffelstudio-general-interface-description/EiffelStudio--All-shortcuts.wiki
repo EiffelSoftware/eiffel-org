@@ -1,0 +1,22 @@
+[[Property:modification_date|Tue, 11 Jun 2024 18:48:11 GMT]]
+[[Property:publication_date|Tue, 11 Jun 2024 18:12:41 GMT]]
+[[Property:uuid|646ACD13-254C-4873-9070-864B6CAC39CE]]
+[[Property:weight|0]]
+[[Property:link_title|EiffelStudio: All shortcuts]]
+[[Property:title|EiffelStudio: All shortcuts]]
+
+Numerous tasks in EiffelStudio can be accomplished solely using the keyboard, without relying on mouse input
+
+This page will show you how to find all the keyboard shortcuts available  in the environment .
+
+
+== Find all Shortcuts ==
+
+From the main menu select  "Tools" -> "Preferences..."
+
+<center> [[Image:tool-preferences]] </center>
+
+
+Now in the preference windows filter by "SHORTCUT", and you will see all the keyword shortcuts available.
+
+<center> [[Image:preference-all-shortcuts | 800px]]  </center>
