@@ -1,4 +1,4 @@
-[[Property:modification_date|Fri, 08 Mar 2024 09:26:49 GMT]]
+[[Property:modification_date|Fri, 07 Feb 2025 08:59:42 GMT]]
 [[Property:publication_date|Tue, 02 Jul 2019 10:53:22 GMT]]
 [[Property:title|Windows]]
 [[Property:weight|9]]
@@ -80,6 +80,9 @@ set PATH=%ISE_EIFFEL%\studio\spec\%ISE_PLATFORM%\bin;%ISE_EIFFEL%\tools\spec\%IS
 ==.NET Support==
 
 To enable .NET support in EiffelStudio, it is necessary to install the Microsoft .NET Framework prior to starting the installation of EiffelStudio. EiffelStudio currently supports all the versions of the .NET Framework up to 4.0.
+
+==Installing C compiler==
+EiffelStudio comes with the MingW gcc compiler, however you may want to use Microsoft C compiler, please visit [https://dev.eiffel.com/Installing_Microsoft_C_compiler]
 
 ==What about Windows 95, 98 and Me?==
 
