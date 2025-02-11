@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 11 Feb 2025 16:43:39 GMT]]
+[[Property:modification_date|Tue, 11 Feb 2025 16:46:03 GMT]]
 [[Property:publication_date|Tue, 11 Feb 2025 16:43:39 GMT]]
 [[Property:uuid|4D6AB14B-0FDF-4150-8368-4D5051223C59]]
 [[Property:title|Release notes for EiffelStudio 25.02]]
@@ -21,6 +21,7 @@
 ===Improvements===
 * The Diagram tool View files are now stored in the new EIFDATA directory within the project location, rather than in the EIFGENs directory. This change centralizes EiffelStudio data that is not session-dependent and can be included in source code repositories.
 * The diagram tool has been updated with bug fixes, usability improvements, and a refreshed interface.
+* Various bug fixes and enhancements especially on the Execution parameters dialog, the diagram tool, the dependency tool, the Source control tool, and AutoTest tool.
 
 ===Libraries===
 * New libraries to use MongoDB and MariaDB databases.
