@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 24 Dec 2018 08:49:05 GMT]]
+[[Property:modification_date|Tue, 11 Mar 2025 10:53:22 GMT]]
 [[Property:publication_date|Mon, 24 Dec 2018 08:45:22 GMT]]
 [[Property:title|EiffelStudio: Using command line options]]
 [[Property:link_title|Using command line options]]
@@ -22,83 +22,81 @@ The usage and options display gives you information about which options are vali
 Usage and options of the command line compiler vary from version to version in order to accommodate new and changed features. Here is an example of the command line help from the latest version of EiffelStudio:
 
 <code lang="none">
-ISE EiffelStudio version 18.11.10.2549 GPL Edition - win64
+ISE EiffelStudio version 25.02.9.8732 - win64
 
 Usage:
-	ec [-help | [-compat | -experiment] | -version | -full
-	-batch | -clean | -verbose | -use_settings |
-	-freeze | -finalize [-keep] | -precompile [-finalize [-keep]] | -c_compile |
-	-loop | -debug | -quick_melt | -melt | -clients [-filter filtername] class |
-	-suppliers [-filter filtername] class |
-	-flatshort [-filter filtername] [-all | -all_and_parents | class] |
-	-flat [-filter filtername] [-all | -all_and_parents | class] |
-	-short [-filter filtername] [-all | -all_and_parents | class] | 
-	-pretty input_filename [output_filename] |
-	-filter filtername [-all | class] |
-	-descendants [-filter filtername] class |
-	-ancestors [-filter filtername] class |
-	-aversions [-filter filtername] class feature |
-	-dversions [-filter filtername] class feature |
-	-implementers [-filter filtername] class feature |
-	-callers [-filter filtername] [-show_all] [-assigners | -creators] class feature |
-	-callees [-filter filtername] [-show_all] [-assignees | -creators] class feature |
-	[[-config config.ecf] [-target target] [-config_option option]|
-	[class_file.e [-library library_name]] |
-	-stop | -no_library |
-	-project_path Project_directory_path | -file File |
-	-ca_class (-all | class) | -ca_default | -ca_rule rule | -ca_setting file |
-	-gc_stats]
+  ec
+  -help | -version | -appinfo name |
+  -full |       -batch | -clean | -verbose | -use_settings |
+  -freeze | -finalize [-keep] | -precompile [-finalize [-keep]] | -c_compile |
+  -loop | -debug | -quick_melt | -melt |
+  (-clients | -suppliers | -ancestors | -descendants) [-filter filtername] class |
+  (-flatshort | -flat | -short) [-filter filtername] [-all | -all_and_parents | class] |
+  (-aversions | -dversions | -implementers) [-filter filtername] class feature |
+  -callers [-filter filtername] [-show_all] [-assigners | -creators] class feature |
+  -callees [-filter filtername] [-show_all] [-assignees | -creators] class feature |
+  -filter filtername [-all | class] |
+  -pretty input_filename [output_filename] |
+  -reset_ide_layout |
+  [[-config config.ecf] [-target target] [-config_option option] |
+  [class_file.e [-library library_name]] |
+  -stop | -no_library |
+  -project_path project_directory | -file file |
+  -preference preference_name preference_value |
+  -ca_class (-all | class) | -ca_default | -ca_rule rule | -ca_setting file |
+  -gc_stats]
 
 Options:
-	default (no option): quick melt the system.
+  default (no option): quick melt the system.
 
-	-ancestors: show the ancestors of a class.
-	-aversions: show the ancestor versions of a feature.
-	-batch: launch the compilation without user request.
-	-c_compile: launch C compilation if needed.
-	-ca_class: analyze code of a class or of all non-library classes (-all).
-	-ca_default: restore default code analyzer preferences.
-	-ca_rule: activate code analyzer rule(s) (with settings).
-	-ca_setting: load code analyzer preferences from a file.
-	-callees: show the callees of a feature.
-	-callers: show the callers of a feature.
-	-class_file.e: specify a class file for single file compilation.
-	-clean: delete existing project if any and perform a fresh compilation.
-	-clients: show the clients of a class.
-	-compat: enable pre-attached type compatibility.
-	-config: specify the configuration (ECF) file.
-	-config_option: override configuration options of a target.
-	-debug: debug the system as a command loop.
-	-descendants: show the descendants of a class.
-	-dversions: show the descendant versions of a feature.
-	-experiment: enable experimental functionalities.
-	-file: save the output to a file.
-	-filter: show a filtered form (troff, ...) of the class text.
-	-finalize: finalize the system (discard assertions by default).
-	-flat: show the flat form of a class.
-	-flatshort: show the flat-short form of a class.
-	-freeze: freeze the system.
-	-full: with full class checking regardless of ECF settings.
-	-gc_stats: Show GC statistics.
-	-gui: start the graphical environment.
-	-help: show this help message.
-	-implementers: show the classes implementing a feature.
-	-library: specify a library for single file compilation.
-	-loop: run ec as a command loop.
-	-melt: melt the system.
-	-no_library: do not convert clusters into libraries.
-	-overwrite_old_project: overwrite any existing old project.
-	-precompile: precompile the system.
-	-pretty: show the pretty form of a class.
-	-project: specify the project file to load (obsolete).
-	-project_path: specify the compilation directory.
-	-quick_melt: quick melt the system.
-	-short: show the short form of a class.
-	-stop: stop on error.
-	-suppliers: show the suppliers of a class.
-	-target: specify the target.
-	-use_settings: use settings for project location.
-	-version: show compiler version number.
+  -ancestors: show the ancestors of a class.
+  -appinfo: Output various application information (-appinfo ? to list available informations).
+  -aversions: show the ancestor versions of a feature.
+  -batch: launch the compilation without user request.
+  -c_compile: launch C compilation if needed.
+  -ca_class: analyze code of a class or of all non-library classes (-all).
+  -ca_default: restore default code analyzer preferences.
+  -ca_rule: activate code analyzer rule(s) (with settings).
+  -ca_setting: load code analyzer preferences from a file.
+  -callees: show the callees of a feature.
+  -callers: show the callers of a feature.
+  -class_file.e: specify a class file for single file compilation.
+  -clean: delete existing project if any and perform a fresh compilation.
+  -clients: show the clients of a class.
+  -config: specify the configuration (ECF) file.
+  -config_option: override configuration options of a target.
+  -debug: debug the system as a command loop.
+  -descendants: show the descendants of a class.
+  -dversions: show the descendant versions of a feature.
+  -file: save the output to a file.
+  -filter: show a filtered form (troff, ...) of the class text.
+  -finalize: finalize the system (discard assertions by default).
+  -flat: show the flat form of a class.
+  -flatshort: show the flat-short form of a class.
+  -freeze: freeze the system.
+  -full: with full class checking regardless of ECF settings.
+  -gc_stats: Show GC statistics.
+  -gui: start the graphical environment.
+  -help: show this help message.
+  -implementers: show the classes implementing a feature.
+  -library: specify a library for single file compilation.
+  -loop: run ec as a command loop.
+  -melt: melt the system.
+  -metadata_cache_path: Location of .NET MetadData consumer cache.
+  -no_library: do not convert clusters into libraries.
+  -precompile: precompile the system.
+  -preference: override default or stored preference value.
+  -pretty: show the pretty form of a class.
+  -project: specify the project file to load (obsolete).
+  -project_path: specify the compilation directory.
+  -quick_melt: quick melt the system.
+  -reset_ide_layout: reset the IDE layout.
+  -short: show the short form of a class.
+  -stop: stop on error.
+  -suppliers: show the suppliers of a class.
+  -target: specify the target.
+  -use_settings: use settings for project location.
+  -version: show compiler version number.
 </code>
 
 
