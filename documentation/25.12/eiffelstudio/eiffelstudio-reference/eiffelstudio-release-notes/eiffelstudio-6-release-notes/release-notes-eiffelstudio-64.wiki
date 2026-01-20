@@ -1,0 +1,94 @@
+[[Property:title|Release notes for EiffelStudio 6.4]]
+[[Property:link_title|6.4]]
+[[Property:weight|-11]]
+[[Property:uuid|2f88d204-6e51-6150-8fbe-f6a3b41d5ec1]]
+==Graphical environment==
+
+===What's new===
+* Initial support for the iPhone platform to develop command line applications. Support for graphical applications will be available in the next release.
+* Added new libraries: '''api wrapper''', '''diff''', '''encoding''', and '''internationalization''' libraries.
+* To minimize breaking changes, EiffelStudio comes with two sets of libraries. The first set, which is the default set, is compatible with previous versions of EiffelStudio. The second set, which is labeled '''experimental''', is void-safe and contains some breaking changes such as new ARRAY, ARRAYED_LIST, HASH_TABLE, SPECIAL classes. Users are encouraged to compile with the experimental libraries in order to prepare their code for the future when today's experimental libraries will become the de facto libraries. It is possible to adjust code so that a single version compiles against both sets of libraries.
+* Added new tools to the EiffelStudio delivery. They are located under $ISE_EIFFEL/tools/spec/$ISE_PLATFORM/bin. The new tools are:
+:*'''compile_all''': compile all the Eiffel Configuration File projects found under a directory and report which ones do and do not compile.
+:*'''syntax_updater''': update the Eiffel code found under a directory to use the latest ECMA syntax in your code.
+
+===Improvements===
+* Added automatic completion of the <eiffel>attribute</eiffel> keyword to create an attribute body.
+* The completion window will now show a feature or class description tool tip.
+* Added support for new <eiffel>attached</eiffel> syntax for code completion. 
+* Better formatting of verbatim strings, guaranteeing that copy/pasting from the formatted text will yield the same string content as the one in the Eiffel source code.
+* Improved display of ~ and /~ operators, as well as object test expressions.
+* The project name is displayed in the status bar, when a configuration is loaded (i.e: even before any compilation) 
+* Vastly improved population of the error list tool when thousands of errors/warnings are generated.
+* Added option in the new library dialog to show only void-safe libraries, for void-safe projects.
+
+===Changes===
+* The EiffelNet library with IPv6 support is now the default library. The old one is still available as part of our obsolete libraries.
+* The project configuration format has a new version with new settings for void-safety compilation. The compiler will choose the default options based on the version of the project configuration file. Making it easy to have the same code compile identically with old versions of EiffelStudio.
+* Changed the Eiffel Information System to use the note element in project configuraton file in this style: <nowiki><note><eis name="NAME1"/><eis name="NAME2"/></note></nowiki>.
+* The experimental version of gobo had its ECF removed and replaced by several corresponding to sub-libraries of the Gobo framework.
+
+===Bug fixes===
+* Fixed failure when generating the flat view of some classes.
+* Fixed various issues with the testing tool.
+* Fixed a bug which caused editor to disappear when debugging. 
+* Fixed some corruptions of the docking layout of EiffelStudio.
+
+==Compiler==
+* Click [[Major changes between ISE Eiffel 6.3 and ISE Eiffel 6.4|here]]  for the compiler release notes.
+
+==Debugger==
+===Graphical environment===
+* Fixed various execution cursor issues in feature tool (especially with loop variant, and also inherited assertions) when debugging.
+* EiffelStudio now remembers the breakpoints and profiles even after recompiling from scratch.
+
+===Debugger engine===
+* Added support for object test locals.
+* Support void-safe expression evaluation.
+* Fixed evaluation of is_equal, equal, =, ~ in expression (watch tool).
+
+==EiffelBuild==
+* Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes.
+
+==Libraries==
+
+===EiffelBase===
+* Changed the default assigner of <eiffel>{TABLE}.item</eiffel> from originally <eiffel>put</eiffel> to <eiffel>force</eiffel>. As a consequence, descendants of <eiffel>TABLE</eiffel> might get a VDRD error if redefining <eiffel>item</eiffel>
+* Added <eiffel>same_keys</eiffel> to <eiffel>HASH_TABLE</eiffel>. You can redefine this feature to use a different comparison criterion for the keys. 
+* For object comparison, containers are now using the ~ operator instead of  <eiffel>is_equal</eiffel>. As a result, if you had heterogeneous containers, then it might not find items that were found before (although it was a catcall). 
+* EiffelBase is now using the <eiffel>alias</eiffel> notation instead of <eiffel>infix/prefix</eiffel>.
+* Updated the IMMUTABLE_STRING classes to have an efficient string extraction query <eiffel>shared_substring</eiffel> which will let you create a substring of an existing immutable string without actually duplicating the data.
+* The creation procedure <eiffel>default_create</eiffel> from <eiffel>CELL</eiffel> has been removed to ensure that the same code can be compiled in both non-void-safe and void-safe mode.
+* Implemented <eiffel>{EXCEPTION}.cause</eiffel> which returns the exception object that caused the current exception while executing the rescue clause.
+* Fixed the inconsistent behaviors of <eiffel>{EXCEPTIONS}.original*</eiffel> with 5.7 potentially breaking code using exceptions. 
+* Ensured that in void-safe mode, one can call <eiffel>{INTERNAL}.set_reference_field</eiffel> to set a reference attribute to Void if the attribute is of a detachable type.
+* In <eiffel>INTERNAL</eiffel>, fixed a bug that would not recognize a class name A_SOMETHING as a valid identifier for INTERNAL. 
+* Changed <eiffel>IO_MEDIUM.last_string</eiffel> to be attached so that existing code can easily be migrated to void-safe without changing the pattern <eiffel>read_line/last_string</eiffel>. 
+* The following classes have been excluded from the void-safe version of EiffelBase as they cannot be made void-safe under their current design:
+:* COMPACT_CURSOR_TREE
+:* LINKED_CURSOR_TREE
+:* TWO_WAY_CURSOR_TREE
+:* COMPACT_TREE_CURSOR
+:* LINKED_CURSOR_TREE_CURSOR
+:* TWO_WAY_CURSOR_TREE_CURSOR 
+* Fixed eweasel test#list003 where calling copy on a non-empty <eiffel>LINKED_LIST</eiffel> and providing the same list as argument would wipe out the content of the <eiffel>LINKED_LIST</eiffel> instead of preserving the elements.
+* Fixed eweasel test#list014 where calling <eiffel>merge_left</eiffel> and <eiffel>merge_right</eiffel> on a <eiffel>TWO_WAY_LIST</eiffel> was violating the invariant.
+* Fixed eweasel test#array005 where calling <eiffel>wipe_out</eiffel> on an <eiffel>ARRAY2</eiffel> was violating the invariant. 
+* Fixed eweasel test#except035 where we incorrectly merged the code value for <eiffel>IO_EXCEPTION</eiffel> and <eiffel>RUNTIME_IO_EXCEPTION</eiffel> thus breaking existing code not based on Eiffel exception object.
+* Fixed eweasel test#except033 that an exception thrown through rescues caused infinite loop. 
+
+===EiffelNet===
+* Added ability to only listen on the loopback address in <eiffel>NETWORK_STREAM_SOCKET</eiffel>.
+* Fixed some issues  when trying to listen for either any address or the loopback address in both IPv4 and IPv6 mode on Windows. The fix also solves a security issue, because if you have IPv6 enabled, then listening to the loopback would also listen to any address on the IPv4 interface.
+* Fixed a memory leak in read and receive from <eiffel>SOCKET</eiffel> caused by failure to free the temporary buffer used to hold the data. 
+* Renamed privately exported <eiffel>make_from_fd</eiffel> to <eiffel>make_from_descriptor_and_address</eiffel>. 
+* Re-enabled listening on 256 ports on Windows for the IPv6 library.
+
+===EiffelProcess===
+* Changed the redirection semantics so that the output is now appended to a file rather than recreating it. 
+
+===EiffelVision2===
+* [[Revisions and Bug Fixes|Click here for EiffelVision2 release notes.]] 
+
+[[EiffelStudio release notes|Click here to check out what was new in other versions]]  
+

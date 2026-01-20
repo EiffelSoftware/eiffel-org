@@ -1,0 +1,51 @@
+[[Property:title|Timers]]
+[[Property:weight|1]]
+[[Property:uuid|325ac6e6-9660-891c-2605-dbeb621649f0]]
+This sample consist in a command line demonstrating the use of the <eiffel>TIMER</eiffel> (Timer) class to generate a periodic callback to a method. The sample creates a <eiffel>TIMER</eiffel> object and passes to it a delegate object. When the <eiffel>TIMER</eiffel> fires, the delegate is invoked, and a static method is called asynchronously by a worker thread in the thread pool. 
+
+==Compiling==
+
+To compile the example:   
+# Launch EiffelStudio.
+# Click '''Add project'''
+# Browse to ''$ISE_EIFFEL\examplesdotnet\threading\timers\''
+# Choose ''timers.ecf''
+# Choose the location where the project will be compiled, by default the same directory containing the configuration file.
+# Click '''Open'''.
+
+
+==Running==
+
+After you launch the sample, the following output appears: 
+<code>
+Checking for status updates every two seconds
+     <Hit Enter to terminate the sample>
+Checking Status.
+Checking Status.
+Checking Status.
+Checking Status.
+Checking Status.
+...
+</code>
+
+When the display is finished, the application wait for you to pressed the return key to finished the application.
+
+==Under the Hood==
+
+This application shows how to use the thread <eiffel>TIMER</eiffel>. The timer is launched:
+<code>
+            create my_timer.make_with_callback (create {TIMER_CALLBACK}.make (Current, $check_status), Void, 0, 2000)
+</code>
+and calls the feature <eiffel>check_status</eiffel> that displays the message <code>"Checking Status."</code> every two seconds. 
+
+This sample uses the following .NET types: 
+*  <eiffel>TIMER</eiffel> 
+*  <eiffel>TIMER_CALLBACK</eiffel> 
+
+==Notes==
+
+This sample is translated from the example located in the Samples\Technologies\Threading\Timers subdirectory of the .NET Framework SDK samples directory of Microsoft Visual Studio .NET.
+
+
+
+
