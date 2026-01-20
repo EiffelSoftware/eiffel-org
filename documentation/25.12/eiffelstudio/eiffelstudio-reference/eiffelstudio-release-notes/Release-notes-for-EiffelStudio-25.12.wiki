@@ -1,0 +1,33 @@
+[[Property:modification_date|Tue, 20 Jan 2026 10:47:22 GMT]]
+[[Property:publication_date|Tue, 20 Jan 2026 10:47:22 GMT]]
+[[Property:uuid|DA240E9E-2796-4336-B853-F3EAB1D5701E]]
+[[Property:title|Release notes for EiffelStudio 25.12]]
+[[Property:link_title|25.12]]
+[[Property:weight|-12]]
+
+==Compiler==
+===Improvements===
+* 
+
+===Known Limitations===
+* Some .Net limitations exist in the current release that will be addressed in future updates. For detailed information, please refer to the  [https://www.eiffel.org/doc/version/25.02/uuid/fe8a6a7d-4590-0db2-d59a-307082b18ecc Eiffel for .NET documentation].
+
+==Graphical environment==
+===New Features===
+* 
+* 
+
+===Improvements===
+* 
+
+===Libraries===
+* New support for POSTGRESQL in EiffelStore library.
+* New s3_client library to access AWS S3 buckets or S3 compatible buckets (such minio)
+* Various bug fixes, and minor improvements.
+
+===Warnings===
+* SCOOP is currently not supported by Eiffel .NET
+* For Macos users on M1/M2 (arm) architecture, please read the specific [[Release notes for EiffelStudio 22.12 - macosx|notes about macosx]]
+----
+
+See [https://dev.eiffel.com/EiffelStudio_25.12_Releases change log] for more details.
