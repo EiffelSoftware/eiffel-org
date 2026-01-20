@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 23 Oct 2023 15:36:40 GMT]]
+[[Property:modification_date|Wed, 23 Apr 2025 10:32:25 GMT]]
 [[Property:publication_date|Wed, 27 Sep 2023 19:33:07 GMT]]
 [[Property:title|Eiffel for .NET Integration]]
 [[Property:weight|3]]
@@ -91,6 +91,6 @@ The Eiffel compiler sets a few environment variables available in the ECF files 
 * '''ISE_DOTNET_FRAMEWORK''':  location of the default .NET runtime directory (parent of System.dll, System.Runtime.dll, ...)
 * '''ISE_DOTNET_PLATFORM''': for a .NET project it contains either "framework", or "netcore" to distinguish between .NET Framework (v4.0) and .NETCore solutions (net6.0, neet7.0, ...)
 * '''ISE_DOTNET_PACKS''': location to the .NETCore "packs" directory (parent of .NETCore '''reference'' runtimes)
-* '''ISE_DOTNET_PACKS''': location to the .NETCore "shared" directory (parent of .NETCore implementation runtimes)
+* '''ISE_DOTNET_SHARED''': location to the .NETCore "shared" directory (parent of .NETCore implementation runtimes)
 * '''ISE_DOTNET_TFM''':  .NETCore TFM (Target Framework Moniker) , for instance "net6", "net7", ...
 * '''ISE_DOTNET_VERSION''':  .NETCore runtime precise version number (for instance 7.0.11)
