@@ -1,3 +1,5 @@
+[[Property:modification_date|Tue, 05 May 2026 15:23:25 GMT]]
+[[Property:publication_date|Tue, 05 May 2026 15:23:25 GMT]]
 [[Property:title|Design by Contract and Assertions]]
 [[Property:weight|5]]
 [[Property:uuid|41172f82-227a-96b1-2dad-624f04374ee0]]
@@ -113,7 +115,7 @@ If we remove the instructions from a routine and leave its signature, header com
         end
 </code>
 
-This specification of <code>set_second</code> tells us what is required of reuse consumers if they wish to use <code>set_second</code> and what <code>set_second</code> promises to do for them. Importantly, it does that without revealing how it does it does what it does. 
+This specification of <code>set_second</code> tells us what is required of reuse consumers if they wish to use <code>set_second</code> and what <code>set_second</code> promises to do for them. Importantly, it does that without revealing how it does what it does. 
 
 So, this specification view, officially called the contract view, is how consumers of class <code>TIME_OF_DAY</code> would view the feature. 
 
