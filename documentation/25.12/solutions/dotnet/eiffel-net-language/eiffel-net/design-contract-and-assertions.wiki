@@ -1,4 +1,4 @@
-[[Property:modification_date|Tue, 05 May 2026 15:23:25 GMT]]
+[[Property:modification_date|Tue, 05 May 2026 15:24:25 GMT]]
 [[Property:publication_date|Tue, 05 May 2026 15:23:25 GMT]]
 [[Property:title|Design by Contract and Assertions]]
 [[Property:weight|5]]
@@ -27,7 +27,7 @@ Design by Contract is built around a model for software correctness that is real
 
 Suppose there is software routine called <code>s</code>. If we were going to test <code>s</code>, we would probably devise some test inputs or test values to be in place when <code>s</code> starts and then observe what things look like after <code>s</code> completes. If they look the way we think they should then that leads us to believe that S is working correctly for those test inputs. 
 
-We can generalize and formalize that process a bit, taking it back from testing an into design. If indeed we know what it means for <code>s</code> to be correct, then we should be able to make a statement of any conditions that must be true prior to executing <code>s</code>. That is, we will state the conditions required for it to be possible for <code>s</code> to run correctly. We call this statement of preconditions for success <code>s</code>'s precondition. 
+We can generalize and formalize that process a bit, taking it back from testing and into design. If indeed we know what it means for <code>s</code> to be correct, then we should be able to make a statement of any conditions that must be true prior to executing <code>s</code>. That is, we will state the conditions required for it to be possible for <code>s</code> to run correctly. We call this statement of preconditions for success <code>s</code>'s precondition. 
 
 Likewise we should be able to make a statement of the conditions that will be true always if <code>s</code> works correctly. This we call <code>s</code>'s postcondition. 
 
