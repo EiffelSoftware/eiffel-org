@@ -1,4 +1,4 @@
-[[Property:modification_date|Thu, 15 Oct 2026 16:12:34 GMT]]
+[[Property:modification_date|Thu, 15 Oct 2026 16:16:18 GMT]]
 [[Property:publication_date|Thu, 15 Oct 2026 15:51:03 GMT]]
 [[Property:uuid|CE356164-BB20-44BC-997A-F219C37F6F61]]
 [[Property:title|Release notes for EiffelStudio 26.09]]
@@ -11,27 +11,27 @@ EiffelStudio 26.09 makes it easier to find and add libraries, adds new platforms
 === Find Library ===
 The new '''Find Library''' dialog replaces "Add Library...". Open it from the Tools menu, the context menu, the Groups tool, the project toolbar or Project Settings.
 
-* Search libraries or classes, with strict or non-strict matching and a <code><nowiki>category:</nowiki></code> criterion.
-* Filter by category: <code><nowiki>official</nowiki></code>, <code><nowiki>contrib</nowiki></code>, <code><nowiki>precompiled</nowiki></code>, plus categories taken from <code><nowiki>package.iron</nowiki></code> files and IRON packages. You can choose which categories appear as filters.
+* Search libraries or classes, with strict or non-strict matching and a <code>category:</code> criterion.
+* Filter by category: <code>official</code>, <code>contrib</code>, <code>precompiled</code>, plus categories taken from <code>package.iron</code> files and IRON packages. You can choose which categories appear as filters.
 * A details panel shows the description, void-safety, metadata, links and classes. From it you can install or uninstall IRON packages and set the location and name used in the project.
 * "Add to project" updates and saves the current target, and offers to recompile when the dialog closes. Precompiled libraries can replace the current precompile.
 * The IRON packages manager can now register and unregister IRON repositories.
-* Library discovery follows the <code><nowiki>project</nowiki></code> section of <code><nowiki>package.iron</nowiki></code>, so the list no longer includes example and test ECFs.
+* Library discovery follows the <code>project</code> section of <code>package.iron</code>, so the list no longer includes example and test ECFs.
 
 === Compiler ===
-* Smarter common type for manifest arrays: typed manifest arrays like <code><nowiki>{ARRAY [T]} &lt;&lt; ... &gt;&gt;</nowiki></code> are needed less often, especially with generic types. Attachment and separateness are kept.
+* Smarter common type for manifest arrays: typed manifest arrays like <code>{ARRAY [T]} << ... >></code> are needed less often, especially with generic types. Attachment and separateness are kept.
 * Fixed a wrong "Current used before initialized" error for non-object calls (bug#19974).
 
 === New platforms and tools ===
-* '''macOS on Apple Silicon''' (<code><nowiki>macosx-arm64</nowiki></code>) and '''Windows on ARM''' configurations.
+* '''macOS on Apple Silicon''' (<code>macosx-arm64</code>) and '''Windows on ARM''' configurations.
 * '''Visual Studio 2026''' support.
 * Linux packages are built on Ubuntu 24.04. libfcgi now builds with GCC 14 and later.
 
 === Linux / GTK 3 ===
-* HiDPI, text scaling (GNOME, <code><nowiki>gtk-xft-dpi</nowiki></code>), multi-monitor, XWayland and drag-and-drop fixes. Fonts update live when desktop settings change.
-* The IDE stays responsive again, and pixmap errors (<code><nowiki>BadValue</nowiki></code>) during resizing and docking are gone.
+* HiDPI, text scaling (GNOME, <code>gtk-xft-dpi</code>), multi-monitor, XWayland and drag-and-drop fixes. Fonts update live when desktop settings change.
+* The IDE stays responsive again, and pixmap errors (<code>BadValue</code>) during resizing and docking are gone.
 * File dialogs no longer abort when GSettings schemas are not found (GTK from Homebrew or MacPorts, or a relocated GTK).
-* Dead keys followed by space now produce the composed character (e.g. <code><nowiki>"</nowiki></code> + space gives <code><nowiki>"</nowiki></code>).
+* Dead keys followed by space now produce the composed character (e.g. <code>"</code> + space gives <code>"</code>).
 * Docking: split positions are restored correctly when switching between normal and debug layouts, and tab bars resize properly.
 
 === EiffelStudio ===
@@ -43,14 +43,15 @@ The new '''Find Library''' dialog replaces "Add Library...". Open it from the To
 * '''ePDF''': read, write (full and incremental) and encrypt PDF 1.7 documents.
 * '''EiffelTUI''': build terminal user interfaces with layouts, styled text, mouse and keyboard events, and a rich set of widgets.
 * '''Markdown''': parser, plus XHTML and AST generation.
-* '''YAML''' and '''BSON''': parsers and writers, with converters to and from JSON (<code><nowiki>yaml_json</nowiki></code>, <code><nowiki>bsonjson</nowiki></code>), and a shared '''stream''' input library.
+* '''YAML''' and '''BSON''': parsers and writers, with converters to and from JSON (<code>yaml_json</code>, <code>bsonjson</code>), and a shared '''stream''' input library.
 * '''Crypto''': a cryptographically secure random number generator.
 
 == Library improvements ==
-* '''EiffelStore (MySQL/MariaDB)''': MariaDB works on Unix, a wider range of MySQL client versions is supported, and <code><nowiki>DATE</nowiki></code> and <code><nowiki>DECIMAL</nowiki></code> support is better. You can skip SSL checks and use the <code><nowiki>client</nowiki></code> section of <code><nowiki>~/.my.cnf</nowiki></code>, which helps with MySQL 8. Connections to <code><nowiki>localhost:&lt;port&gt;</nowiki></code> use TCP and report the real error.
-* '''EiffelBase''': a fix for <code><nowiki>IMMUTABLE_STRING_8</nowiki></code> substrings (thanks to Finnian Reilly).
-* '''Web''': S3 client (list prefixes), HTTP <code><nowiki>Link:</nowiki></code> header, JSON <code><nowiki>is_boolean</nowiki></code>, WSF router and request helpers, <code><nowiki>DECIMAL</nowiki></code> accepts <code><nowiki>READABLE_STRING_8</nowiki></code>.
-* '''Eiffel Web CMS''': mail web API, API key rotation and expiration, better export and import, <code><nowiki>DECIMAL</nowiki></code> and <code><nowiki>DATE</nowiki></code> storage support, a new template hook, and several fixes.
-* '''Gobo 26.09''': SCOOP wait conditions in <code><nowiki>gec</nowiki></code>, contract views in <code><nowiki>gedoc</nowiki></code>, and more validity checks.
+* '''EiffelStore (MySQL/MariaDB)''': MariaDB works on Unix, a wider range of MySQL client versions is supported, and <code>DATE</code> and <code>DECIMAL</code> support is better. You can skip SSL checks and use the <code>client</code> section of <code>~/.my.cnf</code>, which helps with MySQL 8. Connections to <code>localhost:<port></code> use TCP and report the real error.
+* '''EiffelBase''': a fix for <code>IMMUTABLE_STRING_8</code> substrings (thanks to Finnian Reilly).
+* '''Web''': S3 client (list prefixes), HTTP <code>Link:</code> header, JSON <code>is_boolean</code>, WSF router and request helpers, <code>DECIMAL</code> accepts <code>READABLE_STRING_8</code>.
+* '''Eiffel Web CMS''': mail web API, API key rotation and expiration, better export and import, <code>DECIMAL</code> and <code>DATE</code> storage support, a new template hook, and several fixes.
+* '''Gobo 26.09''': SCOOP wait conditions in <code>gec</code>, contract views in <code>gedoc</code>, and more validity checks.
 
 See [https://dev.eiffel.com/EiffelStudio_26.09_Releases change log] for more details.
+
