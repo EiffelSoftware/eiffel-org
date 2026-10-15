@@ -1,4 +1,4 @@
-[[Property:modification_date|Thu, 15 Oct 2026 15:51:03 GMT]]
+[[Property:modification_date|Thu, 15 Oct 2026 16:12:34 GMT]]
 [[Property:publication_date|Thu, 15 Oct 2026 15:51:03 GMT]]
 [[Property:uuid|CE356164-BB20-44BC-997A-F219C37F6F61]]
 [[Property:title|Release notes for EiffelStudio 26.09]]
@@ -53,4 +53,4 @@ The new '''Find Library''' dialog replaces "Add Library...". Open it from the To
 * '''Eiffel Web CMS''': mail web API, API key rotation and expiration, better export and import, <code><nowiki>DECIMAL</nowiki></code> and <code><nowiki>DATE</nowiki></code> storage support, a new template hook, and several fixes.
 * '''Gobo 26.09''': SCOOP wait conditions in <code><nowiki>gec</nowiki></code>, contract views in <code><nowiki>gedoc</nowiki></code>, and more validity checks.
 
-See <code><nowiki>CHANGELOG-26.09.wiki</nowiki></code> for the full list of changes.
+See [https://dev.eiffel.com/EiffelStudio_26.09_Releases change log] for more details.
