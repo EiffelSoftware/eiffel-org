@@ -1,0 +1,352 @@
+[[Property:title|Accessing an existing database]]
+[[Property:weight|3]]
+[[Property:uuid|683da4a5-2939-890e-8c71-2d59e5ebabe4]]
+== Introduction ==
+
+ABEL has a special backend to read and write existing databases.
+This backend was designed to use ABEL alongside EiffelStore with very little setup.
+
+The drawback of this approach is that the backend has some of the limitations of EiffelStore:
+
+* Only flat classes can be stored and retrieved.
+* The class name must match the type name in lowercase, and each attribute must match a column name.
+* ABEL treats all objects as values without identity (like expanded types). There is a mechanism however to override this default.
+* There is no concept of a root status.
+
+== The setup ==
+
+Let's assume a simple EiffelStore application for managing a (very simple) MySQL customer database.
+The database consists of a single table created by the following SQL statement:
+
+<code>
+CREATE TABLE customer (
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	first_name VARCHAR (100),
+	last_name VARCHAR (100),
+	age INTEGER
+)
+</code>
+
+In your Eiffel code you have a class which matches the table:
+
+<code>
+class
+	CUSTOMER
+
+inherit
+	ANY redefine out end
+
+create
+	make
+
+feature -- Access
+
+	id: INTEGER
+		-- The customer ID.
+
+	first_name: STRING
+		-- The customer's first name.
+
+	last_name: STRING
+		-- The customer's last name.
+
+	age: INTEGER
+		-- The age of the customer.
+
+feature -- Element change
+
+	set_age (an_age: like age)
+			-- Set `age' to `an_age'
+		do
+			age := an_age
+		end
+
+feature -- Output
+
+	out: STRING
+			-- String output of `Current'.
+		do
+			Result := id.out + ": " + first_name + " " + last_name + " " + age.out + "%N"
+		end
+
+feature {NONE} -- Initialization
+
+	make (an_id: like id; first: like first_name; last: like last_name; an_age: like age)
+			-- Initialization for `Current'.
+		do
+			id := an_id
+			first_name := first
+			last_name := last
+			age := an_age
+		end
+
+end
+</code>
+
+== Connection setup ==
+
+Because we're using an existing MySQL database, we need to choose the <e>PS_MYSQL_RELATIONAL_REPOSITORY_FACTORY</e> for initialization.
+
+<code>
+class
+	TUTORIAL
+
+create
+	make
+
+feature -- Access
+
+	repository: PS_REPOSITORY
+
+feature {NONE} -- Initialization
+
+	make
+			-- Set up the repository.
+		local
+			factory: PS_MYSQL_RELATIONAL_REPOSITORY_FACTORY
+		do
+			create factory.make
+
+				-- Feel free to change the login credentials.
+			factory.set_database ("my_database")
+			factory.set_user ("root")
+			factory.set_password ("1234")
+
+			repository := factory.new_repository
+		end
+
+end
+</code>
+
+That's it. You're now ready to read and write table records using the repository.
+
+== Querying objects ==
+
+With the newly created repository, we can now query for <e>CUSTOMER</e> objects.
+The procedure is the same as seen in [[Basic operations]].
+
+<code>
+
+	print_customers
+			-- Print all customers.
+		local
+			query: PS_QUERY [CUSTOMER]
+		do
+			create query.make
+			repository.execute_query (query)
+
+			across
+				query as cursor
+			loop
+				print (cursor.item)
+			end
+
+			if query.has_error then
+				print ("An error occurred!%N")
+			end
+
+			query.close
+		end
+</code>
+
+== Writing objects ==
+
+You can also use ABEL to write or update customers, although the semantics are a bit different compared to other backends.
+ABEL by default treats every object as a value tuple without identity (like an expanded type).
+The reason is that the primary key of an object is usually stored directly inside the object, 
+and a user may change it and thus mess with ABEL's internal data structures.
+
+The implication of this is that a user is only allowed to call <e>{PS_TRANSACTION}.insert</e> to write an object.
+The semantics of <e>insert</e> is to insert a new record if no other record with the same primary key exists, or else to update the existing record.
+This might be confusing at first sight, but it is in line with the semantics of ABEL as seen in [[Dealing with references]].
+
+The following code shows how to insert and update objects.
+
+<code>
+	insert_customer
+			-- Insert a new customer.
+		local
+			albo: CUSTOMER
+			transaction: PS_TRANSACTION
+		do
+				-- Assume 42 is an valid, unused primary key.
+			create albo.make (42, "Albo", "Bitossi", 1)
+
+			transaction := repository.new_transaction
+			
+			if not transaction.has_error then
+					-- This results in an insert, because
+					-- according to our previous assumption
+					-- there is no record with primary key 42
+				transaction.insert (albo)
+			end
+
+				-- Cleanup and error handling.
+			if not transaction.has_error then
+				transaction.commit
+			end
+
+			if transaction.has_error then
+				print ("An error occurred.%N")
+			end
+		end
+
+	update_customer
+			-- Update an existing customer.
+		local
+			factory: PS_CRITERION_FACTORY
+			query: PS_QUERY [CUSTOMER]
+			transaction: PS_TRANSACTION
+		do
+			create query.make
+			query.set_criterion (factory ("id", "=", 42))
+
+			transaction := repository.new_transaction
+
+			if not transaction.has_error then
+				transaction.execute_query (query)
+			end
+
+			across
+				query as cursor
+			loop
+				cursor.item.set_age (2)
+					-- The result is an update, because an object
+					-- with primary key 42 is already present.
+				transaction.insert (cursor.item)
+			end
+
+				-- Cleanup and error handling
+			query.close
+			if not transaction.has_error then
+				transaction.commit
+			end
+			if transaction.has_error then
+				print ("An error occurred!%N")
+			end
+		end
+</code>
+
+== Managed types==
+
+Maybe you realized the weak spot in the previous section:
+We assumed that a primary key does not exist yet.
+This is a very dangerous assumption, especially in a multi-user setting.
+The way to resolve this issue is to usually to declare the primary key column as auto-incremented and let the database handle primary key generation.
+
+It is possible to use this facility in ABEL by declaring a type as "managed" and specifying the primary key column.
+This only works for tables which actually have an auto-incremented integer primary key column.
+
+There are some changes when declaring a type as managed:
+
+* ABEL will keep track of object identity. Thus it is possible (and recommended) to use {PS_TRANSACTION}.update.
+* As ABEL now takes care of primary keys, it is not allowed to change the primary key of an object. If it happens anyway, an error will be returned.
+* To insert a new object, you can just set the primary key attribute to zero. The database will then generate a new key.
+* After a successful insert, ABEL will update the Eiffel object with the new primary key.
+
+Our customer database table fulfills all requirements for ABEL to manage its primary key handling, thus we can rewrite the above examples:
+
+<code>
+class
+	TUTORIAL
+
+create
+	make
+
+feature -- Access
+
+	repository: PS_REPOSITORY
+
+	generated_id: INTEGER
+		-- The ID generated by the database.
+
+feature {NONE} -- Initialization
+
+	make
+			-- Set up the repository.
+		local
+			factory: PS_MYSQL_RELATIONAL_REPOSITORY_FACTORY
+		do
+			create factory.make
+			factory.set_database ("my_database")
+			factory.set_user ("root")
+			factory.set_password ("1234")
+
+				-- Tell ABEL to manage the `CUSTOMER' type.
+			factory.manage ({CUSTOMER}, "id")
+
+			repository := factory.new_repository
+
+			insert_customer
+			update_customer
+		end
+
+feature -- Tutorial functions
+
+	insert_customer
+			-- Insert a new customer.
+		local
+			albo: CUSTOMER
+			transaction: PS_TRANSACTION
+		do
+				-- Note that the ID is now set to 0.
+			create albo.make (0, "Albo", "Bitossi", 1)
+
+			transaction := repository.new_transaction
+			
+			if not transaction.has_error then
+					-- The next statement will be an insert in any case.
+				transaction.insert (albo)
+			end
+			
+				-- The generated ID is now stored in `albo'
+			generated_id := albo.id
+
+				-- Cleanup and error handling.
+			if not transaction.has_error then
+				transaction.commit
+			end
+
+			if transaction.has_error then
+				print ("An error occurred.%N")
+			end
+		end
+
+	update_customer
+			-- Update an existing customer.
+		local
+			factory: PS_CRITERION_FACTORY
+			query: PS_QUERY [CUSTOMER]
+			transaction: PS_TRANSACTION
+		do
+			create factory
+			create query.make
+			query.set_criterion (factory ("id", "=", generated_id))
+
+			transaction := repository.new_transaction
+
+			if not transaction.has_error then
+				transaction.execute_query (query)
+			end
+
+			across
+				query as cursor
+			loop
+				cursor.item.set_age (3)
+					-- It is possible to call update.
+				transaction.update (cursor.item)
+			end
+
+				-- Cleanup and error handling
+			query.close
+			if not transaction.has_error then
+				transaction.commit
+			end
+			if transaction.has_error then
+				print ("An error occurred!%N")
+			end
+		end
+end
+</code>
+
+

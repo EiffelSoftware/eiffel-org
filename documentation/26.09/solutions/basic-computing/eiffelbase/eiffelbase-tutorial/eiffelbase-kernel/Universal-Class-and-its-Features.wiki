@@ -1,0 +1,93 @@
+[[Property:uuid|419E822A-646B-4817-810C-B30F973A2D70]]
+[[Property:weight|0]]
+[[Property:title|Universal class and its features]]
+The Eiffel inheritance mechanism is set up in such a way that every class is a descendant of a Kernel Library class called [[ref:libraries/base/reference/any_chart|ANY]] . The features of this class provide a number of generally applicable facilities covering such needs as comparison, copying and rudimentary input and output.
+
+=The structure of universal classes=
+
+Every class which has no inheritance clause is understood to have an inheritance clause of the form
+<code>
+inherit
+    ANY
+</code>
+
+As a result, every developer-defined class is a descendant of [[ref:libraries/base/reference/any_chart|ANY]] . You may introduce your own project specific features in [[ref:libraries/base/reference/any_chart|ANY]]  so that all the classes of your system will be able to use these features.
+
+=Using the universal classes=
+
+If you need to rename or redefine a feature inherited from one of the universal classes, you should include an explicit inheritance clause, as in
+<code>
+class
+    C
+inherit
+    ANY
+        rename
+            out as basic_out
+        redefine
+            print
+        end
+    ...
+feature
+    ...
+end
+</code>
+
+
+
+
+The features of [[ref:libraries/base/reference/any_chart|ANY]]  are usable in both qualified and unqualified form. For example, the argumentless function out, which produces a printable representation of any object, may be called under either of the forms
+<code>
+            x := out
+            x := a.out
+</code>
+
+The first call yields a printable representation of the current object; the second, which assumes that a is not void, yields a printable representation of the object attached to a.
+
+=Input and output features=
+
+Some of the features of [[ref:libraries/base/reference/any_chart|ANY]]  cover common input and output needs.
+
+Feature <eiffel>io</eiffel>, of type [[ref:libraries/base/reference/std_files_chart|STD_FILES]] , gives access to standard input and output facilities. For example, <eiffel>io.input</eiffel> is the standard input file and <eiffel>io</eiffel>.<eiffel>new_line</eiffel> will print a line feed on the standard output. Feature <eiffel>io</eiffel> is declared as a once function which, when first called, returns the value of an instance of [[ref:libraries/base/reference/std_files_chart|STD_FILES]]  that provides access to the standard input, the standard output and the error output. As a result, <eiffel>io</eiffel> is never void, so that operations such as <eiffel>io</eiffel>.<eiffel>new_line</eiffel> are always possible.
+
+Function <eiffel>out</eiffel>, of type [[ref:libraries/base/reference/string_8_chart|STRING]] , is a universal mechanism for obtaining a simple external representation of any object. For non-void <code>x</code> of any type, the string <code>x.out</code> is a printable representation of <code>x</code>. This works for <code>x</code> of all types, reference or expanded. For example, if <code>x</code> is an integer expression, <code>x.out</code> is its string representation, such as <code>-897</code>; if n is a non-void reference, <code>x.out</code> is (recursively) the concatenation of the result of applying out to the successive fields of the attached object, each labeled by the name of the corresponding attribute. You may redefine out in any class to specify any suitable format for displaying instances of the class. To obtain the default representation regardless of any redefinition of out, use tagged_out, declared as a frozen synonym of the original out.
+
+The call <code>print (x)</code> will output the value of <code>x.out</code> on the default output if <code>x</code> is not void, and do nothing otherwise. 
+
+=Copy and comparison routines=
+
+Procedure copy copies the fields of an object onto those of another. It is used under the form
+<code>
+            target.copy (source)
+</code>
+
+Here both target and source must be non-void; this means that <eiffel>copy</eiffel> is only good for copying onto an object that already exists. If you need both to allocate a new object and to initialize it as a copy of another, use the function <code>twin</code>. For non-void source, the assignment
+<code>
+            target := source.twin
+</code>
+starts by creating a new object, then populates its fields to be identical to <code>source</code>. 
+
+The boolean function <eiffel>equal</eiffel> compares two objects for field-by-field equality. This is different from the equality operators <code>=</code> and <code>/=</code> which, in the case of reference types, compare references, not objects.
+
+The function <eiffel>deep_twin</eiffel> produces a duplicate of an entire object structure. The boolean function <eiffel>deep_equal</eiffel> determines whether two object structures are recursively identical. These routines are the ''deep'' counterparts of the shallow copy and equality tests provided by <eiffel>twin</eiffel> and <eiffel>equal</eiffel>.
+
+A class that needs a specific notion of equality and the corresponding copy semantics may redefine <eiffel>copy</eiffel> and <eiffel>is_equal</eiffel> (from which <code>equal</code> follows, since <code>equal (a, b)</code> is defined as <code>a.is_equal (b)</code> for non-void <code>a</code>). You will find such redefinitions in a number of classes of the Base libraries. For example an instance of [[ref:libraries/base/reference/string_8_chart|STRING]]  is a string descriptor containing a reference to the actual character sequence, not that sequence itself, so that what the default equal compares and the default copy copies is the descriptor, not the string. Class [[ref:libraries/base/reference/string_8_chart|STRING]]  redefines these routines to yield the semantics normally expected by string clients; the frozen variants <eiffel>standard_copy</eiffel> and <eiffel>standard_equal</eiffel>, originally declared as synonyms to <eiffel>equal</eiffel> and <eiffel>copy</eiffel>, remain available with the default semantics.
+
+The function <eiffel>twin</eiffel> is defined in terms of <eiffel>copy</eiffel>, and so will follow any redefinition of <eiffel>copy</eiffel>. This makes it impossible to change the semantics of one but not of the other, which would be a mistake. The variant <eiffel>standard_twin</eiffel> is defined in terms of <eiffel>standard_copy</eiffel>. 
+
+
+{{note|In some existing Eiffel code you may encounter the use of a function <code>clone</code> which is used to do the job of <code>twin</code>, but has a form like <code>copy</code>, as in <code>target.clone (source)</code>. <code>clone</code> is an obsolete function. Use <code>twin</code> instead.
+}}
+
+=Type information=
+
+The string-valued query <eiffel>generator</eiffel>, applied to any object, returns the name of the object's generating class: the class of which it is an instance. The boolean function <eiffel>conforms_to</eiffel> makes it possible to test dynamically whether the type of an object conforms to that of another - that is to say whether the first one's generator is a descendant of the second one's.
+
+These two features enable clients to ascertain the dynamic type of an entity at runtime. They are only useful for low-level components; the normal mechanism for type-dependent operations is dynamic binding. 
+
+=Miscellaneous=
+
+The query Void, of type <eiffel>NONE</eiffel>, denotes a reference that is always void - not attached to any object.
+
+Procedure <eiffel>do_nothing</eiffel> does what its name implies.
+
+Function default also has an empty body; its result type is <code>like Current</code>, so what it returns is the default value of the current type. This is mostly interesting for expanded types, since for reference types the default value is simply a void reference. 

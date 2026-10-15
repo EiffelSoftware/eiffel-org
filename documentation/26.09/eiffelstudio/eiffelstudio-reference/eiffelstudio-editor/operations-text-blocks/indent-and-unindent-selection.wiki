@@ -1,0 +1,16 @@
+[[Property:title|Indent and unindent selection]]
+[[Property:weight|2]]
+[[Property:uuid|e0c1014b-1564-8225-9371-556e714848b0]]
+EiffelStudio editor offers the possibility to indent or unindent selected lines.
+
+*  The "Indent" command corresponds to the '''Indent selection''' entry in the '''Advanced''' sub menu of the [[Edit menu commands| '''Edit''' Menu ]]. It may be called by using the keyboard shortcut "Tab". Its action is to insert a tabulation in front of each [[Selection|selected]] line. 
+
+*  The "Unindent" command corresponds to the '''Unindent selection''' entry in the '''Advanced''' sub menu of the [[Edit menu commands| '''Edit''' Menu ]]. It may be called by using the keyboard shortcut "Shift+Tab". Its action is to remove the tabulation in front of each [[Selection|selected]] line if there is such a character. <br/>
+
+
+
+{{note|If there is no selection, you may still use the unindent shortcut "Shift+Tab". The command will be applied to the current line. }}
+
+
+
+

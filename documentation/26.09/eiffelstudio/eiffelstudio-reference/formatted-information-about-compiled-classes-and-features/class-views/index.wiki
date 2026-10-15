@@ -1,0 +1,28 @@
+[[Property:title|Class views]]
+[[Property:weight|1]]
+[[Property:uuid|dd076484-eccd-41d6-538e-bf261529b43e]]
+[[Image:class-format-bar]]  
+
+Class views are all available through the '''Class''' tab of the [[EiffelStudio window overview|context tool]] , and for some of them directly with the [[EiffelStudio Editor|editor]] . <br/>
+These views (with their associated icon) are: 
+*   [[Image:view-editor-icon]]  [[Class formatters: Basic text view|Basic text view]]  
+*   [[Image:view-clickable-icon]]  [[Clickable view|Clickable view]]  
+*   [[Image:view-flat-icon]]  [[Class formatters: Flat view|Flat view]]  
+*   [[Image:view-contracts-icon]]  [[Contract view|Contract view]]  
+*   [[Image:view-flat-contracts-icon]]  [[Flat Contract view|Flat Contract view]]  
+*   [[Image:class-ancestors-icon]]  [[Ancestors|Ancestors]]  
+*   [[Image:class-descendents-icon]]  [[Descendants|Descendants]]  
+*   [[Image:class-clients-icon]]  [[Clients|Clients]]  
+*   [[Image:class-supliers-icon]]  [[Suppliers|Suppliers]]  
+*   [[Image:class-features-attribute-icon]]  [[Attributes|Attributes]]  
+*   [[Image:class-features-routine-icon]]  [[Routines|Routines]]  
+*   [[Image:class-features-invariant-icon]]  [[Invariants|Invariants]]  
+*   [[Image:class-features-creator-icon]]  [[Creators|Creators]]  
+*   [[Image:class-features-deferred-icon]]  [[Deferred features|Deferred features]]  
+*   [[Image:class-features-once-icon]]  [[Once routines and constants|Once routines and constants]]  
+*   [[Image:class-features-external-icon]]  [[Class formatters: External features|External features]]  
+*   [[Image:class-features-exported-icon]]  [[Exported features|Exported features]]  
+
+
+
+

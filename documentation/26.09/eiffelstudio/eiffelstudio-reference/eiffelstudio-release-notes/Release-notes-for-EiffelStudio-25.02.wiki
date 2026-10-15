@@ -1,0 +1,35 @@
+[[Property:modification_date|Tue, 11 Feb 2025 16:46:03 GMT]]
+[[Property:publication_date|Tue, 11 Feb 2025 16:43:39 GMT]]
+[[Property:uuid|4D6AB14B-0FDF-4150-8368-4D5051223C59]]
+[[Property:title|Release notes for EiffelStudio 25.02]]
+[[Property:link_title|25.02]]
+[[Property:weight|-11]]
+
+==Compiler==
+===Improvements===
+* New Feature: Introduced support for $(path_separator) in external locations within ECF files.
+* Various bug fixes.
+
+===Known Limitations===
+* Some .Net limitations exist in the current release that will be addressed in future updates. For detailed information, please refer to the  [https://www.eiffel.org/doc/version/25.02/uuid/fe8a6a7d-4590-0db2-d59a-307082b18ecc Eiffel for .NET documentation].
+
+==Graphical environment==
+===New Features===
+* Added the ability to group execution profiles within the execution parameters dialog, and enhanced '''execution parameters''' to support environment files.
+* The '''Diagram Tool''' now supports '''exporting diagrams to SVG files''', enhancing the flexibility and quality of diagram exports.
+
+===Improvements===
+* The Diagram tool View files are now stored in the new EIFDATA directory within the project location, rather than in the EIFGENs directory. This change centralizes EiffelStudio data that is not session-dependent and can be included in source code repositories.
+* The diagram tool has been updated with bug fixes, usability improvements, and a refreshed interface.
+* Various bug fixes and enhancements especially on the Execution parameters dialog, the diagram tool, the dependency tool, the Source control tool, and AutoTest tool.
+
+===Libraries===
+* New libraries to use MongoDB and MariaDB databases.
+* Various bug fixes, and minor improvements.
+
+===Warnings===
+* SCOOP is currently not supported by Eiffel .NET
+* For Macos users on M1/M2 (arm) architecture, please read the specific [[Release notes for EiffelStudio 22.12 - macosx|notes about macosx]]
+----
+
+See [https://dev.eiffel.com/EiffelStudio_25.02_Releases change log] for more details.

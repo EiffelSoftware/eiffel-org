@@ -1,0 +1,86 @@
+[[Property:modification_date|Thu, 11 Oct 2018 20:09:39 GMT]]
+[[Property:publication_date|Thu, 11 Oct 2018 20:09:39 GMT]]
+[[Property:link_title|SQL injection]]
+[[Property:uuid|438C838C-C115-44B4-8480-05A825FE1047]]
+[[Property:weight|4]]
+[[Property:title|Defending against SQL injections with EiffelStore]]
+[[Property:weight|4]]
+
+
+= Introduction =
+In this article, we will explain to you how to use EiffelStore API to avoid SQL injections.
+
+= What is an SQL injection? =
+An SQL injection attack is a coding technique that inserts, or "injects", an SQL query via the input data, passing unsafe input from the client to the application. A successful SQL injection can enable the attacker to read sensitive data from the database, modify database data (Insert/Update/Delete), or become administrator of the database server.  To learn more about SQL injection, read the following articles.
+
+{{SeeAlso| To learn more about SQL injection, read the following articles. }}
+
+* [https://en.wikipedia.org/wiki/SQL_injection https://en.wikipedia.org/wiki/SQL_injection]
+* [https://www.owasp.org/index.php/SQL_injection https://www.owasp.org/index.php/SQL_injection]
+
+
+= Template Query =
+A template query is a string containing the fixed parts of the query and placeholders for the variable parts, and you can later substitute in values into those placeholders. (Bind variables to the query.). A template query could be static or dynamic.
+
+{{Note|the way you bind variables to the query is quite important and it will define if your query is safe and avoid a SQL Injection attack.}}
+
+== How to define placeholders (variables) in a SQL Template query? ==
+Variables syntax is simple: the ':' special character followed by the variable name, for example <code>:value</code> 
+
+   	<code>SELECT * FROM  TABLE_NAME WHERE field1 = :value</code>
+
+{{SeeAlso| To learn more about EiffelStore query variables read the following article}}
+* [https://www.eiffel.org/doc/solutions/Query%20variables Query Variables]
+
+==How to bind variables/placeholders to a template query.==
+
+To avoid SQL Injections you will need to map variables names to values using the EiffelStore API (using EiffelStore supported connectors)
+
+* Queries returning a result will need to use: <code>DB_SELECTION</code>
+* Queries updating the database (Insert, Update, Delete) will need to use: <code>DB_CHANGE</code>
+
+=== Safe binding ===
+The following example shows an attempt to do an SQL Injection attack, but as we are using EiffelStore API to bind the parameters the unsafe data will be escaped.
+
+<code>
+	safe_query
+		local
+			l_connection: DATABASE_CONNECTION
+			db_selection: DB_SELECTION
+			l_query: STRING
+		do
+			...	
+			create db_selection.make
+			db_selection.set_query ("SELECT * FROM new_users where datetime = :datetime")
+			db_selection.set_map_name ("\''; DROP TABLE new_users; --", ":datetime")
+			db_selection.execute_query
+			db_selection.unset_map_name (":datetime")
+                        ....
+		end
+</code>
+
+As you can observe in the previous example the binding to map the variable name <code>:datetime</code> to their value is done using feature <code> BD_SELECTION.set_map_name</code> and the API is responsible to do the necessary encoding.
+
+=== Unsafe binding ===
+If you use your own binding to map variables names to values, for example using String replacement, EiffelStore does not ensure that your query is safe, because it will depend on how do you handle escaping inputs before adding them to the query.
+
+The following example shows how we can bypass the EiffelStore API to bind placeholders using an unsafe String replacement, in this case, is up to the developer to escape the input value. The example is unsafe and subject to SQL Injections attacks when the input is unsafe.
+
+<code>
+unsafe_query
+	local
+		l_connection: DATABASE_CONNECTION
+		db_selection: DB_SELECTION
+		l_query: STRING
+	do
+		...
+		check l_connection.is_connected end
+		create l_query.make_from_string ("SELECT * FROM new_users where datetime = :datetime")
+		l_query.replace_substring_all (":datetime", "\''; DROP TABLE new_users; --" )
+		create db_selection.make
+		db_selection.set_query (l_query)
+		db_selection.execute_query
+                ...
+	end
+</code>
+

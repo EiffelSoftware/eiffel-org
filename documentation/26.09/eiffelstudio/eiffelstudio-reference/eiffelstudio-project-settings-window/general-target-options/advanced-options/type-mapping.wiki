@@ -1,0 +1,10 @@
+[[Property:title|Type mapping]]
+[[Property:weight|10]]
+[[Property:uuid|0c504ee9-fa7b-f425-0b80-53344618d995]]
+[[Image:mapping-options|Type mappings dialog]]  
+
+Type mappings map one class name to another. E.g. STRING can be mapped to STRING_32. So whenever STRING is used in a class, STRING_32 will be used instead.
+
+
+
+

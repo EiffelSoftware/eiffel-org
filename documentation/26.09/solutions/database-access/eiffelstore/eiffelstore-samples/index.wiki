@@ -1,0 +1,13 @@
+[[Property:title|EiffelStore Samples]]
+[[Property:weight|3]]
+[[Property:uuid|65a0aab3-bc1d-28b8-a6f0-6d71b4c6d54d]]
+=EiffelStore Samples=
+
+The following basic examples showcases the different EiffelStore capabilities:
+*  [[Esql Sample|esql]] : A command line SQL parser: very useful to test your Database connection! 
+*  [[Selector Sample|select]] : A basic example to perform smart database queries. 
+*  [[Inserter Sample|insert]] : A basic example to easily insert data in your database. 
+
+
+
+

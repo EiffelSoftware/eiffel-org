@@ -1,0 +1,59 @@
+[[Property:title|EIS: Outgoing]]
+[[Property:weight|2]]
+[[Property:uuid|773ef802-5f9f-107a-4c5d-8dcf17654d23]]
+==Annotations==
+
+Annotations for outgoing EIS links may be applicable to:
+*  An individual class or feature. In this case the annotation appears in the class text, as part of an Eiffel <code>note</code> clause (the obsolete keyword <code>indexing</code> may still be supported, depending upon which syntax level is chosen in project preferences).
+*  A target, library or cluster. In this case the annotation appears in the associated ECF file. 
+
+EiffelStudio provides support for entering annotations through the [[Information Tool|Information Tool]]. 
+
+To specify a link between Eiffel and external information, you include such an annotation. 
+
+The primary components of an annotation are: 
+#  The '''EIS''' marker. 
+#  The '''[[Protocols|protocol]]''', which indicates the type of external information, and making it possible for EIS to determine the associated external tool. If the '''protocol''' is omitted, its value defaults to "URI".
+#  The '''source'''. This is the location of the external information, for example a URL, or a file name. 
+
+==Syntax for Annotations==
+
+Annotations can occur in Eiffel source code and in project configuration files (.ecf). The format of the '''EIS marker''' varies depending upon the context in which it is used. The rest of the annotation format is the same in both contexts.
+
+Individual annotations can be placed in Eiffel files either through the [[Information Tool]] or by manual editing of the files. 
+
+Additionally, a special type of annotation called an '''Automatic annotation''' can be specified for Eiffel configuration [[general target options|targets]]. An automatic annotation on a target will put an implicit annotation with a variable source on each class in the target. An implicit annotation on any particular class can be overridden by an explicitly coded annotation, when necessary.
+
+The following example illustrates the form of an EIS annotation written in Eiffel source code. The annotation appears in the <code>note</code> part of a class or feature definition:
+<code lang="text">
+EIS: "name=Project Requirement", "src=$(system_path)/docs/requirements.pdf", "protocol=PDF", "nameddest=4.1", "tag=requirement"
+</code>
+
+The '''EIS marker''' is the label '''EIS:''' (this label is called the ''Note_name'' in the ISO/ECMA Eiffel Standard syntax). The '''EIS marker''' tells the Eiffel Information System that this particular ''Note_entry'' is of interest to EIS. 
+
+The '''name''' property assigns a name to this annotation. The name will be visible in the [[Information Tool]].
+
+In this example, the '''source''' name (src) includes the string '''$(system_path)''', a reference to a [[Variable Definition|variable]], '''system_path''', which is a predefined variable for the the project location. 
+
+The '''protocol''' is '''PDF'''. 
+
+The '''nameddest''' property (name destination) is a specific property of PDF documents that tells the external tool for PDF documents to open the document at a particular named destination. 
+
+The '''tag''' property associates a text tag, in this case "requirement" with this link. Tags show up in the [[Information Tool]] and can be used to organize annotations. 
+
+The following is an example of an annotation  Eiffel configuration (.ecf) file: 
+
+<code lang="text">
+<note> 
+    <EIS protocol="pdf" name="Project Requirement" src="$(system_path)/docs/requirements.pdf" nameddest="4.1"/>
+</note>
+</code>
+
+Eiffel configuration files have XML definitions, so this is just an XML version of what was coded into an Eiffel class above. The annotation appears in a <code lang="text"><note/></code> element. The '''<code lang="text"><EIS/></code>''' element plays role of '''EIS marker''', just as '''EIS:''' does in the <code>note</code> entry in the source code example above. The '''<code lang="text"><EIS/></code>''' element in Eiffel configuration files is supported in ECF schema version 1.4 and later.
+
+
+{{seealso|<br/>
+[[Variable Definition|Variable Definition]]  }}
+
+
+

@@ -1,0 +1,26 @@
+[[Property:title|Execution record and replay]]
+[[Property:weight|-12]]
+[[Property:uuid|5184f354-f954-49e2-d38f-15214dcd3d6b]]
+This feature allows you to record the debugger controlled execution of your system, and then replay this recording when the debugger is stopped. One could regard this feature as a rewind/forward, or undo/redo of the execution calls.<br/>
+In practice, 
+* the debugger is [[Record execution|recording]] the effective routine calls, and the attribute assignments, as well as the local variable assignments.
+* when the execution is stopped, you can [[Replay (recorded) execution|replay]] the previous execution from its recording.
+* when [[Replay (recorded) execution|replaying]] a recorded execution, the debugger restores the recorded values, and changes the execution cursor to show the recorded context (values, calls) in the debugging tool. 
+* This way you can use the standard debugging tools to view, inspect the values, browse the calls, and even evaluate expressions on objects ( but, be careful, if you evaluate expressions to avoid side effects).
+
+
+The execution record and replay functionalities are graphically available on the Call stack tool, or though the "Execution" menu (formerly the "Debug" menu). 
+
+How to use it
+* Execute while [[Record execution|recording]] 
+* [[Replay (recorded) execution|Replay]] and use the debugging tools to browse, inspect, evaluate, ...
+
+{{caution|There is a '''specific limitation''' that '''once''' routine's information (not yet called ...) are not recorded and thus not restored as one might expect (for instance, the debugger does not reset a once during replay). This may be changed in a later release.}}
+
+{{caution|Be aware that there is a logical '''limitation''' concerning the world external to EiffelStudio. That is, it is not possible for EiffelStudio to record and replay external changes such as file or database modifications.<br/>
+Likewise if, during an external routine call, some Eiffel values are changed, those are not recorded (and thus not replayed).}}
+
+{{note|EiffelStudio provides record and replay '''only in classic mode'''. So the facility is not yet supported for .NET systems.}}
+
+
+

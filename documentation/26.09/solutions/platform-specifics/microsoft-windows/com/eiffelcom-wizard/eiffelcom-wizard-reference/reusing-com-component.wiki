@@ -1,0 +1,96 @@
+[[Property:title|Reusing a COM Component]]
+[[Property:weight|4]]
+[[Property:uuid|ae910c51-2264-4b65-2567-9dfc1873beca]]
+When reusing an existing COM component, the wizard generates the necessary code to access it. The plumbing is already done so that instantiating an Eiffel class corresponding to one of the component's coclasses automatically calls the right COM initialization APIs.
+<!--break-->
+==Using the Generated Code==
+
+Calling a feature on an Eiffel class corresponding to one of the component's coclasses forwards the call to the member on the corresponding interface. The data types of the function arguments are either Eiffel types defined in Eiffel data structure libraries, standard data types defined in the EiffelCOM library, or custom data types declared in the COM definition file. For example, from the following IDL line: 
+<code>
+HRESULT Function ([in] int a, [out, retval] MyStruct * b)</code>
+
+The wizard generates the following feature: 
+<code>
+function (a: INTEGER): MY_STRUCT_RECORD</code>
+
+where <eiffel>MY_STRUCT_RECORD</eiffel> is a generated Eiffel wrapper around the IDL defined structure <eiffel>MyStruct</eiffel>. Structures represent one case of custom data types, interfaces represent another.  So for the following IDL: 
+<code>
+HRESULT Function ([in] ISomething * pInterface)</code>
+
+The wizard generates the following Eiffel feature: 
+<code>
+function (p_interface: ISOMETHING_INTERFACE)</code>
+
+where <eiffel>ISOMETHING_INTERFACE</eiffel> is a generated deferred class corresponding to the <eiffel>ISomething</eiffel> interface. Calling <eiffel>function</eiffel> requires passing an instance of a type that implements <eiffel>ISOMETHING_INTERFACE</eiffel>. The '''stubs''' implementing such interfaces can be found in '''Server\Interfaces_stub'''. In our example the Eiffel class would be named <eiffel>ISOMETHING_IMPL_STUB</eiffel>. The default implementation of the stub is empty and should be completed to implement the wanted behavior. This is how callbacks can be implemented using EiffelCOM. 
+
+
+==Contracts==
+
+All the Eiffel classes corresponding to the component's interfaces are generated in '''Common\Interfaces'''. These deferred classes include one deferred feature per function defined in the interface. They are equipped with automatically generated assertions. However, the wizard cannot generate fully specified contracts since it has no domain specific knowledge. It can only generate contracts that are domain independent. Such contracts, although useful, are not enough to describe entirely the behavior of the component. Generated contracts include checking for <eiffel>Void</eiffel> Eiffel objects as well as <code>null</code> C pointers for wrappers. There might be a need for additional assertions. Invariants and postconditions can be added in an heir of the generated Eiffel coclass proxy. Preconditions, however, cannot be strengthened. A workaround provided by the wizard consists of generating a precondition function for each feature in the interface. The default implementation of these functions always returns <eiffel>True</eiffel>. They can be redefined to implement the correct behavior: 
+<code>
+    function (a: INTEGER): MY_STRUCT
+            -- Example of a generated Eiffel coclass feature
+        require
+            function_user_precondition: function_user_precondition
+        do
+                ...
+        ensure
+            non_void_my_struct: Result /= Void
+        end</code>
+
+So the complete class hierarchy for an Eiffel client coclass is the following: 
+[[Image:client-inheritance]]  
+
+
+==Exceptions==
+
+The COM standard requires that any interface function returns a status value (known as a <eiffel>HRESULT</eiffel>). This means that any function which adheres to the COM standard actually corresponds to a side effect feature which the Eiffel methodology tries to avoid according to the ''Command Query Separation Principle''. The workaround used in EiffelCOM systems consists in mapping these return values to Eiffel exceptions. So if the component returns an <eiffel>HRESULT</eiffel> corresponding to an error code, the EiffelCOM runtime raises an Eiffel exception that needs to be caught by the client. 
+
+[[Image:exception-raising]]  
+
+As a result, any feature in the client making calls to the Eiffel classes corresponding to the component's coclasses should include a <code>rescue</code> clause. The processing done in this clause might depend on the nature of the exception. All the standard COM exceptions can be found in the library class <eiffel>ECOM_EXCEPTION_CODES</eiffel>, which is inherited from by <eiffel>ECOM_EXCEPTION</eiffel>. The later also inherits from the kernel class <eiffel>EXCEPTIONS</eiffel> and can consequently be used by the coclass client to catch the exceptions. 
+
+The following code snippet illustrates how a client can process exceptions raised by a call to an Eiffel class representing a component's coclass: 
+<code>
+note
+    description: "Eiffel coclass client example"
+
+class
+    COCLASS_CLIENT
+
+inherit
+    ECOM_EXCEPTION
+        export
+            {NONE} all
+        end
+
+feature -- Basic Operations
+
+    coclass_feature_client
+            -- Example of a coclass feature caller
+        local
+            retried: BOOLEAN
+            coclass: EIFFEL_COCLASS_PROXY
+        do
+            if not retried then
+                create coclass.make
+                coclass.coclass_feature -- Actual call
+            end
+        rescue
+            if hresult = E_notimpl then
+                    -- Process non implemented function error.
+                retried := True
+                retry
+            elseif hresult = E_invalidarg then
+                    -- Process invalid argument error.
+                retried := True
+                retry
+            else
+                -- Forward exception to caller.
+            end
+        end
+
+end -- class COCLASS_CLIENT</code>
+
+{{seealso|[[How the EiffelCOM Wizard works|How the EiffelCOM Wizard Works]] , [[Generated Files|Generated Files]] , [[Class Hierarchy|Class Hierarchy]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Building a COM Component|Reusing a COM Component]] , [[Wizards: Command Line Options|Command Line Options]]  }}
+

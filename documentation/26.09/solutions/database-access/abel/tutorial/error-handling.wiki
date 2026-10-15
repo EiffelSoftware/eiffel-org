@@ -1,0 +1,58 @@
+[[Property:title|Error handling]]
+[[Property:weight|0]]
+[[Property:uuid|5f3afec1-939d-b1f5-3715-8bbd2f44ce79]]
+As ABEL is dealing with I/O and databases, a runtime error may happen at any time.
+ABEL will inform you of an error by setting the <e>has_error</e> attribute to True in <e>PS_QUERY</e> or <e>PS_TUPLE_QUERY</e> and, 
+if available, in <e>PS_TRANSACTION</e>.
+The attribute should always be checked in the following cases:
+
+* Before invoking a library command.
+* After a transaction commit.
+* After iterating over the result of a read-only query.
+
+ABEL maps database specific error messages to its own representation for errors, which is a hierarchy of classes rooted at <e>PS_ERROR</e>.
+In case of an error, you can find an ABEL error description in the <e>error</e> attribute in all classes suppoorting the <e>has_error</e> attribute.
+The following list shows all error classes that are currently defined with some examples (the <e>PS_</e> prefix is omitted for brevity):
+
+* CONNECTION_SETUP_ERROR: No internet link, or a deleted serialization file.
+* AUTHORIZATION_ERROR: Usually a wrong password.
+* BACKEND_ERROR: An unrecoverable error in the storage backend, e.g. a disk failure.
+* INTERNAL_ERROR: Any error happening inside ABEL.
+* PS_OPERATION_ERROR: For invalid operations, e.g. no access rights to a table.
+* TRANSACTION_ABORTED_ERROR: A conflict between two transactions.
+* MESSAGE_NOT_UNDERSTOOD_ERROR: Malformed SQL or JSON statements.
+* INTEGRITY_CONSTRAINT_VIOLATION_ERROR: The operation violates an integrity constraint in the database.
+* EXTERNAL_ROUTINE_ERROR: An SQL routine or triggered action has failed.
+* VERSION_MISMATCH: The stored version of an object isn't compatible any more to the current type.
+
+For your convenience, there is a visitor pattern for all ABEL error types. 
+You can just implement the appropriate functions and use it for your error handling code.
+
+<code>
+class
+	MY_PRIVATE_VISITOR
+
+inherit
+	PS_DEFAULT_ERROR_VISITOR
+		redefine
+			visit_transaction_aborted_error,
+			visit_connection_setup_error
+		end
+
+feature -- Visitor features
+
+	visit_transaction_aborted_error (transaction_aborted_error: PS_TRANSACTION_ABORTED_ERROR)
+		-- Visit a transaction aborted error
+		do
+			print ("Transaction aborted")
+		end
+
+	visit_connection_setup_error (connection_setup_error: PS_CONNECTION_SETUP_ERROR)
+		-- Visit a connection setup error
+		do
+			print ("Wrong login")
+		end
+
+end
+</code>
+

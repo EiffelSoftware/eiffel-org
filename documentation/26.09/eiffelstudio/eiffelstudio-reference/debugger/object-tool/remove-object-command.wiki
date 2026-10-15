@@ -1,0 +1,10 @@
+[[Property:title|Remove object command]]
+[[Property:weight|5]]
+[[Property:uuid|42b5ea32-ef9c-207f-7dbe-c871a4515db3]]
+Located in the [[Object tool|object tool]] toolbar, this command  [[Image:general-delete-icon]]  discards an object from the [[Object tool|object tool]]. All top-level objects can be removed, except the first one, which is the object relative to the [[Call stack tool|current call stack element]] . 
+
+Left-clicking on this button removes the selected object from the [[Object tool|object tool]], if possible. It is also possible to [[Pick-and-drop mechanism|drop]]  an object onto the button to remove the object. 
+
+
+
+

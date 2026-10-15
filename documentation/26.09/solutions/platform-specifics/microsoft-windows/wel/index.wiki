@@ -1,0 +1,15 @@
+[[Property:title|WEL]]
+[[Property:weight|-13]]
+[[Property:uuid|a8f57de5-a0eb-262e-a825-95a706392640]]
+==WEL (Windows Eiffel Library)==
+
+Type: Library <br/>
+Platform: Windows <br/>
+
+WEL is an encapsulation of the Win32 Application Programming Interface (API), and provides users with a powerful means of creating Win32 Applications. 
+
+==Getting started with WEL==
+
+If you are new to WEL, then the best place to begin is the [[WEL Tutorial|tutorial]], which consists of a series of samples demonstrating the development of a simple WEL system. 
+Also take a look at [[WEL Common Concepts|WEL common concepts]]  for details of some common concepts used in WEL programming. 
+

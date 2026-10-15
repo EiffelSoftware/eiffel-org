@@ -1,0 +1,525 @@
+[[Property:modification_date|Thu, 13 Aug 2020 00:59:54 GMT]]
+[[Property:publication_date|Wed, 11 Sep 2019 14:10:27 GMT]]
+[[Property:title|Eiffel programming language reserved words]]
+[[Property:link_title|Reserved words]]
+[[Property:weight|1]]
+[[Property:uuid|047ce062-45de-f25c-f356-ee8ec0fc2d1d]]
+In the Eiffel programming language, there are certain words that are considered "reserved". These words have specific meanings recognized by the compiler. As such, it is invalid to attempt to use a reserved word as an ordinary language identifier.
+
+The reserved words listed in the ISO/ECMA standard are shown below with a brief explanation of their meanings. Links are given where appropriate to the syntax definitions and to descriptions in the online documentation. Occasionally, references to the June 2006 standard document are used and are recognizable as clause numbers in parentheses, i.e., three integers separated by dots, for example: (8.14.1)
+
+
+{{info|The list below includes all the Eiffel reserved words. Some of these words are considered ''language keywords'' while others are not. The distinction is that language keywords are reserved words that are used only as syntactical markers, and have no inherent semantic value. Examples are the keywords <code>do</code> and <code>end</code>. Non-keyword reserved words are those that do carry semantic value, such as <code>True</code> and <code>Current</code>.}}
+
+
+{{note|The set of reserved words supported by the Eiffel Software implementation may vary somewhat from those specified in the current standard. See the [[Differences between standard ECMA-367 and Eiffel Software implementation|"differences" chapter of the online documentation]] for information on these variances.}}
+ 
+
+==Reserved words==
+
+===across===
+
+Introduces an [[ET: Instructions#Loop|iteration]].
+
+===agent===
+
+Used to specify an [[ET: Agents|agent]]. 
+
+:[[Eiffel programming language syntax#Agents|Syntax.]]
+
+
+===alias===
+
+Used to identify an alternative or alias feature name. 
+
+:[[Eiffel programming language syntax#Feature names|Syntax.]]
+
+[[ET: The Dynamic Structure: Execution Model#Infix and prefix notations|Usage for infix/prefix notations.]]
+
+[[ET: The Static Picture: System Organization#External software|Usage in interfaces to external software.]]
+
+:[[Eiffel programming language syntax#External routines|Syntax.]]
+
+
+===all===
+
+Used in [[ET: Inheritance#Changing the export status|export adaptation]] to indicate that a chosen export status applies to all features inherited from a given parent.
+
+:[[Eiffel programming language syntax#Export adaptation|Syntax.]]
+
+
+===and===
+
+The logical conjunction [[Eiffel programming language syntax#Operators|operator]]. Strict when used alone, nonstrict when used with [[#then|then]].
+
+
+===as===
+
+Used when [[ET: Inheritance#Multiple inheritance and renaming|renaming]] features in descendant classes.
+
+:[[Eiffel programming language syntax#Rename clauses|Syntax.]]
+
+
+===assign===
+
+Used to designate [[ET: The Dynamic Structure: Execution Model#Abstraction|assigner commands]].
+
+:[[Eiffel programming language syntax#Assigner marks|Syntax.]]
+
+
+===attribute===
+
+Introduces an attribute body, as in [[Void-safety: Background, definition, and tools#Self-initializing attributes|self-initializing attributes]].
+
+:[[Eiffel programming language syntax#Attribute bodies|Syntax.]]
+
+
+===check===
+
+Identifies a [[ET: Other Mechanisms#Check|check instruction]].
+
+:[[Eiffel programming language syntax#Check instructions|Syntax.]]
+
+
+===class===
+
+Used in a class header in the declaration of a [[ET: The Dynamic Structure: Execution Model#A simple class|class]]. 
+
+:[[Eiffel programming language syntax#Class headers|Class header syntax.]]
+
+
+===convert===
+
+Used in converter clauses.
+
+:[[Eiffel programming language syntax#Converter clauses|Syntax.]]
+
+Used in feature names for operator aliases, supporting mixed type expressions causing a conversion of the target (8.5.14).
+
+:[[Eiffel programming language syntax#Feature names|Syntax.]]
+
+
+===create===
+
+In the creators part of a class, introduces those procedures which can be used to [[ET: The Dynamic Structure: Execution Model#Creating and initializing objects|initialize instances]].
+
+:[[Eiffel programming language syntax#Creators parts|Syntax.]]
+
+Introduces a  [[ET: The Dynamic Structure: Execution Model#Creating and initializing objects|creation instruction]].
+
+:[[Eiffel programming language syntax#Creation instructions|Syntax.]]
+
+Introduces a creation expression (8.20.18)
+
+:[[Eiffel programming language syntax#Creation expressions|Syntax.]]
+
+In [[ET: Inheritance#Constrained genericity|constrained genericity]], introduces a list of names of features which can be used as creation procedures with a generic class for a particular formal generic parameter. (8.12.10)
+
+:[[Eiffel programming language syntax#Generic constraints|Syntax.]]
+
+
+===Current===
+
+A predefined entity indicating the current object. 
+
+:[[Eiffel programming language syntax#Entities and variables|Entity syntax.]]
+
+:[[Eiffel programming language syntax#Types|Anchored types syntax.]]
+
+
+===debug===
+
+Introduces a [[ET: Other Mechanisms#Debug|debug instruction]].
+
+:[[Eiffel programming language syntax#Debug Instructions|Syntax.]]
+
+
+===deferred===
+
+Used in class header to indicate a [[ET: Inheritance#Deferred features and classes|deferred class]].
+
+:[[Eiffel programming language syntax#Class headers|Syntax.]]
+
+Used in routine body to indicate a [[ET: Inheritance#Deferred features and classes|deferred feature]].
+
+:[[Eiffel programming language syntax#Routine bodies|Syntax.]]
+
+
+===do===
+
+Introduces a sequence of instructions as a routine body, as shown in the [[ET: Hello World|Hello World]] example.
+
+:[[Eiffel programming language syntax#Routine bodies|Syntax.]]
+
+
+===else===
+
+Used in [[ET-_Instructions#Conditional|conditional]] and [[ET-_Instructions#Multi-branch|multi-branch]] instructions to introduce a sequence of instructions to be executed in the case that no specified conditions are met.
+
+:[[Eiffel programming language syntax#Conditionals|Conditional syntax.]]
+
+:[[Eiffel programming language syntax#Multi-branch instructions|Multi-branch syntax.]]
+
+Used in a [[Conditional_expression|conditional expression]] to compute a value in the case that no specified conditions are met.
+
+:[[Eiffel programming language syntax#Conditionals|Conditional expression syntax.]]
+
+Used as part of the double reserved word <code>or else</code>, the semi-strict disjunction operator.
+
+:[[Eiffel programming language syntax#Operators|Syntax.]]
+
+Used after the reserved word [[#require|<code>require</code>]] as a precondition extension, allowing the weakening of an inherited precondition (8.10.3).
+
+:[[Eiffel programming language syntax#Assertions|Syntax.]]
+
+
+===elseif===
+
+Used in [[ET-_Instructions#Conditional|conditional]] instructions to effect a "multi-branch" choice instruction.
+
+:[[Eiffel programming language syntax#Conditionals|Syntax.]]
+
+Used in a [[Conditional_expression|conditional expression]] to effect a "multi-branch" choice to compute of a value.
+
+:[[Eiffel programming language syntax#Conditionals|Conditional expression syntax.]]
+
+
+===end===
+
+Serves to terminate several Eiffel programming language constructs.
+
+:Syntax for:
+::[[Eiffel programming language syntax#Class declarations|Class declarations]]
+::[[Eiffel programming language syntax#Feature bodies|Feature bodies]]
+::[[Eiffel programming language syntax#Inheritance parts|Inheritance parts]]
+::[[Eiffel programming language syntax#Check instructions|Check instructions]]
+::[[Eiffel programming language syntax#Generic constraints|Generic constraints: renaming and constraint creators]]
+::[[Eiffel programming language syntax#Conditionals|Conditional instructions]]
+::[[Eiffel programming language syntax#Multi-branch instructions|Multi-branch instructions]]
+::[[Eiffel programming language syntax#Conditionals|Conditional expressions]]
+::[[Eiffel programming language syntax#Loops|Loops]]
+::[[Eiffel programming language syntax#Debug instructions|Debug instructions]]
+
+
+===ensure===
+
+Introduces a [[ET: Design by Contract (tm), Assertions and Exceptions#Expressing assertions|postcondition]].
+
+When followed by the reserved word [[#then|<code>then</code>]] denotes a postcondition extension, allowing the strengthening of an inherited postcondition (8.10.3).
+
+:[[Eiffel programming language syntax#Assertions|Syntax.]]
+
+
+===expanded===
+
+Used in a class header to indicate that a class is [[ET: The Dynamic Structure: Execution Model#Type categories|expanded]].
+
+:[[Eiffel programming language syntax#Class headers|Syntax.]]
+
+
+===export===
+
+Used to [[ET: Inheritance#Changing the export status|change the export status]] (availability to clients) of inherited features.
+
+:[[Eiffel programming language syntax#Export adaptation|Syntax.]]
+
+
+===external===
+
+Denotes an [[ET: The Static Picture: System Organization#External software|external routine]]. External routines are commonly defined to interface with [[C externals|C external routines]] and [[C++ Externals|C++ external routines]].
+
+:[[Eiffel programming language syntax#External routines|Syntax]]
+
+
+===False===
+
+Boolean manifest constant. 
+
+:[[Eiffel programming language syntax#Manifest constants|Syntax.]]
+
+
+===feature===
+
+Introduces a [[ET: Hello World|feature clause]].
+
+:[[Eiffel programming language syntax#Feature parts|Syntax.]]
+
+
+===from===
+
+Used in [[ET: Other Mechanisms#Loop|loop]] initialization.
+
+:[[Eiffel programming language syntax#Loops|Syntax.]]
+
+
+===frozen===
+
+Used in a class header to mark a class explicitly as frozen. A frozen class prohibits it from serving as a "conforming parent" to other classes. (8.4.5).
+
+:[[Eiffel programming language syntax#Class headers|Syntax.]]
+
+Used in a feature declaration to mark a feature as frozen. A frozen feature cannot be redefined by heir classes.
+
+:[[Eiffel programming language syntax#New feature lists|Syntax.]]
+
+Used with a formal generic parameter to indicate that conformance of generic derivations of the class require identical actual generic parameters. (8.12.3)
+
+:[[Eiffel programming language syntax#Formal generic parameters|Syntax.]]
+
+
+===if===
+
+Used to introduce a [[ET-_Instructions#Conditional|conditional]].
+
+:[[Eiffel programming language syntax#Conditionals|Conditional syntax.]]
+
+Used to introduce a [[Conditional_expression|Conditional expression]].
+
+:[[Eiffel programming language syntax#Conditionals|Conditional expression syntax.]]
+
+
+===implies===
+
+The semi-strict logical implication [[Eiffel programming language syntax#Operators|operator]].
+
+
+===inherit===
+
+Used in an [[ET: Inheritance|inherit]] clause.
+
+:[[Eiffel programming language syntax#Inheritance parts|Syntax.]]
+
+
+===inspect===
+
+Introduces a [[ET-_Instructions#Multi-branch|multi-branch]] instruction.
+
+:[[Eiffel programming language syntax#Multi-branch instructions|Syntax.]]
+
+
+===invariant===
+
+Used to introduce an invariant assertion as a [[ET: Design by Contract (tm), Assertions and Exceptions#Class invariants|class invariant]] or [[ET: Instructions#Loop|loop invariant]].
+
+:[[Eiffel programming language syntax#Assertions|Assertions syntax.]]
+
+:[[Eiffel programming language syntax#Class declarations|Syntax of class declaration including class invariant.]]
+
+:[[Eiffel programming language syntax#Loops|Syntax of loop including loop invariant.]]
+
+
+===like===
+
+Used in the declaration of an [[ET: Inheritance#Covariance and anchored declarations|anchored]] entity.
+
+:[[Eiffel programming language syntax#Types|Syntax.]]
+
+
+===local===
+
+Introduces the [[ET: The Dynamic Structure: Execution Model#Entities|local variable]] declarations in a feature body.
+
+:[[Eiffel programming language syntax#Feature bodies|Feature bodies syntax.]]
+
+:[[Eiffel programming language syntax#Local variables|Local variable declarations syntax.]]
+
+
+===loop===
+
+Introduces a [[ET: Other Mechanisms#Loop|loop]] body.
+
+:[[Eiffel programming language syntax#Loops|Syntax.]]
+
+
+===not===
+
+The logical negation [[Eiffel programming language syntax#Operators|operator]].
+
+
+===note===
+
+Used to begin a Notes part, in a [[Eiffel programming language syntax#Class declarations|class declaration]], a [[Eiffel programming language syntax#Feature declarations|feature declaration]], or a [[Eiffel programming language syntax#Check instructions|check instruction]].
+
+:[[Eiffel programming language syntax#Notes|Syntax.]]
+
+
+===obsolete===
+
+Used to mark [[ET: Other Mechanisms#Obsolete features and classes|obsolete features and classes]].
+
+:[[Eiffel programming language syntax#Feature declarations|Feature declarations syntax.]]
+
+:[[Eiffel programming language syntax#Class declarations|Class declarations declarations syntax.]]
+
+:[[Eiffel programming language syntax#Obsolete marks|Obsolete mark syntax.]]
+
+
+===old===
+
+Introduces an ''old expression''. Old expressions are valid only in the  [[ET: Design by Contract (tm), Assertions and Exceptions#Postconditions|postconditions]] of routines.
+
+:[[Eiffel programming language syntax#Old postcondition expressions|Syntax.]]
+
+
+===once===
+
+Used to introduce [[ET: Other Mechanisms#Once routines and shared objects|once routines]] and once string expressions.
+
+:[[Eiffel programming language syntax#Routine bodies|Once routine syntax.]]
+
+:[[Eiffel programming language syntax#Expressions|Once string syntax.]]
+
+
+===only===
+
+Used in an ''only postcondition clause''. (8.9.11)
+
+:[[Eiffel programming language syntax#"Old" postcondition expressions|Syntax.]]
+
+
+===or===
+
+The logical disjunction [[Eiffel programming language syntax#Operators|operator]]. Strict when used alone, nonstrict when used with [[#else|else]].
+
+
+===Precursor===
+
+Allows a redefined routine to access the routine it redefines, i.e, its [[ET: Inheritance#Redefinition|precursor]].
+
+:[[Eiffel programming language syntax#Precursor|Syntax.]]
+
+
+===redefine===
+
+Used in an [[Eiffel programming language syntax#Inheritance parts|inheritance part]] of a [[Eiffel programming language syntax#Class declarations|class declaration]] to list those inherited features which, in the heir class, will receive new implementations, specifications, or both, i.e, those features being [[ET: Inheritance#Redefinition|redefined]].
+
+:[[Eiffel programming language syntax#Redefinition|Redefine syntax.]]
+
+
+===rename===
+
+Used in an [[Eiffel programming language syntax#Inheritance parts|inheritance part]] of a [[Eiffel programming language syntax#Class declarations|class declaration]] to [[ET: Inheritance#Multiple inheritance and renaming|provide alternative names]] for inherited features in an heir class.
+
+Used to rename features in a [[Eiffel programming language syntax#Generic constraints|generic constraint]]. (8.12.8).
+
+:[[Eiffel programming language syntax#Rename clauses|Syntax.]]
+
+
+===require===
+
+Introduces a [[ET: Design by Contract (tm), Assertions and Exceptions#Expressing assertions|precondition]]. 
+
+When followed by the reserved word [[#else|<code>else</code>]] denotes a precondition extension, allowing the weakening of an inherited precondition (8.10.3).
+
+:[[Eiffel programming language syntax#Assertions|Syntax.]]
+
+
+
+===rescue===
+
+Introduces a [[ET: Design by Contract (tm), Assertions and Exceptions#Exception handling|rescue clause]] in a [[Eiffel programming language syntax#Feature bodies|feature body]].
+
+:[[Eiffel programming language syntax#Rescue clauses|Syntax.]]
+
+
+===Result===
+
+A predefined [[ET: The Dynamic Structure: Execution Model#Entities|entity]] used to represent the final result of a function.
+
+:[[Eiffel programming language syntax#Entities and variables|Syntax.]]
+
+
+===retry===
+
+An [[Eiffel programming language syntax#Instructions|instruction]] valid only in [[Eiffel programming language syntax#Rescue clauses|rescue clauses]] and used to [[ET: Design by Contract (tm), Assertions and Exceptions#Exception handling|re-execute the routine]] in which it appears.
+
+:[[Eiffel programming language syntax#Rescue clauses|Syntax.]]
+
+
+===select===
+
+Used in an [[Eiffel programming language syntax#Inheritance parts|inheritance part]] of a [[Eiffel programming language syntax#Class declarations|class declaration]] to resolve possible ambiguities related to polymorphism and dynamic binding in the presence of  [[ET: Inheritance#Repeated inheritance and selection|repeated inheritance]].
+
+:[[Eiffel programming language syntax#Select clauses|Syntax.]]
+
+
+===separate===
+
+Used to support  [[Concurrent programming with SCOOP]].
+
+
+===then===
+
+Used in [[ET-_Instructions#Conditional|conditional]] and [[ET-_Instructions#Multi-branch|multi-branch]] instructions to introduce a sequence of instructions to be executed in the case that a condition is met.
+
+:[[Eiffel programming language syntax#Conditionals|Conditional syntax.]]
+
+:[[Eiffel programming language syntax#Multi-branch instructions|Multi-branch syntax.]]
+
+Used in a [[Conditional_expression|conditional expression]] to compute of a value in the case that a condition is met.
+
+:[[Eiffel programming language syntax#Conditionals|Conditional expression syntax.]]
+
+Used as part of the double reserved word <code>and then</code>, the semi-strict conjunction operator.
+
+:[[Eiffel programming language syntax#Operators|Syntax.]]
+
+Used after the reserved word [[#ensure|<code>ensure</code>]] as a postcondition extension, allowing the strengthening of an inherited postcondition (8.10.3).
+
+:[[Eiffel programming language syntax#Assertions|Syntax.]]
+
+
+===True===
+
+Boolean manifest constant. 
+
+:[[Eiffel programming language syntax#Manifest constants|Syntax.]]
+
+
+===TUPLE===
+
+Denotes a [[ET: Other Mechanisms#Tuple types|TUPLE type]].
+
+:[[Eiffel programming language syntax#Tuple types|Syntax.]]
+
+
+===undefine===
+
+Used in an [[Eiffel programming language syntax#Inheritance parts|inheritance part]] of a [[Eiffel programming language syntax#Class declarations|class declaration]] to  [[ET: Inheritance#Joining and uneffecting|uneffect]] an inherited feature.
+
+:[[Eiffel programming language syntax#Undefine clauses|Syntax.]]
+
+
+===until===
+
+Used in [[ET: Other Mechanisms#Loop|loop]] initialization.
+
+:[[Eiffel programming language syntax#Loops|Syntax.]]
+
+
+===variant===
+
+Introduces a [[ET: Instructions#Loop|loop variant]].
+
+:[[Eiffel programming language syntax#Variants|Syntax.]]
+
+
+===Void===
+
+A predefined entity name representing a [[ET: The Dynamic Structure: Execution Model#Basic operations|void (a.k.a., null) reference]]. 
+
+
+===when===
+
+Used in a [[ET-_Instructions#Multi-branch|multi-branch instruction]] to introduce cases.
+
+:[[Eiffel programming language syntax#Multi-branch instructions|Syntax.]]
+
+
+===xor===
+
+The exclusive disjunction [[Eiffel programming language syntax#Operators|operator]].
+
+
+
+

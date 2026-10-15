@@ -1,0 +1,32 @@
+[[Property:title|Eiffel Implementation]]
+[[Property:weight|7]]
+[[Property:uuid|3f945c36-521e-cd71-fc7b-d549a6c05a04]]
+There are a few topics specific to the implementation of the Eiffel CodeDom Provider that are worth mentioning. 
+==Multiple Classes File==
+The Eiffel compiler expects that there is only one class per source file (file with extension '''.e'''), however the CodeDom interface specification requires multiple classes to be generated in the same file (actually in the same ''stream''). The Eiffel CodeDom Provider code generator generates files with the extension '''.es''' which may contain multiple class definitions. Each class definition is separated with a special marker that the Eiffel CodeDom Provider compiler will parse to create multiple '''.e''' files - each containing a single class definition - prior to calling the command line Eiffel compiler. 
+
+
+{{note|Only the Eiffel CodeDom Provider compiler knows how to handle '''.es''' files. The standard Eiffel compilers can only parse '''.e''' files. }}
+
+Eiffel for ASP.NET includes the [[eSplitter|eSplitter]]  utility which can 'split' Eiffel multi-class files ('''.es''' files) into single class files ('''.e''' files). 
+==Inheritance Snippet==
+Any type defined in a CodeDom tree to be consumed by the Eiffel CodeDom Provider may include one (and only one) snippet member that includes an inheritance clause declaration. This ''inheritance snippet'' must start with the keyword '''inherit''' and follows the Eiffel syntax for inheritance clauses. All the feature adaptations available in the Eiffel programming language may be used in such a snippet ('''rename''', '''export''', '''undefine''', '''redefine''', '''select'''). 
+
+
+{{note|The CodeDom tree itself might define additional inheritance clauses in which case the Eiffel CodeDom Provider will merge the snippet and the implicit clauses in the generated source file. }}
+
+==Indexing Snippet and Precompiled Libraries==
+Another interesting snippet member is the ''indexing clause snippet'' which must start with the '''indexing''' keyword and follows the Eiffel syntax for indexing clauses. This snippet may include the indexing clause '''precompile_definition_file''' which can be used to specify the path to the precompiled library ACE file to be used by the Eiffel CodeDom Compiler. This is specially useful in ASP.NET pages where each page can specify which precompiled ACE file to use when compiling it. This path will be used instead of the path defined in the [[Configuration|configuration file]]. 
+
+
+{{note|Only one class per compile unit should define a path to the precompiled library ACE file. If more than one class contain a '''precompile_definition_file''' indexing clause then there is no guarentee on which one the Eiffel CodeDom Compiler will use. }}
+
+==Eiffel Configuration==
+There are several Eiffel specific settings that can be set in the Eiffel CodeDom Provider which will affect the generated code as well as the CodeDom compiler behavior. These settings are covered in the [[Configuration|Configuration]]  section. 
+
+
+{{seealso|[[eSplitter|eSplitter]], [[Configuration|Configuration]]  }}
+
+
+
+

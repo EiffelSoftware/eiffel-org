@@ -1,0 +1,99 @@
+[[Property:title|Search tool]]
+[[Property:weight|6]]
+[[Property:uuid|4d0cc8b3-2ffd-42d4-7855-672fa0c11cf8]]
+EiffelStudio includes a '''search tool''' which allows you to look for a word, phrase, string or even a pattern and, if you wish, to replace the matches it finds with some other word, phrase, or string. The search scope of the tool can be confined to the current editor pane, to the whole project, or to a custom domain of your choosing.
+
+If the search tool is not currently visible, you can make it appear by clicking on the search icon  [[Image:tool-search-icon]]  or by following either menu path:
+<code lang="text">
+        View -> Tools -> Search
+</code>
+or
+<code lang="text">
+        Edit -> Find
+</code>
+
+==The Search panel==
+
+[[Image:search-tool]]  
+
+Fig. 1: Search panel
+
+The search panel has two tabs. The '''search tab''' allows you to define how and for what strings and patterns you want to search (or search and replace). The '''scope tab''' allows you to define the limits of your search.
+
+===The Search tab===
+
+On the '''search tab''' of the search panel (shown in Fig. 1), you will find two combo boxes, labeled '''Search for:''' and '''Replace with:'''. These are used to enter the string or pattern for which you want to search and the word or phrase, if any, which you want the editor to use to replace matches resulting from the search. 
+
+Also in the Search tab, there are buttons that control whether you want to '''search''', to '''replace''' the most recently found match, or '''replace all''' matches.
+
+====Using sub-patterns and back references====
+
+If you are searching using '''regular expressions''' (see [[#The options group|The options group]] below), you can use '''sub-patterns''' in your search pattern. This allows you to capture the portion of a "match" that satisfies a sub-pattern the search. Then, in the replacement, you can make a '''back reference''' to that captured part of the match. You can create more than one sub-pattern in any search pattern.
+
+To create a sub-pattern, in the '''Search for:''' combo box, enclose in parentheses any parts of the search that you want to capture for use in the replacement. Then, in the '''Replace with:''' combo box, you can back reference each capture by its index enclosed in backslashes. The following example should help make this clear.
+
+Assume that the text you are searching contains the following:
+<code>
+            -- The dog is chasing the cat
+</code>
+Then, you enter values into the '''Search for:''' and '''Replace with:''' boxes so that it looks like this:
+
+
+[[Image:Search capture boxes]]
+
+After the replacement, your text will look like this:
+<code>
+            -- The cat is being chased by the dog
+</code>
+
+====The options group====
+
+There are four search options, each of them represented by a check box:
+
+*  '''Match case:''' If this option is selected, the search will be case-sensitive, which means that if you search for "example", the tool will highlight "example" but not "EXAMPLE" or "Example", as there are no capital letters in the searched pattern.
+
+* '''Whole word:''' If this option is selected, the tool will look for isolated words. A word is isolated if it is surrounded by spaces or if it is at the beginning or the end of a line.
+
+* '''Use regular expressions:''' You can enter a regular expression as a pattern for matching. In Fig. 1, the regular expression in the '''Search for:''' box describes very simple quoted strings. Regular expressions give you the ability to create powerful pattern-oriented searches. If you are not familiar with regular expressions, you might check out the tutorial at [http://www.regular-expressions.info/ www.regular-expressions.info]. 
+
+{{note|It might be good advice to temper your expectations of using regular expressions with these words, [http://www.devtopics.com/101-more-great-computer-quotes/ attributed] to Jamie Zawinski: "Some people, when confronted with a problem, think `I know, I'll use regular expressions.' Now they have two problems."}}
+
+* '''Search backwards:''' If this option is selected, the tool will highlight the previous occurrence of the searched pattern instead of the next occurrence when you click the '''Search button'''.
+
+{{note|If the search tool hits one end of the text, it will automatically continue from the other end. }}
+
+===The Scope tab===
+
+[[Image:search-tool-scope-tab]]
+
+Fig. 2 Scope tab
+
+In the scope tab, you can choose how wide a search you would like to make. 
+
+* '''Current editor''' Your search will be confined to the class which is the current target of the Editor pane.
+* '''Whole project''' The entire project universe will be searched. 
+* '''Custom''' You are given the opportunity to choose which classes and clusters you would like to be included in the search scope.
+
+When you make certain choices, one or both of the check boxes become enabled.
+
+If you choose '''Whole project''', the '''Only compiled classes''' check box becomes enabled. If you check the box, then the search is confined to classes which are actually included in your system (i.e., reachable via relationships from your root class ... the classes shown with blue ovals). If you leave '''Only compiled classes''' unchecked, all classes in your project's universe are included in the search (blue and grey ovals). With '''Whole project''', the '''Recursive''' check box remains disabled.
+
+If you choose '''Custom''', both the '''Only compiled classes''' check box and the '''Recursive''' check box become enabled. The '''Recursive''' check box allows the search to include recursively subclusters of any cluster included in the search.
+
+==The Search Report panel==
+
+[[Image:search-report-01]]
+
+Fig. 3 Search Report panel
+
+The search report panel will be visible whenever your search returns matches on multiple classes. The '''collapsed''' view of the search results shows the class name of classes in which matches were found, and the number of matches. When you '''expand''' and entry, you see the line number at which the match occurs, and the exact string that caused the match. If you have used [[#Using sub-patterns and back references|'''sub-patterns''']] in your search, then the captures for each sub-pattern will also be shown in the search report panel when the entries are completely expanded.
+
+The items in the search report panel can be [[Pick-and-drop mechanism|picked and dropped]] into the editor or other appropriate targets in EiffelStudio.
+
+
+
+
+{{seealso|The [[Search functionality]] part of the EiffelStudio Editor section to learn keyboard shortcuts and menu entries to launch searches without using the search tool directly.  }}
+
+
+

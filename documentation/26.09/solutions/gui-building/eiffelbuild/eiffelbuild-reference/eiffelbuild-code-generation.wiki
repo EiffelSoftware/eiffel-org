@@ -1,0 +1,52 @@
+[[Property:title|EiffelBuild: Code Generation]]
+[[Property:weight|15]]
+[[Property:uuid|536487f0-f681-3812-87cf-3580c51ef8dd]]
+To generate Eiffel code representing your system, select '''Generate code''' from the '''Project''' menu or click  [[Image:icon-code-generation-color]]  on the [[Main toolbar|main toolbar]] . 
+The length of time taken to generate your code is dependent on the speed of the system you are running, and the size of your interface, but typically takes a couple of seconds. A progress bar is displayed during the generation of your system.
+
+The code will be generated according to the options you selected in the [[EiffelBuild: Project settings window|project settings]] . 
+
+==Generated classes==
+
+The generation of an EiffelBuild project causes the following files to be generated:
+* A constants class and its respective implementation class. For example, if the constants class is named as "constants" in the [[EiffelBuild: Project settings window|project settings]] , two classes, CONSTANTS and CONSTANTS_IMP are generated. 
+* A class and implementation class for each window, dialog and "top level" widget in the system (each of which is contained in the [[Widget selector|widget selector]] ), named to correspond with the name attribute of the object. For example, for a window in the project named "main_window", the files MAIN_WINDOW and MAIN_WINDOW_IMP are generated.
+* An optional file named "constants.txt" which contains definitions of all INTEGER and STRING constants. This is only generated if "Load constants from file" is selected in the [[EiffelBuild: Project settings window|project settings]] . The generated code loads the constants from this file, and allows simple modification for localization, i.e. for foreign languages provide a different version of this file with all strings converted. 
+
+For each "top level" widget class in the system (contained in the [[Widget selector|widget selector]] ), the following class hierarchy is generated:
+
+[[Image:class-project-diagram]]  
+
+If the "generate as client" option is selected for a particular object (changeable from the [[Object editor|object editor]] , only for objects contained in the [[Widget selector|widget selector]] ), a client supplier relationship exists between the generated widget class and the EiffelVision widget, as illustrated below: 
+
+[[Image:class-project-diagram-client]]  
+
+{{note|All other diagrams on this page show only the non client version of the settings, where the generated widget inherits from the EiffelVision class. }}
+
+==Project build type==
+
+If [[Build Tab|build type]]  is selected as '''Project''' in the [[EiffelBuild: Project settings window|project settings]] , then all the classes listed above in "Generated classes" are generated, along with the following: 
+* A project configuration file called "build_project.ecf".
+* An application class which launches the root window of the project.
+
+The generated files comprise a complete project with a configuration file enabling you to compile and execute the generated system as is. The following diagram illustrates the hierarchy of the generated project, showing only the root window of the project:
+
+[[Image:complete-project-diagram]]  
+
+
+==Modifying code after generation==
+
+The choice to generate an interface and an implementation class for the windows and constants was to enable modification of the interface using EiffelBuild, once you had hand edited code. The rule is that the implementation classes are re-generated every time, but the interface classes are not. It follows from this that you should not add hand written code to the implementation classes (ending in _IMP), as any changes you make will be lost when re-generation takes place.
+
+Using this mechanism, you can generate your initial system using EiffelBuild, and implement any event features that have been generated (in the interface) by EiffelBuild. If you then decide that you wish to modify the look and the feel of the interface, you can return to EiffelBuild, make the necessary adjustments and then re-generate the system.
+
+{{note|When returning to EiffelBuild to modify the interface, if you delete or rename controls, then it is quite possible that you will break your existing code. Care should be taken with all changes of this type. }}
+
+Looking at a generated system, you will see that the [[Object editor|events]]  connected to your controls are defined as deferred in the implementation and actually implemented in the interface class. This means that if you return to EiffelBuild with a previously generated system, and add a new event to a control, then you will have to implement the definition in the interface class yourself (as the class interface class is not re-generated). 
+
+{{seealso|<br/>
+[[EiffelBuild: Project settings window|Project settings]]  }}
+
+
+
+

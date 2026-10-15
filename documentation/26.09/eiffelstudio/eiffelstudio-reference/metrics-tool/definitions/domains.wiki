@@ -1,0 +1,64 @@
+[[Property:title|Domains]]
+[[Property:weight|9]]
+[[Property:uuid|128ecc21-9d82-d590-fc3e-d0fe52991ac1]]
+A domain is a list of code elements, it can contain different kinds of code elements. A domain is used as input to a metric, as output of a metric to review some details, and as an argument passed to some criteria. Domain is used to specify scope.
+
+==Domain Convention==
+
+Before we go to real domain examples, we introduce a simple convention to describe a domain:
+*  Group element is written in lower case, for example: <eiffel>base</eiffel>, <eiffel>thread</eiffel> 
+*  Class element is written in UPPER case, for example: <eiffel>ANY</eiffel>, <eiffel>LINKED_LIST</eiffel> 
+*  Feature element is written in <eiffel>CLASS_NAME</eiffel>.<eiffel>feature_name</eiffel>, i.e, its associated class will be presented also in upper case and the feature name will be in lower case. For example, <eiffel>ANY</eiffel>.<eiffel>is_equal</eiffel>, <eiffel>STRING_8</eiffel>.<eiffel>is_equal</eiffel> 
+*  All items in a domain will be in curly braces 
+
+For example, {<eiffel>ANY</eiffel>, <eiffel>STRING_8</eiffel>.<eiffel>as_lower</eiffel>, <eiffel>base</eiffel>} defines a domain with 3 elements, a class <eiffel>ANY</eiffel>, a feature <eiffel>as_lower</eiffel> which is in class <eiffel>STRING_8</eiffel>, and a group <eiffel>base</eiffel>.
+
+Suppose we have a basic metric called '''Classes''' which counts the number of classes. Before calculating the metric, we need to specify an input domain. This input domain tells metrics system over which scope the metric is calculated. And after calculating a basic metric, for sometimes, we not only want to know the value of that metric, but we are also interested in which are the actual items that adds up to that value. This detailed item list is also accessible for a basic metric if detailed results are specified to be kept before metric calculation, and it is called output domain.
+
+==Domain Examples==
+
+As a real example, go to Metrics tool in EiffelStudio, select Metric Evaluation panel, select metric '''Classes''' in the "Select metric" area, and set input domain in the "Setup input domain" area. See the following figure, in which the input domain is set to {<eiffel>base</eiffel>, <eiffel>APPLICATION</eiffel>}.
+
+[[Image:domain-example1|Defining an input domain]]  
+
+After running the metric, you should see the following result in the Detailed Result panel shown in the following figure:
+
+[[Image:domain-example2|Metric detailed result]]  
+
+{{note|an element can appear more than one time in a domain, but the detailed result list show only distinct items, so it is possible that the calculated metric value is not equal to the number of items in the detailed result list.}}
+
+
+A domain can be used as an argument of a relation criterion, see the following example:
+
+[[Image:domain-example3|Domain criterion]]  
+
+Here, we define a class basic metric, and in the definition area, we specify a criterion named ancestor_is which is a relation criterion. In that criterion, we set a domain {<eiffel>ANY</eiffel>} as its criterion domain. This metric reads: Count classes whose ancestor is class <eiffel>ANY</eiffel>. Put another way, this metric will find descendants of class <eiffel>ANY</eiffel>. 
+
+Now, let's have a look at some examples using delayed item and input domain item.
+
+Suppose we have the following feature metric created in the following figure:
+
+[[Image:domain-example4|Delayed domain item]]  
+
+When this metric is calculated over input domain {<eiffel>APPLICCATION</eiffel>}, this means that for every feature from class <eiffel>APPLICATIOIN</eiffel>, we check if it satisfies the defined criterion which is callee_is {Delayed item}. And because of this delayed item, the actual semantic is: For a feature from class <eiffel>APPLICATION</eiffel>, say <eiffel>foo</eiffel>, check if foo satisfies criterion callee_is {<eiffel>APPLICATION</eiffel>.<eiffel>foo</eiffel>}. i.e., the delayed item is replaced by the actual candidate feature. 
+
+One may wonder why the concept of delayed item is useful. The answer is that it is powerful when used with other criteria, such as criterion value_of_metric_is. See documentation of value_of_metric_is for details.
+
+Now, an example of Input domain item. Suppose we created the following class basic metric in the following figure:
+
+[[Image:domain-example5|Input domain item]]  
+
+And when this metric is calculated over input domain {<eiffel>APPLICATION</eiffel>}, the domain criterion Input domain in ancestor_is criterion will be replaced by the specified input domain, i.e., {<eiffel>APPLICATION</eiffel>}, and the metric will use the current application target as its input domain instead. Put another way, the metric is semantically equal to the following one shown in the following figure:
+
+[[Image:domain-example6|Actual semantic for input domain item]]  
+
+{{note|Only code element target, group, folder, class, feature, delayed item, input domain item and application target can be specified through domain selector in Metrics tool. And code element generic, assertion, argument, local, line cannot be specified in domain selector, but they may present in the detailed result domain list.}}
+
+
+{{seealso|<br/>
+[[Units|Units]]  <br/>
+[[Scopes|Scopes]]  }}
+
+
+
+

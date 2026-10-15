@@ -1,0 +1,33 @@
+[[Property:modification_date|Wed, 18 Sep 2019 13:10:45 GMT]]
+[[Property:publication_date|Wed, 11 Sep 2019 01:44:42 GMT]]
+[[Property:uuid|8A382DA4-C45F-4CBB-A2B6-44447C63EFB0]]
+[[Property:weight|5]]
+[[Property:title|Reusable Software: The Base Object-Oriented Component Libraries]]
+[[Property:link_title|OO Component Libraries]]
+
+:[[Image:/files/uploads/OOComponentLibrariesSmall.jpg|OO Component Libraries]] 
+
+:<big>'''Bertrand Meyer'''</big>
+
+:Prentice Hall, 1994 
+
+:xx, 514 p.
+:Includes bibliographical references and index
+
+:ISBN-10: 013-245-499-8
+:ISBN-13: 978-013-245-499-5
+
+First reviews the principles of library construction and the object-oriented techniques that make it possible to build high-quality libraries - e.g., finding the right objects and classes, choosing the proper names, using inheritance properly, determining the ideal class size, etc. 
+
+Then provides detailed usage descriptions of hundreds of reusable components, offering thousands of directly usable operations. The components, written in Eiffel, cover such areas as lists, chains, queues, stacks, trees of various kinds, sorted structures, lexical analysis, parsing, and many other fundamental data structures and algorithms. 
+
+For both the users of reusable software libraries and for developers who are interested in building their own libraries of reusable software.
+
+''Content:''
+
+1. Introduction to the Base libraries -- 2. Building libraries: techniques -- 3. Principles of library design -- 4. Abstract container structures: the taxonomy -- 5. Mathematical properties -- 6. Linear structures: sequences, chains, lists, circular chains -- 7. Dispenser structures: stacks, queues, priority lists -- 8. Trees -- 9. Sets and hash tables -- 10. Iteration -- 11. Lexical analysis: the Lex library -- 12. Parsing: The Parse Library -- 13. The Kernel Library -- 14. Classes for abstract container structures -- 15. Classes for mathematical properties -- 16. Classes for linear structures -- 17. Dispenser classes -- 18. Tree classes -- 19. Set and hash table classes -- 20. Iteration classes -- 21. Lexical analysis classes -- 22. Parsing classes -- 23. Kernel library classes
+
+{{Caution|The last half of the book is taken up by a reprint of the contract form of the libraries as per printing time. 
+The most current documentation is found here as
+[[ref:libraries/base/reference/index|EiffelBase Class Reference]] }}
+

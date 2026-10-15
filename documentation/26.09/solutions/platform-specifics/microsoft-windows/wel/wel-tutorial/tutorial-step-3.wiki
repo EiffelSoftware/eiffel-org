@@ -1,0 +1,38 @@
+[[Property:title|Tutorial Step 3]]
+[[Property:weight|2]]
+[[Property:uuid|7d79155a-fe75-e252-49d7-b03243ac96fd]]
+This sample demonstrates the use of a [[ref:libraries/wel/reference/wel_client_dc_chart|WEL_CLIENT_DC]]  to display output in the <code>MAIN_WINDOW</code>. The output is shown below: 
+
+[[Image:step3|step3]]  <br/>
+<br/>
+
+==Compiling==
+
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\tutorial\step3\''. 
+* Choose ''tutorial_step3.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+
+==Running==
+After launching the sample, you should see a [[ref:libraries/wel/reference/wel_frame_window_chart|WEL_FRAME_WINDOW]]  displayed . If you click the left mouse button in the client area of the window, the coordinates of the click (Relative to the top left of the client area), will be displayed. Clicking the right mouse button in the client area will clear the window. 
+==Under the Hood==
+
+This system is a demonstration of how to gain access to the client area of a window using a [[ref:libraries/wel/reference/wel_client_dc_chart|WEL_CLIENT_DC]] . The creation procedure of the DC takes a WEL_WINDOW as an argument, and in this sample, we pass the <code>MAIN_WINDOW</code>. Using this DC, it is a simple step to output the position of the mouse which is provided as arguments to <code>on_left_button_down</code>.
+
+<code>on_right_button_down</code> has also been redefined to call invalidate which clears the client area of the window. 
+This sample contains the following classes: 
+* <code>TUTORIAL_STEP3</code>
+* <code>MAIN_WINDOW</code>
+
+
+{{seealso|<br/>
+[[Common message hooks|Common message hooks]]  <br/>
+}}
+
+
+
+
+

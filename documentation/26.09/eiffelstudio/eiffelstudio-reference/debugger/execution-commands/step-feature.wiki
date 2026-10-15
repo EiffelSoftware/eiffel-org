@@ -1,0 +1,14 @@
+[[Property:title|Step into a feature]]
+[[Property:weight|-10]]
+[[Property:uuid|a141505a-cc5a-afe1-6f8c-8e216bd7a232]]
+If no application was already running, this command launches an application compiled in Work Bench mode and stops at its first line.
+
+If an application was stopped, it attempts to enter the feature located on the execution line where the application is stopped. If this feature is an attribute, or another non debuggable feature, it simply executes the current execution line and stops at the next one.
+
+It is accessible through the '''project''' toolbar (  [[Image:debug-step-into-icon]]  ) or through the '''debug''' menu. 
+
+{{seealso| [[Execution commands]], [[Generating executables|Compiling in Workbench mode]]  }}
+
+
+
+

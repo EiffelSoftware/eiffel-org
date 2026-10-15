@@ -1,0 +1,56 @@
+[[Property:title|Compiling and Executing a System]]
+[[Property:weight|-12]]
+[[Property:uuid|58494be3-f29f-3a15-a27e-e635bdc71c53]]
+EiffelStudio first comes up with a window and a dialog on top of it; the dialog looks like this (from here on the look-and-feel will be slightly different on platforms other than Windows, but the content will be the same):
+
+[[Image:es gt open 01]]
+
+
+As this is our first project we want to "<code>Add Project...</code>". We could also 
+* "<code lang="text">Create project</code>", which would let you select one among the common schemes -- basic application, graphical Windows application, graphical multi-platform application, Microsoft .NET application -- and set up everything for you. 
+* "<code>Open project</code>", which would let you open a previously added project. 
+
+In future sessions you'll probably use "<code lang="text">Create project</code>" for a new project, as it takes care of generating a root class and configuration file for you, and <code>Open project</code>" to open an existing project.
+
+Right now you first have to add the project, so click on the <code>Add Project...</code> button. This brings up a File Explorer inviting you to select an ECF file. The file you want is the file
+<code>
+	simple.ecf
+</code>
+
+in the directory "<code>YOURDIR</code>", (either <code>$ISE_EIFFEL\examples\studio\tour</code> or the copy that you have made). The ".ecf" file is an Eiffel Configuration File which contains the information necessary for construction of an Eiffel project.
+
+So, use the File Explorer to find and select the file <code>simple.ecf</code>. 
+
+[[Image:es gt open 02]]
+
+
+Click the button labeled <code>Open</code> to confirm. This starts compilation of your project. 
+
+During Eiffel compilation, you can observe the successive compilation steps, or "degrees", in the [[Outputs tool]]. The bulk of our little project is the EiffelBase library, which the EiffelStudio installation procedure has precompiled; as a result, there are only a few extra classes to compile, and the process is almost instantaneous on a state-of-the-art computer. 
+
+
+{{note|As a frame of reference, on a Toshiba Satellite laptop, mobile dual core 1.73 GHz, 1 GB memory, running Windows Vista, this Eiffel compilation takes about 3.5 seconds. }}
+
+After Eiffel compilation completes you will see the message
+<code>
+	Eiffel Compilation Succeeded
+</code>
+in the Outputs tool.
+
+At this stage your project has finished compiling. 
+
+So, congratulations! You have successfully compiled your first Eiffel project. More precisely your project has been "melted". Strange terminology, you may think; in a [[How EiffelStudio Compiles|later section]] we'll see the derivation of the names used in the compilation process.
+
+==Executing the system==
+
+Our system doesn't do anything very exciting, but let's execute it anyway. Find and click the Run button ( [[Image:debug-run-icon]] ) on the toolbar at the top of the EiffelStudio window.
+
+This little application doesn't use graphics or any other fancy stuff. It simply creates some objects and displays some information. Output is accomplished by using the default Eiffel I/O features (from the EiffelBase classes <code>ANY</code> and <code>STANDARD_FILES</code>), and that output goes to a console. On Unix/Linux and OpenVMS it's the window from which you started EiffelStudio. On Windows, by default, it's a new console window that comes up when and if the system does its first output operation, and stays up you dismiss it: 
+
+[[Image:es gt execute 01]]
+
+
+The message "<code>Press Return to finish the execution...</code>" would not appear if you executed the system from outside of EiffelStudio, for example from a command line. Its purpose within EiffelStudio is clear: to let you see the console output; without it, the console would go away at the end of execution. (None of this applies to Unix/Linux/OpenVMS because no new console window was created when we executed the system.) 
+
+Before closing the console window, if you look at the main EiffelStudio window (by moving the console window aside) you will notice that it looks different than it did before. This is because EiffelStudio is now in debug mode, so it shows the fields useful in monitoring, controlled execution, and debugging. But we'll look at all this later. For the moment just dismiss the console by following the advice to "<code>Press Return to finish the execution...</code>": hit the Return or Enter key. 
+

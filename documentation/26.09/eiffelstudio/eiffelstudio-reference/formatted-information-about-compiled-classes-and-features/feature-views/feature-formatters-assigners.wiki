@@ -1,0 +1,9 @@
+[[Property:title|Feature formatters: Assigners]]
+[[Property:weight|4]]
+[[Property:uuid|6fdc5d59-d63b-39f7-68f8-13777077cbd2]]
+The '''assigners''' view  [[Image:feature-assigners-icon]] displays the features which assign to the current feature. 
+
+This means that unless the current feature is an attribute, assignment is not defined and this view will be empty. 
+
+Also, this view covers only true assignments to the current feature. So, you should not confuse the use of '''assignment commands''' with true assignments. An assignment command is an optional command associated with a query that allows assignment-like syntax to be used to set a new value for the query. Even though the use of assignment commands look like assignments, they are not true assignments. Rather, they are invocations of a command which sets a new value for the query. Therefore, they will not be visible in the assigners view.
+

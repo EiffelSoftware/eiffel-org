@@ -1,0 +1,15 @@
+[[Property:link_title|EiffelVision 2]]
+[[Property:title|EiffelVision 2]]
+[[Property:weight|10]]
+[[Property:uuid|c72b1a5c-9cbf-f8c8-a4c2-619e392799b0]]
+==EiffelVision 2 Library==
+
+EiffelVision 2 (also called just "EiffelVision", or even just "Vision") is the basic tool for building graphical and GUI (Graphical User Interface) applications in Eiffel.
+
+EiffelVision is portable: you can use it to design the graphical part of your applications independently of the target platform; then on each platform, such as Windows or X (Linux, Unix etc.), it will use the native graphical mechanisms to produce the platform's native look-and-feel.
+
+Type: Library
+
+Platform: Any
+
+

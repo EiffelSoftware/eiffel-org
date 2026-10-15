@@ -1,0 +1,383 @@
+[[Property:modification_date|Tue, 09 Jul 2019 09:52:07 GMT]]
+[[Property:publication_date|Tue, 09 Jul 2019 09:46:53 GMT]]
+[[Property:title|Differences between standard ECMA-367 and Eiffel Software implementation]]
+[[Property:link_title|ECMA-367 vs implementation]]
+[[Property:weight|-10]]
+[[Property:uuid|0eb58761-5b06-585f-ea92-cab2b8cd74b2]]
+"ETL 2" refers to the book "Eiffel: The Language" (2nd printing), published by Prentice Hall.
+
+==Kernel classes==
+{| class="doctable"
+|- 
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
+|- 
+| Fictitious class for tuples
+| <eiffel>TUPLE</eiffel>
+| No
+| Yes
+| Yes
+|}
+
+==Features==
+{| class="doctable"
+|- 
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
+|- 
+| Prefix and infix feature names
+| <code>infix "+"</code>
+| Yes
+| No
+| Yes, marked as obsolete
+|- 
+| Operator and bracket aliases
+| <code>add alias "+"</code>
+| No
+| Yes
+| Yes, except for new rules
+for free operator names
+|- 
+| Assigner command
+| <code>item  alias "[]" (index: INTEGER): G assign put</code>
+| No
+| Yes
+| Yes
+|}
+
+==Design by Contract==
+{| class="doctable"
+|- 
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
+|- 
+| Only postcondition clauses
+| <eiffel>ensure only a, b</eiffel>
+| No
+| Yes
+| No
+|}
+
+==Genericity==
+{| class="doctable"
+|- 
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
+|- 
+| Mutually recursive constraints
+|  <code>A [H, G -> H]</code><br/>
+<code>B [H -> C, G -> ARRAY [H]]</code> 
+| No
+| Yes
+| Yes
+|- 
+| Full mutually recursive constraints
+|  <code>A [H -> G, G -> H]</code><br/>
+
+| No
+| Yes
+| Yes
+|- 
+| Expandedness restriction on formal generic
+|  <code>A [reference G]</code><br/>
+<code>B [expanded H]</code> 
+| No
+| No
+| Yes
+|}
+
+==Creating objects==
+{| class="doctable"
+|- 
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
+|- 
+| Implicit creation procedure (version of
+<code>ANY.default_create</code>)
+|  <code>class A feature ... end</code><br/>
+<code>-- The following instructions are equivalent:</code><br/>
+<code>create {A} a</code><br/>
+<code>create {A} a.default_create</code> 
+| No
+| Yes
+| Yes
+|- 
+| Bang-bang syntax
+|  &#33;&#33; a<br/>
+&#33;&#33; a.make<br/>
+&#33;B&#33; a<br/>
+&#33;B&#33; a.make
+| Yes
+| No
+| Yes, marked as obsolete
+|- 
+| Keyword syntax
+|  <code>create a</code><br/>
+<code>create a.make</code><br/>
+<code>create {B} a</code><br/>
+<code>create {B} a.make</code> 
+| No
+| Yes
+| Yes
+|- 
+| Creation expression
+| <code>print (create {TIME}.make_now)</code>
+| No
+| Yes
+| Yes
+|- 
+|  [[ET: Genericity and Arrays|Generic creation]]  
+| <code>create {G} x.make</code>
+| No
+| Yes
+| Yes
+|}
+
+==Attachment==
+{| class="doctable"
+|- 
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
+|- 
+| Preserving expandedness status
+when attaching expanded object
+to reference entity
+| <code>x</code> <code>:=</code> <code>y</code>
+| No, object is copied to new
+object of the corresponding
+reference type
+| Yes
+| Yes, except for TYPED_POINTER
+that is converted to POINTER before
+reattachment
+|- 
+| Reverse assignment (assignment attempt)
+| <code>x</code> <code>?=</code> <code>y</code>
+| Yes
+| No
+| Yes. Marked as obsolete (V7.1).
+|}
+
+==Feature calls==
+{| class="doctable"
+|- 
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
+|- 
+| Precursor call
+| <code>Precursor</code>
+| No
+| Yes
+| Yes
+|- 
+| Non-object call
+| <code>c := {COLOR}.green</code>
+| No
+| Yes
+| Yes
+|- 
+| Assigner call
+| <eiffel>x [i] := x [i] + 1</eiffel>
+| No
+| Yes
+| Yes
+|- 
+| Bracket expression as call target
+| <eiffel>x [i].update</eiffel>
+| No
+| No
+| Yes
+|}
+
+==Void-safety==
+{| class="doctable"
+|- 
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
+|- 
+| Attachment marks
+|  <code>a: attached ANY</code> <br/>
+<code>b: detachable ANY</code> 
+| No
+| Yes, attached by default
+| Yes, attached by default
+|- 
+| Object test
+| <code>attached {STRING} e as o</code>
+| No
+| Yes
+| Yes
+|- 
+| Attached target of a call
+| <code>x.f</code>
+| No
+| Yes
+| Yes, by option ''void_safety''
+|- 
+| Properly set variable
+|  <code>x := value</code> <br/>
+<code>use (x)</code> 
+| No
+| Yes
+| Yes, by option ''void_safety''
+|}
+
+==[[Concurrent programming with SCOOP|SCOOP]]==
+{| class="doctable"
+|- 
+! <center>'''Feature'''</center>
+! width="160pt"| <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
+|- 
+| Separate declaration
+|  <code> a: separate ANY </code>
+| No
+| No. <code>separate</code> reserved but not used
+| Yes. Object attached to <code>a</code> may be handled by different SCOOP processor.
+|}
+
+==Expressions==
+{| class="doctable"
+|- 
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
+|- 
+| Bracket expression
+| <code>y := x [i]</code>
+| No
+| Yes
+| Yes
+|- 
+| Creation expression
+| <code>set_buffer (create {STRING}.make (100))</code>
+| No
+| Yes
+| Yes
+|- 
+| Manifest type
+| <code>{MY_TYPE}</code>
+| No
+| Yes
+| Yes
+|- 
+| Manifest [[ET: Other Mechanisms|tuple]]  
+| <code>[a, b, c]</code>
+| No
+| Yes
+| Yes
+|- 
+|  [[ET: Agents|Agent]]  
+| <code>list.do_all (agent print (?))</code>
+| No
+| Yes
+| Yes
+|- 
+| Once manifest string
+| <code>once "abc"</code>
+| No
+| Yes
+| Yes
+|}
+
+==Constants==
+{| class="doctable"
+|- 
+! <center>'''Feature'''</center>
+! <center>'''Example'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
+|- 
+| Verbatim string
+|  
+<code>x := "[
+	This string is left-adjusted.
+]"
+y := "{
+	This string is used "as is".
+}"</code>
+
+| No
+| Yes
+| Yes
+|- 
+| Manifest type qualifier
+| <code>{INTEGER_8} 123</code>
+| No
+| Yes
+| Yes
+|- 
+| Non-decimal integer
+| <code>0xFF</code>
+| No
+| Yes
+| Yes
+|- 
+| Integer with intermediate underscores
+| <code>1_000 0xFFFF_0000</code>
+| In groups by 3 digits
+| Yes
+| Yes
+|}
+
+==Interfacing with external software==
+{| class="doctable"
+|- 
+! <center>'''Feature'''</center>
+! <center>'''ETL2'''</center>
+! <center>'''ECMA-367'''</center>
+! <center>'''EiffelStudio'''</center>
+|- 
+| Access to software written in C
+| Basic syntax for any external software
+| Registered sub-language
+|  See details for [[C externals|C externals]].
+|- 
+| Access to software written in C++
+| Basic syntax for any external software
+| Registered sub-language
+|  See details for [[C++ Externals|C++ externals]].
+|- 
+| Access to dynamically loaded libraries (DLLs)
+| Basic syntax for any external software
+| Registered sub-language
+| See details for [[uuid:4ad177dd-13ec-c237-99b3-efc9851995a5|Interfacing with DLLs]].
+|- 
+| Other external software
+| Basic syntax for any external software
+| Unregistered sub-language
+| No
+|}
+
+
+
+

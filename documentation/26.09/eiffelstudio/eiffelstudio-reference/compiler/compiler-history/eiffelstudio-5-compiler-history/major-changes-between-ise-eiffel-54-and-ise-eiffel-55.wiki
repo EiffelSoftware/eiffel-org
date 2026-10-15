@@ -1,0 +1,149 @@
+[[Property:title|Major changes between ISE Eiffel 5.4 and ISE Eiffel 5.5]]
+[[Property:link_title|5.5]]
+[[Property:weight|-12]]
+[[Property:uuid|1d8b9ba7-0609-b664-a4cf-16be1132b071]]
+==What's new==
+* Full support for new <code>convert</code> keyword.
+* Made <code>Void,</code> previously a feature of <eiffel>ANY</eiffel>, a keyword. This prevents the renaming of <eiffel>Void</eiffel> into <eiffel>not_void</eiffel> previously possible when it was a routine of <eiffel>ANY</eiffel>.
+* Addition of the <code>reference</code> keyword used in generic constraints (See next point).
+* Added support for reference and expanded constraints on a formal generic parameter. In other word, one can now write: 
+<code>class A [reference G]  ... end
+class B [expanded G] ... end</code>
+to say that the valid actual generic parameters for <eiffel>A</eiffel> are always reference types, and for <eiffel>B</eiffel> are always expanded types. 
+* Added support for Microsoft .NET 2.0 runtime.
+* Allowed agent creation on infix or prefix routines.
+
+==Improvements==
+* Reduced, in classic mode, size of finalized executables by 10 to 50%.
+* Improved speed of evaluation of global onces, in a multithreaded system, by having a lock-free mechanism after a once has been evaluated.
+* Reduced memory usage of special of expanded which do not have any reference attributes. Before there was a 8 bytes (or 16 bytes depending on the platform) overhead per item in the special.
+
+==Changes==
+* Compiler is now checking that you cannot redeclare a formal generic parameter into a reference type unless the formal generic parameter is being constraint to be always a reference type (See the '''What's new''' section above).
+* Removed obsolete <eiffel>eifcid</eiffel>, <eiffel>eif_expand</eiffel> and <eiffel>eifexp</eiffel>from the CECIL interface, one has to use <eiffel>eif_type_id</eiffel>instead.
+* In .NET, changed the naming conventions of resources included in an assembly. The extension `.resources` is appended for resources that are originally provided as `.resx` or `.txt` files. Other files are embedded as is in the assembly and the name of the resource is the name of the file.
+* In .NET, now all classes inherit from <eiffel>ANY</eiffel>. Before all classes inherited from <eiffel>SYSTEM_OBJECT</eiffel>. The consequences are: 
+** You can write an Eiffel generic classes where the actual generic parameter is a .NET class.
+** If you used to inherit from .NET classes and Eiffel classes you can replace the inheritance clause below: 
+<code>class A
+inherit
+	APPLICATION_EXCEPTION
+		undefine
+			finalize,
+			equals,
+			to_string,
+			get_hash_code
+		end
+	
+	ANY</code>
+by the much simpler inheritance clause: 
+<code>class A
+inherit
+	APPLICATION_EXCEPTION
+</code>
+
+** If you were using a feature of <eiffel>SYSTEM_OBJECT</eiffel> directly on Eiffel classes, now you need to assign the value to a variable entity of type <eiffel>SYSTEM_OBJECT</eiffel>. In other word: 
+<code>e: EIFFEL_CLASS
+o: SYSTEM_OBJECT
+...
+o := e
+o.feature_of_system_object</code>
+
+** The following assignment attempt will succeed whereas it failed before because <eiffel>SYSTEM_OBJECT</eiffel> did not inherit from <eiffel>ANY</eiffel>:
+<code>a: ANY
+o: SYSTEM_OBJECT
+...
+check o /= Void and a = Void end
+a ?= o
+check o /= Void and a /= Void end</code>
+
+
+* New format of the independent storable files which takes into account internal changes made for a better generic conformance in classic mode.
+* New validity rule for expanded types: It is valid to use an expanded type of base class <eiffel>C</eiffel> in the text of a class <eiffel>B</eiffel> if and only if it satisfies the following conditions: 
+** <eiffel>C</eiffel> is not a deferred class
+** <eiffel>C</eiffel>'s version of the procedure <eiffel>default_create</eiffel> (inherited from <eiffel>ANY</eiffel>) is one of the creation procedures of <eiffel>C</eiffel> available to <eiffel>B</eiffel> for creation.
+
+* New validity rule for expanded class: An expanded class <eiffel>C</eiffel> needs to have the version of the procedure <eiffel>default_create</eiffel> (inherited from <eiffel>ANY</eiffel>) as one of its creation procedure.
+
+==Bug fixes==
+
+===Language issues===
+* Fixed issue about conformance checking of type containing a formal generic parameter. We would always evaluate the formal to its constraint, thus allowing the code below to be accepted where it should not have been: 
+<code>
+class A [G]
+feature
+	bug is
+		local
+			l_any: LIST [ANY]
+			l_g: LIST [G]
+		do
+			l_any := l_g
+			l_g := l_any
+		end
+			</code>
+The workaround is to use the <code>reference</code> keyword to guarantee that the formal generic parameter will always be instantiated with a reference type. For example the code below is correct: 
+<code>
+class A [reference G]
+feature
+	bug is
+		local
+			l_any: LIST [ANY]
+			l_g: LIST [G]
+		do
+			l_any := l_g
+			l_g ?= l_any
+		end
+			</code>
+
+
+===Compiler issues===
+* Enabled creation of <eiffel>SPECIAL</eiffel> instances, no need to create an instance of <eiffel>TO_SPECIAL</eiffel>or <eiffel>ARRAY</eiffel> to get a <eiffel>SPECIAL</eiffel>instance. Now you can simply do:
+<code>my_special: SPECIAL [INTEGER]
+create my_special.make (10)</code>
+
+* Fixed incrementality issues with <code>strip</code> and static calls on external routines which could fail after a class has been added to or removed from the system.
+
+===Runtime/code generation issues===
+* Fixed incorrect code generation which would result in a C compiler error in classic mode when assigning a Void entity to a formal generic parameter that will be instantiated as a basic type.
+* In multithreaded mode, fixed dead lock on Unix platforms when evaluating global onces.
+* In multithreaded mode, prevented dead lock when a thread is exiting.
+* In multithreaded mode, prevented memory corruption which could occur if the first thing that a thread performs when launched is to trigger a GC collection.
+* Fixed incorrect generic conformance data when manipulating expanded generic types. For example, the following code:
+<code>class A [G, H]
+feature
+	item: H 
+end
+
+class C [G]
+end
+
+class ROOT_CLASS
+create
+	make
+feature
+	make is
+		local
+			l_a: A [STRING, expanded C [ANY]]
+		do
+			create l_a
+			io.put_string (l_a.item.generating_type)
+		end
+end
+</code>
+would print
+<code>expanded C [STRING]</code>
+instead of
+<code>expanded C [ANY]</code>
+
+* Fixed issue where you could get a bogus reference when trying to get a reference to the object associated to an ID (obtained through the <eiffel>IDENTIFIED</eiffel> class).
+
+===.NET issues===
+* Fixed incorrect code generation of native arrays which would cause the code to be rejected in newer version of the .NET Framework.
+* Fixed incorrect computation of `max_stack` for a routine body which could make the generated code not verifiable.
+
+===Store/Retrieve issues===
+* Fix some issues related to the use of recoverable storable when manipulating generic types.
+
+
+
+

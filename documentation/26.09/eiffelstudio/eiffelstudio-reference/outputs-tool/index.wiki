@@ -1,0 +1,61 @@
+[[Property:title|Outputs tool]]
+[[Property:weight|-3]]
+[[Property:uuid|4f35254c-9a22-7773-21ed-aa740c3eddd5]]
+==Overview==
+
+[[Image:Outputs tool 01]]
+
+
+Several EiffelStudio facilities log their progress to the various panes of the '''Outputs tool'''. 
+
+You can view the outputs from different facilities by selecting the name of a pane from the '''Output:''' drop-down list, as shown below.
+
+
+[[Image:Outputs tool 02]]
+
+ 
+The output panes you see listed depend somewhat upon how you've been using EiffelStudio. A few of the panes are always present, but other panes only show up in the list after you used the facilities or tools that log information to those panes. For example, if during a session you edit and compile a project but never run it, you would not see the Debugger output pane. Then after you had run the system, the Debugger output pane would join the list.
+
+==Common functionality==
+
+On the top bar, the Outputs tool provides some functionality that is always present, and available to all output panes. 
+#The '''save''' button ( [[Image:16x16--general-save-icon]] )will allow you to save the content of the currently displayed output pane to a file.
+#The '''search''' button ( [[Image:tool-search-icon]] ) will provide you with a search bar at the bottom of the current pane.
+#The '''clear''' button ( [[Image:general-reset-icon]] ) clears the content of the output pane that is currently being displayed.
+
+==Transient functionality==
+
+As you work with EiffelStudio you will notice that some icons appear on the Outputs tool's top bar only occasionally. Generally, the Outputs tool will automatically change to the appropriate pane depending upon what's going on in EiffelStudio. For example, when you compile the Eiffel Compilation output pane appears, and when you run a system, the Debugger output pane appears. 
+
+You can adjust how panes change to some extent as you will see in the [[#Relevant EiffelStudio preferences|section on preferences]].
+
+But sometimes things happen that change more than one output pane during an action. When this occurs, one or more transient buttons will be added to the Outputs tool's top bar to the right of the search button. This lets you know that there have been modifications to a pane other than the one that is currently displayed. If you click on one of these buttons, you will be taken to that pane, and the button will be dismissed. 
+
+The figure below shows the Outputs tool during an external compilation. Notice the transient button that has become visible indicating that new changes have been made in the Eiffel Compilation pane.
+
+
+[[Image:Outputs tool transient functionality]]
+
+
+==Relevant EiffelStudio preferences==
+
+There are two EiffelStudio preferences that can control some of the behavior of the Outputs tool. Both can be found in the preferences path ''Interface -> Development window''.
+
+===Outputs tool prompted===
+
+The preference '''Outputs tool prompted''' controls whether the Outputs tool is made visible automatically whenever a compilation is launched. The value is '''True''' by default. So, in the default case, the Ouputs tool will be visible whenever you compile. If you have closed the tool, and recompile, the tool will reappear. 
+
+If you choose a value of '''False''', then the Outputs tool will remain visible if it is already visible. But if you close it, a recompile will not cause it to reappear. 
+
+===External compilation output prompted===
+
+The preference '''External compilation output prompted ''' (''C output panel prompted'', in earlier versions) controls whether the [[External compilation pane|External compilation pane]] appears whenever an external compilation (usually a C compilation) occurs. 
+
+The default value is '''False'''. In this case, the External compilation pane does not appear automatically when an external compilation occurs, except when both of the following conditions are ture:
+# The Outputs tool is already displayed, and
+# The Eiffel Compilation pane is active.
+
+So, regardless of the preference value, when an external compilation is performed, and the Eiffel Compilation output pane is already active in the Outputs tool, the External Compilation pane will become the active pane. When the external compilation completes, under most circumstances the Eiffel Compilation pane will become active again. However, the Eiffel Compilation pane will not become active if there were external compilation errors, or if you activated some other output pane during the external compilation.
+ 
+
+

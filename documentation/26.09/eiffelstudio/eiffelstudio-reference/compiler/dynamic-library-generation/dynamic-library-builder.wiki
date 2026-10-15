@@ -1,0 +1,30 @@
+[[Property:title|Dynamic library builder]]
+[[Property:weight|1]]
+[[Property:uuid|e64cdcf2-6da1-98d5-8356-28b50d01374b]]
+In order to facilitate the creation of C dynamic libraries using EiffelStudio, a wizard helps generate the definition files used to define the contents of the shared library. If for some reason you need to override the wizard, the [[Definition file|syntactic rules]]  of the definition files are available, but their knowledge is not necessary to use the generation of dynamic libraries in EiffelStudio. 
+
+The wizard is accessible in the '''Tools'''/ '''Dynamic library builder''' menu. 
+
+The dynamic library window that appears when selecting this menu is mainly composed of a list which contains all features that should be exported. This list is course empty at first.
+
+[[Image:shared-library-window]]  
+
+{{note|The layout of this wizard is slightly different on Windows and on Unix systems, because the index and calling convention fields never appear on Unix systems. }}
+
+To add a new feature to the definition file, you can either:
+* Pick the feature from any place in EiffelStudio and drop it into the list. If several creation procedures exists in the container class, a dialog is popped up to give the choice between all possible creation procedures.
+* Or, use the Add command  [[Image:16x16--general-add-icon]]  in the '''Edit'''/ '''Add''' menu. This pops up a dialog where it is possible to enter manually all parameters for the exported feature. 
+
+[[Image:new-exported-feature]]  
+
+Other commands of the '''Edit''' menu allow you to remove  [[Image:16x16--general-delete-icon]]  exported features or to modify their export parameters  [[Image:16x16--general-edit-icon]] . 
+
+It is also possible to check the validity of the definition file. This command  [[Image:view-unmodified-icon]] performs both a global check, to ensure that for example two features do not have the same name or same index in the library, and also local checks, that check for each feature that the parameters are valid. 
+
+Other commands, located in the '''File''' menu, give standard file operations, such as opening  [[Image:general-open-icon]]  a definition file, creating a new definition file  [[Image:new-document-icon]] ,or saving the current definition file  [[Image:16x16--general-save-icon]] . 
+
+{{tip|Although the wizard can handle several files during the same EiffelStudio session, remember that only one file can be used in the project settings to effectively generate a shared library. }}
+
+
+
+

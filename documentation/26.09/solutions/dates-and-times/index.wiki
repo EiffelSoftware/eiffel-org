@@ -1,0 +1,10 @@
+[[Property:modification_date|Mon, 17 Aug 2020 18:50:21 GMT]]
+[[Property:publication_date|Mon, 17 Aug 2020 08:39:17 GMT]]
+[[Property:title|Dates and times]]
+[[Property:weight|-13]]
+[[Property:uuid|082fd8e1-b531-6cf1-3409-9cd9bc6483ad]]
+== Date and time manipulation solutions==
+
+
+
+{{Note|The associated library "time" (also "time_german" and "time_french") are part of the distribution located at $ISE_LIBRARY\library\time\time.ecf and is also available by linking with the IRON repository.}}

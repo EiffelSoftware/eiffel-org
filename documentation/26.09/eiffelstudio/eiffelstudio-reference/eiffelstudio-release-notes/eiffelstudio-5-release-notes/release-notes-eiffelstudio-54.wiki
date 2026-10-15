@@ -1,0 +1,96 @@
+[[Property:title|Release notes for EiffelStudio 5.4]]
+[[Property:link_title|5.4]]
+[[Property:weight|-12]]
+[[Property:uuid|185d86b7-8ddc-20ad-6343-eeb86f413739]]
+==Graphical environment==
+
+===Improvements===
+* Added support for mouse wheel in editor and associated parameterization in preferences.
+* Cluster tree is not collapsed anymore between compilation.
+* All callers will not show empty entries.
+
+===Bug fixes===
+* Fixed issue where setting the string background color to `auto` in the preferences will set it to a black color next time your relaunch EiffelStudio.
+* Fixed issue where typing in an empty features tree will close down EiffelStudio.
+* Fixed issue with BON diagram where expanded client links were not properly displayed (the expanded bar was drawn on top of classes instead of on the link itself).
+
+==Debugger==
+
+===Improvements===
+* Ability to debug .NET applications from EiffelStudio. It behaves like the traditional debugger except with the current limitations: 
+** no conditional breakpoints
+** no expression evaluation
+** no expansion to see attributes of non-Eiffel objects
+
+
+===Bug fixes===
+* Fixed issue on Unix platforms where passing more than 5 arguments will disable debugging and ultimately crash the environment.
+
+==EiffelBuild==
+* Click [[EiffelBuild Version History|here]]  for the EiffelBuild release notes. 
+
+==Compiler==
+* Click [[Major changes between ISE Eiffel 5.3 and ISE Eiffel 5.4|here]]  for the compiler release notes. 
+
+==Libraries==
+
+===Eiffel2Java===
+* Fixed incorrect memory freeing in <code>get_string</code> in <code>JNI_ENVIRONMENT</code> that could cause some memory corruption.
+* Fixed <code>VDRD</code> error in method_id from <code>JAVA_OBJECT</code>.
+
+===EiffelBase===
+* Optimized <code>i_th</code> from <code>PRIMES</code> for the first 200 prime numbers.
+* Fixed bug in <code>generic_typecode</code> from <code>TUPLE</code> in .NET implementation which fixed an issue with <code>is_reference_item</code>.
+* Made <code>TUPLE</code> a descendant of <code>HASHABLE</code> and defined <code>hash_code</code> (based on the hash_codes of the elements of a <code>TUPLE</code>).
+* Added <code>default_create</code> as creation procedure of <code>TUPLE</code> and made <code>make</code> obsolete.
+* Added convenience features to <code>TUPLE</code>: <code>put_XX_item</code> where `XX` can be replaced by `character, boolean, integer, double,...`.
+* Optimized <code>ROUTINE</code>, <code>PROCEDURE</code> and <code>FUNCTION</code> implementation to speed up agent calls by a factor of 2 to 3. Removed <code>open_operand_type</code> from <code>ROUTINE</code> as its specification was only used internally and specification was not precise enough to be used by clients of <code>ROUTINE</code>.
+* Fixed <code>append</code> from <code>SEQUENCE</code> to not perform a <code>deep_clone</code> when passed argument is the same reference as Current. This was a problem when the base class of the type of the elements inherited from <code>MEMORY</code> and redefined <code>dispose</code>. You could possibly end up freeing twice an external resource.
+* Changed implementation of <code>INTERACTIVE_LIST</code> to be based on <code>ARRAYED_LIST</code> rather than on <code>LINKED_LIST</code>.
+* Added efficient implementation of <code>append</code> in <code>ARRAYED_LIST</code>.
+* Fixed bug in multithreaded mode when you open in two different threads a different file with a different mode. For example one is in read mode, the other one is in write mode. If the operation happens at the same time, you could end up with two files open in read mode or two files open in write mode, which is not the expected behavior.
+
+===EiffelNet===
+* Fixed bug in <code>set_delay</code> and <code>set_nodelay</code> in <code>NETWORK_STREAM_SOCKET</code>, because their implementations were inverted.
+* Fixed incorrect spelling of <code>maximum_seg_size</code> in <code>NETWORK_STREAM_SOCKET</code>.
+* Added recoverable storable to EiffelNet (was not included in previous version although recoverable storable was available for files).
+* Fixed <code>SMTP_PROTOCOL</code> to follow more closely SMTP RFCs.
+* Added support for multi-line error codes in <code>SMTP_PROTOCOL</code>.
+
+===EiffelTime===
+* Improved speed of <code>DATE</code> and <code>TIME</code> comparison.
+* In <code>DATE_VALUE</code> added <code>ordered_compact_date</code> and made <code>compact_date</code> obsolete.
+* In <code>DATE</code> added <code>make_by_ordered_compact_date</code> and <code>make_by_compact_date</code> obsolete.
+* In <code>DATE_VALIDITY_CHECKER</code> added <code>ordered_compact_date_valid</code>.
+* Fixed <code>C_DATE</code> to buffer the current time rather than querying it for each of the time components. Not doing that was causing a bug in <code>DATE</code>, <code>DATE_TIME</code> and <code>TIME</code> where if the computation was done on December 31st at 23:59:59 2003, we could end up with a date of January 1st 2003, therefore being one year off. This is a breaking change from before and if you are using <code>C_DATE</code>, use <code>update</code> before each call to the *_now queries if you expected to reflect the time at the time of the query.
+
+===EiffelThread===
+* Added support for .NET
+* Made <code>OBJECT_OWNER</code> obsolete
+* Added <code>wait_with_timeout</code> in <code>CONDITION_VARIABLE</code>
+* Added <code>READ_WRITE_LOCK</code> class to be used in a system where few writes are done compare to reads. A typical example of its use would be to have a thread safe lookup table where few insertions are done.
+* Now a C externals that might block the execution of a system, should be marked `blocking`. [[Major changes between ISE Eiffel 5.3 and ISE Eiffel 5.4|See compiler changes for more details]] .
+
+===EiffelVision2===
+* [[Revisions and Bug Fixes|Click here to see list of update and modification to EiffelVision2]] .
+
+===EiffelWeb===
+* Fixed issue when sending exception trace to browser. On most servers you were getting an internal error rather than the exception trace.
+* Fixed issue with <code>cookies</code> from <code>CGI_ENVIRONMENT</code> as keys were stored as items, now the keys are stored as keys, items as items.
+
+===WEL===
+* Renamed <code>convert</code> from <code>CONVERTER</code> class into <code>extract_definition</code>.
+* Renamed <code>convert</code> from <code>WEL_FONT_FAMILY_ENUMERATOR</code> class into <code>update_current</code>.
+* In <code>WEL_TREE_VIEW</code>, calling <code>deselect_item</code> will now really deselect the item, whereas previously, it only caused the item to be redrawn without selection.
+* In <code>WEL_REGISTRY</code>, <code>open_value_key</code> will now accept an empty string so that the default key value can be read.
+* Fixed issue with <code>dword_value</code> in <code>WEL_REGISTRY_KEY_VALUE</code> which returned incorrect values.
+* Made <code>make</code> in <code>WEL_REGISTRY_KEY_VALUE</code> accepts only string values, if you want to create a new instance with a value of a different type you need to use the new creation procedure <code>make_with_value</code>.
+
+===.NET libraries===
+* Renamed <code>THREAD</code> and <code>MUTEX</code> into <code>SYSTEM_THREAD</code> and <code>SYSTEM_MUTEX</code> to avoid name conflicts with EiffelThread.
+
+[[EiffelStudio release notes|Click here to check out what was new in other versions]]  
+
+
+
+

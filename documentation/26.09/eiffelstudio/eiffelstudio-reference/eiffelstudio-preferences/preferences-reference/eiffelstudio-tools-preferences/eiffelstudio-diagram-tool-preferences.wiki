@@ -1,0 +1,180 @@
+[[Property:modification_date|Wed, 01 Jul 2020 08:37:22 GMT]]
+[[Property:publication_date|Wed, 01 Jul 2020 08:37:22 GMT]]
+[[Property:title|EiffelStudio Diagram Tool Preferences]]
+[[Property:weight|2]]
+[[Property:uuid|6e2eed8e-b225-0dee-5ea0-e4c25a0c3d5a]]
+This category gathers the preferences related to the EiffelStudio BON Diagram tool. Preferences for BON notation are under the 'Bon' category and for UML notation are under the 'UML' category. 
+==General Preferences==
+
+{| border="1" 
+|- 
+| '''Label in the preferences window'''
+| '''Complete description'''
+|- 
+| Ancestor depth
+| Show ancestors of a class up to a level of preference value.
+|- 
+| Autoscroll speed
+| Speed for scrolling when dragging figures from diagram near the edge of the diagram tool (a valid value is between 0 and 100).
+|- 
+| Client depth
+| Show clients of a class up to a level of preference value.
+|- 
+| Descendant depth
+| Show descendants of a class down to a level of preference value.
+|- 
+| Excluded class figures
+| Names of classes that should not appear in generated diagrams.
+|- 
+| Ignore excluded class figures
+| Show ALL classes in the diagram (ignore the following list)?
+|- 
+| Subcluster depth
+| Show subclusters of a cluster down to a level of preference value.
+|- 
+| Supercluster depth
+| Show superclusters of a cluster up to a level of preference value.
+|- 
+| Supplier depth
+| Show suppliers of a class up to a level of preference value.
+|}
+
+
+==BON Preferences==
+
+{| border="1" 
+|- 
+| Bon class name font
+| Font for class names in BON class figures.
+|- 
+| Bon class name color
+| Color for class names in BON class figures.
+|- 
+| Bon class fill color
+| Color for BON class figures.
+|- 
+| Bon class uncompiled fill color
+| Color for uncompiled BON class figures.
+|- 
+| Bon class generics font
+| Font for generics in BON class figures.
+|- 
+| Bon class generics color
+| Color for generics in BON class figures.
+|- 
+| Bon client label font
+| Font for feature names on BON client supplier links.
+|- 
+| Bon client label color
+| Color for feature names on BON client supplier links.
+|- 
+| Bon client color
+| Color for BON client supplier links.
+|- 
+| Bon client line width
+| Line width for BON client supplier links.
+|- 
+| Bon cluster line color
+| Color for BON cluster line.
+|- 
+| Bon cluster iconified fill color
+| Iconified BON Cluster fill color.
+|- 
+| Bon cluster name area color
+| BON cluster name area fill color.
+|- 
+| Bon cluster name color
+| BON cluster name color.
+|- 
+| Bon cluster name font
+| BON cluster name font.
+|- 
+| Bon inheritance color
+| Color for BON inheritance links.
+|- 
+| Bon inheritance line width
+| Line width for BON inheritance links.
+|}
+
+
+==UML Preferences==
+
+{| border="1" 
+|- 
+| Uml class name font
+| Font for class names in UML class figures.
+|- 
+| uml class deferred font
+| Font for names of deferred classes in UML class figures.
+|- 
+| Uml class properties font
+| Font for class properties in UML class figures.
+|- 
+| Uml class properties color
+| Color for class properties in UML class figures.
+|- 
+| Uml class name color
+| Color for class names in UML class figures.
+|- 
+| Uml class fill color
+| Color for UML class figures.
+|- 
+| Uml generics font
+| Font for generics in UML class figures.
+|- 
+| Uml generics color
+| Color for generics in UML class figures.
+|- 
+| Uml class features font
+| Font for class features in UML class figures.
+|- 
+| Uml class features color
+| Color for class features in UML class figures.
+|- 
+| Uml class feature section font
+| Font for class feature sections in UML class figures.
+|- 
+| Uml class feature section color
+| Color for class feature sections in UML class figures.
+|- 
+| Uml client line width
+| Line width for UML client supplier links.
+|- 
+| Uml client color
+| Color for UML client supplier links.
+|- 
+| Uml client label color
+| Color for feature names on UML client supplier links.
+|- 
+| Uml client label font
+| Font for feature names on UML client supplier links.
+|- 
+| Uml cluster line color
+| Color for UML cluster line.
+|- 
+| Uml cluster iconified fill color
+| Iconified UML Cluster fill color.
+|- 
+| Uml cluster name area color
+| UML cluster name area fill color.
+|- 
+| Uml cluster name color
+| UML cluster name color.
+|- 
+| Uml cluster name font
+| UML cluster name font.
+|- 
+| Uml inheritance line width
+| Line width for UML inheritance links.
+|- 
+| Uml inheritance color
+| Color for UML inheritance links.
+|}
+
+
+{{seealso|<br/>
+[[EiffelStudio Tools Preferences|Preferences for other tools]]  }}
+
+
+
+

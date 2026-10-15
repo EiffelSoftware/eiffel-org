@@ -1,0 +1,84 @@
+[[Property:title|Example: Self-initializing attributes and assigner commands]]
+[[Property:weight|0]]
+[[Property:uuid|dbc107a4-42cd-606a-71b2-e0b70ac5482e]]
+==Description==
+
+Example of using a [[Void-safety: Background, definition, and tools#Self-initializing attributes|self-initializing attribute]] and an  [[ET: The Dynamic Structure: Execution Model#Assigner commands|assigner command]].
+
+==Notes==
+
+The concepts of [[Void-safety: Background, definition, and tools#Self-initializing attributes|self-initializing attributes]] and [[ET: The Dynamic Structure: Execution Model#Assigner commands|assigner commands]] are independent of one another. However, this example shows how each works in a small amount of code. 
+
+The example consists of two classes: a root class, and class <code>PERSON</code>. The <code>PERSON</code> class has a self-initializing attribute of type <code>STRING</code> named <code>mood</code>. If <code>mood</code> is accessed before it is explicitly initialized, then the self-initializing code after the keyword <code>attribute</code> will be executed, setting the default mood to "Happy".
+
+The attribute <code>mood</code> also has an assigner command, the procedure <code>set_mood</code>, designated as such by the <code>assign</code> keyword. This allows clients of class <code>PERSON</code> to appear to assign directly to <code>mood</code>. However, the assigner command <code>set_mood</code> will always get executed, and its precondition will be in force during such an apparent assignment. 
+
+The root class <code>APPLICATION</code> creates an instance of <code>PERSON</code> and prints the value of <code>mood</code>, getting the self-iniitalized value. Then it assigns to <code>mood</code>. When it prints again, it gets the updated value.
+
+==Source==
+
+Adapted from an example given on the Eiffel Software Users Group.
+
+==Solution==
+
+A root class:
+
+<code>
+class
+    APPLICATION
+
+create
+    make
+
+feature {NONE} -- Initialization
+
+    make
+            -- Print and set mood of `my_person'.
+        do
+            create my_person
+            print ("Mood: " + my_person.mood + "%N")
+            my_person.mood := "Ecstatic"
+            print ("Mood: " + my_person.mood + "%N")
+        end
+
+feature -- Access
+
+    my_person: PERSON
+
+end
+</code>
+
+
+Class PERSON:
+
+<code>
+class
+    PERSON
+
+feature -- Access
+
+    mood: STRING assign set_mood
+        attribute
+            Result := "Happy"
+        end
+
+feature -- Element change
+
+    set_mood (a_string: STRING)
+        require
+            single_token: a_string.occurrences (' ') = 0
+        do
+            mood := a_string
+        ensure
+            mood_set: mood = a_string
+        end
+end
+</code>
+
+==Output==
+
+<code>
+Mood: Happy
+Mood: Ecstatic
+</code>
+

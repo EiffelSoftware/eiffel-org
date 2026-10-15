@@ -1,0 +1,39 @@
+[[Property:title|CA028 - Combine two if instructions]]
+[[Property:link_title|CA028]]
+[[Property:weight|0]]
+[[Property:uuid|47b9a80f-16d7-82c7-7d23-19f740fb2978]]
+__NOTOC__
+=Description=
+Two nested instructions, both not having an else clause, could be combined into a single if instruction using the <e>and then</e> boolean operator.
+:{| class="doctable"
+|-
+| '''Scope'''
+| Instruction
+|-
+| '''Status'''
+| Enabled
+|-
+| '''Severity'''
+| Suggestion
+|-
+| '''Applicability'''
+| All
+|-
+| '''Score'''
+|  40
+|}
+
+=Example of violation=
+<e>if user /= Void then
+	if user.age >= 18 then
+		...
+	end
+end
+</e>
+
+=Recommendation=
+Combine the nested if instructions using <e>and then</e>. In the example, it becomes:
+<e>if user /= Void and then user.age >= 18 then
+	...
+end</e>
+

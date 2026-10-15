@@ -1,0 +1,35 @@
+[[Property:title|XY Co-ordinates]]
+[[Property:weight|12]]
+[[Property:uuid|f0b46125-2954-1504-0f47-c023462957f3]]
+[[Image:xy|xy]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\xy\''. 
+* Choose ''xy.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+==Running==
+After launching the sample, you should see a [[ref:libraries/wel/reference/wel_frame_window_chart|WEL_FRAME_WINDOW]]  displayed. If you click the left mouse button in the client area of the window, the coordinates of the click (Relative to the top left of the client area), will be displayed. Clicking the [[ref:libraries/wel/reference/wel_push_button_chart|WEL_PUSH_BUTTON]]  marked "Clear" will clear the client area of the window. 
+==Under the Hood==
+
+A [[ref:libraries/wel/reference/wel_client_dc_chart|WEL_CLIENT_DC]]  is used to display output in the client area of the window during the execution of <code>on_left_button_down</code> which has been redefined in <code>MAIN_WINDOW</code>.
+
+This sample contains the following classes: 
+* <code>XY_DEMO</code>
+* <code>MAIN_WINDOW</code>
+
+
+{{seealso|<br/>
+[[Tutorial Step 3|tutorial_step3]]  <br/>
+[[WEL_PUSH_BUTTON|WEL_PUSH_BUTTON]]  <br/>
+}}
+
+
+
+

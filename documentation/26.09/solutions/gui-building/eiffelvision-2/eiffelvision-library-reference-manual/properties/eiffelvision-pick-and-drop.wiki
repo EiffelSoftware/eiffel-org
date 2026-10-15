@@ -1,0 +1,88 @@
+[[Property:title|EiffelVision Pick and Drop]]
+[[Property:weight|0]]
+[[Property:uuid|309203de-6536-fe26-4f73-cb1f4a450e6f]]
+Pick-and-Drop is a unique user-interface action that permits a user to request an action be performed on a specified object.  It is a more-ergonomic alternative to the typical drag-and-drop or "select-and-click" user operations found in most modern graphical user interfaces.  Users of EiffelStudio have come to value Pick-and-Drop as both intuitive, and easier on the wrist and fingers with long-term use.
+
+Pick-and-Drop uses the metaphor of '''pebbles and holes'''.  The typical method of doing a pick-and-drop is that the end user selects the object to receive an action with a single right-click of the mouse.  At that point, the mouse arrow turns into a "pebble" connected to the "point of picking" via a visible "band".  This "pebble" is often a symbol representing the type of object that was "picked".  In the case of the screen-shot below, it is a blue ellipse:  the "pebble" symbol for a class.
+
+[[Image:EiffelStudio during class pick and drop2|thumbnail|360px|center|EiffelStudio During Class Pick-and-Drop]]
+
+
+The "pebble" may then be dropped into any compatible "hole" (drop target—a widget configured to accept "pebbles" of this type).  Such "receiving" widgets are often tool-bar buttons or editing areas (or in the case of the screen-shot above, the editor "tab" bar), but can be any widget that inherits from [[ref:libraries/vision2/reference/ev_pick_and_dropable_chart|EV_PICK_AND_DROPABLE]] and is properly configured.  The user then can either "drop the pebble into the hole" with a second right-click (on the receiving object), or may cancel the operation by single-clicking the left mouse button.
+
+[[Image:EiffelStudio after class pick and drop2|thumbnail|360px|center|EiffelStudio After Class Pick-and-Drop]]
+
+
+{{note|See [[uuid:a3789781-153b-7f4d-bb94-4bdf8923fb56|Retargeting Through Pick-and-Drop]] to see how EiffelStudio uses the Pick-and-Drop user interface.}}
+
+
+Because the Pick-and-Drop operation has been so popular, classes have been added to the EiffelVision 2 library to make implementing this user interface very easy.
+
+From a technical viewpoint, Pick-and-Drop is a mechanism which allows data to be transported from a '''source''' object to a '''target'''. Any EiffelVision 2 object inheriting from [[ref:libraries/vision2/reference/ev_pick_and_dropable_chart|EV_PICK_AND_DROPABLE]] can be used to transport or receive data. 
+
+
+==A Simple Pick-and-Drop Example==
+
+The two necessary components for a Pick-and-Drop operation are a '''source''' and a '''target''', both of which must [[uuid:b8c10baa-4f50-adfe-a6f8-9cb56a8f1917#Conformance|conform]] to [[ref:libraries/vision2/reference/ev_pick_and_dropable_chart|EV_PICK_AND_DROPABLE]]. The data that is to be transported is known as a '''pebble'''. 
+
+The following steps need to be undertaken to set up a simple pick and drop: 
+* Set the '''source''' by calling set_pebble. 
+* Set one or more '''targets''' by adding an [[ET: Agents|agent]] to their <eiffel>drop_actions</eiffel> list. To make the '''target''' accept that type of '''pebble''', the arguments of the [[ET: Agents|agent]] must match the type of the '''pebble''' to be transported for the '''source'''.  Otherwise the transport will not be permitted. 
+
+A simple example of this is demonstrated here: 
+<code>
+            button1.set_pebble ("A PND transport has occured%N")
+            button2.drop_actions.extend (agent print (?))
+</code>
+
+Because <eiffel>print</eiffel> takes an argument of type [[ref:libraries/base/reference/string_8_chart|STRING_8]], button2 becomes a valid drop-target for the pebble contained by button1. Right clicking the mouse pointer over the '''source''' will start the transport, and right clicking with the mouse pointer over a valid '''target''' will complete the transport. The transport can be canceled anytime with a simple left click, just as you would do in EiffelStudio. 
+
+{{note|Any type of object can be used as the '''pebble'''.  When a transport completes, the '''pebble''' that was transported is passed as an argument to all agents in the '''target's''' <code>drop_actions</code> list to which the '''pebble''' [[uuid:b8c10baa-4f50-adfe-a6f8-9cb56a8f1917#Conformance|conforms]].}}
+
+
+==Three Different Modes of Transport==
+
+There are three different modes of transport available for pick and drop. They are listed below with details of their use: 
+* Pick and Drop Mode. <br/>
+::This is the default mode for pick and drop, but can be set by calling <eiffel>set_pick_and_drop_mode</eiffel> on the '''source''' object. Right clicking on a '''source''' starts the transport and right clicking on a valid '''target''' completes the transport. During execution, a band is drawn from the screen position where the pick started to the current mouse position. Pressing the left mouse button or the escape key during execution will end the transport. 
+* Drag and Drop Mode <br/>
+::This mode can be set by calling <eiffel>set_drag_and_drop_mode</eiffel> on the '''source''' object. Left clicking on a '''source''' starts the transport and releasing the left mouse button over a valid '''target''' completes the transport. During execution, a band is drawn from the screen position where the pick started to the current mouse position. Releasing the left mouse button or pressing the escape key during execution will end the transport. 
+* Target Menu Mode <br/>
+::This mode can be set by calling <eiffel>set_target_menu_mode</eiffel> on the '''source''' object. Right clicking on a '''source''' brings up a menu of all the valid drop '''targets''' in the system. Selecting one of these targets completes the transport. 
+
+
+==Accept and Deny Cursors==
+
+When <eiffel>mode_is_pick_and_drop</eiffel> or <eiffel>mode_is_drag_and_drop</eiffel> then the shape of the mouse cursor changes to reflect whether the current GUI component below the mouse accepts the pebble or not. Calling <eiffel>set_accept_cursor</eiffel> or  <eiffel>set_deny_cursor</eiffel> on the '''source''' object allows you to customize the Accept- and Deny-Cursor respectively—used to represent a valid or invalid '''target''' respectively while the mouse pointer (pebble) is being moved around.  The default Accept-Cursor is the standard mouse pointer.  The default Deny-Cursor is a red circle with a diagonal line across it:  the universal "not permitted" symbol.
+
+Example:
+
+<eiffel>
+	add_some_widgets
+			-- Add some widgets with a Pick-and-Drop example into `main_window'.
+		local
+			my_hbox: EV_HORIZONTAL_BOX
+			my_button1: EV_BUTTON
+			my_button2: EV_BUTTON
+			bullseye_pix_buffer: EV_PIXEL_BUFFER
+			bullseye_ptr_style: EV_POINTER_STYLE
+		do
+			create my_hbox
+			create my_button1.make_with_text ("Button1")
+			create my_button2.make_with_text ("Button2")
+			my_hbox.extend (my_button1)
+			my_hbox.extend (my_button2)
+			my_hbox.extend (create {EV_BUTTON}.make_with_text ("Button3"))
+			main_window.extend (my_hbox)
+
+			my_button2.set_pebble ("A Pick-and-Drop has occurred.")
+			my_button1.drop_actions.extend (agent my_button1.set_text (?))
+			my_button1.drop_actions.extend (agent io.put_string (?))
+			create bullseye_pix_buffer.make_with_size (32, 32)
+			bullseye_pix_buffer.set_with_named_file ("BULLSEYE.png")
+			create bullseye_ptr_style.make_with_pixel_buffer (bullseye_pix_buffer, 32, 32)
+			my_button2.set_accept_cursor (bullseye_ptr_style)
+		end
+</eiffel>
+
+

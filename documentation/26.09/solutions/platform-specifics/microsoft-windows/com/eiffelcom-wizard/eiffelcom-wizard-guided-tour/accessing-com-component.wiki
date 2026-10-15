@@ -1,0 +1,58 @@
+[[Property:title|Accessing a COM Component]]
+[[Property:weight|2]]
+[[Property:uuid|d27be959-8f8e-a6f0-cd20-12f6ce71307f]]
+This third tutorial describes how to access a COM component. It will build a client of the <eiffel>StringManipulator</eiffel> component built in the first tutorial.
+
+==Step by step instructions==
+#  Launch the EiffelCOM Wizard.  Note: if you are running Windows 7, you will need to right-click "EiffelCOM Wizard" in the start menu and select "Run as administrator". 
+#  In '''Project''', in the '''Current project''' input field, type in ''string_manipulator_client'' and press '''Enter'''. 
+#  In '''Project Type''', choose ''Access an existing COM component''. 
+#  In '''Component Information''', click the browse button (the button with '''...''') and open the file ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\string_manipulator.idl'' where ''$ISE_EIFFEL'' represents the path to the EiffelStudio installation directory. 
+#  Click '''Next'''. 
+#  In '''Component Type''', choose ''In-process (*.dll)''. 
+#  In '''Generation Options''', click the browse button and select the directory where the project should be created (which we will later refer to as the ''destination folder''). Choose ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\generated\client'' where ''$ISE_EIFFEL'' represents the path to the EiffelStudio directory. 
+#  Make sure both '''Compile C code''' and '''Compile Eiffel code''' are checked. 
+#  Select '''Overwrite existing files'''. 
+#  Click '''Generate'''. 
+#  Wait until the wizard is done. 
+
+==Temporary Work-Around==
+Note that because Eiffel as a language has evolved somewhat since the '''EiffelCOM Wizard''' was last released, the compile will fail on the last (Eiffel) portion of the compile.  However, in this case, it is not sufficient to simply launch EiffelStudio, change the configuration, and finish the compile.  The reason is that the EiffelCOM Wizard WOULD HAVE built a pre-compiled library from the C and Eiffel files just generated, and this is important because later steps in this Guided Tour depend upon that library to be there.  Thus, to navigate this, you will need to execute the steps below.
+
+#  Let the EiffelCOM Wizard compilation proceed until it fails due to a Eiffel syntax error.  Leave the EiffelCOM Wizard running.  We will need it below.
+#  Click the EiffelStudio button to launch EiffelStudio on the project file that was generated above.
+#  The first window presented is the "Choose Your Directory" dialog box.  UNCHECK the "Compile project" checkbox.  Then click '''OK'''.
+#  Once EiffelStudio is open, click the ''Change Project Settings'' toolbar button, and navigate to ''Target: default'' in the navigation pane.
+#  Set the "Void safety" setting to "No", and set the "Syntax" setting to "Transitional syntax".
+#  Click '''OK''' in the Project Settings dialog box.
+#  DO NOT COMPILE, but exit EiffelStudio.
+#  Copy the .ECF file just modified to a safe location.  In Windows Explorer, navigate to the ...\string_manipulator\generated\client\Client\  folder.  Copy the .ECF file (string_manipulator_idl_client.ecf) outside the project directory temporarily (for example, to the ...\string_manipulator\generated\client\  folder.  This .ECF file has the settings that will permit the EiffelCOM Wizard compilation to succeed.
+#  Place this safe copy of the modified .ECF file on the clipboard, ready to copy.  Navigate to the folder where you made a copy of the above .ECF file, and in Windows Explorer, while the .ECF file is selected, from the Edit menu, select ''Copy'' (or hit Ctrl-C on the keyboard to make a copy of the file on the Windows clipboard).
+#  In Windows Explorer, navigate back to the ...\string_manipulator\generated\client\Client\  folder, but don't do anything yet.
+#  Quickly execute the following 2 steps:  A) in the EiffelCOM Wizard, click the '''Generate''' button.  B) After about 2 seconds, after the files have been generated and the C/C++ compilations have started, return to the Windows Explorer window in the ...\string_manipulator\generated\client\Client\  folder, and hit Ctrl-V on the keyboard to PASTE the saved .ECF file into the folder.  Confirm when it prompts you whether to replace the .ECF file that was just generated (in Windows 7, this will be a "Copy and Replace" choice).
+#  Watch the EiffelCOM Wizard Output window as it completes successfully this time.
+#  With Windows Explorer, navigate to the ...\string_manipulator\generated\client\Client\EIFGENs\default\W_code\msc\  folder and confirm there is a file there named <code>precomp.lib</code> .
+
+Now you are ready to continue with the Guided Tour.
+
+
+==First Look at the Generated Code==
+At the end of the processing the '''EiffelStudio''' button becomes enabled. Click on it. This will automatically start EiffelStudio with the generated project so you can more easily navigate through the created Eiffel classes.
+
+{{note|When accessing a COM component the EiffelCOM Wizard will generate a precompiled library which includes all the generated classes. This allows for easy browsing of the generated classes, however a precompilation project is read-only, so you need to start another EiffelStudio to reuse the generated classes. The interesting classes are all related to the coclass proxy <eiffel>STRING_MANIPULATOR_PROXY</eiffel>. The proxy is the Eiffel class that gives access to the component. Each feature on the proxy calls the corresponding interface function on the component. You can use the EiffelStudio opened by the wizard to browse through the generated classes and study the class hierarchy.}}
+
+==Implementing a Client==
+To implement a client of the <eiffel>StringManipulator</eiffel> component open a new EiffelStudio. Create the project in ''$ISE_EIFFEL\examples\com\wizard\string_manipulator\client'' using the ecf file found in that directory. Freeze and run the project. You are now accessing the previously built component and calling functions on its interfaces! The class <eiffel>MY_STRING_MANIPULATOR</eiffel> inherits from the generated <eiffel>STRING_MANIPULATOR_PROXY</eiffel> and redefines the feature ''replace_substring_user_precondition''. The generated interfaces include contracts for each exposed function. You can redefine the ''user_precondition'' features to implement your own preconditions.
+
+{{note|If a COM component should be added to an existing client, the generated ecf file can be added as a library. }}
+
+==Contracts==
+Contracts can be broken directly on the proxy in which case you will get a standard contract violation in the client. If contracts are broken on the server then the exception will be forwarded by the EiffelCOM runtime to the client. The feature replace_substring_user_precondition in <eiffel>MY_STRING_MANIPULATOR</eiffel> includes has some assertions. Comment them out. Now the contract of the [[ref:libraries/base/reference/string_8_chart|<code>replace_substring </code>]] feature is wrong and erroneous calls can be made. Quick melt the changes and run the client. Enter some invalid numbers in the fields used to call this feature. After you click '''Replace''' you will see an error message box warning you that a precondition was violated on the server side. This demonstrates contracts `over the wire'. The precondition was violated in the server; this exception was caught by the EiffelCOM runtime and sent back to the client. 
+{{seealso|<br/>
+[[Creating a New COM Component|Creating a New COM Component]]  <br/>
+[[Creating a new component from an Eiffel project|Creating a new component from an Eiffel Project]]  }}
+
+
+
+
+

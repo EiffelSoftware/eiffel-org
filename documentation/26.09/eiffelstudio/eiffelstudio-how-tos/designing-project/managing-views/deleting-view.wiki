@@ -1,0 +1,15 @@
+[[Property:title|Deleting a view]]
+[[Property:weight|1]]
+[[Property:uuid|4e53dcce-8b05-823e-6911-ac85b226a511]]
+
+*To delete a view, select the view you want to remove using the '''View''' combo box. <br/>
+[[Image:diagram-defaultview]]  
+*Click the '''Delete current view''' button.  [[Image:16x16--general-delete-icon]]  <br/>
+
+*If you choose to confirm, the view has been deleted, and the "DEFAULT" view is selected.
+
+
+{{note|You cannot delete the view "DEFAULT". }}
+
+
+

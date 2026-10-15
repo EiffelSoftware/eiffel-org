@@ -1,0 +1,19 @@
+[[Property:title|Debugging preferences]]
+[[Property:weight|-4]]
+[[Property:uuid|05e820ff-917f-e41f-d921-990283ac886f]]
+Debugger preferences are available as part of the [[EiffelStudio Preferences]].
+
+The debugger section of the EiffelStudio preferences looks like this:
+
+
+[[Image:debugging-tools-preferences]]  
+
+
+The EiffelStudio preference documentation contains a guide to the [[Debugger Preferences]].
+
+Some preferences have an effect upon the speed at which the debugger can display objects:
+* Enable/disable the debug_output display (see [[Debug output|debug output]]) 
+* Enable/disable the full generic type display (for example, <eiffel>ARRAY [INTEGER]</eiffel> is displayed, instead of only <eiffel>ARRAY</eiffel>)
+* To avoid infinite evaluation processing, the debugger aborts evaluation after "max evaluation duration" timeout. 
+
+

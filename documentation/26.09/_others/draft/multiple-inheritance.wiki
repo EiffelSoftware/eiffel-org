@@ -1,0 +1,49 @@
+[[Property:title|Multiple inheritance]]
+[[Property:weight|0]]
+[[Property:uuid|7f54afce-fd1d-fba7-7a55-f74604ea9846]]
+<h2>Multiple inheritance: definition</h2>
+
+Multiple inheritance is a mechanism for combining abstractions. It lets you define a class by extending or specializing two or more classes, not just one as in <em>single</em> inheritance. For example you might define a multi_function printer as the combination of a printer and a scanner.
+
+Multiple inheritance sometimes has the reputation of being complicated or even messy, but there is no such problem in Eiffel. "Name clashes", for example, are not a big deal: if classes <eiffel>A</eiffel> and <e>B</e> both have a feature with the same name <e>f</e> and class <e>C</e> inherits from both, you can either specify that they should be merged, or keep them separate through the <e>rename</e> mechanism. Details below.
+
+ <h2>Multiple inheritance basics</h2>
+
+Multiple inheritance happens as soon as you list more than one class in the <e>inherit</e> clause at the beginning of a class. For example:
+
+<eiffel>
+	class PRINTER feature
+		... Here the features specific to printers ... 
+	end
+
+	class SCANNER feature
+		... Here the features specific to scanners ...
+	end
+
+	class MULTI_FUNCTION_PRINTER inherit
+		PRINTER
+		SCANNER
+	feature
+		... Here the features specific to printer-scanners ...
+	end
+</eiffel>
+
+As with single inheritance, the new class has access to the parent features, except that here they are features of two different parents. For example if <e>PRINTER</e> has feature <print>  and <e>SCANNER</e> has features <e>scan</e> and <e>scanned</e>, then the feature clause of <e>SCANNER</e> can include
+
+<code>
+	scan_and_print
+			-- Scan a page and print it.
+		do
+			scan				-- Leaves result of scan in `scanned'
+			print (scanned)
+		end
+</code>
+			
+
+
+
+
+
+
+
+

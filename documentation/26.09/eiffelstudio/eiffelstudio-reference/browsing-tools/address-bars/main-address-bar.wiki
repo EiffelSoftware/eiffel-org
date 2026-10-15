@@ -1,0 +1,35 @@
+[[Property:title|Main address bar]]
+[[Property:weight|1]]
+[[Property:uuid|491b7b6d-4d7c-287f-8442-2b35d000a54b]]
+The main address bar is located in the top part of windows, between the two [[Main toolbars|main toolbars]]  (when they are displayed). 
+
+[[Image:main-address-bar]]  
+
+It has several components:
+* '''History back and forth arrows'''  [[Image:view-previous-icon]]  and  [[Image:view-next-icon]]  
+** These functions are also accessible from the menu path <code lang=text>View -> Go to</code>
+
+* '''Current class and feature name fields''' 
+** These fields display the names of the class and/or feature currently active in the editor pane.
+** It is possible to type a class or feature name to center the editor on it. 
+** Typing a class name that does not exist in the set of known classes pops up a dialog to create a class of that name.
+** The "wildcard" characters '''*''' and '''?''' may be used in these fields.
+
+* '''View icons''' [[Image:view-editor-icon]] ,  [[Image:view-clickable-icon]] ,  [[Image:view-flat-icon]] ,  [[Image:view-contracts-icon]]  and  [[Image:view-flat-contracts-icon]]  
+** Click to change the view currently displayed in the editor.
+** Drop a pebble to retarget the editor to a class or feature using the selected view.
+
+* '''Viewpoints selector'''
+** The Viewpoints selector can only be active if you have used [[Group Options#Renaming|renaming and/or prefixing]] in your project settings to specify alternate class names for some classes used by your project. Otherwise it is inactive. In a project with renaming and/or prefixing, the Viewpoints selector becomes active when both of the following are true:
+*** The editor window is focused on a class that has been renamed or prefixed in project settings.
+*** The class is being viewed in a formatted view, i.e., a view other than the '''Basic text view'''. 
+** The Viewpoints selector allows you to select how you would like to view renamed or prefixed classes: 
+*** As they really exist, i.e., as if you are their producer, or 
+*** Using the alternative names that you have specified in your project settings.
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+[[Property:title|CA017 - Empty conditional]]
+[[Property:link_title|CA017]]
+[[Property:weight|0]]
+[[Property:uuid|4616cef3-6eaf-1ab6-6071-d629443dfbf0]]
+__NOTOC__
+=Description=
+An empty conditional instruction is useless and should be removed.
+
+:{| class="doctable"
+|-
+| '''Scope'''
+| Instruction
+|-
+| '''Status'''
+| Enabled
+|-
+| '''Severity'''
+| Warning
+|-
+| '''Applicability'''
+| All
+|-
+| '''Score'''
+| 50
+|}
+
+
+=Example of violation=
+<e>if x and y then
+end
+do_something_else
+</e>
+
+=Recommendation=
+Remove the useless conditional.
+In the example, simply keep:
+
+<e>
+do_something_else</e>
+

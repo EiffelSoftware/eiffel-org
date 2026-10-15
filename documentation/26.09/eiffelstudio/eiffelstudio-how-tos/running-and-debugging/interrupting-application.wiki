@@ -1,0 +1,18 @@
+[[Property:title|Interrupting an application]]
+[[Property:weight|1]]
+[[Property:uuid|89bc6f76-ca23-950f-485a-35973022554b]]
+There are two ways a debugged application can be interrupted: its execution can be paused, or it can be killed.
+
+Two methods can be used to pause a debugged application:
+* The [[Pause an application]] , located in both the debug menu and the project toolbar. 
+* Breakpoints, which make it easy to stop the application at a precise point.
+
+To kill a debugged application, use the [[Stop a debugged application]] , located in both the debug menu and the project toolbar. 
+
+{{seealso|<br/>
+[[Running an application|Running a program]]  <br/>
+[[Using breakpoints|Using breakpoints]]  }}
+
+
+
+

@@ -1,0 +1,32 @@
+[[Property:title|Change Analysis]]
+[[Property:weight|0]]
+[[Property:uuid|a503cf13-6374-9932-5ee2-a69b363e6701]]
+[[Image:information tool change analysis]]
+
+The information tool can track changes in an Eiffel system or external resources side, and potentially affected items on either side are listed.
+
+== Major Features ==
+* '''Affected target:''' List of elements of the Eiffel system that would be affected by a change in external resources.
+* '''Affected source:''' List of external resources that might be affected by changes in the Eiffel system.
+* '''Change acknowledgement:''' Acknowledgement of the changes which will be ignored with no further actions.
+
+== Typical Work Flows ==
+
+=== Affected external resources caused by a change in the Eiffel system ===
+# Open a class, add an Information entry with an external resource in the class.
+# Start working on that class, save it at as you normally do on regular basis.
+# Open the information tool, go to Affected source item in the left tree.
+# Check the list of external resources that might be affected by last changes.
+# Acknowledge the changes once you have updated the external resource accordingly (possibly no change is required in the case of simple system changes).
+
+=== Affected items in the Eiffel system caused by an external resource change ===
+# Open a class, add an Information entry with an external resource in the class.
+# Start working on that external resource, save it at as you normally do on regular basis.
+# Open the information tool, go to Affected target in the left tree.
+# Check the list of classes that might be affected by last changes of the external resource. (You may need to click on the "sweep the system now." button to get a full list if auto-sweeping is not enabled.)
+# Acknowledge the changes once you have updated the Eiffel system accordingly (possibly no change is required in the case of a simple edit in the external resource).
+
+== Current limitations ==
+The tracking of external resource changes is limited to external resources that are local files. If an external resource is a URL, it will not detect any potential changes done at that URL.
+
+

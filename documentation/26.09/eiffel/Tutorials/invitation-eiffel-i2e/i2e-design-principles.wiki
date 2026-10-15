@@ -1,0 +1,22 @@
+[[Property:title|I2E: Design Principles]]
+[[Property:weight|-13]]
+[[Property:uuid|529659bd-ec13-5805-87f2-2fd9318ad442]]
+The aim of Eiffel is to help specify, design, implement and modify quality software. This goal of quality in software is a combination of many factors; the language design concentrated on the three factors which, in the current state of the industry, are in direct need of improvements: reusability, extendibility and reliability. Also important were other factors such as efficiency, openness and portability. 
+
+'''Reusability''' is the ability to produce components that may serve in many different applications. Central to the Eiffel approach is the presence of predefined libraries such as EiffelBase, and the language's support for the production of new libraries. 
+
+'''Extendibility''' is the ability to produce easily modifiable software. "Soft" as software is supposed to be, it is notoriously hard to modify software systems, especially large ones. 
+
+Among quality factors, reusability and extendibility play a special role: satisfying them means having less software to write -- and hence more time to devote to other important goals such as efficiency, ease of use or integrity. 
+
+The third fundamental factor is '''reliability, ''' the ability to produce software that is correct and robust -- that is to say, bug-free. Eiffel techniques such as static typing, assertions, disciplined exception handling and automatic garbage collection are essential here. 
+
+Three other factors are also part of Eiffel's principal goals: <br/>
+* The language enables implementers to produce high '''efficiency''' compilers, so that systems developed with Professional Eiffel may run under speed and space conditions similar to those of programs written in lower-level languages. 
+* Ensuring '''openness''', so that Eiffel software may cooperate with programs written in other languages. 
+* Guaranteeing '''portability''' by a platform-independent language definition, so that the same semantics may be supported on many different platforms. 
+
+
+
+
+

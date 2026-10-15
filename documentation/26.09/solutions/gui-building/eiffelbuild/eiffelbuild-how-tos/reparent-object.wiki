@@ -1,0 +1,22 @@
+[[Property:title|Reparent an Object]]
+[[Property:weight|4]]
+[[Property:uuid|bf920606-6a40-83fc-5069-034d32f8cd7a]]
+To reparent an [[EiffelBuild Notation|object]] , you need to [[EiffelBuild Notation|pick]]  the [[EiffelBuild Notation|object]]  and [[EiffelBuild Notation|drop]]  it on the [[EiffelBuild Notation|object]]  you wish it to be parented in. The [[EiffelBuild Notation|object]]  will be removed from its current parent, and inserted in the new parent at the next available position. 
+
+When an [[EiffelBuild Notation|object]]  is inserted into a parent, it is always added at the next available position. If you wish to place an [[EiffelBuild Notation|object]]  at a particular position within a parent, you must hold down the '''Shift''' key, and drop on an [[EiffelBuild Notation|object]]  already contained in parent, Your [[EiffelBuild Notation|object]]  will then be inserted in the parent, in the position preceding the child [[EiffelBuild Notation|object]]  that you dropped on. 
+
+You can access [[EiffelBuild Notation|objects]]  from both the [[Builder window|builder window]]  and [[Layout constructor|layout constructor]] . 
+
+{{note|Although window and dialog objects may be accessed within the [[Widget selector|widget selector]] , it is not possible to build into these objects, you should use the [[Layout constructor|layout constructor]]  or [[Builder window|builder window]]  directly in this situation. }}
+
+For more information about an [[EiffelBuild Notation|objects]]  capacity and permitted children, see the [[EiffelVision Introduction|EiffelVision 2]]  documentation. 
+
+{{seealso|<br/>
+[[Create an object|Create an object]]  <br/>
+[[Delete an object|Delete an object]]  <br/>
+[[Builder window|Builder window]]  <br/>
+[[Layout constructor|Layout constructor]]  }}
+
+
+
+

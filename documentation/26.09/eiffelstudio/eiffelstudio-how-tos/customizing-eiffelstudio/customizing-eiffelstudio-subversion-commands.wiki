@@ -1,0 +1,103 @@
+[[Property:title|Customizing EiffelStudio for Subversion commands]]
+[[Property:weight|8]]
+[[Property:uuid|83a8ca76-d714-db60-f697-ae48b161161a]]
+==Overview==
+
+By configuring external commands, you can set up EiffelStudio to execute a few basic commands for Subversion or other source code management (SCM) systems. Source code management systems, sometimes called revision control or version control systems are often used as part of a software configuration management strategy to track and control changes to software and its supporting documents. 
+
+
+==Defining external commands==
+
+You can define external commands by using the [[External commands editor dialog|external commands editor dialog]]. Then you can execute those commands through the '''Tools''' menu or with keyboard shortcuts.
+
+
+===Defining a Subversion command===
+
+
+{{note|The notation used in the examples on this page will work for Microsoft Windows. Other platforms may require different command formats.}}
+
+
+Suppose that you want to add an external command to EiffelStudio to Subversion's ''update'' command (''update'' brings your working copy up-to-date with the repository). You can define a command with an appropriate name, say ''svn update'', as shown below. 
+
+
+[[Image:subversion-update-command-01|define svn update]]
+
+
+The command line:
+<code /lang="text">
+svn up $file_name
+</code>
+invokes Subversion and executes the ''update'' command. The placeholder '''$file_name''' substitutes the name of the file associated with the class currently targeted in the editor pane. So if you were editing class <code>MY_CLASS</code> which exists in file <code>my_class.e</code>, then that file name would be used in the Subversion update command executed.
+
+Once the command is defined, it will be accessible through EiffelStudio's Tools menu, either by selecting it explicitly or by using its associated keyboard short cut, <code>Alt+0</code>, in the case of this example. 
+
+
+[[Image:subversion-update-in-tools-menu|Subversion update command in the tools menu]]
+
+
+===Other Subversion commands===
+
+You can use this same technique to add external commands for other Subversion commands that require only a basic form. For example, to create a command that will add the file for the currently edited class to the repository, add a new external command with the command line:
+<code lang="text">
+svn add $file_name
+</code>
+
+or, to revert local changes to the file associated with the class which is currently the target of the editor:
+<code lang="text">
+svn revert $file_name
+</code>
+
+===The option to confirm execution of a command===
+
+It's possible that in some cases, for example that of ''svn revert'', you might want to have the command provide you with a chance to back out of the deal before the command actually executes. You can do this by adding a little more to the command line:
+
+
+[[Image:subversion-update-command-02|Confirmable svn update command]]
+
+
+Here the command line:
+
+<code /lang="text">
+echo Revert changes to $class_name? && pause && svn revert $file_name
+</code>
+
+first asks for confirmation before executing the command. 
+
+When you execute this command you will see the confirmation prompt in EiffelStudio's [[Console tool|Console tool]]: 
+
+
+[[Image:subversion-update-console-tool|Subversion update command with confirmation]]
+
+
+If you choose to execute the command, then just press <code>return</code>. If you have second thoughts and want to cancel the command, then do so by clicking the Console tool's stop button ( [[Image:metrics-tool--debug-stop-icon|Stop command]] ).
+
+
+==Defining commands for TortoiseSVN==
+
+If you are using the TortoiseSVN GUI client for Subversion on Microsoft Windows, you may prefer to have TortoiseSVN execute the Subversion commands for you from EiffelStudio. You can do this by starting '''tortoiseproc.exe''', and providing the specifics for each command as shown in [http://tortoisesvn.net/docs/nightly/TortoiseSVN_en/tsvn-automation.html Appendix D of the TortoiseSVN documentation]. 
+
+
+Some common Subversion command invocations are shown with their respective command lines below:
+
+
+{| border="1"
+|- 
+| '''Subversion command'''
+| '''Command line'''
+|- 
+| revert
+| start tortoiseproc /command:revert /path:"$file_name" /notempfile
+|-
+| commit
+| start tortoiseproc /command:commit /path:"$file_name" /notempfile
+|-
+| log
+| start tortoiseproc /command:log /path:"$file_name" /notempfile
+|-
+| diff
+| start tortoiseproc /command:diff /path:"$file_name" /notempfile
+|}
+
+
+
+

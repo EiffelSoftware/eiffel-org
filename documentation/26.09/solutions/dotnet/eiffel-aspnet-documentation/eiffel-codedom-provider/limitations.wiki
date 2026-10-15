@@ -1,0 +1,10 @@
+[[Property:title|Limitations]]
+[[Property:weight|8]]
+[[Property:uuid|6d8ab90d-f051-5010-55df-218a020d9cb5]]
+==Generation Only==
+The current implementation of the Eiffel CodeDom Provider does not support parsing Eiffel source code to produce a CodeDom tree. Only code generation and compilation are supported in the current release. 
+==Managed Code Only==
+Only managed code can be generated or compiled by the Eiffel CodeDom Provider. This means that the CodeDom tree being compiled cannot include snippet members which use or define Eiffel external clauses. If the system requires access to external methods, they should be defined in a precompiled library (see [[Configuration|Configuration]] ). 
+
+
+

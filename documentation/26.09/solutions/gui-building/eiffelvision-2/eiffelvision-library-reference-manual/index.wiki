@@ -1,0 +1,24 @@
+[[Property:title|EiffelVision Library Reference Manual]]
+[[Property:weight|1]]
+[[Property:uuid|b343b38b-c8b2-4247-072d-ecc1bc3e387a]]
+EiffelVision 2 is a platform-independent Graphical User Interface (GUI) library that allows easy, simultaneous development of Windowed applications for both Windows- & Unix-based platforms. Heavily relying on the EiffelBase library, EiffelVision 2 has been designed primarily with ease of use in mind. By reusing EiffelBase structures, existing, as well as new Eiffel users will find EiffelVision to be surprising intuitive and easy to use. In very little time, users will be producing professional Windowed application skeletons which will run on a multitude of platforms with no change of source code.
+
+The EiffelVision 2 library includes the following interface clusters: 
+
+* The [[Kernel| kernel]]  cluster includes classes that are key to an EiffelVision 2 application. The most important class in this cluster is [[ref:libraries/vision2/reference/ev_application_chart| EV_APPLICATION]]  which is the main entry point for all EiffelVision 2 applications. 
+
+* The [[Widgets| widgets]]  cluster contains classes used to create EiffelVision 2 widgets. Widgets are the visible objects that the user sees and interacts with in the application.  Examples of widgets are windows, buttons and labels.
+
+* The [[Items| items]]  cluster includes the classes needed to create items.  Items are widgets that can only be contained within a certain type of widget.  Example:  [[ref:libraries/vision2/reference/ev_list_chart| EV_LIST]]  widgets may only contain objects of type [[ref:libraries/vision2/reference/ev_list_item_chart|EV_LIST_ITEM]] . Items provide an abstract way of dealing with an item-widget's internal data structures and provide, in many cases, the same functionality that a widget does. 
+
+* The [[Events| events]]  cluster contains classes that allow for user-initiated events, such as the clicking of a button to be dealt with via the use of a linked list of agents ([[ref:libraries/vision2/reference/ev_action_sequence_chart|EV_ACTION_SEQUENCE]]). An Agent can be thought of as an object that encapsulates a certain procedure. When a user clicks a button on the screen, the corresponding [[ref:libraries/vision2/reference/ev_button_chart| EV_BUTTON]]  object has its <eiffel>pointer_button_press_actions</eiffel> fired, and this, in turn, fires all of the agents held within this list, thus calling all of the procedures represented by the agents. Every widget and item has a number of [[ref:libraries/base/reference/action_sequence_chart|ACTION_SEQUENCE]]  objects, each of which are linked to a certain type of event.  To link any number of different procedure calls with an event, it is only necessary to <eiffel>extend</eiffel> the action-sequence list associated with that event, with agents representing those calls.
+
+* The [[Properties| properties]]  cluster contains classes that allow for the customization of Vision 2 widgets and items. Classes such as [[ref:libraries/vision2/reference/ev_colorizable_chart|EV_COLORIZABLE]]  and [[ref:libraries/vision2/reference/ev_fontable_chart|EV_FONTABLE]]  contain routines that allow for (respectively) color and font to be altered for a widget. 
+
+* The [[Support| support]]  cluster includes classes that provide more professional touches to an application, whether these are keyboard shortcuts ([[ref:libraries/vision2/reference/ev_accelerator_list_chart|EV_ACCELERATOR_LIST]]) or graphical output ([[ref:libraries/vision2/reference/ev_graphical_format_chart|EV_GRAPHICAL_FORMAT]]) for drawable widgets such as [[ref:libraries/vision2/reference/ev_pixmap_chart|EV_PIXMAP]] . 
+
+* The [[Figures| figures]]  cluster allows for the projection of two-dimensional shapes (figures) onto an [[ref:libraries/vision2/reference/ev_drawable_chart|EV_DRAWABLE]]  or printer via the use of an [[ref:libraries/vision2/reference/ev_projector_chart|EV_PROJECTOR]] . 
+
+To see differences between released versions of EiffelVision, click [[Revisions and Bug Fixes|Here]]
+
+

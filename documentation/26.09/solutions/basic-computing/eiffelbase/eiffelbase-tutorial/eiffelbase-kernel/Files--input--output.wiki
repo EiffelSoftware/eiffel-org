@@ -1,0 +1,35 @@
+[[Property:uuid|37099E33-657D-44CF-923C-1F10BE09AAFB]]
+[[Property:weight|2]]
+[[Property:title|Files, input, output]]
+A few classes of the Kernel Library support file manipulation, input and output: [[ref:libraries/base/reference/std_files_chart|STD_FILES]] , FILE, [[ref:libraries/base/reference/directory_chart|DIRECTORY]]  and [[ref:libraries/base/reference/unix_file_info_chart|UNIX_FILE_INFO]] . For simple applications it suffices to use [[ref:libraries/base/reference/std_files_chart|STD_FILES]] , but to understand the concepts better it is preferable to look first at the other two.
+
+==General files==
+
+FILE describes the notion of sequential file viewed as a data structure which fits in the general taxonomy of EiffelBase.
+
+The class declaration defines files as unbounded sequences of characters. This means that you will find in FILE all the operations on sequential data structures that you have come to know and love by reading this documentation - at least, all that apply. Just as stacks and linked lists, files have <eiffel>put</eiffel>, <eiffel>extend</eiffel>, <eiffel>has</eiffel>, <eiffel>item</eiffel> and so on. More specific to files are the typed input and output operations. For output, you will find <eiffel>put_character</eiffel>, <eiffel>put_integer</eiffel>, <eiffel>put_real</eiffel>, <eiffel>put_double</eiffel> and <eiffel>put_string</eiffel>, as well as <eiffel>new_line</eiffel>. For input you will find <eiffel>read_integer</eiffel> and its co-conspirators. 
+
+{{caution|Note the application to input features of the command-query separation principle. <br/>
+The input features such as read_integer do not by themselves return a result; they set the values of queries such as last_integer. So the normal way to read is through two operations:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my_file.read_integer<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_value :&#61; my_file.last_integer}}
+
+Queries are available to determine the status of a file, in particular <eiffel>exists</eiffel>, <eiffel>is_readable</eiffel>, <eiffel>is_executable</eiffel>, <eiffel>is_writable</eiffel>, <eiffel>is_creatable</eiffel>, <eiffel>is_closed</eiffel>, <eiffel>is_open_read</eiffel> and so on. 
+
+{{caution|You will notice in the flat-short form that all these queries except the first have exists as a precondition. This precondition is good for efficiency since it saves an existence test - a relatively expensive operation - when you know that a certain file exists. But it also means that if you have any doubt about the file's existence you must use the queries in the style<br/>
+<eiffel>if  my_file.exists and then my_file.is_readable then ...</eiffel>}}
+
+FILE is a deferred class. Various implementations are possible. A quite detailed one is PLAIN_TEXT_FILE, which adds many features for accessing reading and writing data from/to a file.
+
+[[ref:libraries/base/reference/unix_file_info_chart|UNIX_FILE_INFO]]  describes objects that contain internal information, such as protection mode and size, about a file.
+
+The class [[ref:libraries/base/reference/directory_chart|DIRECTORY]]  describes those files which are directories - nodes in the tree describing the file structure. 
+
+==Basic input and output==
+
+Regardless of the operating system that you use, for simple input and output [[ref:libraries/base/reference/std_files_chart|STD_FILES]]  is sufficient. You may inherit from that class to gain direct access to its features; or you may declare an entity of type [[ref:libraries/base/reference/std_files_chart|STD_FILES]] . But remember that a feature of this type is always available: io, from class [[ref:libraries/base/reference/any_chart|ANY]] . Thanks to this feature you may include simple input and output in any class, with instructions such as
+<code>io.put_string ("My message")</code>
+
+[[ref:libraries/base/reference/std_files_chart|STD_FILES]]  defines three default files through features <eiffel>input</eiffel>, <eiffel>output</eiffel> and <eiffel>error</eiffel>. These features are Once functions, so that the first reference to any one of them will automatically create the corresponding file descriptor and open the associated file.
+
+To simplify the writing of common input and output operations, the most frequently used features of class FILE - for reading and writing integers, reals and so on, as discussed next - have been repeated in [[ref:libraries/base/reference/std_files_chart|STD_FILES]]  so as to apply to the default input and output. Procedure put_string in the example at the beginning of this section is typical: it writes its output on the standard output. More generally, [[ref:libraries/base/reference/std_files_chart|STD_FILES]]  has all the <eiffel>put_xxx</eiffel>, <eiffel>read_xxx</eiffel> and <eiffel>last_xxx</eiffel> features of FILE. 

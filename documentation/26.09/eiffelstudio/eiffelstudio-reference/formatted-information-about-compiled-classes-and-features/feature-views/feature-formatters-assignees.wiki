@@ -1,0 +1,9 @@
+[[Property:title|Feature formatters: Assignees]]
+[[Property:weight|7]]
+[[Property:uuid|98b4c8f2-272f-c2b6-1f8f-bd86aadbddc2]]
+The '''assignees''' view [[Image:feature-assignees-icon]] lists all features which appear in the current feature as targets of assignments. 
+
+As with [[Feature formatters: Assigners|assigners]], this includes true assignments to class features only, that is, it does not include "targets" of the assignment-like syntax of '''assignment commands'''. 
+
+
+

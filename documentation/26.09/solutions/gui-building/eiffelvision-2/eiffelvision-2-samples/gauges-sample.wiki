@@ -1,0 +1,38 @@
+[[Property:title|Gauges Sample]]
+[[Property:weight|2]]
+[[Property:uuid|91aa8c8b-7cc9-06c1-a6f0-96844ff078d5]]
+[[Image:gauges|gauges]]  <br/>
+<br/>
+
+==Compiling==
+
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\vision2\gauges\''. 
+* Choose ''gauges.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+
+==Running==
+
+After launching the application, you will see a window displayed with a similar appearance to the one above. The spin buttons at the top of the window control the current minimum, maximum and value of the three gauges displayed below. Modifying the values of the spin buttons will alter the three gauges in real time. Also, if you interact with one of the three gauges, any change in one, will be reflected in the others and in the spin buttons. 
+
+==Under the Hood==
+
+The change_actions of each EV_GAUGE are used to synchronize all of the gauges. 
+
+This sample contains the following class: 
+* GAUGES
+
+
+{{seealso|<br/>
+EV_GAUGE <br/>
+EV_SCROLL_BAR <br/>
+EV_RANGE <br/>
+EV_PROGRESS_BAR <br/>
+EV_SPIN_BUTTON }}
+
+
+
+

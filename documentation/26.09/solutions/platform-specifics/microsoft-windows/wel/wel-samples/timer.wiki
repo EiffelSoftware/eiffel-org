@@ -1,0 +1,29 @@
+[[Property:title|Timer]]
+[[Property:weight|7]]
+[[Property:uuid|ec5895ca-5d09-292f-f5dc-4787d3495bae]]
+[[Image:timer|timer]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\timer\''. 
+* Choose ''timer.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+==Running==
+After launching the program, a window will be displayed as illustrated above. Clicking on any of the push buttons marked "Start Timer" will start a timer running, and the hatched area immediately above the push button will change its appearance to reflect the interval of the timer. 
+==Under the Hood==
+A [[ref:libraries/wel/reference/wel_window_chart|WEL_WINDOW]]  supports multiple timers, set by set_timer which takes a unique id for each timer. The <code>on_timer</code> feature is called every time a timer interval is reached with an argument corresponding to the <code>id</code> of the timer. Within <code>MAIN_WINDOW</code>, <code>on_timer</code> has been redefined to update the appearance of the hatched areas. 
+This sample contains the following classes: 
+* <code>APPLICATION_IDS</code>
+* <code>MAIN_WINDOW</code>
+* <code>TIMER</code>
+
+
+
+
+

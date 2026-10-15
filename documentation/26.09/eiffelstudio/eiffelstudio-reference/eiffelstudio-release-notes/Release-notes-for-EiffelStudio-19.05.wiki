@@ -1,0 +1,23 @@
+[[Property:modification_date|Tue, 21 May 2019 13:48:34 GMT]]
+[[Property:publication_date|Mon, 20 May 2019 09:36:03 GMT]]
+[[Property:uuid|D93ADD85-1053-419B-87DA-6079B891BE47]]
+[[Property:weight|-2]]
+[[Property:title|Release notes for EiffelStudio 19.05]]
+[[Property:link_title|19.05]]
+==Graphical environment==
+* You can now easily add unicode symbol (mostly for mathematical operators) using the feature completion dialog. Either type the first 2 letters of the wanted operator, or use `Ctrl+space` to switch to the corresponding panel. (See $ISE_EIFFEL/eifinit/unicode_symbols.cfg ).
+* The IDE has now a basic support for HiDPI resolution (for now, only on Windows).
+* Now, when EiffelStudio is starting, it checks for new version, and report if a new version is available.
+
+==Compiler==
+* Dead code removal detects when instances of classes are not created and removes code associated with them. If a class should be part of the system because it is created indirectly (using reflection or storable mechanism), it should be marked as visible in the project configuration. With this option, executable size becomes 10% smaller on average (on Windows). Note: the file EIFGENs/.../F_code/REMOVED in finalized mode includes classes that are empty or removed during dead code removal.
+* The compiler does not generate anymore the Workbench C code when performing finalized compilation.
+
+==Libraries==
+* Improved handling of file names, and temporary files. The class `FILE_NAME` is now marked as obsolete. It is recommanded to use class `PATH` instead to build file name (support unicode). And for temporary files, use `make_open_temporary` and `make_open_temporary_with_prefix` from class `FILE`. A new function `null_path` was also added to`FILE` to ease portability among platforms.
+* The `URI`class supports now IDNA (Internationalized Domain Names in Applications).
+* The `REAL_*` interfaces are now compliant with the standard IEEE 754 (features starting with `ieee_...`).
+
+----
+
+See [https://dev.eiffel.com/EiffelStudio_19.05_Releases change log] for more details.

@@ -1,0 +1,34 @@
+[[Property:title|Wizards: Command Line Options]]
+[[Property:weight|6]]
+[[Property:uuid|ca417e46-ad46-2d3f-e13e-a88366dc06b3]]
+The EiffelCOM Wizard can be used from the command line for example in batch scripts. The command line utility is <code>com_wizard.exe</code> and is located in <code>$ISE_EIFFEL\wizards\com</code>. Each command line option has both a long and a short name. The long names are all prefixed with <code>--</code> while the short names are all prefixed with <code>-</code>. Options that take an argument should have the argument directly following the option with a space or a <code>=</code> sign in between the option name and the argument as in: 
+<code lang="text">
+--ace="mysystem.ecf"</code>
+this option is equivalent to: 
+<code lang="text">
+-a "mysystem.ecf"</code>
+
+The list of options is the following: 
+*  '''--client, -c''' <DEFINITION_FILE>: Build client to access COM component described by <DEFINITION_FILE>. 
+*  '''--server, -s''' <DEFINITION_FILE>: Build new COM component as described by <DEFINITION_FILE>. 
+*  '''--eiffel, -e''' <PROJECT_FILE>: Add COM interface to Eiffel project with project file (*.epr) <PROJECT_FILE>. 
+*  '''--ace, -a''' <ECF_FILE>: Path to ecf file of Eiffel project to be added a COM interface. Use together with <code>'--eiffel'</code>. 
+*  '''--facade, -f''' <FACADE_CLASS>: Name of facade class to generate IDL from. Use together with <code>'--eiffel'</code>. 
+*  '''--cluster, -u''' <CLUSTER>: Name of facade class cluster. Use together with <code>'--eiffel'</code>. 
+*  '''--outofprocess, -o''': Access or build out of process component. By default access or build in-process component (DLL). 
+*  '''--compilec, -i''': Compile generated C code. 
+*  '''--compileeiffel, -l''': Compile generated Eiffel code. Implies '--compilec'. 
+*  '''--marshaller, -m''': Build marshaller DLL, can only be used with '--server' and if definition file is an IDL file. 
+*  '''--destination, -d''' <DESTINATION>: Generate files in <DESTINATION> folder. By default files are generated in current folder. 
+*  '''--cleanup, -p''': Cleanup destination folder prior to generation. This option cannot be used together with <code>'--backup'</code>. 
+*  '''--backup, -b''': Backup overriden files by adding extension '.bac'. This option cannot be used together with <code>'--cleanup'</code>. 
+*  '''--graphical, -g''': Launch GUI, all other options are ignored. 
+*  '''--nologo, -n''': Do not display copyright information. 
+*  '''--version, -v''': Print version information. 
+*  '''--help, -h''': Display help on how to use the EiffelCOM Wizard command line utility. 
+
+{{seealso|[[How the EiffelCOM Wizard works|How the EiffelCOM Wizard Works]] , [[Generated Files|Generated Files]] , [[Class Hierarchy|Class Hierarchy]] , [[Eiffel Project Processing|Adding a COM Interface to an Eiffel Project]] , [[Reusing a COM Component|Accessing a COM Component]] , [[Building a COM Component|Building a COM Component]]  }}
+
+
+
+

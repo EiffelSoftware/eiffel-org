@@ -1,0 +1,563 @@
+[[Property:link_title|Writing Filters with EFF]]
+[[Property:modification_date|Mon, 22 Feb 2021 12:51:04 GMT]]
+[[Property:publication_date|Thu, 11 Feb 2021 07:55:20 GMT]]
+[[Property:title|Writing Documentation Filters with EFF, the Eiffel Filter Format]]
+[[Property:weight|6]]
+[[Property:uuid|0d17d433-3d4f-9575-49f7-d97eccb1a5b1]]
+The  section [[PRODUCING AND EXPORTING DOCUMENTATION|Producing and Exporting Documentation]]  describes how to generate documentation about a system from within EiffelStudio. 
+
+A number of predefined formats are available as '''filter files''' in  a simple notation called EFF, or Eiffel Filter Format. 
+
+This chapter describes EFF and its conventions, enabling you to write filters. 
+
+If you have a favorite format that you'd like EiffelStudio to use for producing documentation, you can define your own filter in EFF. Applications include: 
+* Producing a variant of an existing format, to support some "house style" that you have defined, such as a different formatting or fonts.
+* Producing documentation for a text processing tool that's not among those supported by default.
+* Producing documentation that purposely omit some parts of Eiffel texts, in line with the ideas applied by the Contract and Flat Contract forms.
+
+Note that in practice the best way to write an EFF filter is usually not from scratch, but by copying an existing filter -- one that seems closest to your needs -- and adapting the copy.
+
+----
+
+==Available Standard Filters==
+
+{| class="wikitable"
+|+ '''''Filter Files Overview'''''
+|-
+!  style="width:10em;" | Documentation<br />Type 
+! style="width:10em;" | Generated File<br />Extension  
+! style="width:10em;" | Filter File 
+! | Remarks
+|-
+|| ASCII || txt || ASCII.fil || Plain text, no formatting codes.
+|- 
+| Build || ? || build.fil || EiffelBuild - possibly outdated, around year 2000
+|-
+| Cayenne|| cj || cayenne.fil || Cayenne Software as of Aug. 1998 Sterling Software, Inc. (?)
+|-
+| COM || ? || com.fil || Class specifications in the form of an Interface Description Language (IDL) interface for Microsoft's COM component model.
+|-
+| Cool Jex || cj || cool_jex.fil || UML modelling by IBM Rational Software (2008, formerly Telelogic March 2000, formerly Sterling Software )
+|-
+| Eiffel || e || eiffel.fil || Replicates Eiffel source, essentially the same as ASCII; useful if you want EiffelStudio to pretty-print your class texts and replace the originals.
+|-
+| HTML || html || html.fil || Web page simple formatting with tags
+|-
+| HTML ||html || html-classic.fil || Web page old version plain no style sheets.
+|-
+| HTML || html || documentation.fil || Web page with  style sheet.
+|-
+| HTML  ||html || html-stylesheet.fil || Web page with  style sheet.
+|-
+| Index || index || index.fil || Source file names for inclusion into web pages
+|-
+| MML || mml || MML.fil || Internal format for Adobe FrameMaker.
+|-
+| PostScript || ps || PostScript.fil || Adobe Postscript output, suitable for printing on a Postscript printer, display on a Postscript previewer such as Ghostscript, or distilling to Adobe PDF.
+|-
+| RTF || rtf || RTF.fil || Microsoft's Rich Text Format, used in particular for Windows "Help" files.
+|-
+| TeX 1|| tex || TeX1.fil || Donald Knuth's TEX processing format. requires `cmbxti10' font.
+|-
+| TeX 2|| tex || TeX2.fil || Donald Knuth's TEX processing format.
+|-
+| Troff || troff || troff.fil || A traditional text-processing format available on Unix systems. Also works for the gtroff variant. 
+|-
+| XML || xml || xml.fil || Extensible Markup Language
+|}
+{| class="wikitable" 
+|+ '''''Assisting'''''
+|-
+!  style="width:10em;" |Documentation<br />Type 
+!  style="width:10em;" | 
+!  style="width:10em;" |File 
+! |Remarks
+|-
+| HTML || ||default.css || default web page formatting
+|-
+|}
+
+{| class="wikitable" 
+|+ '''''Special'''''
+|-
+!  style="width:10em;" |Documentation<br />Type 
+!  style="width:10em;" | 
+!  style="width:10em;" |File 
+! |Remarks
+|-
+| EFF Formatting || || format.fil-template || Listing of recognized tags
+|-
+|}
+
+----
+
+==Where to put filters==
+
+When you choose to generate documentation, EiffelStudio will ask you to select a filter from a list it obtains by looking up the files of extension <code>.fil</code> in the directory <code>$ISE_EIFFEL/studio/filters</code>
+
+To make a new filter available to yourself and other users of this installation, just add the corresponding file <code>some_name.fil</code> to this directory. Make sure to choose the appropriate <code>name</code>, since this is what the menu of available filters will display. 
+
+==Output generated==
+
+The output will be placed in the directory specified in the "Project>Generate Documentation" dialog of EiffelStudio.
+
+The output type is determined by the <code>suffix</code> construct in the filter file.
+
+Output type 1 - <code>suffix</code> is HTML: 
+* HTML formatted web pages with file extension <code>.HTML</code>
+* with a copy of the stylesheet <code>default.css</code> copied to the Documentation directory
+* with a generated menu <code>goto.html</code> placed into the Documentation directory with submenu directories as required
+* any other supporting files (stylesheets, javascript) must manually be placed in the Documentation directory
+* the filter must define a major construct, eg <code>class_declaration</code>,  <code>cluster_declaration</code>, to contain a complete HTML skeleton of a webpage
+
+Output type 2 - <code>suffix</code>  is any other: 
+* if <code>suffix</code> is missing the output will produced with a <code>.TXT</code> file extension
+* if <code>suffix</code> is defined the output will produced with the given file extension
+* as needed the filter must define a major construct, eg <code>class_declaration</code>,  <code>cluster_declaration</code>, to contain a complete skeleton for the desired output target 
+
+==Filter basics==
+
+An EFF filter follows a very simple structure. As with all other Eiffel-related notations any line or part of a line beginning with two consecutive dashes <code>--</code> is a comment, except if it immediately follows a percent sign since, as will be seen below, <code>- %-</code> is used to denote an Eiffel comment in the class text. Blank lines are also permitted. Comments and blank lines carry no semantic value. 
+
+Except for comments and blank lines, a filter is a sequence of entries, all of the form
+<code>Construct | Replacement</code>
+
+where: <code>Construct</code> is one of a set of possible strings, most of which correspond to Eiffel constructs such as <code>Class_declaration</code> or Eiffel keywords such as <code>class</code> ; and <code>Replacement</code> is a string indicating how to format specimens of the <code>Construct</code> that appear in a class text. 
+
+For readability, there may be any number of blanks or tabs between the <code>Construct</code> and the vertical bar <code>|</code>, so that you can align all the bars if you wish. On the right of the bar, however, all characters including blanks and tabs are significant, since they are part of the replacement for the <code>Construct</code>. 
+
+==The asterisk==
+
+In the <code>Replacement</code> part, you may use the symbol <code>*</code> (asterisk) to denote the construct specimen itself. 
+
+So for example the entry <code>Feature_clause | %N%N*%N%N</code> specifies the following formatting for any <code>Feature_clause</code>: 
+two successive blank lines (expressed as <code>%N</code>, New Line); the feature clause itself; two blank lines. 
+
+Similarly, in an HTML format, the entry <code>External |<B> * </B></code> means that the Eiffel keyword <code>external</code> must appear in the filtered form immediately preceded by <code><B></code>, the HTML code for switching to boldface, and immediately followed by <code></B></code>, the code for reverting to the previous setup. 
+
+Here you can also write the right-hand side without the asterisks, as <code><B>external</B></code>. If, however, all keywords are to use boldface, it is preferable to write a single entry  <code>Keyword |<B> * </B></code> which, thanks to the asterisk, will govern all construct specimens of the <code>Keyword</code> category. You can still override this specification for an individual keyword by including a specific entry for it. 
+
+==Constructs==
+
+The general syntactic constructs may appear as the left-hand side, <code>Construct</code>, of an entry: 
+
+Most EFF constructs denote Eiffel constructs as they appear in the official language reference.
+
+Since certain construct names <code>Feature</code>, <code>Invariant</code> and <code>Obsolete</code> are also Eiffel keywords and EFF, like Eiffel, is case-insensitive, the EFF construct names use the suffix <code>_clause</code>, for example <code>Feature_clause</code>. 
+
+The constructs corresponding to syntactic constructs are self-explanatory. The others are:
+*  <code>Class_end</code>, denoting the final end of a class text. 
+*  <code>Keyword</code>, denoting any Eiffel keyword among those listed in boldface in the the official language reference.
+*  <code>New_line</code>, denoting any passage to a new line in the class text. 
+*  <code>Suffix</code>, used to introduce the file extension for the generated documentation files. If you don't specify this, EiffelStudio will use the filter's name as extension. 
+*  <code>Symbol</code>, denoting any of the Eiffel symbols listed in the official language reference. 
+*  <code>Escape</code>, to protect special characters of the external tool, as explained below. 
+*  <code>Tab</code>, denoting any tab character appearing in the class text. 
+
+==Keywords==
+
+A <code>Construct</code> part may consist of the name of an Eiffel keyword. To see the complete list of possible keywords, look at the <code>template</code> filter, file <code>format.fil-template</code> in the default filter directory <code>$ISE_EIFFEL/studio/filters</code>, which includes all of them with a single asterisk <code>*</code> as the <code>Replacement</code> part. 
+
+If entries are present for both the <code>Keyword</code> construct and individual keywords, the individual keyword entries will override the general entry for the keywords listed; the general entry will apply to all other keywords. This makes it possible to have both a general convention for keywords and a special convention for some of them. 
+
+==Symbol==
+
+A <code>Construct</code> part may consist of an Eiffel symbol, such as <code>:=</code>, <code>/=</code> and many others. Again, you may see the complete list by looking at <code>format.fil-template</code>. Note the following conventions: 
+*  <code>%</code> <code>*</code> represents an asterisk. For example as a multiplication operator; the <code>%</code> avoids the confusion with the special meaning of the asterisk for EFF. You can find examples of this convention in the EFF filters for troff and gtroff. 
+* Similarly, the Eiffel comment symbol appears as <code>- %-</code>, since just writing <code>- -</code> would introduce a comment in the EFF filter itself. 
+
+As with keywords, you may specify a general convention for symbols, defined by an entry for the construct <code>Symbol</code>, and special conventions for certain individual symbols. Specific symbol entries will override the general <code>Symbol</code> convention. 
+
+==Escape characters==
+
+A text processing system or other external tool may attach a special role to characters that may normally appear in Eiffel texts. For example, the braces <code>{</code> and <code>}</code>, used in Eiffel's Export clauses, have a special meaning for TEX. Including them without precaution in TEX input will cause trouble. Similarly, many text processing formats attach a special meaning to the backslash character <code>\</code> which, although not special for Eiffel, may appear in an Eiffel string. 
+
+In such cases the filter must " <span>escape</span> " the special character, that is to say, protect it by other characters. For example troff and other text processing tools treat two successive backslash characters <code>\\</code> as denoting a single backslash in the text to be output. The first backslash is the escape character, protecting the second one. 
+
+The <code>Escape</code> construct addresses such cases. The first character that follows <code>Escape</code> (after one or more blanks or tabs) is the character to be escaped. The string after the vertical bar is the replacement for that character. 
+
+Here for example is an escape entry for the backslash in tools that need to escape it through another backslash:
+
+==Special characters and strings==
+
+EFF uses Eiffel-like conventions, based on the percent sign, for control characters appearing in <span>Replacement</span> parts of entries. Two of these conventions have just been noted: <code>%</code> <code>*</code> to represent an asterisk and <code>%-</code> to represent a dash that does not introduce an Eiffel comment. In addition: 
+*  <code>%|</code> denotes a vertical bar. (This is necessary since EFF uses <code>|</code> by itself in each entry to separate the <span>Construct</span> from the corresponding <span>Replacement</span>.) 
+*  <code>%N</code> (recommended form) or <code>%n</code> denotes a new line. 
+*  <code>%T</code> (recommended form) or <code>%t</code> denotes a tab. 
+*  <code>%%</code> denotes a percent sign. 
+*  <code>%</code> (percent followed by a space) denotes a space. This is equivalent to just a space, but more visible. 
+
+If <code>c</code> is not one of the characters for which special conventions have been listed, <code>%</code> <code>c</code> denotes the character <code>c</code> itself. 
+
+A multi-line entry uses the Eiffel convention for string continuations: <code>%</code> at the end of a line to signal that there is a continuation; a continuation line begins with zero or more spaces and tabs followed by a <code>%</code> ; the characters after the <code>%</code> are the continuation of the string. 
+
+==Sample page encoding==
+
+We show sample code taken from existing filter files to demonstrate the basic structure of the skeleton needed for visual presentation.
+
+Note in both examples the position of the <code>*</code>place holder that will contain the expanded page body for the referenced construct.
+
+
+====webpages====
+
+To replace the <code>default.css</code> copied into your Documentation directory write your own stylesheet based on it and save under a different name. Important: chose a different name or EiffelStudio will overwrite it. Add any scripting files to the Documentation directory if required. Font choice is of course also a user option. Note the generated <code>goto.html</code> file (not a standalone webpage) that contains the navigation thru the generated webpages and is expected to be included by the page skeleton. Replace and add any required inclusion links into the <code>HEAD</code> section of the webpage. 
+
+
+<code lang=html>
+class_declaration	|%
+		%<!DOCTYPE html>%N%
+		%<html>%N%
+		%<head>%N%
+		%<meta name="generator" content="$generator$">%N%
+		%$html_meta$%
+		%<meta name="viewport" content="width=device-width%, initial-scale=1.0">%N%
+		%<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">%N%
+		%<title>$title$</title>%N%
+		%<link rel="stylesheet" href="$root$default.css" type="text/css">%N%
+		%<script type="text/javascript" src="$root$goto.html"></script>%N%
+		%</head>%N%
+		%<body>%N%
+		%<pre>*</pre>%N%
+		%<p style="text-align:center;">Generated by %
+		%<a href="http://www.eiffel.com">ISE EiffelStudio</a></p>%N%
+		%</body>%N%
+		%</html>%N
+</code>
+
+
+====for printing====
+
+Here a sample coding for RTF formatted output, to be run thru some comaptible word processor for pretty printing.
+
+
+<code  lang=text>
+Cluster_declaration, Class_declaration	|%
+		%{\rtf1\ansi\ansicpg1252\deflang1033{\fonttbl{\f0\fscript\fcharset0 Courier;}}%
+		%{\colortbl ;\red0\green0\blue0;\red255\green255\blue255;\red128\green0\blue0;%
+		%\red0\green0\blue255;\red0\green128\blue0;\red0\green0\blue128;}%N%
+		%{\cf3\f0\fs16 {\tab}{\tab}{\tab}%-%- Automatic generation produced by ISE Eiffel %-%-%N%
+		%{\line}%N%
+		%{*}%N%
+		%{\line}%N%
+		%{\cf3 {\tab}{\tab}{\tab}%-%- Generated by ISE Eiffel %-%-}%N%
+		%{\line}%N%
+		%{\cf3{\tab}{\tab}{\tab}%-%- For more details: http://www.eiffel.com %-%-}%N%
+		%}}%N
+</code>
+
+
+==The EFF Template File==
+
+
+The following is a replica of the EFF template file as distributed with EiffelStudio v20.11.
+
+<code lang=text >
+Location:					$ISE_EIFFEL/studio/filters/format.fil-template
+
+Timestamp:					$Date: 2013-04-18 20:30:43 +0000 (Thu, 18 Apr 2013) $
+							$Revision: 92456 $
+</code>
+
+====Generator provided Items====
+
+Several extra items may be used and accessed through: $item$.
+
+In every construct, the following items are defined:
+<code lang=text >
+$generator$					"ISE EiffelStudio version x.x.x"
+
+$html_meta$					HTML specific. Entire indexing clause defined as meta data.
+								Example: "<META NAME="keywords" CONTENT="eiffel, O-O">".
+
+$class$						Classname in uppercase. If currently processed file does
+								not represent an Eiffel class, is empty.
+
+$title$						Title for current document.
+								Example: "EV_ANY Text".
+
+$root$						Relative base directory of generated documentation.
+								Example: "../../../../"
+</code>
+
+====Properties====
+
+<code lang=text >
+suffix						|html
+							Used to specify suffix used for this format.
+								Examples: html, txt, ps, e, etc.
+
+file_separator				|/
+							Specify when format requires a specific file separator.
+								For HTML, specify '/'. If this symbol is omitted, the separator
+								specific for the platform is used.
+</code>
+
+====Basic Text====
+
+<code lang=text>
+basic						|*
+							Basic text
+</code>
+
+====Hyperlinking items====
+
+<code lang=text>
+menu_bar					|*
+							Contains the different menu items.
+
+menu_item					|*
+							Any of the global menu items, "Classes", "Clusters", etc.
+								If not specified, no text is processed, since without hyperlinking
+								menu items are useless.
+								Symbol: $file$
+
+class_menu_item				|*
+							A link to one of the specified class formats.
+								If not specified, no text is processed.
+								Symbol: $file$
+
+menu_item_disabled			|*
+							The current format.
+
+class_menu_item_disabled	|*
+							The current format.
+
+cluster_name				|*
+							Symbol: $file$.
+
+tooltip						|*
+							Text contained within this construct requests a tooltip.
+								Symbol: $tooltip$.
+								HTML Example: <SPAN TITLE="$tooltip$">*</SPAN>
+
+origin_comment				|*
+							Text describing the written class of a feature.
+								Example: -- from ANY
+</code>
+
+====Major syntactical constructs====
+
+<code lang=text>
+class_declaration			|*
+							Contains entire document.
+								HTML Example: <HTML><BODY>*</BODY></HTML>
+
+indexing_clause				|*
+
+class_header				|*
+							Contains class header, not including formal generics.
+
+formal_generics				|*
+
+obsolete_clause				|*
+
+inheritance					|*
+
+creators					|*
+
+feature_clause				|*
+
+feature_declaration			|*
+							Entire feature declaration. Symbol:
+								$feature$ The name of the decalred feature.
+								HTML example: <A NAME="$feature$">*</A>
+
+invariant_clause			|*
+
+class_end					|*
+</code>
+
+====Eiffel syntax items====
+
+<code lang=text>
+features					|*
+							Eiffel feature reference. Symbols:
+								$feature$ actual feature name of feature in class where it is written.
+								$file$ link to class where feature is written.
+								HTML example: <A HREF="$file$#$feature$">*</A>
+
+keyword						|*
+							Processed when a keyword is encountered but it is not 
+							explicitly specified.
+
+keyword_features			|*
+							Operator keyword or "Precursor"
+								If not specified, "keyword" is processed.
+								$file$ and $feature$ are defined, like for "features".
+
+symbol						|*
+							Processed when a symbol is encountered but it is not 
+							explicitly specified.
+
+symbol_features				|*
+							Operator symbol. If not specified, "symbol" is processed.
+								$file$ and $feature$ are defined, like for "features".
+
+reserved_word				|*
+							`Result' or `Current'.
+
+comment						|*
+							Example.
+
+comment_url					|*
+							A URL in a comment. If not specified, "comment" is processed.
+								Symbol $file$ contains the URL.
+
+string						|*
+							Eiffel literal string.
+
+string_url					|*
+							A URL inside an Eiffel string. If not specified, "string" is processed.
+								Symbol $file$ contains the URL.
+
+quoted						|*
+
+character					|*
+
+number						|*
+
+local_symbol				|*
+
+assertion_tag				|*
+
+indexing_tag				|*
+
+generic						|*
+							Formal generic class.
+</code>
+
+====Whitespace processing====
+
+<code lang=text>
+tab							|*
+							HTML Example: "&nbsp%;&nbsp%;&nbsp%;&nbsp%;".
+
+new_line					|*
+							HTML Example: "<BR>".
+
+multiple_spaces				|*
+							In case a sequence of spaces are encountered, this symbol is used for all subsequent spaces.
+								HTML Example: "&nbsp%;".
+</code>
+
+====Eiffel keywords====
+
+<code lang=text>
+interface					|*
+							Appended to keyword "class" in short and flat-short forms.
+
+alias						|*
+all							|*
+as							|*
+check						|*
+class						|*
+create						|*
+debug						|*
+deferred					|*
+do							|*
+else						|*
+elseif						|*
+end							|*
+ensure						|*
+expanded					|*
+export						|*
+external					|*
+false						|*
+feature						|*
+from						|*
+frozen						|*
+if							|*
+indexing					|*
+infix						|*
+inherit						|*
+inspect						|*
+invariant					|*
+is							|*
+like						|*
+local						|*
+loop						|*
+obsolete					|*
+old							|*
+once						|*
+precursor					|*
+prefix						|*
+redefine					|*
+rename						|*
+require						|*
+rescue						|*
+retry						|*
+select						|*
+separate					|*
+strip						|*
+then						|*
+true						|*
+undefine					|*
+unique						|*
+until						|*
+variant						|*
+when						|*
+
+Operators:
+
+and							|*
+and then					|*
+implies						|*
+not							|*
+or							|*
+or else						|*
+xor							|*
+</code>
+
+====Eiffel symbols====
+
+<code lang=text>
+:=							|*
+:							|*
+%,							|*
+->							|*
+%--							|*
+$							|*
+.							|*
+..							|*
+"							|*
+=							|*
+!							|*
+>							|*
+>=							|*
+<<							|*
+[							|*
+{							|*
+(							|*
+<							|*
+<=							|*
+'							|*
+>>							|*
+]							|*
+}							|*
+)							|*
+?=							|*
+;							|*
+~							|*
+
+Operators:
+
++							|*
+-							|*
+%*							|*
+/							|*
+//							|*
+\\							|*
+^							|*
+/=							|*
+</code>
+
+====Obsolete filter constructs====
+
+<code lang=text>
+!!							|*
+creation					|*
+cluster_declaration			|*
+cluster_header				|*
+</code>
+
+----

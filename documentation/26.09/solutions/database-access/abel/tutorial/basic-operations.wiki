@@ -1,0 +1,202 @@
+[[Property:title|Basic operations]]
+[[Property:weight|-12]]
+[[Property:uuid|8f8179e4-c9dc-7749-ce88-cde695f32d53]]
+==Inserting==
+
+You can insert a new object using feature <e>insert</e> in <e>PS_TRANSACTION</e>.
+As every write operation in ABEL needs to be embedded in a transaction, you first need to create a <e>PS_TRANSACTION</e> object.
+Let's add three new persons to the database:
+
+<code>
+	insert_persons
+			-- Populate the repository with some person objects.
+		local
+			p1, p2, p3: PERSON
+			transaction: PS_TRANSACTION
+		do
+				-- Create persons
+			create p1.make (...)
+			create ...
+
+				-- We first need a new transaction.
+			transaction := repository.new_transaction
+
+				-- Now we can insert all three persons.
+			if not transaction.has_error then
+				transaction.insert (p1)
+			end
+			if not transaction.has_error then
+				transaction.insert (p2)
+			end
+			if not transaction.has_error then
+				transaction.insert (p3)
+			end
+
+				-- Commit the changes.
+			if not transaction.has_error then
+				transaction.commit
+			end
+
+				-- Check for errors.
+			if transaction.has_error then
+				print ("An error occurred!%N")
+			end
+		end
+</code>
+
+==Querying==
+A query for objects is done by creating a <e>PS_QUERY [G]</e> object and executing it using features of <e>PS_REPOSITORY</e> or <e>PS_TRANSACTION</e>.
+The generic parameter <e>G</e> denotes the type of objects that should be queried.
+
+After a successful execution of the query, you can iterate over the result using the <e>across</e> syntax. 
+The feature <e>print_persons</e> below shows how to get and print a list of persons from the repository:
+
+<code>
+	print_persons
+			-- Print all persons in the repository
+		local
+			query: PS_QUERY[PERSON]
+		do
+				-- First create a query for PERSON objects.
+			create query.make
+
+				-- Execute it against the repository.
+			repository.execute_query (query)
+
+				-- Iterate over the result.
+			across
+				query as person_cursor
+			loop
+				print (person_cursor.item)
+			end
+			
+				-- Check for errors. 
+			if query.has_error then
+				print ("An error occurred!%N")
+			end
+
+				-- Don't forget to close the query.
+			query.close
+		end
+</code>
+
+In a real database the result of a query may be very big, and you are probably only interested in objects that meet certain criteria, e.g. all persons of age 20. 
+You can read more about it in [[Advanced Queries]].
+
+Please note that ABEL does not enforce any kind of order on a query result.
+
+==Updating==
+
+Updating an object is done through feature <e>update</e> in <e>PS_TRANSACTION</e>.
+Like the insert operation, an update needs to happen within a transaction.
+Note that in order to <e>update</e> an object, we first have to retrieve it.
+
+Let's update the <e>age</e> attribute of Berno Citrini by celebrating his birthday:
+
+<code>
+	update_berno_citrini
+			-- Increase the age of Berno Citrini by one.
+		local
+			query: PS_QUERY[PERSON]
+			transaction: PS_TRANSACTION
+			berno: PERSON
+		do
+			print ("Updating Berno Citrini's age by one.%N")
+
+				-- Create query and transaction.
+			create query.make
+			transaction := repository.new_transaction
+
+				-- As we're doing a read followed by a write, we
+				-- need to execute the query within a transaction.
+			if not transaction.has_error then
+				transaction.execute_query (query)
+			end
+
+				-- Search for Berno Citrini
+			across
+				query as cursor
+			loop
+				if cursor.item.first_name ~  "Berno" then
+					berno := cursor.item
+
+						-- Change the object.
+					berno.celebrate_birthday
+
+						-- Perform the database update.
+					transaction.update (berno)
+				end
+			end
+
+				-- Cleanup
+			query.close
+			if not transaction.has_error then
+				transaction.commit
+			end
+			
+			if transaction.has_error then
+				print ("An error occurred.%N")
+			end
+		end
+
+</code>
+
+To perform an update the object first needs to be retrieved or inserted within the same transaction.
+Otherwise ABEL cannot map the Eiffel object to its database counterpart.
+
+==Deleting==
+
+ABEL does not support explicit deletes any longer, as it is considered dangerous for shared objects.
+Instead of deletion it is planned to introduce a garbage collection mechanism in the 
+
+==Dealing with Known Objects==
+
+Within a transaction ABEL keeps track of objects that have been inserted or queried.
+This is important because in case of an update, the library internally needs to map the object in the current execution of the program to its specific entry in the database.
+
+Because of that, you can't update an object that is not yet known to ABEL.
+As an example, the following functions will fail:
+
+<code>
+	failing_update
+			-- Trying to update a new person object.
+		local
+			bob: PERSON
+			transaction: PS_TRANSACTION
+		do
+			create bob.make ("Robert", "Baratheon")
+			transaction := repository.new_transaction
+				-- Error: Bob was not inserted / retrieved before.
+				-- The result is a precondition violation.
+			transaction.update (bob)
+			transaction.commit
+		end
+
+	update_after_commit
+			-- Update after transaction committed.
+		local
+			joff: PERSON
+			transaction: PS_TRANSACTION
+		do
+			create joff.make ("Joffrey", "Baratheon")
+			transaction := repository.new_transaction
+			transaction.insert (joff)
+			transaction.commit
+
+			joff.celebrate_birthday
+
+				-- Prepare can be used to restart a transaction.
+			transaction.prepare
+
+				-- Error: Joff was not inserted / retrieved before.
+				-- The result is a precondition violation.
+			transaction.update (joff)
+			
+				-- Note: After commit and prepare,`transaction'
+				-- represents a completely new transaction.
+		end
+</code>
+
+The feature <e>is_persistent</e> in <e>PS_TRANSACTION</e> can tell you if a specific object is known to ABEL and hence has a link to its entry in the database.
+
+

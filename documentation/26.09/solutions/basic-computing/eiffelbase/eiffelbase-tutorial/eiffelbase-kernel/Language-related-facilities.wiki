@@ -1,0 +1,186 @@
+[[Property:uuid|9BEE6EE3-5652-4C2E-BD2E-E6A50787508E]]
+[[Property:weight|1]]
+[[Property:title|Language-related facilities]]
+A number of classes offer facilities which are very close to the language level. Here too the book ''[[Eiffel: The Language]]'' covers the classes in detail, so we can satisfy ourselves with a quick summary; the flat-short forms appear in part C.
+
+==Basic types==
+
+The basic types [[ref:libraries/base/reference/boolean_chart|BOOLEAN]] , [[ref:libraries/base/reference/character_8_chart|CHARACTER]] , [[ref:libraries/base/reference/integer_32_chart|INTEGER]] , [[ref:libraries/base/reference/real_32_chart|REAL]]  and [[ref:libraries/base/reference/real_64_chart|DOUBLE]]  are defined by classes of the Kernel library.
+
+In reading the class specifications for the numeric types [[ref:libraries/base/reference/integer_32_chart|INTEGER]] , [[ref:libraries/base/reference/real_32_chart|REAL]]  and [[ref:libraries/base/reference/real_64_chart|DOUBLE]] , you might think that the type declarations are too restrictive. For example the addition operation in class [[ref:libraries/base/reference/real_32_chart|REAL]]  reads 
+<code>
+    infix "+" (other: REAL): REAL
+</code>
+
+but there is actually no problem here. A language convention applicable to all arithmetic expressions, the Balancing rule, states that in any such expression all operands are considered to be converted to the heaviest type, where [[ref:libraries/base/reference/real_64_chart|DOUBLE]]  is heavier than [[ref:libraries/base/reference/real_32_chart|REAL]]  and [[ref:libraries/base/reference/real_32_chart|REAL]]  is heavier than [[ref:libraries/base/reference/integer_32_chart|INTEGER]] . So mixed-type arithmetic, consistent with common practice, is possible and indeed frequent. 
+
+==Arrays==
+
+To create and manipulate one-dimensional arrays, use class [[ref:libraries/base/reference/array_chart|ARRAY]]  of the Kernel Library. Arrays are not primitive language elements; instead, they are handled through class [[ref:libraries/base/reference/array_chart|ARRAY]] . This class is 'normal' in the sense that it may be used just as any other class by client and descendant classes. It is also somewhat special, however, in that the Eiffel compiler knows about it and uses this knowledge to generate efficient code for array operations.
+
+To create an instance of [[ref:libraries/base/reference/array_chart|ARRAY]] , use the creation instruction 
+<code>
+            create my_array.make (1, u)
+</code>
+
+where the arguments indicate the lower and upper bounds. These bounds will then be accessible as <code>my_array</code> <code>.</code>lower and <code>my_array</code> <code>.</code><eiffel>upper</eiffel>. The number of items is <code>my_array</code> <code>.</code><eiffel>count</eiffel>; feature <eiffel>capacity</eiffel> is a synonym for <eiffel>count</eiffel>. The class invariant expresses the relation between <eiffel>count</eiffel>, <eiffel>lower</eiffel> and <eiffel>upper</eiffel>.
+
+To access and change the item at index ''i'' in array a, you may use features <eiffel>item</eiffel> and <eiffel>put</eiffel>, as in 
+<code>
+            x := my_array.item (i)
+            my_array.put (new_value, i)
+</code>
+
+Function item has a bracket alias, so that you may also write the first assignment above more concisely as 
+<code>
+            x := my_array [i]
+</code>
+
+Features <eiffel>item</eiffel> and <eiffel>put</eiffel> have preconditions requiring the index ( <code>i</code>in the above calls) to be within the bounds of the array. This means that you can detect bounds violations (which correspond to bugs in the client software) by using a version of class [[ref:libraries/base/reference/array_chart|ARRAY]]  compiled with precondition checking on. The bounds of an array may be changed dynamically through procedure <eiffel>resize</eiffel>. Previously entered elements are retained. Rather than an explicit resize, you may use calls to procedure <eiffel>force</eiffel> which has the same signature as put but no precondition; if the index is not within the current bounds force will perform a resize as necessary. 
+==Optimizing array computations==
+
+''' CAUTION''': Although [[ref:libraries/base/reference/array_chart|ARRAY]]  benefits from an efficient implementation, its more advanced facilities such as resizing do not come for free. For extensive computations on large arrays, an optimization may be desirable, bypassing these facilities. The technique yields loops that run at about the same speed as the corresponding loops written in C or Fortran (the usual references for array computations). It is of interest for advanced uses only, so that you may safely skip this section on first reading unless your domain of application is numerical computation or some other area requiring high-performance array manipulations. 
+
+The optimization relies on the class SPECIAL, used internally by [[ref:libraries/base/reference/array_chart|ARRAY]]  but of no direct interest to client developers in most common uses. With the declarations 
+<code>
+            my_array: ARRAY [SOME_TYPE]
+            direct_access: SPECIAL [SOME_TYPE]
+</code>
+
+you may use <eiffel>direct_access</eiffel> in lieu of 'my_array' within a critical loop, provided none of the operations may resize the array. Typically, the operations should only include put and item. In such a case you can use the following scheme: 
+<code>
+            direct_access:= my_array.area
+                -- The critical loop:
+            from
+                some_initialization
+                index := some_initial_index
+            until
+                index = some_final_index
+            loop
+                ...
+                x := direct_access.item (index)
+                ...
+                direct_access.put (some_value, index)
+                ...
+            end
+</code>
+
+This replaces an original loop where the operations were on <code>my_array</code>. Feature <eiffel>area</eiffel> of [[ref:libraries/base/reference/array_chart|ARRAY]]  gives direct access to the special object, an instance of SPECIAL, containing the array values. Features <eiffel>put</eiffel> and <eiffel>item</eiffel> are available in SPECIAL as in [[ref:libraries/base/reference/array_chart|ARRAY]] , but without the preconditions; in other words, you will not get any bounds checking. Instances of SPECIAL are always indexed from zero, in contrast with arrays, whose lower bound is arbitrary, 1 being the most common value. But rather than performing index translations (that is to say, subtracting <code>my_array</code> <code>.</code><eiffel>lower</eiffel> from index throughout the loop) it is preferable to use the following simple technique: if the lower bound 'lb' of <code>my_array</code> is 1 or another small integer, use 0 as lower bound instead when creating <code>my_array</code>, but only use the positions starting at 'lb'. You will waste a few memory positions (0 to lb-1), but will not have to change anything in your algorithm and will avoid costly subtractions.
+
+It is important to note that this optimization, if at all necessary, should at most affect a few loops in a large system. You should always begin by writing your software using the normal [[ref:libraries/base/reference/array_chart|ARRAY]]  facilities; then once you have the certainty that the software is correct, if you detect that a large array computation is hampering the efficiency of the system, you may apply the above technique to get the fastest performance out of that computation. The change to the software will be minimal - a few lines - and will be easy to undo if necessary. 
+
+==Tuples==
+
+A new Kernel Library class is introduced: [[ref:libraries/base/reference/tuple_chart|TUPLE]] .
+
+Alone among all classes, class TUPLE has a variable number of generic parameters. <code>TUPLE, TUPLE [X], TUPLE [X, Y], TUPLE [X, Y, Z]</code> and so on are all valid types, assuming valid types <code>X, Y, Z</code> and so on.
+
+Conformance rules: 
+<code>[CONF1]
+	For n >= 0
+	TUPLE [U1, U2, ..., Un, Un+1] conforms to
+	TUPLE [U1, U2, ..., Un]</code>
+
+(and hence to <code>TUPLE [T1, T2, ..., Tn]</code> if each of the Ui conforms to each of the Ti for <code>1 <= i <= n</code>.) 
+
+In particular all tuple types conform to [[ref:libraries/base/reference/tuple_chart|TUPLE]] , with no parameter. 
+<code>[CONF2]
+	For n >= 0 If *every* one of the types T1, T2, ..., Tn conforms
+	to a type T, then TUPLE [T1, T2, ..., Tn] conforms
+	to ARRAY  [T]</code>
+
+
+{{Definition|Tuple Type|A "tuple type" is any type based on class [[ref:libraries/base/reference/tuple_chart|TUPLE]] , i.e. any type of the form <code>TUPLE [T1, T2, ..., Tn]</code> for any n (including 0, for which there is no generic parameter). }}
+
+
+{{note|CONF1 should be understood in terms of the underlying mathematical model. <br/> Mathematically, <code>TUPLE [T1, T2, ..., Tn]</code> is the set TUPLE n of all partial functions f from N+ (the set of non-negative integers) to <code>T1 U T2 U ... Tn</code>, such that:<br/>The domain of f contains the interval 1..n (in other words, f is defined for any i such that 1 <nowiki><</nowiki>&#61; i <nowiki><</nowiki>&#61; n). <br/>For 1 <nowiki><</nowiki>&#61; i <nowiki><</nowiki>&#61; n, f (i) is a member of Ti.  }}
+
+With this definition, TUPLE <code>n</code> is indeed a subset of TUPLE <code>n+1</code>, and in particular TUPLE <code>0</code>, the empty set, is a subset of TUPLE <code>n</code> for any n.) 
+
+Semantics: an instance of <code>TUPLE [T1, T2, ..., Tn]</code> is a tuple whose first element is an instance of <code>T1</code>, the second element being an instance of <code>T2</code> etc. (The precise definition is the mathematical one given in note 1.) Note that there can be more than n elements to the tuple: for example a tuple with first element 5 and second element "FOO" is an instance of all of the following tuple types: <code>TUPLE; TUPLE [INTEGER]; TUPLE [INTEGER, STRING]</code>. 
+
+It may seem restrictive at first to permit only one class, [[ref:libraries/base/reference/tuple_chart|TUPLE]] , to have an arbitrary number of actual generic parameters. Why not have a general mechanism for declaring any class <code>C</code> so that all of <code>C [X], C [X, Y]</code> etc. are valid? But in fact this is not really a restriction. To obtain this effect without any complicated language convention, just declare <code>C</code> as 
+<code>C [G -> TUPLE]</code> and then use the generic derivations 
+<code>C [TUPLE [X]]  
+C [TUPLE [X, Y]]
+</code>
+and so on. This also makes it possible to have the effect of some fixed parameters and some variable ones, as in <code>C [G, H, I -> TUPLE]</code> so we have all the necessary flexibility.)
+
+==Tuple expressions==
+
+Let e1, e2, ..., en be expressions of respective types T1, T2, ..., Tn. Then the expression <code>[e1, e2, ..., en]</code> denotes an instance of <code>TUPLE [T1, T2, ..., Tn]</code>, whose first element is e1, the second element being e2, etc. 
+
+Tuple expressions can be nested: whereas <code>[1, 2, 3]</code> is a tuple with three elements (representing an instance of <code>TUPLE [INTEGER, INTEGER, INTEGER]), [1, [2, 3]]</code> is a tuple with two elements, the second one itself a tuple; the overall expression represents an instance of <code>TUPLE [INTEGER, TUPLE [INTEGER, INTEGER]]</code>.
+
+As a special case of tuple expression syntax, the delimiters <code>[</code> and <code>]</code> are replaced by parentheses for the tuple representing the actual argument list of a routine call (see section 4). 
+
+==Tuple features==
+
+The exact specification of class [[ref:libraries/base/reference/tuple_chart|TUPLE]]  will be described in an addition to ELKS. The principal features are: 
+*  [[ref:libraries/base/reference/tuple_chart|count]]  (number of significant elements) 
+*  [[ref:libraries/base/reference/tuple_chart|item]]  (i), with the obvious precondition: the i-th element, of type [[ref:libraries/base/reference/any_chart|ANY]]  (since the value of i is not known at compile time); also first, second, third, fourth and fifth, of the appropriate types. 
+*  [[ref:libraries/base/reference/tuple_chart|put]]  (x, i), with the obvious precondition: replace i-th element with x. If argument x is not of the appropriate type T <code>i</code> there is no effect. 
+*  [[ref:libraries/base/reference/tuple_chart|is_equal]] : redefined to consider only the first n elements, where n is the smaller length. 
+
+Other features under consideration include:
+* stripped (i): a tuple of type <code>TUPLE [T1, T2, Ti-1, Ti+1, ..., Tn]</code>, derived from the current one by removing the i-th component, again with the obvious precondition. 
+* wedged (x, i): a tuple with one more element, inserted at position i.
+*  '''infix''' "+": tuple concatenation 
+*  '''infix''' "++": element concatenation; t ++ x is the same thing as t.wedged (x, t.count + 1). 
+
+==What have we gained?==
+
+First we have solved the only case in the Eiffel programming language in which an expression has no precisely defined type: polymorphic manifest arrays. We don't have manifest arrays any more, but manifest tuples, with a precisely defined type. No incompatibility is introduced thanks to rule CONF2. The original syntax for manifest arrays, <code>Result := <<e1, e2, ..., en>></code>, will continue to be supported. 
+Second, we can define functions that return multiple results. This is a quite significant increase in expressive power. No common language has that. (You have to go to Lisp and functional languages.) Just define <code>TUPLE [...]</code> as the result type; in the function, you will write things like 
+<code>
+Result := [e1, e2, ..., en] 
+</code>
+Also, from a theoretical viewpoint, feature calls are simpler and more homogeneous: every feature takes exactly one tuple as argument and returns exactly one tuple as a result. (Either of these tuples may be empty: the first for a feature with no argument, the second for a procedure.) The syntax for a call becomes
+<code>Feature Arguments</code>
+
+with Arguments defined as
+<code>Tuple_expression</code>
+
+where the Tuple_expression uses the form given in section 2 but with the outermost <code>[</code> and <code>]</code> delimiters replaced by parentheses to conform to usual practice. So the call
+<code>f (a, b, c)</code>
+
+which we continue to think of as having three arguments a, b and c, formally has only one tuple argument <code>[a, b, c]</code>. This is of course not to be confused with a call of the form
+<code>g ([a, b, c])</code>
+
+which has one argument (a tuple with three elements) in both the ordinary and the formal sense.
+
+==Active, iterators, numerical applications, introspection==
+
+For a set of important applications of tuples see the book chapter on [[EiffelBase, Iteration|agents and iterators]]  which also covers aspects of numerical software and related topics following from the tuple mechanism. 
+
+==Temporary limitations==
+
+The implementation of tuples has the following limitations:
+* Conformance of [[ref:libraries/base/reference/array_chart|ARRAY]]  types to [[ref:libraries/base/reference/tuple_chart|TUPLE]]  types is not yet fully supported. 
+* Class [[ref:libraries/base/reference/tuple_chart|TUPLE]]  does not have features such as first and second. You must use item and, in most cases, an object test. 
+
+==Strings==
+
+Strings are handled by class [[ref:libraries/base/reference/string_8_chart|STRING]] , similar in many respects to [[ref:libraries/base/reference/array_chart|ARRAY]] . Strings are of arbitrary size. The make creation procedure takes an integer argument, as in:
+<code>
+            s, s1, s2, s3: STRING
+            ...
+            create s.make (30)</code>
+
+The argument indicates the number of characters for the initial allocation. This is not an absolute limit: the string will automatically grow or shrink as a result of future operations. You may always request a resizing explicitly by calling procedure resize.
+
+==String descriptor==
+
+The object attached at run-time to an entity such declared of type [[ref:libraries/base/reference/string_8_chart|STRING]]  is not the actual sequence of characters but a string descriptor, which contains a reference to the actual string contents.
+
+As a result, four assignment or assignment-like operations are possible:
+*  '''A1''' <code>s1 := s</code> 
+*  '''A2''' <code>s2.share (s)</code> 
+*  '''A3''' <code>s3 := s.twin</code> 
+*  '''A4''' <code>s4.copy (s)</code> 
+
+As illustrated below, ''' A1''' is a reference assignment: <code>s1</code> will be attached to the same descriptor as s. ''' A2''' keeps the descriptors distinct, but make them refer to the same sequence of characters. In ''' A3''', <code>s3</code> will be attached to a new string, completely distinct from the string attached to <code>s1</code> although made of identical characters. ''' A4''' has almost the same effect as '''A3''', but is only applicable if <code>s4</code> was not void, and will override the existing descriptor rather than creating a new one. 
+ [[Image:strings]]  
+fig. 1: Effect of string assignment and copy operations
+
+[[ref:libraries/base/reference/basic_routines_chart|BASIC_ROUTINES]]  provides a number of conversion functions, such as charconv.

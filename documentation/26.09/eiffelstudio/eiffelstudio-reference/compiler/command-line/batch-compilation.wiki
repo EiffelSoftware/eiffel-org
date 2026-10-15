@@ -1,0 +1,47 @@
+[[Property:title|Batch compilation]]
+[[Property:weight|2]]
+[[Property:uuid|18958db6-dafc-57b7-cdef-aca01bc13661]]
+In order to launch a compilation without user intervention you need to specify the `-batch` switch in the '''ec''' command line, otherwise the Eiffel compilation will be blocked. We will present below a typical example of batch processing on both Unix and Windows platforms where we want to compile a project in both frozen and finalized mode, then to launch the C compilations. At the same time we want to save the output of '''ec''' and the C compilations. 
+
+===Unix===
+In a file called `launch_ec` you can have the following: 
+<code lang=text>
+#!/bin/sh
+output_file="/output_path/OUTPUT"
+
+cd /your_project_path
+
+#Launch Eiffel compilation
+ec -batch -config config.ecf -finalize -c_compile 2> $output_file
+
+#Since only C compilation for finalized code is done
+#Launch C compilation for frozen code
+
+cd EIFGENs/target_name/W_code
+finish_freezing > $output_file</code>
+
+
+It will go the directory where your project is located and compile your Eiffel code using the `config.ecf` file located in your project directory and compile automatically the C code. All outputs will be stored in the file `/output_path/OUTPUT`.
+
+{{note|All output from '''ec''' are going to the error output, so do not forget to redirect the error output when you want to see the result. }}
+
+===Windows===
+In a file called `launched_ec.bat` you can have the following: 
+<code lang=text>
+rem Launch Eiffel compilation
+ec -batch -config config.ecf -finalize -c_compile > c:\output_path\OUTPUT
+
+rem Since only C compilation for finalized code is done
+rem Launch C compilation for frozen code
+cd EIFGENs\target_name\W_code
+finish_freezing > c:\output_path\OUTPUT</code>
+
+
+It will go the directory where your project is located and compile your Eiffel code using the `config.ecf` file located in your project directory and compile automatically the C code. All outputs will be stored in the file `c:\output_path/OUTPUT`.
+
+{{seealso|<br/>
+[[EiffelStudio: Using command line options|Using command line compiler options]]  }}
+
+
+
+

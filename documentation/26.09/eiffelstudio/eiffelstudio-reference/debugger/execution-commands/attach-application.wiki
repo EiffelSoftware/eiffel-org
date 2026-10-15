@@ -1,0 +1,32 @@
+[[Property:title|Attach application]]
+[[Property:link_title|]]
+[[Property:weight|0]]
+[[Property:uuid|e369df0f-2e1f-5730-ae67-cd7b60b55c5f]]
+Usually when you want to debug an application, you launch it from EiffelStudio and the debugger is automatically attached to the execution of the application.
+However for specific needs (such as server development), you might want to start the execution outside EiffelStudio, and then attach EiffelStudio's debugger to it.
+
+= Requirements: =
+* The application should be compiled in workbench mode. 
+* EiffelStudio should be opened on the project used to compile the application.
+
+= How to make it work? =
+* The application execution will wait for the debugger to connect on a specific port number (given by the user).
+
+== Execution ==
+There are 2 ways to provide this port number:
+* Setting the <code>ISE_DBG_PORTNUM</code> environment variable to a specific port number will make the execution to wait right away for EiffelStudio to attach the process.
+* calling <eiffel>{RT_DEBUGGER}.wait_for_debugger (a_port_number: INTEGER)</eiffel> from the application code will wait for EiffelStudio to attach the process.
+In both case, if it is unable to open the port, the execution continues, otherwise it waits until EiffelStudio get connected (i.e attach the execution).
+It is possible to use any available port number, for that make sure your machine does not already use the port number you choose, and that the application is authorized to open that port (for instance try with port 50505).
+
+Note that the port number should be greater than 1023 and available (i.e not opened by other application).
+The range 49152-65535 can be used for such custom or temporary purposes, and is more likely to have available port.
+
+== EiffelStudio ==
+To attach the process from EiffelStudio, follow the menu path <code>Execution->Attach Debuggee</code> and provide the same port number as specified above.
+(Note that you can add the associated command to the execution tool bar.)
+If EiffelStudio is unable to "attach" the debuggee, it will timeout and report the error (this could happen if the debuggee does not open the specific port).
+
+Once attached the execution, EiffelStudio is able to debug the application just as if the application was launched from EiffelStudio.
+
+

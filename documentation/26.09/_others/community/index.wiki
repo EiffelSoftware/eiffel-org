@@ -1,0 +1,116 @@
+[[Property:title|Community]]
+[[Property:description|Members of the Eiffel community can contribute to this documentation through this book]]
+[[Property:weight|15]]
+[[Property:uuid|75c75712-7c3e-2757-51b7-77b404471e2e]]
+=You can become a  contributor!=
+
+Eiffel is a community. Members of the Eiffel community can contribute to this documentation through this book.
+
+EiffelStudio documentation is available in a convenient Wiki format. This makes it possible to improve the documentation continuously and make sure it is always up to date.
+
+Community input is welcome. 
+
+==Using the Comments pages==
+
+Each documentation page has an associated '''Comments''' page. Any viewer can add comments to a Comments page. These comments are periodically reviewed and appropriate content is "published," that is, made visible to the community. 
+
+===Guidelines for Comments pages===
+
+#The '''Comments''' pages are intended to be used to record and communicate issues concerning the documentation.  Use Comments pages to post comments which report problems with the documentation or which suggest improvements to the documentation. 
+# '''Any material you add to this site becomes the property of Eiffel Software, and may be shared with the community.'''
+# Comments pages should ''not'' be used for product support questions, product feature requests, or bug reports. ''Comments of this sort will be deleted.'' For help with products join the [http://groups.eiffel.com Eiffel Software User Group] and use the resources at the [http://community.eiffel.com Eiffel Community site]. 
+
+===Comment lifecycle===
+
+Although the procedure for how editors deal with comments is flexible, some general guidelines can be given:
+
+# For comments requesting action (e. g., fix a problem, add more information):
+## For those actions which can be accomplished immediately:
+### The comment will not be published.
+### The requested action will be fixed.
+### The original comment's subject line will be prepended with "FIXED".
+## For those actions which cannot be accomplished quickly or require special handling:
+### The comment will be published
+### A response to the comment will be made via "reply", and
+#### The original comment's subject line will be prepended with:
+##### FIXED, if and when the request can be satisfied.
+##### ANALYZED, otherwise, plus explanation of delaying or not acting on request.
+## For actions affecting docs.eiffel.com plus the Eiffel distribution:
+### Submit a problem report requesting feedback when problem is fixed so that docs.eiffel.com can be updated in kind.
+# For comments not requesting action, but adding relevant information related to the page:
+## The comment will be published.
+## If appropriate: 
+### The content of the comment will be integrated into the page.
+### The original comment's subject line prepended with FIXED.
+# Periodically, an audit will remove older comments marked as FIXED and ANALYZED.
+
+==Contributors and Editors==
+
+If you are interested in a more active role in improving and developing EiffelStudio documentation, you can become:
+
+* A contributor: authorized to edit existing pages to any book, and to add pages to the "Community" book.
+**"Community" book pages can be added to other books by an editor.
+
+* An editor: authorized to modify and add pages in any book.
+
+To become a contributor, you should be proficient in Eiffel technology and have good written English skills. To become an editor, you should already be a contributor and have contributed significant improvements or additions to the documentation.
+
+If you are interested in becoming a contributor, you can [[path:user/register|register]] for an account, and then please [[path:contact|contact us]] with a short description of your Eiffel experience and any other relevant background.
+
+===Guidelines for contributors===
+
+# '''Entering log messages:''' When you change pages in the documentation, it can help sometimes if you can provide an explanation of your intent in the '''Log message''' box on the '''Edit''' page. This can eliminate confusion about why things have been changed. Of course, it is not necessary to provide a log message for every change. For fixing typographical errors or other simple changes, it generally would not be necessary, but putting a single lowercase '''"m"''' in the '''Log message''' field will convey the message that this was a minor update. If you are evolving new pages or a complex set of related changes to one or more pages, it should suffice to enter a single log message at the beginning of the series of edits. Use common sense here.
+#* In cases in which a change is directly related to an external document or policy, it may be helpful to mention the impetus in the log message. For example, documentation changes made to satisfy Eiffel Software problem reports should reference the report in the log message.
+# '''Renaming pages or moving pages to Trash:''' Before you rename a page or move it to the Trash, you should use the '''References''' tab to make certain that there are no current references to the page. If there are, make sure you resolve those references before renaming or moving the page.
+# '''Replacing pages:''' If you need to replace a page completely, do so by replacing the '''content''' of the existing page, rather than moving the page to the Trash and creating a new page in its place. Replacing the content will leave the original page (and its UUID) in place, but with the new content. UUID's are used by the [[Eiffel Information System]] (EIS) to link EiffelStudio to documentation pages, and will be broken if the original page were to be deleted.
+# '''Using templates:''' 
+## There are several "templates" available for use within the text of documentation pages. For example, "Note", "SeeAlso", "Rule", "Definition", "Caution". You can click on "List templates" in the left margin to see the list of available templates. 
+## While developing new pages or make significant changes to existing pages you may want to mark the tops of these pages temporarily with certain templates during the development process. The "top-of-the-page" templates most useful during page maintenance are Beta, ReviewRequested, UnderConstruction, and UpdateNeeded. The meanings of these are described below.
+
+==="Top-of-the-page" Documentation template meanings===
+
+====Beta====
+
+Looks like this:
+
+{{Beta}}
+
+Means this: 
+
+:''Use this page with caution. This page is currently under development as a new page or a replacement for a previously existing page. It may contain information which describes capabilities not yet implemented. Avoid linking to this page. When this page comes out of beta, it is likely that the name and/or UUID of this page will change.'' 
+
+
+====ReviewRequested====
+
+Looks like this:
+
+{{ReviewRequested}}
+
+Means this:
+
+:''The material on this page needs to be reviewed for completeness and accuracy. If you have knowledge of this material, please review this page. If you are a [[Community|contributor]], feel free to make any appropriate additions and/or corrections, then remove this template. If not, you can note improvements on the [[Community#Using the Comments pages|comments]] page.''
+
+
+====UnderConstruction====
+
+Looks like this:
+
+{{UnderConstruction}}
+
+Means this:
+
+:''Use this page with caution. This page is currently under development. It is likely that the information on this page is still incomplete. ''
+
+
+====UpdateNeeded====
+
+Looks like this:
+
+{{UpdateNeeded}}
+
+Means this:
+
+:''Use this page with caution. This page has been identified as needing update. If you are a [[Community|contributor]], you can help by updating this page so that the information on it is current.''
+
+
+

@@ -1,0 +1,26 @@
+[[Property:modification_date|Wed, 04 Jan 2023 11:33:21 GMT]]
+[[Property:publication_date|Thu, 22 Dec 2022 13:40:15 GMT]]
+[[Property:uuid|EA73C2B4-1A89-4A2A-A53F-2E5617B140BA]]
+[[Property:title|Release notes for EiffelStudio 22.12]]
+[[Property:link_title|22.12]]
+[[Property:weight|-8]]
+
+==Graphical environment==
+* Added code completion support for once classes
+* Improved the '''Add Library''' implementation by allowing to add "redirection" ecf files, and fixed the '''Add Cluster''' functionalities in recursive cluster.
+* Fixed an harmless exception when first inserting Unicode symbol using the "Insert Symbol" dialog on Windows.
+
+==Compiler==
+* New platforms:  macosx-armv6 (M1, M2 support) and linux-arm64.
+* Reviewed and updated generated C code to fix potential execution issues due to "clang" C compiler optimizations (especially on ARM architecture).
+* Fixed the compilation of once class without any creation procedures.
+
+==Tools==
+* It is now possible to use the "emdc.exe" .Net md consumer, as an alternative to the COM md consumer from EiffelStudio, as a first step toward supporting .Net on non Windows platform.
+
+== Warning ==
+For Macos users on M1/M2 (arm) architecture, please read the specific note [[Release notes for EiffelStudio 22.12 - macosx]]
+
+----
+
+See [https://dev.eiffel.com/EiffelStudio_22.12_Releases change log] for more details.

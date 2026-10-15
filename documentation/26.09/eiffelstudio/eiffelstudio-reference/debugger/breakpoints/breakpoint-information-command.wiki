@@ -1,0 +1,31 @@
+[[Property:title|Breakpoint information command]]
+[[Property:weight|3]]
+[[Property:uuid|9fa30dd2-231f-c1f2-4139-f8e90df0e77f]]
+The breakpoint information command, located in the '''debug''' menu and in the '''project''' toolbar (  [[Image:tool-breakpoints-icon]]  ), displays the list of all set breakpoints in the system (enabled or disabled). 
+
+Display all breakpoints in a grid:<br/>
+
+[[Image:breakpoints-list]] 
+
+{{note|<br/>
+The * shows that the breakpoint has a [[Breakpoint menu|condition]] .<br/>
+You can edit the selected breakpoint by double clicking on it, or pressing [enter] which show the menu.<br/>
+You can disable/enable the selected breakpoint(s) by pressing [space].<br/>
+You can sort by clicking the column, especially the first column which provide tree, flat or sorted view. }}
+
+Display all breakpoints in a list:<br/>
+
+[[Image:breakpoints-list-flat]]
+
+Display all breakpoints in a list filtered by a tag using button [[Image:breakpoints-list-filter-button]] : <br/>
+
+[[Image:breakpoints-list-filter]]
+
+{{seealso|<br/>
+[[Breakpoint commands|Breakpoints commands]]  <br/>
+[[Breakpoint information command|Breakpoint information command]]  <br/>
+}}
+
+
+
+

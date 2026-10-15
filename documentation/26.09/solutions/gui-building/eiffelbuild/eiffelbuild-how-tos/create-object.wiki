@@ -1,0 +1,27 @@
+[[Property:title|Create an object]]
+[[Property:weight|1]]
+[[Property:uuid|b2ef8e81-a045-dce2-725f-c8db5ab1b6db]]
+An EiffelBuild [[EiffelBuild Notation|object]]  is a representation of an EiffelVision 2 component and its properties. 
+
+To create a new instance of an object, [[EiffelBuild Notation|pick]]  a type from the [[Type selector|type selector]]  and [[EiffelBuild Notation|drop]]  onto an existing [[EiffelBuild Notation|object]]  (Accessible from the [[Layout constructor|layout constructor]]  or [[Builder window|builder window]] ). You will only be able to complete the [[EiffelBuild Notation|drop]]  if the targeted [[EiffelBuild Notation|object]]  will accept a new object of the transported type. 
+
+{{note|Once an [[EiffelBuild Notation|object]]  has been [[Create an object|created]] , it will always be contained in a parent [[EiffelBuild Notation|object]]  until [[Delete an object|deleted]] . }}
+
+==Creating Window and Dialog Objects==
+
+Window and dialog objects are created by picking a type from the [[Type selector|type selector]]  and dropping into the [[Widget selector|widget selector]] . If the target of the drop is a directory within the widget selector, the new object is created within that directory, otherwise in the root of the project location. Window and dialog objects are generated as individual classes by EiffelBuild. 
+
+{{note|If there are no other windows or directories in the project, the newly created object is set as the root window.}}
+
+==Creating objects for re-use==
+
+If you wish to create an object that may be re-used in multiple locations within your EiffelBuild project, pick the type from the [[Type selector|type selector]]  and drop into the [[Widget selector|widget selector]] . This ensures that at generation time, the object is generated as a seperate class (as with all objects in the [[Widget selector|widget selector]] ). Objects within the [[Widget selector|widget selector]]  may be used in a client fashion within other object structures as required, and any changes made to these objects are reflected at all locations in which they are used. 
+
+{{seealso|<br/>
+[[Type selector|Type selector]]  <br/>
+[[Reparent an Object|Reparent an object]]  <br/>
+[[Delete an object|Delete an object]]  }}
+
+
+
+

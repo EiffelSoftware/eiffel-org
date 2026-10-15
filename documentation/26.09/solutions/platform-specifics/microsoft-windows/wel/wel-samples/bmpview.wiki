@@ -1,0 +1,34 @@
+[[Property:title|Bmpview]]
+[[Property:weight|-15]]
+[[Property:uuid|c3df2d26-d913-e298-c7bc-929451617903]]
+[[Image:bmpview|bmpview]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\bmpview\''. 
+* Choose ''bmpview.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+==Running==
+After launching the program, a window will be displayed as illustrated above, although no child windows will be present. Selecting "Open" from the "File" menu will allow you to browse for a .BMP file to view. Multiple files may be opened and each opens in a new child window. The options on the "Window" menu provide features for positioning the child windows. Selecting "Close" will close the currently selected child window, while selecting "Exit" or closing the window manually will exit the program. 
+==Under the Hood==
+<code>MAIN_WINDOW</code> inherits [[ref:libraries/wel/reference/wel_mdi_frame_window_chart|WEL_MDI_FRAME_WINDOW]]  and redefines <code>on_menu_command</code> to handle the menu selections. <code>CHILD_WINDOW</code> inherits [[ref:libraries/wel/reference/wel_mdi_child_window_chart|WEL_MDI_CHILD_WINDOW]]  and implements make to load a named bitmap, while <code>on_paint</code> has been redefined to re-draw the bitmap. A [[ref:libraries/wel/reference/wel_open_file_dialog_chart|WEL_OPEN_FILE_DIALOG]]  is used to select files for viewing. 
+This sample contains the following classes: 
+* <code>BMP_VIEW</code>
+* <code>MAIN_WINDOW</code>
+* <code>CHILD_WINDOW</code>
+* <code>APPLICATION_IDS</code>
+
+{{seealso|<br/>
+[[WEL_OPEN_FILE_DIALOG|WEL_OPEN_FILE_DIALOG]]  <br/>
+[[MDI (Multiple Document Interface)|Mdi sample]]  }}
+
+
+
+
+

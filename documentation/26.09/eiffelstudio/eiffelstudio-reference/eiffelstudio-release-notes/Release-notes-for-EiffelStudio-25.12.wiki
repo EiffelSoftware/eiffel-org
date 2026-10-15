@@ -1,0 +1,51 @@
+[[Property:modification_date|Tue, 20 Jan 2026 17:23:56 GMT]]
+[[Property:publication_date|Tue, 20 Jan 2026 10:47:22 GMT]]
+[[Property:uuid|DA240E9E-2796-4336-B853-F3EAB1D5701E]]
+[[Property:title|Release notes for EiffelStudio 25.12]]
+[[Property:link_title|25.12]]
+[[Property:weight|-12]]
+==Graphical environment==
+
+===Improvements===
+* Resolved multiple issues related to importing debugger settings.
+* Security: Fixed buffer overflow in GTK binding, memory corruption fixes
+
+* Eiffel Web framework: 
+** take into account reverse-proxy when computing the `is_https` and the `server_url`
+** Enhanced router with default handler support
+** Enhanced custom fallback page implementation
+** Improved file serving with automatic index.html handling
+** Better OPTIONS request and CORS support
+** Enhanced request information handling
+
+* the Eiffel CMS platform:
+** Improved user management, and also user registration process.
+** simplify creation of landing page (using the "frontpage" css class).
+** Added PostgreSQL storage backend for the CMS Eiffel platform (Content Management System)
+** CMS API Key Authentication: Token-based authentication module with scope management
+** CMS Storage Browser: Database inspection and query execution module
+** CMS CLI Interface: Command-line administration tools with interactive shell
+** Magic Link Authentication: "Sign In With Email" passwordless login
+** Enhanced magic link system to ease integration with external service (for instance JS apps).
+** Improved modules: core, admin, admin mails handler, custom_block, ...
+** fixed various issues
+
+* MySQL and MariaDB EiffelStore binding: updated to support latest C connector.
+* SQLite: major update (updated the C driver)
+* Updated a few libraries to get rid of the obsolete iteration cursor usage.
+
+===Libraries===
+* New support for POSTGRESQL in EiffelStore library (CRUD operations and transaction support).
+* New s3_client library to access AWS S3 buckets or S3 compatible buckets (such minio)
+* Updated Gobo libraries to Gobo 25.12 (langserver, storable, and thread libraries)
+* Various bug fixes, and minor improvements.
+* EiffelBase: updated signatures of type conformance test features. Potential breaking change: the class TYPE does not inherit from PART_COMPARABLE anymore.
+
+===Warnings===
+* Some .Net limitations exist in the current release that will be addressed in future updates. For detailed information, please refer to the  [https://www.eiffel.org/doc/version/25.02/uuid/fe8a6a7d-4590-0db2-d59a-307082b18ecc Eiffel for .NET documentation].
+* SCOOP is currently not supported by Eiffel .NET
+* For Macos users on M1/M2 (arm) architecture, please read the specific [[Release notes for EiffelStudio 22.12 - macosx|notes about macosx]]
+
+----
+
+See [https://dev.eiffel.com/EiffelStudio_25.12_Releases change log] for more details.

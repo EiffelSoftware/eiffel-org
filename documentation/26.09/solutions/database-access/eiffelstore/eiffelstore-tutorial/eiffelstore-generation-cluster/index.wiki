@@ -1,0 +1,12 @@
+[[Property:title|EiffelStore Generation Cluster]]
+[[Property:weight|2]]
+[[Property:uuid|f443ed73-14bb-9a3a-b7c7-35c2660e7784]]
+The EiffelStore library lets the user associate database elements with Eiffel objects. These database elements are basically database table rows, database view rows or more generally sets of database attribute values. The easiest way to manipulate database elements is to insert their content into Eiffel objects and to work on these Eiffel objects as database elements.
+
+A first solution to implement this is to use some adaptable structures that will fit to any database element. This is done in EiffelStore through the [[ref:libraries/store/reference/db_tuple_flatshort|DB_TUPLE]]  class, which contains mainly an <code>ARRAY [STRING]</code> containing element attribute names and an <code>ARRAY [ANY]</code> containing element attribute values. This solution has one major drawback: any static checking is impossible: the developer cannot be sure at compile time of the nature of a [[ref:libraries/store/reference/db_tuple_flatshort|DB_TUPLE]] , i.e. what it represents, and cannot know if attributes number, names and types are correct. To overcome this problem, a second solution is to use data structures that statically fits to the expected database element, as introduced in the [[Data Object Coupling|DataObject Coupling]]  section. 
+
+The major problem of this technique is that structures are static: one structure, so one class instead of one object, should be created for each database element.
+
+
+
+

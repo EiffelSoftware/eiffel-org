@@ -1,0 +1,23 @@
+[[Property:modification_date|Fri, 19 Mar 2021 14:23:47 GMT]]
+[[Property:publication_date|Mon, 10 Sep 2018 09:09:25 GMT]]
+[[Property:uuid|B74D374E-895C-4F22-B95F-656BD78ECD03]]
+[[Property:weight|1000]]
+[[Property:title|Getting a STRING from a NUMERIC object]]
+[[Property:link_title|NUMERIC to STRING]]
+== <code lang="eiffel">NUMERIC</code> to <code lang="eiffel">STRING</code> ==
+
+Every class has the <code lang="eiffel">out</code> method that can be used to get a text version of the object. For a lot of classes, this method returns internal information that is not really useful for the end user. But for every <code lang="eiffel">NUMERIC</code> class, the <code lang="eiffel">out</code> method returns a text representation of the number that the <code lang="eiffel">NUMERIC</code> object represents.
+
+<code>
+	print_integer (a_integer: INTEGER)
+			-- Print the value of `a_integer`.
+		do
+			print (a_integer.out + "%N")
+		end
+</code>
+
+Note that for more advanced conversion, you can also use a conversion class like <code lang="eiffel">FORMAT_DOUBLE</code>.
+
+== <code lang="eiffel">STRING</code> to <code lang="eiffel">NUMERIC</code> ==
+
+The reverse conversion is available for all standard numeric types (<code lang="eiffel">INTEGER_8</code>, <code lang="eiffel">INTEGER_16</code>, etc.) using the features <code lang="eiffel">to_integer_8</code>, <code lang="eiffel">to_integer_16</code>, etc. of class <code lang="eiffel">STRING</code>. The string should contain a valid string representation of the corresponding numeric value. This can be checked by calling <code lang="eiffel">is_integer_8</code>, <code lang="eiffel">is_integer_16</code>, etc. before calling the conversion functions.

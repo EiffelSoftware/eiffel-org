@@ -1,0 +1,120 @@
+[[Property:title|Viewing Classes]]
+[[Property:weight|-9]]
+[[Property:uuid|78136af1-5d7a-f3d2-9619-17f4c0541f1e]]
+__FORCETOC__
+We haven't really looked at the text of a class yet. It's important anyway to see how EiffelStudio provides you with numerous, complementary '''views''' of your software. The Class tool and Feature tool are where the bulk of these views will be displayed, although the Editor tool does support some special views. For now we will concentrate on the views available in the Class tool.
+
+
+==Making some room==
+
+We'll need just one development window for the moment, the one that was targeted to <code>LIST</code>. You should still have that window available from the previous Tour topic, and it should look about like this:
+
+[[Image:es gt development window targeted to list 01]]
+
+{{note| If you don't see a development window targeted to <code>LIST</code>, just retarget one, as you know how to do this now, for example by typing the name followed by Enter in the Class Field at the top left. }}
+
+First let's give ourselves more space. Right now we don't need the Groups tool or any of the other tools sharing that pane. We could get rid of them by clicking the close buttons on the top right corner of the panes. Then we could get them back later by following the menu path:
+<code lang="text">
+View --> Tools --> x
+</code>
+where "x" is the name of a tool we want restored. But there is an easier way. Let's just hide them away until later.
+
+We do this by setting the pane containing the tools to '''Auto Hide'''. On the bar at the top of the pane, you'll see the Auto Hide icon ([[Image:auto-hide-icon]]) which looks like a pushpin. 
+
+[[Image:es gt auto hide 01]]
+
+Click the icon and you'll see the pane shrink into a set of tabs on the right window margin and the remaining panes will expand to fill the abandoned space. The tools in the pane will temporarily expand back out if you move your mouse cursor over their tabs. Try it with one. When you want the pane back in its original place permanently, you just expand one of the tabs by mousing over it, then click the Disable Auto Hide icon, which is the pushpin again, just horizontal this time.
+
+Two panes remain, showing the Editor tool and the lower pane containing the Outputs tool and others. You can resize the panes by dragging the border between them. Make sure there's plenty of room in the lower pane.
+
+
+==The Class tool==
+
+Before we look at the Class tool, let's make sure that we set [[Change data share mode|linked data share mode]] which will always display information about the current target. Go to the main menu bar and expand the menu item <code>View</code>. If you see a choice marked with the link context icon  ([[Image:context-link-icon]]) and labeled <code>Link Context Tool</code>, then select it. After it has been selected, or if it has already been selected, then the label will read: <code>Unlink Context Tool</code>.
+
+At the bottom of the lower pane you'll find a tab labeled '''Class'''. This gives you access to many forms of information about the current class -- the target of the development window. Click on the Class tab to bring up the Class tool. A set of buttons at the top enables you to display a number of '''views''' of the class. The currently highlighted button indicates the default view: <code>Ancestors</code>. You can see the others' names by moving your cursor over the various view icons, and reading the tooltips. 
+
+The view currently displayed, <code>Ancestors</code>, shows the inheritance structure that leads to the current target, <code>LIST</code> : 
+
+[[Image:es gt class tool 01]] 
+
+This shows that <code>LIST</code> is an heir of <code>CHAIN</code> which itself, as an example of multiple inheritance, is an heir of <code>CURSOR_STRUCTURE</code>, <code>INDEXABLE</code>, and -- twice, as an example of <span>repeated</span> inheritance -- <code>SEQUENCE</code>. If, because of direct or indirect repeated inheritance, a class appears more than once, the display doesn't repeat its ancestry the second and subsequent times; the omitted repetition appears as just three dots, '''...''', as illustrated here for the second occurrences of <code>BAG</code>, <code>ACTIVE</code> and others. 
+
+As you may have guessed, all the class names that appear on this display, by default in blue, can function as hyperlinks: you can use any one of them to retarget the Development Window to the corresponding class. This will be another major retargeting mechanism. But let's not pursue it for the moment and instead continue looking at the documentation views.
+
+Next to <code>Ancestors</code> button is <code>Descendants,</code> which will give you the descendants of a class in a similar format: 
+
+[[Image:es gt class tool descendants 01]]
+
+The progeny of <code>LIST</code>, as you can see, is just as impressive as its ancestry. 
+
+Let's now look at the other formats, starting from the left. The first button, <code>Clickable</code>, gives the class text. It's essentially the same information as appears in the top Editing Tool (whose pane was reduced to its bare minimum in the last few pictures, showing only the first three lines or so), but with some differences: 
+* The Text view in the Editor is editable. In fact it's EiffelStudio's primary tool for entering software texts. The Class tool's <code>Clickable</code> view is just a view; you can't change it. 
+* The Text view retains the formatting of the class text the way it was typed in; the <code>Clickable</code> view is automatically formatted -- "pretty-printed" -- according to the standard Eiffel layout rules. 
+* The <code>Clickable</code> view does not include comments inside routine implementations ( <code>do</code> and <code>once</code> clauses), although it does retain features' header comments. 
+* As part of the pretty-printing, the <code>Clickable</code> view uses colors and fonts to distinguish keywords, identifiers, comments and other syntactical elements. You can change the fonts and colors, like many other elements of the interface, through <code lang=text>Tools --> Preferences</code>. (Now is not the time.) 
+
+This view is called "Clickable" because, as we'll see later, every syntactical element on it is a hyperlink, which you can use for browsing. 
+
+After <code>Clickable</code> comes the <code>Flat</code> view button. The layout of the result is similar. The flat form of a class is the reconstructed class text including not only what's declared in the class itself but also everything that it inherits from its ancestors, direct or indirect. This applies to the flat form's features, which include ancestor features, but also to contracts: the flat form's invariant includes all clauses from ancestors' invariants, and the preconditions are expanded to take <code>require else</code> and <code>ensure then</code> clauses into consideration. (The [[An Eiffel Tutorial (ET)|Eiffel Tutorial]] explains these notions in detail.) 
+
+
+[[Image:es gt class tool flat 01]]
+
+
+As a result, the <code>Flat</code> view shows the class text as it might have come out had inheritance (what a horrible thought even to contemplate!) ''not'' been available to write it. 
+
+The first two features appearing in the above display, <code>cursor</code> and <code>first</code>, are indeed inherited from ancestors, rather than declared in <code>LIST</code> itself. Note how EiffelStudio, when producing the flat form, adds a line of the form 
+<code>
+            -- (from CLASS_OF_ORIGIN)
+</code>
+
+to the header comments of inherited routines, to document where they come from.
+
+The flat form is an important notion of object technology, making it possible to understand a class by itself, regardless of the possibly rich inheritance structure that led to it. Looking at the Flat view of <code>LIST</code>, you may note how few of its properties come from the class itself; most of the interesting work has been done in ancestors, and <code>LIST</code> just adds a few details. 
+
+{{note|If at any time you want to search for a certain pattern in the views displayed, you can type <code>CTRL-F</code>. A Find bar will come up at the bottom of the pane you are using. If you need more searching power, click the Search icon ([[Image:search-icon]]) in the development window's tool bar to invoke EiffelStudio's [[Search tool]]. }}
+
+Next come two essential documentation views: <code>Contract</code> and <code>Interface</code>. Based on Eiffel's principles of Design by Contract, they document the interface properties of a class. Unlike the previous two, they do not show actual Eiffel texts, but information useful for client classes. 
+
+The contract form (also known as the '''short form''' of a class) is the class text deprived of any internal detail to retain interface information only. It discards any feature that's not exported (available to all clients); for the retained features, it discards the implementation -- <code>do</code> or <code>once</code> clause -- but retains the header (feature name, arguments, results), the header comment, and the contracts (precondition, postcondition, invariant) minus any contract clause that refers to a non-exported feature and hence would be useless to clients. 
+
+As you will know, particularly if you have read the book [[Object-Oriented Software Construction, 2nd Edition]], the contract form is the preferred way of documenting software elements, especially reusable components, as it provides clients with just the right level of abstraction: precise enough thanks to the type signature and the contracts; clear enough thanks to the header comments; and general enough since it omits implementation details that are irrelevant to client programmers (and might lead them to write client code that won't work any more if the implementation changes). 
+
+In practice you will often want to use, instead of the <code>Contract</code> view, the next one, <code>Interface</code>, also known as "flat-short form" and "flat contract form", which applies the same rules to the flat form rather than to the original class. This means it shows information on all the features of the class, immediate (defined in the class itself) as well as inherited, whereas the short form, non-flat, only considers immediate features. The <code>Interface</code> view provides the complete interface information for the class. Try it now on class <code>LIST</code>. 
+
+The next two buttons are for the <code>Ancestors</code> and <code>Descendants</code> views, which we have already seen, showing classes connected with the target through one of the two inter-class relations, inheritance. After them come <code>Clients</code> and <code>Suppliers</code>, to list the classes connected through the other relation, client. Clicking the <code>Clients</code> button shows the list of clients of <code>LIST</code>. 
+
+Now click the next button to see the <code>Suppliers</code> of <code>LIST</code>. 
+
+The only two classes that <code>LIST</code> needs for its own algorithms are basic types from the Kernel Library, <code>BOOLEAN</code> and <code>INTEGER_32</code>. In Eiffel, as you may remember, all types are defined by classes, even those describing such elementary values as integers and booleans. 
+
+
+==Feature information in the Class View==
+
+Let's resist the natural urge to go see now what the classes <code>INTEGER_32</code> and <code>BOOLEAN</code> look like, and instead continue our survey of views. The remaining views will all display information about the '''features''' of the class. The first of them, <code>Attributes</code>, lists the attributes. It's not very interesting for <code>LIST</code>, a deferred class with only one attribute -- you can check this for yourself by clicking the <code>Attributes</code> button -- so let's look at the next one. Click the <code>Routines</code> button now to display information about the routines of class <code>LIST</code> : 
+
+[[Image:es gt class tool routines 01]]
+
+The sections of this display group routines according to the ancestors of <code>LIST</code> -- including <code>LIST</code> itself -- that first introduced them; for example <code>append</code> originally comes from <code>CHAIN</code> and <code>back</code> from <code>BILINEAR</code>. Much of the benefit of this display comes from its support for browsing: all the colored elements, representing classes and features, will be "clickable" hyperlinks. 
+
+The <code>Invariants</code> button shows the complete class invariant for <code>LIST</code>. This includes all invariant clauses that have been inherited from all ancestors.
+
+Other Class tool buttons display information in the same format as <code>Attributes</code> and <code>Routines</code>. Each selects a specific subset of the target class's features. You can now try any of the others by clicking the corresponding button:
+*  <code>Deferred</code> features: abstract features which don't have an implementation in the current class, only in eventual descendants. Try this for <code>LIST</code> ; you'll see that this deferred class indeed has a number of deferred features. 
+*  <code>Once</code> and constants: constant attributes, "once functions" which provide shared objects (close to the "singleton" pattern), and once procedures which provide a convenient initialization mechanism. <code>LIST</code> has 'Operating_environment' and 'Io' inherited from the parent class ANY. 
+*  <code>External</code> features, implemented as calls to routines, macros or other elements implemented in other languages. <code>LIST</code> hasn't any. 
+*  <code>Exported</code> features: those available to all clients. <code>LIST</code> has quite a few. 
+
+
+==Restoring the look of the development window==
+
+Once you're done looking at the different views, let's undo the changes that we made to the configuration of the development window at the beginning of this section in '''[[#Making some room|Making some room]]'''. 
+
+Reduce the relative size of the lower pane. 
+
+Then go to one of the tabs on the right margin of the development window, Groups, will work. Hold your cursor over it for a moment and it should expand. Then click the Disable Auto Hide icon, the horizontal pushpin, to restore the rightmost pane. 
+
+
+
+

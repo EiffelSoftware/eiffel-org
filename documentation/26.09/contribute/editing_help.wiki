@@ -1,0 +1,134 @@
+[[Property:modification_date|Tue, 24 Jan 2023 15:52:04 GMT]]
+[[Property:publication_date|Tue, 24 Jan 2023 15:52:04 GMT]]
+[[Property:uuid|21D430EE-C9E0-46CC-8310-98521B77CA01]]
+[[Property:title|Help to edit documentation]]
+[[Property:link_title|Editing help]]
+[[Property:weight|3]]
+
+= Wikitext syntax =
+* Have a look at [https://en.wikipedia.org/wiki/Help:Wiki_markup Wikipedia markup] documentation.
+* The current website does not support the full Wikipedia syntax, but still most of the needed cases.
+
+* To add a link to another wiki page
+** `[[Wiki Page Title]]` or `[[Wiki Page Title|Custom text]]` (to use a specific text for the link)
+** for instance, a link to this current page would be `[[Help to edit documentation]]` : [[Help to edit documentation]]
+
+* To add a link to any URL
+** `[https://www.eiffel.com Eiffel.com]` (bracket, url, space text, bracket) 
+** Result: [https://www.eiffel.com Eiffel.com]
+
+* To embed inline code:
+** `` `foo.bar` ``
+** `<code>foo.bar</code>`
+** `<eiffel>foo.bar</eiffel>`
+
+* To embed block code:
+
+```xml
+<code lang="eiffel">
+	class FOOBAR
+</code>
+```
+
+```xml
+<eiffel>
+	class FOOBAR
+</eiffel>
+```
+
+<code lang="text">
+```eiffel
+	class FOOBAR
+```
+</code>
+
+Note: if you do not specify the lang, it is defaulted to "eiffel"
+
+
+
+= Templates =
+== Top page templates ==
+Used to qualify the current page.
+
+=== ReviewRequested ===
+:<nowiki>{{ReviewRequested|This is a ReviewRequested message}}</nowiki>
+{{ReviewRequested|This is a ReviewRequested message}}
+
+=== UnderConstruction ===
+:<nowiki>{{UnderConstruction|This is a UnderConstruction message}}</nowiki>
+{{UnderConstruction|This is a UnderConstruction message}}
+
+=== UpdateNeeded ===
+:<nowiki>{{UpdateNeeded|This is a UpdateNeeded message}}</nowiki>
+{{UpdateNeeded|This is a UpdateNeeded message}}
+
+=== Beta ===
+:<nowiki>{{Beta|This is a beta message}}</nowiki>
+{{Beta|This is a beta message}}
+
+
+== Block templates ==
+=== Caution ===
+:<nowiki>{{Caution|This is a caution message}}</nowiki>
+{{Caution|This is a caution message}}
+
+=== Definition ===
+:<nowiki>{{Definition|abc|This is a Definition message}}</nowiki>
+{{Definition|abc|This is a Definition message}}
+
+=== Info ===
+:<nowiki>{{Info|This is a Info message}}</nowiki>
+{{Info|This is a Info message}}
+
+
+=== Note ===
+:<nowiki>{{Note|This is a Note message}}</nowiki>
+{{Note|This is a Note message}}
+
+=== Recommended ===
+:<nowiki>{{Recommended|This is a Recommended message}}</nowiki>
+{{Recommended|This is a Recommended message}}
+
+=== Rule ===
+:<nowiki>{{Rule|name=abc|text=This is a Rule message}}</nowiki>
+{{Rule|name=abc|text=This is a Rule message}}
+
+=== Sample ===
+:<nowiki>{{Sample|This is a Sample message}}</nowiki>
+{{Sample|This is a Sample message}}
+
+=== SeeAlso ===
+:<nowiki>{{SeeAlso|This is a SeeAlso message}}</nowiki>
+{{SeeAlso|This is a SeeAlso message}}
+
+=== Tip ===
+:<nowiki>{{Tip|This is a Tip message}}</nowiki>
+{{Tip|This is a Tip message}}
+
+=== Warning ===
+:<nowiki>{{Warning|This is a Warning message}}</nowiki>
+{{Warning|This is a Warning message}}
+
+
+== Inline templates ==
+
+=== Key ===
+:<nowiki>This is a {{Key|key message}} in the text. </nowiki>
+This is a {{Key|key message}} in the text.
+
+=== Error ===
+:<nowiki>This is a {{Inline-Error|error message}} in the text. </nowiki>
+This is a {{Inline-Error|error message}} in the text.
+
+=== Info ===
+:<nowiki>This is a {{Inline-Info|info message}} in the text. </nowiki>
+This is a {{Inline-Info|info message}} in the text.
+
+=== Success ===
+:<nowiki>This is a {{Inline-Success|success message}} in the text. </nowiki>
+This is a {{Inline-Success|success message}} in the text.
+
+=== Warning ===
+:<nowiki>This is a {{Inline-Warning|warning message}} in the text. </nowiki>
+This is a {{Inline-Warning|warning message}} in the text.
+

@@ -1,0 +1,13 @@
+[[Property:title|Automatic completion]]
+[[Property:weight|6]]
+[[Property:uuid|eb89d090-6998-7dbe-6430-26d30eb87a32]]
+EiffelStudio editor includes new features designed to help write Eiffel code. Automatic completion is one of those. This feature is available in three contexts:
+
+*  [[Syntax auto complete]]: when the user types some expression defined in the Eiffel programming language. 
+*  [[Feature call auto complete]]: when the user enters a feature call.
+*  [[Class name auto complete]]: when the user enters a class name. 
+
+This feature is can be customized or disabled in the [[Editor Preferences]]. 
+
+
+

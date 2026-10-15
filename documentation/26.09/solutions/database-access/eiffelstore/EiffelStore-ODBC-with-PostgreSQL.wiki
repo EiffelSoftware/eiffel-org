@@ -1,0 +1,179 @@
+[[Property:modification_date|Tue, 05 Feb 2019 11:19:29 GMT]]
+[[Property:publication_date|Mon, 24 Sep 2018 12:04:18 GMT]]
+[[Property:uuid|6F78A05A-2054-4150-84FC-1D8663CA76E6]]
+[[Property:weight|5]]
+[[Property:title|EiffelStore ODBC with PostgreSQL]]
+[[Property:link_title|EiffelStore ODBC]]
+The following steps describe how to check the EiffelStudio installation and the required dependencies to use EiffelStore ODBC with PostgreSQL.  The steps are also useful for other databases such as MySQL (for which you will to install the MySQL ODBC driver).
+
+{{note|For this documentation, tests used Ubuntu 18.04 64 bits and EiffelStudio 18.07 64 bits / Debian 9 and EiffelStudio 18.11 64 bits. }}
+ 
+* '''Install EiffelStudio'''
+ From here on, $YOUR_INSTALLATION_PATH denotes the path name of the EiffelStudio installation.
+
+{{seealso|<br/>
+[[Software_Installation_for_EiffelStudio|Software Installation for EiffelStudio]]  <br/>
+}}
+
+
+* '''Check that the Eiffel-specific environment variables are set'''
+
+ They should be set in the ~/.bashrc control file (or /etc/profile.d/eiffel.sh if you want them for all users)
+
+<code lang="shell">
+sudo gedit ~/.bashrc
+
+-- Export the following variables
+
+export ISE_EIFFEL=$YOUR_INSTALLATION_PATH/Eiffel_18.07
+export ISE_PLATFORM=linux-x86-64
+export PATH=$PATH:$ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin
+
+-- Refresh environment variables after edit
+
+. ~/.bashrc	
+		
+-- Or . /etc/profile.d/eiffel.sh if you put it there
+</code>
+
+* '''Use the estudio command to check that EiffelStudio is installed and where it is''
+<code lang="shell">
+which estudio
+</code>
+{{note|You should see the path to EiffelStudio, for example: /opt/Eiffel_18.07/studio/spec/linux-x86-64/bin/estudio. }}
+
+check EiffelStudio version using.
+<code lang="shell">		
+ec -version
+</code>
+{{note|You should see something like ISE EiffelStudio version 18.07.10.1981 GPL Edition - linux-x86-64 }}
+
+* '''Check/Install PostgreSQL'''
+
+<code lang="shell">
+-- Install PostgreSQL
+sudo apt install postgresql postgresql-contrib  
+
+-- Check that PostgreSQL is working
+sudo -u postgres psql
+psql (10.5 (Ubuntu 10.5-0ubuntu0.18.04))
+Type "help" for help.
+
+postgres=#
+ 
+ -- Exit postgresql
+postgres=# \q 
+</code>
+
+* '''Install and Check ODBC Driver Manager and ODBC Driver for PostgreSQL'''
+<code lang="shell">
+
+-- Install the UnixODBC Driver Manager and the ODBC driver for PostgreSQL 
+sudo apt-get install unixodbc unixodbc-dev odbc-postgresql	
+
+-- Check
+odbcinst -j
+
+unixODBC 2.3.4
+DRIVERS............: /etc/odbcinst.ini
+SYSTEM DATA SOURCES: /etc/odbc.ini
+FILE DATA SOURCES..: /etc/ODBCDataSources
+USER DATA SOURCES..: /home/websocket/.odbc.ini
+SQLULEN Size.......: 8
+SQLLEN Size........: 8
+SQLSETPOSIROW Size.: 8
+</code>
+
+*  '''Configure PostgreSQL and ODBC Driver'''
+
+<code lang="shell">
+-- Edit the file /etc/odbcinst.ini adding full path instead of file only
+
+[PostgreSQL]
+Description=PostgreSQL ODBC driver (ANSI version)
+Driver=/usr/lib/x86_64-linux-gnu/odbc/psqlodbca.so
+Setup=/usr/lib/x86_64-linux-gnu/odbc/libodbcpsqlS.so
+Debug=0
+CommLog=1
+UsageCount=1
+
+[PostgreSQL Unicode]
+Description=PostgreSQL ODBC driver (Unicode version)
+Driver=/usr/lib/x86_64-linux-gnu/odbc/psqlodbcw.so
+Setup=/usr/lib/x86_64-linux-gnu/odbc/libodbcpsqlS.so
+Debug=0
+CommLog=1
+UsageCount=1
+
+</code>
+
+* '''Configure the Database name, username and password to use the Postgres ODBC Driver'''
+<code lang="shell">
+-- Edit file /etc/odbc.ini
+
+[PODBC]
+Driver = PostgreSQL Unicode
+Description = PostgreSQL Data Source
+Servername = localhost
+Port = 5432
+Protocol = 8.4
+UserName = postgres
+Password = example
+Database = example
+
+-- The previous files tells PODBC to use the PostgreSQL Unicode driver. Using as postgres as a user, example as password,  and to connect to PostgreSQL running on the localhost on port 5432. 
+</code>
+
+* '''Test the ODBC to PostgreSQL connection by running the isql command'''
+<code lang="shell">
+Read the /etc/odbc.ini.
+
+isql -v PODBC
+encoding name too long
++---------------------------------------+
+| Connected!                        	|
+|                                   	|
+| sql-statement                     	|
+| help [tablename]                  	|
+| quit                              	|
+|                                   	|
++---------------------------------------+
+
+</code>
+
+* '''Compile C code of the Eiffel library store:'''
+
+<code>cd $ISE_EIFFEL/library/store/dbms/rdbms/odbc/Clib; finish_freezing -library</code>
+
+{{note|On debian at least before finish_freezing log in as superuser doing a '''sudo -i''' depending on the right and user setted for $ISE_EIFFEL/Eiffel_18.07 directory }}
+
+* '''Open EiffelStudio eSQL example and run it'''
+The example is located on `$ISE_EIFFEL/examples/store/esql/`
+
+<code lang="shell">
+-- You will see something like this.
+
+
+Database user authentication:
+Data Source Name: PODBC  
+Name: postgres
+Password: example
+encoding name too long
+
+Welcome to the SQL interpreter
+Database used: DB
+    Type 'exit' to terminate
+
+SQL> select * from cities;
+
+names    location    
+milan     italy     
+SQL> insert into cities values ('Madrid', 'Spain');
+SQL> select * from cities;
+
+names    location    
+milan     italy     
+Madrid     Spain     
+SQL>
+</code>
+

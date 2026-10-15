@@ -1,0 +1,39 @@
+[[Property:title|CA033 - Large class]]
+[[Property:link_title|CA033]]
+[[Property:weight|0]]
+[[Property:uuid|93aaff4c-3406-311e-3760-facad969131e]]
+__NOTOC__
+=Description=
+A large class declaration might not be ideal for readability. Consider moving out features that are not really part of the class.
+:{| class="doctable"
+|-
+| '''Scope'''
+| class
+|-
+| '''Status'''
+| Enabled
+|-
+| '''Severity'''
+| Warning
+|-
+| '''Applicability'''
+| All
+|-
+| '''Score'''
+|  60
+|-
+| '''Features threshold'''
+| 20
+|-
+| '''Instructions threshold'''
+| 300
+|}
+
+
+=Example of violation=
+A class with too many routines or too many instructions.
+
+=Recommendation=
+Refactor the class to reduce the number of routines or instructions.
+
+

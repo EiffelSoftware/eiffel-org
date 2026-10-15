@@ -1,0 +1,27 @@
+[[Property:modification_date|Mon, 19 Nov 2018 16:49:36 GMT]]
+[[Property:publication_date|Fri, 06 Jul 2018 13:19:54 GMT]]
+[[Property:uuid|26E32CD7-7C68-4CDD-A29A-81343EC0DD3B]]
+[[Property:weight|0]]
+[[Property:title|VWMA(1)]]
+[[Property:link_title|VWMA(1)]]
+In legacy code, before EiffelStudio [[/doc/uuid/73F20392-AB22-4CD6-BFE5-83296B8BD64B|18.07]], the target of a reattachment could be used to determine the type of a manifest array. For example, with the declaration
+```eiffel
+			x: ARRAY [READABLE_STRING_GENERAL]
+```
+the reattachment
+```eiffel
+			x := <<"abc", "def">>
+```
+led to creation of an array of type <eiffel>ARRAY [READABLE_STRING_GENERAL]</eiffel> with elements <eiffel>"abc"</eiffel> and <eiffel>"def"</eiffel> of type <eiffel>STRING_8</eiffel>.
+
+In Eiffel, manifest arrays were the only expressions whose type depended on the type of the target. Starting from EiffelStudio [[/doc/uuid/61F63EE2-58B1-4061-927B-35D4F66EDD9B|18.01]] this is no longer the case, and, by default, the type of a manifest array does not depend on the context where the manifest array is used.
+
+Taking the rules into account, the type of the manifest array object from the example above is <eiffel>ARRAY [STRING_8]</eiffel>.
+
+For projects that were developed before EiffelStudio [[/doc/uuid/61F63EE2-58B1-4061-927B-35D4F66EDD9B|18.01]], the compiler checks whether a computed manifest array type is the same as the type of the target of reattachment and reports the warning {{Inline-Warning|VWMA(1)}} to simplify adaptation of legacy code to the new semantics. If the old semantics has to be preserved, an explicit manifest array type has to be used, for example:
+```eiffel
+			x := {ARRAY [READABLE_STRING_GENERAL]} <<"abc", "def">>
+```
+The code above would have the behavior identical to the behavior of projects created by the versions before EiffelStudio [[/doc/uuid/61F63EE2-58B1-4061-927B-35D4F66EDD9B|18.01]].
+
+After updating all code to follow the standard rules, the project option '''Manifest array type''' can be set to '''standard''' to switch to the standard behavior and to disable comparing types of a manifest array and the target of the attachment. To make sure all occurrences of reattachment of manifest arrays to targets of non-matching types are fixed, the option can also be set to '''mismatch error'''. That would trigger errors instead of warnings for manifest array type mismatches.

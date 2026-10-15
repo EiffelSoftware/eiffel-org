@@ -1,0 +1,43 @@
+[[Property:title|Faneuil Hall]]
+[[Property:weight|-5]]
+[[Property:uuid|93132084-5eb9-c7d9-d58c-7b5c3f7508f8]]
+=Description=
+
+The Faneuil Hall example is one of several examples that comes to us from Allen Downey's book ''[http://greenteapress.com/semaphores/ The Little Book of Semaphores]''. Downey credits Grant Hutchins as the originator of the example. [http://en.wikipedia.org/wiki/Faneuil_Hall Faneuil Hall] itself is an historic building in Boston which dates from 1742 an has served as a public meeting and market place. 
+
+The scenario in the Faneuil Hall example involves a number of immigrants waiting to have their naturalizations confirmed by a judge and receive their certificates of citizenship. Immigrants entering the Hall wait in line to check in, then they wait to take their oaths and receive their certificates of citizenship. Meanwhile, a number of spectators can also enter the building. Once the judge enters the Hall, no one else may enter the hall. Spectators may leave, but immigrants may not. Once the immigrants in the Hall have checked in, their naturalization can be confirmed by the judge. Once confirmed, the immigrants can pick up their certificates. At some point after the confirmation, the judge leaves the Hall. At that point, spectators can enter again, and immigrants can leave as soon as they have picked up their certificates. The judge will make successive trips into the hall until all the immigrants expect during the day have been confirmed.
+
+
+=Highlights=
+
+The primary actors here are the immigrants, the judge, and the spectators, model by classes <code>IMMIGRANT</code>, <code>JUDGE</code>, and <code>SPECTATOR</code>, respectively. In addition to the actor classes, there is a class <code>HALL</code> that represents Faneuil Hall itself, and a root class that sets everything up and starts the processing. There is only one judge. But there can be many immigrants and spectators. Their numbers are limited to certain maximums specified by constants in the root class. The specific number of immigrants and spectators varies at random from one execution to the next. You can experiment with larger or smaller maximum numbers for immigrants and spectators by changing the values for the constants <code>{FANEUIL_HALL}.Max_immigrants</code> and <code>{FANEUIL_HALL}.Max_spectators</code>.
+
+Although not really considered an actor here, the class <code>HALL</code> plays a critical role in synchronizing the concurrent actions of the immigrants, spectators, and the judge. <code>HALL</code> includes many status queries which, when used in preconditions in features of the other actors, constitute [[Concurrent programming with SCOOP#Preconditions|uncontrolled precondition clauses]] which when false will cause the calling processor to wait until the condition becomes true. For example, consider the following status query from class <code>HALL</code>:
+
+<code>
+    immigrants_ready: BOOLEAN
+            -- Are immigrants ready?
+        do
+            Result := present_immigrant_count = ready_immigrant_count
+        end
+</code>
+
+This query is used by the <code>JUDGE</code> when preparing to sit and administer oaths to the immigrants:
+
+<code>
+    take_place (a_hall: separate HALL)
+            -- Prepare to confirm.
+        require
+            immigrants_ready: a_hall.immigrants_ready
+        do
+            print (out + " taking place%N")
+            a_hall.sit_judge
+        end
+</code>
+
+The judge will take his place only when all the immigrants present have checked in and are ready to take the oath.
+
+Another thing to note about this example is that immigrants and spectators obey slightly different rules when coming and going in the hall. Neither immigrants nor spectators may enter the hall if the judge is in the hall. Immigrants may not leave until the judge has left, but spectators may leave at anytime. So when you compare the <code>leave</code> features of the two classes you'll see a precondition that serves as a wait condition on <code>{IMMIGRANT}.leave</code> that is not present on <code>{SPECTATOR}.leave</code>.
+
+
+

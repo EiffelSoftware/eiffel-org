@@ -1,0 +1,32 @@
+[[Property:title|Fun]]
+[[Property:weight|-6]]
+[[Property:uuid|ad05362e-76a3-db98-a58d-d49f9f2b5f2a]]
+[[Image:fun|fun]]  <br/>
+<br/>
+
+==Compiling==
+
+To compile the example: 
+* Launch EiffelStudio. 
+* Click '''Add project'''
+* Browse to ''$ISE_EIFFEL\examples\wel\fun\''. 
+* Choose ''fun.ecf''
+* Choose the location where the project will be compiled, by default the same directory containing the configuration file. 
+* Click '''OK'''. 
+
+==Running==
+After launching the program, a window will be displayed as illustrated above. Clicking the push button marked "Maze" will open a new window and draw a maze within this window. Clicking the push button marked "Artist" will open a new window, and display output dependent on the movement of the mouse pointer within the client area of that window. Clicking the push button marked "Fun" will open a new window which contains a fake error message and a close push button which moves when you try to move the mouse pointer over it. 
+==Under the Hood==
+Both <code>FUN_DIALOG</code> and <code>ARTIST</code> redefine <code>on_mouse_move</code> to track the actions of the mouse pointer and respond accordingly. 
+This sample contains the following classes: 
+* <code>APPLICATION_IDS</code>
+* <code>ARTIST</code>
+* <code>FUN_DEMO</code>
+* <code>FUN_DIALOG</code>
+* <code>MAIN_WINDOW</code>
+* <code>MAZE</code>
+
+
+
+
+

@@ -1,0 +1,20 @@
+[[Property:title|Search functionality]]
+[[Property:weight|5]]
+[[Property:uuid|eecef577-ac83-610c-9ffd-cb20c4002346]]
+EiffelStudio editor provides a search functionality. To search an expression in the edited text, you can either use the [[Search tool|Search tool]]  or use a set of keyboard accelerators available directly from the editor. From the editor, you can: 
+
+*  Search the next occurrence of the last searched pattern. To do so, press "F3". You can change this key binding in [[Keyboard shortcuts preferences|the preferences]] . 
+
+*  Search the previous occurrence of the last searched pattern. To do so, press "Shift+F3". You can change this key binding in [[Keyboard shortcuts preferences|the preferences]] . 
+
+*  Search the next occurrence of the current selected pattern. To do so, press "Ctrl+F3". You can change this key binding in [[Keyboard shortcuts preferences|the preferences]] . 
+
+*  Search the previous occurrence of the current selected pattern. To do so, press "Ctrl+Shift+F3". You can change this key binding in [[Keyboard shortcuts preferences|the preferences]] . 
+
+
+{{seealso|<br/>
+[[Search tool|Search tool]]  }}
+
+
+
+

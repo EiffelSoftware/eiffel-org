@@ -1,0 +1,17 @@
+[[Property:title|Viewing measure details]]
+[[Property:weight|3]]
+[[Property:uuid|570feb7a-4650-0a7d-ae45-1336c5429cfb]]
+It is possible to have some details when evaluating a metric.
+# Select the '''Metric Evaluation''' tab of the metric tool.
+# [[Evaluating a measure|Evaluate a metric]] .
+# Click the '''Run selected metric and show detailed result''' button and the result will appear in the '''Detailed Result''' tab of the metric tool.
+# To come back to the main interface click again on '''Metric Evaluation''' tab of the metric tool.
+
+{{seealso|<br/>
+[[Evaluating a measure|Evaluating a measure]]  <br/>
+[[Saving a measure|Saving measures]]  <br/>
+}}
+
+
+
+

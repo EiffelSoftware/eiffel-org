@@ -1,0 +1,15 @@
+[[Property:title|Name Mapper]]
+[[Property:weight|2]]
+[[Property:uuid|82691c82-50a5-ed7f-b138-90946d094dae]]
+The Name Mapper utility allows retrieving the Eiffel identifier corresponding to a .NET type name or a .NET member name. There are only two input fields in the interface: the .NET type name should be entered in the first one while the .NET member name should be entered in the second one. Once a valid .NET type name is entered in the type name input field, the tool starts searching for the corresponding Eiffel identifier. When the Name Mapper finds the corresponding Eiffel identifier, it automatically fills the .NET member name input combo box with all the member names of the corresponding type. This means that the .NET member type name can be chosen from the combo box entries or typed in (if it's typed in then the tool will autocomplete the member name). 
+The assemblies the tool will look into for the .NET type whose name was given in the .NET type name input field are listed below the input fields. It is possible to add new assemblies to the list by clicking the ''Add'' button. Assemblies that were added this way can be removed by clicking the ''Remove'' button after selecting the assembly from the list. 
+{{note|Assemblies that are listed by default cannot be removed. }}
+
+{{note|When adding an assembly and if the assembly has not been consumed (i.e. the XML names mapping files have not been generated in the Eiffel Metadata Cache) then the Name Mapper will consume the assembly, this may take a while. }}
+
+
+{{seealso|[[Names Mappings|Names Mapping]]  }}
+
+
+
+

@@ -1,0 +1,106 @@
+[[Property:title|Getting started]]
+[[Property:weight|-15]]
+[[Property:uuid|60a4120c-3994-c9b9-d22e-af7c6fe12147]]
+== Setting things up ==
+
+This tutorial only works with ABEL shipped with EiffelStudio 14.05.
+You can find the code in the ''unstable'' directory.
+
+It is also possible to get the latest code from the [https://svn.eiffel.com/eiffelstudio/trunk/Src/unstable/library/persistency/abel SVN directory] .
+
+== Getting started ==
+We will be using <e>PERSON </e> objects to show the usage of the API. 
+In the source code below you will see that ABEL handles objects "as they are", 
+meaning that to make them persistent you don't need to add any dependencies to their class source code.
+
+<code> 
+class PERSON
+
+create
+	make
+
+feature {NONE} -- Initialization
+
+	make (first, last: STRING)
+			-- Create a newborn person.
+		require
+			first_exists: not first.is_empty
+			last_exists: not last.is_empty
+		do
+			first_name := first
+			last_name := last
+			age:= 0
+		ensure
+			first_name_set: first_name = first
+			last_name_set: last_name = last
+			default_age: age = 0
+		end
+
+feature -- Basic operations
+
+	celebrate_birthday
+			-- Increase age by 1.
+		do
+			age:= age + 1
+		ensure
+			age_incremented_by_one: age = old age + 1
+		end
+
+feature -- Access
+
+	first_name: STRING
+		-- The person's first name.
+
+	last_name: STRING
+		-- The person's last name.
+
+	age: INTEGER
+		-- The person's age.
+
+invariant
+	age_non_negative: age >= 0
+	first_name_exists: not first_name.is_empty
+	last_name_exists: not last_name.is_empty
+end
+</code>
+
+There are three very important classes in ABEL:
+* The deferred class <e>PS_REPOSITORY</e> provides an abstraction to the actual storage mechanism. It can only be used for read operations.
+* The <e>PS_TRANSACTION</e> class represents a transaction and can be used to execute read, insert and update operations. Any <e>PS_TRANSACTION</e> object is bound to a <e>PS_REPOSITORY</e>.
+* The <e>PS_QUERY [G]</e> class is used to describe a read operation for objects of type <e>G</e>.
+
+To start using the library, we first need to create a  <e>PS_REPOSITORY</e>.
+For this tutorial we are going to use an in-memory repository to avoid setting up any external database.
+Each ABEL backend will ship a repository factory class to make initialization easier.
+The factory for the in-memory repository is called <e>PS_IN_MEMORY_REPOSITORY_FACTORY</e>.
+
+<code>
+class START
+
+create
+  make
+
+feature {NONE} -- Initialization
+
+	make
+			-- Initialization for `Current'.
+		local
+			factory: PS_IN_MEMORY_REPOSITORY_FACTORY
+		do
+			create factory.make
+			repository := factory.new_repository
+			
+			create criterion_factory
+			explore
+		end
+
+	repository: PS_REPOSITORY
+		-- The main repository.
+
+	end
+
+end
+</code>
+We will use <e>criterion_factory</e> later in this tutorial.
+The feature <e>explore</e> will guide us through the rest of this API tutorial and show the possibilities in ABEL.
+

@@ -1,0 +1,24 @@
+[[Property:title|EiffelBuild Preferences]]
+[[Property:weight|14]]
+[[Property:uuid|6255b3d8-392a-7cae-4c15-90515664a9b6]]
+The EiffelBuild preferences are used to handle all user defined preferences. For example, each time a dialog is displayed with a "do not show again" option, your chosen setting is recorded in the preferences. Various properties of the EiffelBuild interface are recorded by the preferences, on a user by user basis, permitting you to adapt the behavior of EiffelBuild to suit your needs.
+
+During use of EiffelBuild, many settings and options that you select, will modify the preferences, ensuring the desired behavior is maintained. To access all of the available EiffelBuild preferences, you may use the Preferences dialog, accessible from the "View", "Preferences", "Preferences..." menu option. The preference dialog has the following appearance:
+
+[[Image:preferences-dialog]]  
+
+To the left hand side of the dialog is a tree, containing the preferences structure, while on the right, the actual preferences in the selected tree node are displayed. To modify the value of a particular preference, double click on its "Literal Value" which displays a small dialog permitting modification of the value. Dependent on the type of the property, the dialog displayed may change appropriately.
+
+The button marked "Restore Defaults" in the lower left hand corner of the dialog, may be selected to restore the preferences back to their defaults when EiffelBuild was first launched.
+
+When you have finished modifying the preferences, select the "Close" button to close the dialog.
+
+{{note|The preferences are saved automatically by EiffelBuild, even if the open project is not saved, the preferences are saved whenever a property changes. }}
+
+{{seealso|<br/>
+[[EiffelBuild: General interface description|General interface description]]  <br/>
+[[EiffelBuild Reference|EiffelBuild reference]]  }}
+
+
+
+

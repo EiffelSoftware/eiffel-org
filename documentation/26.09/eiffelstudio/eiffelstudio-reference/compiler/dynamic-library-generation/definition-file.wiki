@@ -1,0 +1,64 @@
+[[Property:title|Definition file]]
+[[Property:weight|2]]
+[[Property:uuid|3a4b017c-ede1-7af1-2934-c7a28b303764]]
+The syntax is pretty simple when you understand what you need to export a feature: you need the name of the '''feature''', the name of the concerned '''class''', and the name of a '''creation procedure'''. What is optional is to specify an '''alias''', an '''index''' and a '''calling convention'''. The index and calling convention are mainly used to create a DLL for windows, and the alias to export the feature under a different name. 
+
+===Syntax===
+
+{| border="1"
+|- 
+|  '''Export_feature''' 
+| Class_name [Creation_part] ":" Feature [Optional_part]
+|- 
+|  '''Creation_part''' 
+| "(" feature_name ")"
+|- 
+|  '''Optional_part''' 
+| [Index_part] [Alias_part]
+|- 
+|  '''Index_part''' 
+| "@" integer
+|- 
+|  '''Alias_part''' 
+| "Alias" alias_name
+|- 
+|  '''Call_type_part''' 
+| "call_type" call_type_name
+|}
+
+
+===Example===
+
+<code lang=text>
+ROOT_CLASS (make): foo @ 4 Alias my_foo call_type __stdcall</code>
+
+===Constraints===
+; on the class: The class cannot be deferred or generic.
+; on the feature: It could be any feature except an attribute, an external feature or a deferred feature.
+; on the creation procedure: It must have zero argument, and no return type.
+; on the alias name: It must be a valid name for a C function.
+; on the index: It must be strictly positive.
+; on the call type: It must be a valid call type for the targeted platform (useful for Windows only). For Visual C++, the valid calling conventions are __stdcall, __cdecl and __fastcall.
+
+For each feature the required fields are the '''class''', the '''creation procedure''', and of course the '''feature''' itself. 
+* If the feature is a creation procedure then do not specify any creation, it will use the feature as creation. For example '''ROOT_CLASS: make'''. 
+* If the class has no creation procedure, do not specify any creation. default_create will be automatically used.
+
+===A definition file===
+
+<code lang=text>
+-- EXPORTED FEATURE(s) OF THE SHARED LIBRARY
+-- SYSTEM : demo
+
+-- CLASS [BAR]
+-- Here get_string uses make_b as creation
+BAR (make_b) : get_string
+-- Here print_bar uses make_a as creation
+BAR (make_a) : print_bar
+
+-- CLASS [ROOT_CLASS]
+-- Here the feature is also a creation
+ROOT_CLASS : make
+ROOT_CLASS (make) : foo
+ROOT_CLASS (make) : test_bar
+</code>

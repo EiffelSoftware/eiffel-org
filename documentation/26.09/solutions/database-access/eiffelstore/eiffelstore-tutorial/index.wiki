@@ -1,0 +1,11 @@
+[[Property:title|EiffelStore Tutorial]]
+[[Property:weight|1]]
+[[Property:uuid|542caa33-5dc1-d2ea-414b-b1739045edd9]]
+EiffelStore's main classes are grouped into 2 main layers: 
+* The [[EiffelStore Interface Layer|interface layer]] provides a high-level, unique interface for every DBMS. 
+* The [[EiffelStore Implementation Layer|implementation layer]] customizes high-level routines to various DBMS handles. 
+
+Other clusters can facilitate your database management: 
+* The [[EiffelStore Generation Cluster|generation cluster]], with the EiffelStore wizard, generates a facilitated and dynamic interface to your database. 
+* The [[EiffelStore DataView Cluster|dataview cluster]] lets you create a customized database GUI. 
+

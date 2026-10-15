@@ -1,0 +1,82 @@
+[[Property:title|Feature call auto complete]]
+[[Property:weight|2]]
+[[Property:uuid|40ae30a6-c033-dae7-8dae-2569e7ba0adc]]
+==Overview==
+
+EiffelStudio editor provides automatic help for completing feature calls. 
+
+With the default EiffelStudio preferences, feature call auto-completion occurs automatically when you type a dot ('.') character after a feature name.
+
+This means, for example, that in the Editor pane when you type:
+<code>
+            my_string.</code> 
+the editor will propose a list of possible valid feature names from which to choose, as seen in Figure 1.
+
+Feature call auto-completion can also be triggered:
+
+# By pressing <code>crtl+space</code> 
+# By following the edit menu path:
+
+<code lang="text">
+Edit --> Advanced --> Complete word
+</code>
+
+
+Feature call auto-completion is most commonly used in the Editor pane. But the same functionality is also available elsewhere in EiffelStudio, for example:
+
+* Expressions in the editable grid of the Watch tool.
+* "Expression" in the New Expression dialog of the Watch tool.
+* "Condition" in the Breakpoints dialog
+
+
+==The feature call auto-completion window==
+
+Using the example above, when auto-completion is triggered, the feature call auto-completion window will pop up and display a list of feature names which can be applied in the current context. 
+
+
+[[Image:editor feature auto-completion window]]  
+
+Figure 1. The feature auto-completion window.
+
+
+When the auto-completion window appears, the first item in the list, if any, will be selected. To complete your code with the selected item, press "Enter" or "Ctrl+Space". To choose another item, use keyboard Up and Down arrows or the mouse. 
+
+You can also continue typing characters and the list will automatically be narrowed provided that you have non-matching entries filtered out (see '''Auto-completion list display options''' below). So, you can think of the auto-completion as a search for feature names using the characters you type followed by a wild card character, the asterisk ('*'). Of course, you don't have to put the asterisk at the end, it's just always implied. Once you've triggered auto-completion, you can however use the wild card character in the middle of a string, like this:
+
+<code>
+            my_string.a*int
+</code>
+which would narrow the list to all feature names starting with "<code>a</code>" and also containing the string "<code>int</code>".
+
+To validate your choice, press "Enter" or "Ctrl+Space". 
+
+If there is no selected item, the content of the text you have typed will be inserted. 
+
+The auto-completion can be cancelled by clicking outside the window or pressing <code>Esc</code>. 
+
+==Entering routine arguments==
+
+After you have selected a feature, if the feature is a routine requiring arguments, the argument prototypes will be included in the generated feature text, and the text for the first argument will be selected, as in Figure 2.
+
+
+[[Image:feature_call_auto-complete_example_1]]
+
+Figure 2. Auto-completion of a routine with arguments.
+
+
+Because the text for the first argument is already selected, you can go ahead and type a value for that argument. When you've completed the first argument, press <code>Tab</code>, and the next argument will be selected, and you can type a value for it. When you <code>Tab</code> after entering the final argument, the cursor will be positioned after the right parenthesis, so you are ready to move on.
+
+==Auto-complete list display options==
+
+At the bottom of the auto-completion window you will find a row of icons labeled "Options:". These options help you control which choices are presented to you and the format of their presentation. The options are described in the [[Class name auto complete#Auto-completion list display options|section on class name auto-completion]].
+
+
+{{tip|The following tips can help you get the most out of feature call automatic completion: <br/>1) You can call the auto-complete without an identifier. The auto-complete window will then show the features of the current class. <br/>2) The keyboard shortcut for automatic completion can be changed in the [[Keyboard shortcuts preferences|editor preferences]]. <br/>3) When the auto-completion window is open, typing any character (other than a wild card) that is not ordinarily valid in feature names automatically closes the window. So, you can type '.', ' ' or '(' to close the completion window and start typing the next token straight away.}}
+
+
+{{note|There are just a few more things you should know about feature call automatic completion: <br/>1) Only identifiers that were already defined when the class was compiled for the last time can be completed, except for local entity names that can always be completed.<br/>2) Only compiled features will appear in the auto-complete window.<br/>3) By default, features from class ANY will be ignored by the auto-complete window. This can be changed in the [[General Editor Preferences|editor preferences]]. }}
+
+
+
+
+
