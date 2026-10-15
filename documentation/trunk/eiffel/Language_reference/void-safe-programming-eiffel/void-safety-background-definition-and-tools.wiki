@@ -1,4 +1,4 @@
-[[Property:modification_date|Mon, 20 Dec 2021 10:16:27 GMT]]
+[[Property:modification_date|Wed, 27 May 2026 07:25:18 GMT]]
 [[Property:publication_date|Mon, 20 Dec 2021 10:13:53 GMT]]
 [[Property:link_title|Background and tools]]
 [[Property:title|Void-safety: Background, definition, and tools]]
@@ -124,9 +124,34 @@ When it is necessary to allow <code>Void</code> as a value, a declaration can us
 </code> 
 
 
-This doesn't mean that on every declaration you must put either an ''attached mark'' or a ''detachable mark''. Declarations that are unmarked are allowed. If a declaration contains neither '''attached''' nor '''detachable''', then it is assumed to be '''attached'''.
+This doesn't mean that on every declaration you must put either an ''attached mark'' or a ''detachable mark''. Declarations that are unmarked are allowed. If a declaration contains neither '''attached''' nor '''detachable''', then it is assumed to be '''attached''' — with one important exception: local variables and '''Result''' are treated as if they were detachable by default (see [[#Local variables and Result|below]]).
 
-In Eiffel then, all declarations will have types that are either '''attached''' or '''detachable'''. As a result, we need only use CAPs and the attached syntax with detachable types. So the important thing to remember is that ''direct access to class attributes of detachable types is never void-safe.''
+In Eiffel then, all declarations will have types that are either '''attached''' or '''detachable'''. As a result, we need only use CAPs and the attached syntax with detachable types. So the important thing to remember is that ''direct access to class attributes of detachable types is never void-safe.'' Local variables and '''Result''' are also subject to void-safety checking even when declared with attached types, because they are treated as detachable for attachment-status purposes.
+
+===Local variables and Result===
+
+Local variables and '''Result''' are treated as if they were detachable, even when declared with an attached type (that is, without an explicit '''detachable''' mark). The compiler applies the rules of void-safety to check that all usages are properly typed, rather than assuming that an unmarked local or '''Result''' is always attached. In the case of '''Result''', it must be set at the end of the routine if its type requires initialization.
+
+The rules are as follows:
+
+* If a local (or '''Result''') is a target of an assignment, its type is considered detachable.
+* If a local (or '''Result''') of a type that requires initialization (this includes attached and formal generic types, possibly through anchors) is not set, its value is considered detachable.
+* If a local (or '''Result''') is considered attached due to an assignment or a CAP, it is also considered set (even though it might have never been assigned).
+* If a local (or '''Result''') is assigned a value that requires initialization (i.e. of an attached or formal generic type), it is considered set, but may be detachable.
+* If a local (or '''Result''') is assigned a value of a detachable type that does not require initialization, it is considered unset and detachable.
+* A target of an assignment attempt may not be of an attached type or a type that requires initialization.
+* At routine end, '''Result''' is required to be set if it is of a type that requires initialization.
+
+This change allows dropping explicit '''detachable''' marks in local declarations and simplifies code that uses '''Result'''. For example, a routine that previously needed a separate detachable local variable can operate directly on '''Result''':
+<code>
+    foo: X
+        do
+            Result := something
+            if not attached Result then
+                Result := something_else_attached
+            end
+        end
+</code>
 
 ===Attachment and conformance===
 
@@ -156,7 +181,7 @@ Still, it's not too hard to understand the basics of initializing variables of a
 
 * For the initialization of attributes of a class, we can apply a rule similar to that of the initial evaluation of class invariants ... that is, everything must be in order upon completion of a creation procedure. If a class attribute is of an attached type, then each of the class's creation procedures is responsible for making sure that the attribute is attached to an object upon its completion. 
 
-* A local variable is considered properly set if it is initialized at some point '''preceding''' its use in any execution path in which it is used. So immediately after its <code>create</code> instruction, the local variable would be considered properly set. But if the <code>create</code> occurred in the <code>then</code> part of an <code>if</code> instruction, the local variable would not be properly set in the <code>else</code> part of that same <code>if</code> instruction:
+* A local variable (or '''Result''') of a type that requires initialization is considered properly set if it is initialized at some point '''preceding''' its use in any execution path in which it is used. Because locals and '''Result''' are treated as detachable by default, a local that is not yet set is considered to have a detachable value — so a feature call on it requires verification of attachment (a CAP or the attached syntax), even if the local is declared with an attached type. So immediately after its <code>create</code> instruction, the local variable would be considered properly set. But if the <code>create</code> occurred in the <code>then</code> part of an <code>if</code> instruction, the local variable would not be properly set in the <code>else</code> part of that same <code>if</code> instruction, and any feature call on it there would be invalid:
 
 <code>
     my_routine
@@ -168,10 +193,13 @@ Still, it's not too hard to understand the basics of initializing variables of a
                 create l_my_string.make_empty
 --              ... l_my_string is properly set here
             else
---              ... l_my_string is not properly set here
+--              ... l_my_string is not properly set here;
+--              a call such as l_my_string.count would be invalid
             end
         end
 </code>
+
+* At routine end, '''Result''' must be properly set if its type requires initialization.
 
 * A variable is considered properly set if it is '''self-initializing'''. What it means to be self-initializing is explained below.
 
