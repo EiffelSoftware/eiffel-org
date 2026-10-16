@@ -1,4 +1,4 @@
-[[Property:modification_date|Thu, 15 Oct 2026 16:16:18 GMT]]
+[[Property:modification_date|Fri, 16 Oct 2026 13:39:58 GMT]]
 [[Property:publication_date|Thu, 15 Oct 2026 15:51:03 GMT]]
 [[Property:uuid|CE356164-BB20-44BC-997A-F219C37F6F61]]
 [[Property:title|Release notes for EiffelStudio 26.09]]
@@ -23,7 +23,6 @@ The new '''Find Library''' dialog replaces "Add Library...". Open it from the To
 * Fixed a wrong "Current used before initialized" error for non-object calls (bug#19974).
 
 === New platforms and tools ===
-* '''macOS on Apple Silicon''' (<code>macosx-arm64</code>) and '''Windows on ARM''' configurations.
 * '''Visual Studio 2026''' support.
 * Linux packages are built on Ubuntu 24.04. libfcgi now builds with GCC 14 and later.
 
